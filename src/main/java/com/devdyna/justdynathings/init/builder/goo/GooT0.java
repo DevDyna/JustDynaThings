@@ -30,11 +30,11 @@ public class GooT0 extends GooBlock_Base implements EntityBlock {
    @SuppressWarnings("null")
    @Nullable
    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-      return new GooT5BE(pos, state);
+      return new GooT0BE(pos, state);
    }
 
    protected boolean validRevivalItem(ItemStack itemStack) {
-      return itemStack.is(material.GOO_REVIVE_TIER_5);
+      return itemStack.is(material.GOO_REVIVE_TIER_0);
    }
 
    @SuppressWarnings("null")

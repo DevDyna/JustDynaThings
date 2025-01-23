@@ -25,38 +25,42 @@ import com.mojang.datafixers.types.Type;
 public class Reg {
 
     public static void register(IEventBus bus) {
-        BLOCKS.register(bus);
-        ITEMS.register(bus);
-        BLOCK_ENTITIES.register(bus);
+        zBLK.register(bus);
+        zITM.register(bus);
+        zBE.register(bus);
+        zCTBS.register(bus);
     }
 
-    private static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister
+    private static final DeferredRegister<BlockEntityType<?>> zBE = DeferredRegister
             .create(Registries.BLOCK_ENTITY_TYPE, Main.ID);
 
-    public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(Main.ID);
-    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Main.ID);
+    public static final DeferredRegister.Blocks zBLK = DeferredRegister.createBlocks(Main.ID);
+    public static final DeferredRegister.Items zITM = DeferredRegister.createItems(Main.ID);
 
     public static final DeferredHolder<Block, GooT5> GooT5;
     public static final DeferredHolder<Item, BlockItem> GooT5_ITEM;
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GooT5BE>> GooT5_BE;
 
-    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister
+    public static final DeferredRegister<CreativeModeTab> zCTBS = DeferredRegister
             .create(Registries.CREATIVE_MODE_TAB, Main.ID);
 
-    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> EXAMPLE_TAB;
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> CreativeTab;
+
+    public static final TagKey<Item> GOO_REVIVE_TIER_5;
 
     static {
 
-        GooT5 = BLOCKS.register("gooblock_tier5", GooT5::new);
-        GooT5_ITEM = ITEMS.register("gooblock_tier5", () -> {
+        GooT5 = zBLK.register("gooblock_tier5", GooT5::new);
+        
+        GooT5_ITEM = zITM.register("gooblock_tier5", () -> {
             return new GooBlock_Item((Block) GooT5.get(), new Item.Properties());
         });
 
-        GooT5_BE = BLOCK_ENTITIES.register("gooblock_tier5", () -> {
+        GooT5_BE = zBE.register("gooblock_tier5", () -> {
             return Builder.of(GooT5BE::new, new Block[] { (Block) GooT5.get() }).build((Type) null);
         });
 
-        EXAMPLE_TAB = CREATIVE_MODE_TABS
+        CreativeTab = zCTBS
                 .register(Main.ID, () -> CreativeModeTab.builder()
                         .title(Component.translatable(Main.ID + ".tab"))
 
@@ -66,9 +70,11 @@ public class Reg {
                             output.accept(GooT5_ITEM.get());
                         }).build());
 
+                        GOO_REVIVE_TIER_5  = tagItem("goo_revive_tier_5");
+
     }
 
-    public static final TagKey<Item> GOO_REVIVE_TIER_5 = tagItem("goo_revive_tier_5");
+
 
     private static TagKey<Item> tagItem(String name) {
         return TagKey.create(BuiltInRegistries.ITEM.key(),

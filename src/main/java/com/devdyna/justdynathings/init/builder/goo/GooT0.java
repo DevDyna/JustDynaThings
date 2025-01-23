@@ -21,9 +21,9 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
 @SuppressWarnings("unused")
-public class GooT5 extends GooBlock_Base implements EntityBlock {
+public class GooT0 extends GooBlock_Base implements EntityBlock {
    private String tipname;
-   public GooT5(String tipname) {
+   public GooT0(String tipname) {
       this.tipname = tipname;
    }
 

@@ -24,7 +24,7 @@ public class tab {
                     .title(Component.translatable(Main.ID + ".tab"))
 
                     .withTabsBefore(CreativeModeTabs.COMBAT)
-                    .icon(() -> material.GooT5_ITEM.get().getDefaultInstance())
+                    .icon(() -> material.GooT5.get().asItem().getDefaultInstance())
                     .displayItems((parameters, output) -> {
 
                         material.zITM.getEntries().forEach(e -> {

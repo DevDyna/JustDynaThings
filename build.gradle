@@ -126,6 +126,7 @@ repositories {
 
 dependencies {
     implementation "curse.maven:justdirethings-1002348:6114524"
+    implementation "curse.maven:jei-238222:5846880"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

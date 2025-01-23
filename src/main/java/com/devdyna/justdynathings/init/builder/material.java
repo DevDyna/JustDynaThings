@@ -19,6 +19,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
+@SuppressWarnings("unchecked")
 public class material {
     public static void register(IEventBus bus) {
         zBLK.register(bus);
@@ -28,28 +29,29 @@ public class material {
 
     private static final DeferredRegister<BlockEntityType<?>> zBE = DeferredRegister
             .create(Registries.BLOCK_ENTITY_TYPE, Main.ID);
-
     public static final DeferredRegister.Blocks zBLK = DeferredRegister.createBlocks(Main.ID);
     public static final DeferredRegister.Items zITM = DeferredRegister.createItems(Main.ID);
 
-    @SuppressWarnings("unchecked")
-    public static final DeferredHolder<Block, com.devdyna.justdynathings.init.builder.goo.GooT5> GooT5 = (DeferredHolder<Block, com.devdyna.justdynathings.init.builder.goo.GooT5>) createGooBlock(
-            "ferrous", true);
+    public static final DeferredHolder<Block, com.devdyna.justdynathings.init.builder.goo.GooT5> GooT5;
+    public static final DeferredHolder<Block, com.devdyna.justdynathings.init.builder.goo.GooT0> GooT0;
 
-    @SuppressWarnings("unchecked")
-    public static final DeferredHolder<Block, com.devdyna.justdynathings.init.builder.goo.GooT0> GooT0 = (DeferredHolder<Block, com.devdyna.justdynathings.init.builder.goo.GooT0>) createGooBlock(
-            "rotten", true);
+    static {
+        GooT5 = (DeferredHolder<Block, com.devdyna.justdynathings.init.builder.goo.GooT5>) createGooBlock(
+                "ferrous", true);
+        GooT0 = (DeferredHolder<Block, com.devdyna.justdynathings.init.builder.goo.GooT0>) createGooBlock(
+                "rotten", true);
+    }
 
     @SuppressWarnings("null")
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GooT5BE>> GooT5_BE = zBE
             .register("complex_goo", () -> {
-                return Builder.of(GooT5BE::new, new Block[] { GooT5.get() }).build(null);
+                return Builder.of(GooT5BE::new, GooT5.get()).build(null);
             });
 
     @SuppressWarnings("null")
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GooT0BE>> GooT0_BE = zBE
-            .register("complex_goo", () -> {
-                return Builder.of(GooT0BE::new, new Block[] { GooT5.get() }).build(null);
+            .register("rotten_goo", () -> {
+                return Builder.of(GooT0BE::new, GooT0.get()).build(null);
             });
 
     public static final TagKey<Item> GOO_REVIVE_TIER_5 = tagItem("goo_revive_tier_5");

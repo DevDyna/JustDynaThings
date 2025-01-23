@@ -1,0 +1,14 @@
+{
+  "type": "justdirethings:goospread",
+  "craftingDuration": 40,
+  "id": "justdirethings:stone",
+  "input": {
+    "Name": "minecraft:stone"
+  },
+  "output": {
+    "Name": "minecraft:dirt",
+    "Properties": {
+    }
+  },
+  "tierRequirement": 5
+}

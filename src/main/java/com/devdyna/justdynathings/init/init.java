@@ -19,10 +19,9 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.minecraft.world.level.block.entity.BlockEntityType.Builder;
-import com.mojang.datafixers.types.Type;
 
-@SuppressWarnings({ "null", "rawtypes" })
-public class Reg {
+@SuppressWarnings({ "null" })
+public class init {
 
     public static void register(IEventBus bus) {
         zBLK.register(bus);
@@ -51,13 +50,13 @@ public class Reg {
     static {
 
         GooT5 = zBLK.register("gooblock_tier5", GooT5::new);
-        
+
         GooT5_ITEM = zITM.register("gooblock_tier5", () -> {
-            return new GooBlock_Item((Block) GooT5.get(), new Item.Properties());
+            return new GooBlock_Item(GooT5.get(), new Item.Properties());
         });
 
         GooT5_BE = zBE.register("gooblock_tier5", () -> {
-            return Builder.of(GooT5BE::new, new Block[] { (Block) GooT5.get() }).build((Type) null);
+            return Builder.of(GooT5BE::new, new Block[] { GooT5.get() }).build(null);
         });
 
         CreativeTab = zCTBS
@@ -67,14 +66,17 @@ public class Reg {
                         .withTabsBefore(CreativeModeTabs.COMBAT)
                         .icon(() -> GooT5_ITEM.get().getDefaultInstance())
                         .displayItems((parameters, output) -> {
-                            output.accept(GooT5_ITEM.get());
+
+                            init.zITM.getEntries().forEach(e -> {
+                                output.accept((Item)e.get());
+                            });
+
+                            // output.accept(GooT5_ITEM.get());
                         }).build());
 
-                        GOO_REVIVE_TIER_5  = tagItem("goo_revive_tier_5");
+        GOO_REVIVE_TIER_5 = tagItem("goo_revive_tier_5");
 
     }
-
-
 
     private static TagKey<Item> tagItem(String name) {
         return TagKey.create(BuiltInRegistries.ITEM.key(),

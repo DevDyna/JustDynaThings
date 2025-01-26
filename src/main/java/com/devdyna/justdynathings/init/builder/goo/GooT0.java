@@ -5,7 +5,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import com.devdyna.justdynathings.Main;
-import com.devdyna.justdynathings.init.builder.material;
+import com.devdyna.justdynathings.init.material;
 import com.direwolf20.justdirethings.common.blockentities.gooblocks.GooBlockBE_Tier4;
 import com.direwolf20.justdirethings.common.blocks.gooblocks.GooBlock_Base;
 import com.direwolf20.justdirethings.datagen.JustDireItemTags;

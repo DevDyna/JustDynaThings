@@ -1,9 +1,6 @@
 package com.devdyna.justdynathings;
 
-// import com.devdyna.justdynathings.events.BlockClick;
-import com.devdyna.justdynathings.init.material;
-import com.devdyna.justdynathings.init.tab;
-
+import com.devdyna.justdynathings.init.DefType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
@@ -15,8 +12,7 @@ public class Main {
     public static final String ID = "justdynathings";
 
     public Main(IEventBus modEventBus, ModContainer modContainer) {
-        material.register(modEventBus);
-        tab.register(modEventBus);
+        DefType.register(modEventBus);
         // NeoForge.EVENT_BUS.register(new BlockClick());
     }
 }

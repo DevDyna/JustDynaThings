@@ -13,7 +13,6 @@ public class Tab {
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> CreativeTab = DefType.zCTBS
             .register(Main.ID, () -> CreativeModeTab.builder()
                     .title(Component.translatable(Main.ID + ".tabname"))
-
                     .withTabsBefore(CreativeModeTabs.COMBAT)
                     .icon(() -> Material.GooT5_BLOCK.get().asItem().getDefaultInstance())
                     .displayItems((parameters, output) -> {

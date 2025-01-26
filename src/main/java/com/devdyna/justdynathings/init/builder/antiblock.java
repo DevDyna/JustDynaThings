@@ -9,7 +9,6 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
@@ -21,12 +20,12 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.level.block.TransparentBlock;
 
-public class antiblock extends TransparentBlock {
+public class AntiBlock extends TransparentBlock {
 
     public static final BooleanProperty SOLID = BooleanProperty.create("solid");
 
-    public antiblock(BlockBehaviour.Properties prop) {
-        super(prop.randomTicks().sound(SoundType.COPPER_BULB)
+    public AntiBlock() {
+        super(Properties.of().sound(SoundType.COPPER_BULB)
                 .instabreak().pushReaction(PushReaction.DESTROY));
         this.registerDefaultState(stateDefinition.any()
                 .setValue(SOLID, false));

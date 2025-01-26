@@ -5,7 +5,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import com.devdyna.justdynathings.Main;
-import com.devdyna.justdynathings.init.material;
+import com.devdyna.justdynathings.init.Material;
 import com.direwolf20.justdirethings.common.blockentities.gooblocks.GooBlockBE_Tier4;
 import com.direwolf20.justdirethings.common.blocks.gooblocks.GooBlock_Base;
 import com.direwolf20.justdirethings.datagen.JustDireItemTags;
@@ -34,7 +34,7 @@ public class GooT5 extends GooBlock_Base implements EntityBlock {
    }
 
    protected boolean validRevivalItem(ItemStack itemStack) {
-      return itemStack.is(material.GOO_REVIVE_TIER_5);
+      return itemStack.is(Material.GOO_REVIVE_TIER_5);
    }
 
    @SuppressWarnings("null")

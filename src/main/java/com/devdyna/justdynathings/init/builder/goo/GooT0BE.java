@@ -1,7 +1,7 @@
 package com.devdyna.justdynathings.init.builder.goo;
 
 
-import com.devdyna.justdynathings.init.builder.material;
+import com.devdyna.justdynathings.init.material;
 import com.direwolf20.justdirethings.common.blockentities.basebe.GooBlockBE_Base;
 
 import net.minecraft.core.BlockPos;

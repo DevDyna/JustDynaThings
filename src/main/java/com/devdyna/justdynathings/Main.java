@@ -1,8 +1,7 @@
 package com.devdyna.justdynathings;
 
-// import com.devdyna.justdynathings.init.Config;
-import com.devdyna.justdynathings.init.builder.material;
-import com.devdyna.justdynathings.init.builder.tab;
+import com.devdyna.justdynathings.init.material;
+import com.devdyna.justdynathings.init.tab;
 
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;

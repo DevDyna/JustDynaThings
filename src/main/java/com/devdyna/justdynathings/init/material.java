@@ -5,18 +5,24 @@ import com.devdyna.justdynathings.init.builder.goo.GooT0;
 import com.devdyna.justdynathings.init.builder.goo.GooT0BE;
 import com.devdyna.justdynathings.init.builder.goo.GooT5;
 import com.devdyna.justdynathings.init.builder.goo.GooT5BE;
+import com.devdyna.justdynathings.init.builder.oreGen.GenBE;
+import com.devdyna.justdynathings.init.builder.oreGen.GenBlock;
+import com.devdyna.justdynathings.init.builder.oreGen.GenGui;
 import com.devdyna.justdynathings.simply.GooBlockItem;
 import com.devdyna.justdynathings.simply.RawOre;
 import com.devdyna.justdynathings.utils.RegUtil;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.BlockEntityType.Builder;
+import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
+@SuppressWarnings("null")
 public class Material {
 
         public static final DeferredHolder<Block, GooT5> GooT5_BLOCK = DefType.zBLK.register("ferrous_goo",
@@ -42,15 +48,25 @@ public class Material {
         public static final DeferredHolder<Block, ?> c = DefType.zBLK.register("a",
                         () -> new RawOre(SoundType.AMETHYST, 2.0f, 2.0f));
 
-        @SuppressWarnings("null")
         public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GooT5BE>> GooT5_BE = DefType.zBE
                         .register("complex_goo", () -> Builder.of(GooT5BE::new, GooT5_BLOCK.get()).build(null));
 
-        @SuppressWarnings("null")
         public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GooT0BE>> GooT0_BE = DefType.zBE
                         .register("rotten_goo", () -> Builder.of(GooT0BE::new, GooT0_BLOCK.get()).build(null));
 
         public static final TagKey<Item> GOO_REVIVE_TIER_0 = RegUtil.tagItem("goo_revive_tier_0");
         public static final TagKey<Item> GOO_REVIVE_TIER_5 = RegUtil.tagItem("goo_revive_tier_5");
 
+        public static final DeferredHolder<Block, GenBlock> GenBlock = DefType.zBLK
+                        .register("gen", GenBlock::new);
+        public static final DeferredHolder<Item, BlockItem> GenBlock_ITEM = DefType.zITM
+                        .register("gen", () -> new BlockItem(GenBlock.get(), new Item.Properties()));
+
+        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GenBE>> Gen_BE = DefType.zBE
+                        .register("gen",
+                                        () -> Builder.of(GenBE::new, GenBlock.get()).build(null));
+
+        public static final DeferredHolder<MenuType<?>, MenuType<GenGui>> GEN_GUI = DefType.zCTNR
+                        .register("gen_c",
+                                        () -> IMenuTypeExtension.create(GenGui::new));
 }

@@ -1,7 +1,7 @@
 package com.devdyna.justdynathings.utils;
 
 import com.devdyna.justdynathings.Main;
-import com.devdyna.justdynathings.init.DefType;
+import com.devdyna.justdynathings.init.Material;
 import com.devdyna.justdynathings.simply.BlockBase;
 import com.devdyna.justdynathings.simply.ItemBase;
 
@@ -25,19 +25,19 @@ public class RegUtil {
     }
 
     public static DeferredHolder<Item, ?> ezItem(String name) {
-        return DefType.zITM.register(name,
+        return Material.zITM.register(name,
                 ItemBase::new);
     }
 
     public static DeferredHolder<Block, ?> ezBlock(String name) {
-        return DefType.zBLK.register(name,
+        return Material.zBLK.register(name,
                 BlockBase::new);
     }
 
 
     public static DeferredHolder<Block, ?> ezBlockItem(String name) {
         ezItem(name);
-        return DefType.zBLK.register(name,
+        return Material.zBLK.register(name,
                 BlockBase::new);
     }
 }

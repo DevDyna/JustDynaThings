@@ -1,8 +1,6 @@
 package com.devdyna.justdynathings.init.builder.oreGen;
 
-import com.direwolf20.justdirethings.common.blockentities.BlockBreakerT1BE;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
-import com.direwolf20.justdirethings.common.containers.BlockBreakerT1Container;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.SimpleMenuProvider;
@@ -31,20 +29,20 @@ public class GenBlock extends BaseMachineBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new BlockBreakerT1BE(pos, state);
+        return new GenBE(pos, state);
     }
 
     @Override
     public void openMenu(Player player, BlockPos blockPos) {
         player.openMenu(new SimpleMenuProvider(
-                (windowId, playerInventory, playerEntity) -> new BlockBreakerT1Container(windowId, playerInventory, blockPos), Component.translatable("")), (buf -> {
+                (windowId, playerInventory, playerEntity) -> new GenGui(windowId, playerInventory, blockPos), Component.translatable("")), (buf -> {
             buf.writeBlockPos(blockPos);
         }));
     }
 
     @Override
     public boolean isValidBE(BlockEntity blockEntity) {
-        return blockEntity instanceof BlockBreakerT1BE;
+        return blockEntity instanceof GenBE;
     }
 
     @Override

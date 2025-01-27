@@ -6,12 +6,13 @@ import com.devdyna.justdynathings.init.builder.goo.GooT0BE;
 import com.devdyna.justdynathings.init.builder.goo.GooT5;
 import com.devdyna.justdynathings.init.builder.goo.GooT5BE;
 import com.devdyna.justdynathings.simply.GooBlockItem;
-import com.devdyna.justdynathings.simply.ItemBase;
+import com.devdyna.justdynathings.simply.RawOre;
 import com.devdyna.justdynathings.utils.RegUtil;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.BlockEntityType.Builder;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -34,10 +35,12 @@ public class Material {
         public static final DeferredHolder<Item, BlockItem> ANTIBLOCK_ITEM = DefType.zITM
                         .registerSimpleBlockItem(ANTIBLOCK);
 
-        public static final DeferredHolder<Item, ItemBase> RawFerricore = DefType.zITM.register("raw_",
-                        ItemBase::new);
+        public static final DeferredHolder<Item, ?> a = RegUtil.ezItem("a");
 
-                        
+        public static final DeferredHolder<Block, ?> b = RegUtil.ezBlock("b");
+
+        public static final DeferredHolder<Block, ?> c = DefType.zBLK.register("a",
+                        () -> new RawOre(SoundType.AMETHYST, 2.0f, 2.0f));
 
         @SuppressWarnings("null")
         public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GooT5BE>> GooT5_BE = DefType.zBE

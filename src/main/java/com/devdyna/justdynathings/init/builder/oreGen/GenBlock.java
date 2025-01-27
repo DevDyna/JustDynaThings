@@ -24,6 +24,7 @@ public class GenBlock extends BaseMachineBlock {
                 .strength(2.0f)
                 .isRedstoneConductor(BaseMachineBlock::never)
         );
+        
     }
 
     @Nullable

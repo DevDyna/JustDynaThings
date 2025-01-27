@@ -1,8 +1,8 @@
 package com.devdyna.justdynathings.init;
 
 import com.devdyna.justdynathings.Main;
-
 import net.minecraft.core.registries.Registries;
+import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
@@ -15,11 +15,14 @@ public class DefType {
         public static final DeferredRegister.Items zITM = DeferredRegister.createItems(Main.ID);
         public static final DeferredRegister<CreativeModeTab> zCTBS = DeferredRegister
                         .create(Registries.CREATIVE_MODE_TAB, Main.ID);
+        public static final DeferredRegister<MenuType<?>> zCTNR = DeferredRegister.create(Registries.MENU, Main.ID);
+
 
         public static void register(IEventBus bus) {
                 zBLK.register(bus);
                 zITM.register(bus);
                 zBE.register(bus);
                 zCTBS.register(bus);
+                zCTNR.register(bus);
         }
 }

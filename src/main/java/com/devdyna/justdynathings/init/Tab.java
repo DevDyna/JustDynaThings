@@ -10,14 +10,14 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 
 public class Tab {
 
-    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> CreativeTab = DefType.zCTBS
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> CreativeTab = Material.zCTBS
             .register(Main.ID, () -> CreativeModeTab.builder()
                     .title(Component.translatable(Main.ID + ".tabname"))
                     .withTabsBefore(CreativeModeTabs.COMBAT)
                     .icon(() -> Material.GooT5_BLOCK.get().asItem().getDefaultInstance())
                     .displayItems((parameters, output) -> {
 
-                        DefType.zITM.getEntries().forEach(e -> {
+                        Material.zITM.getEntries().forEach(e -> {
                             output.accept((Item) e.get());
                         });
 

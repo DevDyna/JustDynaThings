@@ -1,8 +1,8 @@
 package com.devdyna.justdynathings.init.builder.oreGen;
 
+import com.devdyna.justdynathings.init.Material;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.RedstoneControlledBE;
-import com.direwolf20.justdirethings.setup.Registration;
 import com.direwolf20.justdirethings.util.MiscHelpers;
 import com.direwolf20.justdirethings.util.interfacehelpers.RedstoneControlData;
 import net.minecraft.core.BlockPos;
@@ -31,11 +31,13 @@ import java.util.*;
 
 @SuppressWarnings("null")
 public class GenBE extends BaseMachineBE implements RedstoneControlledBE {
-    //BlockState we're breaking, ticks since we started, lastpacket progress we sent, and an iterator, because each packet needs a unique breaker ID
+    // BlockState we're breaking, ticks since we started, lastpacket progress we
+    // sent, and an iterator, because each packet needs a unique breaker ID
     private record BlockBreakingProgress(BlockState blockState, int ticks, int lastSentProgress, int iterator,
-                                         float destroyProgress) {
+            float destroyProgress) {
         public BlockBreakingProgress(BlockState blockState, int ticks, int iterator, float destroyProgress) {
-            this(blockState, ticks, -1, iterator, destroyProgress); // Initialize with -1 to indicate no progress sent yet
+            this(blockState, ticks, -1, iterator, destroyProgress); // Initialize with -1 to indicate no progress sent
+                                                                    // yet
         }
     }
 
@@ -45,11 +47,11 @@ public class GenBE extends BaseMachineBE implements RedstoneControlledBE {
 
     public GenBE(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState) {
         super(pType, pPos, pBlockState);
-        MACHINE_SLOTS = 1; //Slot for a pickaxe
+        MACHINE_SLOTS = 1; // Slot for a pickaxe
     }
 
     public GenBE(BlockPos pPos, BlockState pBlockState) {
-        this(Registration.BlockBreakerT1BE.get(), pPos, pBlockState);
+        this(Material.Gen_BE.get(), pPos, pBlockState);
     }
 
     @Override
@@ -89,9 +91,10 @@ public class GenBE extends BaseMachineBE implements RedstoneControlledBE {
         if (blockBreakingTracker.isEmpty())
             return;
         if (tool.isEmpty())
-            clearTracker(fakePlayer); //If we were breaking blocks before, and removed the tool, clear the progress
+            clearTracker(fakePlayer); // If we were breaking blocks before, and removed the tool, clear the progress
         if (!isActiveRedstone() && !redstoneControlData.redstoneMode.equals(MiscHelpers.RedstoneMode.PULSE))
-            clearTracker(fakePlayer); //If we are in Pulse Mode, don't clear, but otherwise, do clear on redstone signal turned off
+            clearTracker(fakePlayer); // If we are in Pulse Mode, don't clear, but otherwise, do clear on redstone
+                                      // signal turned off
     }
 
     @Override
@@ -116,11 +119,12 @@ public class GenBE extends BaseMachineBE implements RedstoneControlledBE {
             List<BlockPos> blocksToMine = findBlocksToMine(fakePlayer);
             for (BlockPos blockPos : blocksToMine) {
                 BlockState blockState = level.getBlockState(blockPos);
-                if (!blockState.isAir() && !blockBreakingTracker.containsKey(blockPos)) //Start tracking the mine!
+                if (!blockState.isAir() && !blockBreakingTracker.containsKey(blockPos)) // Start tracking the mine!
                     startMining(fakePlayer, blockPos, blockState, tool);
             }
         }
-        if (blockBreakingTracker.isEmpty() || !canMine()) return;
+        if (blockBreakingTracker.isEmpty() || !canMine())
+            return;
         if (currentBlock == null && canRun())
             currentBlock = blockBreakingTracker.entrySet().iterator().next();
         if (currentBlock != null && (mineBlock(currentBlock.getKey(), tool, fakePlayer))) {
@@ -133,7 +137,7 @@ public class GenBE extends BaseMachineBE implements RedstoneControlledBE {
         BlockState blockState = level.getBlockState(blockPos);
         if (blockState.isAir())
             return false;
-        if ((blockState.getBlock() instanceof LiquidBlock)) //No Liquids
+        if ((blockState.getBlock() instanceof LiquidBlock)) // No Liquids
             return false;
         if (blockPos.equals(getBlockPos()))
             return false;
@@ -143,7 +147,7 @@ public class GenBE extends BaseMachineBE implements RedstoneControlledBE {
             return false;
         if (!level.mayInteract(fakePlayer, blockPos))
             return false;
-        if (!canBreakAndPlaceAt(level, blockPos, fakePlayer)) //TODO Break only once its working
+        if (!canBreakAndPlaceAt(level, blockPos, fakePlayer)) // TODO Break only once its working
             return false;
         return true;
     }
@@ -162,7 +166,8 @@ public class GenBE extends BaseMachineBE implements RedstoneControlledBE {
 
     public int generatePosHash() {
         BlockPos blockPos = getBlockPos();
-        return blockPos.getX() + blockPos.getY() + blockPos.getZ(); //For now this is probably good enough, will add more randomness if needed
+        return blockPos.getX() + blockPos.getY() + blockPos.getZ(); // For now this is probably good enough, will add
+                                                                    // more randomness if needed
     }
 
     public Direction getFacing() {
@@ -170,34 +175,42 @@ public class GenBE extends BaseMachineBE implements RedstoneControlledBE {
     }
 
     public void startMining(FakePlayer fakePlayer, BlockPos blockPos, BlockState blockState, ItemStack tool) {
-        //if (!tool.isCorrectToolForDrops(blockState)) return;
+        // if (!tool.isCorrectToolForDrops(blockState)) return;
         setFakePlayerData(tool, fakePlayer, blockPos, getFacing());
-        blockBreakingTracker.put(blockPos, new BlockBreakingProgress(blockState, 0, blockBreakingTracker.size() + generatePosHash(), getDestroyProgress(blockPos, tool, fakePlayer, blockState)));
+        blockBreakingTracker.put(blockPos,
+                new BlockBreakingProgress(blockState, 0, blockBreakingTracker.size() + generatePosHash(),
+                        getDestroyProgress(blockPos, tool, fakePlayer, blockState)));
     }
 
     /**
-     * @return true if we should remove the block from the map (Via the iterator - above)
+     * @return true if we should remove the block from the map (Via the iterator -
+     *         above)
      */
     public boolean mineBlock(BlockPos blockPos, ItemStack tool, FakePlayer player) {
         BlockState blockState = level.getBlockState(blockPos);
-        if (blockState.isAir()) { //If we got here, and the block is air, it means we had a block there before and it has since been removed
+        if (blockState.isAir()) { // If we got here, and the block is air, it means we had a block there before
+                                  // and it has since been removed
             return true;
         }
-        if (blockBreakingTracker.containsKey(blockPos) && !level.getBlockState(blockPos).equals(blockBreakingTracker.get(blockPos).blockState)) {
+        if (blockBreakingTracker.containsKey(blockPos)
+                && !level.getBlockState(blockPos).equals(blockBreakingTracker.get(blockPos).blockState)) {
             return true;
         }
         BlockBreakingProgress progress = blockBreakingTracker.compute(blockPos, (pos, oldProgress) -> {
             int updatedTicks = oldProgress == null ? 1 : oldProgress.ticks + 1;
             if (oldProgress == null)
-                return new BlockBreakingProgress(blockState, 1, -1, blockBreakingTracker.size() + generatePosHash(), getDestroyProgress(blockPos, tool, player, blockState));
+                return new BlockBreakingProgress(blockState, 1, -1, blockBreakingTracker.size() + generatePosHash(),
+                        getDestroyProgress(blockPos, tool, player, blockState));
             else
-                return new BlockBreakingProgress(blockState, updatedTicks, oldProgress.lastSentProgress, oldProgress.iterator, oldProgress.destroyProgress);
+                return new BlockBreakingProgress(blockState, updatedTicks, oldProgress.lastSentProgress,
+                        oldProgress.iterator, oldProgress.destroyProgress);
         });
         float destroyProgress = progress.destroyProgress * progress.ticks;
         int currentProgress = (int) (destroyProgress * 10.0F);
         if (currentProgress != progress.lastSentProgress && currentProgress < 10) {
             sendPackets(player.getId() + progress.iterator, blockPos, currentProgress);
-            blockBreakingTracker.put(blockPos, new BlockBreakingProgress(blockState, progress.ticks, currentProgress, progress.iterator, progress.destroyProgress));
+            blockBreakingTracker.put(blockPos, new BlockBreakingProgress(blockState, progress.ticks, currentProgress,
+                    progress.iterator, progress.destroyProgress));
         }
         if (destroyProgress >= 1.0f) {
             tryBreakBlock(tool, player, blockPos, blockState);
@@ -212,33 +225,38 @@ public class GenBE extends BaseMachineBE implements RedstoneControlledBE {
             return -1.0F;
         } else {
             float modifier = tool.isCorrectToolForDrops(blockState) ? 30 : 100;
-            return getDestroySpeed(blockPos, tool, player, blockState) / hardness / modifier; //Always the correct tool for drop!
+            return getDestroySpeed(blockPos, tool, player, blockState) / hardness / modifier; // Always the correct tool
+                                                                                              // for drop!
         }
     }
 
     public float getDestroySpeed(BlockPos blockPos, ItemStack tool, FakePlayer player, BlockState blockState) {
         float toolDestroySpeed = tool.getDestroySpeed(blockState);
         if (toolDestroySpeed > 1.0F) {
-            HolderLookup.RegistryLookup<Enchantment> registrylookup = level.getServer().registryAccess().lookupOrThrow(Registries.ENCHANTMENT);
+            HolderLookup.RegistryLookup<Enchantment> registrylookup = level.getServer().registryAccess()
+                    .lookupOrThrow(Registries.ENCHANTMENT);
             int efficiency = tool.getEnchantmentLevel(registrylookup.getOrThrow(Enchantments.EFFICIENCY));
             if (efficiency > 0) {
                 toolDestroySpeed += (float) (efficiency * efficiency + 1);
             }
         }
-        toolDestroySpeed = net.neoforged.neoforge.event.EventHooks.getBreakSpeed(player, blockState, toolDestroySpeed, blockPos);
+        toolDestroySpeed = net.neoforged.neoforge.event.EventHooks.getBreakSpeed(player, blockState, toolDestroySpeed,
+                blockPos);
         return toolDestroySpeed;
     }
 
     public boolean tryBreakBlock(ItemStack tool, FakePlayer fakePlayer, BlockPos breakPos, BlockState blockState) {
         setFakePlayerData(tool, fakePlayer, breakPos, getFacing());
-        BlockEvent.BreakEvent event = new BlockEvent.BreakEvent(level, breakPos, level.getBlockState(breakPos), fakePlayer);
-        if (NeoForge.EVENT_BUS.post(event).isCanceled()) return false;
+        BlockEvent.BreakEvent event = new BlockEvent.BreakEvent(level, breakPos, level.getBlockState(breakPos),
+                fakePlayer);
+        if (NeoForge.EVENT_BUS.post(event).isCanceled())
+            return false;
         breakBlock(fakePlayer, breakPos, tool, blockState);
         return true;
     }
 
     public void breakBlock(FakePlayer player, BlockPos breakPos, ItemStack itemStack, BlockState state) {
-        //itemStack.onBlockStartBreak(breakPos, player);
+        // itemStack.onBlockStartBreak(breakPos, player);
         BlockEntity blockEntity = level.getBlockEntity(breakPos);
         boolean success = level.destroyBlock(breakPos, false, player);
         if (success) {

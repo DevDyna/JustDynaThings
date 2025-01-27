@@ -2,7 +2,6 @@ package com.devdyna.justdynathings.init.builder.oreGen;
 
 import com.devdyna.justdynathings.init.Material;
 import com.direwolf20.justdirethings.common.containers.basecontainers.BaseMachineContainer;
-import com.direwolf20.justdirethings.setup.Registration;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
@@ -17,7 +16,7 @@ public class GenGui extends BaseMachineContainer {
     }
 
     public GenGui(int windowId, Inventory playerInventory, BlockPos blockPos) {
-        super(Registration.BlockBreakerT1_Container.get(), windowId, playerInventory, blockPos);
+        super(Material.GEN_GUI.get(), windowId, playerInventory, blockPos);
         addPlayerSlots(player.getInventory());
     }
 

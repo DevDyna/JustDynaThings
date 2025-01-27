@@ -10,6 +10,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.registries.DeferredHolder;
 
 public class RegUtil {
 
@@ -23,13 +24,20 @@ public class RegUtil {
                 ResourceLocation.fromNamespaceAndPath(Main.ID, name));
     }
 
-    public static void ezItem(String name) {
-        DefType.zITM.register(name,
+    public static DeferredHolder<Item, ?> ezItem(String name) {
+        return DefType.zITM.register(name,
                 ItemBase::new);
     }
 
-    public static void ezBlock(String name) {
-        DefType.zBLK.register(name,
+    public static DeferredHolder<Block, ?> ezBlock(String name) {
+        return DefType.zBLK.register(name,
+                BlockBase::new);
+    }
+
+
+    public static DeferredHolder<Block, ?> ezBlockItem(String name) {
+        ezItem(name);
+        return DefType.zBLK.register(name,
                 BlockBase::new);
     }
 }

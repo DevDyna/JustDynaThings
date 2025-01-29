@@ -54,6 +54,10 @@ public class Material {
 
         public static final TagKey<Item> GOO_REVIVE_TIER_5 = RegUtil.tagItem("goo_revive_tier_5");
 
+        public static final TagKey<Block> REFORGER_REPLACE = RegUtil.tagBlock("reforger/replace");
+
+        public static final TagKey<Item> REFORGER_CATALYST = RegUtil.tagItem("reforger/catalyst");
+
         // -----------------------------------------------------------------------------------------------------------//
 
         public static final DeferredHolder<Block, Goo> GooT5_BLOCK = zBLK.register("complex_goo",
@@ -65,7 +69,7 @@ public class Material {
         public static final DeferredHolder<Block, PhaseBox> PHASEBOX = zBLK.register("phase_box",
                         () -> new PhaseBox());
 
-        public static final DeferredHolder<Block, ?> CHAOTIC_BLOCK = zBLK.register("raw_chaotic",
+        public static final DeferredHolder<Block, ?> RAW_CHAOTIC_BLOCK = zBLK.register("raw_chaotic",
                         () -> new RawOre(SoundType.AMETHYST, 2.0f, 2.0f));
 
         public static final DeferredHolder<Block, ReforgerBlock> REFORGER_BLOCK = zBLK
@@ -79,14 +83,17 @@ public class Material {
         public static final DeferredHolder<Item, BlockItem> GooT5_ITEM = zITM.register("complex_goo",
                         () -> new GooBlockItem(GooT5_BLOCK.get()));
 
+                        public static final DeferredHolder<Item, Item> RAW_CHAOTIC_ITEM = zITM
+                        .registerSimpleItem("raw_chaotic");
+
         public static final DeferredHolder<Item, BlockItem> ANTIBLOCK_ITEM = zITM
                         .registerSimpleBlockItem(PHASEBOX);
 
         public static final DeferredHolder<Item, BlockItem> REFORGER_ITEM = zITM
                         .register("reforger", () -> new BlockItem(REFORGER_BLOCK.get(), new Item.Properties()));
 
-        public static final DeferredHolder<Item, BlockItem> CHAOTIC_BLOCK_ITEM = zITM
-                        .registerSimpleBlockItem(CHAOTIC_BLOCK);
+        public static final DeferredHolder<Item, BlockItem> RAW_CHAOTIC_BLOCK_ITEM = zITM
+                        .registerSimpleBlockItem(RAW_CHAOTIC_BLOCK);
 
         // -----------------------------------------------------------------------------------------------------------//
 

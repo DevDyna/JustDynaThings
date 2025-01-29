@@ -2,6 +2,8 @@
     "justdynathings.tabname": "Just Dyna Things",
     "justdynathings.rotten.on":"Can be revived using §2seeds",
     "justdynathings.complex.on":"Can be revived using §6gold foods§f or §axp bottle§f",
+    "justdynathings.reforger.on":"Convert blocks into other using catalysts",
+    "justdynathings.phase_box.on":"Useful on mobfarms!",
     "justdynathings.off": "§8[§fControl§8]§f",
 
     "block.justdynathings.phase_box": "Phase Box",
@@ -11,7 +13,7 @@
     "block.justdynathings.reforger": "Reforger",
 
     "block.justdynathings.raw_chaotic_ore": "Raw Chaotic Ore",
-    "item.justdynathings.raw_chaotic": "Raw Chaotic"
+    "item.justdynathings.chaotic_dust": "Chaotic Dust"
 
 
 }

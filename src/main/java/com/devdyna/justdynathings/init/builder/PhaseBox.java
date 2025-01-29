@@ -32,7 +32,7 @@ public class PhaseBox extends TransparentBlock {
         super(Properties.of().sound(SoundType.COPPER_BULB)
                 .instabreak().pushReaction(PushReaction.DESTROY));
         this.registerDefaultState(stateDefinition.any()
-                .setValue(SOLID, false));
+                .setValue(SOLID, true));
     }
 
     @SuppressWarnings("null")

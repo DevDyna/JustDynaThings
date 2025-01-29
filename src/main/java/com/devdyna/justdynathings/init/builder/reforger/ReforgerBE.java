@@ -77,6 +77,10 @@ public class ReforgerBE extends BaseMachineBE implements RedstoneControlledBE {
                     SoundSource.BLOCKS, 100,
                     Math.getRandomValue(9) * 0.1f, true);
 
+            if (Math.chance(50)) {
+                item.setCount(item.getCount() - 1);
+            }
+
         }
     }
 

@@ -1,6 +1,12 @@
 {
   "values": [
-    "#minecraft:beacon_payment_items",
+    "minecraft:echo_shard",
+    "minecraft:nether_star",
+    "minecraft:diamond",
+    "minecraft:netherite_ingot",
+    "minecraft:netherite_scrap",
+    "minecraft:heart_of_the_sea",
+    "minecraft:heavy_core",
     "justdynathings:chaotic_dust"
   ]
 }

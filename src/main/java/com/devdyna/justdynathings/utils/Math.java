@@ -3,6 +3,9 @@ package com.devdyna.justdynathings.utils;
 import java.util.Random;
 
 public class Math {
+    /**
+     * @return a value [0 , max] inclusive
+     */
     public static int getRandomValue(int max) {
         if (max <= 0)
             return 1;

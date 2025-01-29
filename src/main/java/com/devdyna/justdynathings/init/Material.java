@@ -84,7 +84,7 @@ public class Material {
                         () -> new GooBlockItem(GooT5_BLOCK.get()));
 
                         public static final DeferredHolder<Item, Item> RAW_CHAOTIC_ITEM = zITM
-                        .registerSimpleItem("raw_chaotic");
+                        .registerSimpleItem("chaotic_dust");
 
         public static final DeferredHolder<Item, BlockItem> ANTIBLOCK_ITEM = zITM
                         .registerSimpleBlockItem(PHASEBOX);

@@ -50,17 +50,21 @@ public class ReforgerBE extends BaseMachineBE implements RedstoneControlledBE {
     }
 
     public void run() {
-        ItemStack tool = getMachineHandler().getStackInSlot(0);
-        if (tool.isEmpty()) {
+        ItemStack item = getMachineHandler().getStackInSlot(0);
+        if (item.isEmpty()) {
+            //empty item
             getRedstoneControlData().pulsed = false;
             return;
         }
 
-        if (!canRun)
+        if (!canRun){
+            //need to be deactived
             return;
+        }
+            
 
         BlockPos pos = getBlockPos().relative(getBlockState().getValue(BlockStateProperties.FACING));
-        if (level.getBlockState(pos).is(Material.REFORGER_REPLACE) && tool.is(Material.REFORGER_CATALYST)) {
+        if (level.getBlockState(pos).is(Material.REFORGER_REPLACE) && item.is(Material.REFORGER_CATALYST)) {
             level.setBlockAndUpdate(pos,
                     LevelUtil
                             .ResourceByTag(Tags.Blocks.ORES_IN_GROUND_STONE,

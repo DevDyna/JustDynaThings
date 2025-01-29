@@ -7,6 +7,8 @@ import com.direwolf20.justdirethings.common.blockentities.basebe.RedstoneControl
 import com.direwolf20.justdirethings.util.MiscHelpers;
 import com.direwolf20.justdirethings.util.interfacehelpers.RedstoneControlData;
 import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -52,16 +54,15 @@ public class ReforgerBE extends BaseMachineBE implements RedstoneControlledBE {
     public void run() {
         ItemStack item = getMachineHandler().getStackInSlot(0);
         if (item.isEmpty()) {
-            //empty item
+            // empty item
             getRedstoneControlData().pulsed = false;
             return;
         }
 
-        if (!canRun){
-            //need to be deactived
+        if (!canRun) {
+            // need to be deactived
             return;
         }
-            
 
         BlockPos pos = getBlockPos().relative(getBlockState().getValue(BlockStateProperties.FACING));
         if (level.getBlockState(pos).is(Material.REFORGER_REPLACE) && item.is(Material.REFORGER_CATALYST)) {
@@ -70,6 +71,12 @@ public class ReforgerBE extends BaseMachineBE implements RedstoneControlledBE {
                             .ResourceByTag(Tags.Blocks.ORES_IN_GROUND_STONE,
                                     Math.getRandomValue(LevelUtil.getSizeTag(Tags.Blocks.ORES_IN_GROUND_STONE)))
                             .defaultBlockState());
+            level.playLocalSound(pos.getX(), pos.getY(),
+                    pos.getZ(),
+                    SoundEvents.AMETHYST_BLOCK_BREAK,
+                    SoundSource.BLOCKS, 100,
+                    Math.getRandomValue(9) * 0.1f, true);
+
         }
     }
 
@@ -77,7 +84,7 @@ public class ReforgerBE extends BaseMachineBE implements RedstoneControlledBE {
     public boolean isDefaultSettings() {
         if (!super.isDefaultSettings())
             return false;
-        if (tickSpeed != 20)
+        if (tickSpeed != 20) // i need to fix the tickrate
             return false;
         if (!getRedstoneControlData().equals(getDefaultRedstoneData()))
             return false;

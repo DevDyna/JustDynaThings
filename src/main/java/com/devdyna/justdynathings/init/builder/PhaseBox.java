@@ -1,6 +1,10 @@
 package com.devdyna.justdynathings.init.builder;
 
+import com.devdyna.justdynathings.utils.Math;
+
 import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -68,22 +72,23 @@ public class PhaseBox extends TransparentBlock {
         BlockState clicked = level.getBlockState(hitResult.getBlockPos());
         if (player.isCrouching()) {
 
-            if (stack.isEmpty()) {
+            if (stack.isEmpty())
                 return success(clicked, level, pos);
-            } else {
+            else
                 return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
-            }
 
-        } else {
-
+        } else
             return success(clicked, level, pos);
-        }
 
     }
 
     private ItemInteractionResult success(BlockState state, Level level, BlockPos pos) {
+        level.playLocalSound(pos.getX(), pos.getY(),
+                pos.getZ(),
+                state.getValue(SOLID) ? SoundEvents.COPPER_TRAPDOOR_CLOSE : SoundEvents.COPPER_TRAPDOOR_OPEN,
+                SoundSource.BLOCKS, 100,
+                Math.getRandomValue(9) * 0.1f, true);
         level.setBlockAndUpdate(pos, state.setValue(SOLID, !state.getValue(SOLID)));
-
         return ItemInteractionResult.SUCCESS;
     }
 

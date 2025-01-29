@@ -3,7 +3,8 @@ package com.devdyna.justdynathings.init;
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.init.builder.goo.GooT0Render;
 import com.devdyna.justdynathings.init.builder.goo.GooT5Render;
-import com.devdyna.justdynathings.init.builder.oreGen.GenScreen;
+import com.devdyna.justdynathings.init.builder.reforger.ReforgerScreen;
+
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -15,7 +16,7 @@ public class Client {
 
     @SubscribeEvent
     public static void registerScreens(RegisterMenuScreensEvent event) {
-        event.register(Material.GEN_GUI.get(), GenScreen::new);
+        event.register(Material.GEN_GUI.get(), ReforgerScreen::new);
     }
 
     @SubscribeEvent

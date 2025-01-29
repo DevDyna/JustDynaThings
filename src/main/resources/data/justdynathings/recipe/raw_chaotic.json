@@ -1,0 +1,15 @@
+{
+  "type": "justdirethings:goospread",
+  "craftingDuration": 4000,
+  "id": "justdirethings:dire_gold_block",
+  "input": {
+    "Name": "minecraft:crying_obsidian"
+  },
+  "output": {
+    "Name": "justdynathings:raw_chaotic_ore",
+    "Properties": {
+      "facing": "north"
+    }
+  },
+  "tierRequirement": 5
+}

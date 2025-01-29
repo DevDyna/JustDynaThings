@@ -61,7 +61,7 @@ public class Material {
         // -----------------------------------------------------------------------------------------------------------//
 
         public static final DeferredHolder<Block, Goo> GooT5_BLOCK = zBLK.register("complex_goo",
-                        () -> new Goo("complex", 5, 10, GOO_REVIVE_TIER_5));
+                        () -> new Goo("complex", 5, 20, GOO_REVIVE_TIER_5));
 
         public static final DeferredHolder<Block, Goo> GooT0_BLOCK = zBLK.register("rotten_goo",
                         () -> new Goo("rotten", 0, 4, GOO_REVIVE_TIER_0));
@@ -69,7 +69,7 @@ public class Material {
         public static final DeferredHolder<Block, PhaseBox> PHASEBOX = zBLK.register("phase_box",
                         () -> new PhaseBox());
 
-        public static final DeferredHolder<Block, ?> RAW_CHAOTIC_BLOCK = zBLK.register("raw_chaotic",
+        public static final DeferredHolder<Block, Block> RAW_CHAOTIC_BLOCK = zBLK.register("raw_chaotic_ore",
                         () -> new RawOre(SoundType.AMETHYST, 2.0f, 2.0f));
 
         public static final DeferredHolder<Block, ReforgerBlock> REFORGER_BLOCK = zBLK

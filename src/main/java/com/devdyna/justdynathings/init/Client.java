@@ -1,9 +1,8 @@
 package com.devdyna.justdynathings.init;
 
 import com.devdyna.justdynathings.Main;
-import com.devdyna.justdynathings.init.builder.goo.GooT0Render;
-import com.devdyna.justdynathings.init.builder.goo.GooT5Render;
 import com.devdyna.justdynathings.init.builder.reforger.ReforgerScreen;
+import com.devdyna.justdynathings.simply.goo.GooRender;
 
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -21,7 +20,7 @@ public class Client {
 
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
-        event.registerBlockEntityRenderer(Material.GooT0_BE.get(), GooT0Render::new);
-        event.registerBlockEntityRenderer(Material.GooT5_BE.get(), GooT5Render::new);
+        event.registerBlockEntityRenderer(Material.GOO_BE.get(), GooRender::new);
+        event.registerBlockEntityRenderer(Material.GOO_BE.get(), GooRender::new);
     }
 }

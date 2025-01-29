@@ -14,10 +14,12 @@ import com.devdyna.justdynathings.simply.RawOre;
 import com.devdyna.justdynathings.utils.RegUtil;
 
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
@@ -101,4 +103,18 @@ public class Material {
                         .register("gen_c",
                                         () -> IMenuTypeExtension.create(GenGui::new));
         // -----------------------------------------------------------------------------------------------------------//
+
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> CreativeTab = zCTBS
+            .register(Main.ID, () -> CreativeModeTab.builder()
+                    .title(Component.translatable(Main.ID + ".tabname"))
+                    .withTabsBefore(CreativeModeTabs.COMBAT)
+                    .icon(() -> GooT5_BLOCK.get().asItem().getDefaultInstance())
+                    .displayItems((parameters, output) -> {
+
+                        zITM.getEntries().forEach(e -> {
+                            output.accept((Item) e.get());
+                        });
+
+                    }).build());
+
 }

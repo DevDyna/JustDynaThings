@@ -65,13 +65,7 @@ public class Material {
         public static final DeferredHolder<Block, PhaseBox> PHASEBOX = zBLK.register("phase_box",
                         () -> new PhaseBox());
 
-        public static final DeferredHolder<Block, ?> a = zBLK.register("ore_a",
-                        () -> new RawOre(SoundType.AMETHYST, 2.0f, 2.0f));
-
-        public static final DeferredHolder<Block, ?> b = zBLK.register("ore_b",
-                        () -> new RawOre(SoundType.AMETHYST, 2.0f, 2.0f));
-
-        public static final DeferredHolder<Block, ?> c = zBLK.register("ore_c",
+        public static final DeferredHolder<Block, ?> CHAOTIC_BLOCK = zBLK.register("raw_chaotic",
                         () -> new RawOre(SoundType.AMETHYST, 2.0f, 2.0f));
 
         public static final DeferredHolder<Block, ReforgerBlock> REFORGER_BLOCK = zBLK
@@ -91,12 +85,8 @@ public class Material {
         public static final DeferredHolder<Item, BlockItem> REFORGER_ITEM = zITM
                         .register("reforger", () -> new BlockItem(REFORGER_BLOCK.get(), new Item.Properties()));
 
-        public static final DeferredHolder<Item, BlockItem> A_ITEM = zITM
-                        .registerSimpleBlockItem(a);
-        public static final DeferredHolder<Item, BlockItem> B_ITEM = zITM
-                        .registerSimpleBlockItem(b);
-        public static final DeferredHolder<Item, BlockItem> C_ITEM = zITM
-                        .registerSimpleBlockItem(c);
+        public static final DeferredHolder<Item, BlockItem> CHAOTIC_BLOCK_ITEM = zITM
+                        .registerSimpleBlockItem(CHAOTIC_BLOCK);
 
         // -----------------------------------------------------------------------------------------------------------//
 

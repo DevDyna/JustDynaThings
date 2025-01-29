@@ -7,7 +7,6 @@ import com.direwolf20.justdirethings.common.blockentities.basebe.RedstoneControl
 import com.direwolf20.justdirethings.util.MiscHelpers;
 import com.direwolf20.justdirethings.util.interfacehelpers.RedstoneControlData;
 import net.minecraft.core.BlockPos;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -61,7 +60,7 @@ public class ReforgerBE extends BaseMachineBE implements RedstoneControlledBE {
             return;
 
         BlockPos pos = getBlockPos().relative(getBlockState().getValue(BlockStateProperties.FACING));
-        if (level.getBlockState(pos).is(BlockTags.STONE_ORE_REPLACEABLES) && tool.is(Tags.Items.GEMS_DIAMOND)) {
+        if (level.getBlockState(pos).is(Material.REFORGER_REPLACE) && tool.is(Material.REFORGER_CATALYST)) {
             level.setBlockAndUpdate(pos,
                     LevelUtil
                             .ResourceByTag(Tags.Blocks.ORES_IN_GROUND_STONE,

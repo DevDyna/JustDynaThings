@@ -56,8 +56,8 @@ public class Material {
 
         // -----------------------------------------------------------------------------------------------------------//
 
-        public static final DeferredHolder<Block, Goo> GooT5_BLOCK = zBLK.register("ferrous_goo",
-                        () -> new Goo("ferrous", 5, 10, GOO_REVIVE_TIER_5));
+        public static final DeferredHolder<Block, Goo> GooT5_BLOCK = zBLK.register("complex_goo",
+                        () -> new Goo("complex", 5, 10, GOO_REVIVE_TIER_5));
 
         public static final DeferredHolder<Block, Goo> GooT0_BLOCK = zBLK.register("rotten_goo",
                         () -> new Goo("rotten", 0, 4, GOO_REVIVE_TIER_0));

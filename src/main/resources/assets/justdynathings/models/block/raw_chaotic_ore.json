@@ -1,0 +1,6 @@
+{
+	"parent": "justdirethings:block/raw_ore_template",
+	"textures": {
+		"palette": "justdynathings:block/raw_chaotic_ore"
+	}
+}

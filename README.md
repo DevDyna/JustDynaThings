@@ -16,6 +16,6 @@
 <p><span style="font-size: 18px;"><strong>..and decorations!</strong></span></p>
 <p><span style="font-size: 18px;">- Chaotic ore : a new ore obtained from goo conversion that allow to craft new machines</span></p>
 <p><span style="font-size: 18px;">- Metal Block : a new decorative block that can be used to craft the reforger</span></p>
-<p><span style="font-size: 18px;"><strong><img src="https://github.com/DevDyna/ContentArchive/blob/main/JustDynaThings/screen/other.png?raw=true" alt="" width="1024" height="768" /></strong></span></p>
+<p><span style="font-size: 18px;"><strong><img src="https://github.com/DevDyna/ContentArchive/blob/main/JustDynaThings/screen/other.png?raw=true" alt="" width="578" height="332" /></strong></span></p>
 <p><strong style="font-size: 18px;">More Tiers of Goo!</strong></p>
 <p><img src="https://github.com/DevDyna/ContentArchive/blob/main/JustDynaThings/screen/goo.png?raw=true" alt="" width="413" height="365" /></p>

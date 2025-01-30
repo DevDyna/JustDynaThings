@@ -1,7 +1,7 @@
 {
   "type": "justdirethings:goospread",
   "craftingDuration": 4000,
-  "id": "justdirethings:dire_gold_block",
+  "id": "justdynathings:raw_chaotic_ore",
   "input": {
     "Name": "minecraft:crying_obsidian"
   },

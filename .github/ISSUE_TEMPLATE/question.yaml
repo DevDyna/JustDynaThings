@@ -1,0 +1,13 @@
+name: Question
+description: You need help
+labels: [question]
+assignees: DevDyna
+body:
+  - type: textarea
+    id: large-text-box
+    attributes:
+      label: Free Text Area..
+      description: 
+      placeholder: ..where unicorns live safe on a world without problems!
+    validations:
+      required: true 

@@ -70,7 +70,7 @@ public class Material {
         public static final DeferredHolder<Block, PhaseBox> PHASEBOX = zBLK.register("phase_box",
                         () -> new PhaseBox());
 
-        public static final DeferredHolder<Block, MetalBlock> METAL_BLOCK = zBLK.register("phase_box",
+        public static final DeferredHolder<Block, MetalBlock> METAL_BLOCK = zBLK.register("metal_block",
                         () -> new MetalBlock());
 
         public static final DeferredHolder<Block, RawOre> RAW_CHAOTIC_BLOCK = zBLK.register("raw_chaotic_ore",

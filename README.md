@@ -1,5 +1,5 @@
 # JustDynaThings
-<p><img src="https://cf.way2muchnoise.eu/versions/1139352.svg" alt="title" width="169" height="25" /> <img src="https://img.shields.io/badge/NeoForge-lime?style=plastic&amp;link=https%3A%2F%2Fneoforged.net%2F" alt="Static Badge" /></p>
+<p><img src="https://cf.way2muchnoise.eu/versions/1189855.svg" alt="title" width="169" height="25" /> <img src="https://img.shields.io/badge/NeoForge-lime?style=plastic&amp;link=https%3A%2F%2Fneoforged.net%2F" alt="Static Badge" /></p>
 <p>&nbsp;<br /><span style="font-size: 18px;">This mod add some random stuff to complete some empty gaps on </span><span style="font-size: 18px;"><a href="https://legacy.curseforge.com/minecraft/mc-mods/just-dire-things">JustDireThings</a></span></p>
 <p>&nbsp;</p>
 <p><span style="font-size: 18px;"><strong>Reforger</strong></span><br /><span style="font-size: 18px;">A new T1 machine that allow to use some valuable items to generate any ores (included modded) from other blocks</span></p>

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABA",
+    "BCB",
+    "ABA"
+  ],
+  "key": {
+    "A": {
+      "item": "justdynathings:metal_block"
+    },
+    "B": {
+      "item": "justdirethings:time_crystal"
+    },
+    "C": {
+      "item": "justdirethings:gooblock_tier4"
+    }
+  },
+  "result": {
+    "id": "justdynathings:complex_goo",
+    "count": 1
+  },
+  "show_notification": false
+}

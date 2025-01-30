@@ -1,7 +1,7 @@
 {
     "justdynathings.tabname": "Just Dyna Things",
-    "justdynathings.rotten.on":"Can be revived using §2seeds",
-    "justdynathings.complex.on":"Can be revived using §6gold foods§f or §axp bottle§f",
+    "justdynathings.rotten.on":"Can be revived using §2seeds (T0)",
+    "justdynathings.complex.on":"Can be revived using §6gold foods§f or §axp bottle§f (T5)",
     "justdynathings.reforger.on":"Convert blocks into other using catalysts",
     "justdynathings.phase_box.on":"Useful on mobfarms!",
     "justdynathings.off": "§8[§fControl§8]§f",
@@ -9,6 +9,8 @@
     "block.justdynathings.phase_box": "Phase Box",
     "block.justdynathings.complex_goo": "Periodicsignal Goo",
     "block.justdynathings.rotten_goo": "Taintedwave Goo",
+
+    "block.justdynathings.metal_block": "Metal Block",
 
     "block.justdynathings.reforger": "Reforger",
 

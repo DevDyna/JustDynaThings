@@ -1,0 +1,15 @@
+{
+  "type": "justdirethings:goospread",
+  "craftingDuration": 2000,
+  "id": "justdynathings:metal_block",
+  "input": {
+    "Name": "minecraft:anvil",
+    "Properties": {
+      "facing": "south"
+    }
+  },
+  "output": {
+    "Name": "justdynathings:metal_block"
+  },
+  "tierRequirement": 4
+}

@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ACA",
+    "DEB",
+    "ACA"
+  ],
+  "key": {
+    "A": {
+      "item": "justdirethings:eclipsealloy_ingot"
+    },
+    "B": {
+      "item": "justdirethings:blockplacert1"
+    },
+    "C": {
+      "item": "justdynathings:chaotic_dust"
+    },
+    "D": {
+      "item": "justdirethings:blockbreakert1"
+    },
+    "E": {
+      "item": "minecraft:nether_star"
+    }
+  },
+  "result": {
+    "id": "justdynathings:reforger",
+    "count": 1
+  }
+}

@@ -7,6 +7,8 @@ import com.devdyna.justdynathings.init.builder.RawOre;
 import com.devdyna.justdynathings.init.builder.goo.Goo;
 import com.devdyna.justdynathings.init.builder.goo.GooBE;
 import com.devdyna.justdynathings.init.builder.goo.GooBlockItem;
+import com.devdyna.justdynathings.init.builder.goo.custom.EnergyGoo;
+import com.devdyna.justdynathings.init.builder.goo.custom.EnergyGooBE;
 import com.devdyna.justdynathings.init.builder.reforger.ReforgerBE;
 import com.devdyna.justdynathings.init.builder.reforger.ReforgerBlock;
 import com.devdyna.justdynathings.init.builder.reforger.ReforgerGUI;
@@ -25,9 +27,13 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.BlockEntityType.Builder;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.attachment.AttachmentType;
 import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import net.neoforged.neoforge.registries.NeoForgeRegistries.Keys;
+
+import com.direwolf20.justdirethings.datagen.JustDireItemTags;
 
 @SuppressWarnings("null")
 public class Material {
@@ -38,6 +44,7 @@ public class Material {
                 zBE.register(bus);
                 zCTBS.register(bus);
                 zCTNR.register(bus);
+                zATC.register(bus);
         }
 
         // -----------------------------------------------------------------------------------------------------------//
@@ -48,7 +55,7 @@ public class Material {
         public static final DeferredRegister<CreativeModeTab> zCTBS = DeferredRegister
                         .create(Registries.CREATIVE_MODE_TAB, Main.ID);
         public static final DeferredRegister<MenuType<?>> zCTNR = DeferredRegister.create(Registries.MENU, Main.ID);
-
+        private static final DeferredRegister<AttachmentType<?>> zATC = DeferredRegister.create(Keys.ATTACHMENT_TYPES, Main.ID);
         // -----------------------------------------------------------------------------------------------------------//
 
         public static final TagKey<Item> GOO_REVIVE_TIER_0 = RegUtil.tagItem("goo_revive_tier_0");
@@ -66,6 +73,9 @@ public class Material {
 
         public static final DeferredHolder<Block, Goo> GooT0_BLOCK = zBLK.register("rotten_goo",
                         () -> new Goo("rotten", 0, 4, GOO_REVIVE_TIER_0));
+
+        public static final DeferredHolder<Block, EnergyGoo> GooT4_BLOCK_ENERGY = zBLK.register("energized",
+                        () -> new EnergyGoo("energized", 4, 10, JustDireItemTags.GOO_REVIVE_TIER_4));
 
         public static final DeferredHolder<Block, PhaseBox> PHASEBOX = zBLK.register("phase_box",
                         () -> new PhaseBox());
@@ -87,6 +97,9 @@ public class Material {
         public static final DeferredHolder<Item, BlockItem> GooT5_ITEM = zITM.register("complex_goo",
                         () -> new GooBlockItem(GooT5_BLOCK.get()));
 
+        public static final DeferredHolder<Item, BlockItem> GooT4_ITEM_Energy = zITM.register("energized",
+                        () -> new GooBlockItem(GooT4_BLOCK_ENERGY.get()));
+
         public static final DeferredHolder<Item, Item> RAW_CHAOTIC_ITEM = zITM
                         .registerSimpleItem("chaotic_dust");
 
@@ -106,6 +119,10 @@ public class Material {
 
         public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GooBE>> GOO_BE = zBE.register("goobe",
                         () -> Builder.of(GooBE::new, GooT5_BLOCK.get(), GooT0_BLOCK.get()).build(null));
+
+        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<EnergyGooBE>> ENERGY_GOO_BE = zBE
+                        .register("energy_goobe",
+                                        () -> Builder.of(EnergyGooBE::new, GooT4_BLOCK_ENERGY.get()).build(null));
 
         public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ReforgerBE>> REFORGER_BE = zBE
                         .register("reforger_be",
@@ -134,4 +151,25 @@ public class Material {
 
         // -----------------------------------------------------------------------------------------------------------//
 
+
+//         public static final Supplier<AttachmentType<ItemStackHandler>> MACHINE_HANDLER = zATC.register("machine_handler", () -> {
+//          return AttachmentType.serializable((holder) -> {
+//             if (holder instanceof BaseMachineBE baseMachineBE) {
+//                return new ItemStackHandler(baseMachineBE.MACHINE_SLOTS);
+//             } else {
+//                return new ItemStackHandler(1);
+//             }
+//          }).build();
+//       });
+
+//       public static final Supplier<AttachmentType<MachineEnergyStorage>>  ENERGYSTORAGE_MACHINES = zATC.register("energystorage_machines", () -> {
+//          return AttachmentType.serializable((holder) -> {
+//             if (holder instanceof PoweredMachineBE feMachineBE) {
+//                int capacity = feMachineBE.getMaxEnergy();
+//                return new MachineEnergyStorage(capacity);
+//             } else {
+//                throw new IllegalStateException("Cannot attach energy handler item to a non-PoweredMachine.");
+//             }
+//          }).build();
+//       });
 }

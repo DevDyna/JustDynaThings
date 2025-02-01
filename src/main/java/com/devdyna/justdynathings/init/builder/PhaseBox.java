@@ -3,7 +3,7 @@ package com.devdyna.justdynathings.init.builder;
 import java.util.List;
 
 import com.devdyna.justdynathings.Main;
-import com.devdyna.justdynathings.utils.Math;
+import com.devdyna.justdynathings.utils.LevelUtil;
 
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
@@ -94,7 +94,7 @@ public class PhaseBox extends TransparentBlock {
                 pos.getZ(),
                 state.getValue(SOLID) ? SoundEvents.COPPER_TRAPDOOR_CLOSE : SoundEvents.COPPER_TRAPDOOR_OPEN,
                 SoundSource.BLOCKS, 100,
-                Math.getRandomValue(9) * 0.1f, true);
+                LevelUtil.getRandomValue(9,level) * 0.1f, true);
         level.setBlockAndUpdate(pos, state.setValue(SOLID, !state.getValue(SOLID)));
         return ItemInteractionResult.SUCCESS;
     }

@@ -2,8 +2,8 @@ package com.devdyna.justdynathings.utils;
 
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.init.Material;
-import com.devdyna.justdynathings.simply.BlockBase;
-import com.devdyna.justdynathings.simply.ItemBase;
+import com.devdyna.justdynathings.init.builder.simply.BlockBase;
+import com.devdyna.justdynathings.init.builder.simply.ItemBase;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;

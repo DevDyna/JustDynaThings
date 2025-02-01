@@ -1,15 +1,15 @@
 package com.devdyna.justdynathings.init;
 
 import com.devdyna.justdynathings.Main;
+import com.devdyna.justdynathings.init.builder.GooBlockItem;
 import com.devdyna.justdynathings.init.builder.MetalBlock;
 import com.devdyna.justdynathings.init.builder.PhaseBox;
+import com.devdyna.justdynathings.init.builder.RawOre;
+import com.devdyna.justdynathings.init.builder.goo.Goo;
+import com.devdyna.justdynathings.init.builder.goo.GooBE;
 import com.devdyna.justdynathings.init.builder.reforger.ReforgerBE;
 import com.devdyna.justdynathings.init.builder.reforger.ReforgerBlock;
 import com.devdyna.justdynathings.init.builder.reforger.ReforgerGUI;
-import com.devdyna.justdynathings.init.builder.simply.GooBlockItem;
-import com.devdyna.justdynathings.init.builder.simply.RawOre;
-import com.devdyna.justdynathings.init.builder.simply.goo.Goo;
-import com.devdyna.justdynathings.init.builder.simply.goo.GooBE;
 import com.devdyna.justdynathings.utils.RegUtil;
 
 import net.minecraft.core.registries.Registries;

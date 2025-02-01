@@ -97,11 +97,11 @@ public class LevelUtil {
         return getItemStackFromLootTable(level, state.getBlock().getDescriptionId(), 1);
     }
 
-    // example 
+    // example
     /**
      * 
      * @param level
-     * @param ModName "minecraft"
+     * @param ModName          "minecraft"
      * @param resourcelocation "blocks/stone"
      * @return
      */
@@ -112,6 +112,23 @@ public class LevelUtil {
                         .create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(
                                 ModName, resourcelocation)));
         return lootTable.getRandomItems(new LootParams.Builder(level).create(LootContextParamSets.EMPTY));
+    }
+
+    /**
+     * @return a value [0 , max] inclusive
+     */
+    public static int getRandomValue(int max, Level level) {
+        if (max <= 0)
+            return 1;
+
+        return level.random.nextInt(max) + 1;
+    }
+
+    public static boolean chance(int value, Level level) {
+        if (value == 0)
+            return false;
+
+        return getRandomValue(100, level) <= value;
     }
 
 }

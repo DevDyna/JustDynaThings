@@ -15,7 +15,6 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.neoforged.neoforge.common.Tags;
-import com.devdyna.justdynathings.utils.Math;
 
 @SuppressWarnings("null")
 public class ReforgerBE extends BaseMachineBE implements RedstoneControlledBE {
@@ -69,16 +68,16 @@ public class ReforgerBE extends BaseMachineBE implements RedstoneControlledBE {
             level.setBlockAndUpdate(pos,
                     LevelUtil
                             .ResourceByTag(Tags.Blocks.ORES_IN_GROUND_STONE,
-                                    Math.getRandomValue(LevelUtil.getSizeTag(Tags.Blocks.ORES_IN_GROUND_STONE)))
+                                    LevelUtil.getRandomValue(LevelUtil.getSizeTag(Tags.Blocks.ORES_IN_GROUND_STONE),level))
                             .defaultBlockState());
             level.playLocalSound(pos.getX(), pos.getY(),
                     pos.getZ(),
                     SoundEvents.AMETHYST_BLOCK_BREAK,
                     SoundSource.BLOCKS, 100,
-                    Math.getRandomValue(9) * 0.1f, true);
+                    LevelUtil.getRandomValue(9,level) * 0.1f, true);
 
-            if (Math.chance(50)) {
-                item.setCount(item.getCount() - 1);
+            if (LevelUtil.chance(50,level)) {
+                item.shrink(1);
             }
 
         }

@@ -1,8 +1,8 @@
 package com.devdyna.justdynathings.init;
 
 import com.devdyna.justdynathings.Main;
+import com.devdyna.justdynathings.init.builder.goo.GooRender;
 import com.devdyna.justdynathings.init.builder.reforger.ReforgerScreen;
-import com.devdyna.justdynathings.init.builder.simply.goo.GooRender;
 
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;

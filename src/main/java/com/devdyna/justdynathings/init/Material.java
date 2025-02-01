@@ -6,10 +6,10 @@ import com.devdyna.justdynathings.init.builder.PhaseBox;
 import com.devdyna.justdynathings.init.builder.reforger.ReforgerBE;
 import com.devdyna.justdynathings.init.builder.reforger.ReforgerBlock;
 import com.devdyna.justdynathings.init.builder.reforger.ReforgerGUI;
-import com.devdyna.justdynathings.simply.GooBlockItem;
-import com.devdyna.justdynathings.simply.RawOre;
-import com.devdyna.justdynathings.simply.goo.Goo;
-import com.devdyna.justdynathings.simply.goo.GooBE;
+import com.devdyna.justdynathings.init.builder.simply.GooBlockItem;
+import com.devdyna.justdynathings.init.builder.simply.RawOre;
+import com.devdyna.justdynathings.init.builder.simply.goo.Goo;
+import com.devdyna.justdynathings.init.builder.simply.goo.GooBE;
 import com.devdyna.justdynathings.utils.RegUtil;
 
 import net.minecraft.core.registries.Registries;

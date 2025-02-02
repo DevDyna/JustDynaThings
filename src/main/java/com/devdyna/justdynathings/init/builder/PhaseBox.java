@@ -99,7 +99,7 @@ public class PhaseBox extends TransparentBlock {
                 pos.getZ(),
                 state.getValue(SOLID) ? SoundEvents.COPPER_TRAPDOOR_CLOSE : SoundEvents.COPPER_TRAPDOOR_OPEN,
                 SoundSource.BLOCKS, 100,
-                LevelUtil.getRandomValue(9,level) * 0.1f, true);
+                LevelUtil.getRandomValue(9, level) * 0.1f, true);
         level.setBlockAndUpdate(pos, state.setValue(SOLID, !state.getValue(SOLID)));
         return ItemInteractionResult.SUCCESS;
     }

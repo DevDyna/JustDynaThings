@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.utils.LevelUtil;
+import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
 
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
@@ -37,7 +38,11 @@ public class PhaseBox extends TransparentBlock {
 
     public PhaseBox() {
         super(Properties.of().sound(SoundType.COPPER_BULB)
-                .instabreak().pushReaction(PushReaction.DESTROY));
+                .noOcclusion()
+                .isSuffocating(BaseMachineBlock::never)
+                .isViewBlocking(BaseMachineBlock::never)
+                .instabreak()
+                .pushReaction(PushReaction.DESTROY));
         this.registerDefaultState(stateDefinition.any()
                 .setValue(SOLID, true));
     }

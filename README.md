@@ -9,6 +9,7 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [x] T5 Goo
 - [x] Vanilla QoL recipes (mud -> clay | coarse dirt -> dirt)
 - [x] Reforger (oregen)
+- [x] Phase Box (xu1 Ethereal glass like)
 - [ ] Energized Goo (FE Goo)
 - [ ] Goo Revitalizer (alive any goo without clicking)
 - [ ] Sculk Diffuser (Sculk Source without need to kill mobs)
@@ -16,3 +17,5 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [ ] Effective / Creative Fuel (fuel with high multiplier)
 - [ ] Reforger T2 (?)
 - [ ] Experience Reactor (farmable xp mob-less)
+- [ ] Bacteria Catalyst (Eclipse staff but descructive)
+- [ ] Generator T2

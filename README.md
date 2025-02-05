@@ -19,3 +19,4 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [ ] Experience Reactor (farmable xp mob-less)
 - [ ] Bacteria Catalyst (Eclipse staff but descructive)
 - [ ] Generator T2
+- [ ] Item repair

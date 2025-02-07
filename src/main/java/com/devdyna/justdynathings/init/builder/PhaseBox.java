@@ -2,6 +2,7 @@ package com.devdyna.justdynathings.init.builder;
 
 import java.util.List;
 
+import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.utils.LevelUtil;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
@@ -31,6 +32,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.level.block.TransparentBlock;
+import com.direwolf20.justdirethings.datagen.JustDireItemTags;
 
 public class PhaseBox extends TransparentBlock {
 
@@ -85,22 +87,29 @@ public class PhaseBox extends TransparentBlock {
         if (player.isCrouching()) {
 
             if (stack.isEmpty())
-                return success(clicked, level, pos);
+                return success(stack, clicked, level, pos);
             else
                 return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 
         } else
-            return success(clicked, level, pos);
+            return success(stack, clicked, level, pos);
 
     }
 
-    private ItemInteractionResult success(BlockState state, Level level, BlockPos pos) {
-        level.playLocalSound(pos.getX(), pos.getY(),
-                pos.getZ(),
-                state.getValue(SOLID) ? SoundEvents.COPPER_TRAPDOOR_CLOSE : SoundEvents.COPPER_TRAPDOOR_OPEN,
-                SoundSource.BLOCKS, 100,
-                LevelUtil.getRandomValue(9, level) * 0.1f, true);
-        level.setBlockAndUpdate(pos, state.setValue(SOLID, !state.getValue(SOLID)));
+    private ItemInteractionResult success(ItemStack stack, BlockState state, Level level, BlockPos pos) {
+
+        if (Config.PHASEBOX_WRENCHABLE.get()
+                ? stack.is(JustDireItemTags.WRENCHES) || stack.is(JustDireItemTags.TOOLS_WRENCH)
+                : true) {
+
+            level.playLocalSound(pos.getX(), pos.getY(),
+                    pos.getZ(),
+                    state.getValue(SOLID) ? SoundEvents.COPPER_TRAPDOOR_CLOSE : SoundEvents.COPPER_TRAPDOOR_OPEN,
+                    SoundSource.BLOCKS, 100,
+                    LevelUtil.getRandomValue(9, level) * 0.1f, true);
+            level.setBlockAndUpdate(pos, state.setValue(SOLID, !state.getValue(SOLID)));
+        
+        }
         return ItemInteractionResult.SUCCESS;
     }
 

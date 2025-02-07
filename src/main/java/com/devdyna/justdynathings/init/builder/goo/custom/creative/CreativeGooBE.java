@@ -11,7 +11,7 @@ public class CreativeGooBE extends FEGoo {
     private int reducer;
 
     public CreativeGooBE(BlockPos pos, BlockState state, int tier, int reducer) {
-        super(Material.ENERGY_GOO_BE.get(), pos, state);
+        super(Material.CREATIVE_GOO_BE.get(), pos, state);
         this.tier = tier;
         this.reducer = reducer;
     }

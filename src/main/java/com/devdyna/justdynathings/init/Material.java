@@ -1,5 +1,6 @@
 package com.devdyna.justdynathings.init;
 
+import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.init.builder.MetalBlock;
 import com.devdyna.justdynathings.init.builder.PhaseBox;
@@ -32,8 +33,6 @@ import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.NeoForgeRegistries.Keys;
-
-import com.direwolf20.justdirethings.datagen.JustDireItemTags;
 
 @SuppressWarnings("null")
 public class Material {
@@ -75,7 +74,7 @@ public class Material {
                         () -> new Goo("rotten", 0, 4, GOO_REVIVE_TIER_0));
 
         public static final DeferredHolder<Block, EnergyGoo> GooT4_BLOCK_ENERGY = zBLK.register("energized",
-                        () -> new EnergyGoo("energized", 4, 10, JustDireItemTags.GOO_REVIVE_TIER_4));
+                        () -> new EnergyGoo("energized", 5, 10,Config.ENERGYGOO_COST_FOOD.get()));
 
         public static final DeferredHolder<Block, PhaseBox> PHASEBOX = zBLK.register("phase_box",
                         () -> new PhaseBox());

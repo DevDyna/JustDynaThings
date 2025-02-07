@@ -1,20 +1,20 @@
 {
   "justdynathings.creative_tab": "Just Dyna Things",
-  
+
   "justdynathings.off": "§8[§fControl§8]§f",
 
   "block.justdynathings.phase_box": "Phase Box",
   "justdynathings.phase_box.on": "Useful on mobfarms!",
-  
+
   "block.justdynathings.complex_goo": "Complex Signal Goo",
   "justdynathings.complex.on": "Can be revived using §6gold foods§f or §axp bottle§f (T5)",
-  
+
   "block.justdynathings.rotten_goo": "Tainted Wave Goo",
   "justdynathings.rotten.on": "Can be revived using §2seeds §f(T0)",
-  
+
   "block.justdynathings.energized_goo": "Redstone Analogic Goo",
   "justdynathings.energized.on": "A unique goo that allow to use §cForge Energy§f as food (T5)",
-  
+
   "block.justdynathings.creative_goo": "Omega Imagination Goo",
   "justdynathings.creative.on": "A §apermanent§f alive goo §f(T5)",
 
@@ -25,6 +25,4 @@
 
   "block.justdynathings.raw_chaotic_ore": "Raw Chaotic Ore",
   "item.justdynathings.chaotic_gem": "Chaotic Gem"
-
-  
 }

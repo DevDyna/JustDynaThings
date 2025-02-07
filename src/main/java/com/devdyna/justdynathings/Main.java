@@ -39,7 +39,7 @@ public class Main {
 
         event.registerBlock(Capabilities.EnergyStorage.BLOCK, (level, pos, state, be, side) -> {
             return be instanceof PoweredMachineBE ? be.getData(Registration.ENERGYSTORAGE_MACHINES) : null;
-        }, Material.GooT4_BLOCK_ENERGY.get());
+        }, Material.GooT4_ENERGY_BLOCK.get());
 
     }
 

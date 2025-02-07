@@ -26,7 +26,7 @@ public class FEGoo extends GooBlockBE_Base implements PoweredMachineBE {
         poweredMachineData = new PoweredMachineContainerData(this);
     }
 
-    public FEGoo(BlockEntityType<?> type, BlockPos pos, BlockState state, int cost,int maxsize) {
+    public FEGoo(BlockEntityType<?> type, BlockPos pos, BlockState state, int cost, int maxsize) {
         this(type, pos, state);
         this.maxsize = maxsize;
         this.cost = cost;
@@ -68,7 +68,7 @@ public class FEGoo extends GooBlockBE_Base implements PoweredMachineBE {
                         false);
 
                 level.playSound(null, getBlockPos(),
-                        getEnergyStored() <= getStandardEnergyCost() ? SoundEvents.VEX_DEATH
+                        getEnergyStored() <= getStandardEnergyCost() ? SoundEvents.RESPAWN_ANCHOR_DEPLETE.value()
                                 : SoundEvents.SCULK_BLOCK_SPREAD,
                         SoundSource.BLOCKS, 1.0F, 0.25F);
 
@@ -92,8 +92,8 @@ public class FEGoo extends GooBlockBE_Base implements PoweredMachineBE {
     }
 
     @Override
-    public int getMaxEnergy(){
-            return maxsize;
+    public int getMaxEnergy() {
+        return maxsize;
     }
 
 }

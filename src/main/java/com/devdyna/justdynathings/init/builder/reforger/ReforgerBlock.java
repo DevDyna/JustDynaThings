@@ -1,5 +1,6 @@
 package com.devdyna.justdynathings.init.builder.reforger;
 
+import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
 
@@ -72,9 +73,9 @@ public class ReforgerBlock extends BaseMachineBlock {
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents,
             TooltipFlag tooltipFlag) {
         if (Screen.hasControlDown()) {
-            tooltipComponents.add(Component.translatable(Main.ID + ".reforger.on"));
+            tooltipComponents.add(Component.translatable(Main.ID + "."+Constants.Material.Reforger.id+"."+Constants.ToolTip.On.id));
         } else {
-            tooltipComponents.add(Component.translatable(Main.ID + ".off"));
+            tooltipComponents.add(Component.translatable(Main.ID + "."+Constants.ToolTip.Off.id));
         }
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }

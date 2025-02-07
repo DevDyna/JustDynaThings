@@ -1,5 +1,6 @@
 package com.devdyna.justdynathings.init.builder.reforger;
 
+import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.init.Material;
 import com.devdyna.justdynathings.utils.LevelUtil;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
@@ -76,7 +77,7 @@ public class ReforgerBE extends BaseMachineBE implements RedstoneControlledBE {
                     SoundSource.BLOCKS, 100,
                     LevelUtil.getRandomValue(9,level) * 0.1f, true);
 
-            if (LevelUtil.chance(50,level)) {
+            if (LevelUtil.chance(Config.REFORGER_CHANCE.get(),level)) {
                 item.shrink(1);
             }
 

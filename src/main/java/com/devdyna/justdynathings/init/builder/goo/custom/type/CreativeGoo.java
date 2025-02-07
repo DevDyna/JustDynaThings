@@ -18,14 +18,14 @@ public class CreativeGoo extends GooBlockBE_Base {
 
     @Override
     public void tickServer() {
-        this.checkEnergy();
+        this.defineAlive();
         this.checkSides();
         this.tickCounters();
         setChanged();
     }
 
     @SuppressWarnings("null")
-    public void checkEnergy() {
+    public void defineAlive() {
         level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(ALIVE, true));
     }
 
@@ -43,10 +43,15 @@ public class CreativeGoo extends GooBlockBE_Base {
         level.playSound(null, getBlockPos(), SoundEvents.SCULK_BLOCK_BREAK, SoundSource.BLOCKS, 1.0F, 1.0F);
 
         if (level != null && !level.isClientSide) {
-                level.playSound(null, getBlockPos(),
-                        SoundEvents.SCULK_BLOCK_SPREAD,
-                        SoundSource.BLOCKS, 1.0F, 0.25F);
+            level.playSound(null, getBlockPos(),
+                    SoundEvents.SCULK_BLOCK_SPREAD,
+                    SoundSource.BLOCKS, 1.0F, 0.25F);
+
+            if (!getBlockState().getValue(ALIVE)) {
+                this.defineAlive();
+            }
         }
+
     }
 
 }

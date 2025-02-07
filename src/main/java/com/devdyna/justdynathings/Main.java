@@ -1,5 +1,7 @@
 package com.devdyna.justdynathings;
 
+
+
 import com.devdyna.justdynathings.init.Material;
 import com.devdyna.justdynathings.init.builder.goo.GooRender;
 import com.devdyna.justdynathings.init.builder.reforger.ReforgerScreen;
@@ -7,24 +9,27 @@ import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineBE;
 import com.direwolf20.justdirethings.setup.Registration;
 
+
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.config.ModConfig;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
-
+import com.mojang.logging.LogUtils;
+import org.slf4j.Logger;
 @Mod(Main.ID)
 public class Main {
     public static final String ID = "justdynathings";
 
+    public static final Logger LOGGER = LogUtils.getLogger();
+
     public Main(IEventBus modEventBus, ModContainer modContainer) {
         Material.register(modEventBus);
         modEventBus.addListener(this::regCap);
-
-        // if (Dist.CLIENT.isClient())
-            // NeoForge.EVENT_BUS.register(this);
+        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
     private void regCap(RegisterCapabilitiesEvent event) {

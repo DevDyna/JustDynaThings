@@ -3,6 +3,7 @@ package com.devdyna.justdynathings.init.builder;
 import java.util.List;
 
 import com.devdyna.justdynathings.Config;
+import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.utils.LevelUtil;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
@@ -118,9 +119,9 @@ public class PhaseBox extends TransparentBlock {
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents,
             TooltipFlag tooltipFlag) {
         if (Screen.hasControlDown()) {
-            tooltipComponents.add(Component.translatable(Main.ID + ".phase_box.on"));
+            tooltipComponents.add(Component.translatable(Main.ID + "."+Constants.Material.PhaseBox.id+"."+Constants.ToolTip.On.id));
         } else {
-            tooltipComponents.add(Component.translatable(Main.ID + ".off"));
+            tooltipComponents.add(Component.translatable(Main.ID + "."+Constants.ToolTip.Off.id));
         }
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }

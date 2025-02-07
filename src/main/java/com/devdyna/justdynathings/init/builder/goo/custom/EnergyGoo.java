@@ -29,24 +29,23 @@ public class EnergyGoo extends GooBlock_Base implements EntityBlock {
    private String tipname;
    private int tier;
    private int reducer;
-   private TagKey<Item> tag_revival;
+   private int rfcost;
 
-   public EnergyGoo(String tipname,  int tier, int reducer, TagKey<Item> tag_revival) {
+   public EnergyGoo(String tipname,  int tier, int reducer,int rfcost) {
       this.tipname = tipname;
       this.tier = tier;
       this.reducer = reducer;
-      this.tag_revival = tag_revival;
-
+      this.rfcost = rfcost;
    }
 
    @SuppressWarnings("null")
    @Nullable
    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-      return new EnergyGooBE(pos, state, tier, reducer);
+      return new EnergyGooBE(pos, state, tier, reducer,10);
    }
 
    protected boolean validRevivalItem(ItemStack itemStack) {
-      return itemStack.is(tag_revival);
+      return false;
    }
 
    @SuppressWarnings("null")

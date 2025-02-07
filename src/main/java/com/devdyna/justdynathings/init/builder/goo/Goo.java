@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.init.Material;
 import com.direwolf20.justdirethings.common.blockentities.gooblocks.GooBlockBE_Tier4;
@@ -53,9 +54,9 @@ public class Goo extends GooBlock_Base implements EntityBlock {
    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents,
          TooltipFlag tooltipFlag) {
       if (Screen.hasControlDown()) {
-         tooltipComponents.add(Component.translatable(Main.ID + "." + tipname + ".on"));
+         tooltipComponents.add(Component.translatable(Main.ID + "." + tipname + "."+Constants.ToolTip.On.id));
       } else {
-         tooltipComponents.add(Component.translatable(Main.ID + ".off"));
+         tooltipComponents.add(Component.translatable(Main.ID + "."+Constants.ToolTip.Off.id));
       }
       super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
    }

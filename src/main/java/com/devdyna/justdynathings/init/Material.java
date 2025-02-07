@@ -1,6 +1,5 @@
 package com.devdyna.justdynathings.init;
 
-import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.init.builder.MetalBlock;
 import com.devdyna.justdynathings.init.builder.PhaseBox;
@@ -77,9 +76,10 @@ public class Material {
                         () -> new Goo("rotten", 0, 4, GOO_REVIVE_TIER_0));
 
         public static final DeferredHolder<Block, EnergyGoo> GooT4_ENERGY_BLOCK = zBLK.register("energized",
-                        () -> new EnergyGoo("energized", 5, 10, Config.ENERGYGOO_COST_FOOD.get()));
+                        () -> new EnergyGoo("energized", 4, 10, 250,
+                                        10000));
 
-        public static final DeferredHolder<Block, CreativeGoo> GooT5_CREATIVE_BLOCK = zBLK.register("energized",
+        public static final DeferredHolder<Block, CreativeGoo> GooT5_CREATIVE_BLOCK = zBLK.register("creative",
                         () -> new CreativeGoo("creative", 5, 10));
 
         public static final DeferredHolder<Block, PhaseBox> PHASEBOX = zBLK.register("phase_box",

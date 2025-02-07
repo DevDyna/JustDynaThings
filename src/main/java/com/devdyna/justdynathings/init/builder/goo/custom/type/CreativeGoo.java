@@ -1,5 +1,7 @@
 package com.devdyna.justdynathings.init.builder.goo.custom.type;
 
+import static com.direwolf20.justdirethings.common.blocks.gooblocks.GooBlock_Base.ALIVE;
+
 import com.direwolf20.justdirethings.common.blockentities.basebe.GooBlockBE_Base;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -8,7 +10,6 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import static com.direwolf20.justdirethings.common.blocks.gooblocks.GooBlock_Base.ALIVE;
 
 public class CreativeGoo extends GooBlockBE_Base {
 
@@ -18,15 +19,9 @@ public class CreativeGoo extends GooBlockBE_Base {
 
     @Override
     public void tickServer() {
-        this.defineAlive();
         this.checkSides();
         this.tickCounters();
         setChanged();
-    }
-
-    @SuppressWarnings("null")
-    public void defineAlive() {
-        level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(ALIVE, true));
     }
 
     @SuppressWarnings("null")
@@ -47,9 +42,7 @@ public class CreativeGoo extends GooBlockBE_Base {
                     SoundEvents.SCULK_BLOCK_SPREAD,
                     SoundSource.BLOCKS, 1.0F, 0.25F);
 
-            if (!getBlockState().getValue(ALIVE)) {
-                this.defineAlive();
-            }
+            level.setBlock(worldPosition, getBlockState().setValue(ALIVE, true), 3);
         }
 
     }

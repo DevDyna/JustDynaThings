@@ -16,7 +16,7 @@ public class ReforgerGUI extends BaseMachineContainer {
     }
 
     public ReforgerGUI(int windowId, Inventory playerInventory, BlockPos blockPos) {
-        super(Material.GEN_GUI.get(), windowId, playerInventory, blockPos);
+        super(Material.REFORGER_GUI.get(), windowId, playerInventory, blockPos);
         addPlayerSlots(player.getInventory());
     }
 

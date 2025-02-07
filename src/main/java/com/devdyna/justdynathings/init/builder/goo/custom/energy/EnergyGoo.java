@@ -27,21 +27,27 @@ import net.minecraft.world.level.block.state.BlockState;
 @SuppressWarnings("unused")
 public class EnergyGoo extends GooBlock_Base implements EntityBlock {
    private String tipname;
-   private int tier;
-   private int reducer;
-   private int rfcost;
+   private int tier = 1;
+   private int reducer = 1;
+   private int rfcost = 200;
+   private int size = 1000;
 
-   public EnergyGoo(String tipname,  int tier, int reducer,int rfcost) {
+   /**
+     * @param rfcost FE / block converted
+     * @param size Max energy stored
+     */
+   public EnergyGoo(String tipname,  int tier, int reducer,int rfcost,int size) {
       this.tipname = tipname;
       this.tier = tier;
       this.reducer = reducer;
       this.rfcost = rfcost;
+      this.size = size;
    }
 
    @SuppressWarnings("null")
    @Nullable
    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-      return new EnergyGooBE(pos, state, tier, reducer,10);
+      return new EnergyGooBE(pos, state, tier, reducer,rfcost,size);
    }
 
    protected boolean validRevivalItem(ItemStack itemStack) {

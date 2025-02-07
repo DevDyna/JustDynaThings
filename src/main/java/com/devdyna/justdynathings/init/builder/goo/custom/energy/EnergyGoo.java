@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.init.Material;
 import com.devdyna.justdynathings.init.builder.goo.GooBE;
@@ -59,9 +60,9 @@ public class EnergyGoo extends GooBlock_Base implements EntityBlock {
    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents,
          TooltipFlag tooltipFlag) {
       if (Screen.hasControlDown()) {
-         tooltipComponents.add(Component.translatable(Main.ID + "." + tipname + ".on"));
+         tooltipComponents.add(Component.translatable(Main.ID + "." + tipname + "."+Constants.ToolTip.On.id));
       } else {
-         tooltipComponents.add(Component.translatable(Main.ID + ".off"));
+         tooltipComponents.add(Component.translatable(Main.ID + "."+Constants.ToolTip.Off.id));
       }
       super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
    }

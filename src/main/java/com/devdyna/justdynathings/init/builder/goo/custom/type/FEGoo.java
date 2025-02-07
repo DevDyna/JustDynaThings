@@ -18,16 +18,18 @@ import static com.direwolf20.justdirethings.common.blocks.gooblocks.GooBlock_Bas
 public class FEGoo extends GooBlockBE_Base implements PoweredMachineBE {
 
     public final PoweredMachineContainerData poweredMachineData;
-    private int RF_COST = 200; // default value to prevent null values
+    private int cost;
+    private int maxsize;
 
     public FEGoo(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
         poweredMachineData = new PoweredMachineContainerData(this);
     }
 
-    public FEGoo(BlockEntityType<?> type, BlockPos pos, BlockState state, int cost) {
+    public FEGoo(BlockEntityType<?> type, BlockPos pos, BlockState state, int cost,int maxsize) {
         this(type, pos, state);
-        RF_COST = cost;
+        this.maxsize = maxsize;
+        this.cost = cost;
     }
 
     @Override
@@ -86,7 +88,12 @@ public class FEGoo extends GooBlockBE_Base implements PoweredMachineBE {
 
     @Override
     public int getStandardEnergyCost() {
-        return RF_COST;
+        return cost;
+    }
+
+    @Override
+    public int getMaxEnergy(){
+            return maxsize;
     }
 
 }

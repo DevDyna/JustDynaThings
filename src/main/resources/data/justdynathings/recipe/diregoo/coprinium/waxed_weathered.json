@@ -1,0 +1,15 @@
+{
+  "type": "justdirethings:goospread",
+  "craftingDuration": 4000,
+  "id": "justdynathings:waxed_weathered_coprinium",
+  "input": {
+    "Name": "minecraft:waxed_weathered_copper"
+  },
+  "output": {
+    "Name": "justdynathings:raw_coprinium_ore",
+    "Properties": {
+      "facing": "north"
+    }
+  },
+  "tierRequirement": 6
+}

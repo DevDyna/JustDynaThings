@@ -1,0 +1,15 @@
+{
+  "type": "justdirethings:goospread",
+  "craftingDuration": 4000,
+  "id": "justdynathings:waxed_normal_cuprinium",
+  "input": {
+    "Name": "minecraft:waxed_copper_block"
+  },
+  "output": {
+    "Name": "justdynathings:raw_coprinium_ore",
+    "Properties": {
+      "facing": "north"
+    }
+  },
+  "tierRequirement": 6
+}

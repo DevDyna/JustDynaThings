@@ -1,0 +1,6 @@
+{
+	"parent": "justdirethings:block/raw_ore_template",
+	"textures": {
+		"palette": "minecraft:block/raw_copper_block"
+	}
+}

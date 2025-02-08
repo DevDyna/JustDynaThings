@@ -1,0 +1,15 @@
+{
+  "type": "justdirethings:goospread",
+  "craftingDuration": 4000,
+  "id": "justdynathings:redstone_block",
+  "input": {
+    "Name": "minecraft:redstone_block"
+  },
+  "output": {
+    "Name": "justdynathings:raw_redstonic_ore",
+    "Properties": {
+      "facing": "north"
+    }
+  },
+  "tierRequirement": 5
+}

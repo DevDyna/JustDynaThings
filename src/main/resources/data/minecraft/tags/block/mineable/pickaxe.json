@@ -4,7 +4,15 @@
     "justdynathings:reforger",
     "justdynathings:raw_chaotic_ore",
     "justdynathings:metal_block",
-	"justdynathings:creative_goo",
-	"justdynathings:energized_goo"
+    "justdynathings:creative_goo",
+    "justdynathings:energized_goo",
+    "justdynathings:energized_rotten_goo", 
+    "justdynathings:energized_primogel_goo", 
+    "justdynathings:energized_blazebloom_goo", 
+    "justdynathings:energized_voidshimmer_goo", 
+    "justdynathings:energized_shadowpulse_goo", 
+    "justdynathings:energized_complex_goo", 
+    "justdynathings:raw_redstonic_ore",
+    "justdynathings:raw_coprinium_ore"
   ]
 }

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABA",
+    "BCB",
+    "ABA"
+  ],
+  "key": {
+    "A": {
+      "item": "justdynathings:coprinium_ingot"
+    },
+    "B": {
+      "item": "justdynathings:redstonic_shard"
+    },
+    "C": {
+      "item": "justdynathings:complex_goo"
+    }
+  },
+  "result": {
+    "id": "justdynathings:energized_complex_goo",
+    "count": 1
+  }
+}

@@ -26,7 +26,7 @@
                     }
                   }
                 ],
-                "name": "justdynathings:raw_chaotic_ore"
+                "name": "justdynathings:raw_redstonic_ore"
               },
               {
                 "type": "minecraft:item",
@@ -44,7 +44,7 @@
                     "function": "minecraft:explosion_decay"
                   }
                 ],
-                "name": "justdynathings:chaotic_gem"
+                "name": "justdynathings:redstonic_shard"
               }
             ]
           }
@@ -52,5 +52,5 @@
         "rolls": 1.0
       }
     ],
-    "random_sequence": "justdynathings:blocks/raw_chaotic_ore"
+    "random_sequence": "justdynathings:blocks/raw_redstonic_ore"
   }

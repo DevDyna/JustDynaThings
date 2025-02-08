@@ -125,7 +125,7 @@ repositories {
 }
 
 dependencies {
-    implementation "curse.maven:justdirethings-1002348:6114524"
+    implementation "curse.maven:justdirethings-1002348:6161633"
     implementation "curse.maven:jei-238222:5846880"
 }
 

@@ -55,6 +55,7 @@ public class Goo extends GooBlock_Base implements EntityBlock {
          TooltipFlag tooltipFlag) {
       if (Screen.hasControlDown()) {
          tooltipComponents.add(Component.translatable(Main.ID + "." + tipname + "."+Constants.ToolTip.On.id));
+         tooltipComponents.add(Component.translatable(Main.ID + "."+Constants.ToolTip.Goo.id));
       } else {
          tooltipComponents.add(Component.translatable(Main.ID + "."+Constants.ToolTip.Off.id));
       }

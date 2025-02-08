@@ -37,6 +37,11 @@ public enum Constants {
             Redstonic("redstonic"),
             Redstonic_Item(Redstonic.id + "_shard"),
             Redstonic_Block("raw_" + Redstonic.id + "_ore"),
+
+            Coprinium("coprinium"),
+            Coprinium_Raw("raw_"+Coprinium.id),
+            Coprinium_Ingot(Coprinium.id + "_ingot"),
+            Coprinium_Block("raw_" + Coprinium.id + "_ore"),
             ;
 
             public final String id;

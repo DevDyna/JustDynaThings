@@ -116,7 +116,11 @@ public class Material {
 
         public static final DeferredHolder<Block, RawOre> RAW_REDSTONIC_BLOCK = zBLK.register(
                         Constants.Material.Ore.Redstonic_Block.id,
-                        () -> new RawOre(SoundType.AMETHYST, 2.0f, 2.0f));
+                        () -> new RawOre(SoundType.AMETHYST, 3.0f, 6.0f));
+
+        public static final DeferredHolder<Block, RawOre> RAW_COPRINIUM_BLOCK = zBLK.register(
+                        Constants.Material.Ore.Coprinium_Block.id,
+                        () -> new RawOre(SoundType.AMETHYST, 1.4f, 7.0f));
 
         public static final DeferredHolder<Block, ReforgerBlock> REFORGER_BLOCK = zBLK
                         .register(Constants.Material.Reforger.id, ReforgerBlock::new);
@@ -146,6 +150,15 @@ public class Material {
 
         public static final DeferredHolder<Item, BlockItem> RAW_REDSTONIC_BLOCK_ITEM = zITM
                         .registerSimpleBlockItem(RAW_REDSTONIC_BLOCK);
+
+        public static final DeferredHolder<Item, Item> RAW_COPRINIUM_RAW_ITEM = zITM
+                        .registerSimpleItem(Constants.Material.Ore.Coprinium_Raw.id);
+
+        public static final DeferredHolder<Item, Item> RAW_COPRINIUM_INGOT_ITEM = zITM
+                        .registerSimpleItem(Constants.Material.Ore.Coprinium_Ingot.id);
+
+        public static final DeferredHolder<Item, BlockItem> RAW_COPRINIUM_BLOCK_ITEM = zITM
+                        .registerSimpleBlockItem(RAW_COPRINIUM_BLOCK);
 
         public static final DeferredHolder<Item, BlockItem> PHASEBOX_ITEM = zITM
                         .registerSimpleBlockItem(PHASEBOX);
@@ -227,8 +240,8 @@ public class Material {
         }
 
         public static DeferredBlock<EnergyGoo> FEGooCapByTier(String id, int tier) {
-                return simpleFEGoo(id, tier, 4 * (tier+1), Constants.FEGoo.Cost.value * tier,
-                                Constants.FEGoo.Capacity.value * (tier+1));
+                return simpleFEGoo(id, tier, 4 * (tier + 1), Constants.FEGoo.Cost.value * tier,
+                                Constants.FEGoo.Capacity.value * (tier + 1));
         }
 
         public static DeferredHolder<Item, BlockItem> simpleGooItem(DeferredHolder<Block, ?> block, String id) {

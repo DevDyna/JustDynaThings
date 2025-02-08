@@ -124,16 +124,16 @@ public class Material {
         // -----------------------------------------------------------------------------------------------------------//
 
         public static final DeferredHolder<Item, BlockItem> GooT5_ITEM = simpleGooItem(GooT5_BLOCK,
-                        Constants.Material.Goo.Complex.id + "_" + Constants.Material.Goo.ID.id);
+                        Constants.Material.Goo.Complex.id);
 
         public static final DeferredHolder<Item, BlockItem> GooT0_ITEM = simpleGooItem(GooT0_BLOCK,
-                        Constants.Material.Goo.Rotten.id + "_" + Constants.Material.Goo.ID.id);
+                        Constants.Material.Goo.Rotten.id);
 
         public static final DeferredHolder<Item, BlockItem> GooT6_ITEM_Energy = simpleGooItem(GooT6_ENERGY_BLOCK,
-                        Constants.Material.Goo.Energized.id + "_" + Constants.Material.Goo.ID.id);
+                        Constants.Material.Goo.Energized.id);
 
         public static final DeferredHolder<Item, BlockItem> GooT5_ITEM_Creative = simpleGooItem(GooT5_CREATIVE_BLOCK,
-                        Constants.Material.Goo.Creative.id + "_" + Constants.Material.Goo.ID.id);
+                        Constants.Material.Goo.Creative.id);
 
         public static final DeferredHolder<Item, Item> RAW_CHAOTIC_ITEM = zITM
                         .registerSimpleItem(Constants.Material.Ore.Chaotic_Item.id);
@@ -227,8 +227,8 @@ public class Material {
         }
 
         public static DeferredBlock<EnergyGoo> FEGooCapByTier(String id, int tier) {
-                return simpleFEGoo(id, tier, 4 * tier, Constants.FEGoo.Cost.value * tier,
-                                Constants.FEGoo.Capacity.value * tier);
+                return simpleFEGoo(id, tier, 4 * (tier+1), Constants.FEGoo.Cost.value * tier,
+                                Constants.FEGoo.Capacity.value * (tier+1));
         }
 
         public static DeferredHolder<Item, BlockItem> simpleGooItem(DeferredHolder<Block, ?> block, String id) {

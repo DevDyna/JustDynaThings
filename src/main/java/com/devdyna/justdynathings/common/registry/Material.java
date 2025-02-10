@@ -67,13 +67,13 @@ public class Material {
                         Main.ID);
         // -----------------------------------------------------------------------------------------------------------//
 
-        public static final TagKey<Item> GOO_REVIVE_TIER_0 = RegUtil.tagItem("goo_revive_tier_0");
+        public static final TagKey<Item> GOO_REVIVE_TIER_0 = RegUtil.createtagItem("goo_revive_tier_0");
 
-        public static final TagKey<Item> GOO_REVIVE_TIER_5 = RegUtil.tagItem("goo_revive_tier_5");
+        public static final TagKey<Item> GOO_REVIVE_TIER_5 = RegUtil.createtagItem("goo_revive_tier_5");
 
-        public static final TagKey<Block> REFORGER_REPLACE = RegUtil.tagBlock("reforger/replace");
+        public static final TagKey<Block> REFORGER_REPLACE = RegUtil.createtagBlock("reforger/replace");
 
-        public static final TagKey<Item> REFORGER_CATALYST = RegUtil.tagItem("reforger/catalyst");
+        public static final TagKey<Item> REFORGER_CATALYST = RegUtil.createtagItem("reforger/catalyst");
 
         // -----------------------------------------------------------------------------------------------------------//
 
@@ -131,7 +131,7 @@ public class Material {
 
         public static final DeferredHolder<Block, BuddingBlock> POWERED_BUDDING_TIME = zBLK.register(
                         Constants.Material.Budding.Powered.id + "_" + Constants.Material.Budding.Time.id,
-                        () -> new BuddingBlock(10, 100000, 10, 100000,
+                        () -> new BuddingBlock(10, 100000, 10, 10000,
                                         Registration.TimeCrystalCluster_Small.get(),
                                         Registration.TimeCrystalCluster_Medium.get(),
                                         Registration.TimeCrystalCluster_Large.get(),
@@ -139,7 +139,7 @@ public class Material {
 
         public static final DeferredHolder<Block, BuddingBlock> POWERED_BUDDING_AMETHYST = zBLK.register(
                         Constants.Material.Budding.Powered.id + "_" + Constants.Material.Budding.Amethyst.id,
-                        () -> new BuddingBlock(10, 100000, 10, 100000,
+                        () -> new BuddingBlock(10, 100000, 10, 10000,
                                         Blocks.SMALL_AMETHYST_BUD,
                                         Blocks.MEDIUM_AMETHYST_BUD,
                                         Blocks.LARGE_AMETHYST_BUD,

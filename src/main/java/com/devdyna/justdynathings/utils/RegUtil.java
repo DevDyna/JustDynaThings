@@ -14,29 +14,29 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 
 public class RegUtil {
 
-    public static TagKey<Item> tagItem(String name) {
+    public static TagKey<Item> createtagItem(String name) {
         return TagKey.create(BuiltInRegistries.ITEM.key(),
                 ResourceLocation.fromNamespaceAndPath(Main.ID, name));
     }
 
-    public static TagKey<Block> tagBlock(String name) {
+    public static TagKey<Block> createtagBlock(String name) {
         return TagKey.create(BuiltInRegistries.BLOCK.key(),
                 ResourceLocation.fromNamespaceAndPath(Main.ID, name));
     }
 
-    public static DeferredHolder<Item, ?> ezItem(String name) {
+    public static DeferredHolder<Item, ?> createItem(String name) {
         return Material.zITM.register(name,
                 ItemBase::new);
     }
 
-    public static DeferredHolder<Block, ?> ezBlock(String name) {
+    public static DeferredHolder<Block, ?> createBlock(String name) {
         return Material.zBLK.register(name,
                 BlockBase::new);
     }
 
 
-    public static DeferredHolder<Block, ?> ezBlockItem(String name) {
-        ezItem(name);
+    public static DeferredHolder<Block, ?> createBlockItem(String name) {
+        createItem(name);
         return Material.zBLK.register(name,
                 BlockBase::new);
     }

@@ -12,6 +12,12 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [x] Phase Box (xu1 Ethereal glass like)
 - [x] Energized Goo (FE Goo)
 - [x] Permanent / Creative Goo (goo without decay)
+- [x] Powered Time Crystal Budding
+
+- [ ] Fluid tank
+- [ ] Energy storage
+- [ ] Creative Fluid tank
+- [ ] Creative Energy storage
 - [ ] Goo Revitalizer (alive any goo without clicking)
 - [ ] Sculk Diffuser (Sculk Source without need to kill mobs)
 - [ ] Effective / Creative Fuel (fuel with high multiplier)

@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings;
 
-import com.devdyna.justdynathings.init.Material;
+import com.devdyna.justdynathings.common.registry.Material;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.FluidMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineBE;
@@ -22,16 +22,32 @@ import org.slf4j.Logger;
 public class Main {
         public static final String ID = "justdynathings";
 
-        public static final Logger LOGGER = LogUtils.getLogger();
+        public static final Logger LOG = LogUtils.getLogger();
 
         public Main(IEventBus modEventBus, ModContainer modContainer) {
                 Material.register(modEventBus);
                 modEventBus.addListener(this::regCap);
                 modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+
+                LOG.info("AppliedEnergistics2" + (Constants.Mods.AE2.check ? " found -> adding compat features"
+                                : " not found -> skipping"));
+                if (Constants.Mods.AE2.check)
+                        com.devdyna.justdynathings.compat.ae2.init.register(modEventBus);
+                LOG.info("ExtendedAE" + (Constants.Mods.ExtendedAE.check ? " found -> adding compat features"
+                                : " not found -> skipping"));
+                if (Constants.Mods.ExtendedAE.check)
+                        com.devdyna.justdynathings.compat.extendedae.init.register(modEventBus);
+                LOG.info("PhasoriteNetworks"
+                                + (Constants.Mods.PhasoriteNetworks.check ? " found -> adding compat features"
+                                                : " not found -> skipping"));
+                if (Constants.Mods.PhasoriteNetworks.check)
+                        com.devdyna.justdynathings.compat.phasorite.init.register(modEventBus);
+
         }
 
         @SubscribeEvent
         private void regCap(RegisterCapabilitiesEvent event) {
+
                 event.registerBlock(
                                 ItemHandler.BLOCK, (level, pos, state, be,
                                                 side) -> be instanceof BaseMachineBE
@@ -53,6 +69,13 @@ public class Main {
                                                 ? be.getData(Registration.PARADOX_FLUID_HANDLER)
                                                 : null,
                                 Material.POWERED_BUDDING_TIME.get(), Material.POWERED_BUDDING_AMETHYST.get());
+
+                if (Constants.Mods.AE2.check)
+                        com.devdyna.justdynathings.compat.ae2.init.regCap(event);
+                if (Constants.Mods.ExtendedAE.check)
+                        com.devdyna.justdynathings.compat.extendedae.init.regCap(event);
+                if (Constants.Mods.PhasoriteNetworks.check)
+                        com.devdyna.justdynathings.compat.phasorite.init.regCap(event);
 
         }
 

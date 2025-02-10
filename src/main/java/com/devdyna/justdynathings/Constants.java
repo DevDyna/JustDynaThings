@@ -72,6 +72,22 @@ public enum Constants {
 
         }
 
+        public enum Budding {
+
+            ID("budding"),
+            Powered("powered"),
+            Time(ID.id+"_time"),
+            Amethyst(ID.id+"_amethyst"),
+            ;
+
+            public final String id;
+
+            Budding(String id) {
+                this.id = id;
+            }
+
+        }
+
     }
 
     public enum ToolTip {

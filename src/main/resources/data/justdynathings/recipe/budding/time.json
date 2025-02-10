@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+      "BBB",
+      "BAB",
+      "BBB"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:echo_shard"
+      },
+      "B": {
+        "item": "justdirethings:time_crystal_block"
+      }
+    },
+    "result": {
+      "id": "justdynathings:powered_budding_time",
+      "count": 1
+    }
+  }

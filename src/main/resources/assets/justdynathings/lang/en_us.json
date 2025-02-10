@@ -47,5 +47,10 @@
   "justdynathings.energized_shadowpulse_goo.on": "Powered by §cForge Energy§f (T4)",
   "justdynathings.energized_complex_goo.on": "Powered by §cForge Energy§f (T5)",
 
+  "block.justdynathings.powered_budding_time": "Echo Time Budding",
+  "block.justdynathings.powered_budding_amethyst": "Echo Amethyst Budding",
+
+  "justdynathings.budding.on": "Buddings that can grow using Time Fluid and Forge Energy",
+
   "justdynathings.goo": "Rendering still broken atm"
 }

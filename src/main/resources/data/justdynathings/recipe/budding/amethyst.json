@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+      "BBB",
+      "BAB",
+      "BBB"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:echo_shard"
+      },
+      "B": {
+        "item": "minecraft:amethyst_block"
+      }
+    },
+    "result": {
+      "id": "justdynathings:powered_budding_amethyst",
+      "count": 1
+    }
+  }

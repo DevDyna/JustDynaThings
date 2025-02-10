@@ -2,6 +2,9 @@ package com.devdyna.justdynathings.utils;
 
 import java.util.List;
 
+import com.direwolf20.justdirethings.client.particles.glitterparticle.GlitterParticleData;
+
+import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -129,6 +132,34 @@ public class LevelUtil {
             return false;
 
         return getRandomValue(100, level) <= value;
+    }
+
+    public static Direction randomDirection(Level l, Direction[] d) {
+        return d[l.random.nextInt(d.length)];
+    }
+
+    /**
+     * Generate N dust particles
+     * 
+     */
+    public static void SpawnGlitterParticle(float red, float green, float blue, BlockPos pos, Level level, float[] speed,
+            int N) {
+        GlitterParticleData data;
+        for (int i = 0; i < N; ++i) {
+
+            data = GlitterParticleData.playerparticle("glitter", pos.getX() + 0.5, pos.getY() + 0.5,
+                    pos.getZ() + 0.5, 0.05F + -0.025F * level.random.nextFloat(), red, green, blue, 0.5F, 120.0F,
+                    false);
+
+            level.addParticle(data,
+                    pos.getX() + (level.random.nextDouble() * 0.5) + (level.random.nextBoolean() ? -0.5
+                            : 1.0),
+                    pos.getY() + (level.random.nextDouble() * 0.5) + (level.random.nextBoolean() ? -0.5
+                            : 1.0),
+                    pos.getZ() + (level.random.nextDouble() * 0.5) + (level.random.nextBoolean() ? -0.5
+                            : 1.0),
+                    speed[0], speed[1], speed[2]);
+        }
     }
 
 }

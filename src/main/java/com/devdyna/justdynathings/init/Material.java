@@ -5,6 +5,8 @@ import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.init.builder.MetalBlock;
 import com.devdyna.justdynathings.init.builder.PhaseBox;
 import com.devdyna.justdynathings.init.builder.RawOre;
+import com.devdyna.justdynathings.init.builder.budding.BuddingBE;
+import com.devdyna.justdynathings.init.builder.budding.BuddingBlock;
 import com.devdyna.justdynathings.init.builder.goo.Goo;
 import com.devdyna.justdynathings.init.builder.goo.GooBE;
 import com.devdyna.justdynathings.init.builder.goo.GooBlockItem;
@@ -16,6 +18,7 @@ import com.devdyna.justdynathings.init.builder.reforger.ReforgerBE;
 import com.devdyna.justdynathings.init.builder.reforger.ReforgerBlock;
 import com.devdyna.justdynathings.init.builder.reforger.ReforgerGUI;
 import com.devdyna.justdynathings.utils.RegUtil;
+import com.direwolf20.justdirethings.setup.Registration;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -26,6 +29,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.BlockEntityType.Builder;
@@ -125,6 +129,22 @@ public class Material {
         public static final DeferredHolder<Block, ReforgerBlock> REFORGER_BLOCK = zBLK
                         .register(Constants.Material.Reforger.id, ReforgerBlock::new);
 
+        public static final DeferredHolder<Block, BuddingBlock> POWERED_BUDDING_TIME = zBLK.register(
+                        Constants.Material.Budding.Powered.id + "_" + Constants.Material.Budding.Time.id,
+                        () -> new BuddingBlock(10, 100000, 10, 100000,
+                                        Registration.TimeCrystalCluster_Small.get(),
+                                        Registration.TimeCrystalCluster_Medium.get(),
+                                        Registration.TimeCrystalCluster_Large.get(),
+                                        Registration.TimeCrystalCluster.get()));
+
+        public static final DeferredHolder<Block, BuddingBlock> POWERED_BUDDING_AMETHYST = zBLK.register(
+                        Constants.Material.Budding.Powered.id + "_" + Constants.Material.Budding.Amethyst.id,
+                        () -> new BuddingBlock(10, 100000, 10, 100000,
+                                        Blocks.SMALL_AMETHYST_BUD,
+                                        Blocks.MEDIUM_AMETHYST_BUD,
+                                        Blocks.LARGE_AMETHYST_BUD,
+                                        Blocks.AMETHYST_CLUSTER));
+
         // -----------------------------------------------------------------------------------------------------------//
 
         public static final DeferredHolder<Item, BlockItem> GooT5_ITEM = simpleGooItem(GooT5_BLOCK,
@@ -181,6 +201,12 @@ public class Material {
                         Constants.Material.Goo.T4.id);
         public static final DeferredHolder<Item, BlockItem> T5_ENERGY_ITEM = simpleFEGooItem(T5_ENERGY,
                         Constants.Material.Goo.Complex.id);
+
+        public static final DeferredHolder<Item, BlockItem> POWERED_BUDDING_TIME_ITEM = zITM
+                        .registerSimpleBlockItem(POWERED_BUDDING_TIME);
+
+        public static final DeferredHolder<Item, BlockItem> POWERED_BUDDING_AMETHYST_ITEM = zITM
+                        .registerSimpleBlockItem(POWERED_BUDDING_AMETHYST);
         // -----------------------------------------------------------------------------------------------------------//
 
         public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GooBE>> GOO_BE = zBE.register(
@@ -200,6 +226,12 @@ public class Material {
         public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ReforgerBE>> REFORGER_BE = zBE
                         .register(Constants.Material.Reforger.id + "_" + Constants.BlockEntity.id,
                                         () -> Builder.of(ReforgerBE::new, REFORGER_BLOCK.get()).build(null));
+
+        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BuddingBE>> POWERED_BUDDING_BE = zBE
+                        .register(
+                                        Constants.Material.Budding.ID.id + "_" + Constants.BlockEntity.id,
+                                        () -> Builder.of(BuddingBE::new, POWERED_BUDDING_TIME.get(),
+                                                        POWERED_BUDDING_AMETHYST.get()).build(null));
 
         // -----------------------------------------------------------------------------------------------------------//
 

@@ -25,6 +25,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
 import net.minecraft.world.level.block.BuddingAmethystBlock;
 
+@SuppressWarnings("null")
 public class BuddingBE extends BaseMachineBE implements PoweredMachineBE, FluidMachineBE {
 
     public final PoweredMachineContainerData poweredMachineData;
@@ -33,7 +34,6 @@ public class BuddingBE extends BaseMachineBE implements PoweredMachineBE, FluidM
     private int FEsize;
     private int FLsize;
     private int FLcost;
-
     private Block smallCluster;
     private Block mediumCluster;
     private Block largeCluster;
@@ -76,43 +76,39 @@ public class BuddingBE extends BaseMachineBE implements PoweredMachineBE, FluidM
         run();
     }
 
-    @SuppressWarnings("null")
-    protected void run() {
+    public void run() {
 
-        level.setBlockAndUpdate(getBlockPos(),
-                getBlockState().setValue(ACTIVE,
-                        getEnergyStored() > getStandardEnergyCost() && getAmountStored() > getStandardFluidCost()));
+        updateBlock();
 
         if (LevelUtil.chance(25, level) && getBlockState().getValue(ACTIVE)) {
 
+            // RANDOM REQUIRE VARIABLE
             Direction dir = LevelUtil.randomDirection(level, Direction.values());
-            BlockPos pos = getBlockPos().relative(dir);
-            BlockState state = level.getBlockState(pos);
-            if (growCluster(pos, state, dir)) {
 
-                // LevelUtil.SpawnGlitterParticle(0.0F, 255.0F, 154.0F, pos, level, new float[] { 1.0F, 1.0F, 1.0F },
-                //         6);
+            if (growCluster(dir)) {
 
-                if (LevelUtil.chance(75, level))
-                    level.playSound(null, pos, SoundEvents.AMETHYST_BLOCK_RESONATE,
-                            SoundSource.BLOCKS, level.random.nextInt(50) + 1 * 0.01F,
-                            level.random.nextInt(50) + 1 * 0.01F);
+                applyParticles();
 
-                if (LevelUtil.chance(75, level))
-                    extractEnergy(
-                            getEnergyStored() <= getStandardEnergyCost() ? getEnergyStored() : getStandardEnergyCost(),
-                            false);
+                applySound(dir);
 
-                if (LevelUtil.chance(75, level))
-                    setAmountStored(
-                            getAmountStored() <= getStandardFluidCost() ? getAmountStored() : getStandardFluidCost());
+                consumeEnergy();
+
+                consumeFluid();
 
             }
         }
     }
 
-    @SuppressWarnings("null")
-    public boolean growCluster(BlockPos pos, BlockState state, Direction dir) {
+    /**
+     * grow something on a direction
+     * 
+     * @param pos
+     * @param state
+     * @param dir
+     * @return found a valid growable direction
+     */
+    public boolean growCluster(Direction dir) {
+        BlockState state = level.getBlockState(getBlockPos().relative(dir));
         Block block = BuddingAmethystBlock.canClusterGrowAtState(state)
                 ? smallCluster
                 : (state.is(smallCluster)
@@ -126,15 +122,67 @@ public class BuddingBE extends BaseMachineBE implements PoweredMachineBE, FluidM
                                                                 ? finalCluster
                                                                 : null;
         if (block != null) {
-            BlockState blockstate1 = block.defaultBlockState()
+            BlockState state1 = block.defaultBlockState()
                     .setValue(TimeCrystalCluster.FACING, dir)
                     .setValue(TimeCrystalCluster.WATERLOGGED,
                             Boolean.valueOf(state.getFluidState().getType() == Fluids.WATER));
-            level.setBlockAndUpdate(pos, blockstate1);
+            level.setBlockAndUpdate(getBlockPos().relative(dir), state1);
             return true;
         } else
             return false;
 
+    }
+
+    /**
+     * extract fluid
+     */
+    public void consumeFluid() {
+        if (LevelUtil.chance(75, level))
+            setAmountStored(
+                    getAmountStored() <= getStandardFluidCost() ? getAmountStored() : getStandardFluidCost());
+    }
+
+    /**
+     * extract energy
+     */
+    public void consumeEnergy() {
+        if (LevelUtil.chance(75, level))
+            extractEnergy(
+                    getEnergyStored() <= getStandardEnergyCost() ? getEnergyStored() : getStandardEnergyCost(),
+                    false);
+    }
+
+    /**
+     * add sound events
+     * 
+     * @param pos
+     */
+    public void applySound(Direction dir) {
+        if (LevelUtil.chance(75, level))
+            level.playSound(null, getBlockPos().relative(dir), SoundEvents.AMETHYST_BLOCK_RESONATE,
+                    SoundSource.BLOCKS, level.random.nextInt(50) + 1 * 0.01F,
+                    level.random.nextInt(50) + 1 * 0.01F);
+    }
+
+    /**
+     * WIP
+     * add dire-glitter particles
+     * WIP
+     */
+    public void applyParticles() {
+        // if (LevelUtil.chance(25, level))
+        // LevelUtil.SpawnGlitterParticle(0.0F, 255.0F, 154.0F, pos, level, new float[]
+        // { 1.0F, 1.0F, 1.0F },
+        // 6);
+    }
+
+    /**
+     * update the blockstate properties
+     */
+    public void updateBlock() {
+        level.setBlockAndUpdate(getBlockPos(),
+                getBlockState().setValue(ACTIVE,
+                        getEnergyStored() > getStandardEnergyCost() && getAmountStored() > getStandardFluidCost()));
     }
 
     @Override
@@ -167,12 +215,15 @@ public class BuddingBE extends BaseMachineBE implements PoweredMachineBE, FluidM
         return getData(Registration.PARADOX_FLUID_HANDLER);
     }
 
-    public int getStandardFluidCost() {
-        return FLcost;
-    }
-
     @Override
     public int getMaxMB() {
         return FLsize;
+    }
+
+    /**
+     * "why not?"
+     */
+    public int getStandardFluidCost() {
+        return FLcost;
     }
 }

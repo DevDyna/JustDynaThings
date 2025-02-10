@@ -66,6 +66,22 @@ public class BuddingBE extends BaseMachineBE implements PoweredMachineBE, FluidM
         this.finalCluster = finalCluster;
     }
 
+    public BuddingBE(BlockEntityType<?> type, BlockPos pos, BlockState state, int FEcost, int FEsize, int FLcost,
+            int FLsize,
+            Block smallCluster, Block mediumCluster, Block largeCluster, Block finalCluster) {
+        super(type, pos, state);
+        poweredMachineData = new PoweredMachineContainerData(this);
+        fluidContainerData = new FluidContainerData(this);
+        this.FEcost = FEcost;
+        this.FEsize = FEsize;
+        this.FLcost = FLcost;
+        this.FLsize = FLsize;
+        this.smallCluster = smallCluster;
+        this.mediumCluster = mediumCluster;
+        this.largeCluster = largeCluster;
+        this.finalCluster = finalCluster;
+    }
+
     @Override
     public void tickClient() {
     }
@@ -137,7 +153,7 @@ public class BuddingBE extends BaseMachineBE implements PoweredMachineBE, FluidM
      * extract fluid
      */
     public void consumeFluid() {
-        if (LevelUtil.chance(75, level))
+        if (LevelUtil.chance(50, level))
             setAmountStored(
                     getAmountStored() <= getStandardFluidCost() ? getAmountStored() : getStandardFluidCost());
     }
@@ -146,7 +162,7 @@ public class BuddingBE extends BaseMachineBE implements PoweredMachineBE, FluidM
      * extract energy
      */
     public void consumeEnergy() {
-        if (LevelUtil.chance(75, level))
+        if (LevelUtil.chance(50, level))
             extractEnergy(
                     getEnergyStored() <= getStandardEnergyCost() ? getEnergyStored() : getStandardEnergyCost(),
                     false);
@@ -158,22 +174,20 @@ public class BuddingBE extends BaseMachineBE implements PoweredMachineBE, FluidM
      * @param pos
      */
     public void applySound(Direction dir) {
-        if (LevelUtil.chance(75, level))
+        if (LevelUtil.chance(50, level))
             level.playSound(null, getBlockPos().relative(dir), SoundEvents.AMETHYST_BLOCK_RESONATE,
                     SoundSource.BLOCKS, level.random.nextInt(50) + 1 * 0.01F,
                     level.random.nextInt(50) + 1 * 0.01F);
     }
 
     /**
-     * WIP
      * add dire-glitter particles
-     * WIP
      */
     public void applyParticles() {
-        // if (LevelUtil.chance(25, level))
-        // LevelUtil.SpawnGlitterParticle(0.0F, 255.0F, 154.0F, pos, level, new float[]
-        // { 1.0F, 1.0F, 1.0F },
-        // 6);
+        if (LevelUtil.chance(25, level))
+        LevelUtil.SpawnGlitterParticle(0.0F, 255.0F, 154.0F, getBlockPos(), level, new float[]
+        { 1.0F, 1.0F, 1.0F },
+        6);
     }
 
     /**

@@ -7,6 +7,7 @@ import com.devdyna.justdynathings.common.registry.builder.PhaseBox;
 import com.devdyna.justdynathings.common.registry.builder.RawOre;
 import com.devdyna.justdynathings.common.registry.builder.budding.BuddingBE;
 import com.devdyna.justdynathings.common.registry.builder.budding.BuddingBlock;
+import com.devdyna.justdynathings.common.registry.builder.budding.DecayBuddingBE;
 import com.devdyna.justdynathings.common.registry.builder.goo.Goo;
 import com.devdyna.justdynathings.common.registry.builder.goo.GooBE;
 import com.devdyna.justdynathings.common.registry.builder.goo.GooBlockItem;
@@ -71,9 +72,11 @@ public class Material {
 
         public static final TagKey<Item> GOO_REVIVE_TIER_5 = RegUtil.createtagItem("goo_revive_tier_5");
 
-        public static final TagKey<Block> REFORGER_REPLACE = RegUtil.createtagBlock("reforger/replace");
+        public static final TagKey<Block> REFORGER_REPLACE = RegUtil.createtagBlock("reforger_replace");
 
-        public static final TagKey<Item> REFORGER_CATALYST = RegUtil.createtagItem("reforger/catalyst");
+        public static final TagKey<Item> REFORGER_CATALYST = RegUtil.createtagItem("reforger_catalyst");
+
+        public static final TagKey<Item> FLAWED_REVITALIZER = RegUtil.createtagItem("flawed_revitalizer");
 
         // -----------------------------------------------------------------------------------------------------------//
 
@@ -131,7 +134,9 @@ public class Material {
 
         public static final DeferredHolder<Block, BuddingBlock> POWERED_BUDDING_TIME = zBLK.register(
                         Constants.Material.Budding.Powered.id + "_" + Constants.Material.Budding.Time.id,
-                        () -> new BuddingBlock(10, 100000, 10, 10000,
+                        () -> new BuddingBlock(
+                                        Constants.FEBudding.FECost.value, Constants.FEBudding.FECapacity.value,
+                                        Constants.FEBudding.FLCost.value, Constants.FEBudding.FLCapacity.value,
                                         Registration.TimeCrystalCluster_Small.get(),
                                         Registration.TimeCrystalCluster_Medium.get(),
                                         Registration.TimeCrystalCluster_Large.get(),
@@ -139,7 +144,9 @@ public class Material {
 
         public static final DeferredHolder<Block, BuddingBlock> POWERED_BUDDING_AMETHYST = zBLK.register(
                         Constants.Material.Budding.Powered.id + "_" + Constants.Material.Budding.Amethyst.id,
-                        () -> new BuddingBlock(10, 100000, 10, 10000,
+                        () -> new BuddingBlock(
+                                        Constants.FEBudding.FECost.value, Constants.FEBudding.FECapacity.value,
+                                        Constants.FEBudding.FLCost.value, Constants.FEBudding.FLCapacity.value,
                                         Blocks.SMALL_AMETHYST_BUD,
                                         Blocks.MEDIUM_AMETHYST_BUD,
                                         Blocks.LARGE_AMETHYST_BUD,
@@ -229,9 +236,41 @@ public class Material {
 
         public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BuddingBE>> POWERED_BUDDING_BE = zBE
                         .register(
-                                        Constants.Material.Budding.ID.id + "_" + Constants.BlockEntity.id,
+                                        Constants.Material.Budding.Flawless.id + "_" + Constants.BlockEntity.id,
                                         () -> Builder.of(BuddingBE::new, POWERED_BUDDING_TIME.get(),
-                                                        POWERED_BUDDING_AMETHYST.get()).build(null));
+                                                        POWERED_BUDDING_AMETHYST.get(),
+                                                        (Constants.Mods.AE2.check)
+                                                                        ? com.devdyna.justdynathings.compat.ae2.init.AE2_FLAWLESS
+                                                                                        .get()
+                                                                        : null,
+                                                        (Constants.Mods.ExtendedAE.check)
+                                                                        ? com.devdyna.justdynathings.compat.extendedae.init.EXTENDED_FLAWLESS
+                                                                                        .get()
+                                                                        : null,
+                                                        (Constants.Mods.PhasoriteNetworks.check)
+                                                                        ? com.devdyna.justdynathings.compat.phasorite.init.PHASORITE_FLAWLESS
+                                                                                        .get()
+                                                                        : null
+
+                                        )
+                                                        .build(null));
+
+        public static DeferredHolder<BlockEntityType<?>, BlockEntityType<DecayBuddingBE>> POWERED_FLAWED_BUDDING_BE = zBE
+                        .register(
+                                        Constants.Material.Budding.Flawed.id +
+                                                        "_"
+                                                        + Constants.BlockEntity.id,
+                                        () -> Builder.of(DecayBuddingBE::new,
+
+                                                        (Constants.Mods.AE2.check)
+                                                                        ? com.devdyna.justdynathings.compat.ae2.init.AE2_FLAWED
+                                                                                        .get()
+                                                                        : null,
+                                                        (Constants.Mods.ExtendedAE.check)
+                                                                        ? com.devdyna.justdynathings.compat.extendedae.init.EXTENDED_FLAWED
+                                                                                        .get()
+                                                                        : null)
+                                                        .build(null));
 
         // -----------------------------------------------------------------------------------------------------------//
 
@@ -241,16 +280,31 @@ public class Material {
 
         // -----------------------------------------------------------------------------------------------------------//
 
-        public static final DeferredHolder<CreativeModeTab, CreativeModeTab> CreativeTab = zCTBS
+        public static final DeferredHolder<CreativeModeTab, CreativeModeTab> CREATIVETAB = zCTBS
                         .register(Main.ID, () -> CreativeModeTab.builder()
                                         .title(Component.translatable(Main.ID + "." + Constants.CreativeTab.id))
                                         .withTabsBefore(CreativeModeTabs.COMBAT)
                                         .icon(() -> REFORGER_BLOCK.get().asItem().getDefaultInstance())
                                         .displayItems((parameters, output) -> {
-
                                                 zITM.getEntries().forEach(e -> {
                                                         output.accept((Item) e.get());
                                                 });
+
+                                                if (Constants.Mods.AE2.check)
+                                                        com.devdyna.justdynathings.compat.ae2.init.zAE_ITM.getEntries()
+                                                                        .forEach(e -> {
+                                                                                output.accept((Item) e.get());
+                                                                        });
+                                                if (Constants.Mods.ExtendedAE.check)
+                                                        com.devdyna.justdynathings.compat.extendedae.init.zEXTAE_ITM
+                                                                        .getEntries().forEach(e -> {
+                                                                                output.accept((Item) e.get());
+                                                                        });
+                                                if (Constants.Mods.PhasoriteNetworks.check)
+                                                        com.devdyna.justdynathings.compat.phasorite.init.zPHASO_ITM
+                                                                        .getEntries().forEach(e -> {
+                                                                                output.accept((Item) e.get());
+                                                                        });
 
                                         }).build());
 

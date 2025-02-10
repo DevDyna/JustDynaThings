@@ -78,6 +78,9 @@ public enum Constants {
             Powered("powered"),
             Time(ID.id+"_time"),
             Amethyst(ID.id+"_amethyst"),
+            Certus(ID.id+"_certus"),
+            Entro(ID.id+"_entro"),
+            Phasorite(ID.id+"_phasorite"),
             ;
 
             public final String id;
@@ -85,7 +88,6 @@ public enum Constants {
             Budding(String id) {
                 this.id = id;
             }
-
         }
 
     }

@@ -13,7 +13,7 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [x] Energized Goo (FE Goo)
 - [x] Permanent / Creative Goo (goo without decay)
 - [x] Powered Time Crystal Budding
-
+- [ ] Trash cans
 - [ ] Fluid tank
 - [ ] Energy storage
 - [ ] Creative Fluid tank

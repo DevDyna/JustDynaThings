@@ -72,13 +72,14 @@ public class BuddingBlock extends BlockBaseBE {
         builder.add(ACTIVE);
     }
 
-        @Override
+    @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents,
             TooltipFlag tooltipFlag) {
         if (Screen.hasControlDown()) {
-            tooltipComponents.add(Component.translatable(Main.ID + "."+Constants.Material.Budding.ID.id+"."+Constants.ToolTip.On.id));
+            tooltipComponents.add(Component
+                    .translatable(Main.ID + "." + Constants.Material.Budding.ID.id + "." + Constants.ToolTip.On.id));
         } else {
-            tooltipComponents.add(Component.translatable(Main.ID + "."+Constants.ToolTip.Off.id));
+            tooltipComponents.add(Component.translatable(Main.ID + "." + Constants.ToolTip.Off.id));
         }
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }

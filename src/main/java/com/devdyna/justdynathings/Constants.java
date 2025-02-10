@@ -1,5 +1,7 @@
 package com.devdyna.justdynathings;
 
+import net.neoforged.fml.ModList;
+
 public enum Constants {
 
     Item("item"),
@@ -81,6 +83,8 @@ public enum Constants {
             Certus(ID.id+"_certus"),
             Entro(ID.id+"_entro"),
             Phasorite(ID.id+"_phasorite"),
+            Flawless("flawless_"),
+            Flawed("flawed_"),
             ;
 
             public final String id;
@@ -115,5 +119,33 @@ public enum Constants {
             this.value = value;
         }
     }
+
+    public enum FEBudding {
+        FECost(1),
+        FECapacity(10000),
+        FLCost(1),
+        FLCapacity(10000),
+        ;
+
+        public final int value;
+
+        FEBudding(int value) {
+            this.value = value;
+        }
+    }
+
+    public enum Mods {
+        AE2(ModList.get().isLoaded("ae2")),
+        ExtendedAE(ModList.get().isLoaded("extendedae")),
+        PhasoriteNetworks(ModList.get().isLoaded("phasoritenetworks")),
+        ;
+
+        public final boolean check;
+
+        Mods(boolean check) {
+            this.check = check;
+        }
+    }
+
 
 }

@@ -1,14 +1,14 @@
 package com.devdyna.justdynathings;
 
+import com.devdyna.justdynathings.common.Material;
+import com.devdyna.justdynathings.common.builder.goo.GooRender;
+import com.devdyna.justdynathings.common.builder.reforger.ReforgerScreen;
+
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
-
-import com.devdyna.justdynathings.init.Material;
-import com.devdyna.justdynathings.init.builder.goo.GooRender;
-import com.devdyna.justdynathings.init.builder.reforger.ReforgerScreen;
 
 
 //IT WORK , DONT TOUCH IT

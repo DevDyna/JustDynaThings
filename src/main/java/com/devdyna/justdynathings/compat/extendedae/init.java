@@ -66,24 +66,6 @@ public class init {
         public static DeferredHolder<Item, BlockItem> EXTENDED_FLAWED_ITEM = zEXTAE_ITM
                         .registerSimpleBlockItem(EXTENDED_FLAWED);
         // -----------------------------------------------------------------------------------------------------------//
-        // public static DeferredHolder<BlockEntityType<?>, BlockEntityType<BuddingBE>>
-        // EXTENDED_FLAWLESS_BE = zEXTAE_BE
-        // .register(
-        // Constants.Material.Budding.Flawless.id
-        // + Constants.Material.Budding.Entro.id + "_"
-        // + Constants.BlockEntity.id,
-        // () -> Builder.of(BuddingBE::new, EXTENDED_FLAWLESS.get())
-        // .build(null));
-
-        // public static DeferredHolder<BlockEntityType<?>,
-        // BlockEntityType<DecayBuddingBE>> EXTENDED_FLAWED_BE = zEXTAE_BE
-        // .register(
-        // Constants.Material.Budding.Flawed.id
-        // + Constants.Material.Budding.Entro.id + "_"
-        // + Constants.BlockEntity.id,
-        // () -> Builder.of(DecayBuddingBE::new, EXTENDED_FLAWED.get())
-        // .build(null));
-        // -----------------------------------------------------------------------------------------------------------//
 
         public static void regCap(RegisterCapabilitiesEvent event) {
                 event.registerBlock(EnergyStorage.BLOCK, (level, pos, state, be,

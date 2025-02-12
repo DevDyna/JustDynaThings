@@ -21,6 +21,15 @@ public class DecayBuddingBE extends BuddingBE {
     public final PoweredMachineContainerData poweredMachineData;
     public final FluidContainerData fluidContainerData;
 
+    public int FEcost;
+    public int FEsize;
+    public int FLsize;
+    public int FLcost;
+    public Block smallCluster;
+    public Block mediumCluster;
+    public Block largeCluster;
+    public Block finalCluster;
+
     public DecayBuddingBE(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
         poweredMachineData = new PoweredMachineContainerData(this);
@@ -35,10 +44,17 @@ public class DecayBuddingBE extends BuddingBE {
 
     public DecayBuddingBE(BlockPos pos, BlockState state, int FEcost, int FEsize, int FLcost, int FLsize,
             Block smallCluster, Block mediumCluster, Block largeCluster, Block finalCluster) {
-        super(Material.POWERED_FLAWED_BUDDING_BE.get(), pos, state, FEcost, FEsize, FLcost, FLsize, smallCluster,
-                mediumCluster, largeCluster, finalCluster);
+        super(Material.POWERED_FLAWED_BUDDING_BE.get(),pos, state);
         poweredMachineData = new PoweredMachineContainerData(this);
         fluidContainerData = new FluidContainerData(this);
+        this.FEcost = FEcost;
+        this.FEsize = FEsize;
+        this.FLcost = FLcost;
+        this.FLsize = FLsize;
+        this.smallCluster = smallCluster;
+        this.mediumCluster = mediumCluster;
+        this.largeCluster = largeCluster;
+        this.finalCluster = finalCluster;
     }
 
     @Override

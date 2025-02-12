@@ -53,15 +53,6 @@ public class init {
         // -----------------------------------------------------------------------------------------------------------//
         public static DeferredHolder<Item, BlockItem> PHASORITE_FLAWLESS_ITEM = zPHASO_ITM
                         .registerSimpleBlockItem(PHASORITE_FLAWLESS);
-        // -----------------------------------------------------------------------------------------------------------//
-        // public static DeferredHolder<BlockEntityType<?>, BlockEntityType<BuddingBE>>
-        // PHASORITE_FLAWLESS_BE = zPHASO_BE
-        // .register(
-        // Constants.Material.Budding.Flawless.id
-        // + Constants.Material.Budding.Phasorite.id + "_"
-        // + Constants.BlockEntity.id,
-        // () -> Builder.of(BuddingBE::new, PHASORITE_FLAWLESS.get())
-        // .build(null));
 
         // -----------------------------------------------------------------------------------------------------------//
         public static void regCap(RegisterCapabilitiesEvent event) {

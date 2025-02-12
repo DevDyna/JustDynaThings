@@ -30,14 +30,14 @@ public class BuddingBE extends BaseMachineBE implements PoweredMachineBE, FluidM
 
     public final PoweredMachineContainerData poweredMachineData;
     public final FluidContainerData fluidContainerData;
-    private int FEcost;
-    private int FEsize;
-    private int FLsize;
-    private int FLcost;
-    private Block smallCluster;
-    private Block mediumCluster;
-    private Block largeCluster;
-    private Block finalCluster;
+    public int FEcost;
+    public int FEsize;
+    public int FLsize;
+    public int FLcost;
+    public Block smallCluster;
+    public Block mediumCluster;
+    public Block largeCluster;
+    public Block finalCluster;
 
     public BuddingBE(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
@@ -66,21 +66,21 @@ public class BuddingBE extends BaseMachineBE implements PoweredMachineBE, FluidM
         this.finalCluster = finalCluster;
     }
 
-    public BuddingBE(BlockEntityType<?> type, BlockPos pos, BlockState state, int FEcost, int FEsize, int FLcost,
-            int FLsize,
-            Block smallCluster, Block mediumCluster, Block largeCluster, Block finalCluster) {
-        super(type, pos, state);
-        poweredMachineData = new PoweredMachineContainerData(this);
-        fluidContainerData = new FluidContainerData(this);
-        this.FEcost = FEcost;
-        this.FEsize = FEsize;
-        this.FLcost = FLcost;
-        this.FLsize = FLsize;
-        this.smallCluster = smallCluster;
-        this.mediumCluster = mediumCluster;
-        this.largeCluster = largeCluster;
-        this.finalCluster = finalCluster;
-    }
+    // public BuddingBE(BlockEntityType<?> type, BlockPos pos, BlockState state, int FEcost, int FEsize, int FLcost,
+    //         int FLsize,
+    //         Block smallCluster, Block mediumCluster, Block largeCluster, Block finalCluster) {
+    //     super(type, pos, state);
+    //     poweredMachineData = new PoweredMachineContainerData(this);
+    //     fluidContainerData = new FluidContainerData(this);
+    //     this.FEcost = FEcost;
+    //     this.FEsize = FEsize;
+    //     this.FLcost = FLcost;
+    //     this.FLsize = FLsize;
+    //     this.smallCluster = smallCluster;
+    //     this.mediumCluster = mediumCluster;
+    //     this.largeCluster = largeCluster;
+    //     this.finalCluster = finalCluster;
+    // }
 
     @Override
     public void tickClient() {

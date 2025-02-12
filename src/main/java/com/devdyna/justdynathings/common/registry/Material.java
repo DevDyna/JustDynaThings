@@ -236,7 +236,7 @@ public class Material {
 
         public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BuddingBE>> POWERED_BUDDING_BE = zBE
                         .register(
-                                        Constants.Material.Budding.Flawless.id + "_" + Constants.BlockEntity.id,
+                                        Constants.Material.Budding.Flawless.id + Constants.BlockEntity.id,
                                         () -> Builder.of(BuddingBE::new, POWERED_BUDDING_TIME.get(),
                                                         POWERED_BUDDING_AMETHYST.get(),
                                                         (Constants.Mods.AE2.check)
@@ -257,8 +257,8 @@ public class Material {
 
         public static DeferredHolder<BlockEntityType<?>, BlockEntityType<DecayBuddingBE>> POWERED_FLAWED_BUDDING_BE = zBE
                         .register(
-                                        Constants.Material.Budding.Flawed.id +
-                                                        "_"
+                                        Constants.Material.Budding.Flawed.id
+                                                        
                                                         + Constants.BlockEntity.id,
                                         () -> Builder.of(DecayBuddingBE::new,
 

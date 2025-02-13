@@ -1,13 +1,13 @@
 package com.devdyna.justdynathings;
 
 import com.devdyna.justdynathings.common.registry.Material;
+import com.devdyna.justdynathings.compat.core;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.FluidMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineBE;
 import com.direwolf20.justdirethings.setup.Registration;
 
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
@@ -15,6 +15,7 @@ import net.neoforged.neoforge.capabilities.Capabilities.EnergyStorage;
 import net.neoforged.neoforge.capabilities.Capabilities.FluidHandler;
 import net.neoforged.neoforge.capabilities.Capabilities.ItemHandler;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
+
 import com.mojang.logging.LogUtils;
 import org.slf4j.Logger;
 
@@ -25,27 +26,19 @@ public class Main {
         public static final Logger LOG = LogUtils.getLogger();
 
         public Main(IEventBus modEventBus, ModContainer modContainer) {
+
                 Material.register(modEventBus);
-                modEventBus.addListener(this::regCap);
+
                 modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
 
-                LOG.info("AppliedEnergistics2" + (Constants.Mods.AE2.check ? " found -> adding compat features"
-                                : " not found -> skipping"));
-                if (Constants.Mods.AE2.check)
-                        com.devdyna.justdynathings.compat.ae2.init.register(modEventBus);
-                LOG.info("ExtendedAE" + (Constants.Mods.ExtendedAE.check ? " found -> adding compat features"
-                                : " not found -> skipping"));
-                if (Constants.Mods.ExtendedAE.check)
-                        com.devdyna.justdynathings.compat.extendedae.init.register(modEventBus);
-                LOG.info("PhasoriteNetworks"
-                                + (Constants.Mods.PhasoriteNetworks.check ? " found -> adding compat features"
-                                                : " not found -> skipping"));
-                if (Constants.Mods.PhasoriteNetworks.check)
-                        com.devdyna.justdynathings.compat.phasorite.init.register(modEventBus);
+                modEventBus.addListener(this::regCap);
 
+                // compats
+                core.ae2_compat(modEventBus);
+                core.extendedae_compat(modEventBus);
+                core.phasorite_compat(modEventBus);
         }
 
-        @SubscribeEvent
         private void regCap(RegisterCapabilitiesEvent event) {
 
                 event.registerBlock(

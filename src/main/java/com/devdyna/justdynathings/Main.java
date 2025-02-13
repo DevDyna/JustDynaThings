@@ -61,21 +61,19 @@ public class Main {
                                                 : null,
                                 Material.GooT6_ENERGY_BLOCK.get(), Material.T0_ENERGY.get(), Material.T1_ENERGY.get(),
                                 Material.T2_ENERGY.get(), Material.T3_ENERGY.get(), Material.T4_ENERGY.get(),
-                                Material.T5_ENERGY.get(),
-                                Material.POWERED_BUDDING_TIME.get(), Material.POWERED_BUDDING_AMETHYST.get());
+                                Material.T5_ENERGY.get());
 
                 event.registerBlock(FluidHandler.BLOCK,
                                 (level, pos, state, be, side) -> be instanceof FluidMachineBE
                                                 ? be.getData(Registration.PARADOX_FLUID_HANDLER)
                                                 : null,
-                                Material.POWERED_BUDDING_TIME.get(), Material.POWERED_BUDDING_AMETHYST.get());
+                                Material.getBuddingAvailable());
 
-                if (Constants.Mods.AE2.check)
-                        com.devdyna.justdynathings.compat.ae2.init.regCap(event);
-                if (Constants.Mods.ExtendedAE.check)
-                        com.devdyna.justdynathings.compat.extendedae.init.regCap(event);
-                if (Constants.Mods.PhasoriteNetworks.check)
-                        com.devdyna.justdynathings.compat.phasorite.init.regCap(event);
+                event.registerBlock(EnergyStorage.BLOCK, (level, pos, state, be,
+                                side) -> be instanceof PoweredMachineBE
+                                                ? be.getData(Registration.ENERGYSTORAGE_MACHINES)
+                                                : null,
+                                Material.getBuddingAvailable());
 
         }
 

@@ -83,8 +83,6 @@ public enum Constants {
             Certus(ID.id+"_certus"),
             Entro(ID.id+"_entro"),
             Phasorite(ID.id+"_phasorite"),
-            Flawless("flawless"),
-            Flawed("flawed"),
             ;
 
             public final String id;

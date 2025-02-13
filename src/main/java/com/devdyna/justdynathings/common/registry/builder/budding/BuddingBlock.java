@@ -35,6 +35,7 @@ public class BuddingBlock extends BlockBaseBE {
     private Block largeCluster;
     private Block finalCluster;
 
+
     public BuddingBlock(int FEcost, int FEsize, int FLcost, int FLsize, Block smallCluster, Block mediumCluster,
             Block largeCluster, Block finalCluster) {
         super(Properties.of()
@@ -59,7 +60,7 @@ public class BuddingBlock extends BlockBaseBE {
 
     @Override
     public boolean isValidBE(BlockEntity blockEntity) {
-        return blockEntity instanceof BuddingBE;
+        return blockEntity instanceof BlockEntity;
     }
 
     @Override

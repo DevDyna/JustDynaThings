@@ -58,11 +58,6 @@ public class BuddingBlock extends BlockBaseBE {
     }
 
     @Override
-    public boolean isValidBE(BlockEntity blockEntity) {
-        return blockEntity instanceof BuddingBE;
-    }
-
-    @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         return defaultBlockState().setValue(ACTIVE, false);
     }

@@ -66,22 +66,6 @@ public class BuddingBE extends BaseMachineBE implements PoweredMachineBE, FluidM
         this.finalCluster = finalCluster;
     }
 
-    // public BuddingBE(BlockEntityType<?> type, BlockPos pos, BlockState state, int FEcost, int FEsize, int FLcost,
-    //         int FLsize,
-    //         Block smallCluster, Block mediumCluster, Block largeCluster, Block finalCluster) {
-    //     super(type, pos, state);
-    //     poweredMachineData = new PoweredMachineContainerData(this);
-    //     fluidContainerData = new FluidContainerData(this);
-    //     this.FEcost = FEcost;
-    //     this.FEsize = FEsize;
-    //     this.FLcost = FLcost;
-    //     this.FLsize = FLsize;
-    //     this.smallCluster = smallCluster;
-    //     this.mediumCluster = mediumCluster;
-    //     this.largeCluster = largeCluster;
-    //     this.finalCluster = finalCluster;
-    // }
-
     @Override
     public void tickClient() {
     }

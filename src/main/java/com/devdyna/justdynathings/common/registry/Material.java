@@ -1,5 +1,7 @@
 package com.devdyna.justdynathings.common.registry;
 
+import java.util.ArrayList;
+
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.common.registry.builder.MetalBlock;
@@ -7,7 +9,6 @@ import com.devdyna.justdynathings.common.registry.builder.PhaseBox;
 import com.devdyna.justdynathings.common.registry.builder.RawOre;
 import com.devdyna.justdynathings.common.registry.builder.budding.BuddingBE;
 import com.devdyna.justdynathings.common.registry.builder.budding.BuddingBlock;
-import com.devdyna.justdynathings.common.registry.builder.budding.DecayBuddingBE;
 import com.devdyna.justdynathings.common.registry.builder.goo.Goo;
 import com.devdyna.justdynathings.common.registry.builder.goo.GooBE;
 import com.devdyna.justdynathings.common.registry.builder.goo.GooBlockItem;
@@ -20,7 +21,6 @@ import com.devdyna.justdynathings.common.registry.builder.reforger.ReforgerBlock
 import com.devdyna.justdynathings.common.registry.builder.reforger.ReforgerGUI;
 import com.devdyna.justdynathings.utils.RegUtil;
 import com.direwolf20.justdirethings.setup.Registration;
-
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.TagKey;
@@ -132,7 +132,7 @@ public class Material {
         public static final DeferredHolder<Block, ReforgerBlock> REFORGER_BLOCK = zBLK
                         .register(Constants.Material.Reforger.id, ReforgerBlock::new);
 
-        public static final DeferredHolder<Block, BuddingBlock> POWERED_BUDDING_TIME = zBLK.register(
+        public static final DeferredHolder<Block, BuddingBlock> POWERED_TIME = zBLK.register(
                         Constants.Material.Budding.Powered.id + "_" + Constants.Material.Budding.Time.id,
                         () -> new BuddingBlock(
                                         Constants.FEBudding.FECost.value, Constants.FEBudding.FECapacity.value,
@@ -142,7 +142,7 @@ public class Material {
                                         Registration.TimeCrystalCluster_Large.get(),
                                         Registration.TimeCrystalCluster.get()));
 
-        public static final DeferredHolder<Block, BuddingBlock> POWERED_BUDDING_AMETHYST = zBLK.register(
+        public static final DeferredHolder<Block, BuddingBlock> POWERED_AMETHYST = zBLK.register(
                         Constants.Material.Budding.Powered.id + "_" + Constants.Material.Budding.Amethyst.id,
                         () -> new BuddingBlock(
                                         Constants.FEBudding.FECost.value, Constants.FEBudding.FECapacity.value,
@@ -209,11 +209,12 @@ public class Material {
         public static final DeferredHolder<Item, BlockItem> T5_ENERGY_ITEM = simpleFEGooItem(T5_ENERGY,
                         Constants.Material.Goo.Complex.id);
 
-        public static final DeferredHolder<Item, BlockItem> POWERED_BUDDING_TIME_ITEM = zITM
-                        .registerSimpleBlockItem(POWERED_BUDDING_TIME);
+        public static final DeferredHolder<Item, BlockItem> POWERED_TIME_ITEM = zITM
+                        .registerSimpleBlockItem(POWERED_TIME);
 
-        public static final DeferredHolder<Item, BlockItem> POWERED_BUDDING_AMETHYST_ITEM = zITM
-                        .registerSimpleBlockItem(POWERED_BUDDING_AMETHYST);
+        public static final DeferredHolder<Item, BlockItem> POWERED_AMETHYST_ITEM = zITM
+                        .registerSimpleBlockItem(POWERED_AMETHYST);
+
         // -----------------------------------------------------------------------------------------------------------//
 
         public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GooBE>> GOO_BE = zBE.register(
@@ -236,40 +237,8 @@ public class Material {
 
         public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BuddingBE>> POWERED_BUDDING_BE = zBE
                         .register(
-                                        Constants.Material.Budding.Flawless.id + Constants.BlockEntity.id,
-                                        () -> Builder.of(BuddingBE::new, POWERED_BUDDING_TIME.get(),
-                                                        POWERED_BUDDING_AMETHYST.get(),
-                                                        (Constants.Mods.AE2.check)
-                                                                        ? com.devdyna.justdynathings.compat.ae2.init.AE2_FLAWLESS
-                                                                                        .get()
-                                                                        : null,
-                                                        (Constants.Mods.ExtendedAE.check)
-                                                                        ? com.devdyna.justdynathings.compat.extendedae.init.EXTENDED_FLAWLESS
-                                                                                        .get()
-                                                                        : null,
-                                                        (Constants.Mods.PhasoriteNetworks.check)
-                                                                        ? com.devdyna.justdynathings.compat.phasorite.init.PHASORITE_FLAWLESS
-                                                                                        .get()
-                                                                        : null
-
-                                        )
-                                                        .build(null));
-
-        public static DeferredHolder<BlockEntityType<?>, BlockEntityType<DecayBuddingBE>> POWERED_FLAWED_BUDDING_BE = zBE
-                        .register(
-                                        Constants.Material.Budding.Flawed.id
-                                                        
-                                                        + Constants.BlockEntity.id,
-                                        () -> Builder.of(DecayBuddingBE::new,
-
-                                                        (Constants.Mods.AE2.check)
-                                                                        ? com.devdyna.justdynathings.compat.ae2.init.AE2_FLAWED
-                                                                                        .get()
-                                                                        : null,
-                                                        (Constants.Mods.ExtendedAE.check)
-                                                                        ? com.devdyna.justdynathings.compat.extendedae.init.EXTENDED_FLAWED
-                                                                                        .get()
-                                                                        : null)
+                                        Constants.Material.Budding.Powered.id + "_" + Constants.BlockEntity.id,
+                                        () -> Builder.of(BuddingBE::new, getBuddingAvailable())
                                                         .build(null));
 
         // -----------------------------------------------------------------------------------------------------------//
@@ -340,6 +309,26 @@ public class Material {
                 return zITM.register(
                                 Constants.Material.Goo.Energized.id + "_" + id + "_" + Constants.Material.Goo.ID.id,
                                 () -> new GooBlockItem(block.get()));
+        }
+
+        public static Block[] getBuddingAvailable() {
+                ArrayList<Block> a = new ArrayList<>();
+                a.add(POWERED_AMETHYST.get());
+                a.add(POWERED_TIME.get());
+
+                if (Constants.Mods.AE2.check)
+                        a.add(com.devdyna.justdynathings.compat.ae2.init.AE2_POWERED.get());
+                if (Constants.Mods.ExtendedAE.check)
+                        a.add(com.devdyna.justdynathings.compat.extendedae.init.EXTENDED_POWERED.get());
+                if (Constants.Mods.PhasoriteNetworks.check)
+                        a.add(com.devdyna.justdynathings.compat.phasorite.init.PHASORITE_POWERED.get());
+
+                Block[] array = new Block[a.size()];
+                for (int i = 0; i < a.size(); i++) {
+                        array[i] = a.get(i);
+                }
+
+                return array;
         }
 
 }

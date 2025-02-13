@@ -16,7 +16,7 @@ public abstract class BlockBaseBE extends Block implements EntityBlock {
         super(properties);
     }
 
-    public abstract boolean isValidBE(BlockEntity blockEntity);
+    // public abstract boolean isValidBE(BlockEntity blockEntity);
 
     @Nullable
     @Override

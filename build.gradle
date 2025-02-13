@@ -130,6 +130,7 @@ dependencies {
     implementation "curse.maven:ae2-223794:6140781"
     implementation "curse.maven:extendedae-892005:6164133"
     implementation "curse.maven:phasorite-1140963:6091868"
+    implementation "curse.maven:guideme-1173950:6179772"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
@@ -154,7 +155,9 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
             extendedae_version      :   extendedae_version,
             extendedae_version_range:   extendedae_version_range,
             phasorite_version       :   phasorite_version,
-            phasorite_version_range :   phasorite_version_range
+            phasorite_version_range :   phasorite_version_range,
+            guideme_version         :   guideme_version,
+            guideme_version_range   :   guideme_version_range
     ]
     inputs.properties replaceProperties
     expand replaceProperties

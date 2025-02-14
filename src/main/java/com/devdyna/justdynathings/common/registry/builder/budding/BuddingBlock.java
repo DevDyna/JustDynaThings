@@ -25,15 +25,15 @@ public class BuddingBlock extends BlockBaseBE {
 
     public static BooleanProperty ACTIVE = BooleanProperty.create("active");
 
-    private int FEcost;
-    private int FEsize;
-    private int FLsize;
-    private int FLcost;
+    public int FEcost;
+    public int FEsize;
+    public int FLsize;
+    public int FLcost;
 
-    private Block smallCluster;
-    private Block mediumCluster;
-    private Block largeCluster;
-    private Block finalCluster;
+    public Block smallCluster;
+    public Block mediumCluster;
+    public Block largeCluster;
+    public Block finalCluster;
 
     public BuddingBlock(int FEcost, int FEsize, int FLcost, int FLsize, Block smallCluster, Block mediumCluster,
             Block largeCluster, Block finalCluster) {

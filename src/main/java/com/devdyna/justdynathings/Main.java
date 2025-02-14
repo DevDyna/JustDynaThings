@@ -42,8 +42,7 @@ public class Main {
                 core.extendedae_compat(modEventBus);
                 core.phasorite_compat(modEventBus);
 
-        Guide.builder(ResourceLocation.parse(ID+":guide")).build();
-        
+                Guide.builder(ResourceLocation.parse("justdynathings:guide")).build();
         }
 
         private void regCap(RegisterCapabilitiesEvent event) {

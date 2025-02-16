@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CBC",
+    "BAB",
+    "CBC"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:echo_shard"
+    },
+    "B": {
+      "item": "phasoritenetworks:phasorite_block"
+    },
+    "C": {
+      "item": "phasoritenetworks:budding_phasorite"
+    }
+  },
+  "result": {
+    "id": "justdynathings:powered_budding_phasorite",
+    "count": 1
+  }
+}

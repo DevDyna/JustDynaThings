@@ -41,8 +41,7 @@ public class Main {
                 core.ae2_compat(modEventBus);
                 core.extendedae_compat(modEventBus);
                 core.phasorite_compat(modEventBus);
-
-                Guide.builder(ResourceLocation.parse("justdynathings:guide")).build();
+                createGuide();
         }
 
         private void regCap(RegisterCapabilitiesEvent event) {
@@ -74,6 +73,11 @@ public class Main {
                                                 : null,
                                 Material.getBuddingAvailable());
 
+        }
+
+        private void createGuide(){
+                if(Constants.Mods.GuideMe.check)
+                Guide.builder(ResourceLocation.parse("justdynathings:guide")).build();
         }
 
 }

@@ -252,7 +252,7 @@ public class Material {
         public static final DeferredHolder<CreativeModeTab, CreativeModeTab> CREATIVETAB = zCTBS
                         .register(Main.ID, () -> CreativeModeTab.builder()
                                         .title(Component.translatable(Main.ID + "." + Constants.CreativeTab.id))
-                                        .withTabsBefore(CreativeModeTabs.COMBAT)
+                                        .withTabsBefore(CreativeModeTabs.SPAWN_EGGS)
                                         .icon(() -> REFORGER_BLOCK.get().asItem().getDefaultInstance())
                                         .displayItems((parameters, output) -> {
                                                 zITM.getEntries().forEach(e -> {

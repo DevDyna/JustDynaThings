@@ -1,7 +1,7 @@
 {
   "variants": {
     "active=false": {
-      "model": "justdynathings:block/powered_budding_off"
+      "model": "justdynathings:block/budding/amethyst/off"
     },
     "active=true": {
       "model": "minecraft:block/budding_amethyst"

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "active=false": {
+      "model": "justdynathings:block/budding/entro/off"
+    },
+    "active=true": {
+      "model": "extendedae:block/entro_budding_fully"
+    }
+  }
+}

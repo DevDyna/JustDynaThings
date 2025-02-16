@@ -94,18 +94,6 @@ public enum Constants {
 
     }
 
-    public enum ToolTip {
-        On("on"),
-        Off("off"),
-        Goo("goo");
-
-        public final String id;
-
-        ToolTip(String id) {
-            this.id = id;
-        }
-    }
-
     public enum FEGoo {
         Cost(250),
         Capacity(10000),
@@ -136,6 +124,7 @@ public enum Constants {
         AE2(ModList.get().isLoaded("ae2")),
         ExtendedAE(ModList.get().isLoaded("extendedae")),
         PhasoriteNetworks(ModList.get().isLoaded("phasoritenetworks")),
+        GuideMe(ModList.get().isLoaded("guideme")),
         ;
 
         public final boolean check;

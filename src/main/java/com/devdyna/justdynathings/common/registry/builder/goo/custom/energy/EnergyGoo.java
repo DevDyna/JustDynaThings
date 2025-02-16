@@ -54,17 +54,4 @@ public class EnergyGoo extends GooBlock_Base implements EntityBlock {
    protected boolean validRevivalItem(ItemStack itemStack) {
       return false;
    }
-
-   @SuppressWarnings("null")
-   @Override
-   public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents,
-         TooltipFlag tooltipFlag) {
-      if (Screen.hasControlDown()) {
-         tooltipComponents.add(Component.translatable(Main.ID + "." + tipname + "."+Constants.ToolTip.On.id));
-         tooltipComponents.add(Component.translatable(Main.ID + "."+Constants.ToolTip.Goo.id));
-      } else {
-         tooltipComponents.add(Component.translatable(Main.ID + "."+Constants.ToolTip.Off.id));
-      }
-      super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
-   }
 }

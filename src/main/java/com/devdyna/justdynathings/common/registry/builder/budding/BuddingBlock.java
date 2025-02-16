@@ -1,16 +1,8 @@
 package com.devdyna.justdynathings.common.registry.builder.budding;
 
-import java.util.List;
 import javax.annotation.Nullable;
 
-import com.devdyna.justdynathings.Constants;
-import com.devdyna.justdynathings.Main;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.item.Item.TooltipContext;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
@@ -65,18 +57,6 @@ public class BuddingBlock extends BlockBaseBE {
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(ACTIVE);
-    }
-
-    @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents,
-            TooltipFlag tooltipFlag) {
-        if (Screen.hasControlDown()) {
-            tooltipComponents.add(Component
-                    .translatable(Main.ID + "." + Constants.Material.Budding.ID.id + "." + Constants.ToolTip.On.id));
-        } else {
-            tooltipComponents.add(Component.translatable(Main.ID + "." + Constants.ToolTip.Off.id));
-        }
-        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }
 
 }

@@ -49,16 +49,4 @@ public class Goo extends GooBlock_Base implements EntityBlock {
       return itemStack.is(tag_revival);
    }
 
-   @SuppressWarnings("null")
-   @Override
-   public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents,
-         TooltipFlag tooltipFlag) {
-      if (Screen.hasControlDown()) {
-         tooltipComponents.add(Component.translatable(Main.ID + "." + tipname + "."+Constants.ToolTip.On.id));
-         tooltipComponents.add(Component.translatable(Main.ID + "."+Constants.ToolTip.Goo.id));
-      } else {
-         tooltipComponents.add(Component.translatable(Main.ID + "."+Constants.ToolTip.Off.id));
-      }
-      super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
-   }
 }

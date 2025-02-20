@@ -1,25 +1,25 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "ACA",
-    "DEB",
+    "ADA",
+    "BEB",
     "ACA"
   ],
   "key": {
     "A": {
-      "item": "justdirethings:eclipsealloy_ingot"
+      "item": "justdirethings:ferricore_ingot"
     },
     "B": {
-      "item": "justdirethings:blockplacert1"
+      "tag": "c:gems/lapis"
     },
     "C": {
-      "item": "justdynathings:chaotic_gem"
+      "tag": "c:dusts/redstone"
     },
     "D": {
-      "item": "justdirethings:blockbreakert1"
+      "tag": "c:gems/amethyst"
     },
     "E": {
-      "item": "minecraft:nether_star"
+      "item": "justdirethings:celestigem"
     }
   },
   "result": {

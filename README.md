@@ -14,10 +14,8 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [x] Permanent / Creative Goo (goo without decay)
 - [x] Powered Time Crystal Budding
 - [ ] Trash cans
-- [ ] Fluid tank
-- [ ] Energy storage
-- [ ] Creative Fluid tank
-- [ ] Creative Energy storage
+- [ ] Energy/Fluid storage
+- [ ] Creative Energy/Fluid tank
 - [ ] Goo Revitalizer (alive any goo without clicking)
 - [ ] Sculk Diffuser (Sculk Source without need to kill mobs)
 - [ ] Effective / Creative Fuel (fuel with high multiplier)
@@ -27,3 +25,4 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [ ] Generator T2
 - [x] Item repair
 - [ ] ~~pathchouli support~~ *guideme much better*
+- [ ] Item/Fluid Transmitter

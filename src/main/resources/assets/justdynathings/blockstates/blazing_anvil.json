@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "justdynathings:block/blazing_anvil",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "justdynathings:block/blazing_anvil",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "justdynathings:block/blazing_anvil"
+    },
+    "facing=west": {
+      "model": "justdynathings:block/blazing_anvil",
+      "y": 90
+    }
+  }
+}

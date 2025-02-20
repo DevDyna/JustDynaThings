@@ -1,26 +1,20 @@
 package com.devdyna.justdynathings.common.registry;
 
 import java.util.ArrayList;
-
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
-import com.devdyna.justdynathings.common.registry.builder.MetalBlock;
-import com.devdyna.justdynathings.common.registry.builder.PhaseBox;
-import com.devdyna.justdynathings.common.registry.builder.RawOre;
-import com.devdyna.justdynathings.common.registry.builder.budding.BuddingBE;
-import com.devdyna.justdynathings.common.registry.builder.budding.BuddingBlock;
+import com.devdyna.justdynathings.common.registry.builder.*;
+import com.devdyna.justdynathings.common.registry.builder.budding.*;
 import com.devdyna.justdynathings.common.registry.builder.goo.Goo;
 import com.devdyna.justdynathings.common.registry.builder.goo.GooBE;
 import com.devdyna.justdynathings.common.registry.builder.goo.GooBlockItem;
-import com.devdyna.justdynathings.common.registry.builder.goo.custom.creative.CreativeGoo;
-import com.devdyna.justdynathings.common.registry.builder.goo.custom.creative.CreativeGooBE;
-import com.devdyna.justdynathings.common.registry.builder.goo.custom.energy.EnergyGoo;
-import com.devdyna.justdynathings.common.registry.builder.goo.custom.energy.EnergyGooBE;
-import com.devdyna.justdynathings.common.registry.builder.reforger.ReforgerBE;
-import com.devdyna.justdynathings.common.registry.builder.reforger.ReforgerBlock;
-import com.devdyna.justdynathings.common.registry.builder.reforger.ReforgerGUI;
+import com.devdyna.justdynathings.common.registry.builder.goo.custom.creative.*;
+import com.devdyna.justdynathings.common.registry.builder.goo.custom.energy.*;
+import com.devdyna.justdynathings.common.registry.builder.reforger.*;
+import com.devdyna.justdynathings.common.registry.builder.repairer.*;
 import com.devdyna.justdynathings.utils.RegUtil;
 import com.direwolf20.justdirethings.setup.Registration;
+
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.TagKey;
@@ -51,7 +45,7 @@ public class Material {
                 zBE.register(bus);
                 zCTBS.register(bus);
                 zCTNR.register(bus);
-                zATC.register(bus); // UNUSED
+                zATC.register(bus);
         }
 
         // -----------------------------------------------------------------------------------------------------------//
@@ -63,7 +57,6 @@ public class Material {
                         .create(Registries.CREATIVE_MODE_TAB, Main.ID);
         public static final DeferredRegister<MenuType<?>> zCTNR = DeferredRegister.create(Registries.MENU, Main.ID);
 
-        // UNUSED
         private static final DeferredRegister<AttachmentType<?>> zATC = DeferredRegister.create(Keys.ATTACHMENT_TYPES,
                         Main.ID);
         // -----------------------------------------------------------------------------------------------------------//
@@ -77,6 +70,8 @@ public class Material {
         public static final TagKey<Item> REFORGER_CATALYST = RegUtil.createtagItem("reforger_catalyst");
 
         public static final TagKey<Item> FLAWED_REVITALIZER = RegUtil.createtagItem("flawed_revitalizer");
+
+        public static final TagKey<Item> BLAZINGANVIL_DENY = RegUtil.createtagItem("deny_repair");
 
         // -----------------------------------------------------------------------------------------------------------//
 
@@ -95,7 +90,7 @@ public class Material {
 
         public static final DeferredHolder<Block, CreativeGoo> GooT5_CREATIVE_BLOCK = zBLK.register(
                         Constants.Material.Goo.Creative.id + "_" + Constants.Material.Goo.ID.id,
-                        () -> new CreativeGoo(Constants.Material.Goo.Creative.id, 5, 10));
+                        () -> new CreativeGoo(Constants.Material.Goo.Creative.id, Integer.MAX_VALUE - 1, 1000));
 
         public static final DeferredHolder<Block, EnergyGoo> T0_ENERGY = FEGooCapByTier(
                         Constants.Material.Goo.Rotten.id, 0);
@@ -151,6 +146,11 @@ public class Material {
                                         Blocks.MEDIUM_AMETHYST_BUD,
                                         Blocks.LARGE_AMETHYST_BUD,
                                         Blocks.AMETHYST_CLUSTER));
+
+        public static final DeferredHolder<Block, BlazingAnvilBlock> BLAZINGANVIL_BLOCK = zBLK
+                        .register(Constants.Material.BlazingAnvil.id,
+                                        () -> new BlazingAnvilBlock(Constants.BlazingAnvilFE.Cost.value,
+                                                        Constants.BlazingAnvilFE.Capacity.value));
 
         // -----------------------------------------------------------------------------------------------------------//
 
@@ -215,6 +215,9 @@ public class Material {
         public static final DeferredHolder<Item, BlockItem> POWERED_AMETHYST_ITEM = zITM
                         .registerSimpleBlockItem(POWERED_AMETHYST);
 
+        public static final DeferredHolder<Item, BlockItem> BLAZINGANVIL_BLOCK_ITEM = zITM
+                        .registerSimpleBlockItem(BLAZINGANVIL_BLOCK);
+
         // -----------------------------------------------------------------------------------------------------------//
 
         public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GooBE>> GOO_BE = zBE.register(
@@ -241,11 +244,19 @@ public class Material {
                                         () -> Builder.of(BuddingBE::new, getBuddingAvailable())
                                                         .build(null));
 
+        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BlazingAnvilBE>> BLAZINGANVIL_BE = zBE
+                        .register(Constants.Material.BlazingAnvil.id + "_" + Constants.BlockEntity.id,
+                                        () -> Builder.of(BlazingAnvilBE::new, BLAZINGANVIL_BLOCK.get()).build(null));
+
         // -----------------------------------------------------------------------------------------------------------//
 
         public static final DeferredHolder<MenuType<?>, MenuType<ReforgerGUI>> REFORGER_GUI = zCTNR
                         .register(Constants.Material.Reforger.id + "_" + Constants.GUI.id,
                                         () -> IMenuTypeExtension.create(ReforgerGUI::new));
+
+        public static final DeferredHolder<MenuType<?>, MenuType<BlazingAnvilGUI>> BLAZINGANVIL_GUI = zCTNR
+                        .register(Constants.Material.BlazingAnvil.id + "_" + Constants.GUI.id,
+                                        () -> IMenuTypeExtension.create(BlazingAnvilGUI::new));
 
         // -----------------------------------------------------------------------------------------------------------//
 
@@ -330,5 +341,8 @@ public class Material {
 
                 return array;
         }
+
+
+
 
 }

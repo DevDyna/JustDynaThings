@@ -3,6 +3,7 @@ package com.devdyna.justdynathings;
 import com.devdyna.justdynathings.common.registry.Material;
 import com.devdyna.justdynathings.common.registry.builder.goo.GooRender;
 import com.devdyna.justdynathings.common.registry.builder.reforger.ReforgerScreen;
+import com.devdyna.justdynathings.common.registry.builder.repairer.BlazingAnvilScreen;
 
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -16,6 +17,7 @@ public class Client {
     @SubscribeEvent
     public static void registerScreens(RegisterMenuScreensEvent event) {
         event.register(Material.REFORGER_GUI.get(), ReforgerScreen::new);
+        event.register(Material.BLAZINGANVIL_GUI.get(), BlazingAnvilScreen::new);
     }
 
     @SubscribeEvent

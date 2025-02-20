@@ -25,5 +25,5 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [ ] Experience Reactor (farmable xp mob-less)
 - [ ] Bacteria Catalyst (Eclipse staff but descructive)
 - [ ] Generator T2
-- [ ] Item repair
+- [x] Item repair
 - [ ] [pathchouli](https://github.com/Direwolf20-MC/JustDireThings/tree/main/src/main/resources/assets/justdirethings/patchouli_books/justdirethingsbook/en_us) support

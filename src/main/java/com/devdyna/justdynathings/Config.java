@@ -12,7 +12,7 @@ public class Config
 
             public static final ModConfigSpec.IntValue REFORGER_CHANCE = BUILDER
             .comment("Chance to consume reforger catalyst")
-            .defineInRange("consumeChance", 50, 0, Integer.MAX_VALUE);
+            .defineInRange("consumeChance", 50, 1, 99);
 
     static final ModConfigSpec SPEC = BUILDER.build();
 

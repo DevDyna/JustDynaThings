@@ -46,13 +46,22 @@ public class Main {
 
         private void regCap(RegisterCapabilitiesEvent event) {
 
+                // itemhandler
                 event.registerBlock(
                                 ItemHandler.BLOCK, (level, pos, state, be,
                                                 side) -> be instanceof BaseMachineBE
                                                                 ? be.getData(Registration.MACHINE_HANDLER)
                                                                 : null,
-                                Material.REFORGER_BLOCK.get());
+                                Material.REFORGER_BLOCK.get(), Material.BLAZINGANVIL_BLOCK.get());
 
+                // energy
+                event.registerBlock(EnergyStorage.BLOCK, (level, pos, state, be,
+                                side) -> be instanceof PoweredMachineBE
+                                                ? be.getData(Registration.ENERGYSTORAGE_MACHINES)
+                                                : null,
+                                Material.BLAZINGANVIL_BLOCK.get());
+
+                // goo energystorage
                 event.registerBlock(EnergyStorage.BLOCK, (level, pos, state, be,
                                 side) -> be instanceof PoweredMachineBE
                                                 ? be.getData(Registration.ENERGYSTORAGE_MACHINES)
@@ -61,12 +70,14 @@ public class Main {
                                 Material.T2_ENERGY.get(), Material.T3_ENERGY.get(), Material.T4_ENERGY.get(),
                                 Material.T5_ENERGY.get());
 
+                // budding time storage
                 event.registerBlock(FluidHandler.BLOCK,
                                 (level, pos, state, be, side) -> be instanceof FluidMachineBE
                                                 ? be.getData(Registration.PARADOX_FLUID_HANDLER)
                                                 : null,
                                 Material.getBuddingAvailable());
 
+                // budding energy storage
                 event.registerBlock(EnergyStorage.BLOCK, (level, pos, state, be,
                                 side) -> be instanceof PoweredMachineBE
                                                 ? be.getData(Registration.ENERGYSTORAGE_MACHINES)
@@ -75,9 +86,9 @@ public class Main {
 
         }
 
-        private void createGuide(){
-                if(Constants.Mods.GuideMe.check)
-                Guide.builder(ResourceLocation.parse("justdynathings:guide")).build();
+        private void createGuide() {
+                if (Constants.Mods.GuideMe.check)
+                        Guide.builder(ResourceLocation.parse("justdynathings:guide")).build();
         }
 
 }

@@ -13,7 +13,7 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [ ] Creative Energy/Fluid tank
 - [x] Item repair
 - [ ] Item/Fluid Transmitter
-
+- [ ] Redstone Clock
 
 ### Specialized
 - [x] T0 Goo
@@ -31,6 +31,6 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [ ] Experience Reactor (farmable xp mob-less)
 - [ ] Bacteria Catalyst (Eclipse staff like but descructive)
 - [ ] Generator T2
-
+- [ ] Block Picker (Itemstaff like Swapper but manual)
 
 

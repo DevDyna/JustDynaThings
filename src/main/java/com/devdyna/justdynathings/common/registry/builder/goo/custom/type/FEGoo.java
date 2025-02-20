@@ -1,7 +1,6 @@
 package com.devdyna.justdynathings.common.registry.builder.goo.custom.type;
 
 import com.direwolf20.justdirethings.common.blockentities.basebe.GooBlockBE_Base;
-import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineContainerData;
 import com.direwolf20.justdirethings.common.capabilities.MachineEnergyStorage;
 import com.direwolf20.justdirethings.setup.Registration;
@@ -15,7 +14,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import static com.direwolf20.justdirethings.common.blocks.gooblocks.GooBlock_Base.ALIVE;
 
-public class FEGoo extends GooBlockBE_Base implements PoweredMachineBE {
+import com.devdyna.justdynathings.common.registry.core.SmartFEMachine;
+
+public class FEGoo extends GooBlockBE_Base implements SmartFEMachine {
 
     public final PoweredMachineContainerData poweredMachineData;
     private int cost;
@@ -43,7 +44,7 @@ public class FEGoo extends GooBlockBE_Base implements PoweredMachineBE {
     @SuppressWarnings("null")
     public void checkEnergy() {
         level.setBlockAndUpdate(getBlockPos(),
-                getBlockState().setValue(ALIVE, getEnergyStored() > getStandardEnergyCost()));
+                getBlockState().setValue(ALIVE, validEnergy()));
     }
 
     @SuppressWarnings("null")
@@ -63,12 +64,10 @@ public class FEGoo extends GooBlockBE_Base implements PoweredMachineBE {
 
             if (getBlockState().getValue(ALIVE)) {
 
-                extractEnergy(
-                        getEnergyStored() <= getStandardEnergyCost() ? getEnergyStored() : getStandardEnergyCost(),
-                        false);
+                extractFEWhenPossible();
 
                 level.playSound(null, getBlockPos(),
-                        getEnergyStored() <= getStandardEnergyCost() ? SoundEvents.RESPAWN_ANCHOR_DEPLETE.value()
+                        validEnergy() ? SoundEvents.RESPAWN_ANCHOR_DEPLETE.value()
                                 : SoundEvents.SCULK_BLOCK_SPREAD,
                         SoundSource.BLOCKS, 1.0F, 0.25F);
 

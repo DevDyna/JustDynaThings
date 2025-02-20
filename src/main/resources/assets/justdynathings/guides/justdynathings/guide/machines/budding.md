@@ -23,11 +23,11 @@ Buddings that just require **Time Fluid** and **Energy** to grow clusters
 
 
 Base support:
-- Amethyst (Minecraft)
-- Time (JustDireThings)
+- <ItemLink id="justdynathings:powered_budding_amethyst"/> (Minecraft)
+- <ItemLink id="justdynathings:powered_budding_time"/> (JustDireThings)
 
 
 All Mod Support:
-- Certus (Applied Energistics 2)
-- Entro (Extended AE)
-- Phasorite (Phasorite Networks)
+- <ItemLink id="justdynathings:powered_budding_certus"/> (Applied Energistics 2)
+- <ItemLink id="justdynathings:powered_budding_entro"/> (Extended AE)
+- <ItemLink id="justdynathings:powered_budding_phasorite"/> (Phasorite Networks)

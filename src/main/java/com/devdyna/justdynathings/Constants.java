@@ -22,6 +22,7 @@ public enum Constants {
         PhaseBox("phase_box"),
         MetalBlock("metal_block"),
         Reforger("reforger"),
+        BlazingAnvil("blazing_anvil"),
         ;
 
         public final String id;
@@ -92,6 +93,18 @@ public enum Constants {
             }
         }
 
+    }
+
+    public enum BlazingAnvilFE {
+        Cost(1000),
+        Capacity(100000),
+        ;
+
+        public final int value;
+
+        BlazingAnvilFE(int value) {
+            this.value = value;
+        }
     }
 
     public enum FEGoo {

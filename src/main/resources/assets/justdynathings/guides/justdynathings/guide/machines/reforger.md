@@ -23,3 +23,5 @@ A powerful machine that allow to convert blocks intro other at the cost of a cat
         Can be converted into any valid ores
   </BoxAnnotation>
 </GameScene>
+
+<RecipeFor id="justdynathings:reforger" />

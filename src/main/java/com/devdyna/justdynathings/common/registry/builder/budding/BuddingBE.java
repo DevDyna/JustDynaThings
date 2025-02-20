@@ -3,11 +3,10 @@ package com.devdyna.justdynathings.common.registry.builder.budding;
 import static com.devdyna.justdynathings.common.registry.builder.budding.BuddingBlock.ACTIVE;
 
 import com.devdyna.justdynathings.common.registry.Material;
+import com.devdyna.justdynathings.common.registry.core.*;
 import com.devdyna.justdynathings.utils.LevelUtil;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.FluidContainerData;
-import com.direwolf20.justdirethings.common.blockentities.basebe.FluidMachineBE;
-import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineContainerData;
 import com.direwolf20.justdirethings.common.blocks.resources.TimeCrystalCluster;
 import com.direwolf20.justdirethings.common.capabilities.MachineEnergyStorage;
@@ -26,10 +25,10 @@ import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
 import net.minecraft.world.level.block.BuddingAmethystBlock;
 
 @SuppressWarnings("null")
-public class BuddingBE extends BaseMachineBE implements PoweredMachineBE, FluidMachineBE {
+public class BuddingBE extends BaseMachineBE implements SmartFEMachine, SmartMBMachine {
 
-    public final PoweredMachineContainerData poweredMachineData;
-    public final FluidContainerData fluidContainerData;
+    public final PoweredMachineContainerData poweredMachineData = new PoweredMachineContainerData(this);
+    public final FluidContainerData fluidContainerData = new FluidContainerData(this);
     public int FEcost;
     public int FEsize;
     public int FLsize;
@@ -41,21 +40,15 @@ public class BuddingBE extends BaseMachineBE implements PoweredMachineBE, FluidM
 
     public BuddingBE(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
-        poweredMachineData = new PoweredMachineContainerData(this);
-        fluidContainerData = new FluidContainerData(this);
     }
 
     public BuddingBE(BlockPos pos, BlockState state) {
         super(Material.POWERED_BUDDING_BE.get(), pos, state);
-        poweredMachineData = new PoweredMachineContainerData(this);
-        fluidContainerData = new FluidContainerData(this);
     }
 
     public BuddingBE(BlockPos pos, BlockState state, int FEcost, int FEsize, int FLcost, int FLsize,
             Block smallCluster, Block mediumCluster, Block largeCluster, Block finalCluster) {
         super(Material.POWERED_BUDDING_BE.get(), pos, state);
-        poweredMachineData = new PoweredMachineContainerData(this);
-        fluidContainerData = new FluidContainerData(this);
         this.FEcost = FEcost;
         this.FEsize = FEsize;
         this.FLcost = FLcost;
@@ -138,8 +131,7 @@ public class BuddingBE extends BaseMachineBE implements PoweredMachineBE, FluidM
      */
     public void consumeFluid() {
         if (LevelUtil.chance(50, level))
-            setAmountStored(
-                    getAmountStored() <= getStandardFluidCost() ? getAmountStored() : getStandardFluidCost());
+            extractMBWhenPossible();
     }
 
     /**
@@ -147,9 +139,7 @@ public class BuddingBE extends BaseMachineBE implements PoweredMachineBE, FluidM
      */
     public void consumeEnergy() {
         if (LevelUtil.chance(50, level))
-            extractEnergy(
-                    getEnergyStored() <= getStandardEnergyCost() ? getEnergyStored() : getStandardEnergyCost(),
-                    false);
+            extractFEWhenPossible();
     }
 
     /**
@@ -169,9 +159,8 @@ public class BuddingBE extends BaseMachineBE implements PoweredMachineBE, FluidM
      */
     public void applyParticles() {
         if (LevelUtil.chance(25, level))
-        LevelUtil.SpawnGlitterParticle(0.0F, 255.0F, 154.0F, getBlockPos(), level, new float[]
-        { 1.0F, 1.0F, 1.0F },
-        6);
+            LevelUtil.SpawnGlitterParticle(0.0F, 255.0F, 154.0F, getBlockPos(), level, new float[] { 1.0F, 1.0F, 1.0F },
+                    6);
     }
 
     /**
@@ -218,9 +207,7 @@ public class BuddingBE extends BaseMachineBE implements PoweredMachineBE, FluidM
         return FLsize;
     }
 
-    /**
-     * "why not?"
-     */
+    @Override
     public int getStandardFluidCost() {
         return FLcost;
     }

@@ -23,6 +23,7 @@ public enum Constants {
         MetalBlock("metal_block"),
         Reforger("reforger"),
         BlazingAnvil("blazing_anvil"),
+        Clock("clock"),
         ;
 
         public final String id;
@@ -148,4 +149,16 @@ public enum Constants {
     }
 
 
+    public enum Traslable {
+        on("on"),
+        off("off"),
+        delay("delay"),
+        ;
+
+        public final String value;
+
+        Traslable(String value) {
+            this.value = value;
+        }
+    }
 }

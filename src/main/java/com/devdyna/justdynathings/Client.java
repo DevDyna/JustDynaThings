@@ -1,6 +1,7 @@
 package com.devdyna.justdynathings;
 
 import com.devdyna.justdynathings.common.registry.Material;
+import com.devdyna.justdynathings.common.registry.builder.clock.ClockScreen;
 import com.devdyna.justdynathings.common.registry.builder.goo.GooRender;
 import com.devdyna.justdynathings.common.registry.builder.reforger.ReforgerScreen;
 import com.devdyna.justdynathings.common.registry.builder.repairer.BlazingAnvilScreen;
@@ -18,6 +19,7 @@ public class Client {
     public static void registerScreens(RegisterMenuScreensEvent event) {
         event.register(Material.REFORGER_GUI.get(), ReforgerScreen::new);
         event.register(Material.BLAZINGANVIL_GUI.get(), BlazingAnvilScreen::new);
+        event.register(Material.CLOCK_GUI.get(), ClockScreen::new);
     }
 
     @SubscribeEvent

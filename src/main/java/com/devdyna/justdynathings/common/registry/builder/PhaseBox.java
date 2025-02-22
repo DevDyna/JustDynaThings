@@ -32,7 +32,7 @@ public class PhaseBox extends TransparentBlock {
     public static final BooleanProperty SOLID = BooleanProperty.create("solid");
 
     public PhaseBox() {
-        super(Properties.of().sound(SoundType.COPPER_BULB)
+        super(Properties.of().sound(SoundType.AMETHYST)
                 .noOcclusion()
                 .isSuffocating(BaseMachineBlock::never)
                 .isViewBlocking(BaseMachineBlock::never)

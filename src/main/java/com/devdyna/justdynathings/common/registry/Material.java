@@ -5,6 +5,9 @@ import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.common.registry.builder.*;
 import com.devdyna.justdynathings.common.registry.builder.budding.*;
+import com.devdyna.justdynathings.common.registry.builder.clock.ClockBE;
+import com.devdyna.justdynathings.common.registry.builder.clock.ClockBlock;
+import com.devdyna.justdynathings.common.registry.builder.clock.ClockGUI;
 import com.devdyna.justdynathings.common.registry.builder.goo.Goo;
 import com.devdyna.justdynathings.common.registry.builder.goo.GooBE;
 import com.devdyna.justdynathings.common.registry.builder.goo.GooBlockItem;
@@ -49,6 +52,7 @@ public class Material {
         }
 
         // -----------------------------------------------------------------------------------------------------------//
+        // controllers
         public static final DeferredRegister<BlockEntityType<?>> zBE = DeferredRegister
                         .create(Registries.BLOCK_ENTITY_TYPE, Main.ID);
         public static final DeferredRegister.Blocks zBLK = DeferredRegister.createBlocks(Main.ID);
@@ -60,7 +64,7 @@ public class Material {
         private static final DeferredRegister<AttachmentType<?>> zATC = DeferredRegister.create(Keys.ATTACHMENT_TYPES,
                         Main.ID);
         // -----------------------------------------------------------------------------------------------------------//
-
+        // tags
         public static final TagKey<Item> GOO_REVIVE_TIER_0 = RegUtil.createtagItem("goo_revive_tier_0");
 
         public static final TagKey<Item> GOO_REVIVE_TIER_5 = RegUtil.createtagItem("goo_revive_tier_5");
@@ -74,7 +78,7 @@ public class Material {
         public static final TagKey<Item> BLAZINGANVIL_DENY = RegUtil.createtagItem("deny_repair");
 
         // -----------------------------------------------------------------------------------------------------------//
-
+        // blocks
         public static final DeferredHolder<Block, Goo> GooT5_BLOCK = zBLK.register(
                         Constants.Material.Goo.Complex.id + "_" + Constants.Material.Goo.ID.id,
                         () -> new Goo(Constants.Material.Goo.Complex.id, 5, 20, GOO_REVIVE_TIER_5));
@@ -152,8 +156,11 @@ public class Material {
                                         () -> new BlazingAnvilBlock(Constants.BlazingAnvilFE.Cost.value,
                                                         Constants.BlazingAnvilFE.Capacity.value));
 
-        // -----------------------------------------------------------------------------------------------------------//
+        public static final DeferredHolder<Block, ClockBlock> CLOCK_BLOCK = zBLK
+                        .register(Constants.Material.Clock.id, ClockBlock::new);
 
+        // -----------------------------------------------------------------------------------------------------------//
+        // items
         public static final DeferredHolder<Item, BlockItem> GooT5_ITEM = simpleGooItem(GooT5_BLOCK,
                         Constants.Material.Goo.Complex.id);
 
@@ -218,8 +225,11 @@ public class Material {
         public static final DeferredHolder<Item, BlockItem> BLAZINGANVIL_BLOCK_ITEM = zITM
                         .registerSimpleBlockItem(BLAZINGANVIL_BLOCK);
 
-        // -----------------------------------------------------------------------------------------------------------//
+                        public static final DeferredHolder<Item, BlockItem> CLOCK_BLOCK_ITEM = zITM
+                        .registerSimpleBlockItem(CLOCK_BLOCK);            
 
+        // -----------------------------------------------------------------------------------------------------------//
+        // BE
         public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GooBE>> GOO_BE = zBE.register(
                         Constants.Material.Goo.ID.id + "_" + Constants.BlockEntity.id,
                         () -> Builder.of(GooBE::new, GooT5_BLOCK.get(), GooT0_BLOCK.get()).build(null));
@@ -248,8 +258,13 @@ public class Material {
                         .register(Constants.Material.BlazingAnvil.id + "_" + Constants.BlockEntity.id,
                                         () -> Builder.of(BlazingAnvilBE::new, BLAZINGANVIL_BLOCK.get()).build(null));
 
-        // -----------------------------------------------------------------------------------------------------------//
+                                        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ClockBE>> CLOCK_BE = zBE
+                                        .register(Constants.Material.Clock.id + "_" + Constants.BlockEntity.id,
+                                                        () -> Builder.of(ClockBE::new, CLOCK_BLOCK.get()).build(null));
+                
 
+        // -----------------------------------------------------------------------------------------------------------//
+        // GUI
         public static final DeferredHolder<MenuType<?>, MenuType<ReforgerGUI>> REFORGER_GUI = zCTNR
                         .register(Constants.Material.Reforger.id + "_" + Constants.GUI.id,
                                         () -> IMenuTypeExtension.create(ReforgerGUI::new));
@@ -258,8 +273,12 @@ public class Material {
                         .register(Constants.Material.BlazingAnvil.id + "_" + Constants.GUI.id,
                                         () -> IMenuTypeExtension.create(BlazingAnvilGUI::new));
 
-        // -----------------------------------------------------------------------------------------------------------//
+                                        public static final DeferredHolder<MenuType<?>, MenuType<ClockGUI>> CLOCK_GUI = zCTNR
+                                        .register(Constants.Material.Clock.id + "_" + Constants.GUI.id,
+                                                        () -> IMenuTypeExtension.create(ClockGUI::new));
 
+        // -----------------------------------------------------------------------------------------------------------//
+        // CreativeTab
         public static final DeferredHolder<CreativeModeTab, CreativeModeTab> CREATIVETAB = zCTBS
                         .register(Main.ID, () -> CreativeModeTab.builder()
                                         .title(Component.translatable(Main.ID + "." + Constants.CreativeTab.id))
@@ -341,8 +360,5 @@ public class Material {
 
                 return array;
         }
-
-
-
 
 }

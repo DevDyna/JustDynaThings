@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "active=false": {
+      "model": "justdynathings:block/clock"
+    },
+    "active=true": {
+      "model": "justdynathings:block/clock"
+    }
+  }
+}

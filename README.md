@@ -35,3 +35,4 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [ ] Generator T2
 - [ ] Block Picker (Itemstaff like Swapper but manual)
 - [ ] Light Wand (based on [#337](https://github.com/Direwolf20-MC/JustDireThings/issues/337) with gui to select light level)
+- [ ] Paradox Box (Pandora's Box like)

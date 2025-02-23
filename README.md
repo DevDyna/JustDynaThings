@@ -14,7 +14,7 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [ ] Creative Energy/Fluid tank
 - [x] Item repair
 - [ ] Item/Fluid Transmitter
-- [ ] Redstone Clock
+- [x] Redstone Clock
 
 ### Specialized
 

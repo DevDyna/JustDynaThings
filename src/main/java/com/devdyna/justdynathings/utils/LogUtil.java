@@ -5,11 +5,7 @@ import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
 
 public class LogUtil {
-    private static Logger LOGGER;
-
-    public LogUtil() {
-        LOGGER = LogUtils.getLogger();
-    }
+    private static Logger LOGGER = LogUtils.getLogger();
 
     /**
      * send a message on logs
@@ -22,12 +18,13 @@ public class LogUtil {
      * send a decorative separator
      */
     public static void decor(int size) {
-        if(size <=0)size = 10;
+        if (size <= 0)
+            size = 10;
         String txt = "#";
-        for(int i = 0;i<size;i++){
-            txt.concat("-");
+        for (int i = 0; i < size; i++) {
+            txt = txt.concat("-");
         }
-        txt.concat("#");
+        txt = txt.concat("#");
         LOGGER.info(txt);
     }
 }

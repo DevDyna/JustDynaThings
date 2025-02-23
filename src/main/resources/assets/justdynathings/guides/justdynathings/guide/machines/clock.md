@@ -18,7 +18,7 @@ A block that can be programmed to power redstone components with any side config
   <ImportStructure src="../nbt/clock.nbt" />
 
   <BoxAnnotation color="#FF0000" min="0.6 1.05 0.6" max="0.4 1.05 0.4">
-        Face enabled to allow an redstone-signal output
+        Face enabled to allow a redstone-signal output
   </BoxAnnotation>
 
 </GameScene>

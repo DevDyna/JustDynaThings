@@ -1,9 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " B ",
+    "CBC",
     "BAB",
-    " B "
+    "CBC"
   ],
   "key": {
     "A": {
@@ -11,10 +11,13 @@
     },
     "B": {
       "item": "minecraft:redstone"
+    },
+    "C":{
+      "item": "justdirethings:ferricore_ingot"
     }
   },
   "result": {
     "id": "justdynathings:clock",
-    "count": 1
+    "count": 2
   }
 }

@@ -10,6 +10,7 @@ item_ids:
 ---
 
 # Phase Box
+*aka Ethereal Glass*
 
 A block that can be toggled to disable/enable the solid state
 

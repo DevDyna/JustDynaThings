@@ -10,9 +10,8 @@ item_ids:
 ---
 
 # Blazing Anvil
+*aka Item Repairer*
 
-*A iconic machine for anyone played in oldest versions of modded minecraft*
-
-Just a block with a slot , put one of your tools with some power and it will be repaired !
+A block that can repair any damaged item at cost of ForgeEnergy
 
 <RecipeFor id="justdynathings:blazing_anvil" />

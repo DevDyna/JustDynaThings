@@ -1,0 +1,6 @@
+{
+  "parent": "justdynathings:block/clock/template/y",
+  "textures": {
+    "block": "justdynathings:block/clock/on"
+  }
+}

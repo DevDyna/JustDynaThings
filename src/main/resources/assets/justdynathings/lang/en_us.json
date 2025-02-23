@@ -1,43 +1,43 @@
 {
-    "justdynathings.creative_tab": "Just Dyna Things",
+  "justdynathings.creative_tab": "Just Dyna Things",
 
-    "justdynathings.off": "§8[§fControl§8]§f",
+  "justdynathings.off": "§8[§fControl§8]§f",
 
+  "block.justdynathings.phase_box": "Phase Box",
 
-    "block.justdynathings.phase_box": "Phase Box",
-    
-    "block.justdynathings.complex_goo": "Complex Signal Goo",
-    "block.justdynathings.rotten_goo": "Tainted Wave Goo",
-    "block.justdynathings.energized_goo": "Redstone Analogic Goo",
-    "block.justdynathings.creative_goo": "Omega Imagination Goo",
+  "block.justdynathings.complex_goo": "Complex Signal Goo",
+  "block.justdynathings.rotten_goo": "Tainted Wave Goo",
+  "block.justdynathings.energized_goo": "Redstone Analogic Goo",
+  "block.justdynathings.creative_goo": "Omega Imagination Goo",
 
-    "block.justdynathings.metal_block": "Metal Block",
+  "block.justdynathings.metal_block": "Metal Block",
 
-    "block.justdynathings.reforger": "Reforger",
+  "block.justdynathings.reforger": "Reforger",
 
-    "block.justdynathings.raw_chaotic_ore": "Raw Chaotic Ore",
-    "item.justdynathings.chaotic_gem": "Chaotic Gem",
+  "block.justdynathings.raw_chaotic_ore": "Raw Chaotic Ore",
+  "item.justdynathings.chaotic_gem": "Chaotic Gem",
 
-    "block.justdynathings.raw_redstonic_ore": "Raw Redstonic Ore",
-    "item.justdynathings.redstonic_shard": "Redstonic Shard",
+  "block.justdynathings.raw_redstonic_ore": "Raw Redstonic Ore",
+  "item.justdynathings.redstonic_shard": "Redstonic Shard",
 
-    "block.justdynathings.raw_coprinium_ore": "Raw Coprinium Ore",
-    "item.justdynathings.coprinium_ingot": "Coprinium Ingot",
-    "item.justdynathings.raw_coprinium": "Raw Coprinium",
+  "block.justdynathings.raw_coprinium_ore": "Raw Coprinium Ore",
+  "item.justdynathings.coprinium_ingot": "Coprinium Ingot",
+  "item.justdynathings.raw_coprinium": "Raw Coprinium",
 
-    "block.justdynathings.energized_rotten_goo": "Energized Rotten Goo",
-    "block.justdynathings.energized_primogel_goo": "Energized Primogel Goo",
-    "block.justdynathings.energized_blazebloom_goo": "Energized Blazebloom Goo",
-    "block.justdynathings.energized_voidshimmer_goo": "Energized Voidshimmer Goo",
-    "block.justdynathings.energized_shadowpulse_goo": "Energized Shadowpulse Goo",
-    "block.justdynathings.energized_complex_goo": "Energized Complex Signal Goo",
+  "block.justdynathings.energized_rotten_goo": "Energized Rotten Goo",
+  "block.justdynathings.energized_primogel_goo": "Energized Primogel Goo",
+  "block.justdynathings.energized_blazebloom_goo": "Energized Blazebloom Goo",
+  "block.justdynathings.energized_voidshimmer_goo": "Energized Voidshimmer Goo",
+  "block.justdynathings.energized_shadowpulse_goo": "Energized Shadowpulse Goo",
+  "block.justdynathings.energized_complex_goo": "Energized Complex Signal Goo",
 
-    "block.justdynathings.powered_budding_time": "Echo Time Budding",
-    "block.justdynathings.powered_budding_amethyst": "Echo Amethyst Budding",
-    "block.justdynathings.powered_budding_certus": "Echo Certus Budding",
-    "block.justdynathings.powered_budding_entro": "Echo Entro Budding",
-    "block.justdynathings.powered_budding_phasorite": "Echo Phasorite Budding",
+  "block.justdynathings.powered_budding_time": "Echo Time Budding",
+  "block.justdynathings.powered_budding_amethyst": "Echo Amethyst Budding",
+  "block.justdynathings.powered_budding_certus": "Echo Certus Budding",
+  "block.justdynathings.powered_budding_entro": "Echo Entro Budding",
+  "block.justdynathings.powered_budding_phasorite": "Echo Phasorite Budding",
 
-    "block.justdynathings.blazing_anvil": "Blazing Anvil",
-    "block.justdynathings.clock": "Copper Clock"
+  "block.justdynathings.blazing_anvil": "Blazing Anvil",
+  "block.justdynathings.clock": "Ferricore Clock",
+  "justdynathings.clock.wip": "N.Y.I. -> shift-click the block to toggle"
 }

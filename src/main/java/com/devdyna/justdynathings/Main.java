@@ -7,7 +7,6 @@ import com.direwolf20.justdirethings.common.blockentities.basebe.FluidMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineBE;
 import com.direwolf20.justdirethings.setup.Registration;
 
-import net.minecraft.resources.ResourceLocation;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
@@ -17,17 +16,13 @@ import net.neoforged.neoforge.capabilities.Capabilities.FluidHandler;
 import net.neoforged.neoforge.capabilities.Capabilities.ItemHandler;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 
-import com.mojang.logging.LogUtils;
-
-import guideme.Guide;
-
-import org.slf4j.Logger;
-
 @Mod(Main.ID)
 public class Main {
         public static final String ID = "justdynathings";
 
-        public static final Logger LOG = LogUtils.getLogger();
+        //! Dont use this , intend of utils.LogUtil !
+        // public static final Logger LOG = LogUtils.getLogger();
+        
 
         public Main(IEventBus modEventBus, ModContainer modContainer) {
 
@@ -37,11 +32,7 @@ public class Main {
 
                 modEventBus.addListener(this::regCap);
 
-                // compats
-                core.ae2_compat(modEventBus);
-                core.extendedae_compat(modEventBus);
-                core.phasorite_compat(modEventBus);
-                createGuide();
+                core.regCompat(modEventBus);
         }
 
         private void regCap(RegisterCapabilitiesEvent event) {
@@ -84,11 +75,6 @@ public class Main {
                                                 : null,
                                 Material.getBuddingAvailable());
 
-        }
-
-        private void createGuide() {
-                if (Constants.Mods.GuideMe.check)
-                        Guide.builder(ResourceLocation.parse("justdynathings:guide")).build();
         }
 
 }

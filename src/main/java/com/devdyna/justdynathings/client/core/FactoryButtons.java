@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.common.registry.core;
+package com.devdyna.justdynathings.client.core;
 
 import java.util.Arrays;
 import java.util.List;

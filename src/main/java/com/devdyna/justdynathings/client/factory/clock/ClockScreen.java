@@ -1,6 +1,6 @@
-package com.devdyna.justdynathings.common.registry.builder.clock;
+package com.devdyna.justdynathings.client.factory.clock;
 
-import com.devdyna.justdynathings.common.registry.core.FactoryButtons;
+import com.devdyna.justdynathings.client.core.FactoryButtons;
 import com.devdyna.justdynathings.utils.DirectionUtil;
 import com.direwolf20.justdirethings.client.screens.basescreens.BaseMachineScreen;
 import com.direwolf20.justdirethings.client.screens.standardbuttons.ToggleButtonFactory;

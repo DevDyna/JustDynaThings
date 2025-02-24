@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.common.registry.builder.reforger;
+package com.devdyna.justdynathings.client.factory.reforger;
 
 import com.devdyna.justdynathings.common.registry.Material;
 import com.direwolf20.justdirethings.common.containers.basecontainers.BaseMachineContainer;

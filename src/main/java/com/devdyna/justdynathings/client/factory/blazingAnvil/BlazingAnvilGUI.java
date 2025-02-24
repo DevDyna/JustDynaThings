@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.common.registry.builder.repairer;
+package com.devdyna.justdynathings.client.factory.blazingAnvil;
 
 import com.devdyna.justdynathings.common.registry.Material;
 import com.direwolf20.justdirethings.common.containers.basecontainers.BaseMachineContainer;

@@ -1,5 +1,6 @@
 package com.devdyna.justdynathings.common.registry.builder.repairer;
 
+import com.devdyna.justdynathings.client.factory.blazingAnvil.BlazingAnvilGUI;
 import com.devdyna.justdynathings.common.registry.Material;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
 

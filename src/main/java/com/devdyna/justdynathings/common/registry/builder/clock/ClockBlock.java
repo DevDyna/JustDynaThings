@@ -2,6 +2,7 @@ package com.devdyna.justdynathings.common.registry.builder.clock;
 
 import javax.annotation.Nullable;
 
+import com.devdyna.justdynathings.client.factory.clock.ClockGUI;
 import com.devdyna.justdynathings.utils.DirectionUtil;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
 

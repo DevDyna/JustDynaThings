@@ -14,7 +14,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import static com.direwolf20.justdirethings.common.blocks.gooblocks.GooBlock_Base.ALIVE;
 
-import com.devdyna.justdynathings.common.registry.core.SmartFEMachine;
+import com.devdyna.justdynathings.common.registry.core.interfaces.be.SmartFEMachine;
 
 public class FEGoo extends GooBlockBE_Base implements SmartFEMachine {
 

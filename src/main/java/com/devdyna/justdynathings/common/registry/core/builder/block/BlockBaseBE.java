@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.common.registry.core;
+package com.devdyna.justdynathings.common.registry.core.builder.block;
 
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import net.minecraft.world.level.Level;
@@ -15,8 +15,7 @@ public abstract class BlockBaseBE extends Block implements EntityBlock {
     public BlockBaseBE(Properties properties) {
         super(properties);
     }
-
-    // public abstract boolean isValidBE(BlockEntity blockEntity);
+    
 
     @Nullable
     @Override

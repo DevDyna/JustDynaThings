@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.common.registry.core;
+package com.devdyna.justdynathings.common.registry.core.builder.block;
 
 import net.minecraft.world.level.block.Block;
 

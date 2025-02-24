@@ -1,5 +1,6 @@
 package com.devdyna.justdynathings.common.registry.builder.reforger;
 
+import com.devdyna.justdynathings.client.factory.reforger.ReforgerGUI;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
 
 import net.minecraft.core.BlockPos;
@@ -50,14 +51,15 @@ public class ReforgerBlock extends BaseMachineBlock {
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
-        return this.defaultBlockState()
+        return defaultBlockState()
                 .setValue(BlockStateProperties.FACING, context.getNearestLookingDirection().getOpposite())
                 .setValue(ACTIVE, true);
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(BlockStateProperties.FACING);
-        builder.add(ACTIVE);
+        builder
+        .add(BlockStateProperties.FACING)
+        .add(ACTIVE);
     }
 }

@@ -3,7 +3,8 @@ package com.devdyna.justdynathings.common.registry.builder.budding;
 import static com.devdyna.justdynathings.common.registry.builder.budding.BuddingBlock.ACTIVE;
 
 import com.devdyna.justdynathings.common.registry.Material;
-import com.devdyna.justdynathings.common.registry.core.*;
+import com.devdyna.justdynathings.common.registry.core.interfaces.be.SmartFEMachine;
+import com.devdyna.justdynathings.common.registry.core.interfaces.be.SmartMBMachine;
 import com.devdyna.justdynathings.utils.LevelUtil;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.FluidContainerData;
@@ -38,17 +39,23 @@ public class BuddingBE extends BaseMachineBE implements SmartFEMachine, SmartMBM
     public Block largeCluster;
     public Block finalCluster;
 
+    /**
+     * DONT USE THIS ON BE REGISTRATION
+     */
     public BuddingBE(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
     }
 
+    /**
+     * DONT USE THIS ON BE REGISTRATION
+     */
     public BuddingBE(BlockPos pos, BlockState state) {
-        super(Material.POWERED_BUDDING_BE.get(), pos, state);
+        this(Material.POWERED_BUDDING_BE.get(), pos, state);
     }
 
     public BuddingBE(BlockPos pos, BlockState state, int FEcost, int FEsize, int FLcost, int FLsize,
             Block smallCluster, Block mediumCluster, Block largeCluster, Block finalCluster) {
-        super(Material.POWERED_BUDDING_BE.get(), pos, state);
+        this(Material.POWERED_BUDDING_BE.get(), pos, state);
         this.FEcost = FEcost;
         this.FEsize = FEsize;
         this.FLcost = FLcost;
@@ -65,11 +72,6 @@ public class BuddingBE extends BaseMachineBE implements SmartFEMachine, SmartMBM
 
     @Override
     public void tickServer() {
-        super.tickServer();
-        run();
-    }
-
-    public void run() {
 
         updateBlock();
 
@@ -169,7 +171,7 @@ public class BuddingBE extends BaseMachineBE implements SmartFEMachine, SmartMBM
     public void updateBlock() {
         level.setBlockAndUpdate(getBlockPos(),
                 getBlockState().setValue(ACTIVE,
-                        getEnergyStored() > getStandardEnergyCost() && getAmountStored() > getStandardFluidCost()));
+                        validEnergy() && validFluid()));
     }
 
     @Override

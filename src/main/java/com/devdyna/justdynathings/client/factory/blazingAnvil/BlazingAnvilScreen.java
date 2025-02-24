@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.common.registry.builder.reforger;
+package com.devdyna.justdynathings.client.factory.blazingAnvil;
 
 import com.direwolf20.justdirethings.client.screens.basescreens.BaseMachineScreen;
 import com.direwolf20.justdirethings.client.screens.standardbuttons.ToggleButtonFactory;
@@ -9,8 +9,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.Slot;
 
-public class ReforgerScreen extends BaseMachineScreen<ReforgerGUI> {
-    public ReforgerScreen(ReforgerGUI container, Inventory inv, Component name) {
+public class BlazingAnvilScreen extends BaseMachineScreen<BlazingAnvilGUI> {
+    public BlazingAnvilScreen(BlazingAnvilGUI container, Inventory inv, Component name) {
         super(container, inv, name);
     }
 

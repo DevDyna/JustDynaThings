@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.common.registry.builder.clock;
+package com.devdyna.justdynathings.client.factory.clock;
 
 import com.devdyna.justdynathings.common.registry.Material;
 import com.direwolf20.justdirethings.common.containers.basecontainers.BaseMachineContainer;

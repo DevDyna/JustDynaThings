@@ -1,7 +1,7 @@
 package com.devdyna.justdynathings.common.registry.builder.repairer;
 
 import com.devdyna.justdynathings.common.registry.Material;
-import com.devdyna.justdynathings.common.registry.core.SmartFEMachine;
+import com.devdyna.justdynathings.common.registry.core.interfaces.be.SmartFEMachine;
 import com.devdyna.justdynathings.utils.LevelUtil;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineContainerData;
@@ -25,6 +25,9 @@ public class BlazingAnvilBE extends BaseMachineBE implements RedstoneControlledB
     private int cost;
     private int maxsize;
 
+    /**
+     * DONT USE THIS ON BE REGISTRATION
+     */
     public BlazingAnvilBE(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState) {
         super(pType, pPos, pBlockState);
         MACHINE_SLOTS = 1;
@@ -36,6 +39,9 @@ public class BlazingAnvilBE extends BaseMachineBE implements RedstoneControlledB
         this.cost = cost;
     }
 
+    /**
+     * DONT USE THIS ON BE REGISTRATION
+     */
     public BlazingAnvilBE(BlockPos pos, BlockState state) {
         this(Material.BLAZINGANVIL_BE.get(), pos, state);
     }
@@ -56,28 +62,12 @@ public class BlazingAnvilBE extends BaseMachineBE implements RedstoneControlledB
 
     @Override
     public void tickServer() {
-        super.tickServer();
-        run();
-    }
-
-    public void run() {
         checkState();
         if (getBlockState().getValue(ACTIVE).booleanValue()) {
             extractFEWhenPossible();
             repairItem();
             applySound();
         }
-    }
-
-    @Override
-    public boolean isDefaultSettings() {
-        if (!super.isDefaultSettings())
-            return false;
-        if (tickSpeed != 20) // i need to fix the tickrate
-            return false;
-        if (!getRedstoneControlData().equals(getDefaultRedstoneData()))
-            return false;
-        return true;
     }
 
     public void checkState() {
@@ -122,8 +112,8 @@ public class BlazingAnvilBE extends BaseMachineBE implements RedstoneControlledB
 
     public void repairItem() {
 
-            getMachineHandler().getStackInSlot(0)
-                    .setDamageValue(getMachineHandler().getStackInSlot(0).getDamageValue() - 1);
+        getMachineHandler().getStackInSlot(0)
+                .setDamageValue(getMachineHandler().getStackInSlot(0).getDamageValue() - 1);
     }
 
 }

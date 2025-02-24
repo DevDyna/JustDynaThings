@@ -20,9 +20,8 @@ import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 public class Main {
         public static final String ID = "justdynathings";
 
-        //! Dont use this , intend of utils.LogUtil !
+        // ! Dont use this , intend of utils.LogUtil !
         // public static final Logger LOG = LogUtils.getLogger();
-        
 
         public Main(IEventBus modEventBus, ModContainer modContainer) {
 
@@ -45,12 +44,12 @@ public class Main {
                                                                 : null,
                                 Material.REFORGER_BLOCK.get(), Material.BLAZINGANVIL_BLOCK.get());
 
-                // energy
+                // energyhandler
                 event.registerBlock(EnergyStorage.BLOCK, (level, pos, state, be,
                                 side) -> be instanceof PoweredMachineBE
                                                 ? be.getData(Registration.ENERGYSTORAGE_MACHINES)
                                                 : null,
-                                Material.BLAZINGANVIL_BLOCK.get());
+                                Material.BLAZINGANVIL_BLOCK.get(), Material.REVITALIZER_BLOCK.get());
 
                 // goo energystorage
                 event.registerBlock(EnergyStorage.BLOCK, (level, pos, state, be,

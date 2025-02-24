@@ -24,6 +24,7 @@ public enum Constants {
         Reforger("reforger"),
         BlazingAnvil("blazing_anvil"),
         Clock("clock"),
+        Revitalizer("revitalizer"),
         ;
 
         public final String id;
@@ -95,6 +96,20 @@ public enum Constants {
         }
 
     }
+
+    public enum RevitalizerFE {
+        Cost(1000),
+        Capacity(100000),
+        ;
+
+        public final int value;
+
+        RevitalizerFE(int value) {
+            this.value = value;
+        }
+    }
+
+
 
     public enum BlazingAnvilFE {
         Cost(1000),

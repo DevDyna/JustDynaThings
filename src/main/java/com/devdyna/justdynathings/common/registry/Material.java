@@ -3,11 +3,13 @@ package com.devdyna.justdynathings.common.registry;
 import java.util.ArrayList;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
+import com.devdyna.justdynathings.client.factory.blazingAnvil.BlazingAnvilGUI;
+import com.devdyna.justdynathings.client.factory.clock.ClockGUI;
+import com.devdyna.justdynathings.client.factory.reforger.ReforgerGUI;
 import com.devdyna.justdynathings.common.registry.builder.*;
 import com.devdyna.justdynathings.common.registry.builder.budding.*;
 import com.devdyna.justdynathings.common.registry.builder.clock.ClockBE;
 import com.devdyna.justdynathings.common.registry.builder.clock.ClockBlock;
-import com.devdyna.justdynathings.common.registry.builder.clock.ClockGUI;
 import com.devdyna.justdynathings.common.registry.builder.goo.Goo;
 import com.devdyna.justdynathings.common.registry.builder.goo.GooBE;
 import com.devdyna.justdynathings.common.registry.builder.goo.GooBlockItem;
@@ -15,6 +17,8 @@ import com.devdyna.justdynathings.common.registry.builder.goo.custom.creative.*;
 import com.devdyna.justdynathings.common.registry.builder.goo.custom.energy.*;
 import com.devdyna.justdynathings.common.registry.builder.reforger.*;
 import com.devdyna.justdynathings.common.registry.builder.repairer.*;
+import com.devdyna.justdynathings.common.registry.builder.revitalizer.RevitalizerBE;
+import com.devdyna.justdynathings.common.registry.builder.revitalizer.RevitalizerBlock;
 import com.devdyna.justdynathings.utils.RegUtil;
 import com.direwolf20.justdirethings.setup.Registration;
 
@@ -70,6 +74,10 @@ public class Material {
         public static final TagKey<Item> GOO_REVIVE_TIER_5 = RegUtil.createtagItem("goo_revive_tier_5");
 
         public static final TagKey<Block> REFORGER_REPLACE = RegUtil.createtagBlock("reforger_replace");
+
+        public static final TagKey<Block> REFORGER_RESULT = RegUtil.createtagBlock("reforger_result");
+
+        public static final TagKey<Block> REVITALIZER_GOO = RegUtil.createtagBlock("revitalizer_goo");
 
         public static final TagKey<Item> REFORGER_CATALYST = RegUtil.createtagItem("reforger_catalyst");
 
@@ -159,6 +167,11 @@ public class Material {
         public static final DeferredHolder<Block, ClockBlock> CLOCK_BLOCK = zBLK
                         .register(Constants.Material.Clock.id, ClockBlock::new);
 
+        public static final DeferredHolder<Block, RevitalizerBlock> REVITALIZER_BLOCK = zBLK
+                        .register(Constants.Material.Revitalizer.id,
+                                        () -> new RevitalizerBlock(Constants.RevitalizerFE.Cost.value,
+                                                        Constants.RevitalizerFE.Capacity.value));
+
         // -----------------------------------------------------------------------------------------------------------//
         // items
         public static final DeferredHolder<Item, BlockItem> GooT5_ITEM = simpleGooItem(GooT5_BLOCK,
@@ -225,8 +238,11 @@ public class Material {
         public static final DeferredHolder<Item, BlockItem> BLAZINGANVIL_BLOCK_ITEM = zITM
                         .registerSimpleBlockItem(BLAZINGANVIL_BLOCK);
 
-                        public static final DeferredHolder<Item, BlockItem> CLOCK_BLOCK_ITEM = zITM
-                        .registerSimpleBlockItem(CLOCK_BLOCK);            
+        public static final DeferredHolder<Item, BlockItem> CLOCK_BLOCK_ITEM = zITM
+                        .registerSimpleBlockItem(CLOCK_BLOCK);
+
+        public static final DeferredHolder<Item, BlockItem> REVITALIZER_BLOCK_ITEM = zITM
+                        .registerSimpleBlockItem(REVITALIZER_BLOCK);
 
         // -----------------------------------------------------------------------------------------------------------//
         // BE
@@ -258,10 +274,13 @@ public class Material {
                         .register(Constants.Material.BlazingAnvil.id + "_" + Constants.BlockEntity.id,
                                         () -> Builder.of(BlazingAnvilBE::new, BLAZINGANVIL_BLOCK.get()).build(null));
 
-                                        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ClockBE>> CLOCK_BE = zBE
-                                        .register(Constants.Material.Clock.id + "_" + Constants.BlockEntity.id,
-                                                        () -> Builder.of(ClockBE::new, CLOCK_BLOCK.get()).build(null));
-                
+        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ClockBE>> CLOCK_BE = zBE
+                        .register(Constants.Material.Clock.id + "_" + Constants.BlockEntity.id,
+                                        () -> Builder.of(ClockBE::new, CLOCK_BLOCK.get()).build(null));
+
+        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<RevitalizerBE>> REVITALIZER_BE = zBE
+                        .register(Constants.Material.Revitalizer.id + "_" + Constants.BlockEntity.id,
+                                        () -> Builder.of(RevitalizerBE::new, REVITALIZER_BLOCK.get()).build(null));
 
         // -----------------------------------------------------------------------------------------------------------//
         // GUI
@@ -273,9 +292,9 @@ public class Material {
                         .register(Constants.Material.BlazingAnvil.id + "_" + Constants.GUI.id,
                                         () -> IMenuTypeExtension.create(BlazingAnvilGUI::new));
 
-                                        public static final DeferredHolder<MenuType<?>, MenuType<ClockGUI>> CLOCK_GUI = zCTNR
-                                        .register(Constants.Material.Clock.id + "_" + Constants.GUI.id,
-                                                        () -> IMenuTypeExtension.create(ClockGUI::new));
+        public static final DeferredHolder<MenuType<?>, MenuType<ClockGUI>> CLOCK_GUI = zCTNR
+                        .register(Constants.Material.Clock.id + "_" + Constants.GUI.id,
+                                        () -> IMenuTypeExtension.create(ClockGUI::new));
 
         // -----------------------------------------------------------------------------------------------------------//
         // CreativeTab

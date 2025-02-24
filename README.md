@@ -26,7 +26,7 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [x] Phase Box (xu1 Ethereal glass like)
 - [x] Energized Goo (FE Goo)
 - [x] Powered Time Crystal Budding
-- [ ] Goo Revitalizer (alive any goo without clicking)
+- [x] Goo Revitalizer (alive any goo without item cost)
 - [ ] Sculk Diffuser (Sculk Source without need to kill mobs)
 - [ ] Buffed Fuels (fuel with high multiplier)
 - [ ] Reforger T2 (?)
@@ -36,3 +36,4 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [ ] Block Picker (Itemstaff like Swapper but manual)
 - [ ] Light Wand (based on [#337](https://github.com/Direwolf20-MC/JustDireThings/issues/337) with gui to select light level)
 - [ ] Paradox Box (Pandora's Box like)
+- [ ] Bio-Azalea Generator (passive FE generator powered by azalea roots)

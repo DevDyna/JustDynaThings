@@ -39,5 +39,7 @@
 
   "block.justdynathings.blazing_anvil": "Blazing Anvil",
   "block.justdynathings.clock": "Ferricore Clock",
-  "justdynathings.clock.wip": "N.Y.I. -> shift-click the block to toggle"
+  "justdynathings.clock.wip": "N.Y.I. -> shift-click the block to toggle",
+
+  "block.justdynathings.revitalizer": "Goo Revitalizer"
 }

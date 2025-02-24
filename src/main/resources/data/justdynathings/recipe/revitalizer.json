@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CBC",
+    "BAB",
+    "CBC"
+  ],
+  "key": {
+    "A": {
+      "tag": "minecraft:copper_bulbs"
+    },
+    "B": {
+      "item": "minecraft:redstone"
+    },
+    "C":{
+      "item": "justdirethings:ferricore_ingot"
+    }
+  },
+  "result": {
+    "id": "justdynathings:revitalizer",
+    "count": 1
+  }
+}

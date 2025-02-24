@@ -1,0 +1,28 @@
+{
+    "multipart": [
+      {
+        "when": {
+          "active": "true"
+        },
+        "apply": {
+          "model": "justdynathings:block/revitalizer/on"
+        }
+      },
+      {
+        "when": {
+          "active": "false"
+        },
+        "apply": {
+          "model": "justdynathings:block/revitalizer/off"
+        }
+      },
+      {
+        "when": {
+          "goo_on_top": "true"
+        },
+        "apply": {
+          "model": "justdynathings:block/revitalizer/tentacles"
+        }
+      }
+    ]
+  }

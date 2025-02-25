@@ -35,9 +35,9 @@ public class FEGoo extends GooBlockBE_Base implements SmartFEMachine {
 
     @Override
     public void tickServer() {
-        this.checkEnergy();
-        this.checkSides();
-        this.tickCounters();
+        checkEnergy();
+        checkSides();
+        tickCounters();
         setChanged();
     }
 

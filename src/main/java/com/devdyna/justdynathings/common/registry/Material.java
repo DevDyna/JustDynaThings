@@ -85,6 +85,9 @@ public class Material {
 
         public static final TagKey<Item> BLAZINGANVIL_DENY = RegUtil.createtagItem("deny_repair");
 
+        public static final TagKey<Item> CREATIVE_GOO_WRENCHES = RegUtil.createtagItem("creativegoo_wrenches");
+
+
         // -----------------------------------------------------------------------------------------------------------//
         // blocks
         public static final DeferredHolder<Block, Goo> GooT5_BLOCK = zBLK.register(

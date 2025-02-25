@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.common.registry.builder.goo.custom.type;
 
-import static com.direwolf20.justdirethings.common.blocks.gooblocks.GooBlock_Base.ALIVE;
+// import static com.direwolf20.justdirethings.common.blocks.gooblocks.GooBlock_Base.ALIVE;
 
 import com.direwolf20.justdirethings.common.blockentities.basebe.GooBlockBE_Base;
 import net.minecraft.core.BlockPos;
@@ -11,9 +11,9 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
-public class CreativeGoo extends GooBlockBE_Base {
+public class NoDieGoo extends GooBlockBE_Base {
 
-    public CreativeGoo(BlockEntityType<?> type, BlockPos pos, BlockState state) {
+    public NoDieGoo(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
     }
 
@@ -36,15 +36,6 @@ public class CreativeGoo extends GooBlockBE_Base {
         updateSideCounter(direction, -1);
         sidedDurations.put(direction, -1);
         level.playSound(null, getBlockPos(), SoundEvents.SCULK_BLOCK_BREAK, SoundSource.BLOCKS, 1.0F, 1.0F);
-
-        if (level != null && !level.isClientSide) {
-            level.playSound(null, getBlockPos(),
-                    SoundEvents.SCULK_BLOCK_SPREAD,
-                    SoundSource.BLOCKS, 1.0F, 0.25F);
-
-            level.setBlock(worldPosition, getBlockState().setValue(ALIVE, true), 3);
-        }
-
     }
 
 }

@@ -1,12 +1,12 @@
 package com.devdyna.justdynathings.common.registry.builder.goo.custom.creative;
 
 import com.devdyna.justdynathings.common.registry.Material;
-import com.devdyna.justdynathings.common.registry.builder.goo.custom.type.FEGoo;
+import com.devdyna.justdynathings.common.registry.builder.goo.custom.type.NoDieGoo;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class CreativeGooBE extends FEGoo {
+public class CreativeGooBE extends NoDieGoo {
 
     private int tier;
     private int reducer;

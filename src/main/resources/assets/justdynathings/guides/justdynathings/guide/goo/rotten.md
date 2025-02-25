@@ -14,6 +14,8 @@ item_ids:
 
 A simple goo that can be powered using any seeds
 
+<BlockImage id="justdynathings:rotten_goo" scale="4.0"/>
+
 Tier level : **0**
 
 <RecipeFor id="justdynathings:rotten_goo" />

@@ -14,6 +14,8 @@ item_ids:
 
 A simple goo that can be powered using gold foods or bottle of experience
 
+<BlockImage id="justdynathings:complex_goo" scale="4.0"/>
+
 Tier level : **5**
 
 <RecipeFor id="justdynathings:complex_goo" />

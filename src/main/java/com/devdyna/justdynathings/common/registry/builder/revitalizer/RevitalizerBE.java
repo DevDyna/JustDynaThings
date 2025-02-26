@@ -11,12 +11,12 @@ import com.direwolf20.justdirethings.common.capabilities.MachineEnergyStorage;
 import com.direwolf20.justdirethings.setup.Registration;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 @SuppressWarnings("null")
 public class RevitalizerBE extends BaseMachineBE implements SmartFEMachine {
@@ -87,8 +87,13 @@ public class RevitalizerBE extends BaseMachineBE implements SmartFEMachine {
      */
     public void updateBlock() {
         level.setBlockAndUpdate(getBlockPos(),
-                getBlockState().setValue(ACTIVE,
-                        validEnergy()).setValue(GOO_ON_TOP, checkGooTop()));
+                getBlockState()
+                        .setValue(ACTIVE,
+                                validEnergy())
+                        .setValue(GOO_FOUND, checkGooTop())
+                        .setValue(BlockStateProperties.FACING,
+                                getBlockState()
+                                        .getValue(BlockStateProperties.FACING)));
     }
 
     /**
@@ -123,29 +128,32 @@ public class RevitalizerBE extends BaseMachineBE implements SmartFEMachine {
      * check if on top there is a goo
      */
     public boolean checkGooTop() {
-        return level.getBlockState(
-                getBlockPos().relative(Direction.UP))
-                .is(Material.REVITALIZER_GOO)
-                ;
+        return level.getBlockState(getGooPos())
+                .is(Material.REVITALIZER_GOO);
     }
 
-    public boolean checkGooStatus(){
+    public boolean checkGooStatus() {
         return !level
-        .getBlockState(getBlockPos().relative(Direction.UP))
-        .getValue(GooBlock_Base.ALIVE).booleanValue();
+                .getBlockState(getGooPos())
+                .getValue(GooBlock_Base.ALIVE).booleanValue();
     }
 
     public void reviveGoo() {
         if (LevelUtil.chance(25, level))
-            level.setBlockAndUpdate(
-                    getBlockPos().above(),
-                    level.getBlockState(getBlockPos().relative(Direction.UP))
+            level.setBlockAndUpdate(getGooPos(),
+                    level.getBlockState(getGooPos())
                             .setValue(GooBlock_Base.ALIVE, true));
     }
 
     public boolean readyToConsume() {
         return getBlockState().getValue(ACTIVE).booleanValue()
-                && getBlockState().getValue(GOO_ON_TOP).booleanValue() && checkGooStatus();
+                && getBlockState().getValue(GOO_FOUND).booleanValue() && checkGooStatus();
+    }
+
+    public BlockPos getGooPos() {
+        return getBlockPos()
+                .relative(getBlockState()
+                        .getValue(BlockStateProperties.FACING).getOpposite());
     }
 
 }

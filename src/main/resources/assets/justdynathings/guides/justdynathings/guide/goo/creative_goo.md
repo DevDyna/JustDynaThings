@@ -17,6 +17,7 @@ A simple goo that cannot die
 
 Tier level : **MAX**
 
-<BlockImage id="justdynathings:creative_goo" scale="4.0"/>
+<BlockImage id="justdynathings:creative_goo" scale="4.0" p:alive="false"/> 
+<BlockImage id="justdynathings:creative_goo" scale="4.0" p:alive="true" />
 
 Also it can be toggled using any wrenches

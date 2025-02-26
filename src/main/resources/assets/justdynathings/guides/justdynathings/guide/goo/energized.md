@@ -14,7 +14,8 @@ item_ids:
 
 A new goo that require **Forge Energy** to stay alive
 
-<BlockImage id="justdynathings:energized_goo" scale="4.0"/>
+<BlockImage id="justdynathings:energized_goo" scale="4.0" p:alive="false"/>
+<BlockImage id="justdynathings:energized_goo" scale="4.0" p:alive="true"/>
 
 Tier level : **6**
 

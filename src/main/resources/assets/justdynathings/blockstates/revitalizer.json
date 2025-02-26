@@ -1,28 +1,180 @@
 {
-    "multipart": [
-      {
-        "when": {
-          "active": "true"
-        },
-        "apply": {
-          "model": "justdynathings:block/revitalizer/on"
-        }
+  "multipart": [
+    {
+      "when": {
+        "active": "true",
+        "facing": "down"
       },
-      {
-        "when": {
-          "active": "false"
-        },
-        "apply": {
-          "model": "justdynathings:block/revitalizer/off"
-        }
-      },
-      {
-        "when": {
-          "goo_on_top": "true"
-        },
-        "apply": {
-          "model": "justdynathings:block/revitalizer/tentacles"
-        }
+      "apply": {
+        "model": "justdynathings:block/revitalizer/x/on"
       }
-    ]
-  }
+    },
+    {
+      "when": {
+        "active": "true",
+        "facing": "up"
+      },
+      "apply": {
+        "model": "justdynathings:block/revitalizer/x/on",
+        "x": 180
+      }
+    },
+    {
+      "when": {
+        "active": "true",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "justdynathings:block/revitalizer/x/on",
+        "x": 270
+      }
+    },
+    {
+      "when": {
+        "active": "true",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "justdynathings:block/revitalizer/x/on",
+        "x": 90
+      }
+    },
+    {
+      "when": {
+        "active": "true",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "justdynathings:block/revitalizer/z/on",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "active": "true",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "justdynathings:block/revitalizer/z/on"
+      }
+    },
+
+    {
+      "when": {
+        "active": "false",
+        "facing": "down"
+      },
+      "apply": {
+        "model": "justdynathings:block/revitalizer/x/off"
+      }
+    },
+    {
+      "when": {
+        "active": "false",
+        "facing": "up"
+      },
+      "apply": {
+        "model": "justdynathings:block/revitalizer/x/off",
+        "x": 180
+      }
+    },
+    {
+      "when": {
+        "active": "false",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "justdynathings:block/revitalizer/x/off",
+        "x": 270
+      }
+    },
+    {
+      "when": {
+        "active": "false",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "justdynathings:block/revitalizer/x/off",
+        "x": 90
+      }
+    },
+    {
+      "when": {
+        "active": "false",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "justdynathings:block/revitalizer/z/off",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "active": "false",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "justdynathings:block/revitalizer/z/off"
+      }
+    },
+
+    {
+      "when": {
+        "goo_found": "true",
+        "facing": "down"
+      },
+      "apply": {
+        "model": "justdynathings:block/revitalizer/x/tentacles"
+      }
+    },
+    {
+      "when": {
+        "goo_found": "true",
+        "facing": "up"
+      },
+      "apply": {
+        "model": "justdynathings:block/revitalizer/x/tentacles",
+        "x": 180
+      }
+    },
+    {
+      "when": {
+        "goo_found": "true",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "justdynathings:block/revitalizer/x/tentacles",
+        "x": 270
+      }
+    },
+    {
+      "when": {
+        "goo_found": "true",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "justdynathings:block/revitalizer/x/tentacles",
+        "x": 90
+      }
+    },
+    {
+      "when": {
+        "goo_found": "true",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "justdynathings:block/revitalizer/z/tentacles",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "goo_found": "true",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "justdynathings:block/revitalizer/z/tentacles"
+      }
+    }
+  ]
+}

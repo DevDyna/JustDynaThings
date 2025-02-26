@@ -1,19 +1,22 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "CBC",
-    "BAB",
+    "CDC", 
+    "BAB", 
     "CBC"
   ],
   "key": {
     "A": {
-      "tag": "minecraft:copper_bulbs"
+      "item": "justdirethings:blockswappert1"
     },
     "B": {
       "item": "minecraft:redstone"
     },
-    "C":{
-      "item": "justdirethings:ferricore_ingot"
+    "C": {
+      "item": "justdirethings:eclipsealloy_ingot"
+    },
+    "D": {
+      "item": "justdirethings:time_crystal"
     }
   },
   "result": {

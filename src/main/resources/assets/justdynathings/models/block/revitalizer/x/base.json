@@ -1,6 +1,6 @@
 {
-  "parent": "block/block",
   "credit": "Made with Blockbench",
+  "parent": "block/block",
   "render_type": "cutout",
   "textures": {
     "1": "justdirethings:block/paradoxmachine_bottom",

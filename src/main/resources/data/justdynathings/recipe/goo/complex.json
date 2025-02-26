@@ -10,7 +10,7 @@
       "item": "justdynathings:metal_block"
     },
     "B": {
-      "item": "justdirethings:time_crystal"
+      "item": "justdirethings:time_crystal_block"
     },
     "C": {
       "item": "justdirethings:gooblock_tier4"
@@ -19,6 +19,5 @@
   "result": {
     "id": "justdynathings:complex_goo",
     "count": 1
-  },
-  "show_notification": false
+  }
 }

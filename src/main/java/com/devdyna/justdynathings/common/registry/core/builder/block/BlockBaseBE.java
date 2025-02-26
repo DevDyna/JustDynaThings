@@ -10,6 +10,9 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
+/**
+ *  simplified version of BaseMachineBlock blockbuilder
+ */
 @SuppressWarnings("null")
 public abstract class BlockBaseBE extends Block implements EntityBlock {
     public BlockBaseBE(Properties properties) {

@@ -3,9 +3,9 @@ package com.devdyna.justdynathings.common.registry;
 import java.util.ArrayList;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
-import com.devdyna.justdynathings.client.factory.blazingAnvil.BlazingAnvilGUI;
-import com.devdyna.justdynathings.client.factory.clock.ClockGUI;
-import com.devdyna.justdynathings.client.factory.reforger.ReforgerGUI;
+import com.devdyna.justdynathings.client.builder.blazingAnvil.BlazingAnvilGUI;
+import com.devdyna.justdynathings.client.builder.clock.ClockGUI;
+import com.devdyna.justdynathings.client.builder.reforger.ReforgerGUI;
 import com.devdyna.justdynathings.common.registry.builder.*;
 import com.devdyna.justdynathings.common.registry.builder.budding.*;
 import com.devdyna.justdynathings.common.registry.builder.clock.ClockBE;
@@ -19,6 +19,8 @@ import com.devdyna.justdynathings.common.registry.builder.reforger.*;
 import com.devdyna.justdynathings.common.registry.builder.repairer.*;
 import com.devdyna.justdynathings.common.registry.builder.revitalizer.RevitalizerBE;
 import com.devdyna.justdynathings.common.registry.builder.revitalizer.RevitalizerBlock;
+import com.devdyna.justdynathings.common.registry.builder.ticker.TickerBE;
+import com.devdyna.justdynathings.common.registry.builder.ticker.TickerBlock;
 import com.devdyna.justdynathings.utils.RegUtil;
 import com.direwolf20.justdirethings.setup.Registration;
 
@@ -79,6 +81,8 @@ public class Material {
 
         public static final TagKey<Block> REVITALIZER_GOO = RegUtil.createtagBlock("revitalizer_goo");
 
+        public static final TagKey<Block> TICKER_DENY = RegUtil.createtagBlock("ticker_deny");
+
         public static final TagKey<Item> REFORGER_CATALYST = RegUtil.createtagItem("reforger_catalyst");
 
         public static final TagKey<Item> FLAWED_REVITALIZER = RegUtil.createtagItem("flawed_revitalizer");
@@ -86,7 +90,6 @@ public class Material {
         public static final TagKey<Item> BLAZINGANVIL_DENY = RegUtil.createtagItem("deny_repair");
 
         public static final TagKey<Item> CREATIVE_GOO_WRENCHES = RegUtil.createtagItem("creativegoo_wrenches");
-
 
         // -----------------------------------------------------------------------------------------------------------//
         // blocks
@@ -164,16 +167,21 @@ public class Material {
 
         public static final DeferredHolder<Block, BlazingAnvilBlock> BLAZINGANVIL_BLOCK = zBLK
                         .register(Constants.Material.BlazingAnvil.id,
-                                        () -> new BlazingAnvilBlock(Constants.BlazingAnvilFE.Cost.value,
-                                                        Constants.BlazingAnvilFE.Capacity.value));
+                                        () -> new BlazingAnvilBlock(1000,
+                                                        100000));
 
         public static final DeferredHolder<Block, ClockBlock> CLOCK_BLOCK = zBLK
                         .register(Constants.Material.Clock.id, ClockBlock::new);
 
         public static final DeferredHolder<Block, RevitalizerBlock> REVITALIZER_BLOCK = zBLK
                         .register(Constants.Material.Revitalizer.id,
-                                        () -> new RevitalizerBlock(Constants.RevitalizerFE.Cost.value,
-                                                        Constants.RevitalizerFE.Capacity.value));
+                                        () -> new RevitalizerBlock(1000,
+                                                        10000));
+
+        public static final DeferredHolder<Block, TickerBlock> TICKER_BLOCK = zBLK
+                        .register(Constants.Material.Ticker.id,
+                                        () -> new TickerBlock(1000,
+                                                        100,1000,100));
 
         // -----------------------------------------------------------------------------------------------------------//
         // items
@@ -247,6 +255,8 @@ public class Material {
         public static final DeferredHolder<Item, BlockItem> REVITALIZER_BLOCK_ITEM = zITM
                         .registerSimpleBlockItem(REVITALIZER_BLOCK);
 
+        public static final DeferredHolder<Item, BlockItem> TICKER_BLOCK_ITEM = zITM
+                        .registerSimpleBlockItem(TICKER_BLOCK);
         // -----------------------------------------------------------------------------------------------------------//
         // BE
         public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GooBE>> GOO_BE = zBE.register(
@@ -285,6 +295,10 @@ public class Material {
                         .register(Constants.Material.Revitalizer.id + "_" + Constants.BlockEntity.id,
                                         () -> Builder.of(RevitalizerBE::new, REVITALIZER_BLOCK.get()).build(null));
 
+        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TickerBE>> TICKER_BE = zBE
+                        .register(Constants.Material.Ticker.id + "_" + Constants.BlockEntity.id,
+                                        () -> Builder.of(TickerBE::new, TICKER_BLOCK.get()).build(null));
+
         // -----------------------------------------------------------------------------------------------------------//
         // GUI
         public static final DeferredHolder<MenuType<?>, MenuType<ReforgerGUI>> REFORGER_GUI = zCTNR
@@ -297,7 +311,7 @@ public class Material {
 
         public static final DeferredHolder<MenuType<?>, MenuType<ClockGUI>> CLOCK_GUI = zCTNR
                         .register(Constants.Material.Clock.id + "_" + Constants.GUI.id,
-                                        () -> IMenuTypeExtension.create(ClockGUI::new));
+                                        () -> IMenuTypeExtension.create(ClockGUI::new));            
 
         // -----------------------------------------------------------------------------------------------------------//
         // CreativeTab
@@ -375,12 +389,12 @@ public class Material {
                 if (Constants.Mods.PhasoriteNetworks.check)
                         a.add(com.devdyna.justdynathings.compat.phasorite.init.PHASORITE_POWERED.get());
 
-                Block[] array = new Block[a.size()];
+                Block[] b = new Block[a.size()];
                 for (int i = 0; i < a.size(); i++) {
-                        array[i] = a.get(i);
+                        b[i] = a.get(i);
                 }
 
-                return array;
+                return b;
         }
 
 }

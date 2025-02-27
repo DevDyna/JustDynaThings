@@ -1,8 +1,8 @@
 package com.devdyna.justdynathings;
 
-import com.devdyna.justdynathings.client.factory.blazingAnvil.BlazingAnvilScreen;
-import com.devdyna.justdynathings.client.factory.clock.ClockScreen;
-import com.devdyna.justdynathings.client.factory.reforger.ReforgerScreen;
+import com.devdyna.justdynathings.client.builder.blazingAnvil.BlazingAnvilScreen;
+import com.devdyna.justdynathings.client.builder.clock.ClockScreen;
+import com.devdyna.justdynathings.client.builder.reforger.ReforgerScreen;
 import com.devdyna.justdynathings.common.registry.Material;
 import com.devdyna.justdynathings.common.registry.builder.goo.GooRender;
 

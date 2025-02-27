@@ -1,13 +1,12 @@
 package com.devdyna.justdynathings.common.registry.builder.repairer;
 
-import com.devdyna.justdynathings.client.factory.blazingAnvil.BlazingAnvilGUI;
+import com.devdyna.justdynathings.client.builder.blazingAnvil.BlazingAnvilGUI;
 import com.devdyna.justdynathings.common.registry.Material;
+import com.devdyna.justdynathings.utils.Actions;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -61,11 +60,10 @@ public class BlazingAnvilBlock extends BaseMachineBlock {
 
     @Override
     public void openMenu(Player player, BlockPos blockPos) {
-        player.openMenu(new SimpleMenuProvider(
-                (windowId, playerInventory, playerEntity) -> new BlazingAnvilGUI(windowId, playerInventory, blockPos),
-                Component.translatable("")), (buf -> {
-                    buf.writeBlockPos(blockPos);
-                }));
+               Actions.openMenu(player,
+                (windowId, playerInventory, playerEntity) -> 
+                new BlazingAnvilGUI(windowId, playerInventory, blockPos),
+                blockPos);
     }
 
     @Override

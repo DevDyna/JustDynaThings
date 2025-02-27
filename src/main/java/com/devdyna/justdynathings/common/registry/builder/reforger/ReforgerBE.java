@@ -2,6 +2,7 @@ package com.devdyna.justdynathings.common.registry.builder.reforger;
 
 import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.common.registry.Material;
+import com.devdyna.justdynathings.utils.Actions;
 import com.devdyna.justdynathings.utils.LevelUtil;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.RedstoneControlledBE;
@@ -15,7 +16,6 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
-@SuppressWarnings("null")
 public class ReforgerBE extends BaseMachineBE implements RedstoneControlledBE {
 
     public RedstoneControlData redstoneControlData = new RedstoneControlData();
@@ -53,44 +53,24 @@ public class ReforgerBE extends BaseMachineBE implements RedstoneControlledBE {
                         .getValue(BlockStateProperties.FACING));
 
         if (!item.isEmpty())
-            if (checkValid(pos, item)) {
+            if (Actions.checkItemBlock(level, pos, Material.REFORGER_REPLACE, item, Material.REFORGER_CATALYST)) {
 
-                replaceBlock(pos);
+                Actions.reforgerReplaceBlock(pos, level);
 
                 playSound(pos);
 
-                consumeItem(item);
+                Actions.consumeItem(item, level,Config.REFORGER_CHANCE.get());
 
             }
     }
 
-    public boolean checkValid(BlockPos pos, ItemStack item) {
-        return level.getBlockState(pos).is(Material.REFORGER_REPLACE)
-                && item.is(Material.REFORGER_CATALYST);
-    }
-
-    public void replaceBlock(BlockPos pos) {
-        level.setBlockAndUpdate(pos,
-                LevelUtil
-                        .ResourceByTag(Material.REFORGER_RESULT,
-                                LevelUtil.getRandomValue(
-                                        LevelUtil.getSizeTag(Material.REFORGER_RESULT),
-                                        level))
-                        .defaultBlockState());
-    }
-
-    public void playSound(BlockPos pos) {
+        @SuppressWarnings("null")
+        public void playSound(BlockPos pos) {
         level.playLocalSound(pos.getX(), pos.getY(),
                 pos.getZ(),
                 SoundEvents.AMETHYST_BLOCK_BREAK,
                 SoundSource.BLOCKS, 100,
                 LevelUtil.getRandomValue(9, level) * 0.1f, true);
-    }
-
-    public void consumeItem(ItemStack item) {
-        if (LevelUtil.chance(Config.REFORGER_CHANCE.get(), level))
-            item.shrink(1);
-
     }
 
 }

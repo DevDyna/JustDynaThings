@@ -86,9 +86,9 @@ public class BuddingBE extends BaseMachineBE implements SmartFEMachine, SmartMBM
 
                 applySound(dir);
 
-                consumeEnergy();
+                extractFEChance(50,level);
 
-                consumeFluid();
+                extractMBChance(50,level);
 
             }
         }
@@ -128,21 +128,6 @@ public class BuddingBE extends BaseMachineBE implements SmartFEMachine, SmartMBM
 
     }
 
-    /**
-     * extract fluid
-     */
-    public void consumeFluid() {
-        if (LevelUtil.chance(50, level))
-            extractMBWhenPossible();
-    }
-
-    /**
-     * extract energy
-     */
-    public void consumeEnergy() {
-        if (LevelUtil.chance(50, level))
-            extractFEWhenPossible();
-    }
 
     /**
      * add sound events

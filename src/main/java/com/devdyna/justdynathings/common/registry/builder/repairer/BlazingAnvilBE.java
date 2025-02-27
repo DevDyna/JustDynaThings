@@ -2,6 +2,7 @@ package com.devdyna.justdynathings.common.registry.builder.repairer;
 
 import com.devdyna.justdynathings.common.registry.Material;
 import com.devdyna.justdynathings.common.registry.core.interfaces.be.SmartFEMachine;
+import com.devdyna.justdynathings.utils.Actions;
 import com.devdyna.justdynathings.utils.LevelUtil;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineContainerData;
@@ -65,7 +66,7 @@ public class BlazingAnvilBE extends BaseMachineBE implements RedstoneControlledB
         checkState();
         if (getBlockState().getValue(ACTIVE).booleanValue()) {
             extractFEWhenPossible();
-            repairItem();
+            Actions.repairItem(getMachineHandler().getStackInSlot(0));
             applySound();
         }
     }
@@ -108,12 +109,6 @@ public class BlazingAnvilBE extends BaseMachineBE implements RedstoneControlledB
                                     : SoundEvents.ANVIL_USE,
                     SoundSource.BLOCKS, (level.random.nextInt(10) + 1) * 0.01F,
                     level.random.nextInt(50) + 1 * 0.01F);
-    }
-
-    public void repairItem() {
-
-        getMachineHandler().getStackInSlot(0)
-                .setDamageValue(getMachineHandler().getStackInSlot(0).getDamageValue() - 1);
     }
 
 }

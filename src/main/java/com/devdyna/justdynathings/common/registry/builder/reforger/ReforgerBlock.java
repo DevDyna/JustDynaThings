@@ -1,11 +1,10 @@
 package com.devdyna.justdynathings.common.registry.builder.reforger;
 
-import com.devdyna.justdynathings.client.factory.reforger.ReforgerGUI;
+import com.devdyna.justdynathings.client.builder.reforger.ReforgerGUI;
+import com.devdyna.justdynathings.utils.Actions;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.Block;
@@ -37,11 +36,10 @@ public class ReforgerBlock extends BaseMachineBlock {
 
     @Override
     public void openMenu(Player player, BlockPos blockPos) {
-        player.openMenu(new SimpleMenuProvider(
-                (windowId, playerInventory, playerEntity) -> new ReforgerGUI(windowId, playerInventory, blockPos),
-                Component.translatable("")), (buf -> {
-                    buf.writeBlockPos(blockPos);
-                }));
+                Actions.openMenu(player,
+                (windowId, playerInventory, playerEntity) -> 
+                new ReforgerGUI(windowId, playerInventory, blockPos),
+                blockPos);
     }
 
     @Override

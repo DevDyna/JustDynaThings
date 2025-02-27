@@ -25,6 +25,7 @@ public enum Constants {
         BlazingAnvil("blazing_anvil"),
         Clock("clock"),
         Revitalizer("revitalizer"),
+        Ticker("ticker"),
         ;
 
         public final String id;
@@ -95,32 +96,6 @@ public enum Constants {
             }
         }
 
-    }
-
-    public enum RevitalizerFE {
-        Cost(1000),
-        Capacity(100000),
-        ;
-
-        public final int value;
-
-        RevitalizerFE(int value) {
-            this.value = value;
-        }
-    }
-
-
-
-    public enum BlazingAnvilFE {
-        Cost(1000),
-        Capacity(100000),
-        ;
-
-        public final int value;
-
-        BlazingAnvilFE(int value) {
-            this.value = value;
-        }
     }
 
     public enum FEGoo {

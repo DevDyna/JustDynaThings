@@ -1,4 +1,21 @@
 {
   "type": "minecraft:block",
-  "random_sequence": "justdynathings:blocks/budding_time"
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "justdynathings:powered_budding_time"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "justdynathings:blocks/powered_budding_time"
 }

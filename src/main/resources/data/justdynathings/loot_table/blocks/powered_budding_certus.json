@@ -1,4 +1,10 @@
 {
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ae2"
+    }
+  ],
   "type": "minecraft:block",
   "pools": [
     {
@@ -11,11 +17,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "justdynathings:powered_budding_amethyst"
+          "name": "justdynathings:powered_budding_certus"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "justdynathings:blocks/powered_budding_amethyst"
+  "random_sequence": "justdynathings:blocks/powered_budding_certus"
 }

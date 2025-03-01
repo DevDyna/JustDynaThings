@@ -46,7 +46,7 @@ public class core {
         private static void createGuide() {
 
                 LogUtil.info("GuideMe"
-                                + (Constants.Mods.GuideMe.check ? "found"
+                                + (Constants.Mods.GuideMe.check ? " found"
                                                 : " not found"));
                 if (Constants.Mods.GuideMe.check)
                         Guide.builder(ResourceLocation.parse(Main.ID + ":guide")).build();

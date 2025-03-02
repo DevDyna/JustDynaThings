@@ -5,6 +5,7 @@ import static com.devdyna.justdynathings.common.registry.builder.budding.Budding
 import com.devdyna.justdynathings.common.registry.Material;
 import com.devdyna.justdynathings.common.registry.core.interfaces.be.SmartFEMachine;
 import com.devdyna.justdynathings.common.registry.core.interfaces.be.SmartMBMachine;
+import com.devdyna.justdynathings.utils.DirectionUtil;
 import com.devdyna.justdynathings.utils.LevelUtil;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.FluidContainerData;
@@ -78,7 +79,7 @@ public class BuddingBE extends BaseMachineBE implements SmartFEMachine, SmartMBM
         if (LevelUtil.chance(25, level) && getBlockState().getValue(ACTIVE)) {
 
             // RANDOM REQUIRE VARIABLE
-            Direction dir = LevelUtil.randomDirection(level, Direction.values());
+            Direction dir = DirectionUtil.randomDirection(level, Direction.values());
 
             if (growCluster(dir)) {
 

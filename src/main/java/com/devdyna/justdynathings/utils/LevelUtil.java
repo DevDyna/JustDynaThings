@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.direwolf20.justdirethings.client.particles.glitterparticle.GlitterParticleData;
 
-import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -120,29 +119,37 @@ public class LevelUtil {
     /**
      * @return a value [0 , max] inclusive
      */
-    public static int getRandomValue(int max, Level level) {
+    public static int getRandomValue(int max, Level l) {
         if (max <= 0)
             return 1;
 
-        return level.random.nextInt(max) + 1;
+        return l.random.nextInt(max) + 1;
     }
 
-    public static boolean chance(int value, Level level) {
-        if (value == 0)
+    /**
+     * @return a value [min , max] inclusive
+     */
+    public static int getRandomValue(int min, int max, Level l) {
+        return getRandomValue(max, l) + min;
+    }
+
+    public static boolean chance(int v, Level l) {
+        if (v == 0)
             return false;
 
-        return getRandomValue(100, level) <= value;
+        return getRandomValue(100, l) <= v;
     }
 
-    public static Direction randomDirection(Level l, Direction[] d) {
-        return d[l.random.nextInt(d.length)];
+    public static boolean rnd50(Level l) {
+        return chance(50, l);
     }
 
     /**
      * Generate N dust particles
      * 
      */
-    public static void SpawnGlitterParticle(float red, float green, float blue, BlockPos pos, Level level, float[] speed,
+    public static void SpawnGlitterParticle(float red, float green, float blue, BlockPos pos, Level level,
+            float[] speed,
             int N) {
         GlitterParticleData data;
         for (int i = 0; i < N; ++i) {
@@ -160,6 +167,34 @@ public class LevelUtil {
                             : 1.0),
                     speed[0], speed[1], speed[2]);
         }
+    }
+
+    public static BlockPos RandomPos3D(Level l, BlockPos pos) {
+        BlockPos[] a = {
+                pos.above(),
+                pos.below(),
+                pos.north(),
+                pos.south(),
+                pos.east(),
+                pos.west()
+        };
+
+        BlockPos s = a[l.random.nextInt(6)];
+
+        if (s.equals(pos.above()) || s.equals(pos.below())) {
+            BlockPos[] b = {
+                    s,
+                    s.equals(pos.above()) ? pos.below() : pos.above(),
+                    s.north(),
+                    s.south(),
+                    s.east(),
+                    s.west()
+            };
+            return b[l.random.nextInt(6)];
+        } else {
+            return s;
+        }
+
     }
 
 }

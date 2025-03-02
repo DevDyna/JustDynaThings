@@ -108,13 +108,15 @@ public class Actions {
 
         @SuppressWarnings({ "unchecked", "null" })
         public static void tickWhenBE(Level level, BlockPos pos) {
-                BlockEntityTicker<BlockEntity> ticker = level.getBlockEntity(pos).getBlockState().getTicker(
+
+                if(level.getBlockEntity(pos) != null)
+{                BlockEntityTicker<BlockEntity> ticker = level.getBlockEntity(pos).getBlockState().getTicker(
                                 (ServerLevel) level,
                                 (BlockEntityType<BlockEntity>) level.getBlockEntity(pos).getType());
                 if (ticker != null) {
                         ticker.tick((ServerLevel) level, pos, level.getBlockEntity(pos).getBlockState(),
                                         level.getBlockEntity(pos));
-                }
+                }}
         }
 
 }

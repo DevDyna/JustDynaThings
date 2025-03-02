@@ -68,9 +68,11 @@ public class TickerBE extends BaseMachineBE implements SmartFEMachine, SmartMBMa
 
         checkState(pos);
 
-        if (getBlockState().getValue(ACTIVE)) {
+        if (getBlockState().getValue(ACTIVE) && blockValid(pos)) {
 
             Actions.tickWhenRandom(pos, level);
+
+            Actions.tickWhenBE(level, pos);
 
             playSound(pos);
 
@@ -82,7 +84,11 @@ public class TickerBE extends BaseMachineBE implements SmartFEMachine, SmartMBMa
 
     public void checkState(BlockPos pos) {
         level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(ACTIVE,
-                !level.getBlockState(pos).is(Material.TICKER_DENY) && validEnergy() && validFluid()));
+             validEnergy() && validFluid()));
+    }
+
+    public boolean blockValid(BlockPos pos){
+        return !level.getBlockState(pos).is(Material.TICKER_DENY);
     }
 
     public void playSound(BlockPos pos) {

@@ -19,6 +19,8 @@ import com.devdyna.justdynathings.common.registry.builder.reforger.*;
 import com.devdyna.justdynathings.common.registry.builder.repairer.*;
 import com.devdyna.justdynathings.common.registry.builder.revitalizer.RevitalizerBE;
 import com.devdyna.justdynathings.common.registry.builder.revitalizer.RevitalizerBlock;
+import com.devdyna.justdynathings.common.registry.builder.sculk.SculkBE;
+import com.devdyna.justdynathings.common.registry.builder.sculk.SculkBlock;
 import com.devdyna.justdynathings.common.registry.builder.ticker.TickerBE;
 import com.devdyna.justdynathings.common.registry.builder.ticker.TickerBlock;
 import com.devdyna.justdynathings.utils.RegUtil;
@@ -182,6 +184,11 @@ public class Material {
                         .register(Constants.Material.Ticker.id,
                                         () -> new TickerBlock(1000,
                                                         100,1000,100));
+        
+                                                        public static final DeferredHolder<Block, SculkBlock> SCULK_BLOCK = zBLK
+                                                        .register(Constants.Material.Sculk.id,
+                                                                        () -> new SculkBlock(1000,
+                                                                                        10));
 
         // -----------------------------------------------------------------------------------------------------------//
         // items
@@ -200,13 +207,13 @@ public class Material {
         public static final DeferredHolder<Item, Item> RAW_CHAOTIC_ITEM = zITM
                         .registerSimpleItem(Constants.Material.Ore.Chaotic_Item.id);
 
-        public static final DeferredHolder<Item, BlockItem> RAW_CHAOTIC_BLOCK_ITEM = zITM
+        public static final DeferredHolder<Item, BlockItem> RAW_CHAOTIC_BI = zITM
                         .registerSimpleBlockItem(RAW_CHAOTIC_BLOCK);
 
         public static final DeferredHolder<Item, Item> RAW_REDSTONIC_ITEM = zITM
                         .registerSimpleItem(Constants.Material.Ore.Redstonic_Item.id);
 
-        public static final DeferredHolder<Item, BlockItem> RAW_REDSTONIC_BLOCK_ITEM = zITM
+        public static final DeferredHolder<Item, BlockItem> RAW_REDSTONIC_BI = zITM
                         .registerSimpleBlockItem(RAW_REDSTONIC_BLOCK);
 
         public static final DeferredHolder<Item, Item> RAW_COPRINIUM_RAW_ITEM = zITM
@@ -215,48 +222,51 @@ public class Material {
         public static final DeferredHolder<Item, Item> RAW_COPRINIUM_INGOT_ITEM = zITM
                         .registerSimpleItem(Constants.Material.Ore.Coprinium_Ingot.id);
 
-        public static final DeferredHolder<Item, BlockItem> RAW_COPRINIUM_BLOCK_ITEM = zITM
+        public static final DeferredHolder<Item, BlockItem> RAW_COPRINIUM_BI = zITM
                         .registerSimpleBlockItem(RAW_COPRINIUM_BLOCK);
 
-        public static final DeferredHolder<Item, BlockItem> PHASEBOX_ITEM = zITM
+        public static final DeferredHolder<Item, BlockItem> PHASEBOX_BI = zITM
                         .registerSimpleBlockItem(PHASEBOX);
 
-        public static final DeferredHolder<Item, BlockItem> METALBLOCK_ITEM = zITM
+        public static final DeferredHolder<Item, BlockItem> METALBLOCK_BI = zITM
                         .registerSimpleBlockItem(METAL_BLOCK);
 
-        public static final DeferredHolder<Item, BlockItem> REFORGER_ITEM = zITM
+        public static final DeferredHolder<Item, BlockItem> REFORGER_BI = zITM
                         .registerSimpleBlockItem(REFORGER_BLOCK);
 
-        public static final DeferredHolder<Item, BlockItem> T0_ENERGY_ITEM = simpleFEGooItem(T0_ENERGY,
+        public static final DeferredHolder<Item, BlockItem> T0_ENERGY_BI = simpleFEGooItem(T0_ENERGY,
                         Constants.Material.Goo.Rotten.id);
-        public static final DeferredHolder<Item, BlockItem> T1_ENERGY_ITEM = simpleFEGooItem(T1_ENERGY,
+        public static final DeferredHolder<Item, BlockItem> T1_ENERGY_BI = simpleFEGooItem(T1_ENERGY,
                         Constants.Material.Goo.T1.id);
-        public static final DeferredHolder<Item, BlockItem> T2_ENERGY_ITEM = simpleFEGooItem(T2_ENERGY,
+        public static final DeferredHolder<Item, BlockItem> T2_ENERGY_BI = simpleFEGooItem(T2_ENERGY,
                         Constants.Material.Goo.T2.id);
-        public static final DeferredHolder<Item, BlockItem> T3_ENERGY_ITEM = simpleFEGooItem(T3_ENERGY,
+        public static final DeferredHolder<Item, BlockItem> T3_ENERGY_BI = simpleFEGooItem(T3_ENERGY,
                         Constants.Material.Goo.T3.id);
-        public static final DeferredHolder<Item, BlockItem> T4_ENERGY_ITEM = simpleFEGooItem(T4_ENERGY,
+        public static final DeferredHolder<Item, BlockItem> T4_ENERGY_BI = simpleFEGooItem(T4_ENERGY,
                         Constants.Material.Goo.T4.id);
-        public static final DeferredHolder<Item, BlockItem> T5_ENERGY_ITEM = simpleFEGooItem(T5_ENERGY,
+        public static final DeferredHolder<Item, BlockItem> T5_ENERGY_BI = simpleFEGooItem(T5_ENERGY,
                         Constants.Material.Goo.Complex.id);
 
-        public static final DeferredHolder<Item, BlockItem> POWERED_TIME_ITEM = zITM
+        public static final DeferredHolder<Item, BlockItem> TIME_BI = zITM
                         .registerSimpleBlockItem(POWERED_TIME);
 
-        public static final DeferredHolder<Item, BlockItem> POWERED_AMETHYST_ITEM = zITM
+        public static final DeferredHolder<Item, BlockItem> AMETHYST_BI = zITM
                         .registerSimpleBlockItem(POWERED_AMETHYST);
 
-        public static final DeferredHolder<Item, BlockItem> BLAZINGANVIL_BLOCK_ITEM = zITM
+        public static final DeferredHolder<Item, BlockItem> BLAZINGANVIL_BI = zITM
                         .registerSimpleBlockItem(BLAZINGANVIL_BLOCK);
 
-        public static final DeferredHolder<Item, BlockItem> CLOCK_BLOCK_ITEM = zITM
+        public static final DeferredHolder<Item, BlockItem> CLOCK_BLOCK_BI = zITM
                         .registerSimpleBlockItem(CLOCK_BLOCK);
 
-        public static final DeferredHolder<Item, BlockItem> REVITALIZER_BLOCK_ITEM = zITM
+        public static final DeferredHolder<Item, BlockItem> REVITALIZER_BI = zITM
                         .registerSimpleBlockItem(REVITALIZER_BLOCK);
 
-        public static final DeferredHolder<Item, BlockItem> TICKER_BLOCK_ITEM = zITM
+        public static final DeferredHolder<Item, BlockItem> TICKER_BI = zITM
                         .registerSimpleBlockItem(TICKER_BLOCK);
+
+                        public static final DeferredHolder<Item, BlockItem> SCULK_BI = zITM
+                        .registerSimpleBlockItem(SCULK_BLOCK);
         // -----------------------------------------------------------------------------------------------------------//
         // BE
         public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<GooBE>> GOO_BE = zBE.register(
@@ -298,6 +308,10 @@ public class Material {
         public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TickerBE>> TICKER_BE = zBE
                         .register(Constants.Material.Ticker.id + "_" + Constants.BlockEntity.id,
                                         () -> Builder.of(TickerBE::new, TICKER_BLOCK.get()).build(null));
+
+                                        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SculkBE>> SCULK_BE = zBE
+                                        .register(Constants.Material.Sculk.id + "_" + Constants.BlockEntity.id,
+                                                        () -> Builder.of(SculkBE::new, SCULK_BLOCK.get()).build(null));
 
         // -----------------------------------------------------------------------------------------------------------//
         // GUI

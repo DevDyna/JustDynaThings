@@ -26,6 +26,7 @@ public enum Constants {
         Clock("clock"),
         Revitalizer("revitalizer"),
         Ticker("ticker"),
+        Sculk("sculk"),
         ;
 
         public final String id;

@@ -63,7 +63,7 @@ public class Capabilities {
                         side) -> (be instanceof FluidMachineBE || be instanceof SmartMBMachine)
                                 ? be.getData(Registration.PARADOX_FLUID_HANDLER)
                                 : null,
-                Material.TICKER_BLOCK.get());
+                Material.TICKER_BLOCK.get(),Material.SCULK_BLOCK.get());
 
     }
 

@@ -3,6 +3,7 @@ package com.devdyna.justdynathings.utils;
 import java.util.Arrays;
 
 import net.minecraft.core.Direction;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
@@ -39,8 +40,11 @@ public class DirectionUtil {
         return face[Arrays.asList(ALL).indexOf(d)];
     }
 
+    public static Direction randomDirection(Level l, Direction[] d) {
+        return d[l.random.nextInt(d.length)];
+    }
 
-    public static int indexByStateFacing(BlockState s){
+    public static int indexByStateFacing(BlockState s) {
         return s.getValue(BlockStateProperties.FACING).get3DDataValue();
     }
 }

@@ -125,12 +125,16 @@ repositories {
 }
 
 dependencies {
+    //main
     implementation "curse.maven:justdirethings-1002348:6161633"
     implementation "curse.maven:jei-238222:5846880"
+    //compats
     implementation "curse.maven:ae2-223794:6140781"
     implementation "curse.maven:extendedae-892005:6164133"
     implementation "curse.maven:phasorite-1140963:6091868"
     implementation "curse.maven:guideme-1173950:6179772"
+    //datagen libs
+    implementation "curse.maven:glodium-957920:5821676"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

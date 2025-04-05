@@ -2,7 +2,8 @@ package com.devdyna.justdynathings.compat.ae2;
 
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
-import com.devdyna.justdynathings.common.registry.builder.budding.BuddingBlock;
+import com.devdyna.justdynathings.common.registry.core.builders.budding.BuddingBlock;
+
 import appeng.core.definitions.AEBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.BlockItem;
@@ -31,10 +32,6 @@ public class init {
         public static DeferredHolder<Block, BuddingBlock> AE2_POWERED = zAE_BLK.register(
                         Constants.Material.Budding.Powered.id + "_" + Constants.Material.Budding.Certus.id,
                         () -> new BuddingBlock(
-                                        Constants.FEBudding.FECost.value,
-                                        Constants.FEBudding.FECapacity.value,
-                                        Constants.FEBudding.FLCost.value,
-                                        Constants.FEBudding.FLCapacity.value,
                                         AEBlocks.SMALL_QUARTZ_BUD.block(),
                                         AEBlocks.MEDIUM_QUARTZ_BUD.block(),
                                         AEBlocks.LARGE_QUARTZ_BUD.block(),

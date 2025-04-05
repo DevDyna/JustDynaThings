@@ -1,6 +1,7 @@
 package com.devdyna.justdynathings.client.builder.clock;
 
-import com.devdyna.justdynathings.common.registry.Material;
+import com.devdyna.justdynathings.common.registry.types.Blocks;
+import com.devdyna.justdynathings.common.registry.types.Containers;
 import com.direwolf20.justdirethings.common.containers.basecontainers.BaseMachineContainer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
@@ -16,13 +17,13 @@ public class ClockGUI extends BaseMachineContainer {
     }
 
     public ClockGUI(int windowId, Inventory playerInventory, BlockPos blockPos) {
-        super(Material.CLOCK_GUI.get(), windowId, playerInventory, blockPos);
+        super(Containers.CLOCK_GUI.get(), windowId, playerInventory, blockPos);
         addPlayerSlots(player.getInventory());
     }
 
     @Override
     public boolean stillValid(Player playerIn) {
-        return stillValid(ContainerLevelAccess.create(player.level(), pos), player, Material.CLOCK_BLOCK.get());
+        return stillValid(ContainerLevelAccess.create(player.level(), pos), player, Blocks.CLOCK_BLOCK.get());
     }
 
     @Override

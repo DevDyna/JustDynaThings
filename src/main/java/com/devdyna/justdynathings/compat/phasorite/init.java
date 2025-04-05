@@ -2,7 +2,8 @@ package com.devdyna.justdynathings.compat.phasorite;
 
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
-import com.devdyna.justdynathings.common.registry.builder.budding.BuddingBlock;
+import com.devdyna.justdynathings.common.registry.core.builders.budding.BuddingBlock;
+
 import xyz.milosworks.phasoritenetworks.init.PNBlocks;
 
 import net.minecraft.core.registries.Registries;
@@ -34,10 +35,6 @@ public class init {
                         Constants.Material.Budding.Powered.id + "_"
                                         + Constants.Material.Budding.Phasorite.id,
                         () -> new BuddingBlock(
-                                        Constants.FEBudding.FECost.value,
-                                        Constants.FEBudding.FECapacity.value,
-                                        Constants.FEBudding.FLCost.value,
-                                        Constants.FEBudding.FLCapacity.value,
                                         PNBlocks.INSTANCE.getSMALL_PHASORITE_BUD(),
                                         PNBlocks.INSTANCE.getMEDIUM_PHASORITE_BUD(),
                                         PNBlocks.INSTANCE.getLARGE_PHASORITE_BUD(),

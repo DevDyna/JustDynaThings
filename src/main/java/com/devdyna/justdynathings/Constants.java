@@ -99,31 +99,31 @@ public enum Constants {
 
     }
 
-    public enum FEGoo {
-        Cost(250),
-        Capacity(10000),
-        ;
+    // public enum FEGoo {
+    //     Cost(250),
+    //     Capacity(10000),
+    //     ;
 
-        public final int value;
+    //     public final int value;
 
-        FEGoo(int value) {
-            this.value = value;
-        }
-    }
+    //     FEGoo(int value) {
+    //         this.value = value;
+    //     }
+    // }
 
-    public enum FEBudding {
-        FECost(1),
-        FECapacity(10000),
-        FLCost(1),
-        FLCapacity(10000),
-        ;
+    // public enum FEBudding {
+    //     FECost(1),
+    //     FECapacity(10000),
+    //     FLCost(1),
+    //     FLCapacity(10000),
+    //     ;
 
-        public final int value;
+    //     public final int value;
 
-        FEBudding(int value) {
-            this.value = value;
-        }
-    }
+    //     FEBudding(int value) {
+    //         this.value = value;
+    //     }
+    // }
 
     public enum Mods {
         AE2(ModList.get().isLoaded("ae2")),

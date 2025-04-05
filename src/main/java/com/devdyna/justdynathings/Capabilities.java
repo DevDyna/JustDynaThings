@@ -3,6 +3,7 @@ package com.devdyna.justdynathings;
 import com.devdyna.justdynathings.common.registry.Material;
 import com.devdyna.justdynathings.common.registry.core.interfaces.be.SmartFEMachine;
 import com.devdyna.justdynathings.common.registry.core.interfaces.be.SmartMBMachine;
+import com.devdyna.justdynathings.common.registry.types.Blocks;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.FluidMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineBE;
@@ -23,24 +24,24 @@ public class Capabilities {
                         side) -> be instanceof BaseMachineBE
                                 ? be.getData(Registration.MACHINE_HANDLER)
                                 : null,
-                Material.REFORGER_BLOCK.get(), Material.BLAZINGANVIL_BLOCK.get());
+                                Blocks.REFORGER_BLOCK.get(), Blocks.BLAZINGANVIL_BLOCK.get());
 
         // energyhandler
         event.registerBlock(EnergyStorage.BLOCK, (level, pos, state, be,
                 side) -> (be instanceof PoweredMachineBE || be instanceof SmartFEMachine)
                         ? be.getData(Registration.ENERGYSTORAGE_MACHINES)
                         : null,
-                Material.BLAZINGANVIL_BLOCK.get(), Material.REVITALIZER_BLOCK.get(),
-                Material.TICKER_BLOCK.get());
+                        Blocks.BLAZINGANVIL_BLOCK.get(), Blocks.REVITALIZER_BLOCK.get(),
+                        Blocks.TICKER_BLOCK.get());
 
         // goo energystorage
         event.registerBlock(EnergyStorage.BLOCK, (level, pos, state, be,
                 side) -> (be instanceof PoweredMachineBE || be instanceof SmartFEMachine)
                         ? be.getData(Registration.ENERGYSTORAGE_MACHINES)
                         : null,
-                Material.GooT6_ENERGY_BLOCK.get(), Material.T0_ENERGY.get(), Material.T1_ENERGY.get(),
-                Material.T2_ENERGY.get(), Material.T3_ENERGY.get(), Material.T4_ENERGY.get(),
-                Material.T5_ENERGY.get());
+                Blocks.GooT6_ENERGY_BLOCK.get(), Blocks.T0_ENERGY.get(), Blocks.T1_ENERGY.get(),
+                Blocks.T2_ENERGY.get(), Blocks.T3_ENERGY.get(), Blocks.T4_ENERGY.get(),
+                Blocks.T5_ENERGY.get());
 
         // budding time storage
         event.registerBlock(FluidHandler.BLOCK,
@@ -63,7 +64,7 @@ public class Capabilities {
                         side) -> (be instanceof FluidMachineBE || be instanceof SmartMBMachine)
                                 ? be.getData(Registration.PARADOX_FLUID_HANDLER)
                                 : null,
-                Material.TICKER_BLOCK.get(),Material.SCULK_BLOCK.get());
+                                Blocks.TICKER_BLOCK.get(),Blocks.SCULK_BLOCK.get());
 
     }
 

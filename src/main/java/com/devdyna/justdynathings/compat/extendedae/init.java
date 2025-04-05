@@ -2,7 +2,7 @@ package com.devdyna.justdynathings.compat.extendedae;
 
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
-import com.devdyna.justdynathings.common.registry.builder.budding.BuddingBlock;
+import com.devdyna.justdynathings.common.registry.core.builders.budding.BuddingBlock;
 import com.glodblock.github.extendedae.common.EAESingletons;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.BlockItem;
@@ -31,10 +31,6 @@ public class init {
         public static DeferredHolder<Block, BuddingBlock> EXTENDED_POWERED = zEXTAE_BLK.register(
                         Constants.Material.Budding.Powered.id + "_" + Constants.Material.Budding.Entro.id,
                         () -> new BuddingBlock(
-                                        Constants.FEBudding.FECost.value,
-                                        Constants.FEBudding.FECapacity.value,
-                                        Constants.FEBudding.FLCost.value,
-                                        Constants.FEBudding.FLCapacity.value,
                                         EAESingletons.ENTRO_BUD_SMALL,
                                         EAESingletons.ENTRO_BUD_MEDIUM,
                                         EAESingletons.ENTRO_BUD_LARGE,

@@ -3,8 +3,9 @@ package com.devdyna.justdynathings;
 import com.devdyna.justdynathings.client.builder.blazingAnvil.BlazingAnvilScreen;
 import com.devdyna.justdynathings.client.builder.clock.ClockScreen;
 import com.devdyna.justdynathings.client.builder.reforger.ReforgerScreen;
-import com.devdyna.justdynathings.common.registry.Material;
-import com.devdyna.justdynathings.common.registry.builder.goo.GooRender;
+import com.devdyna.justdynathings.common.registry.core.builders.goo.GooRender;
+import com.devdyna.justdynathings.common.registry.types.BlockEntities;
+import com.devdyna.justdynathings.common.registry.types.Containers;
 
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -17,13 +18,13 @@ import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 public class Client {
     @SubscribeEvent
     public static void registerScreens(RegisterMenuScreensEvent event) {
-        event.register(Material.REFORGER_GUI.get(), ReforgerScreen::new);
-        event.register(Material.BLAZINGANVIL_GUI.get(), BlazingAnvilScreen::new);
-        event.register(Material.CLOCK_GUI.get(), ClockScreen::new);
+        event.register(Containers.REFORGER_GUI.get(), ReforgerScreen::new);
+        event.register(Containers.BLAZINGANVIL_GUI.get(), BlazingAnvilScreen::new);
+        event.register(Containers.CLOCK_GUI.get(), ClockScreen::new);
     }
 
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
-        event.registerBlockEntityRenderer(Material.GOO_BE.get(), GooRender::new);
+        event.registerBlockEntityRenderer(BlockEntities.GOO_BE.get(), GooRender::new);
     }
 }

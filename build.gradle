@@ -135,6 +135,8 @@ dependencies {
     implementation "curse.maven:guideme-1173950:6179772"
     //datagen libs
     implementation "curse.maven:glodium-957920:5821676"
+    implementation "curse.maven:kotlin-351264:5978393"
+    implementation "curse.maven:owo-532610:6314117"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

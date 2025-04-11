@@ -2,17 +2,19 @@ package com.devdyna.justdynathings.compat.extendedae;
 
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
-import com.devdyna.justdynathings.common.registry.core.builders.budding.BuddingBlock;
-import com.glodblock.github.extendedae.common.EAESingletons;
+import com.devdyna.justdynathings.compat.extendedae.builder.EntroBE;
+import com.devdyna.justdynathings.compat.extendedae.builder.EntroBlock;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.BlockEntityType.Builder;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
+@SuppressWarnings("null")
 public class init {
 
         public static void register(IEventBus bus) {
@@ -28,16 +30,17 @@ public class init {
         public static final DeferredRegister.Items zEXTAE_ITM = DeferredRegister.createItems(Main.ID);
 
         // -----------------------------------------------------------------------------------------------------------//
-        public static DeferredHolder<Block, BuddingBlock> EXTENDED_POWERED = zEXTAE_BLK.register(
-                        Constants.Material.Budding.Powered.id + "_" + Constants.Material.Budding.Entro.id,
-                        () -> new BuddingBlock(
-                                        EAESingletons.ENTRO_BUD_SMALL,
-                                        EAESingletons.ENTRO_BUD_MEDIUM,
-                                        EAESingletons.ENTRO_BUD_LARGE,
-                                        EAESingletons.ENTRO_CLUSTER));
+        public static DeferredHolder<Block, ?> EXTENDED_POWERED = zEXTAE_BLK.register(
+                        Constants.Budding.Entro,
+                        () -> new EntroBlock());
 
         // -----------------------------------------------------------------------------------------------------------//
         public static DeferredHolder<Item, BlockItem> EXTENDED_POWERED_ITEM = zEXTAE_ITM
                         .registerSimpleBlockItem(EXTENDED_POWERED);
+        // -----------------------------------------------------------------------------------------------------------//
 
+        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<?>> EXTENDED_POWERED_BE = zEXTAE_BE
+                        .register(Constants.Budding.Entro, () -> Builder.of(EntroBE::new,
+                                        EXTENDED_POWERED.get())
+                                        .build(null));
 }

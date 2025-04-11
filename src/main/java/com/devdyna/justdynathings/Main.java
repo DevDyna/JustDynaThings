@@ -1,7 +1,8 @@
 package com.devdyna.justdynathings;
 
-import com.devdyna.justdynathings.common.registry.Material;
 import com.devdyna.justdynathings.compat.core;
+import com.devdyna.justdynathings.registry.Material;
+
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;

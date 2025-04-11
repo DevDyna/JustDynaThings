@@ -1,7 +1,7 @@
 package com.devdyna.justdynathings.client.builder.blazingAnvil;
 
-import com.devdyna.justdynathings.common.registry.types.Blocks;
-import com.devdyna.justdynathings.common.registry.types.Containers;
+import com.devdyna.justdynathings.registry.types.Blocks;
+import com.devdyna.justdynathings.registry.types.Containers;
 import com.direwolf20.justdirethings.common.containers.basecontainers.BaseMachineContainer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
@@ -18,7 +18,7 @@ public class BlazingAnvilGUI extends BaseMachineContainer {
     }
 
     public BlazingAnvilGUI(int windowId, Inventory playerInventory, BlockPos blockPos) {
-        super(Containers.BLAZINGANVIL_GUI.get(), windowId, playerInventory, blockPos);
+        super(Containers.BLAZING_ANVIL.get(), windowId, playerInventory, blockPos);
         addPlayerSlots(player.getInventory());
     }
 
@@ -30,7 +30,7 @@ public class BlazingAnvilGUI extends BaseMachineContainer {
 
     @Override
     public boolean stillValid(Player playerIn) {
-        return stillValid(ContainerLevelAccess.create(player.level(), pos), player, Blocks.BLAZINGANVIL_BLOCK.get());
+        return stillValid(ContainerLevelAccess.create(player.level(), pos), player, Blocks.BLAZING_ANVIL.get());
     }
 
     @Override

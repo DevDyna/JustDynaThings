@@ -22,33 +22,33 @@ public class core {
         }
 
         private static void ae2_compat(IEventBus bus) {
-                LogUtil.info("AppliedEnergistics2" + (Constants.Mods.AE2.check ? " found"
+                LogUtil.info("AppliedEnergistics2" + (Constants.ModAddonCheck.AppliedEnergistics2 ? " found"
                                 : " not found"));
-                if (Constants.Mods.AE2.check)
+                if (Constants.ModAddonCheck.AppliedEnergistics2)
                         com.devdyna.justdynathings.compat.ae2.init.register(bus);
         }
 
         private static void extendedae_compat(IEventBus bus) {
-                LogUtil.info("ExtendedAE" + (Constants.Mods.ExtendedAE.check ? " found"
+                LogUtil.info("ExtendedAE" + (Constants.ModAddonCheck.ExtendedAE ? " found"
                                 : " not found"));
-                if (Constants.Mods.ExtendedAE.check)
+                if (Constants.ModAddonCheck.ExtendedAE)
                         com.devdyna.justdynathings.compat.extendedae.init.register(bus);
         }
 
         private static void phasorite_compat(IEventBus bus) {
                 LogUtil.info("PhasoriteNetworks"
-                                + (Constants.Mods.PhasoriteNetworks.check ? " found"
+                                + (Constants.ModAddonCheck.PhasoriteNetworks ? " found"
                                                 : " not found"));
-                if (Constants.Mods.PhasoriteNetworks.check)
+                if (Constants.ModAddonCheck.PhasoriteNetworks)
                         com.devdyna.justdynathings.compat.phasorite.init.register(bus);
         }
 
         private static void createGuide() {
 
                 LogUtil.info("GuideMe"
-                                + (Constants.Mods.GuideMe.check ? " found"
+                                + (Constants.ModAddonCheck.GuideMe ? " found"
                                                 : " not found"));
-                if (Constants.Mods.GuideMe.check)
+                if (Constants.ModAddonCheck.GuideMe)
                         Guide.builder(ResourceLocation.parse(Main.ID + ":guide")).build();
 
         }

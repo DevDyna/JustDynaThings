@@ -1,8 +1,8 @@
 package com.devdyna.justdynathings.utils;
 
 import com.devdyna.justdynathings.Config;
-import com.devdyna.justdynathings.common.registry.core.builders.clock.ClockBlock;
-import com.devdyna.justdynathings.common.registry.types.BlockTags;
+import com.devdyna.justdynathings.registry.builders.ferritecore_clock.ClockBlock;
+import com.devdyna.justdynathings.registry.types.BlockTags;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;

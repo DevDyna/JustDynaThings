@@ -2,19 +2,19 @@ package com.devdyna.justdynathings.compat.phasorite;
 
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
-import com.devdyna.justdynathings.common.registry.core.builders.budding.BuddingBlock;
-
-import xyz.milosworks.phasoritenetworks.init.PNBlocks;
-
+import com.devdyna.justdynathings.compat.phasorite.builder.PhasoriteBE;
+import com.devdyna.justdynathings.compat.phasorite.builder.PhasoriteBlock;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.BlockEntityType.Builder;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
+@SuppressWarnings("null")
 public class init {
 
         public static void register(IEventBus bus) {
@@ -31,16 +31,17 @@ public class init {
 
         // -----------------------------------------------------------------------------------------------------------//
 
-        public static DeferredHolder<Block, BuddingBlock> PHASORITE_POWERED = zPHASO_BLK.register(
-                        Constants.Material.Budding.Powered.id + "_"
-                                        + Constants.Material.Budding.Phasorite.id,
-                        () -> new BuddingBlock(
-                                        PNBlocks.INSTANCE.getSMALL_PHASORITE_BUD(),
-                                        PNBlocks.INSTANCE.getMEDIUM_PHASORITE_BUD(),
-                                        PNBlocks.INSTANCE.getLARGE_PHASORITE_BUD(),
-                                        PNBlocks.INSTANCE.getPHASORITE_CLUSTER()));
+        public static DeferredHolder<Block, ?> PHASORITE_POWERED = zPHASO_BLK.register(
+                        Constants.Budding.Phasorite,
+                        () -> new PhasoriteBlock());
 
         // -----------------------------------------------------------------------------------------------------------//
         public static DeferredHolder<Item, BlockItem> PHASORITE_POWERED_ITEM = zPHASO_ITM
                         .registerSimpleBlockItem(PHASORITE_POWERED);
+        // -----------------------------------------------------------------------------------------------------------//
+
+        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<?>> PHASORITE_POWERED_BE = zPHASO_BE
+                        .register(Constants.Budding.Phasorite, () -> Builder.of(PhasoriteBE::new,
+                                        PHASORITE_POWERED.get())
+                                        .build(null));
 }

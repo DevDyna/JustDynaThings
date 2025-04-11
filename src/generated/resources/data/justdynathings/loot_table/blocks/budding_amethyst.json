@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:air"
+          "name": "justdynathings:budding_amethyst"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "justdynathings:blocks/a"
+  "random_sequence": "justdynathings:blocks/budding_amethyst"
 }

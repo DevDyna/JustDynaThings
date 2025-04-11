@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:air"
+          "name": "justdynathings:budding_time"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "justdynathings:blocks/b"
+  "random_sequence": "justdynathings:blocks/budding_time"
 }

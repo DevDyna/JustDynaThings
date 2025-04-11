@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "justdynathings",
+  "ingredients": [
+    {
+      "item": "justdirethings:celestigem"
+    },
+    {
+      "tag": "c:glass_blocks/tinted"
+    },
+    {
+      "tag": "c:gems/lapis"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "justdynathings:phase_box"
+  }
+}

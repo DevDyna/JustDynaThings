@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "justdynathings",
+  "key": {
+    "A": {
+      "item": "justdirethings:blockswappert1"
+    },
+    "B": {
+      "tag": "c:dusts/redstone"
+    },
+    "C": {
+      "item": "justdirethings:eclipsealloy_ingot"
+    },
+    "D": {
+      "item": "justdirethings:time_crystal"
+    }
+  },
+  "pattern": [
+    "CDC",
+    "BAB",
+    "CBC"
+  ],
+  "result": {
+    "count": 1,
+    "id": "justdynathings:revitalizer"
+  }
+}

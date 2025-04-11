@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "justdynathings",
+  "key": {
+    "A": {
+      "item": "justdirethings:blazegold_block"
+    },
+    "B": {
+      "item": "justdirethings:blazegold_ingot"
+    },
+    "C": {
+      "item": "minecraft:magma_block"
+    },
+    "D": {
+      "tag": "minecraft:anvils"
+    },
+    "E": {
+      "item": "justdirethings:gooblock_tier2"
+    }
+  },
+  "pattern": [
+    "ADA",
+    "BEB",
+    "ACA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "justdynathings:blazing_anvil"
+  }
+}

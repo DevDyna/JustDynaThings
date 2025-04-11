@@ -5,7 +5,7 @@
         "north": "false"
       },
       "apply": {
-        "model": "justdynathings:block/ferricore_clock/off/x",
+        "model": "justdynathings:block/ferritecore_clock/off/x",
         "y": 90
       }
     },
@@ -15,7 +15,7 @@
         "active": "false"
       },
       "apply": {
-        "model": "justdynathings:block/ferricore_clock/on/x",
+        "model": "justdynathings:block/ferritecore_clock/on/x",
         "y": 90
       }
     },
@@ -25,7 +25,7 @@
         "active": "true"
       },
       "apply": {
-        "model": "justdynathings:block/ferricore_clock/pulse/x",
+        "model": "justdynathings:block/ferritecore_clock/pulse/x",
         "y": 90
       }
     },
@@ -35,7 +35,7 @@
         "south": "false"
       },
       "apply": {
-        "model": "justdynathings:block/ferricore_clock/off/x",
+        "model": "justdynathings:block/ferritecore_clock/off/x",
         "y": 270
       }
     },
@@ -45,7 +45,7 @@
         "active": "false"
       },
       "apply": {
-        "model": "justdynathings:block/ferricore_clock/on/x",
+        "model": "justdynathings:block/ferritecore_clock/on/x",
         "y": 270
       }
     },
@@ -55,7 +55,7 @@
         "active": "true"
       },
       "apply": {
-        "model": "justdynathings:block/ferricore_clock/pulse/x",
+        "model": "justdynathings:block/ferritecore_clock/pulse/x",
         "y": 270
       }
     },
@@ -65,7 +65,7 @@
         "west": "false"
       },
       "apply": {
-        "model": "justdynathings:block/ferricore_clock/off/x"
+        "model": "justdynathings:block/ferritecore_clock/off/x"
       }
     },
 
@@ -75,7 +75,7 @@
         "active": "false"
       },
       "apply": {
-        "model": "justdynathings:block/ferricore_clock/on/x"
+        "model": "justdynathings:block/ferritecore_clock/on/x"
       }
     },
     {
@@ -84,7 +84,7 @@
         "active": "true"
       },
       "apply": {
-        "model": "justdynathings:block/ferricore_clock/pulse/x"
+        "model": "justdynathings:block/ferritecore_clock/pulse/x"
       }
     },
 
@@ -93,7 +93,7 @@
         "east": "false"
       },
       "apply": {
-        "model": "justdynathings:block/ferricore_clock/off/x",
+        "model": "justdynathings:block/ferritecore_clock/off/x",
         "y": 180
       }
     },
@@ -104,7 +104,7 @@
         "active": "false"
       },
       "apply": {
-        "model": "justdynathings:block/ferricore_clock/on/x",
+        "model": "justdynathings:block/ferritecore_clock/on/x",
         "y": 180
       }
     },
@@ -115,7 +115,7 @@
         "active": "true"
       },
       "apply": {
-        "model": "justdynathings:block/ferricore_clock/pulse/x",
+        "model": "justdynathings:block/ferritecore_clock/pulse/x",
         "y": 180
       }
     },
@@ -125,7 +125,7 @@
         "up": "false"
       },
       "apply": {
-        "model": "justdynathings:block/ferricore_clock/off/y"
+        "model": "justdynathings:block/ferritecore_clock/off/y"
       }
     },
 
@@ -135,7 +135,7 @@
         "active": "false"
       },
       "apply": {
-        "model": "justdynathings:block/ferricore_clock/on/y"
+        "model": "justdynathings:block/ferritecore_clock/on/y"
       }
     },
     {
@@ -144,7 +144,7 @@
         "active": "true"
       },
       "apply": {
-        "model": "justdynathings:block/ferricore_clock/pulse/y"
+        "model": "justdynathings:block/ferritecore_clock/pulse/y"
       }
     },
 
@@ -153,7 +153,7 @@
         "down": "false"
       },
       "apply": {
-        "model": "justdynathings:block/ferricore_clock/off/y",
+        "model": "justdynathings:block/ferritecore_clock/off/y",
         "x": 180
       }
     },
@@ -163,7 +163,7 @@
         "active": "false"
       },
       "apply": {
-        "model": "justdynathings:block/ferricore_clock/on/y",
+        "model": "justdynathings:block/ferritecore_clock/on/y",
         "x": 180
       }
     },
@@ -174,7 +174,7 @@
         "active": "true"
       },
       "apply": {
-        "model": "justdynathings:block/ferricore_clock/pulse/y",
+        "model": "justdynathings:block/ferritecore_clock/pulse/y",
         "x": 180
       }
     }

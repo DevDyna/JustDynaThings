@@ -45,6 +45,7 @@ public class Items {
         public static final DeferredHolder<Item, BucketItem> CRYSTALLINE_FLUID_BUCKET = zBucketItem
                         .register(Constants.Fluids.Crystalline.Bucket, () -> new BucketItem(Fluids.CRYSTALLINE_SOURCE.get(),
                                         Material.iPropBucket));
+        // ---------------------------------------------------------------------------------------//
 
         public static void registerLists() {
 

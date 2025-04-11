@@ -18,7 +18,7 @@ public class CrystallineFluidType extends FluidType {
 
     @SuppressWarnings("null")
     @Override
-    public boolean canConvertToSource(FluidState state, LevelReader reader, BlockPos pos) {
+    public boolean canConvertToSource(FluidState s, LevelReader r, BlockPos p) {
         return false;
     }
     

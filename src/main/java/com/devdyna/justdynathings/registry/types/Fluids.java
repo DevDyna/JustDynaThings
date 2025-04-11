@@ -25,9 +25,9 @@ public class Fluids {
 
     // ---------------------------------------------------------------------------------------//
 
-    public static final DeferredHolder<Fluid, CrystallineFluid> CRYSTALLINE_FLOWING = zFluids
+    public static final DeferredHolder<Fluid, CrystallineFluid.Flowing> CRYSTALLINE_FLOWING = zFluids
             .register(Constants.Fluids.Crystalline.Flowing, CrystallineFluid.Flowing::new);
-    public static final DeferredHolder<Fluid, CrystallineFluid> CRYSTALLINE_SOURCE = zFluids
+    public static final DeferredHolder<Fluid, CrystallineFluid.Source> CRYSTALLINE_SOURCE = zFluids
             .register(Constants.Fluids.Crystalline.Source, CrystallineFluid.Source::new);
 
 }

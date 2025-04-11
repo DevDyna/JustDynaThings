@@ -12,16 +12,17 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.NeoForgeRegistries.Keys;
 
 public class FluidTypes {
-        // ---------------------------------------------------------------------------------------//
+    // ---------------------------------------------------------------------------------------//
 
     public static void register(IEventBus bus) {
         zFluidTypes.register(bus);
     }
 
     // ---------------------------------------------------------------------------------------//
-    public static final DeferredRegister<FluidType> zFluidTypes= DeferredRegister.create(Keys.FLUID_TYPES, ID);
+    public static final DeferredRegister<FluidType> zFluidTypes = DeferredRegister.create(Keys.FLUID_TYPES, ID);
 
-        // ---------------------------------------------------------------------------------------//
-   public static final DeferredHolder<FluidType, FluidType> CRYSTALLINE_FLUID_TYPE = FluidTypes.zFluidTypes.register(Constants.Fluids.Crystalline.Type, CrystallineFluidType::new);;
+    // ---------------------------------------------------------------------------------------//
+    public static final DeferredHolder<FluidType, CrystallineFluidType> CRYSTALLINE_FLUID_TYPE = FluidTypes.zFluidTypes
+            .register(Constants.Fluids.Crystalline.Type, CrystallineFluidType::new);
 
 }

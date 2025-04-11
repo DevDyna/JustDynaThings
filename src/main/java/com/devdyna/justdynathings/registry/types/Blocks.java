@@ -16,7 +16,6 @@ import com.devdyna.justdynathings.registry.builders.revitalizer.RevitalizerBlock
 import com.devdyna.justdynathings.registry.builders.sculk.SculkBlock;
 import com.devdyna.justdynathings.registry.builders.ticker.TickerBlock;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.LiquidBlock;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -83,7 +82,7 @@ public class Blocks {
         public static final DeferredHolder<Block, ?> SCULK = Material
                         .registerItemAndBlock(Constants.Blocks.Sculk, SculkBlock::new);
 
-        public static final DeferredHolder<Block, LiquidBlock> CRYSTALLINE_FLUID_BLOCK = zBlockFluids
+        public static final DeferredHolder<Block, CrystallineBlock> CRYSTALLINE_FLUID_BLOCK = zBlockFluids
                         .register(Constants.Fluids.Crystalline.Block, CrystallineBlock::new);
 
         // ---------------------------------------------------------------------------------------//

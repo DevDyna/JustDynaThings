@@ -1,0 +1,23 @@
+{
+  "block.justdynathings.a": "A",
+  "block.justdynathings.b": "B",
+  "block.justdynathings.blazing_anvil": "Blazing Anvil",
+  "block.justdynathings.chaotic_ore": "Chaotic Ore",
+  "block.justdynathings.coprinium_ore": "Coprinium Ore",
+  "block.justdynathings.creative_goo": "Creative Goo",
+  "block.justdynathings.energized_goo": "Energized Goo",
+  "block.justdynathings.ferritecore_clock": "Ferritecore Clock",
+  "block.justdynathings.phase_box": "Phase Box",
+  "block.justdynathings.redstonic_ore": "Redstonic Ore",
+  "block.justdynathings.reforger": "Reforger",
+  "block.justdynathings.revitalizer": "Revitalizer",
+  "block.justdynathings.sculk": "Sculk",
+  "block.justdynathings.ticker": "Ticker",
+  "item.justdynathings.chaotic_dust": "Chaotic Dust",
+  "item.justdynathings.coprinium_ingot": "Coprinium Ingot",
+  "item.justdynathings.raw_coprinium": "Raw Coprinium",
+  "item.justdynathings.redstonic_gem": "Redstonic Gem",
+  "justdynathings.clock.wip": "N.Y.I. -> shift-click the block to toggle",
+  "justdynathings.creative_tab": "Just Dyna Things",
+  "justdynathings.off": "§8[§fControl§8]§f"
+}

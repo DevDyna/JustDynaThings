@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:stonecutting",
+  "group": "justdynathings",
+  "ingredient": {
+    "item": "justdynathings:raw_coprinium"
+  },
+  "result": {
+    "count": 1,
+    "id": "justdynathings:coprinium_ingot"
+  }
+}

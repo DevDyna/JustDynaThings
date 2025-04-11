@@ -32,7 +32,7 @@ public class DataItemModel extends ItemModelProvider {
                 "justdynathings:block/blazing_anvil");
 
         DataGenUtil.itemBlockwithParent(Blocks.FERRITECORE_CLOCK.get(), this,
-                "block/cube_all", "all", "justdynathings:block/clock/on");
+                "block/cube_all", "all", "justdynathings:block/ferritecore_clock/on");
 
         DataGenUtil.itemBlockwithParent(Blocks.CREATIVE_GOO.get(), this,
                 "justdynathings:block/goo/creative/dead");

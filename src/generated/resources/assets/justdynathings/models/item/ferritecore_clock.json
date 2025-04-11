@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "justdynathings:block/clock/on"
+    "all": "justdynathings:block/ferritecore_clock/on"
   }
 }

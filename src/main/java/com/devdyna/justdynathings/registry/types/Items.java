@@ -6,6 +6,7 @@ import com.devdyna.justdynathings.registry.Material;
 
 import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
+import static net.minecraft.world.item.Items.*;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -14,6 +15,7 @@ public class Items {
         public static void register(IEventBus bus) {
                 registerLists();
                 zItem.register(bus);
+                zItemTinted.register(bus);
                 zBucketItem.register(bus);
                 zBlockItem.register(bus);
                 zCoals.register(bus);
@@ -21,6 +23,7 @@ public class Items {
 
         // ---------------------------------------------------------------------------------------//
         public static final DeferredRegister.Items zItem = DeferredRegister.createItems(Main.ID);
+        public static final DeferredRegister.Items zItemTinted = DeferredRegister.createItems(Main.ID);
         // DONT USE IT , ONLY FUNCTIONAL
         public static final DeferredRegister.Items zBucketItem = DeferredRegister.createItems(Main.ID);
         public static final DeferredRegister.Items zBlockItem = DeferredRegister.createItems(Main.ID);
@@ -30,7 +33,7 @@ public class Items {
         public static final DeferredHolder<Item, ?> CHAOTIC_DUST = zItem
                         .registerSimpleItem(Constants.Ores.Chaotic.dust);
 
-        public static final DeferredHolder<Item, ?> REDSTONIC_GEM = zItem
+        public static final DeferredHolder<Item, ?> REDSTONIC_GEM = zItemTinted
                         .registerSimpleItem(Constants.Ores.Redstonic.gem);
 
         public static final DeferredHolder<Item, ?> RAW_COPRINIUM = zItem
@@ -42,9 +45,10 @@ public class Items {
         public static final DeferredHolder<Item, ?> BIOFUEL = Material.DireStuff.FuelItemDW(Constants.Fuel.Biofuel(1),
                         3);
 
-        public static final DeferredHolder<Item, BucketItem> CRYSTALLINE_FLUID_BUCKET = zBucketItem
-                        .register(Constants.Fluids.Crystalline.Bucket, () -> new BucketItem(Fluids.CRYSTALLINE_SOURCE.get(),
-                                        Material.iPropBucket));
+        public static DeferredHolder<Item, ?> CRYSTALLINE_BUCKET = zBucketItem.register(Constants.Fluids.Crystalline.Bucket,
+                        () -> new BucketItem(Fluids.CRYSTALLINE_SOURCE.get(),
+                                        new Item.Properties().craftRemainder(BUCKET).stacksTo(1)));
+
         // ---------------------------------------------------------------------------------------//
 
         public static void registerLists() {

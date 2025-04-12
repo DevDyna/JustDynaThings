@@ -7,7 +7,6 @@ import com.devdyna.justdynathings.registry.builders.PhaseBox;
 import com.devdyna.justdynathings.registry.builders.blazing_anvil.BlazingAnvilBlock;
 import com.devdyna.justdynathings.registry.builders.budding.types.amethyst.AmethystBlock;
 import com.devdyna.justdynathings.registry.builders.budding.types.time.TimeBlock;
-import com.devdyna.justdynathings.registry.builders.crystalline.CrystallineBlock;
 import com.devdyna.justdynathings.registry.builders.ferritecore_clock.ClockBlock;
 import com.devdyna.justdynathings.registry.builders.goo.creative.CreativeGoo;
 import com.devdyna.justdynathings.registry.builders.goo.energy.EnergyGoo;
@@ -16,9 +15,13 @@ import com.devdyna.justdynathings.registry.builders.revitalizer.RevitalizerBlock
 import com.devdyna.justdynathings.registry.builders.sculk.SculkBlock;
 import com.devdyna.justdynathings.registry.builders.ticker.TickerBlock;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.LiquidBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
+
+import static net.minecraft.world.level.block.Blocks.*;
 
 public class Blocks {
         public static void register(IEventBus bus) {
@@ -61,11 +64,11 @@ public class Blocks {
         public static final DeferredHolder<Block, ?> REFORGER = Material
                         .registerItemAndBlock(Constants.Blocks.Reforger, ReforgerBlock::new);
 
-        public static final DeferredHolder<Block, ?> BUDDING_TIME = Material
-                        .registerItemAndBlock(Constants.Budding.Time, () -> new TimeBlock());
+        public static final DeferredHolder<Block, ?> BUDDING_TIME = Material.DireStuff
+                        .registerBudding(Constants.Budding.Time, () -> new TimeBlock());
 
-        public static final DeferredHolder<Block, ?> BUDDING_AMETHYST = Material
-                        .registerItemAndBlock(Constants.Budding.Amethyst, () -> new AmethystBlock());
+        public static final DeferredHolder<Block, ?> BUDDING_AMETHYST = Material.DireStuff
+                        .registerBudding(Constants.Budding.Amethyst, () -> new AmethystBlock());
 
         public static final DeferredHolder<Block, ?> BLAZING_ANVIL = Material
                         .registerItemAndBlock(Constants.Blocks.BlazingAnvil, BlazingAnvilBlock::new);
@@ -82,8 +85,14 @@ public class Blocks {
         public static final DeferredHolder<Block, ?> SCULK = Material
                         .registerItemAndBlock(Constants.Blocks.Sculk, SculkBlock::new);
 
-        public static final DeferredHolder<Block, CrystallineBlock> CRYSTALLINE_FLUID_BLOCK = zBlockFluids
-                        .register(Constants.Fluids.Crystalline.Block, CrystallineBlock::new);
+            public static final DeferredHolder<Block,LiquidBlock> CRYSTALLINE_FLUID = zBlockFluids.register(Constants.Fluids.Crystalline.Block,
+            () -> new LiquidBlock(Fluids.CRYSTALLINE_FLOWING.value(), Properties.ofFullCopy(WATER)
+                    .liquid()
+                    .lightLevel(value -> 10)
+                    .emissiveRendering((a,b,c) -> true)
+            ));
+
+
 
         // ---------------------------------------------------------------------------------------//
 

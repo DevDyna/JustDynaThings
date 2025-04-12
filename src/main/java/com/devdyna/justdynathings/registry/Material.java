@@ -20,6 +20,7 @@ import net.minecraft.world.item.Item.Properties;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.Fluid;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
@@ -58,6 +59,14 @@ public class Material {
          */
         public static TagKey<Item> tagItem(String name) {
                 return TagKey.create(BuiltInRegistries.ITEM.key(),
+                                ResourceLocation.fromNamespaceAndPath(Main.ID, name));
+        }
+
+        /**
+         * create an fluidtag
+         */
+        public static TagKey<Fluid> tagFluid(String name) {
+                return TagKey.create(BuiltInRegistries.FLUID.key(),
                                 ResourceLocation.fromNamespaceAndPath(Main.ID, name));
         }
 
@@ -129,6 +138,13 @@ public class Material {
 
                 public static DeferredHolder<Item, ?> FuelItemDW(String name, int burnrate) {
                         return Items.zCoals.register(name, () -> new BaseFuel(burnrate));
+                }
+
+
+                public static DeferredHolder<Block, ?> registerBudding(String blockname, Supplier<? extends Block> sup) {
+                        DeferredHolder<Block, ?> block = Blocks.zBuddings.register(blockname, sup);
+                        Items.zBlockItem.registerSimpleBlockItem(block);
+                        return block;
                 }
 
         }

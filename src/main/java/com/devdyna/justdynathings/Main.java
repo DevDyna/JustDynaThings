@@ -24,7 +24,7 @@ public class Main {
                 modEventBus.addListener(Capabilities::regCap);
 
                 core.regCompat(modEventBus);
+
         }
 
-    
 }

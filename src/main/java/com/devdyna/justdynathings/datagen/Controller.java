@@ -36,6 +36,8 @@ public class Controller {
         providerGen(e, g, new DataLoot(po, pr));
         providerGen(e, g, new DataRecipe(po, pr));
 
+        providerGen(e, g, new DataMaps(po, pr));
+
     }
 
     private static <T extends DataProvider> void providerGen(GatherDataEvent e, DataGenerator g, T f) {

@@ -1,63 +1,71 @@
 package com.devdyna.justdynathings.datagen.client;
 
+import static com.devdyna.justdynathings.Main.ID;
+
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.registry.types.Blocks;
 import com.devdyna.justdynathings.registry.types.Items;
 import com.devdyna.justdynathings.utils.DataGenUtil;
-
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.BucketItem;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+import net.neoforged.neoforge.client.model.generators.loaders.DynamicFluidContainerModelBuilder;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.internal.versions.neoforge.NeoForgeVersion;
 
 public class DataItemModel extends ItemModelProvider {
 
-    public DataItemModel(PackOutput o, ExistingFileHelper f) {
-        super(o, Main.ID, f);
-    }
+        public DataItemModel(PackOutput o, ExistingFileHelper f) {
+                super(o, Main.ID, f);
+        }
 
-    @Override
-    protected void registerModels() {
+        @Override
+        protected void registerModels() {
 
-        Items.zItem.getEntries().forEach(item -> {
+                Items.zItem.getEntries().forEach(item -> DataGenUtil.itemModel(item.get(), this));
 
-            try {
-                DataGenUtil.itemModel(item.get(), this);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+                DataGenUtil.itemBlockwithParent(Blocks.BLAZING_ANVIL.get(), this,
+                                ID + ":block/blazing_anvil");
 
-        });
+                DataGenUtil.itemBlockwithParent(Blocks.FERRITECORE_CLOCK.get(), this,
+                                "block/cube_all", "all", ID + ":block/ferritecore_clock/on");
 
-        DataGenUtil.itemBlockwithParent(Blocks.BLAZING_ANVIL.get(), this,
-                "justdynathings:block/blazing_anvil");
+                DataGenUtil.itemBlockwithParent(Blocks.CREATIVE_GOO.get(), this,
+                                ID + ":block/goo/creative/dead");
 
-        DataGenUtil.itemBlockwithParent(Blocks.FERRITECORE_CLOCK.get(), this,
-                "block/cube_all", "all", "justdynathings:block/ferritecore_clock/on");
+                DataGenUtil.itemBlockwithParent(Blocks.ENERGIZED_GOO.get(), this,
+                                ID + ":block/goo/energized/dead");
 
-        DataGenUtil.itemBlockwithParent(Blocks.CREATIVE_GOO.get(), this,
-                "justdynathings:block/goo/creative/dead");
+                DataGenUtil.itemBlockwithParent(Blocks.PHASEBOX.get(), this,
+                                ID + ":block/phase_box/true");
 
-        DataGenUtil.itemBlockwithParent(Blocks.ENERGIZED_GOO.get(), this,
-                "justdynathings:block/goo/energized/dead");
+                DataGenUtil.itemBlockwithParent(Blocks.RAW_CHAOTIC.get(), this,
+                                ID + ":block/raw_chaotic_ore");
 
-        DataGenUtil.itemBlockwithParent(Blocks.PHASEBOX.get(), this,
-                "justdynathings:block/phase_box/true");
+                DataGenUtil.itemBlockwithParent(Blocks.RAW_COPRINIUM.get(), this,
+                                ID + ":block/raw_coprinium_ore");
 
-        DataGenUtil.itemBlockwithParent(Blocks.RAW_CHAOTIC.get(), this,
-                "justdynathings:block/raw_chaotic_ore");
+                DataGenUtil.itemBlockwithParent(Blocks.RAW_REDSTONIC.get(), this,
+                                ID + ":block/raw_redstonic_ore");
 
-        DataGenUtil.itemBlockwithParent(Blocks.RAW_COPRINIUM.get(), this,
-                "justdynathings:block/raw_coprinium_ore");
+                DataGenUtil.itemBlockwithParent(Blocks.REFORGER.get(), this,
+                                ID + ":block/reforger/off");
 
-        DataGenUtil.itemBlockwithParent(Blocks.RAW_REDSTONIC.get(), this,
-                "justdynathings:block/raw_redstonic_ore");
+                DataGenUtil.itemBlockwithParent(Blocks.REVITALIZER.get(), this,
+                                ID + ":block/revitalizer/x/off");
 
-        DataGenUtil.itemBlockwithParent(Blocks.REFORGER.get(), this,
-                "justdynathings:block/reforger/off");
+                Items.zBucketItem.getEntries().forEach(b -> withExistingParent(b.getId().getPath(),
+                                ResourceLocation.fromNamespaceAndPath(NeoForgeVersion.MOD_ID, "item/bucket"))
+                                .customLoader(DynamicFluidContainerModelBuilder::begin)
+                                .fluid(((BucketItem) b.get()).content));
 
-        DataGenUtil.itemBlockwithParent(Blocks.REVITALIZER.get(), this,
-                "justdynathings:block/revitalizer/x/off");
+                                //NYC
+                // withExistingParent(Items.REDSTONIC_GEM.getId().getPath(),
+                //                 ResourceLocation.fromNamespaceAndPath("minecraft", "item/generated"))
+                //                 .customLoader(ItemLayerModelBuilder::begin)
+                //                 .color(0, 0xFF4C3F7C).renderType("justdynathings:item/shard", 0);
 
-    }
+        }
 
 }

@@ -1,0 +1,5 @@
+{
+  "parent": "neoforge:item/bucket",
+  "fluid": "justdynathings:liquid_crystalline_fluid_source",
+  "loader": "neoforge:fluid_container"
+}

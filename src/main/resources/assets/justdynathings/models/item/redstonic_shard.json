@@ -1,0 +1,14 @@
+{
+  "loader": "neoforge:item_layers",
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "justdynathings:item/shard"
+  },
+  "neoforge_data": {
+    "layers": {
+      "0": {
+        "color": 4292613180
+      }
+    }
+  }
+}

@@ -51,11 +51,10 @@ public class Constants {
 
     public class Goo {
 
-        // public static String Primogel = "primogel";
-        // public static String Blazebloom = "blazebloom";
-        // public static String Voidshimmer = "voidshimmer";
-        // public static String Shadowpulse = "shadowpulse";
-        // public static String Powered = "powered";
+        public static String T1 = "primogel";
+        public static String T2 = "blazebloom";
+        public static String T3 = "voidshimmer";
+        public static String T4 = "shadowpulse";
         public static String Creative = "creative";
         public static String Energized = "energized";
     }

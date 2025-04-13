@@ -18,14 +18,14 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 
 ### Specialized
 
-- [x] T0 Goo
-- [x] T5 Goo
-- [ ] Creative Goo
+- [x] ~~T0 Goo~~ *removed due point-less*
+- [x] ~~T5 Goo~~ *unified to FE Goo*
+- [x] Creative Goo
 - [x] Vanilla QoL recipes (mud -> clay | coarse dirt -> dirt)
 - [x] Reforger (oregenerator)
 - [x] Phase Box (xu1 Ethereal glass like)
 - [x] Energized Goo (FE Goo)
-- [x] Powered Time Crystal Budding
+- [x] Powered Budding *(maybe they will be moved to a separate project)*
 - [x] Goo Revitalizer (alive any goo without item cost)
 - [ ] Sculk Diffuser (Sculk Source without need to kill mobs)
 - [ ] Buffed Fuels (fuel with high multiplier)
@@ -37,3 +37,4 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [ ] Light Wand (based on [#337](https://github.com/Direwolf20-MC/JustDireThings/issues/337) with gui to select light level)
 - [ ] Paradox Box (Pandora's Box like)
 - [ ] Bio-Azalea Generator (passive FE generator powered by azalea roots)
+- [ ] Crystallizer and Liquid Crystalline

@@ -126,7 +126,7 @@ repositories {
 
 dependencies {
     //main
-    implementation "curse.maven:justdirethings-1002348:6161633"
+    implementation "curse.maven:justdirethings-1002348:6369120"
     implementation "curse.maven:jei-238222:5846880"
     //compats
     implementation "curse.maven:ae2-223794:6140781"

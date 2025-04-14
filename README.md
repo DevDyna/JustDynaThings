@@ -15,8 +15,9 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [x] Item repair
 - [ ] Item/Fluid Transmitter
 - [x] Redstone Clock
-- [ ] Heat Generator (magmablock/lava below -> RFgen)
-- [ ] Solar-Eclipse Generator (when daytime -> RFgen)
+- [ ] Heat Generator (magmablock/lava below -> FE)
+- [ ] Solar-Eclipse Generator (when daytime -> FE)
+- [ ] Culinary Generator (food -> FE)
 
 ### Specialized
 

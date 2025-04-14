@@ -18,6 +18,7 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [ ] Heat Generator (magmablock/lava below -> FE)
 - [ ] Solar-Eclipse Generator (when daytime -> FE)
 - [ ] Culinary Generator (food -> FE)
+- [ ] Engine Generator (Furnace lit -> FE)
 
 ### Specialized
 

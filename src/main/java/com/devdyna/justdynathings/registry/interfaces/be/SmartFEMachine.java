@@ -34,6 +34,6 @@ public interface SmartFEMachine extends PoweredMachineBE {
     }
 
     default boolean isFEfull() {
-        return getMaxEnergy() >= getEnergyStored();
+        return getMaxEnergy() <= getEnergyStored();
     }
 }

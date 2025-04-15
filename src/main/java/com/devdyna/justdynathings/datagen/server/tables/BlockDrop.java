@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import com.devdyna.justdynathings.registry.types.Blocks;
-import com.devdyna.justdynathings.registry.types.Items;
+import com.devdyna.justdynathings.registry.types.zBlocks;
+import com.devdyna.justdynathings.registry.types.zItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
@@ -22,10 +22,10 @@ public class BlockDrop extends BlockLootSubProvider {
         @Override
         protected Iterable<Block> getKnownBlocks() {
                 List<Block> blocks = new ArrayList<>();
-                blocks.addAll(getList(Blocks.zBlock));
-                blocks.addAll(getList(Blocks.zBlockItem));
-                blocks.addAll(getList(Blocks.zGoo));
-                blocks.addAll(getList(Blocks.zOres));
+                blocks.addAll(getList(zBlocks.zBlock));
+                blocks.addAll(getList(zBlocks.zBlockItem));
+                blocks.addAll(getList(zBlocks.zGoo));
+                blocks.addAll(getList(zBlocks.zOres));
                 return blocks;
         }
 
@@ -37,13 +37,13 @@ public class BlockDrop extends BlockLootSubProvider {
         @Override
         protected void generate() {
 
-                Blocks.zBlock.getEntries().forEach(b -> dropSelf(b.get()));
-                Blocks.zBlockItem.getEntries().forEach(b -> dropSelf(b.get()));
-                Blocks.zGoo.getEntries().forEach(b -> dropSelf(b.get()));
+                zBlocks.zBlock.getEntries().forEach(b -> dropSelf(b.get()));
+                zBlocks.zBlockItem.getEntries().forEach(b -> dropSelf(b.get()));
+                zBlocks.zGoo.getEntries().forEach(b -> dropSelf(b.get()));
 
-                add(Blocks.RAW_CHAOTIC.get(), createOreDrop(Blocks.RAW_CHAOTIC.get(), Items.CHAOTIC_DUST.get()));
-                add(Blocks.RAW_COPRINIUM.get(), createOreDrop(Blocks.RAW_COPRINIUM.get(), Items.RAW_COPRINIUM.get()));
-                add(Blocks.RAW_REDSTONIC.get(), createOreDrop(Blocks.RAW_REDSTONIC.get(), Items.REDSTONIC_GEM.get()));
+                add(zBlocks.RAW_CHAOTIC.get(), createOreDrop(zBlocks.RAW_CHAOTIC.get(), zItems.CHAOTIC_DUST.get()));
+                add(zBlocks.RAW_COPRINIUM.get(), createOreDrop(zBlocks.RAW_COPRINIUM.get(), zItems.RAW_COPRINIUM.get()));
+                add(zBlocks.RAW_REDSTONIC.get(), createOreDrop(zBlocks.RAW_REDSTONIC.get(), zItems.REDSTONIC_GEM.get()));
 
 
         }

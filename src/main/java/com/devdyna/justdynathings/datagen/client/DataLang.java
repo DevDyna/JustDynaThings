@@ -6,8 +6,8 @@ import java.util.List;
 
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
-import com.devdyna.justdynathings.registry.types.Blocks;
-import com.devdyna.justdynathings.registry.types.Items;
+import com.devdyna.justdynathings.registry.types.zBlocks;
+import com.devdyna.justdynathings.registry.types.zItems;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -25,15 +25,15 @@ public class DataLang extends LanguageProvider {
         add(Main.ID + ".off", "§8[§fControl§8]§f");
         add(Main.ID + ".clock.wip", "N.Y.I. -> shift-click the block to toggle");
 
-        Blocks.zBlock.getEntries().forEach(b -> RegistryToLang("block", b));
-        Blocks.zGoo.getEntries().forEach(b -> RegistryToLang("block", b));
-        Blocks.zOres.getEntries().forEach(b -> RegistryToLang("block", b));
-        Blocks.zBuddings.getEntries().forEach(b -> RegistryToLang("block", b));
-        Blocks.zBlockItem.getEntries().forEach(b -> RegistryToLang("block", b));
-        Blocks.zBlockFluids.getEntries().forEach(b -> RegistryToLang("block", b));
-        Items.zItem.getEntries().forEach(b -> RegistryToLang("item", b));
-        Items.zBucketItem.getEntries().forEach(b -> RegistryToLang("item", b));
-        Items.zItemTinted.getEntries().forEach(b -> RegistryToLang("item", b));
+        zBlocks.zBlock.getEntries().forEach(b -> RegistryToLang("block", b));
+        zBlocks.zGoo.getEntries().forEach(b -> RegistryToLang("block", b));
+        zBlocks.zOres.getEntries().forEach(b -> RegistryToLang("block", b));
+        zBlocks.zBuddings.getEntries().forEach(b -> RegistryToLang("block", b));
+        zBlocks.zBlockItem.getEntries().forEach(b -> RegistryToLang("block", b));
+        zBlocks.zBlockFluids.getEntries().forEach(b -> RegistryToLang("block", b));
+        zItems.zItem.getEntries().forEach(b -> RegistryToLang("item", b));
+        zItems.zBucketItem.getEntries().forEach(b -> RegistryToLang("item", b));
+        zItems.zItemTinted.getEntries().forEach(b -> RegistryToLang("item", b));
 
         // compats
         List.of(

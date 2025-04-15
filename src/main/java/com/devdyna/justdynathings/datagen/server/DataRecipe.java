@@ -3,10 +3,10 @@ package com.devdyna.justdynathings.datagen.server;
 import static net.minecraft.data.recipes.RecipeCategory.MISC;
 
 import java.util.concurrent.CompletableFuture;
-import static net.minecraft.world.item.Items.*;
 
-import com.devdyna.justdynathings.registry.types.Blocks;
-import com.devdyna.justdynathings.registry.types.ItemTags;
+import com.devdyna.justdynathings.registry.types.zBlocks;
+import com.devdyna.justdynathings.registry.types.zItemTags;
+import com.devdyna.justdynathings.utils.DataGenUtil;
 import com.direwolf20.justdirethings.datagen.recipes.GooSpreadRecipeBuilder;
 import com.direwolf20.justdirethings.setup.Registration;
 
@@ -15,7 +15,8 @@ import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.Tags;
 
 @SuppressWarnings("null")
@@ -28,31 +29,31 @@ public class DataRecipe extends RecipeProvider {
         @Override
         protected void buildRecipes(RecipeOutput c) {
 
-                ShapedRecipeBuilder.shaped(MISC, Blocks.FERRITECORE_CLOCK.get(), 1)
+
+                ShapedRecipeBuilder.shaped(MISC, zBlocks.FERRITECORE_CLOCK.get(), 1)
                                 .pattern("ABA")
                                 .pattern("BCB")
                                 .pattern("ABA")
                                 .define('A', Registration.FerricoreIngot.get())
                                 .define('B', Tags.Items.DUSTS_REDSTONE)
-                                .define('C', ItemTags.COPPER_BULBS)
+                                .define('C', zItemTags.COPPER_BULBS)
                                 .unlockedBy(ID, InventoryChangeTrigger.TriggerInstance
                                                 .hasItems(Registration.FerricoreIngot.get()))
                                 .group(ID).save(c);
 
-                ShapedRecipeBuilder.shaped(MISC, Blocks.BLAZING_ANVIL.get(), 1)
-                                .pattern("ADA")
-                                .pattern("BEB")
-                                .pattern("ACA")
+                ShapedRecipeBuilder.shaped(MISC, zBlocks.BLAZING_ANVIL.get(), 1)
+                                .pattern("BCB")
+                                .pattern("BDB")
+                                .pattern("BAB")
                                 .define('A', Registration.BlazeGoldBlock.get())
                                 .define('B', Registration.BlazegoldIngot.get())
-                                .define('C', MAGMA_BLOCK)
-                                .define('D', ItemTags.ANVILS)
-                                .define('E', Registration.GooBlock_Tier2.get())
+                                .define('C', Items.MAGMA_BLOCK)
+                                .define('D', zItemTags.ANVILS)
                                 .unlockedBy(ID, InventoryChangeTrigger.TriggerInstance
                                                 .hasItems(Registration.BlazegoldIngot.get()))
                                 .group(ID).save(c);
 
-                ShapedRecipeBuilder.shaped(MISC, Blocks.REFORGER.get(), 1)
+                ShapedRecipeBuilder.shaped(MISC, zBlocks.REFORGER.get(), 1)
                                 .pattern("ADA")
                                 .pattern("BEB")
                                 .pattern("ACA")
@@ -65,7 +66,7 @@ public class DataRecipe extends RecipeProvider {
                                                 .hasItems(Registration.Celestigem.get()))
                                 .group(ID).save(c);
 
-                ShapedRecipeBuilder.shaped(MISC, Blocks.REVITALIZER.get(), 1)
+                ShapedRecipeBuilder.shaped(MISC, zBlocks.REVITALIZER.get(), 1)
                                 .pattern("CDC")
                                 .pattern("BAB")
                                 .pattern("CBC")
@@ -77,7 +78,7 @@ public class DataRecipe extends RecipeProvider {
                                                 .hasItems(Registration.TimeCrystal.get()))
                                 .group(ID).save(c);
 
-                ShapelessRecipeBuilder.shapeless(MISC, Blocks.PHASEBOX.get(), 4)
+                ShapelessRecipeBuilder.shapeless(MISC, zBlocks.PHASEBOX.get(), 4)
                                 .requires(Registration.Celestigem.get())
                                 .requires(Tags.Items.GLASS_BLOCKS_TINTED)
                                 .requires(Tags.Items.GEMS_LAPIS)
@@ -85,24 +86,18 @@ public class DataRecipe extends RecipeProvider {
                                                 .hasItems(Registration.Celestigem.get()))
                                 .group(ID).save(c);
 
-                GooSpreadRecipeBuilder.shapeless(direRecipeID("dirt"),
-                                net.minecraft.world.level.block.Blocks.COARSE_DIRT.defaultBlockState(),
-                                net.minecraft.world.level.block.Blocks.DIRT.defaultBlockState(), 1, 200);
+                GooSpreadRecipeBuilder.shapeless(DataGenUtil.getResource("dirt"),
+                                Blocks.COARSE_DIRT.defaultBlockState(),
+                                Blocks.DIRT.defaultBlockState(), 1, 200);
 
-                GooSpreadRecipeBuilder.shapeless(direRecipeID("clay"),
-                                net.minecraft.world.level.block.Blocks.MUD.defaultBlockState(),
-                                net.minecraft.world.level.block.Blocks.CLAY.defaultBlockState(), 1, 200);
+                GooSpreadRecipeBuilder.shapeless(DataGenUtil.getResource("clay"),
+                                Blocks.MUD.defaultBlockState(),
+                                Blocks.CLAY.defaultBlockState(), 1, 200);
 
-                GooSpreadRecipeBuilder.shapeless(direRecipeID("crying_obsidian"),
-                                net.minecraft.world.level.block.Blocks.OBSIDIAN.defaultBlockState(),
-                                net.minecraft.world.level.block.Blocks.CRYING_OBSIDIAN.defaultBlockState(), 3, 200);
+                GooSpreadRecipeBuilder.shapeless(DataGenUtil.getResource("crying_obsidian"),
+                                Blocks.OBSIDIAN.defaultBlockState(),
+                                Blocks.CRYING_OBSIDIAN.defaultBlockState(), 3, 200);
 
-
-
-        }
-
-        public ResourceLocation direRecipeID(String id) {
-                return ResourceLocation.fromNamespaceAndPath(ID, id);
         }
 
         /*

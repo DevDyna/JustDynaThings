@@ -2,7 +2,7 @@ package com.devdyna.justdynathings.datagen.server;
 
 import java.util.concurrent.CompletableFuture;
 
-import com.devdyna.justdynathings.registry.types.Items;
+import com.devdyna.justdynathings.registry.types.zItems;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.DataMapProvider;
@@ -21,7 +21,7 @@ public class DataMaps extends DataMapProvider {
     protected void gather() {
 
         builder(NeoForgeDataMaps.FURNACE_FUELS)
-                .add(Items.BIOFUEL, new FurnaceFuel(BASE_BURN_RATE*6), false);
+                .add(zItems.BIOFUEL, new FurnaceFuel(BASE_BURN_RATE*6), false);
 
     }
 

@@ -35,8 +35,8 @@ public class Controller {
         providerGen(e, g, new DataItemTag(po, pr, blocktag.contentsGetter()));
         providerGen(e, g, new DataLoot(po, pr));
         providerGen(e, g, new DataRecipe(po, pr));
-
         providerGen(e, g, new DataMaps(po, pr));
+        providerGen(e, g, new DataFluidTag(po, pr, f));
 
     }
 

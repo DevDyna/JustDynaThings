@@ -2,8 +2,8 @@ package com.devdyna.justdynathings.datagen.server;
 
 import java.util.concurrent.CompletableFuture;
 
-import com.devdyna.justdynathings.registry.types.ItemTags;
-import com.devdyna.justdynathings.registry.types.Items;
+import com.devdyna.justdynathings.registry.types.zItemTags;
+import com.devdyna.justdynathings.registry.types.zItems;
 import com.direwolf20.justdirethings.datagen.JustDireItemTags;
 
 import net.minecraft.core.HolderLookup.Provider;
@@ -25,9 +25,9 @@ public class DataItemTag extends ItemTagsProvider {
     @Override
     protected void addTags(Provider p) {
 
-        tag(ItemTags.ANVILS).add(ANVIL,CHIPPED_ANVIL,DAMAGED_ANVIL);
+        tag(zItemTags.ANVILS).add(ANVIL,CHIPPED_ANVIL,DAMAGED_ANVIL);
 
-        tag(ItemTags.COPPER_BULBS).add(
+        tag(zItemTags.COPPER_BULBS).add(
                 Blocks.COPPER_BULB.asItem(),
                 Blocks.EXPOSED_COPPER_BULB.asItem(),
                 Blocks.WEATHERED_COPPER_BULB.asItem(),
@@ -37,30 +37,30 @@ public class DataItemTag extends ItemTagsProvider {
                 Blocks.WAXED_WEATHERED_COPPER_BULB.asItem(),
                 Blocks.WAXED_OXIDIZED_COPPER_BULB.asItem());
 
-        tag(Tags.Items.DUSTS).add(Items.CHAOTIC_DUST.get());
-        tag(ItemTags.DUSTS_CHAOTIC).add(Items.CHAOTIC_DUST.get());
+        tag(Tags.Items.DUSTS).add(zItems.CHAOTIC_DUST.get());
+        tag(zItemTags.DUSTS_CHAOTIC).add(zItems.CHAOTIC_DUST.get());
 
-        tag(Tags.Items.RAW_MATERIALS).add(Items.RAW_COPRINIUM.get());
-        tag(ItemTags.RAW_MATERIALS_COPRINIUM).add(Items.RAW_COPRINIUM.get());
+        tag(Tags.Items.RAW_MATERIALS).add(zItems.RAW_COPRINIUM.get());
+        tag(zItemTags.RAW_MATERIALS_COPRINIUM).add(zItems.RAW_COPRINIUM.get());
 
-        tag(Tags.Items.GEMS).add(Items.REDSTONIC_GEM.get());
-        tag(ItemTags.GEMS_REDSTONIC).add(Items.REDSTONIC_GEM.get());
+        tag(Tags.Items.GEMS).add(zItems.REDSTONIC_GEM.get());
+        tag(zItemTags.GEMS_REDSTONIC).add(zItems.REDSTONIC_GEM.get());
 
-        tag(Tags.Items.INGOTS).add(Items.COPRINIUM_INGOT.get());
-        tag(ItemTags.INGOTS_COPRINIUM).add(Items.COPRINIUM_INGOT.get());
+        tag(Tags.Items.INGOTS).add(zItems.COPRINIUM_INGOT.get());
+        tag(zItemTags.INGOTS_COPRINIUM).add(zItems.COPRINIUM_INGOT.get());
 
-        tag(ItemTags.CREATIVE_GOO_WRENCHES)
+        tag(zItemTags.CREATIVE_GOO_WRENCHES)
         .addOptionalTag(Tags.Items.TOOLS_WRENCH)
         .addOptionalTag(JustDireItemTags.WRENCHES);
                 
 
-        tag(ItemTags.BLAZINGANVIL_DENY)
+        tag(zItemTags.BLAZINGANVIL_DENY)
                 .add(MACE);
 
-        tag(ItemTags.FLAWED_REVITALIZER)
+        tag(zItemTags.FLAWED_REVITALIZER)
                 .add(ECHO_SHARD);
 
-        tag(ItemTags.REFORGER_CATALYST)
+        tag(zItemTags.REFORGER_CATALYST)
                 .add(
                         ECHO_SHARD,
                         NETHER_STAR,
@@ -69,7 +69,7 @@ public class DataItemTag extends ItemTagsProvider {
                         NETHERITE_SCRAP,
                         HEART_OF_THE_SEA,
                         HEAVY_CORE,
-                        Items.CHAOTIC_DUST.get());
+                        zItems.CHAOTIC_DUST.get());
 
     }
 

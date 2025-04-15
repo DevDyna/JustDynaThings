@@ -8,11 +8,12 @@ import com.devdyna.justdynathings.registry.builders.blazing_anvil.BlazingAnvilBl
 import com.devdyna.justdynathings.registry.builders.budding.types.amethyst.AmethystBlock;
 import com.devdyna.justdynathings.registry.builders.budding.types.time.TimeBlock;
 import com.devdyna.justdynathings.registry.builders.ferritecore_clock.ClockBlock;
+import com.devdyna.justdynathings.registry.builders.generators.thermo.ThermoBlock;
 import com.devdyna.justdynathings.registry.builders.goo.creative.CreativeGoo;
-import com.devdyna.justdynathings.registry.builders.goo.energy.EnergyGoo;
+import com.devdyna.justdynathings.registry.builders.goo.energy.diregoo.*;
+import com.devdyna.justdynathings.registry.builders.goo.energy.energized.EnergyGoo;
 import com.devdyna.justdynathings.registry.builders.reforger.ReforgerBlock;
 import com.devdyna.justdynathings.registry.builders.revitalizer.RevitalizerBlock;
-import com.devdyna.justdynathings.registry.builders.sculk.SculkBlock;
 import com.devdyna.justdynathings.registry.builders.ticker.TickerBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.LiquidBlock;
@@ -23,7 +24,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 import static net.minecraft.world.level.block.Blocks.*;
 
-public class Blocks {
+public class zBlocks {
         public static void register(IEventBus bus) {
                 registerLists();
                 zBlock.register(bus);
@@ -46,8 +47,17 @@ public class Blocks {
         public static final DeferredHolder<Block, ?> ENERGIZED_GOO = Material.DireStuff
                         .simpleGoo(Constants.Goo.Energized, () -> new EnergyGoo());
 
-        public static final DeferredHolder<Block, ?> CREATIVE_GOO = Material.DireStuff.simpleGoo(Constants.Goo.Creative,
-                        () -> new CreativeGoo());
+        public static final DeferredHolder<Block, ?> CREATIVE_GOO = Material.DireStuff
+                        .simpleGoo(Constants.Goo.Creative, () -> new CreativeGoo());
+
+        public static final DeferredHolder<Block, ?> T1_GOO = Material.DireStuff
+                        .simpleGoo(Constants.Goo.T1, () -> new EnergyT1());
+        public static final DeferredHolder<Block, ?> T2_GOO = Material.DireStuff
+                        .simpleGoo(Constants.Goo.T2, () -> new EnergyT2());
+        public static final DeferredHolder<Block, ?> T3_GOO = Material.DireStuff
+                        .simpleGoo(Constants.Goo.T3, () -> new EnergyT3());
+        public static final DeferredHolder<Block, ?> T4_GOO = Material.DireStuff
+                        .simpleGoo(Constants.Goo.T4, () -> new EnergyT4());
 
         public static final DeferredHolder<Block, ?> PHASEBOX = Material
                         .registerItemAndBlock(Constants.Blocks.PhaseBox, PhaseBox::new);
@@ -82,17 +92,18 @@ public class Blocks {
         public static final DeferredHolder<Block, ?> TICKER = Material
                         .registerItemAndBlock(Constants.Blocks.Ticker, TickerBlock::new);
 
-        public static final DeferredHolder<Block, ?> SCULK = Material
-                        .registerItemAndBlock(Constants.Blocks.Sculk, SculkBlock::new);
+                        public static final DeferredHolder<Block, ?> THERMOGEN = Material
+                        .registerItemAndBlock(Constants.Blocks.Thermo, ThermoBlock::new);
 
-            public static final DeferredHolder<Block,LiquidBlock> CRYSTALLINE_FLUID = zBlockFluids.register(Constants.Fluids.Crystalline.Block,
-            () -> new LiquidBlock(Fluids.CRYSTALLINE_FLOWING.value(), Properties.ofFullCopy(WATER)
-                    .liquid()
-                    .lightLevel(value -> 10)
-                    .emissiveRendering((a,b,c) -> true)
-            ));
+        // public static final DeferredHolder<Block, ?> SCULK = Material
+        //                 .registerItemAndBlock(Constants.Blocks.Sculk, SculkBlock::new);
 
-
+        public static final DeferredHolder<Block, LiquidBlock> CRYSTALLINE_FLUID = zBlockFluids.register(
+                        Constants.Fluids.Crystalline.Block,
+                        () -> new LiquidBlock(zFluids.CRYSTALLINE_FLOWING.value(), Properties.ofFullCopy(WATER)
+                                        .liquid()
+                                        .lightLevel(value -> 10)
+                                        .emissiveRendering((a, b, c) -> true)));
 
         // ---------------------------------------------------------------------------------------//
 

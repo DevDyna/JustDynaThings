@@ -1,10 +1,9 @@
 package com.devdyna.justdynathings.registry.builders.blazing_anvil;
 
-import static com.devdyna.justdynathings.registry.builders.blazing_anvil.BlazingAnvilBlock.ACTIVE;
-
 import com.devdyna.justdynathings.registry.interfaces.be.SmartFEMachine;
-import com.devdyna.justdynathings.registry.types.BlockEntities;
-import com.devdyna.justdynathings.registry.types.ItemTags;
+import com.devdyna.justdynathings.registry.types.zBlockEntities;
+import com.devdyna.justdynathings.registry.types.zItemTags;
+import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.Actions;
 import com.devdyna.justdynathings.utils.LevelUtil;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
@@ -25,8 +24,6 @@ public class BlazingAnvilBE extends BaseMachineBE implements RedstoneControlledB
 
     public RedstoneControlData redstoneControlData = new RedstoneControlData();
     public final PoweredMachineContainerData poweredMachineData = new PoweredMachineContainerData(this);
-    private int cost = 1000;
-    private int maxsize = 10000;
 
     public BlazingAnvilBE(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState) {
         super(pType, pPos, pBlockState);
@@ -38,7 +35,7 @@ public class BlazingAnvilBE extends BaseMachineBE implements RedstoneControlledB
     }
 
     public BlazingAnvilBE(BlockPos pos, BlockState state) {
-        this(BlockEntities.BLAZING_ANVIL.get(), pos, state);
+        this(zBlockEntities.BLAZING_ANVIL.get(), pos, state);
     }
 
     @Override
@@ -58,7 +55,7 @@ public class BlazingAnvilBE extends BaseMachineBE implements RedstoneControlledB
     @Override
     public void tickServer() {
         checkState();
-        if (getBlockState().getValue(ACTIVE).booleanValue()) {
+        if (getBlockState().getValue(zProperties.ACTIVE).booleanValue()) {
             extractFEWhenPossible();
             Actions.repairItem(getMachineHandler().getStackInSlot(0));
             applySound();
@@ -67,10 +64,10 @@ public class BlazingAnvilBE extends BaseMachineBE implements RedstoneControlledB
 
     public void checkState() {
         level.setBlockAndUpdate(getBlockPos(),
-                getBlockState().setValue(ACTIVE,
+                getBlockState().setValue(zProperties.ACTIVE,
                         validEnergy() && getMachineHandler().getStackInSlot(0).isDamageableItem()
                                 && getMachineHandler().getStackInSlot(0).isDamaged()
-                                && !getMachineHandler().getStackInSlot(0).is(ItemTags.BLAZINGANVIL_DENY)));
+                                && !getMachineHandler().getStackInSlot(0).is(zItemTags.BLAZINGANVIL_DENY)));
     }
 
     @Override
@@ -85,12 +82,12 @@ public class BlazingAnvilBE extends BaseMachineBE implements RedstoneControlledB
 
     @Override
     public int getStandardEnergyCost() {
-        return cost;
+        return FErate*10;
     }
 
     @Override
     public int getMaxEnergy() {
-        return maxsize;
+        return FEsize;
     }
 
     public void applySound() {

@@ -6,7 +6,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.bus.api.IEventBus;
 
-public class BlockTags {
+public class zBlockTags {
     public static void register(IEventBus bus) {
 
     }
@@ -18,5 +18,7 @@ public class BlockTags {
     public static final TagKey<Block> REVITALIZER_GOO = Material.tagBlock("revitalizer_goo");
 
     public static final TagKey<Block> TICKER_DENY = Material.tagBlock("ticker_deny");
+
+    public static final TagKey<Block> THERMO_HEATER = Material.tagBlock("thermo_heater");
 
 }

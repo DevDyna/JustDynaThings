@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.registry.builders.goo.energy;
+package com.devdyna.justdynathings.registry.builders.goo.energy.diregoo;
 
 import java.util.List;
 
@@ -24,15 +24,15 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
 @SuppressWarnings("unused")
-public class EnergyGoo extends GooBlock_Base implements EntityBlock {
+public class EnergyT3 extends GooBlock_Base implements EntityBlock {
 
-   public EnergyGoo() {
+   public EnergyT3() {
    }
 
    @SuppressWarnings("null")
    @Nullable
    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-      return new EnergyGooBE(pos, state);
+      return new EnergyT3BE(pos, state);
    }
 
    protected boolean validRevivalItem(ItemStack itemStack) {

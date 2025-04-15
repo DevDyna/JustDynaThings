@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.ferritecore_clock;
 
-import com.devdyna.justdynathings.registry.types.BlockEntities;
+import com.devdyna.justdynathings.registry.types.zBlockEntities;
 import com.devdyna.justdynathings.utils.Actions;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import net.minecraft.core.BlockPos;
@@ -14,7 +14,7 @@ public class ClockBE extends BaseMachineBE {
     }
 
     public ClockBE(BlockPos pos, BlockState blockState) {
-        super(BlockEntities.FERRITECORE_CLOCK.get(), pos, blockState);
+        super(zBlockEntities.FERRITECORE_CLOCK.get(), pos, blockState);
     }
 
     private int i = 0;

@@ -1,7 +1,8 @@
 package com.devdyna.justdynathings.registry.builders.blazing_anvil;
 
 import com.devdyna.justdynathings.client.builder.blazingAnvil.BlazingAnvilGUI;
-import com.devdyna.justdynathings.registry.types.BlockEntities;
+import com.devdyna.justdynathings.registry.types.zBlockEntities;
+import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.Actions;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
 
@@ -10,17 +11,17 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.AnvilBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import static net.minecraft.world.level.block.AnvilBlock.FACING;
+
 import javax.annotation.Nullable;
 
 @SuppressWarnings("null")
@@ -36,28 +37,23 @@ public class BlazingAnvilBlock extends BaseMachineBlock {
     private static final VoxelShape X_AXIS_AABB = Shapes.or(BASE, X_LEG1, X_LEG2, X_TOP);
     private static final VoxelShape Z_AXIS_AABB = Shapes.or(BASE, Z_LEG1, Z_LEG2, Z_TOP);
 
-    public static final BooleanProperty ACTIVE = BooleanProperty.create("active");
 
     public BlazingAnvilBlock() {
-        super(Properties.of()
-                .requiresCorrectToolForDrops()
-                .strength(5.0F, 1200.0F)
+        super(zProperties.MachineProp
                 .sound(SoundType.ANVIL)
-                .pushReaction(PushReaction.BLOCK)
-                .isRedstoneConductor(BaseMachineBlock::never));
+                .pushReaction(PushReaction.BLOCK));
     }
 
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new BlazingAnvilBE(BlockEntities.BLAZING_ANVIL.get(), pos, state);
+        return new BlazingAnvilBE(zBlockEntities.BLAZING_ANVIL.get(), pos, state);
     }
 
     @Override
     public void openMenu(Player player, BlockPos blockPos) {
-               Actions.openMenu(player,
-                (windowId, playerInventory, playerEntity) -> 
-                new BlazingAnvilGUI(windowId, playerInventory, blockPos),
+        Actions.openMenu(player,
+                (windowId, playerInventory, playerEntity) -> new BlazingAnvilGUI(windowId, playerInventory, blockPos),
                 blockPos);
     }
 
@@ -69,19 +65,19 @@ public class BlazingAnvilBlock extends BaseMachineBlock {
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         return this.defaultBlockState()
-                .setValue(FACING, context.getHorizontalDirection().getClockWise())
-                .setValue(ACTIVE, true);
+                .setValue(AnvilBlock.FACING, context.getHorizontalDirection().getClockWise())
+                .setValue(zProperties.ACTIVE, true);
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder
-                .add(FACING)
-                .add(ACTIVE);
+                .add(AnvilBlock.FACING)
+                .add(zProperties.ACTIVE);
     }
 
     @Override
     protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        return state.getValue(FACING).getAxis() == Direction.Axis.X ? X_AXIS_AABB : Z_AXIS_AABB;
+        return state.getValue(AnvilBlock.FACING).getAxis() == Direction.Axis.X ? X_AXIS_AABB : Z_AXIS_AABB;
     }
 }

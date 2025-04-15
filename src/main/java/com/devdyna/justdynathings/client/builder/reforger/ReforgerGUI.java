@@ -1,7 +1,7 @@
 package com.devdyna.justdynathings.client.builder.reforger;
 
-import com.devdyna.justdynathings.registry.types.Blocks;
-import com.devdyna.justdynathings.registry.types.Containers;
+import com.devdyna.justdynathings.registry.types.zBlocks;
+import com.devdyna.justdynathings.registry.types.zContainers;
 import com.direwolf20.justdirethings.common.containers.basecontainers.BaseMachineContainer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
@@ -17,7 +17,7 @@ public class ReforgerGUI extends BaseMachineContainer {
     }
 
     public ReforgerGUI(int windowId, Inventory playerInventory, BlockPos blockPos) {
-        super(Containers.REFORGER.get(), windowId, playerInventory, blockPos);
+        super(zContainers.REFORGER.get(), windowId, playerInventory, blockPos);
         addPlayerSlots(player.getInventory());
     }
 
@@ -29,7 +29,7 @@ public class ReforgerGUI extends BaseMachineContainer {
 
     @Override
     public boolean stillValid(Player playerIn) {
-        return stillValid(ContainerLevelAccess.create(player.level(), pos), player, Blocks.REFORGER.get());
+        return stillValid(ContainerLevelAccess.create(player.level(), pos), player, zBlocks.REFORGER.get());
     }
 
     @Override

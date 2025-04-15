@@ -6,7 +6,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
 
-public class ItemTags {
+public class zItemTags {
     public static void register(IEventBus bus) {
 
     }

@@ -1,10 +1,9 @@
 package com.devdyna.justdynathings.registry.builders.revitalizer;
 
-import static com.devdyna.justdynathings.registry.builders.revitalizer.RevitalizerBlock.*;
-
 import com.devdyna.justdynathings.registry.interfaces.be.SmartFEMachine;
-import com.devdyna.justdynathings.registry.types.BlockEntities;
-import com.devdyna.justdynathings.registry.types.BlockTags;
+import com.devdyna.justdynathings.registry.types.zBlockEntities;
+import com.devdyna.justdynathings.registry.types.zBlockTags;
+import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.LevelUtil;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineContainerData;
@@ -23,15 +22,13 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 @SuppressWarnings("null")
 public class RevitalizerBE extends BaseMachineBE implements SmartFEMachine {
     public final PoweredMachineContainerData poweredMachineData = new PoweredMachineContainerData(this);
-    private int cost = 1000;
-    private int maxsize = 10000;
 
     public RevitalizerBE(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState) {
         super(pType, pPos, pBlockState);
     }
 
     public RevitalizerBE(BlockPos pos, BlockState state) {
-        this(BlockEntities.REVITALIZER.get(), pos, state);
+        this(zBlockEntities.REVITALIZER.get(), pos, state);
     }
 
     @Override
@@ -42,16 +39,6 @@ public class RevitalizerBE extends BaseMachineBE implements SmartFEMachine {
     @Override
     public MachineEnergyStorage getEnergyStorage() {
         return getData(Registration.ENERGYSTORAGE_MACHINES);
-    }
-
-    @Override
-    public int getStandardEnergyCost() {
-        return cost;
-    }
-
-    @Override
-    public int getMaxEnergy() {
-        return maxsize;
     }
 
     @Override
@@ -78,9 +65,9 @@ public class RevitalizerBE extends BaseMachineBE implements SmartFEMachine {
     public void updateBlock() {
         level.setBlockAndUpdate(getBlockPos(),
                 getBlockState()
-                        .setValue(ACTIVE,
+                        .setValue(zProperties.ACTIVE,
                                 validEnergy())
-                        .setValue(GOO_FOUND, checkGooTop())
+                        .setValue(zProperties.GOO_FOUND, checkGooTop())
                         .setValue(BlockStateProperties.FACING,
                                 getBlockState()
                                         .getValue(BlockStateProperties.FACING)));
@@ -119,7 +106,7 @@ public class RevitalizerBE extends BaseMachineBE implements SmartFEMachine {
      */
     public boolean checkGooTop() {
         return level.getBlockState(getGooPos())
-                .is(BlockTags.REVITALIZER_GOO);
+                .is(zBlockTags.REVITALIZER_GOO);
     }
 
     public boolean checkGooStatus() {
@@ -136,14 +123,24 @@ public class RevitalizerBE extends BaseMachineBE implements SmartFEMachine {
     }
 
     public boolean readyToConsume() {
-        return getBlockState().getValue(ACTIVE).booleanValue()
-                && getBlockState().getValue(GOO_FOUND).booleanValue() && checkGooStatus();
+        return getBlockState().getValue(zProperties.ACTIVE).booleanValue()
+                && getBlockState().getValue(zProperties.GOO_FOUND).booleanValue() && checkGooStatus();
     }
 
     public BlockPos getGooPos() {
         return getBlockPos()
                 .relative(getBlockState()
                         .getValue(BlockStateProperties.FACING).getOpposite());
+    }
+
+    @Override
+    public int getStandardEnergyCost() {
+        return FErate;
+    }
+
+    @Override
+    public int getMaxEnergy() {
+        return FEsize;
     }
 
 }

@@ -12,7 +12,7 @@ import net.neoforged.neoforge.fluids.BaseFlowingFluid;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-public class Fluids {
+public class zFluids {
 
     // ---------------------------------------------------------------------------------------//
 
@@ -26,15 +26,10 @@ public class Fluids {
     // ---------------------------------------------------------------------------------------//
 
     public static final DeferredHolder<Fluid, ?> CRYSTALLINE_SOURCE = zFluids.register(Constants.Fluids.Crystalline.Source,
-            () -> new BaseFlowingFluid.Source(Fluids.FProp));
+            () -> new BaseFlowingFluid.Source(zProperties.FProp));
     public static final DeferredHolder<Fluid, FlowingFluid> CRYSTALLINE_FLOWING = zFluids.register(Constants.Fluids.Crystalline.Flowing,
-            () -> new BaseFlowingFluid.Flowing(Fluids.FProp));
+            () -> new BaseFlowingFluid.Flowing(zProperties.FProp));
 
-    public static final BaseFlowingFluid.Properties FProp = new BaseFlowingFluid.Properties(
-            FluidTypes.CRYSTALLINE_FLUID_TYPE,
-            CRYSTALLINE_SOURCE,
-            CRYSTALLINE_FLOWING)
-            .bucket(Items.CRYSTALLINE_BUCKET)
-            .block(Blocks.CRYSTALLINE_FLUID);
+
 
 }

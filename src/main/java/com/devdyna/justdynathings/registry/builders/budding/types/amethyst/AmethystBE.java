@@ -1,7 +1,7 @@
 package com.devdyna.justdynathings.registry.builders.budding.types.amethyst;
 
 import com.devdyna.justdynathings.registry.builders.budding.BuddingBE;
-import com.devdyna.justdynathings.registry.types.BlockEntities;
+import com.devdyna.justdynathings.registry.types.zBlockEntities;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.Blocks;
@@ -19,7 +19,7 @@ public class AmethystBE extends BuddingBE{
     }
 
     public AmethystBE(BlockPos pos, BlockState state) {
-        this(BlockEntities.BUDDING_AMETHYST.get(), pos, state);
+        this(zBlockEntities.BUDDING_AMETHYST.get(), pos, state);
     }
     
 }

@@ -1,7 +1,7 @@
 package com.devdyna.justdynathings.registry.builders.budding.types.time;
 
 import com.devdyna.justdynathings.registry.builders.budding.BuddingBE;
-import com.devdyna.justdynathings.registry.types.BlockEntities;
+import com.devdyna.justdynathings.registry.types.zBlockEntities;
 import com.direwolf20.justdirethings.setup.Registration;
 
 import net.minecraft.core.BlockPos;
@@ -19,7 +19,7 @@ public class TimeBE extends BuddingBE {
     }
 
     public TimeBE(BlockPos pos, BlockState state) {
-        this(BlockEntities.BUDDING_TIME.get(), pos, state);
+        this(zBlockEntities.BUDDING_TIME.get(), pos, state);
     }
 
 }

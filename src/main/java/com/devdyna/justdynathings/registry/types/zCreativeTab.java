@@ -2,7 +2,6 @@ package com.devdyna.justdynathings.registry.types;
 
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
-
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -12,7 +11,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-public class CreativeTab {
+public class zCreativeTab {
         public static void register(IEventBus bus) {
                 zCreative.register(bus);
         }
@@ -27,20 +26,20 @@ public class CreativeTab {
                         .register(Main.ID, () -> CreativeModeTab.builder()
                                         .title(Component.translatable(Main.ID + "." + Constants.CreativeTab))
                                         .withTabsBefore(CreativeModeTabs.SPAWN_EGGS)
-                                        .icon(() -> Blocks.REFORGER.get().asItem().getDefaultInstance())
+                                        .icon(() -> zBlocks.REFORGER.get().asItem().getDefaultInstance())
                                         .displayItems((parameters, output) -> {
-                                                Items.zItem.getEntries().forEach(e -> {
-                                                        output.accept((Item) e.get());
-                                                });
 
-                                                Items.zBlockItem.getEntries().forEach(e -> {
-                                                        output.accept((Item) e.get());
-                                                });
+                                                // generic items
+                                                zItems.zItem.getEntries().forEach(e -> output.accept((Item) e.get()));
 
-                                                // Items.zGoo.getEntries().forEach(e -> {
-                                                // output.accept((Item) e.get());
-                                                // });
+                                                // blocks
+                                                zItems.zBlockItem.getEntries()
+                                                                .forEach(e -> output.accept((Item) e.get()));
+                                                // fluids
+                                                zItems.zBucketItem.getEntries()
+                                                                .forEach(e -> output.accept((Item) e.get()));
 
+                                                // compat items
                                                 if (Constants.ModAddonCheck.AppliedEnergistics2)
                                                         com.devdyna.justdynathings.compat.ae2.init.zAE_ITM.getEntries()
                                                                         .forEach(e -> {

@@ -11,7 +11,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-public class Items {
+public class zItems {
         public static void register(IEventBus bus) {
                 registerLists();
                 zItem.register(bus);
@@ -46,7 +46,7 @@ public class Items {
                         3);
 
         public static DeferredHolder<Item, ?> CRYSTALLINE_BUCKET = zBucketItem.register(Constants.Fluids.Crystalline.Bucket,
-                        () -> new BucketItem(Fluids.CRYSTALLINE_SOURCE.get(),
+                        () -> new BucketItem(zFluids.CRYSTALLINE_SOURCE.get(),
                                         new Item.Properties().craftRemainder(BUCKET).stacksTo(1)));
 
         // ---------------------------------------------------------------------------------------//

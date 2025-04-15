@@ -1,9 +1,9 @@
 package com.devdyna.justdynathings.registry.builders.reforger;
 
 import com.devdyna.justdynathings.Config;
-import com.devdyna.justdynathings.registry.types.BlockEntities;
-import com.devdyna.justdynathings.registry.types.BlockTags;
-import com.devdyna.justdynathings.registry.types.ItemTags;
+import com.devdyna.justdynathings.registry.types.zBlockEntities;
+import com.devdyna.justdynathings.registry.types.zBlockTags;
+import com.devdyna.justdynathings.registry.types.zItemTags;
 import com.devdyna.justdynathings.utils.Actions;
 import com.devdyna.justdynathings.utils.LevelUtil;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
@@ -28,7 +28,7 @@ public class ReforgerBE extends BaseMachineBE implements RedstoneControlledBE {
     }
 
     public ReforgerBE(BlockPos p, BlockState s) {
-        this(BlockEntities.REFORGER.get(), p, s);
+        this(zBlockEntities.REFORGER.get(), p, s);
     }
 
     @Override
@@ -55,7 +55,7 @@ public class ReforgerBE extends BaseMachineBE implements RedstoneControlledBE {
                         .getValue(BlockStateProperties.FACING));
 
         if (!item.isEmpty())
-            if (Actions.checkItemBlock(level, pos, BlockTags.REFORGER_REPLACE, item, ItemTags.REFORGER_CATALYST)) {
+            if (Actions.checkItemBlock(level, pos, zBlockTags.REFORGER_REPLACE, item, zItemTags.REFORGER_CATALYST)) {
 
                 Actions.reforgerReplaceBlock(pos, level);
 

@@ -12,17 +12,15 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import static com.direwolf20.justdirethings.common.blocks.gooblocks.GooBlock_Base.ALIVE;
 
 import com.devdyna.justdynathings.registry.interfaces.be.SmartFEMachine;
+import com.devdyna.justdynathings.registry.types.zProperties;
 
-public class FEGooLogic extends GooBlockBE_Base implements SmartFEMachine {
+public class FEGoo extends GooBlockBE_Base implements SmartFEMachine {
 
     public final PoweredMachineContainerData poweredMachineData;
-    private int cost = 1000;
-    private int maxsize = 10000;
 
-    public FEGooLogic(BlockEntityType<?> type, BlockPos pos, BlockState state) {
+    public FEGoo(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
         poweredMachineData = new PoweredMachineContainerData(this);
     }
@@ -38,7 +36,7 @@ public class FEGooLogic extends GooBlockBE_Base implements SmartFEMachine {
     @SuppressWarnings("null")
     public void checkEnergy() {
         level.setBlockAndUpdate(getBlockPos(),
-                getBlockState().setValue(ALIVE, validEnergy()));
+                getBlockState().setValue(zProperties.GOO_ALIVE, validEnergy()));
     }
 
     @SuppressWarnings("null")
@@ -56,7 +54,7 @@ public class FEGooLogic extends GooBlockBE_Base implements SmartFEMachine {
 
         if (level != null && !level.isClientSide) {
 
-            if (getBlockState().getValue(ALIVE)) {
+            if (getBlockState().getValue(zProperties.GOO_ALIVE)) {
 
                 extractFEWhenPossible();
 
@@ -81,12 +79,12 @@ public class FEGooLogic extends GooBlockBE_Base implements SmartFEMachine {
 
     @Override
     public int getStandardEnergyCost() {
-        return cost;
+        return FErate * 10;
     }
 
     @Override
     public int getMaxEnergy() {
-        return maxsize;
+        return FEsize;
     }
 
 }

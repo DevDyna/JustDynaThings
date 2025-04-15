@@ -3,6 +3,7 @@ package com.devdyna.justdynathings.registry.builders.ferritecore_clock;
 import javax.annotation.Nullable;
 
 import com.devdyna.justdynathings.client.builder.clock.ClockGUI;
+import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.Actions;
 import com.devdyna.justdynathings.utils.DirectionUtil;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
@@ -30,11 +31,7 @@ public class ClockBlock extends BaseMachineBlock {
     public static final BooleanProperty ACTIVE = BooleanProperty.create("active");
 
     public ClockBlock() {
-        super(Properties.of()
-                .requiresCorrectToolForDrops()
-                .strength(5.0F, 6.0F)
-                .sound(SoundType.COPPER_BULB)
-                .isRedstoneConductor(BaseMachineBlock::never));
+        super(zProperties.MachineProp.sound(SoundType.COPPER_BULB));
     }
 
     @Override

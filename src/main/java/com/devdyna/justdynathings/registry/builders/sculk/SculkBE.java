@@ -1,9 +1,8 @@
 package com.devdyna.justdynathings.registry.builders.sculk;
 
-import static com.devdyna.justdynathings.registry.builders.sculk.SculkBlock.ACTIVE;
-
 import com.devdyna.justdynathings.registry.interfaces.be.SmartMBMachine;
-import com.devdyna.justdynathings.registry.types.BlockEntities;
+import com.devdyna.justdynathings.registry.types.zBlockEntities;
+import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.LevelUtil;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.FluidContainerData;
@@ -24,15 +23,12 @@ public class SculkBE extends BaseMachineBE implements SmartMBMachine {
 
     public final FluidContainerData fluidContainerData = new FluidContainerData(this);
 
-    private int cost = 100;
-    private int capacity = 10000;
-
     public SculkBE(BlockEntityType<?> p, BlockPos b, BlockState s) {
         super(p, b, s);
     }
 
     public SculkBE(BlockPos p, BlockState s) {
-        this(BlockEntities.SCULK.get(), p, s);
+        this(zBlockEntities.BLAZING_ANVIL.get(), p, s);//WIP
     }
 
     @Override
@@ -51,7 +47,7 @@ public class SculkBE extends BaseMachineBE implements SmartMBMachine {
 
         checkState();
 
-        if (getBlockState().getValue(ACTIVE) && delay < maxtimer) {
+        if (getBlockState().getValue(zProperties.ACTIVE) && delay < maxtimer) {
             delay++;
         } else {
             delay = 0;
@@ -80,7 +76,7 @@ public class SculkBE extends BaseMachineBE implements SmartMBMachine {
     }
 
     public void checkState() {
-        level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(ACTIVE,
+        level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(zProperties.ACTIVE,
                 validFluid()));
     }
 
@@ -104,12 +100,12 @@ public class SculkBE extends BaseMachineBE implements SmartMBMachine {
 
     @Override
     public int getStandardFluidCost() {
-        return cost;
+        return FLrate;
     }
 
     @Override
     public int getMaxMB() {
-        return capacity;
+        return FLsize;
     }
 
 }

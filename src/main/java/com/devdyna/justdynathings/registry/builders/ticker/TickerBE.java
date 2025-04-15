@@ -1,11 +1,10 @@
 package com.devdyna.justdynathings.registry.builders.ticker;
 
-import static com.devdyna.justdynathings.registry.builders.ticker.TickerBlock.ACTIVE;
-
 import com.devdyna.justdynathings.registry.interfaces.be.SmartFEMachine;
 import com.devdyna.justdynathings.registry.interfaces.be.SmartMBMachine;
-import com.devdyna.justdynathings.registry.types.BlockEntities;
-import com.devdyna.justdynathings.registry.types.BlockTags;
+import com.devdyna.justdynathings.registry.types.zBlockEntities;
+import com.devdyna.justdynathings.registry.types.zBlockTags;
+import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.Actions;
 import com.devdyna.justdynathings.utils.LevelUtil;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
@@ -29,20 +28,12 @@ public class TickerBE extends BaseMachineBE implements SmartFEMachine, SmartMBMa
     public final PoweredMachineContainerData poweredMachineData = new PoweredMachineContainerData(this);
     public final FluidContainerData fluidContainerData = new FluidContainerData(this);
 
-    private int FEcost = 100;
-    private int FEcapacity = 10000;
-    private int MBcost = 10;
-    private int MBcapacity = 1000;
-
-    /**
-     * DONT USE THIS ON BE REGISTRATION
-     */
     public TickerBE(BlockEntityType<?> p, BlockPos b, BlockState s) {
         super(p, b, s);
     }
 
     public TickerBE(BlockPos p, BlockState s) {
-        this(BlockEntities.TICKER.get(), p, s);
+        this(zBlockEntities.TICKER.get(), p, s);
     }
 
     @Override
@@ -58,7 +49,7 @@ public class TickerBE extends BaseMachineBE implements SmartFEMachine, SmartMBMa
 
         checkState(pos);
 
-        if (getBlockState().getValue(ACTIVE) && blockValid(pos)) {
+        if (getBlockState().getValue(zProperties.ACTIVE) && blockValid(pos)) {
 
             Actions.tickWhenRandom(pos, level);
 
@@ -73,12 +64,12 @@ public class TickerBE extends BaseMachineBE implements SmartFEMachine, SmartMBMa
     }
 
     public void checkState(BlockPos pos) {
-        level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(ACTIVE,
+        level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(zProperties.ACTIVE,
              validEnergy() && validFluid()));
     }
 
     public boolean blockValid(BlockPos pos){
-        return !level.getBlockState(pos).is(BlockTags.TICKER_DENY);
+        return !level.getBlockState(pos).is(zBlockTags.TICKER_DENY);
     }
 
     public void playSound(BlockPos pos) {
@@ -101,12 +92,12 @@ public class TickerBE extends BaseMachineBE implements SmartFEMachine, SmartMBMa
 
     @Override
     public int getStandardEnergyCost() {
-        return FEcost;
+        return FErate;
     }
 
     @Override
     public int getMaxEnergy() {
-        return FEcapacity;
+        return FEsize;
     }
 
     @Override
@@ -121,12 +112,12 @@ public class TickerBE extends BaseMachineBE implements SmartFEMachine, SmartMBMa
 
     @Override
     public int getStandardFluidCost() {
-        return MBcost;
+        return FLrate;
     }
 
     @Override
     public int getMaxMB() {
-        return MBcapacity;
+        return FLsize;
     }
 
 }

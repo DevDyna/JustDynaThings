@@ -1,9 +1,8 @@
 package com.devdyna.justdynathings.registry.builders.budding;
 
-import static com.devdyna.justdynathings.registry.builders.budding.BuddingBlock.ACTIVE;
-
 import com.devdyna.justdynathings.registry.interfaces.be.SmartFEMachine;
 import com.devdyna.justdynathings.registry.interfaces.be.SmartMBMachine;
+import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.DirectionUtil;
 import com.devdyna.justdynathings.utils.LevelUtil;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
@@ -30,10 +29,6 @@ public class BuddingBE extends BaseMachineBE implements SmartFEMachine, SmartMBM
 
     public final PoweredMachineContainerData poweredMachineData = new PoweredMachineContainerData(this);
     public final FluidContainerData fluidContainerData = new FluidContainerData(this);
-    public int FEcost = 100;
-    public int FEsize = 10000;
-    public int FLcost = 10;
-    public int FLsize = 10000;
     public Block smallCluster;
     public Block mediumCluster;
     public Block largeCluster;
@@ -52,7 +47,7 @@ public class BuddingBE extends BaseMachineBE implements SmartFEMachine, SmartMBM
 
         updateBlock();
 
-        if (LevelUtil.chance(25, level) && getBlockState().getValue(ACTIVE)) {
+        if (LevelUtil.chance(25, level) && getBlockState().getValue(zProperties.ACTIVE)) {
 
             // RANDOM REQUIRE VARIABLE
             Direction dir = DirectionUtil.randomDirection(level, Direction.values());
@@ -132,13 +127,13 @@ public class BuddingBE extends BaseMachineBE implements SmartFEMachine, SmartMBM
      */
     public void updateBlock() {
         level.setBlockAndUpdate(getBlockPos(),
-                getBlockState().setValue(ACTIVE,
+                getBlockState().setValue(zProperties.ACTIVE,
                         validEnergy() && validFluid()));
     }
 
     @Override
     public int getStandardEnergyCost() {
-        return FEcost;
+        return FErate;
     }
 
     @Override
@@ -173,6 +168,6 @@ public class BuddingBE extends BaseMachineBE implements SmartFEMachine, SmartMBM
 
     @Override
     public int getStandardFluidCost() {
-        return FLcost;
+        return FLrate;
     }
 }

@@ -13,7 +13,7 @@ import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-public class Containers {
+public class zContainers {
         public static void register(IEventBus bus) {
                 zCTNR.register(bus);
         }

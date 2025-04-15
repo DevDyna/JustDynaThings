@@ -2,7 +2,7 @@ package com.devdyna.justdynathings.utils;
 
 import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.registry.builders.ferritecore_clock.ClockBlock;
-import com.devdyna.justdynathings.registry.types.BlockTags;
+import com.devdyna.justdynathings.registry.types.zBlockTags;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -59,10 +59,10 @@ public class Actions {
         public static void reforgerReplaceBlock(BlockPos pos, Level level) {
                 level.setBlockAndUpdate(pos,
                                 LevelUtil
-                                                .ResourceByTag(BlockTags.REFORGER_RESULT,
+                                                .ResourceByTag(zBlockTags.REFORGER_RESULT,
                                                                 LevelUtil.getRandomValue(
                                                                                 LevelUtil.getSizeTag(
-                                                                                        BlockTags.REFORGER_RESULT),
+                                                                                        zBlockTags.REFORGER_RESULT),
                                                                                 level))
                                                 .defaultBlockState());
         }

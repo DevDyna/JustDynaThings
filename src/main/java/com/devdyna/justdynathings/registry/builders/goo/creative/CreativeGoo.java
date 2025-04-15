@@ -6,7 +6,7 @@ import javax.annotation.Nullable;
 
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.registry.Material;
-import com.devdyna.justdynathings.registry.types.ItemTags;
+import com.devdyna.justdynathings.registry.types.zItemTags;
 import com.devdyna.justdynathings.utils.LevelUtil;
 import com.direwolf20.justdirethings.common.blockentities.gooblocks.GooBlockBE_Tier4;
 import com.direwolf20.justdirethings.common.blocks.gooblocks.GooBlock_Base;
@@ -46,7 +46,7 @@ public class CreativeGoo extends GooBlock_Base implements EntityBlock {
    protected ItemInteractionResult useItemOn(ItemStack i, BlockState s, Level l, BlockPos p,
          Player e, InteractionHand h, BlockHitResult b) {
 
-      if ((i.is(ItemTags.CREATIVE_GOO_WRENCHES))) {
+      if ((i.is(zItemTags.CREATIVE_GOO_WRENCHES))) {
 
          l.playLocalSound(p.getX(), p.getY(),
                p.getZ(),

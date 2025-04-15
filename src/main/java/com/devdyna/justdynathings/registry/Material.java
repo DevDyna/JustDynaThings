@@ -10,37 +10,31 @@ import com.devdyna.justdynathings.registry.builders._core.block.BlockBase;
 import com.devdyna.justdynathings.registry.builders._core.item.ItemBase;
 import com.devdyna.justdynathings.registry.builders.fuels.item.BaseFuel;
 import com.devdyna.justdynathings.registry.types.*;
-
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
-import static net.minecraft.world.item.Items.*;
-import net.minecraft.world.item.Item.Properties;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Fluid;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
 public class Material {
         public static void register(IEventBus bus) {
-                BlockEntities.register(bus);
-                Blocks.register(bus);
-                BlockTags.register(bus);
-                Containers.register(bus);
-                CreativeTab.register(bus);
-                Fluids.register(bus);
-                FluidTypes.register(bus);
-                Handlers.register(bus);
-                Items.register(bus);
-                ItemTags.register(bus);
+                zBlockEntities.register(bus);
+                zBlocks.register(bus);
+                zBlockTags.register(bus);
+                zContainers.register(bus);
+                zCreativeTab.register(bus);
+                zFluids.register(bus);
+                zFluidTypes.register(bus);
+                zHandlers.register(bus);
+                zItems.register(bus);
+                zItemTags.register(bus);
         }
 
-        public static final BlockBehaviour.Properties bProp = BlockBehaviour.Properties.of();
-        public static final Properties iProp = new Item.Properties();
-        public static final Properties iPropBucket = iProp.craftRemainder(BUCKET).stacksTo(1);
+
 
         /**
          * register an block + item
@@ -49,8 +43,8 @@ public class Material {
          * @param b   Blocks.zBlock
          */
         public static DeferredHolder<Block, ?> registerItemAndBlock(String blockname, Supplier<? extends Block> sup) {
-                DeferredHolder<Block, ?> block = Blocks.zBlockItem.register(blockname, sup);
-                Items.zBlockItem.registerSimpleBlockItem(block);
+                DeferredHolder<Block, ?> block = zBlocks.zBlockItem.register(blockname, sup);
+                zItems.zBlockItem.registerSimpleBlockItem(block);
                 return block;
         }
 
@@ -88,8 +82,8 @@ public class Material {
 
         public static Block[] getBuddingAvailable() {
                 ArrayList<Block> a = new ArrayList<>();
-                a.add(Blocks.BUDDING_AMETHYST.get());
-                a.add(Blocks.BUDDING_TIME.get());
+                a.add(zBlocks.BUDDING_AMETHYST.get());
+                a.add(zBlocks.BUDDING_TIME.get());
                 if (Constants.ModAddonCheck.AppliedEnergistics2)
                         a.add(com.devdyna.justdynathings.compat.ae2.init.AE2_POWERED.get());
                 if (Constants.ModAddonCheck.ExtendedAE)
@@ -104,46 +98,46 @@ public class Material {
         }
 
         public static DeferredHolder<Item, ?> createItem(String name) {
-                return Items.zItem.register(name,
+                return zItems.zItem.register(name,
                                 ItemBase::new);
         }
 
         public static DeferredHolder<Block, ?> createBlock(String name) {
-                return Blocks.zBlock.register(name,
+                return zBlocks.zBlock.register(name,
                                 BlockBase::new);
         }
 
         @Deprecated
         public static DeferredHolder<Block, ?> createBlockItem(String name) {
-                Items.zBlockItem.register(name, ItemBase::new);
-                return Blocks.zBlockItem.register(name,
+                zItems.zBlockItem.register(name, ItemBase::new);
+                return zBlocks.zBlockItem.register(name,
                                 BlockBase::new);
         }
 
         public class DireStuff {
 
                 public static DeferredHolder<Block, ?> simpleGoo(String id, Supplier<? extends Block> sup) {
-                        DeferredHolder<Block, ?> block = Blocks.zGoo.register(id + "_" + Constants.GooType, sup);
-                        Items.zBlockItem.registerSimpleBlockItem(block);
+                        DeferredHolder<Block, ?> block = zBlocks.zGoo.register(id + "_" + Constants.GooType, sup);
+                        zItems.zBlockItem.registerSimpleBlockItem(block);
                         return block;
                 }
 
                 public static DeferredHolder<Block, RawOre> simpleRawOreDW(String name) {
-                        DeferredHolder<Block, RawOre> block = Blocks.zOres.register(
+                        DeferredHolder<Block, RawOre> block = zBlocks.zOres.register(
                                         name,
                                         () -> new RawOre(SoundType.AMETHYST, 1.4f, 6.0f));
-                        Items.zBlockItem.registerSimpleBlockItem(block);
+                        zItems.zBlockItem.registerSimpleBlockItem(block);
                         return block;
                 }
 
                 public static DeferredHolder<Item, ?> FuelItemDW(String name, int burnrate) {
-                        return Items.zCoals.register(name, () -> new BaseFuel(burnrate));
+                        return zItems.zCoals.register(name, () -> new BaseFuel(burnrate));
                 }
 
 
                 public static DeferredHolder<Block, ?> registerBudding(String blockname, Supplier<? extends Block> sup) {
-                        DeferredHolder<Block, ?> block = Blocks.zBuddings.register(blockname, sup);
-                        Items.zBlockItem.registerSimpleBlockItem(block);
+                        DeferredHolder<Block, ?> block = zBlocks.zBuddings.register(blockname, sup);
+                        zItems.zBlockItem.registerSimpleBlockItem(block);
                         return block;
                 }
 

@@ -19,7 +19,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.NeoForgeRegistries.Keys;
 
-public class FluidTypes {
+public class zFluidTypes {
     // ---------------------------------------------------------------------------------------//
 
     public static void register(IEventBus bus) {
@@ -44,7 +44,7 @@ public class FluidTypes {
                     .sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
                     .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY)) {
 
-                @SuppressWarnings({ "null" })
+                @SuppressWarnings({ "null", "removal" })
                 @Override
                 public void initializeClient(Consumer<IClientFluidTypeExtensions> c) {
 
@@ -69,7 +69,9 @@ public class FluidTypes {
                         public ResourceLocation getOverlayTexture() {
                             return ResourceLocation.fromNamespaceAndPath(JustDireThings.MODID, "block/fluid_overlay");
                         }
+                        
                     });
+                    super.initializeClient(c);
                 }
             });
 

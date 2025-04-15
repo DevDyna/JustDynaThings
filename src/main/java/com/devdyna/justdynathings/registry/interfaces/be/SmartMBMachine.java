@@ -7,6 +7,9 @@ import net.minecraft.world.level.Level;
 
 public interface SmartMBMachine extends FluidMachineBE {
 
+    int FLrate = 100;
+    int FLsize = 10000;
+
     int getMaxMB();
 
     int getStandardFluidCost();
@@ -14,6 +17,10 @@ public interface SmartMBMachine extends FluidMachineBE {
     default void extractMBWhenPossible() {
         setAmountStored(
                 getAmountStored() <= getStandardFluidCost() ? getAmountStored() : getStandardFluidCost());
+    }
+
+    default void increaseMBWhenPossible(int rate) {
+        setAmountStored(isFull() ? getAmountStored() + rate : getMaxMB());
     }
 
     default boolean validFluid() {
@@ -24,5 +31,4 @@ public interface SmartMBMachine extends FluidMachineBE {
         if (LevelUtil.chance(chance, level))
             extractMBWhenPossible();
     }
-
 }

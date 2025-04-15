@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.goo.creative;
 
-import com.devdyna.justdynathings.registry.types.BlockEntities;
+import com.devdyna.justdynathings.registry.types.zBlockEntities;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.state.BlockState;
@@ -8,7 +8,7 @@ import net.minecraft.world.level.block.state.BlockState;
 public class CreativeGooBE extends NoDieGooLogic {
 
     public CreativeGooBE(BlockPos pos, BlockState state) {
-        super(BlockEntities.CREATIVE_GOO.get(), pos, state);
+        super(zBlockEntities.CREATIVE_GOO.get(), pos, state);
     }
 
     public int getTier() {

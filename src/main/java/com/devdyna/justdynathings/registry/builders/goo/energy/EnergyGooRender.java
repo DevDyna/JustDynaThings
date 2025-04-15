@@ -4,7 +4,8 @@ import com.direwolf20.justdirethings.client.blockentityrenders.baseber.GooBlockR
 
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 
-public class EnergyGooRender extends GooBlockRender_Base<FEGooLogic> {
-    public EnergyGooRender(BlockEntityRendererProvider.Context context) {
-       super(context);
-    }}
+public class EnergyGooRender extends GooBlockRender_Base<FEGoo> {
+   public EnergyGooRender(BlockEntityRendererProvider.Context context) {
+      super(context);
+   }
+}

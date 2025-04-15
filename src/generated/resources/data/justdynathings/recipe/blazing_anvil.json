@@ -14,15 +14,12 @@
     },
     "D": {
       "tag": "minecraft:anvils"
-    },
-    "E": {
-      "item": "justdirethings:gooblock_tier2"
     }
   },
   "pattern": [
-    "ADA",
-    "BEB",
-    "ACA"
+    "BCB",
+    "BDB",
+    "BAB"
   ],
   "result": {
     "count": 1,

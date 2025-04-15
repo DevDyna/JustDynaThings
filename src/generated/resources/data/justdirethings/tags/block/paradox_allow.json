@@ -1,0 +1,16 @@
+{
+  "values": [
+    {
+      "id": "justdynathings:chaotic_ore",
+      "required": false
+    },
+    {
+      "id": "justdynathings:redstonic_ore",
+      "required": false
+    },
+    {
+      "id": "justdynathings:coprinium_ore",
+      "required": false
+    }
+  ]
+}

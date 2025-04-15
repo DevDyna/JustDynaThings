@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "justdynathings:sculk"
+          "name": "justdynathings:primogel_goo"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "justdynathings:blocks/sculk"
+  "random_sequence": "justdynathings:blocks/primogel_goo"
 }

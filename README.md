@@ -9,7 +9,7 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 ### Classic
 
 - [x] ~~pathchouli support~~ _guideme much better_
-- [ ] Trash cans
+- [ ] Trash can
 - [ ] Energy/Fluid storage
 - [ ] Creative Energy/Fluid tank
 - [x] Item repair
@@ -42,3 +42,4 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [ ] Paradox Box (Pandora's Box like)
 - [ ] Bio-Azalea Generator (passive FE generator powered by azalea roots)
 - [ ] Crystallizer and Liquid Crystalline
+- [ ] Rocket Boots Upgrade

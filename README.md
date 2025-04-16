@@ -42,3 +42,7 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [ ] Paradox Box (Pandora's Box like)
 - [ ] Bio-Azalea Generator (passive FE generator powered by azalea roots)
 - [ ] Crystallizer and Liquid Crystalline
+
+### Implemented but not fully completed
+- [ ] Sculk
+-

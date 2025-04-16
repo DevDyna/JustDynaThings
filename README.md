@@ -45,6 +45,13 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [ ] Rocket Boots Upgrade
 
 ### Implemented but not fully completed
-- [ ] Sculk
--
+- [ ] Ticker rework and datagen
+- [ ] Sculk rework and datagen
+- [ ] Legacy Energized Goo datagen stuff
+- [ ] Updating GuideMe Documentation
+- [ ] Buddings datagen
+- [ ] ThermoGen datagen
+- [ ] BlackHole datagen
+- [ ] Liquid Crystalline datagen
+- [ ] ThermoGen + Pipez dont work
 

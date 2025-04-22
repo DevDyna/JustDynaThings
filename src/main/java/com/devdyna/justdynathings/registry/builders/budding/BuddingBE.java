@@ -1,7 +1,7 @@
 package com.devdyna.justdynathings.registry.builders.budding;
 
-import com.devdyna.justdynathings.registry.interfaces.be.SmartFEMachine;
-import com.devdyna.justdynathings.registry.interfaces.be.SmartMBMachine;
+import com.devdyna.justdynathings.registry.interfaces.be.EnergyMachine;
+import com.devdyna.justdynathings.registry.interfaces.be.FluidMachine;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.DirectionUtil;
 import com.devdyna.justdynathings.utils.LevelUtil;
@@ -25,7 +25,7 @@ import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
 import net.minecraft.world.level.block.BuddingAmethystBlock;
 
 @SuppressWarnings("null")
-public class BuddingBE extends BaseMachineBE implements SmartFEMachine, SmartMBMachine {
+public class BuddingBE extends BaseMachineBE implements EnergyMachine, FluidMachine {
 
     public final PoweredMachineContainerData poweredMachineData = new PoweredMachineContainerData(this);
     public final FluidContainerData fluidContainerData = new FluidContainerData(this);
@@ -58,9 +58,11 @@ public class BuddingBE extends BaseMachineBE implements SmartFEMachine, SmartMBM
 
                 applySound(dir);
 
-                extractFEChance(50,level);
+                if(LevelUtil.rnd50(level))
+                extractFEWhenPossible();
 
-                extractMBChance(50,level);
+                if(LevelUtil.rnd50(level))
+                extractMBWhenPossible();
 
             }
         }
@@ -128,7 +130,7 @@ public class BuddingBE extends BaseMachineBE implements SmartFEMachine, SmartMBM
     public void updateBlock() {
         level.setBlockAndUpdate(getBlockPos(),
                 getBlockState().setValue(zProperties.ACTIVE,
-                        validEnergy() && validFluid()));
+                        canExtractFE() && canExtractMB()));
     }
 
     @Override
@@ -170,4 +172,7 @@ public class BuddingBE extends BaseMachineBE implements SmartFEMachine, SmartMBM
     public int getStandardFluidCost() {
         return FLrate;
     }
+
+
+
 }

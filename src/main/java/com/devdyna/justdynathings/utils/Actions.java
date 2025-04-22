@@ -5,6 +5,7 @@ import com.devdyna.justdynathings.registry.builders.ferritecore_clock.ClockBlock
 import com.devdyna.justdynathings.registry.types.zBlockTags;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.TagKey;
@@ -19,7 +20,10 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.capabilities.Capabilities;
+import net.neoforged.neoforge.energy.IEnergyStorage;
 
+@SuppressWarnings("null")
 public class Actions {
 
         public static void clockUpdate(BlockPos pos, Level level, BlockState state) {
@@ -62,7 +66,7 @@ public class Actions {
                                                 .ResourceByTag(zBlockTags.REFORGER_RESULT,
                                                                 LevelUtil.getRandomValue(
                                                                                 LevelUtil.getSizeTag(
-                                                                                        zBlockTags.REFORGER_RESULT),
+                                                                                                zBlockTags.REFORGER_RESULT),
                                                                                 level))
                                                 .defaultBlockState());
         }
@@ -107,17 +111,48 @@ public class Actions {
                                 }));
         }
 
-        @SuppressWarnings({ "unchecked", "null" })
+        @SuppressWarnings({ "unchecked" })
         public static void tickWhenBE(Level level, BlockPos pos) {
 
-                if(level.getBlockEntity(pos) != null)
-{                BlockEntityTicker<BlockEntity> ticker = level.getBlockEntity(pos).getBlockState().getTicker(
-                                (ServerLevel) level,
-                                (BlockEntityType<BlockEntity>) level.getBlockEntity(pos).getType());
-                if (ticker != null) {
-                        ticker.tick((ServerLevel) level, pos, level.getBlockEntity(pos).getBlockState(),
-                                        level.getBlockEntity(pos));
-                }}
+                if (level.getBlockEntity(pos) != null) {
+                        BlockEntityTicker<BlockEntity> ticker = level.getBlockEntity(pos).getBlockState().getTicker(
+                                        (ServerLevel) level,
+                                        (BlockEntityType<BlockEntity>) level.getBlockEntity(pos).getType());
+                        if (ticker != null) {
+                                ticker.tick((ServerLevel) level, pos, level.getBlockEntity(pos).getBlockState(),
+                                                level.getBlockEntity(pos));
+                        }
+                }
+        }
+
+        public static void providePowerAdjacent(BlockPos pos, Level level, int FErate) {
+
+                for (Direction direction : Direction.values()) {
+                        BlockPos relative = pos.relative(direction);
+                        if (level.getBlockEntity(relative) == null)
+                                continue;
+                        IEnergyStorage cap = getEnergyCap(level, relative, direction);
+
+                        if (cap == null)
+                                continue;
+
+                        if (!cap.canReceive() || cap.getEnergyStored() == cap.getMaxEnergyStored())
+                                continue;
+
+                        if (cap.receiveEnergy(FErate * 10, true) <= 0)
+                                continue;
+                        cap.receiveEnergy(FErate, false);
+                        getEnergyCap(level, pos, direction).extractEnergy(FErate, false);
+                }
+
+        }
+
+        /**
+         * Cannot be Null BlockEntity position!
+         */
+        public static IEnergyStorage getEnergyCap(Level level, BlockPos pos, Direction dir) {
+                return Capabilities.EnergyStorage.BLOCK.getCapability(level, pos, level.getBlockState(pos),
+                                level.getBlockEntity(pos), dir);
         }
 
 }

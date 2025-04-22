@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.blazing_anvil;
 
-import com.devdyna.justdynathings.registry.interfaces.be.SmartFEMachine;
+import com.devdyna.justdynathings.registry.interfaces.be.EnergyMachine;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
 import com.devdyna.justdynathings.registry.types.zItemTags;
 import com.devdyna.justdynathings.registry.types.zProperties;
@@ -20,18 +20,14 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
 @SuppressWarnings("null")
-public class BlazingAnvilBE extends BaseMachineBE implements RedstoneControlledBE, SmartFEMachine {
+public class BlazingAnvilBE extends BaseMachineBE implements RedstoneControlledBE, EnergyMachine {
 
-    public RedstoneControlData redstoneControlData = new RedstoneControlData();
+    public final RedstoneControlData redstoneControlData = new RedstoneControlData();
     public final PoweredMachineContainerData poweredMachineData = new PoweredMachineContainerData(this);
 
     public BlazingAnvilBE(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState) {
         super(pType, pPos, pBlockState);
         MACHINE_SLOTS = 1;
-    }
-
-    public BlazingAnvilBE(BlockEntityType<?> type, BlockPos pos, BlockState state, int cost, int maxsize) {
-        this(type, pos, state);
     }
 
     public BlazingAnvilBE(BlockPos pos, BlockState state) {
@@ -54,18 +50,20 @@ public class BlazingAnvilBE extends BaseMachineBE implements RedstoneControlledB
 
     @Override
     public void tickServer() {
-        checkState();
-        if (getBlockState().getValue(zProperties.ACTIVE).booleanValue()) {
-            extractFEWhenPossible();
-            Actions.repairItem(getMachineHandler().getStackInSlot(0));
-            applySound();
+        if (isActiveRedstone()) {
+            checkState();
+            if (getBlockState().getValue(zProperties.ACTIVE).booleanValue()) {
+                extractFEWhenPossible();
+                Actions.repairItem(getMachineHandler().getStackInSlot(0));
+                applySound();
+            }
         }
     }
 
     public void checkState() {
         level.setBlockAndUpdate(getBlockPos(),
                 getBlockState().setValue(zProperties.ACTIVE,
-                        validEnergy() && getMachineHandler().getStackInSlot(0).isDamageableItem()
+                        canExtractFE() && getMachineHandler().getStackInSlot(0).isDamageableItem()
                                 && getMachineHandler().getStackInSlot(0).isDamaged()
                                 && !getMachineHandler().getStackInSlot(0).is(zItemTags.BLAZINGANVIL_DENY)));
     }
@@ -82,12 +80,12 @@ public class BlazingAnvilBE extends BaseMachineBE implements RedstoneControlledB
 
     @Override
     public int getStandardEnergyCost() {
-        return FErate*10;
+        return FErate * 10;
     }
 
     @Override
     public int getMaxEnergy() {
-        return FEsize;
+        return FEsize * 10;
     }
 
     public void applySound() {
@@ -101,5 +99,6 @@ public class BlazingAnvilBE extends BaseMachineBE implements RedstoneControlledB
                     SoundSource.BLOCKS, (level.random.nextInt(10) + 1) * 0.01F,
                     level.random.nextInt(50) + 1 * 0.01F);
     }
+
 
 }

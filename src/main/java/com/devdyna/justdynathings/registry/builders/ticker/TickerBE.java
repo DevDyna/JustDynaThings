@@ -1,7 +1,7 @@
 package com.devdyna.justdynathings.registry.builders.ticker;
 
-import com.devdyna.justdynathings.registry.interfaces.be.SmartFEMachine;
-import com.devdyna.justdynathings.registry.interfaces.be.SmartMBMachine;
+import com.devdyna.justdynathings.registry.interfaces.be.EnergyMachine;
+import com.devdyna.justdynathings.registry.interfaces.be.FluidMachine;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
 import com.devdyna.justdynathings.registry.types.zBlockTags;
 import com.devdyna.justdynathings.registry.types.zProperties;
@@ -10,21 +10,24 @@ import com.devdyna.justdynathings.utils.LevelUtil;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.FluidContainerData;
 import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineContainerData;
+import com.direwolf20.justdirethings.common.blockentities.basebe.RedstoneControlledBE;
 import com.direwolf20.justdirethings.common.capabilities.MachineEnergyStorage;
 import com.direwolf20.justdirethings.setup.Registration;
+import com.direwolf20.justdirethings.util.interfacehelpers.RedstoneControlData;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
 
 @SuppressWarnings("null")
-public class TickerBE extends BaseMachineBE implements SmartFEMachine, SmartMBMachine {
-
+public class TickerBE extends BaseMachineBE implements EnergyMachine, FluidMachine ,RedstoneControlledBE{
+public RedstoneControlData redstoneControlData = new RedstoneControlData();
     public final PoweredMachineContainerData poweredMachineData = new PoweredMachineContainerData(this);
     public final FluidContainerData fluidContainerData = new FluidContainerData(this);
 
@@ -42,33 +45,34 @@ public class TickerBE extends BaseMachineBE implements SmartFEMachine, SmartMBMa
 
     @Override
     public void tickServer() {
+        if (isActiveRedstone()) {
+            BlockPos pos = getBlockPos()
+                    .relative(getBlockState()
+                            .getValue(BlockStateProperties.FACING));
 
-        BlockPos pos = getBlockPos()
-                .relative(getBlockState()
-                        .getValue(BlockStateProperties.FACING));
+            checkState(pos);
 
-        checkState(pos);
+            if (getBlockState().getValue(zProperties.ACTIVE) && blockValid(pos)) {
 
-        if (getBlockState().getValue(zProperties.ACTIVE) && blockValid(pos)) {
+                Actions.tickWhenRandom(pos, level);
 
-            Actions.tickWhenRandom(pos, level);
+                Actions.tickWhenBE(level, pos);
 
-            Actions.tickWhenBE(level, pos);
+                playSound(pos);
 
-            playSound(pos);
+                extractFEWhenPossible();
+                extractMBWhenPossible();
 
-            extractFEWhenPossible();
-            extractMBWhenPossible();
-
+            }
         }
     }
 
     public void checkState(BlockPos pos) {
         level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(zProperties.ACTIVE,
-             validEnergy() && validFluid()));
+                canExtractFE() && canExtractMB()));
     }
 
-    public boolean blockValid(BlockPos pos){
+    public boolean blockValid(BlockPos pos) {
         return !level.getBlockState(pos).is(zBlockTags.TICKER_DENY);
     }
 
@@ -118,6 +122,16 @@ public class TickerBE extends BaseMachineBE implements SmartFEMachine, SmartMBMa
     @Override
     public int getMaxMB() {
         return FLsize;
+    }
+
+    @Override
+    public BlockEntity getBlockEntity() {
+        return this;
+    }
+
+    @Override
+    public RedstoneControlData getRedstoneControlData() {
+        return redstoneControlData;
     }
 
 }

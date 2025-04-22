@@ -14,7 +14,7 @@ public class ClockBE extends BaseMachineBE {
     }
 
     public ClockBE(BlockPos pos, BlockState blockState) {
-        super(zBlockEntities.FERRITECORE_CLOCK.get(), pos, blockState);
+        this(zBlockEntities.FERRITECORE_CLOCK.get(), pos, blockState);
     }
 
     private int i = 0;

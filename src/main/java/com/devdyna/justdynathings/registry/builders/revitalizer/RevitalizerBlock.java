@@ -61,7 +61,7 @@ public class RevitalizerBlock extends BlockBaseBE {
         return defaultBlockState()
                 .setValue(zProperties.ACTIVE, false)
                 .setValue(zProperties.GOO_FOUND, false)
-                .setValue(BlockStateProperties.FACING, c.getNearestLookingDirection());
+                .setValue(BlockStateProperties.FACING, c.getClickedFace().getOpposite());
     }
 
     @Override

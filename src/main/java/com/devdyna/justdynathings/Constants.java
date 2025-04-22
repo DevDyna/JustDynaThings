@@ -20,7 +20,8 @@ public class Constants {
         public static String Revitalizer = "revitalizer";
         public static String Ticker = "ticker";
         public static String Sculk = "sculk";
-        public static String Thermo = "thermo_generator";
+        public static String ThermoGen = "thermo_generator";
+        public static String BlackHole = "blackhole";
     }
 
     public class Ores {

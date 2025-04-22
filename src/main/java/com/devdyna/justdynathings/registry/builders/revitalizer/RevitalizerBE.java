@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.revitalizer;
 
-import com.devdyna.justdynathings.registry.interfaces.be.SmartFEMachine;
+import com.devdyna.justdynathings.registry.interfaces.be.EnergyMachine;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
 import com.devdyna.justdynathings.registry.types.zBlockTags;
 import com.devdyna.justdynathings.registry.types.zProperties;
@@ -20,7 +20,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 @SuppressWarnings("null")
-public class RevitalizerBE extends BaseMachineBE implements SmartFEMachine {
+public class RevitalizerBE extends BaseMachineBE implements EnergyMachine {
     public final PoweredMachineContainerData poweredMachineData = new PoweredMachineContainerData(this);
 
     public RevitalizerBE(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState) {
@@ -66,7 +66,7 @@ public class RevitalizerBE extends BaseMachineBE implements SmartFEMachine {
         level.setBlockAndUpdate(getBlockPos(),
                 getBlockState()
                         .setValue(zProperties.ACTIVE,
-                                validEnergy())
+                                canExtractFE())
                         .setValue(zProperties.GOO_FOUND, checkGooTop())
                         .setValue(BlockStateProperties.FACING,
                                 getBlockState()
@@ -142,5 +142,7 @@ public class RevitalizerBE extends BaseMachineBE implements SmartFEMachine {
     public int getMaxEnergy() {
         return FEsize;
     }
+
+
 
 }

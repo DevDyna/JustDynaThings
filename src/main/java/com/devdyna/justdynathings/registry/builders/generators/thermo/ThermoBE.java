@@ -1,48 +1,62 @@
 package com.devdyna.justdynathings.registry.builders.generators.thermo;
 
-import com.devdyna.justdynathings.registry.interfaces.be.SmartFEMachine;
-import com.devdyna.justdynathings.registry.interfaces.be.SmartMBMachine;
+import com.devdyna.justdynathings.registry.interfaces.be.EnergyGenerator;
+import com.devdyna.justdynathings.registry.interfaces.be.FluidMachine;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
 import com.devdyna.justdynathings.registry.types.zBlockTags;
 import com.devdyna.justdynathings.registry.types.zHandlers;
 import com.devdyna.justdynathings.registry.types.zProperties;
+import com.devdyna.justdynathings.utils.Actions;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.FluidContainerData;
 import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineContainerData;
+import com.direwolf20.justdirethings.common.blockentities.basebe.RedstoneControlledBE;
 import com.direwolf20.justdirethings.common.capabilities.MachineEnergyStorage;
 import com.direwolf20.justdirethings.setup.Registration;
+import com.direwolf20.justdirethings.util.interfacehelpers.RedstoneControlData;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
 
 @SuppressWarnings("null")
-public class ThermoBE extends BaseMachineBE implements SmartMBMachine, SmartFEMachine {
+public class ThermoBE extends BaseMachineBE implements FluidMachine, EnergyGenerator, RedstoneControlledBE {
 
+    public RedstoneControlData redstoneControlData = new RedstoneControlData();
     public final PoweredMachineContainerData poweredMachineData = new PoweredMachineContainerData(this);
     public final FluidContainerData fluidContainerData = new FluidContainerData(this);
 
-    public ThermoBE(BlockEntityType<?> type, BlockPos pos, BlockState blockState) {
-        super(type, pos, blockState);
+    int minFERate = 10;
+    int maxFERate = 100;
+
+    public ThermoBE(BlockEntityType<?> type, BlockPos pos, BlockState b) {
+        super(type, pos, b);
     }
 
-    public ThermoBE(BlockPos pos, BlockState blockState) {
-        super(zBlockEntities.THERMOGEN.get(), pos, blockState);
+    public ThermoBE(BlockPos pos, BlockState b) {
+        this(zBlockEntities.THERMOGEN.get(), pos, b);
     }
 
     @Override
     public void tickServer() {
         updateBlock();
-        if (getBlockState().getValue(zProperties.ACTIVE).booleanValue()) {
-            if (getBlockState().getValue(zProperties.COOLED).booleanValue()) {
-                increaseFEWhenPossible(FErate * 4);
-                extractMBWhenPossible();
-            } else {
-                increaseFEWhenPossible(FErate);
+
+        boolean hasWater = getBlockState().getValue(zProperties.COOLED).booleanValue();
+        int ferate = hasWater ? maxFERate : minFERate;
+
+        if (isActiveRedstone()) {
+            if (getBlockState().getValue(zProperties.HEATED).booleanValue()) {
+                if (hasWater)
+                    extractMBWhenPossible();
+
+                increaseFEWhenPossible(ferate);
             }
+            if (canExtractFE())
+                Actions.providePowerAdjacent(getBlockPos(), level, ferate);
         }
     }
 
@@ -51,9 +65,9 @@ public class ThermoBE extends BaseMachineBE implements SmartMBMachine, SmartFEMa
      */
     public void updateBlock() {
         level.setBlockAndUpdate(getBlockPos(),
-                getBlockState().setValue(zProperties.ACTIVE,
-                        !isFEfull() && getHeatBlock().is(zBlockTags.THERMO_HEATER))
-                        .setValue(zProperties.COOLED, validFluid()));
+                getBlockState().setValue(zProperties.HEATED,
+                        getHeatBlock().is(zBlockTags.THERMO_HEATER))
+                        .setValue(zProperties.COOLED, canExtractMB()));
     }
 
     public BlockState getHeatBlock() {
@@ -74,7 +88,7 @@ public class ThermoBE extends BaseMachineBE implements SmartMBMachine, SmartFEMa
 
     @Override
     public MachineEnergyStorage getEnergyStorage() {
-        return getData(Registration.ENERGYSTORAGE_MACHINES);
+        return getData(Registration.ENERGYSTORAGE_GENERATORS);
     }
 
     @Override
@@ -84,7 +98,7 @@ public class ThermoBE extends BaseMachineBE implements SmartMBMachine, SmartFEMa
 
     @Override
     public int getStandardEnergyCost() {
-        return FErate;
+        return 0;
     }
 
     @Override
@@ -94,12 +108,22 @@ public class ThermoBE extends BaseMachineBE implements SmartMBMachine, SmartFEMa
 
     @Override
     public int getMaxMB() {
-        return FLsize;
+        return FLsize / 10;
     }
 
     @Override
     public int getStandardFluidCost() {
-        return FLrate;
+        return FLrate / 100;
+    }
+
+    @Override
+    public BlockEntity getBlockEntity() {
+        return this;
+    }
+
+    @Override
+    public RedstoneControlData getRedstoneControlData() {
+        return redstoneControlData;
     }
 
 }

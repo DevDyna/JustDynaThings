@@ -47,8 +47,8 @@ public class ReforgerBE extends BaseMachineBE implements RedstoneControlledBE {
 
     @Override
     public void tickServer() {
-
-        ItemStack item = getMachineHandler().getStackInSlot(0);
+        if (isActiveRedstone())
+{        ItemStack item = getMachineHandler().getStackInSlot(0);
 
         BlockPos pos = getBlockPos()
                 .relative(getBlockState()
@@ -63,7 +63,7 @@ public class ReforgerBE extends BaseMachineBE implements RedstoneControlledBE {
 
                 Actions.consumeItem(item, level,Config.REFORGER_CHANCE.get());
 
-            }
+            }}
     }
 
         @SuppressWarnings("null")

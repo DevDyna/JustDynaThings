@@ -2,6 +2,7 @@ package com.devdyna.justdynathings.registry.types;
 
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
+import com.devdyna.justdynathings.registry.builders.black_hole.BlackHoleBE;
 import com.devdyna.justdynathings.registry.builders.blazing_anvil.BlazingAnvilBE;
 import com.devdyna.justdynathings.registry.builders.budding.types.amethyst.AmethystBE;
 import com.devdyna.justdynathings.registry.builders.budding.types.time.TimeBE;
@@ -86,12 +87,17 @@ public class zBlockEntities {
                         .register(Constants.Blocks.Ticker,
                                         () -> Builder.of(TickerBE::new, zBlocks.TICKER.get()).build(null));
 
-                                        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ThermoBE>> THERMOGEN = zBE
-                                        .register(Constants.Blocks.Thermo,
-                                                        () -> Builder.of(ThermoBE::new, zBlocks.THERMOGEN.get()).build(null));
+        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ThermoBE>> THERMOGEN = zBE
+                        .register(Constants.Blocks.ThermoGen,
+                                        () -> Builder.of(ThermoBE::new, zBlocks.THERMOGEN.get()).build(null));
 
-        // public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SculkBE>> SCULK = zBE
-        //                 .register(Constants.Blocks.Sculk,
-        //                                 () -> Builder.of(SculkBE::new, Blocks.SCULK.get()).build(null));
+        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BlackHoleBE>> BLACKHOLE = zBE
+                        .register(Constants.Blocks.BlackHole,
+                                        () -> Builder.of(BlackHoleBE::new, zBlocks.BLACKHOLE.get()).build(null));
+
+        // public static final DeferredHolder<BlockEntityType<?>,
+        // BlockEntityType<SculkBE>> SCULK = zBE
+        // .register(Constants.Blocks.Sculk,
+        // () -> Builder.of(SculkBE::new, Blocks.SCULK.get()).build(null));
 
 }

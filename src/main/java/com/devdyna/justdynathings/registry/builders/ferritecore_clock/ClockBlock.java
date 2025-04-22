@@ -62,27 +62,20 @@ public class ClockBlock extends BaseMachineBlock {
     }
 
     @Override
-    public BlockState getStateForPlacement(BlockPlaceContext context) {
-        return defaultBlockState()
-                .setValue(DirectionUtil.face[0], false)
-                .setValue(DirectionUtil.face[1], false)
-                .setValue(DirectionUtil.face[2], false)
-                .setValue(DirectionUtil.face[3], false)
-                .setValue(DirectionUtil.face[4], false)
-                .setValue(DirectionUtil.face[5], false)
-                .setValue(ACTIVE, false);
+    public BlockState getStateForPlacement(BlockPlaceContext c) {
+        for (BooleanProperty face : DirectionUtil.face) {
+            defaultBlockState().setValue(face, false);
+        }
+        return defaultBlockState().setValue(ACTIVE, false);
+
     }
 
     @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder
-                .add(DirectionUtil.face[0])
-                .add(DirectionUtil.face[1])
-                .add(DirectionUtil.face[2])
-                .add(DirectionUtil.face[3])
-                .add(DirectionUtil.face[4])
-                .add(DirectionUtil.face[5])
-                .add(ACTIVE);
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> b) {
+        for (BooleanProperty face : DirectionUtil.face) {
+            b.add(face);
+        }
+        b.add(ACTIVE);
     }
 
     @Nullable
@@ -93,9 +86,8 @@ public class ClockBlock extends BaseMachineBlock {
 
     @Override
     public void openMenu(Player player, BlockPos blockPos) {
-                Actions.openMenu(player,
-                (windowId, playerInventory, playerEntity) -> 
-                new ClockGUI(windowId, playerInventory, blockPos),
+        Actions.openMenu(player,
+                (windowId, playerInventory, playerEntity) -> new ClockGUI(windowId, playerInventory, blockPos),
                 blockPos);
     }
 

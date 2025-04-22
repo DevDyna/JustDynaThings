@@ -2,7 +2,7 @@ package com.devdyna.justdynathings.registry.builders.generators.thermo;
 
 import javax.annotation.Nullable;
 
-import com.devdyna.justdynathings.client.builder.clock.ClockGUI;
+import com.devdyna.justdynathings.client.builder.thermoGen.ThermoGUI;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.Actions;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
@@ -24,19 +24,19 @@ public class ThermoBlock extends BaseMachineBlock {
     }
 
     @Override
-    public BlockState getStateForPlacement(BlockPlaceContext context) {
+    public BlockState getStateForPlacement(BlockPlaceContext c) {
         return defaultBlockState()
-                .setValue(BlockStateProperties.FACING, context.getNearestLookingDirection().getOpposite())
+                .setValue(BlockStateProperties.FACING, c.getClickedFace().getOpposite())
                 .setValue(zProperties.COOLED, false)
-                .setValue(zProperties.ACTIVE, false);
+                .setValue(zProperties.HEATED, false);
     }
 
     @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> b) {
+        b
                 .add(BlockStateProperties.FACING)
                 .add(zProperties.COOLED)
-                .add(zProperties.ACTIVE);
+                .add(zProperties.HEATED);
     }
 
     @Nullable
@@ -48,13 +48,13 @@ public class ThermoBlock extends BaseMachineBlock {
     @Override
     public void openMenu(Player player, BlockPos blockPos) {
         Actions.openMenu(player,
-                (windowId, playerInventory, playerEntity) -> new ClockGUI(windowId, playerInventory, blockPos),
+                (windowId, playerInventory, playerEntity) -> new ThermoGUI(windowId, playerInventory, blockPos),
                 blockPos);
     }
 
     @Override
     public boolean isValidBE(BlockEntity b) {
-        return true;
+        return b instanceof ThermoBE;
     }
 
 }

@@ -4,6 +4,7 @@ import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.registry.Material;
 import com.devdyna.justdynathings.registry.builders.PhaseBox;
+import com.devdyna.justdynathings.registry.builders.black_hole.BlackHoleBlock;
 import com.devdyna.justdynathings.registry.builders.blazing_anvil.BlazingAnvilBlock;
 import com.devdyna.justdynathings.registry.builders.budding.types.amethyst.AmethystBlock;
 import com.devdyna.justdynathings.registry.builders.budding.types.time.TimeBlock;
@@ -93,7 +94,10 @@ public class zBlocks {
                         .registerItemAndBlock(Constants.Blocks.Ticker, TickerBlock::new);
 
                         public static final DeferredHolder<Block, ?> THERMOGEN = Material
-                        .registerItemAndBlock(Constants.Blocks.Thermo, ThermoBlock::new);
+                        .registerItemAndBlock(Constants.Blocks.ThermoGen, ThermoBlock::new);
+
+                        public static final DeferredHolder<Block, ?> BLACKHOLE = Material
+                        .registerItemAndBlock(Constants.Blocks.BlackHole, BlackHoleBlock::new);
 
         // public static final DeferredHolder<Block, ?> SCULK = Material
         //                 .registerItemAndBlock(Constants.Blocks.Sculk, SculkBlock::new);

@@ -13,10 +13,10 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
-import com.devdyna.justdynathings.registry.interfaces.be.SmartFEMachine;
+import com.devdyna.justdynathings.registry.interfaces.be.EnergyMachine;
 import com.devdyna.justdynathings.registry.types.zProperties;
 
-public class FEGoo extends GooBlockBE_Base implements SmartFEMachine {
+public class FEGoo extends GooBlockBE_Base implements EnergyMachine {
 
     public final PoweredMachineContainerData poweredMachineData;
 
@@ -36,7 +36,7 @@ public class FEGoo extends GooBlockBE_Base implements SmartFEMachine {
     @SuppressWarnings("null")
     public void checkEnergy() {
         level.setBlockAndUpdate(getBlockPos(),
-                getBlockState().setValue(zProperties.GOO_ALIVE, validEnergy()));
+                getBlockState().setValue(zProperties.GOO_ALIVE, canExtractFE()));
     }
 
     @SuppressWarnings("null")
@@ -59,7 +59,7 @@ public class FEGoo extends GooBlockBE_Base implements SmartFEMachine {
                 extractFEWhenPossible();
 
                 level.playSound(null, getBlockPos(),
-                        validEnergy() ? SoundEvents.RESPAWN_ANCHOR_DEPLETE.value()
+                        canExtractFE() ? SoundEvents.RESPAWN_ANCHOR_DEPLETE.value()
                                 : SoundEvents.SCULK_BLOCK_SPREAD,
                         SoundSource.BLOCKS, 1.0F, 0.25F);
 
@@ -86,5 +86,7 @@ public class FEGoo extends GooBlockBE_Base implements SmartFEMachine {
     public int getMaxEnergy() {
         return FEsize;
     }
+
+
 
 }

@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.sculk;
 
-import com.devdyna.justdynathings.registry.interfaces.be.SmartMBMachine;
+import com.devdyna.justdynathings.registry.interfaces.be.FluidMachine;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.LevelUtil;
@@ -19,7 +19,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
 
 @SuppressWarnings("null")
-public class SculkBE extends BaseMachineBE implements SmartMBMachine {
+public class SculkBE extends BaseMachineBE implements FluidMachine {
 
     public final FluidContainerData fluidContainerData = new FluidContainerData(this);
 
@@ -77,7 +77,7 @@ public class SculkBE extends BaseMachineBE implements SmartMBMachine {
 
     public void checkState() {
         level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(zProperties.ACTIVE,
-                validFluid()));
+                canExtractMB()));
     }
 
     public void playSound(BlockPos pos) {
@@ -107,5 +107,6 @@ public class SculkBE extends BaseMachineBE implements SmartMBMachine {
     public int getMaxMB() {
         return FLsize;
     }
+
 
 }

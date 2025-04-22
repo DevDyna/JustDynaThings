@@ -40,7 +40,8 @@ public class zProperties {
     public static final BooleanProperty GOO_ALIVE = GooBlock_Base.ALIVE;
 
     public static final BooleanProperty ACTIVE = BooleanProperty.create("active");
-    public static final BooleanProperty COOLED = BooleanProperty.create("cooled");
+    public static final BooleanProperty COOLED = BooleanProperty.create("thermo_cooled");
+    public static final BooleanProperty HEATED = BooleanProperty.create("thermo_heated");
     public static final BooleanProperty GOO_FOUND = BooleanProperty.create("goo_found");
 
 }

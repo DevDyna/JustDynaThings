@@ -37,7 +37,6 @@ public class BlazingAnvilBlock extends BaseMachineBlock {
     private static final VoxelShape X_AXIS_AABB = Shapes.or(BASE, X_LEG1, X_LEG2, X_TOP);
     private static final VoxelShape Z_AXIS_AABB = Shapes.or(BASE, Z_LEG1, Z_LEG2, Z_TOP);
 
-
     public BlazingAnvilBlock() {
         super(zProperties.MachineProp
                 .sound(SoundType.ANVIL)
@@ -46,38 +45,36 @@ public class BlazingAnvilBlock extends BaseMachineBlock {
 
     @Nullable
     @Override
-    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new BlazingAnvilBE(zBlockEntities.BLAZING_ANVIL.get(), pos, state);
+    public BlockEntity newBlockEntity(BlockPos p, BlockState s) {
+        return new BlazingAnvilBE(zBlockEntities.BLAZING_ANVIL.get(), p, s);
     }
 
     @Override
-    public void openMenu(Player player, BlockPos blockPos) {
-        Actions.openMenu(player,
-                (windowId, playerInventory, playerEntity) -> new BlazingAnvilGUI(windowId, playerInventory, blockPos),
-                blockPos);
+    public void openMenu(Player p, BlockPos b) {
+        Actions.openMenu(p,(w, i, e) -> new BlazingAnvilGUI(w, i, b), b);
     }
 
     @Override
-    public boolean isValidBE(BlockEntity blockEntity) {
-        return blockEntity instanceof BlazingAnvilBE;
+    public boolean isValidBE(BlockEntity b) {
+        return b instanceof BlazingAnvilBE;
     }
 
     @Override
-    public BlockState getStateForPlacement(BlockPlaceContext context) {
+    public BlockState getStateForPlacement(BlockPlaceContext c) {
         return this.defaultBlockState()
-                .setValue(AnvilBlock.FACING, context.getHorizontalDirection().getClockWise())
+                .setValue(AnvilBlock.FACING, c.getHorizontalDirection().getClockWise())
                 .setValue(zProperties.ACTIVE, true);
     }
 
     @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> b) {
+        b
                 .add(AnvilBlock.FACING)
                 .add(zProperties.ACTIVE);
     }
 
     @Override
-    protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        return state.getValue(AnvilBlock.FACING).getAxis() == Direction.Axis.X ? X_AXIS_AABB : Z_AXIS_AABB;
+    protected VoxelShape getShape(BlockState s, BlockGetter l, BlockPos p, CollisionContext c) {
+        return s.getValue(AnvilBlock.FACING).getAxis() == Direction.Axis.X ? X_AXIS_AABB : Z_AXIS_AABB;
     }
 }

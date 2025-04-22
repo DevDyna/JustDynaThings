@@ -43,6 +43,7 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [ ] Bio-Azalea Generator (passive FE generator powered by azalea roots)
 - [ ] Crystallizer and Liquid Crystalline
 - [ ] Rocket Boots Upgrade
+- [ ] Raw magmasteel (iron + magma) -> thermogen
 
 ### Implemented but not fully completed
 - [ ] Ticker rework and datagen

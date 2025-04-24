@@ -19,6 +19,7 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [ ] Solar-Eclipse Generator (when daytime -> FE)
 - [ ] Culinary Generator (food -> FE)
 - [ ] Engine Generator (Furnace lit -> FE)
+- [ ] Draconite generator (dragon breath -> FE)
 
 ### Specialized
 

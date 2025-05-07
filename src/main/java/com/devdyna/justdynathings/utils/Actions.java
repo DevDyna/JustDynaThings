@@ -125,6 +125,12 @@ public class Actions {
                 }
         }
 
+        /**
+         * Provide power at adjacent be blocks
+         * @param pos block that provide power 
+         * @param level
+         * @param FErate
+         */
         public static void providePowerAdjacent(BlockPos pos, Level level, int FErate) {
 
                 for (Direction direction : Direction.values()) {

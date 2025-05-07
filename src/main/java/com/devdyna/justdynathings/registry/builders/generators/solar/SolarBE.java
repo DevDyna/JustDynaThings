@@ -3,6 +3,8 @@ package com.devdyna.justdynathings.registry.builders.generators.solar;
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyGenerator;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
 import com.devdyna.justdynathings.registry.types.zProperties;
+import com.devdyna.justdynathings.utils.Actions;
+import com.devdyna.justdynathings.utils.LogUtil;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineContainerData;
 import com.direwolf20.justdirethings.common.capabilities.MachineEnergyStorage;
@@ -14,9 +16,9 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
 @SuppressWarnings("null")
-public class SolarBE extends BaseMachineBE implements EnergyGenerator{
+public class SolarBE extends BaseMachineBE implements EnergyGenerator {
 
-public final PoweredMachineContainerData poweredMachineData = new PoweredMachineContainerData(this);
+    public final PoweredMachineContainerData poweredMachineData = new PoweredMachineContainerData(this);
 
     public SolarBE(BlockEntityType<?> type, BlockPos pos, BlockState blockState) {
         super(type, pos, blockState);
@@ -26,16 +28,20 @@ public final PoweredMachineContainerData poweredMachineData = new PoweredMachine
         this(zBlockEntities.SOLARGEN.get(), pos, blockState);
     }
 
-    
     @Override
     public void tickServer() {
-        if(getBlockState().getValue(zProperties.ACTIVE).booleanValue()){
-            increaseFEWhenPossible(FErate/5);
+        if (getBlockState().getValue(zProperties.ACTIVE).booleanValue()) {
+            increaseFEWhenPossible(FErate / 5);
         }
+        if (canExtractFE())
+        Actions.providePowerAdjacent(getBlockPos(), level, FErate);
     }
 
-    public void updateBlock(){
-        level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(zProperties.ACTIVE, level.canSeeSky(getBlockPos())&& level.isDay()));
+    public void updateBlock() {
+        level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(zProperties.ACTIVE,
+                level.canSeeSkyFromBelowWater(getBlockPos()) && level.isDay()));
+                LogUtil.info(level.isDay()+"");
+                LogUtil.info(level.canSeeSkyFromBelowWater(getBlockPos())+"");
     }
 
     @Override
@@ -55,7 +61,7 @@ public final PoweredMachineContainerData poweredMachineData = new PoweredMachine
 
     @Override
     public MachineEnergyStorage getEnergyStorage() {
-       return getData(Registration.ENERGYSTORAGE_GENERATORS);
+        return getData(Registration.ENERGYSTORAGE_GENERATORS);
     }
 
 }

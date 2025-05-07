@@ -6,6 +6,7 @@ import com.devdyna.justdynathings.client.builder.blackhole.BlackHoleGUI;
 import com.devdyna.justdynathings.client.builder.blazingAnvil.BlazingAnvilGUI;
 import com.devdyna.justdynathings.client.builder.clock.ClockGUI;
 import com.devdyna.justdynathings.client.builder.reforger.ReforgerGUI;
+import com.devdyna.justdynathings.client.builder.solarGen.SolarGUI;
 import com.devdyna.justdynathings.client.builder.thermoGen.ThermoGUI;
 
 import net.minecraft.core.registries.Registries;
@@ -41,4 +42,8 @@ public class zContainers {
         public static final DeferredHolder<MenuType<?>, MenuType<BlackHoleGUI>> BLACKHOLE = zCTNR
                         .register(Constants.Blocks.BlackHole,
                                         () -> IMenuTypeExtension.create(BlackHoleGUI::new));
+
+                                        public static final DeferredHolder<MenuType<?>, MenuType<SolarGUI>> SOLAR_PANEL = zCTNR
+                                        .register(Constants.Blocks.SolarGen,
+                                                        () -> IMenuTypeExtension.create(SolarGUI::new));
 }

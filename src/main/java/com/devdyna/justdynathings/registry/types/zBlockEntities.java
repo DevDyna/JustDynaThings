@@ -7,6 +7,7 @@ import com.devdyna.justdynathings.registry.builders.blazing_anvil.BlazingAnvilBE
 import com.devdyna.justdynathings.registry.builders.budding.types.amethyst.AmethystBE;
 import com.devdyna.justdynathings.registry.builders.budding.types.time.TimeBE;
 import com.devdyna.justdynathings.registry.builders.ferritecore_clock.ClockBE;
+import com.devdyna.justdynathings.registry.builders.generators.solar.SolarBE;
 import com.devdyna.justdynathings.registry.builders.generators.thermo.ThermoBE;
 import com.devdyna.justdynathings.registry.builders.goo.creative.CreativeGooBE;
 import com.devdyna.justdynathings.registry.builders.goo.energy.diregoo.*;
@@ -94,6 +95,10 @@ public class zBlockEntities {
         public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BlackHoleBE>> BLACKHOLE = zBE
                         .register(Constants.Blocks.BlackHole,
                                         () -> Builder.of(BlackHoleBE::new, zBlocks.BLACKHOLE.get()).build(null));
+
+        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SolarBE>> SOLARGEN = zBE
+                        .register(Constants.Blocks.SolarGen,
+                                        () -> Builder.of(SolarBE::new, zBlocks.SOLARGEN.get()).build(null));
 
         // public static final DeferredHolder<BlockEntityType<?>,
         // BlockEntityType<SculkBE>> SCULK = zBE

@@ -21,6 +21,7 @@ public class Constants {
         public static String Ticker = "ticker";
         public static String Sculk = "sculk";
         public static String ThermoGen = "thermo_generator";
+        public static String SolarGen = "solar_panel";
         public static String BlackHole = "blackhole";
     }
 

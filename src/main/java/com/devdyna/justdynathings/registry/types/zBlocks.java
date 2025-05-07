@@ -9,6 +9,7 @@ import com.devdyna.justdynathings.registry.builders.blazing_anvil.BlazingAnvilBl
 import com.devdyna.justdynathings.registry.builders.budding.types.amethyst.AmethystBlock;
 import com.devdyna.justdynathings.registry.builders.budding.types.time.TimeBlock;
 import com.devdyna.justdynathings.registry.builders.ferritecore_clock.ClockBlock;
+import com.devdyna.justdynathings.registry.builders.generators.solar.SolarBlock;
 import com.devdyna.justdynathings.registry.builders.generators.thermo.ThermoBlock;
 import com.devdyna.justdynathings.registry.builders.goo.creative.CreativeGoo;
 import com.devdyna.justdynathings.registry.builders.goo.energy.diregoo.*;
@@ -93,14 +94,17 @@ public class zBlocks {
         public static final DeferredHolder<Block, ?> TICKER = Material
                         .registerItemAndBlock(Constants.Blocks.Ticker, TickerBlock::new);
 
-                        public static final DeferredHolder<Block, ?> THERMOGEN = Material
+        public static final DeferredHolder<Block, ?> THERMOGEN = Material
                         .registerItemAndBlock(Constants.Blocks.ThermoGen, ThermoBlock::new);
 
-                        public static final DeferredHolder<Block, ?> BLACKHOLE = Material
+        public static final DeferredHolder<Block, ?> BLACKHOLE = Material
                         .registerItemAndBlock(Constants.Blocks.BlackHole, BlackHoleBlock::new);
 
         // public static final DeferredHolder<Block, ?> SCULK = Material
-        //                 .registerItemAndBlock(Constants.Blocks.Sculk, SculkBlock::new);
+        // .registerItemAndBlock(Constants.Blocks.Sculk, SculkBlock::new);
+
+        public static final DeferredHolder<Block, ?> SOLARGEN = Material
+                        .registerItemAndBlock(Constants.Blocks.SolarGen, SolarBlock::new);
 
         public static final DeferredHolder<Block, LiquidBlock> CRYSTALLINE_FLUID = zBlockFluids.register(
                         Constants.Fluids.Crystalline.Block,

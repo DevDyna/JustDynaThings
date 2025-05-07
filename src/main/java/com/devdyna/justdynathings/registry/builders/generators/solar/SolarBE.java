@@ -35,7 +35,7 @@ public final PoweredMachineContainerData poweredMachineData = new PoweredMachine
     }
 
     public void updateBlock(){
-        level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(zProperties.ACTIVE, level.canSeeSky(getBlockPos())));
+        level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(zProperties.ACTIVE, level.canSeeSky(getBlockPos())&& level.isDay()));
     }
 
     @Override

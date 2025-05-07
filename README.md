@@ -12,7 +12,8 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [ ] Trash can
 - [ ] Energy/Fluid storage
 - [ ] Creative Energy/Fluid tank
-- [x] Item repair
+- [x] Item repair (lava -> blazing anvil)
+- [ ] Item repair (fe)
 - [ ] Item/Fluid Transmitter
 - [x] Redstone Clock
 - [ ] Heat Generator (magmablock/lava below -> FE)

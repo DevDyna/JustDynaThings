@@ -93,7 +93,7 @@ public class Capabilities {
                                 side) -> (be instanceof PoweredMachineBE || be instanceof EnergyMachine)
                                                 ? be.getData(Registration.ENERGYSTORAGE_GENERATORS)
                                                 : null,
-                                zBlocks.THERMOGEN.get());
+                                zBlocks.THERMOGEN.get(),zBlocks.SOLARGEN.get());
 
         }
 

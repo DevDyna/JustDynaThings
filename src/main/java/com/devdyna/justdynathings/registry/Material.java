@@ -1,5 +1,7 @@
 package com.devdyna.justdynathings.registry;
 
+import static com.devdyna.justdynathings.Main.ID;
+
 import java.util.ArrayList;
 import java.util.function.Supplier;
 
@@ -52,8 +54,7 @@ public class Material {
          * create an itemtag
          */
         public static TagKey<Item> tagItem(String name) {
-                return TagKey.create(BuiltInRegistries.ITEM.key(),
-                                ResourceLocation.fromNamespaceAndPath(Main.ID, name));
+                return tagItem(ID,name);
         }
 
         /**
@@ -76,8 +77,15 @@ public class Material {
          * create an blocktag
          */
         public static TagKey<Block> tagBlock(String name) {
+                return tagBlock(ID,name);
+        }
+
+        /**
+         * create an blocktag
+         */
+        public static TagKey<Block> tagBlock(String modname,String name) {
                 return TagKey.create(BuiltInRegistries.BLOCK.key(),
-                                ResourceLocation.fromNamespaceAndPath(Main.ID, name));
+                                ResourceLocation.fromNamespaceAndPath(modname, name));
         }
 
         public static Block[] getBuddingAvailable() {

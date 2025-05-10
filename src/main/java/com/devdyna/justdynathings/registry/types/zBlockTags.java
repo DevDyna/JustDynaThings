@@ -21,6 +21,6 @@ public class zBlockTags {
 
     public static final TagKey<Block> THERMO_HEATER = Material.tagBlock("thermo_heater");
 
-    public static final TagKey<Block> COPPERBLOCKS = Material.tagBlock("copper_blocks");
+    public static final TagKey<Block> COPPERBLOCKS = Material.tagBlock("minecraft","copper_blocks");
 
 }

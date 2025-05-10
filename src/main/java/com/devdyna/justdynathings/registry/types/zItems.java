@@ -30,16 +30,16 @@ public class zItems {
         public static final DeferredRegister.Items zCoals = DeferredRegister.createItems(Main.ID);
         // ---------------------------------------------------------------------------------------//
 
-        public static final DeferredHolder<Item, ?> CHAOTIC_DUST = zItem
+        public static final DeferredHolder<Item, Item> CHAOTIC_DUST = zItem
                         .registerSimpleItem(Constants.Ores.Chaotic.dust);
 
-        public static final DeferredHolder<Item, ?> REDSTONIC_GEM = zItemTinted
+        public static final DeferredHolder<Item, Item> REDSTONIC_GEM = zItemTinted
                         .registerSimpleItem(Constants.Ores.Redstonic.gem);
 
-        public static final DeferredHolder<Item, ?> RAW_COPRINIUM = zItem
+        public static final DeferredHolder<Item, Item> RAW_COPRINIUM = zItem
                         .registerSimpleItem(Constants.Ores.Coprinium.raw);
 
-        public static final DeferredHolder<Item, ?> COPRINIUM_INGOT = zItem
+        public static final DeferredHolder<Item, Item> COPRINIUM_INGOT = zItem
                         .registerSimpleItem(Constants.Ores.Coprinium.ingot);
 
         public static final DeferredHolder<Item, ?> BIOFUEL = Material.DireStuff.FuelItemDW(Constants.Fuel.Biofuel(1),

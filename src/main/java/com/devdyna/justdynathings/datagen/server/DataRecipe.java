@@ -2,24 +2,31 @@ package com.devdyna.justdynathings.datagen.server;
 
 import static net.minecraft.data.recipes.RecipeCategory.MISC;
 
+import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
 import com.devdyna.justdynathings.registry.types.zBlocks;
 import com.devdyna.justdynathings.registry.types.zItemTags;
+import com.devdyna.justdynathings.registry.types.zItems;
 import com.devdyna.justdynathings.utils.DataGenUtil;
 import com.direwolf20.justdirethings.datagen.recipes.GooSpreadRecipeBuilder;
 import com.direwolf20.justdirethings.setup.Registration;
 
 import static com.devdyna.justdynathings.Main.ID;
+
+import net.minecraft.advancements.Criterion;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.Tags;
 
-@SuppressWarnings("null")
+@SuppressWarnings({ "null", "unused" })
 public class DataRecipe extends RecipeProvider {
 
         public DataRecipe(PackOutput output, CompletableFuture<HolderLookup.Provider> completableFuture) {
@@ -28,7 +35,6 @@ public class DataRecipe extends RecipeProvider {
 
         @Override
         protected void buildRecipes(RecipeOutput c) {
-
 
                 ShapedRecipeBuilder.shaped(MISC, zBlocks.FERRITECORE_CLOCK.get(), 1)
                                 .pattern("ABA")
@@ -88,16 +94,82 @@ public class DataRecipe extends RecipeProvider {
 
                 GooSpreadRecipeBuilder.shapeless(DataGenUtil.getResource("dirt"),
                                 Blocks.COARSE_DIRT.defaultBlockState(),
-                                Blocks.DIRT.defaultBlockState(), 1, 200);
+                                Blocks.DIRT.defaultBlockState(), 1, 200).save(c);
 
                 GooSpreadRecipeBuilder.shapeless(DataGenUtil.getResource("clay"),
                                 Blocks.MUD.defaultBlockState(),
-                                Blocks.CLAY.defaultBlockState(), 1, 200);
+                                Blocks.CLAY.defaultBlockState(), 1, 200).save(c);
 
                 GooSpreadRecipeBuilder.shapeless(DataGenUtil.getResource("crying_obsidian"),
                                 Blocks.OBSIDIAN.defaultBlockState(),
-                                Blocks.CRYING_OBSIDIAN.defaultBlockState(), 3, 200);
+                                Blocks.CRYING_OBSIDIAN.defaultBlockState(), 3, 200).save(c);
 
+                ShapedRecipeBuilder.shaped(MISC, zBlocks.BUDDING_AMETHYST.get(), 1)
+                                .pattern("AAA")
+                                .pattern("ABA")
+                                .pattern("AAA")
+                                .define('B', Blocks.AMETHYST_BLOCK.asItem())
+                                .define('A', Items.ECHO_SHARD)
+                                .unlockedBy(ID, itemInv(Items.ECHO_SHARD)).group(ID).save(c);
+
+                ShapedRecipeBuilder.shaped(MISC, zBlocks.BUDDING_TIME.get(), 1)
+                                .pattern("AAA")
+                                .pattern("ABA")
+                                .pattern("AAA")
+                                .define('B', Registration.TimeCrystalBlock_ITEM.get())
+                                .define('A', Items.ECHO_SHARD)
+                                .unlockedBy(ID, itemInv(Items.ECHO_SHARD)).group(ID).save(c);
+
+                GooSpreadRecipeBuilder.shapeless(DataGenUtil.getResource("chaotic"),
+                                Blocks.AMETHYST_BLOCK.defaultBlockState(),
+                                zBlocks.RAW_CHAOTIC.get().defaultBlockState(), 5, 4000).save(c);
+
+                GooSpreadRecipeBuilder.shapeless(DataGenUtil.getResource("redstonic"),
+                                Blocks.REDSTONE_BLOCK.defaultBlockState(),
+                                zBlocks.RAW_REDSTONIC.get().defaultBlockState(), 5, 4000).save(c);
+
+                Set<Block> copperBlocks = Set.of(Blocks.COPPER_BLOCK, Blocks.WEATHERED_COPPER, Blocks.EXPOSED_COPPER,
+                                Blocks.OXIDIZED_COPPER, Blocks.WAXED_COPPER_BLOCK, Blocks.WAXED_WEATHERED_COPPER,
+                                Blocks.WAXED_EXPOSED_COPPER, Blocks.WAXED_OXIDIZED_COPPER);
+
+                copperBlocks.forEach(copper -> GooSpreadRecipeBuilder
+                                .shapeless(DataGenUtil.getResource("coprinium" + copper.getName()),
+                                                copper.defaultBlockState(),
+                                                zBlocks.RAW_COPRINIUM.get().defaultBlockState(), 5, 4000)
+                                .save(c));
+
+                blasting(zItems.RAW_COPRINIUM.get(), zItems.COPRINIUM_INGOT.get(), 0.1F);
+
+
+        }
+
+        /**
+         * @return inventory change criteria trigger
+         */
+        private Criterion<?> itemInv(Item i) {
+                return InventoryChangeTrigger.TriggerInstance.hasItems(i);
+        }
+
+        private void blasting(Item input, Item output, float xp, int ticks) {
+                SimpleCookingRecipeBuilder.smelting(Ingredient.of(input), MISC,
+                                output, xp, ticks);
+                SimpleCookingRecipeBuilder.blasting(Ingredient.of(input), MISC,
+                                output, xp, ticks / 2);
+        }
+
+        private void blasting(Item input, Item output, float xp){
+                blasting(input, output, xp,200);
+        }
+
+        private void smoking(Item input, Item output, float xp, int ticks) {
+                SimpleCookingRecipeBuilder.smoking(Ingredient.of(input), MISC,
+                                output, xp, ticks / 2);
+                SimpleCookingRecipeBuilder.smelting(Ingredient.of(input), MISC,
+                                output, xp, ticks);
+        }
+
+        private void smoking(Item input, Item output, float xp){
+                smoking(input, output, xp,200);
         }
 
         /*

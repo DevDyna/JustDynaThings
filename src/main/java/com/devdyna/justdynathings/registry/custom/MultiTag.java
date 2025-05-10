@@ -10,8 +10,8 @@ import net.minecraft.world.level.block.Block;
 
 public class MultiTag {
 
-    private  TagKey<Item> item;
-    private  TagKey<Block> block;
+    private TagKey<Item> item;
+    private TagKey<Block> block;
 
     public MultiTag(String modname, String name) {
         this.block = Material.tagBlock(modname, name);
@@ -22,11 +22,11 @@ public class MultiTag {
         this(ID, name);
     }
 
-    public  TagKey<Item> item() {
+    public TagKey<Item> item() {
         return item;
     }
 
-    public  TagKey<Block> block() {
+    public TagKey<Block> block() {
         return block;
     }
 

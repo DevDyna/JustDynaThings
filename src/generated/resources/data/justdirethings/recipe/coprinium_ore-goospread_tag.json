@@ -1,0 +1,15 @@
+{
+  "type": "justdirethings:goospread_tag",
+  "craftingDuration": 4000,
+  "id": "justdynathings:coprinium",
+  "input": {
+    "tag": "justdynathings:copper_blocks"
+  },
+  "output": {
+    "Name": "justdynathings:coprinium_ore",
+    "Properties": {
+      "facing": "north"
+    }
+  },
+  "tierRequirement": 5
+}

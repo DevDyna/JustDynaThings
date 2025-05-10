@@ -1,0 +1,12 @@
+{
+  "type": "justdirethings:goospread",
+  "craftingDuration": 200,
+  "id": "justdynathings:crying_obsidian",
+  "input": {
+    "Name": "minecraft:obsidian"
+  },
+  "output": {
+    "Name": "minecraft:crying_obsidian"
+  },
+  "tierRequirement": 3
+}

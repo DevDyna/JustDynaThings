@@ -1,0 +1,15 @@
+{
+  "type": "justdirethings:goospread",
+  "craftingDuration": 4000,
+  "id": "justdynathings:chaotic",
+  "input": {
+    "Name": "minecraft:amethyst_block"
+  },
+  "output": {
+    "Name": "justdynathings:chaotic_ore",
+    "Properties": {
+      "facing": "north"
+    }
+  },
+  "tierRequirement": 5
+}

@@ -1,0 +1,12 @@
+{
+  "type": "justdirethings:goospread",
+  "craftingDuration": 200,
+  "id": "justdynathings:clay",
+  "input": {
+    "Name": "minecraft:mud"
+  },
+  "output": {
+    "Name": "minecraft:clay"
+  },
+  "tierRequirement": 1
+}

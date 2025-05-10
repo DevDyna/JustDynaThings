@@ -1,0 +1,12 @@
+{
+  "type": "justdirethings:goospread",
+  "craftingDuration": 200,
+  "id": "justdynathings:dirt",
+  "input": {
+    "Name": "minecraft:coarse_dirt"
+  },
+  "output": {
+    "Name": "minecraft:dirt"
+  },
+  "tierRequirement": 1
+}

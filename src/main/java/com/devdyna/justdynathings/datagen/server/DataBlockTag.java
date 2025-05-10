@@ -59,6 +59,11 @@ public class DataBlockTag extends BlockTagsProvider {
                 tag(JustDireBlockTags.TICK_SPEED_DENY).add(zBlocks.TICKER.get());
 
                 tag(THERMO_HEATER).add(Blocks.MAGMA_BLOCK);
+                tag(COPPERBLOCKS).add(
+                                Blocks.COPPER_BLOCK, Blocks.WAXED_COPPER_BLOCK,
+                                Blocks.WEATHERED_COPPER, Blocks.WAXED_WEATHERED_COPPER,
+                                Blocks.EXPOSED_COPPER, Blocks.WAXED_EXPOSED_COPPER,
+                                Blocks.OXIDIZED_COPPER, Blocks.WAXED_OXIDIZED_COPPER);
 
         }
 

@@ -9,6 +9,7 @@ import com.devdyna.justdynathings.registry.types.zBlockTags;
 import com.devdyna.justdynathings.registry.types.zBlocks;
 import com.devdyna.justdynathings.registry.types.zItemTags;
 import com.devdyna.justdynathings.registry.types.zItems;
+import com.devdyna.justdynathings.registry.types.zMultiTags;
 import com.devdyna.justdynathings.utils.DataGenUtil;
 import com.direwolf20.justdirethings.datagen.recipes.GooSpreadRecipeBuilder;
 import com.direwolf20.justdirethings.datagen.recipes.GooSpreadRecipeTagBuilder;
@@ -46,7 +47,7 @@ public class DataRecipe extends RecipeProvider {
                                 .pattern("ABA")
                                 .define('A', Registration.FerricoreIngot.get())
                                 .define('B', Tags.Items.DUSTS_REDSTONE)
-                                .define('C', zItemTags.COPPER_BULBS)
+                                .define('C', zMultiTags.COPPER_BULBS.item())
                                 .unlockedBy(ID, InventoryChangeTrigger.TriggerInstance
                                                 .hasItems(Registration.FerricoreIngot.get()))
                                 .group(ID).save(c);
@@ -58,7 +59,7 @@ public class DataRecipe extends RecipeProvider {
                                 .define('A', Registration.BlazeGoldBlock.get())
                                 .define('B', Registration.BlazegoldIngot.get())
                                 .define('C', Items.MAGMA_BLOCK)
-                                .define('D', zItemTags.ANVILS)
+                                .define('D', zMultiTags.ANVILS.item())
                                 .unlockedBy(ID, InventoryChangeTrigger.TriggerInstance
                                                 .hasItems(Registration.BlazegoldIngot.get()))
                                 .group(ID).save(c);
@@ -139,7 +140,7 @@ public class DataRecipe extends RecipeProvider {
                                 .unlockedBy(ID, itemInv(Blocks.REDSTONE_BLOCK.asItem())).group(ID).save(c);
 
                 GooSpreadRecipeTagBuilder.shapeless(DataGenUtil.getResource("coprinium"),
-                                new BlockTagIngredient(zBlockTags.COPPERBLOCKS),
+                                new BlockTagIngredient(zMultiTags.COPPER_BLOCKS.block()),
                                 zBlocks.RAW_COPRINIUM.get().defaultBlockState(), 5, 4000)
                                 .unlockedBy(ID, itemInv(Blocks.COPPER_BLOCK.asItem())).group(ID)
                                 .save(c);

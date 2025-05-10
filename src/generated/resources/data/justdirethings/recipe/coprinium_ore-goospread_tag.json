@@ -3,7 +3,7 @@
   "craftingDuration": 4000,
   "id": "justdynathings:coprinium",
   "input": {
-    "tag": "justdynathings:copper_blocks"
+    "tag": "minecraft:copper_blocks"
   },
   "output": {
     "Name": "justdynathings:coprinium_ore",

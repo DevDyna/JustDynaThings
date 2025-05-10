@@ -4,6 +4,7 @@ import java.util.concurrent.CompletableFuture;
 
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.registry.types.zBlocks;
+import com.devdyna.justdynathings.registry.types.zMultiTags;
 import com.devdyna.justdynathings.utils.DataGenUtil;
 import com.direwolf20.justdirethings.datagen.JustDireBlockTags;
 import com.direwolf20.justdirethings.setup.Registration;
@@ -59,7 +60,7 @@ public class DataBlockTag extends BlockTagsProvider {
                 tag(JustDireBlockTags.TICK_SPEED_DENY).add(zBlocks.TICKER.get());
 
                 tag(THERMO_HEATER).add(Blocks.MAGMA_BLOCK);
-                tag(COPPERBLOCKS).add(
+                tag(zMultiTags.COPPER_BLOCKS.block()).add(
                                 Blocks.COPPER_BLOCK, Blocks.WAXED_COPPER_BLOCK,
                                 Blocks.WEATHERED_COPPER, Blocks.WAXED_WEATHERED_COPPER,
                                 Blocks.EXPOSED_COPPER, Blocks.WAXED_EXPOSED_COPPER,

@@ -20,13 +20,11 @@ public class zItemTags {
     public static final TagKey<Item> BLAZINGANVIL_DENY = Material.tagItem("blazing_anvil_deny");
     public static final TagKey<Item> CREATIVE_GOO_WRENCHES = Material.tagItem("creative_goo_wrenches");
 
-    public static final TagKey<Item> ANVILS = Material.tagItem("minecraft","anvils");
-    public static final TagKey<Item> COPPER_BULBS = Material.tagItem("minecraft","copper_bulbs");
-    public static final TagKey<Item> COPPER_BLOCKS = Material.tagItem("minecraft","copper_blocks");
     public static final TagKey<Item> DUSTS_CHAOTIC = Material.tagItem("c","dusts/chaotic");
     public static final TagKey<Item> GEMS_REDSTONIC = Material.tagItem("c","gems/redstonic");
     public static final TagKey<Item> RAW_MATERIALS_COPRINIUM = Material.tagItem("c","raw_materials/coprinium");
     public static final TagKey<Item> INGOTS_COPRINIUM = Material.tagItem("c","ingots/coprinium");
 
+    
 
 }

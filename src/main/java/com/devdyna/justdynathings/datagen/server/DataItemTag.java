@@ -4,6 +4,7 @@ import java.util.concurrent.CompletableFuture;
 
 import com.devdyna.justdynathings.registry.types.zItemTags;
 import com.devdyna.justdynathings.registry.types.zItems;
+import com.devdyna.justdynathings.registry.types.zMultiTags;
 import com.direwolf20.justdirethings.datagen.JustDireItemTags;
 
 import net.minecraft.core.HolderLookup.Provider;
@@ -25,9 +26,9 @@ public class DataItemTag extends ItemTagsProvider {
     @Override
     protected void addTags(Provider p) {
 
-        tag(zItemTags.ANVILS).add(ANVIL,CHIPPED_ANVIL,DAMAGED_ANVIL);
+        tag(zMultiTags.ANVILS.item()).add(ANVIL,CHIPPED_ANVIL,DAMAGED_ANVIL);
 
-        tag(zItemTags.COPPER_BULBS).add(
+        tag(zMultiTags.COPPER_BULBS.item()).add(
                 Blocks.COPPER_BULB.asItem(),
                 Blocks.EXPOSED_COPPER_BULB.asItem(),
                 Blocks.WEATHERED_COPPER_BULB.asItem(),

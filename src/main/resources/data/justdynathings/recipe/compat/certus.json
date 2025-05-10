@@ -6,20 +6,17 @@
     }
   ],
   "type": "minecraft:crafting_shaped",
-  "pattern": ["CBC", "BAB", "CBC"],
+  "pattern": ["AAA", "ABA", "AAA"],
   "key": {
     "A": {
       "item": "minecraft:echo_shard"
     },
     "B": {
       "item": "ae2:flawed_budding_quartz"
-    },
-    "C": {
-      "item": "ae2:quartz_block"
     }
   },
   "result": {
-    "id": "justdynathings:powered_budding_certus",
+    "id": "justdynathings:budding_certus",
     "count": 1
   }
 }

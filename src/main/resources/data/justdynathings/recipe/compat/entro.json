@@ -6,20 +6,17 @@
     }
   ],
   "type": "minecraft:crafting_shaped",
-  "pattern": ["CBC", "BAB", "CBC"],
+  "pattern": ["AAA", "ABA", "AAA"],
   "key": {
     "A": {
       "item": "minecraft:echo_shard"
     },
     "B": {
       "item": "extendedae:entro_block"
-    },
-    "C": {
-      "item": "ae2:fluix_block"
     }
   },
   "result": {
-    "id": "justdynathings:powered_budding_entro",
+    "id": "justdynathings:budding_entro",
     "count": 1
   }
 }

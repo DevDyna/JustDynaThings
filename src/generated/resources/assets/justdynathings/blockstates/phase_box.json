@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "solid=false": {
+      "model": "justdynathings:block/phase_box/false"
+    },
+    "solid=true": {
+      "model": "justdynathings:block/phase_box/true"
+    }
+  }
+}

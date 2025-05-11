@@ -3,7 +3,6 @@ package com.devdyna.justdynathings.datagen.server;
 import java.util.concurrent.CompletableFuture;
 
 import com.devdyna.justdynathings.registry.types.zItemTags;
-import com.devdyna.justdynathings.registry.types.zItems;
 import com.devdyna.justdynathings.registry.types.zMultiTags;
 import com.direwolf20.justdirethings.datagen.JustDireItemTags;
 

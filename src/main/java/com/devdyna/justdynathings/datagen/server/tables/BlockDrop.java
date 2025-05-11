@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Set;
 
 import com.devdyna.justdynathings.registry.types.zBlocks;
-import com.devdyna.justdynathings.registry.types.zItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;

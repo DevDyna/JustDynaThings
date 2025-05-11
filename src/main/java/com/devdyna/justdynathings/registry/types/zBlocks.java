@@ -6,8 +6,6 @@ import com.devdyna.justdynathings.registry.Material;
 import com.devdyna.justdynathings.registry.builders.PhaseBox;
 import com.devdyna.justdynathings.registry.builders.black_hole.BlackHoleBlock;
 import com.devdyna.justdynathings.registry.builders.blazing_anvil.BlazingAnvilBlock;
-import com.devdyna.justdynathings.registry.builders.budding.types.amethyst.AmethystBlock;
-import com.devdyna.justdynathings.registry.builders.budding.types.time.TimeBlock;
 import com.devdyna.justdynathings.registry.builders.ferritecore_clock.ClockBlock;
 import com.devdyna.justdynathings.registry.builders.generators.solar.SolarBlock;
 import com.devdyna.justdynathings.registry.builders.generators.thermo.ThermoBlock;
@@ -18,13 +16,9 @@ import com.devdyna.justdynathings.registry.builders.reforger.ReforgerBlock;
 import com.devdyna.justdynathings.registry.builders.revitalizer.RevitalizerBlock;
 import com.devdyna.justdynathings.registry.builders.ticker.TickerBlock;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.LiquidBlock;
-import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-
-import static net.minecraft.world.level.block.Blocks.*;
 
 public class zBlocks {
         public static void register(IEventBus bus) {

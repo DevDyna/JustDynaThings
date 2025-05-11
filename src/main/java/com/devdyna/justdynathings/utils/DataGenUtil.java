@@ -34,16 +34,28 @@ public class DataGenUtil {
         return BuiltInRegistries.ITEM.getKey(i).getPath();
     }
 
-    public static ResourceLocation getResource(String s) {
-        return ResourceLocation.fromNamespaceAndPath(Main.ID, s);
+    public static ResourceLocation getResource(String s,String modid) {
+        return ResourceLocation.fromNamespaceAndPath(modid, s);
+    }
+
+    public static ResourceLocation getResource(Block b,String modid) {
+        return ResourceLocation.fromNamespaceAndPath(modid, getPath(b));
+    }
+
+    public static ResourceLocation getResource(Item i,String modid) {
+        return ResourceLocation.fromNamespaceAndPath(modid, getPath(i));
+    }
+
+        public static ResourceLocation getResource(String s) {
+        return getResource(s,ID);
     }
 
     public static ResourceLocation getResource(Block b) {
-        return ResourceLocation.fromNamespaceAndPath(Main.ID, getPath(b));
+        return getResource(b,ID);
     }
 
     public static ResourceLocation getResource(Item i) {
-        return ResourceLocation.fromNamespaceAndPath(Main.ID, getPath(i));
+        return getResource(i,ID);
     }
 
     public static ItemModelBuilder itemTool(Item item, ItemModelProvider b) {

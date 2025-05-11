@@ -28,8 +28,6 @@ import net.minecraft.world.phys.BlockHitResult;
 @SuppressWarnings("null")
 public class ClockBlock extends BaseMachineBlock {
 
-    public static final BooleanProperty ACTIVE = BooleanProperty.create("active");
-
     public ClockBlock() {
         super(zProperties.MachineProp.sound(SoundType.COPPER_BULB));
     }
@@ -41,6 +39,7 @@ public class ClockBlock extends BaseMachineBlock {
         if (player.isCrouching()) {
             level.setBlockAndUpdate(pos, state.setValue(DirectionUtil.StateByDir(hitResult.getDirection()),
                     !state.getValue(DirectionUtil.StateByDir(hitResult.getDirection()))));
+                    //TODO sound
             return InteractionResult.SUCCESS;
         } else {
             this.openMenu(player, pos);
@@ -55,7 +54,7 @@ public class ClockBlock extends BaseMachineBlock {
 
     @Override
     protected int getSignal(BlockState b, BlockGetter g, BlockPos p, Direction d) {
-        return b.getValue(ACTIVE).booleanValue()
+        return b.getValue(zProperties.ACTIVE).booleanValue()
                 && b.getValue(DirectionUtil.StateByDir(d.getOpposite())).booleanValue()
                         ? 15
                         : 0;
@@ -66,7 +65,7 @@ public class ClockBlock extends BaseMachineBlock {
         for (BooleanProperty face : DirectionUtil.face) {
             defaultBlockState().setValue(face, false);
         }
-        return defaultBlockState().setValue(ACTIVE, false);
+        return defaultBlockState().setValue(zProperties.ACTIVE, false);
 
     }
 
@@ -75,7 +74,7 @@ public class ClockBlock extends BaseMachineBlock {
         for (BooleanProperty face : DirectionUtil.face) {
             b.add(face);
         }
-        b.add(ACTIVE);
+        b.add(zProperties.ACTIVE);
     }
 
     @Nullable

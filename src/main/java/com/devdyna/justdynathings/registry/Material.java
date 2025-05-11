@@ -88,22 +88,22 @@ public class Material {
                                 ResourceLocation.fromNamespaceAndPath(modname, name));
         }
 
-        public static Block[] getBuddingAvailable() {
-                ArrayList<Block> a = new ArrayList<>();
-                a.add(zBlocks.BUDDING_AMETHYST.get());
-                a.add(zBlocks.BUDDING_TIME.get());
-                if (Constants.ModAddonCheck.AppliedEnergistics2)
-                        a.add(com.devdyna.justdynathings.compat.ae2.init.AE2_POWERED.get());
-                if (Constants.ModAddonCheck.ExtendedAE)
-                        a.add(com.devdyna.justdynathings.compat.extendedae.init.EXTENDED_POWERED.get());
-                if (Constants.ModAddonCheck.PhasoriteNetworks)
-                        a.add(com.devdyna.justdynathings.compat.phasorite.init.PHASORITE_POWERED.get());
-                Block[] b = new Block[a.size()];
-                for (int i = 0; i < a.size(); i++) {
-                        b[i] = a.get(i);
-                }
-                return b;
-        }
+        // public static Block[] getBuddingAvailable() {
+        //         ArrayList<Block> a = new ArrayList<>();
+        //         a.add(zBlocks.BUDDING_AMETHYST.get());
+        //         a.add(zBlocks.BUDDING_TIME.get());
+        //         if (Constants.ModAddonCheck.AppliedEnergistics2)
+        //                 a.add(com.devdyna.justdynathings.compat.ae2.init.AE2_POWERED.get());
+        //         if (Constants.ModAddonCheck.ExtendedAE)
+        //                 a.add(com.devdyna.justdynathings.compat.extendedae.init.EXTENDED_POWERED.get());
+        //         if (Constants.ModAddonCheck.PhasoriteNetworks)
+        //                 a.add(com.devdyna.justdynathings.compat.phasorite.init.PHASORITE_POWERED.get());
+        //         Block[] b = new Block[a.size()];
+        //         for (int i = 0; i < a.size(); i++) {
+        //                 b[i] = a.get(i);
+        //         }
+        //         return b;
+        // }
 
         public static DeferredHolder<Item, ?> createItem(String name) {
                 return zItems.zItem.register(name,

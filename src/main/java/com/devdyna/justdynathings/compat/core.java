@@ -14,9 +14,9 @@ public class core {
                 LogUtil.decor(20);
                 LogUtil.info("JustDynaThings Compatibility Checker started");
                 LogUtil.decor(20);
-                core.ae2_compat(bus);
-                core.extendedae_compat(bus);
-                core.phasorite_compat(bus);
+                // core.ae2_compat(bus);
+                // core.extendedae_compat(bus);
+                // core.phasorite_compat(bus);
                 core.createGuide();
                 LogUtil.decor(20);
         }

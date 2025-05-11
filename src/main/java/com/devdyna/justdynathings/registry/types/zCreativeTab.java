@@ -40,21 +40,21 @@ public class zCreativeTab {
                                                                 .forEach(e -> output.accept((Item) e.get()));
 
                                                 // compat items
-                                                if (Constants.ModAddonCheck.AppliedEnergistics2)
-                                                        com.devdyna.justdynathings.compat.ae2.init.zAE_ITM.getEntries()
-                                                                        .forEach(e -> {
-                                                                                output.accept((Item) e.get());
-                                                                        });
-                                                if (Constants.ModAddonCheck.ExtendedAE)
-                                                        com.devdyna.justdynathings.compat.extendedae.init.zEXTAE_ITM
-                                                                        .getEntries().forEach(e -> {
-                                                                                output.accept((Item) e.get());
-                                                                        });
-                                                if (Constants.ModAddonCheck.PhasoriteNetworks)
-                                                        com.devdyna.justdynathings.compat.phasorite.init.zPHASO_ITM
-                                                                        .getEntries().forEach(e -> {
-                                                                                output.accept((Item) e.get());
-                                                                        });
+                                                // if (Constants.ModAddonCheck.AppliedEnergistics2)
+                                                //         com.devdyna.justdynathings.compat.ae2.init.zAE_ITM.getEntries()
+                                                //                         .forEach(e -> {
+                                                //                                 output.accept((Item) e.get());
+                                                //                         });
+                                                // if (Constants.ModAddonCheck.ExtendedAE)
+                                                //         com.devdyna.justdynathings.compat.extendedae.init.zEXTAE_ITM
+                                                //                         .getEntries().forEach(e -> {
+                                                //                                 output.accept((Item) e.get());
+                                                //                         });
+                                                // if (Constants.ModAddonCheck.PhasoriteNetworks)
+                                                //         com.devdyna.justdynathings.compat.phasorite.init.zPHASO_ITM
+                                                //                         .getEntries().forEach(e -> {
+                                                //                                 output.accept((Item) e.get());
+                                                //                         });
 
                                         }).build());
 

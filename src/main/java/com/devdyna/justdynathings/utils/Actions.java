@@ -1,9 +1,7 @@
 package com.devdyna.justdynathings.utils;
 
 import com.devdyna.justdynathings.Config;
-import com.devdyna.justdynathings.registry.builders.ferritecore_clock.ClockBlock;
 import com.devdyna.justdynathings.registry.types.zBlockTags;
-
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
@@ -19,31 +17,11 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.energy.IEnergyStorage;
 
 @SuppressWarnings("null")
 public class Actions {
-
-        public static void clockUpdate(BlockPos pos, Level level, BlockState state) {
-                level.setBlockAndUpdate(pos,
-                                state
-                                                .setValue(ClockBlock.ACTIVE,
-                                                                !state.getValue(ClockBlock.ACTIVE))
-                                                .setValue(DirectionUtil.face[0],
-                                                                state.getValue(DirectionUtil.face[0]))
-                                                .setValue(DirectionUtil.face[1],
-                                                                state.getValue(DirectionUtil.face[1]))
-                                                .setValue(DirectionUtil.face[2],
-                                                                state.getValue(DirectionUtil.face[2]))
-                                                .setValue(DirectionUtil.face[3],
-                                                                state.getValue(DirectionUtil.face[3]))
-                                                .setValue(DirectionUtil.face[4],
-                                                                state.getValue(DirectionUtil.face[4]))
-                                                .setValue(DirectionUtil.face[5],
-                                                                state.getValue(DirectionUtil.face[5])));
-        }
 
         public static void consumeItem(ItemStack item, Level level) {
                 if (LevelUtil.chance(Config.REFORGER_CHANCE.get(), level))
@@ -127,7 +105,8 @@ public class Actions {
 
         /**
          * Provide power at adjacent be blocks
-         * @param pos block that provide power 
+         * 
+         * @param pos    block that provide power
          * @param level
          * @param FErate
          */

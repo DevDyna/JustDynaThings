@@ -24,12 +24,12 @@ public class DataItemModel extends ItemModelProvider {
                 super(o, Main.ID, f);
         }
 
-        private Set<DeferredHolder<Item, ?>> blacklist = Set.of(zItems.REDSTONIC_GEM);
+        // private Set<DeferredHolder<Item, ?>> blacklist = Set.of(zItems.REDSTONIC_GEM);
 
         @Override
         protected void registerModels() {
 
-                zItems.zItem.getEntries().stream().filter(item -> !blacklist.contains(item))
+                zItems.zItem.getEntries()//.stream().filter(item -> !blacklist.contains(item))
                                 .forEach(item -> DataGenUtil.itemModel(item.get(), this));
 
                 DataGenUtil.itemBlockwithParent(zBlocks.BLAZING_ANVIL.get(), this,
@@ -47,14 +47,14 @@ public class DataItemModel extends ItemModelProvider {
                 DataGenUtil.itemBlockwithParent(zBlocks.PHASEBOX.get(), this,
                                 ID + ":block/phase_box/true");
 
-                DataGenUtil.itemBlockwithParent(zBlocks.RAW_CHAOTIC.get(), this,
-                                ID + ":block/raw_chaotic_ore");
+                // DataGenUtil.itemBlockwithParent(zBlocks.RAW_CHAOTIC.get(), this,
+                //                 ID + ":block/raw_chaotic_ore");
 
-                DataGenUtil.itemBlockwithParent(zBlocks.RAW_COPRINIUM.get(), this,
-                                ID + ":block/raw_coprinium_ore");
+                // DataGenUtil.itemBlockwithParent(zBlocks.RAW_COPRINIUM.get(), this,
+                //                 ID + ":block/raw_coprinium_ore");
 
-                DataGenUtil.itemBlockwithParent(zBlocks.RAW_REDSTONIC.get(), this,
-                                ID + ":block/raw_redstonic_ore");
+                // DataGenUtil.itemBlockwithParent(zBlocks.RAW_REDSTONIC.get(), this,
+                //                 ID + ":block/raw_redstonic_ore");
 
                 DataGenUtil.itemBlockwithParent(zBlocks.REFORGER.get(), this,
                                 ID + ":block/reforger/off");
@@ -62,10 +62,10 @@ public class DataItemModel extends ItemModelProvider {
                 DataGenUtil.itemBlockwithParent(zBlocks.REVITALIZER.get(), this,
                                 ID + ":block/revitalizer/x/off");
 
-                zItems.zBucketItem.getEntries().forEach(b -> withExistingParent(b.getId().getPath(),
-                                ResourceLocation.fromNamespaceAndPath(NeoForgeVersion.MOD_ID, "item/bucket"))
-                                .customLoader(DynamicFluidContainerModelBuilder::begin)
-                                .fluid(((BucketItem) b.get()).content));
+                // zItems.zBucketItem.getEntries().forEach(b -> withExistingParent(b.getId().getPath(),
+                //                 ResourceLocation.fromNamespaceAndPath(NeoForgeVersion.MOD_ID, "item/bucket"))
+                //                 .customLoader(DynamicFluidContainerModelBuilder::begin)
+                //                 .fluid(((BucketItem) b.get()).content));
 
                 // NYC
                 // withExistingParent(Items.REDSTONIC_GEM.getId().getPath(),

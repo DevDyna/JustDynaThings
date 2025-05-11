@@ -1,6 +1,7 @@
 package com.devdyna.justdynathings.registry.builders;
 
 import com.devdyna.justdynathings.Config;
+import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.LevelUtil;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
 
@@ -17,7 +18,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
@@ -27,9 +27,8 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.level.block.TransparentBlock;
 import com.direwolf20.justdirethings.datagen.JustDireItemTags;
 
+@SuppressWarnings("null")
 public class PhaseBox extends TransparentBlock {
-
-    public static final BooleanProperty SOLID = BooleanProperty.create("solid");
 
     public PhaseBox() {
         super(Properties.of().sound(SoundType.AMETHYST)
@@ -39,69 +38,64 @@ public class PhaseBox extends TransparentBlock {
                 .instabreak()
                 .pushReaction(PushReaction.DESTROY));
         this.registerDefaultState(stateDefinition.any()
-                .setValue(SOLID, true));
+                .setValue(zProperties.SOLID, true));
     }
 
-    @SuppressWarnings("null")
     @Override
-    protected boolean isPathfindable(BlockState state, PathComputationType pathComputationType) {
+    protected boolean isPathfindable(BlockState s, PathComputationType p) {
         return false;
     }
 
-    @SuppressWarnings("null")
     @Override
-    public VoxelShape getCollisionShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
-        return state.getValue(SOLID) ? state.getShape(world, pos) : Shapes.empty();
+    public VoxelShape getCollisionShape(BlockState s, BlockGetter w, BlockPos p, CollisionContext c) {
+        return s.getValue(zProperties.SOLID) ? s.getShape(w, p) : Shapes.empty();
     }
 
-    @SuppressWarnings("null")
     @Override
-    protected float getShadeBrightness(BlockState p_308911_, BlockGetter p_308952_, BlockPos p_308918_) {
-        return (!p_308911_.getValue(SOLID) ? 1 : 0) * 1.0F;
+    protected float getShadeBrightness(BlockState s, BlockGetter g, BlockPos p) {
+        return (!s.getValue(zProperties.SOLID) ? 1 : 0) * 1.0F;
     }
 
-    @SuppressWarnings("null")
     @Override
-    protected boolean propagatesSkylightDown(BlockState p_309084_, BlockGetter p_309133_, BlockPos p_309097_) {
-        return !p_309084_.getValue(SOLID);
+    protected boolean propagatesSkylightDown(BlockState s, BlockGetter g, BlockPos p) {
+        return !s.getValue(zProperties.SOLID);
     }
 
-    @SuppressWarnings("null")
     @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(SOLID);
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> b) {
+        b.add(zProperties.SOLID);
     }
 
-    @SuppressWarnings("null")
     @Override
-    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
-            Player player, InteractionHand hand, BlockHitResult hitResult) {
-        BlockState clicked = level.getBlockState(hitResult.getBlockPos());
-        if (player.isCrouching()) {
+    protected ItemInteractionResult useItemOn(ItemStack i, BlockState s, Level l, BlockPos pos,
+            Player p, InteractionHand h, BlockHitResult t) {
+        BlockState clicked = l.getBlockState(t.getBlockPos());
+        if (p.isCrouching()) {
 
-            if (stack.isEmpty())
-                return success(stack, clicked, level, pos);
+            if (i.isEmpty())
+                return success(i, clicked, l, pos);
             else
                 return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 
         } else
-            return success(stack, clicked, level, pos);
+            return success(i, clicked, l, pos);
 
     }
 
-    private ItemInteractionResult success(ItemStack stack, BlockState state, Level level, BlockPos pos) {
+    private ItemInteractionResult success(ItemStack i, BlockState s, Level l, BlockPos pos) {
 
         if (Config.PHASEBOX_WRENCHABLE.get()
-                ? stack.is(JustDireItemTags.WRENCHES) || stack.is(JustDireItemTags.TOOLS_WRENCH)
+                ? i.is(JustDireItemTags.WRENCHES) || i.is(JustDireItemTags.TOOLS_WRENCH)
                 : true) {
 
-            level.playLocalSound(pos.getX(), pos.getY(),
+            l.playLocalSound(pos.getX(), pos.getY(),
                     pos.getZ(),
-                    state.getValue(SOLID) ? SoundEvents.COPPER_TRAPDOOR_CLOSE : SoundEvents.COPPER_TRAPDOOR_OPEN,
+                    s.getValue(zProperties.SOLID) ? SoundEvents.COPPER_TRAPDOOR_CLOSE
+                            : SoundEvents.COPPER_TRAPDOOR_OPEN,
                     SoundSource.BLOCKS, 100,
-                    LevelUtil.getRandomValue(9, level) * 0.1f, true);
-            level.setBlockAndUpdate(pos, state.setValue(SOLID, !state.getValue(SOLID)));
-        
+                    LevelUtil.getRandomValue(9, l) * 0.1f, true);
+            l.setBlockAndUpdate(pos, s.setValue(zProperties.SOLID, !s.getValue(zProperties.SOLID)));
+
         }
         return ItemInteractionResult.SUCCESS;
     }

@@ -25,10 +25,10 @@ public class zFluids {
 
     // ---------------------------------------------------------------------------------------//
 
-    public static final DeferredHolder<Fluid, ?> CRYSTALLINE_SOURCE = zFluids.register(Constants.Fluids.Crystalline.Source,
-            () -> new BaseFlowingFluid.Source(zProperties.FProp));
-    public static final DeferredHolder<Fluid, FlowingFluid> CRYSTALLINE_FLOWING = zFluids.register(Constants.Fluids.Crystalline.Flowing,
-            () -> new BaseFlowingFluid.Flowing(zProperties.FProp));
+    // public static final DeferredHolder<Fluid, ?> CRYSTALLINE_SOURCE = zFluids.register(Constants.Fluids.Crystalline.Source,
+    //         () -> new BaseFlowingFluid.Source(zProperties.FProp));
+    // public static final DeferredHolder<Fluid, FlowingFluid> CRYSTALLINE_FLOWING = zFluids.register(Constants.Fluids.Crystalline.Flowing,
+    //         () -> new BaseFlowingFluid.Flowing(zProperties.FProp));
 
 
 

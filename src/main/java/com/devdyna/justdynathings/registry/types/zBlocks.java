@@ -64,23 +64,23 @@ public class zBlocks {
         public static final DeferredHolder<Block, ?> PHASEBOX = Material
                         .registerItemAndBlock(Constants.Blocks.PhaseBox, PhaseBox::new);
 
-        public static final DeferredHolder<Block, ?> RAW_CHAOTIC = Material.DireStuff
-                        .simpleRawOreDW(Constants.Ores.Chaotic.ore);
+        // public static final DeferredHolder<Block, ?> RAW_CHAOTIC = Material.DireStuff
+        //                 .simpleRawOreDW(Constants.Ores.Chaotic.ore);
 
-        public static final DeferredHolder<Block, ?> RAW_REDSTONIC = Material.DireStuff
-                        .simpleRawOreDW(Constants.Ores.Redstonic.ore);
+        // public static final DeferredHolder<Block, ?> RAW_REDSTONIC = Material.DireStuff
+        //                 .simpleRawOreDW(Constants.Ores.Redstonic.ore);
 
-        public static final DeferredHolder<Block, ?> RAW_COPRINIUM = Material.DireStuff
-                        .simpleRawOreDW(Constants.Ores.Coprinium.ore);
+        // public static final DeferredHolder<Block, ?> RAW_COPRINIUM = Material.DireStuff
+        //                 .simpleRawOreDW(Constants.Ores.Coprinium.ore);
 
         public static final DeferredHolder<Block, ?> REFORGER = Material
                         .registerItemAndBlock(Constants.Blocks.Reforger, ReforgerBlock::new);
 
-        public static final DeferredHolder<Block, ?> BUDDING_TIME = Material.DireStuff
-                        .registerBudding(Constants.Budding.Time, () -> new TimeBlock());
+        // public static final DeferredHolder<Block, ?> BUDDING_TIME = Material.DireStuff
+        //                 .registerBudding(Constants.Budding.Time, () -> new TimeBlock());
 
-        public static final DeferredHolder<Block, ?> BUDDING_AMETHYST = Material.DireStuff
-                        .registerBudding(Constants.Budding.Amethyst, () -> new AmethystBlock());
+        // public static final DeferredHolder<Block, ?> BUDDING_AMETHYST = Material.DireStuff
+        //                 .registerBudding(Constants.Budding.Amethyst, () -> new AmethystBlock());
 
         public static final DeferredHolder<Block, ?> BLAZING_ANVIL = Material
                         .registerItemAndBlock(Constants.Blocks.BlazingAnvil, BlazingAnvilBlock::new);
@@ -106,12 +106,12 @@ public class zBlocks {
         public static final DeferredHolder<Block, ?> SOLARGEN = Material
                         .registerItemAndBlock(Constants.Blocks.SolarGen, SolarBlock::new);
 
-        public static final DeferredHolder<Block, LiquidBlock> CRYSTALLINE_FLUID = zBlockFluids.register(
-                        Constants.Fluids.Crystalline.Block,
-                        () -> new LiquidBlock(zFluids.CRYSTALLINE_FLOWING.value(), Properties.ofFullCopy(WATER)
-                                        .liquid()
-                                        .lightLevel(value -> 10)
-                                        .emissiveRendering((a, b, c) -> true)));
+        // public static final DeferredHolder<Block, LiquidBlock> CRYSTALLINE_FLUID = zBlockFluids.register(
+        //                 Constants.Fluids.Crystalline.Block,
+        //                 () -> new LiquidBlock(zFluids.CRYSTALLINE_FLOWING.value(), Properties.ofFullCopy(WATER)
+        //                                 .liquid()
+        //                                 .lightLevel(value -> 10)
+        //                                 .emissiveRendering((a, b, c) -> true)));
 
         // ---------------------------------------------------------------------------------------//
 

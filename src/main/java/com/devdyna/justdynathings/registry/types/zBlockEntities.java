@@ -62,15 +62,15 @@ public class zBlockEntities {
                         .register(Constants.Blocks.Reforger,
                                         () -> Builder.of(ReforgerBE::new, zBlocks.REFORGER.get()).build(null));
 
-        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<?>> BUDDING_TIME = zBE
-                        .register(Constants.Budding.Time, () -> Builder.of(TimeBE::new,
-                                        zBlocks.BUDDING_TIME.get())
-                                        .build(null));
+        // public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<?>> BUDDING_TIME = zBE
+        //                 .register(Constants.Budding.Time, () -> Builder.of(TimeBE::new,
+        //                                 zBlocks.BUDDING_TIME.get())
+        //                                 .build(null));
 
-        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<?>> BUDDING_AMETHYST = zBE
-                        .register(Constants.Budding.Amethyst, () -> Builder.of(AmethystBE::new,
-                                        zBlocks.BUDDING_AMETHYST.get())
-                                        .build(null));
+        // public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<?>> BUDDING_AMETHYST = zBE
+        //                 .register(Constants.Budding.Amethyst, () -> Builder.of(AmethystBE::new,
+        //                                 zBlocks.BUDDING_AMETHYST.get())
+        //                                 .build(null));
 
         public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BlazingAnvilBE>> BLAZING_ANVIL = zBE
                         .register(Constants.Blocks.BlazingAnvil,

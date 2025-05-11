@@ -1,5 +1,7 @@
 package com.devdyna.justdynathings.utils;
 
+import static com.devdyna.justdynathings.Main.ID;
+
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.datagen.client.DataBlockModelState;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -106,6 +108,10 @@ public class DataGenUtil {
     public static void simpleBlockwithModel(DataBlockModelState d, Block b, String parent, String keyname,
             String texture) {
         d.simpleBlock(b, BlockwithParent(b, d, parent, keyname, texture));
+    }
+
+    public static String getName(Block block){
+        return block.getDescriptionId().replace("block." + ID + ".", "");
     }
 
 

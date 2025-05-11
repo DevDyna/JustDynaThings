@@ -1,12 +1,14 @@
 package com.devdyna.justdynathings.registry.builders.ferritecore_clock;
 
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
-import com.devdyna.justdynathings.utils.Actions;
+import com.devdyna.justdynathings.registry.types.zProperties;
+import com.devdyna.justdynathings.utils.DirectionUtil;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
+@SuppressWarnings("null")
 public class ClockBE extends BaseMachineBE {
 
     public ClockBE(BlockEntityType<?> type, BlockPos pos, BlockState blockState) {
@@ -27,8 +29,21 @@ public class ClockBE extends BaseMachineBE {
 
         if (i >= tickSpeed) {
             i = 0;
-            Actions.clockUpdate(getBlockPos(), level, getBlockState());
+            updateBlock();
         }
+
+    }
+
+    public void updateBlock() {
+        var state = getBlockState()
+                .setValue(zProperties.ACTIVE,
+                        !getBlockState().getValue(zProperties.ACTIVE));
+
+        for (int i = 0; i < 7; i++)
+            state.setValue(DirectionUtil.face[i],
+                    getBlockState().getValue(DirectionUtil.face[i]));
+
+        level.setBlockAndUpdate(getBlockPos(), state);
 
     }
 

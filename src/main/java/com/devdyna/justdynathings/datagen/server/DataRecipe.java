@@ -113,39 +113,39 @@ public class DataRecipe extends RecipeProvider {
                                 .unlockedBy(ID, itemInv(Blocks.OBSIDIAN.asItem())).group(ID)
                                 .save(c);
 
-                ShapedRecipeBuilder.shaped(MISC, zBlocks.BUDDING_AMETHYST.get(), 1)
-                                .pattern("AAA")
-                                .pattern("ABA")
-                                .pattern("AAA")
-                                .define('B', Blocks.AMETHYST_BLOCK.asItem())
-                                .define('A', Items.ECHO_SHARD)
-                                .unlockedBy(ID, itemInv(Items.ECHO_SHARD)).group(ID).save(c);
+                // ShapedRecipeBuilder.shaped(MISC, zBlocks.BUDDING_AMETHYST.get(), 1)
+                //                 .pattern("AAA")
+                //                 .pattern("ABA")
+                //                 .pattern("AAA")
+                //                 .define('B', Blocks.AMETHYST_BLOCK.asItem())
+                //                 .define('A', Items.ECHO_SHARD)
+                //                 .unlockedBy(ID, itemInv(Items.ECHO_SHARD)).group(ID).save(c);
 
-                ShapedRecipeBuilder.shaped(MISC, zBlocks.BUDDING_TIME.get(), 1)
-                                .pattern("AAA")
-                                .pattern("ABA")
-                                .pattern("AAA")
-                                .define('B', Registration.TimeCrystalBlock_ITEM.get())
-                                .define('A', Items.ECHO_SHARD)
-                                .unlockedBy(ID, itemInv(Items.ECHO_SHARD)).group(ID).save(c);
+                // ShapedRecipeBuilder.shaped(MISC, zBlocks.BUDDING_TIME.get(), 1)
+                //                 .pattern("AAA")
+                //                 .pattern("ABA")
+                //                 .pattern("AAA")
+                //                 .define('B', Registration.TimeCrystalBlock_ITEM.get())
+                //                 .define('A', Items.ECHO_SHARD)
+                //                 .unlockedBy(ID, itemInv(Items.ECHO_SHARD)).group(ID).save(c);
 
-                GooSpreadRecipeBuilder.shapeless(DataGenUtil.getResource("chaotic"),
-                                Blocks.AMETHYST_BLOCK.defaultBlockState(),
-                                zBlocks.RAW_CHAOTIC.get().defaultBlockState(), 5, 4000)
-                                .unlockedBy(ID, itemInv(Blocks.AMETHYST_BLOCK.asItem())).group(ID).save(c);
+                // GooSpreadRecipeBuilder.shapeless(DataGenUtil.getResource("chaotic"),
+                //                 Blocks.AMETHYST_BLOCK.defaultBlockState(),
+                //                 zBlocks.RAW_CHAOTIC.get().defaultBlockState(), 5, 4000)
+                //                 .unlockedBy(ID, itemInv(Blocks.AMETHYST_BLOCK.asItem())).group(ID).save(c);
 
-                GooSpreadRecipeBuilder.shapeless(DataGenUtil.getResource("redstonic"),
-                                Blocks.REDSTONE_BLOCK.defaultBlockState(),
-                                zBlocks.RAW_REDSTONIC.get().defaultBlockState(), 5, 4000)
-                                .unlockedBy(ID, itemInv(Blocks.REDSTONE_BLOCK.asItem())).group(ID).save(c);
+                // GooSpreadRecipeBuilder.shapeless(DataGenUtil.getResource("redstonic"),
+                //                 Blocks.REDSTONE_BLOCK.defaultBlockState(),
+                //                 zBlocks.RAW_REDSTONIC.get().defaultBlockState(), 5, 4000)
+                //                 .unlockedBy(ID, itemInv(Blocks.REDSTONE_BLOCK.asItem())).group(ID).save(c);
 
-                GooSpreadRecipeTagBuilder.shapeless(DataGenUtil.getResource("coprinium"),
-                                new BlockTagIngredient(zMultiTags.COPPER_BLOCKS.block()),
-                                zBlocks.RAW_COPRINIUM.get().defaultBlockState(), 5, 4000)
-                                .unlockedBy(ID, itemInv(Blocks.COPPER_BLOCK.asItem())).group(ID)
-                                .save(c);
+                // GooSpreadRecipeTagBuilder.shapeless(DataGenUtil.getResource("coprinium"),
+                //                 new BlockTagIngredient(zMultiTags.COPPER_BLOCKS.block()),
+                //                 zBlocks.RAW_COPRINIUM.get().defaultBlockState(), 5, 4000)
+                //                 .unlockedBy(ID, itemInv(Blocks.COPPER_BLOCK.asItem())).group(ID)
+                //                 .save(c);
 
-                blasting(zItems.RAW_COPRINIUM.get(), zItems.COPRINIUM_INGOT.get(), 0.1F);
+                // blasting(zItems.RAW_COPRINIUM.get(), zItems.COPRINIUM_INGOT.get(), 0.1F);
 
         }
 

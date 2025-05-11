@@ -19,7 +19,9 @@ public class AmethystBE extends BuddingBE{
     }
 
     public AmethystBE(BlockPos pos, BlockState state) {
-        this(zBlockEntities.BUDDING_AMETHYST.get(), pos, state);
+        this(null
+            //zBlockEntities.BUDDING_AMETHYST.get()
+        , pos, state);
     }
     
 }

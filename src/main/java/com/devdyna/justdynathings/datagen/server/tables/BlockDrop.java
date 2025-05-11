@@ -41,9 +41,9 @@ public class BlockDrop extends BlockLootSubProvider {
                 zBlocks.zBlockItem.getEntries().forEach(b -> dropSelf(b.get()));
                 zBlocks.zGoo.getEntries().forEach(b -> dropSelf(b.get()));
 
-                add(zBlocks.RAW_CHAOTIC.get(), createOreDrop(zBlocks.RAW_CHAOTIC.get(), zItems.CHAOTIC_DUST.get()));
-                add(zBlocks.RAW_COPRINIUM.get(), createOreDrop(zBlocks.RAW_COPRINIUM.get(), zItems.RAW_COPRINIUM.get()));
-                add(zBlocks.RAW_REDSTONIC.get(), createOreDrop(zBlocks.RAW_REDSTONIC.get(), zItems.REDSTONIC_GEM.get()));
+                // add(zBlocks.RAW_CHAOTIC.get(), createOreDrop(zBlocks.RAW_CHAOTIC.get(), zItems.CHAOTIC_DUST.get()));
+                // add(zBlocks.RAW_COPRINIUM.get(), createOreDrop(zBlocks.RAW_COPRINIUM.get(), zItems.RAW_COPRINIUM.get()));
+                // add(zBlocks.RAW_REDSTONIC.get(), createOreDrop(zBlocks.RAW_REDSTONIC.get(), zItems.REDSTONIC_GEM.get()));
 
 
         }

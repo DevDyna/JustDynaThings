@@ -19,7 +19,9 @@ public class TimeBE extends BuddingBE {
     }
 
     public TimeBE(BlockPos pos, BlockState state) {
-        this(zBlockEntities.BUDDING_TIME.get(), pos, state);
+        this(null
+           // zBlockEntities.BUDDING_TIME.get()
+        , pos, state);
     }
 
 }

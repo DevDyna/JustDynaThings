@@ -38,17 +38,17 @@ public class DataItemTag extends ItemTagsProvider {
                 Blocks.WAXED_WEATHERED_COPPER_BULB.asItem(),
                 Blocks.WAXED_OXIDIZED_COPPER_BULB.asItem());
 
-        tag(Tags.Items.DUSTS).add(zItems.CHAOTIC_DUST.get());
-        tag(zItemTags.DUSTS_CHAOTIC).add(zItems.CHAOTIC_DUST.get());
+        // tag(Tags.Items.DUSTS).add(zItems.CHAOTIC_DUST.get());
+        // tag(zItemTags.DUSTS_CHAOTIC).add(zItems.CHAOTIC_DUST.get());
 
-        tag(Tags.Items.RAW_MATERIALS).add(zItems.RAW_COPRINIUM.get());
-        tag(zItemTags.RAW_MATERIALS_COPRINIUM).add(zItems.RAW_COPRINIUM.get());
+        // tag(Tags.Items.RAW_MATERIALS).add(zItems.RAW_COPRINIUM.get());
+        // tag(zItemTags.RAW_MATERIALS_COPRINIUM).add(zItems.RAW_COPRINIUM.get());
 
-        tag(Tags.Items.GEMS).add(zItems.REDSTONIC_GEM.get());
-        tag(zItemTags.GEMS_REDSTONIC).add(zItems.REDSTONIC_GEM.get());
+        // tag(Tags.Items.GEMS).add(zItems.REDSTONIC_GEM.get());
+        // tag(zItemTags.GEMS_REDSTONIC).add(zItems.REDSTONIC_GEM.get());
 
-        tag(Tags.Items.INGOTS).add(zItems.COPRINIUM_INGOT.get());
-        tag(zItemTags.INGOTS_COPRINIUM).add(zItems.COPRINIUM_INGOT.get());
+        // tag(Tags.Items.INGOTS).add(zItems.COPRINIUM_INGOT.get());
+        // tag(zItemTags.INGOTS_COPRINIUM).add(zItems.COPRINIUM_INGOT.get());
 
         tag(zItemTags.CREATIVE_GOO_WRENCHES)
         .addOptionalTag(Tags.Items.TOOLS_WRENCH)
@@ -69,8 +69,9 @@ public class DataItemTag extends ItemTagsProvider {
                         NETHERITE_INGOT,
                         NETHERITE_SCRAP,
                         HEART_OF_THE_SEA,
-                        HEAVY_CORE,
-                        zItems.CHAOTIC_DUST.get());
+                        HEAVY_CORE
+                        // ,zItems.CHAOTIC_DUST.get()
+                        );
 
     }
 

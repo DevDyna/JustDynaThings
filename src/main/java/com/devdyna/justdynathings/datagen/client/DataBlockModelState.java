@@ -49,7 +49,7 @@ public class DataBlockModelState extends BlockStateProvider {
                                                                         .getExistingFile(DataGenUtil.getResource(
                                                                                         "block/" + DataGenUtil
                                                                                                         .getName(b))))
-                                                        .rotationY(dir == Direction.NORTH || dir == Direction.SOUTH ? 90
+                                                        .rotationY(dir == Direction.EAST || dir == Direction.WEST ? 90
                                                                         : 0)
                                                         .build();
                                 });

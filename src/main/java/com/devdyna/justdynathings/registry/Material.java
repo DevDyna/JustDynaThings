@@ -2,7 +2,6 @@ package com.devdyna.justdynathings.registry;
 
 import static com.devdyna.justdynathings.Main.ID;
 
-import java.util.ArrayList;
 import java.util.function.Supplier;
 
 import com.devdyna.justdynathings.Constants;

@@ -18,6 +18,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.registries.DeferredHolder;
 
 @SuppressWarnings("unused")
 public class DataBlockModelState extends BlockStateProvider {
@@ -37,6 +38,10 @@ public class DataBlockModelState extends BlockStateProvider {
                 BaseGooStateModel(zBlocks.T4_GOO.get());
                 AnvilStateModel(zBlocks.BLAZING_ANVIL.get());
                 PhaseBox(zBlocks.PHASEBOX.get());
+                simpleBlock(zBlocks.BLACKHOLE.get());
+                simpleBlock(zBlocks.SOLARGEN.get());
+                DirectionalBlocks(zBlocks.THERMOGEN.get());
+                
 
         }
 
@@ -80,6 +85,11 @@ public class DataBlockModelState extends BlockStateProvider {
                                                 "block/" + b.getDescriptionId().replace("block." + ID + ".", "")
                                                                 + "/" + false)))
                                 .addModel();
+        }
+
+        private void DirectionalBlocks(Block block) {
+                directionalBlock(block, models().getExistingFile(DataGenUtil.getResource(
+                                "block/" + block.getDescriptionId().replace("block." + ID + ".", ""))));
         }
 
 }

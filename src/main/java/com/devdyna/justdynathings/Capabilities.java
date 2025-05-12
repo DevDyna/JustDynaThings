@@ -1,5 +1,6 @@
 package com.devdyna.justdynathings;
 
+import com.devdyna.justdynathings.registry.Material;
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyMachine;
 import com.devdyna.justdynathings.registry.interfaces.be.FluidMachine;
 import com.devdyna.justdynathings.registry.types.zBlocks;
@@ -57,11 +58,11 @@ public class Capabilities {
                 // ---------------------------------------------------------------------------------------//
 
                 // generic energyhandler - buddings
-                // event.registerBlock(EnergyStorage.BLOCK, (level, pos, state, be,
-                //                 side) -> (be instanceof PoweredMachineBE || be instanceof EnergyMachine)
-                //                                 ? be.getData(Registration.ENERGYSTORAGE_MACHINES)
-                //                                 : null,
-                //                 Material.getBuddingAvailable());
+                event.registerBlock(EnergyStorage.BLOCK, (level, pos, state, be,
+                                side) -> (be instanceof PoweredMachineBE || be instanceof EnergyMachine)
+                                                ? be.getData(Registration.ENERGYSTORAGE_MACHINES)
+                                                : null,
+                                Material.getBuddingAvailable());
 
                 // fluidhandler time storage
                 event.registerBlock(FluidHandler.BLOCK,
@@ -72,12 +73,12 @@ public class Capabilities {
                                 zBlocks.TICKER.get());
 
                 // fluidhandler time storage - buddings
-                // event.registerBlock(FluidHandler.BLOCK,
-                //                 (level, pos, state, be,
-                //                                 side) -> (be instanceof FluidMachineBE || be instanceof FluidMachine)
-                //                                                 ? be.getData(Registration.PARADOX_FLUID_HANDLER)
-                //                                                 : null,
-                //                 Material.getBuddingAvailable());
+                event.registerBlock(FluidHandler.BLOCK,
+                                (level, pos, state, be,
+                                                side) -> (be instanceof FluidMachineBE || be instanceof FluidMachine)
+                                                                ? be.getData(Registration.PARADOX_FLUID_HANDLER)
+                                                                : null,
+                                Material.getBuddingAvailable());
 
                 // fluidhandler thermo coolers
                 event.registerBlock(FluidHandler.BLOCK,

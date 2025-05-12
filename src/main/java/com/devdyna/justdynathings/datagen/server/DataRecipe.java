@@ -14,6 +14,9 @@ import com.devdyna.justdynathings.utils.DataGenUtil;
 import com.direwolf20.justdirethings.datagen.recipes.GooSpreadRecipeBuilder;
 import com.direwolf20.justdirethings.datagen.recipes.GooSpreadRecipeTagBuilder;
 import com.direwolf20.justdirethings.setup.Registration;
+import com.glodblock.github.extendedae.common.EAESingletons;
+
+import appeng.core.definitions.AEBlocks;
 
 import static com.devdyna.justdynathings.Main.ID;
 
@@ -26,10 +29,16 @@ import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.crafting.BlockTagIngredient;
+import xyz.milosworks.phasoritenetworks.init.PNBlocks;
+
+import static com.devdyna.justdynathings.compat.ae2.init.AE2_POWERED;
+import static com.devdyna.justdynathings.compat.extendedae.init.EXTENDED_POWERED;
+import static com.devdyna.justdynathings.compat.phasorite.init.PHASORITE_POWERED;
 
 @SuppressWarnings({ "null", "unused" })
 public class DataRecipe extends RecipeProvider {
@@ -41,7 +50,6 @@ public class DataRecipe extends RecipeProvider {
         @Override
         protected void buildRecipes(RecipeOutput c) {
 
-                ShapedRecipeBuilder.shaped(MISC, zBlocks.FERRITECORE_CLOCK.get(), 1)
                 ShapedRecipeBuilder.shaped(MISC, zBlocks.FERRICORE_CLOCK.get(), 1)
                                 .pattern("ABA")
                                 .pattern("BCB")
@@ -114,39 +122,38 @@ public class DataRecipe extends RecipeProvider {
                                 .unlockedBy(ID, itemInv(Blocks.OBSIDIAN.asItem())).group(ID)
                                 .save(c);
 
-                ShapedRecipeBuilder.shaped(MISC, zBlocks.BUDDING_AMETHYST.get(), 2)
-                                .pattern("AAA")
-                                .pattern("ABA")
-                                .pattern("AAA")
-                                .define('B', Blocks.AMETHYST_BLOCK.asItem())
-                                .define('A', Items.ECHO_SHARD)
-                                .unlockedBy(ID, itemInv(Items.ECHO_SHARD)).group(ID).save(c);
+                Budding(zBlocks.BUDDING_AMETHYST.get().asItem(), Items.AMETHYST_BLOCK, c);
+                Budding(zBlocks.BUDDING_TIME.get().asItem(), Registration.TimeCrystalBlock.get().asItem(), c);
+                Budding(AE2_POWERED.get().asItem(), AEBlocks.QUARTZ_BLOCK.asItem(), c);
+                Budding(EXTENDED_POWERED.get().asItem(), EAESingletons.ENTRO_BLOCK.asItem(), c);
+                Budding(PHASORITE_POWERED.get().asItem(), PNBlocks.INSTANCE.getPHASORITE_BLOCK().asItem(), c);
 
-                ShapedRecipeBuilder.shaped(MISC, zBlocks.BUDDING_TIME.get(), 2)
-                                .pattern("AAA")
-                                .pattern("ABA")
-                                .pattern("AAA")
-                                .define('B', Registration.TimeCrystalBlock_ITEM.get())
-                                .define('A', Items.ECHO_SHARD)
-                                .unlockedBy(ID, itemInv(Items.ECHO_SHARD)).group(ID).save(c);
+                ShapedRecipeBuilder.shaped(MISC, zBlocks.BLACKHOLE.get(), 1)
+                                .pattern("FBF")
+                                .pattern("RKR")
+                                .pattern("FBF")
+                                .define('F', Registration.FerricoreIngot.get())
+                                .define('K', Items.REDSTONE_BLOCK)
+                                .define('R', Items.REDSTONE)
+                                .define('B', Items.BUCKET)
+                                .unlockedBy(ID, itemInv(Registration.FerricoreIngot.get())).group(ID).save(c);
 
-                // GooSpreadRecipeBuilder.shapeless(DataGenUtil.getResource("chaotic"),
-                //                 Blocks.AMETHYST_BLOCK.defaultBlockState(),
-                //                 zBlocks.RAW_CHAOTIC.get().defaultBlockState(), 5, 4000)
-                //                 .unlockedBy(ID, itemInv(Blocks.AMETHYST_BLOCK.asItem())).group(ID).save(c);
+                ShapedRecipeBuilder.shaped(MISC, zBlocks.THERMOGEN.get(), 1)
+                                .pattern(" E ")
+                                .pattern("RGR")
+                                .pattern("GEG")
+                                .define('E', Registration.Coal_T2.get())
+                                .define('R', Items.REDSTONE)
+                                .define('B', Registration.BlazegoldIngot.get())
+                                .unlockedBy(ID, itemInv(Registration.Coal_T2.get())).group(ID).save(c);
 
-                // GooSpreadRecipeBuilder.shapeless(DataGenUtil.getResource("redstonic"),
-                //                 Blocks.REDSTONE_BLOCK.defaultBlockState(),
-                //                 zBlocks.RAW_REDSTONIC.get().defaultBlockState(), 5, 4000)
-                //                 .unlockedBy(ID, itemInv(Blocks.REDSTONE_BLOCK.asItem())).group(ID).save(c);
-
-                // GooSpreadRecipeTagBuilder.shapeless(DataGenUtil.getResource("coprinium"),
-                //                 new BlockTagIngredient(zMultiTags.COPPER_BLOCKS.block()),
-                //                 zBlocks.RAW_COPRINIUM.get().defaultBlockState(), 5, 4000)
-                //                 .unlockedBy(ID, itemInv(Blocks.COPPER_BLOCK.asItem())).group(ID)
-                //                 .save(c);
-
-                // blasting(zItems.RAW_COPRINIUM.get(), zItems.COPRINIUM_INGOT.get(), 0.1F);
+                ShapedRecipeBuilder.shaped(MISC, zBlocks.SOLARGEN.get(), 2)
+                                .pattern("LLL")
+                                .pattern("FCF")
+                                .define('L', Items.LAPIS_LAZULI)
+                                .define('F', Registration.FerricoreIngot.get())
+                                .define('C', Registration.Coal_T2.get())
+                                .unlockedBy(ID, itemInv(Registration.Coal_T2.get())).group(ID).save(c);
 
         }
 
@@ -177,6 +184,16 @@ public class DataRecipe extends RecipeProvider {
 
         private void smoking(Item input, Item output, float xp) {
                 smoking(input, output, xp, 200);
+        }
+
+        private void Budding(ItemLike input, Item output, RecipeOutput c) {
+                ShapedRecipeBuilder.shaped(MISC, input, 2)
+                                .pattern("AAA")
+                                .pattern("ABA")
+                                .pattern("AAA")
+                                .define('B', output)
+                                .define('A', Items.ECHO_SHARD)
+                                .unlockedBy(ID, itemInv(Items.ECHO_SHARD)).group(ID).save(c);
         }
 
         /*

@@ -103,9 +103,13 @@ public class DataBlockModelState extends BlockStateProvider {
 
         }
 
-        private void SimpleBlock(Block block) {
+        private void SimpleBlock(Block block, String modid) {
                 simpleBlock(block, models().getExistingFile(DataGenUtil.getResource(
-                                "block/" + block.getDescriptionId().replace("block." + ID + ".", ""))));
+                                "block/" + block.getDescriptionId().replace("block." + ID + ".", ""), modid)));
+        }
+
+        private void SimpleBlock(Block block) {
+                SimpleBlock(block, ID);
         }
 
 }

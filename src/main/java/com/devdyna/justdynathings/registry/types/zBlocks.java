@@ -78,6 +78,7 @@ public class zBlocks {
         public static final DeferredHolder<Block, ?> BUDDING_AMETHYST = Material.DireStuff
                         .registerBudding(Constants.Budding.Amethyst, () -> new AmethystBlock());
 
+                        //TODO convert to CELESTIGEM anvil and make another anvil
         public static final DeferredHolder<Block, ?> BLAZING_ANVIL = Material
                         .registerItemAndBlock(Constants.Blocks.BlazingAnvil, BlazingAnvilBlock::new);
 

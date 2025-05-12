@@ -122,6 +122,7 @@ public class DataRecipe extends RecipeProvider {
                                 .unlockedBy(ID, itemInv(Blocks.OBSIDIAN.asItem())).group(ID)
                                 .save(c);
 
+                // TODO check amethyst budding
                 Budding(zBlocks.BUDDING_AMETHYST.get().asItem(), Items.AMETHYST_BLOCK, c);
                 Budding(zBlocks.BUDDING_TIME.get().asItem(), Registration.TimeCrystalBlock.get().asItem(), c);
                 Budding(AE2_POWERED.get().asItem(), AEBlocks.QUARTZ_BLOCK.asItem(), c);

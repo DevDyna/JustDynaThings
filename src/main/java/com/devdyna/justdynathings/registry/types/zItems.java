@@ -40,6 +40,7 @@ public class zItems {
         // public static final DeferredHolder<Item, Item> COPRINIUM_INGOT = zItem
         //                 .registerSimpleItem(Constants.Ores.Coprinium.ingot);
 
+        //TODO add more fuels and add to CTab
         public static final DeferredHolder<Item, ?> BIOFUEL = Material.DireStuff.FuelItemDW(Constants.Fuel.Biofuel(1),
                         3);
 

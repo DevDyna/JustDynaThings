@@ -1,0 +1,108 @@
+{
+  "variants": {
+    "facing=down,thermo_cooled=false,thermo_heated=false": {
+      "model": "justdynathings:block/thermo_generator",
+      "x": 180
+    },
+    "facing=down,thermo_cooled=false,thermo_heated=true": {
+      "model": "justdynathings:block/thermo_generator",
+      "x": 180
+    },
+    "facing=down,thermo_cooled=true,thermo_heated=false": {
+      "model": "justdynathings:block/thermo_generator",
+      "x": 180
+    },
+    "facing=down,thermo_cooled=true,thermo_heated=true": {
+      "model": "justdynathings:block/thermo_generator",
+      "x": 180
+    },
+    "facing=east,thermo_cooled=false,thermo_heated=false": {
+      "model": "justdynathings:block/thermo_generator",
+      "x": 90,
+      "y": 90
+    },
+    "facing=east,thermo_cooled=false,thermo_heated=true": {
+      "model": "justdynathings:block/thermo_generator",
+      "x": 90,
+      "y": 90
+    },
+    "facing=east,thermo_cooled=true,thermo_heated=false": {
+      "model": "justdynathings:block/thermo_generator",
+      "x": 90,
+      "y": 90
+    },
+    "facing=east,thermo_cooled=true,thermo_heated=true": {
+      "model": "justdynathings:block/thermo_generator",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north,thermo_cooled=false,thermo_heated=false": {
+      "model": "justdynathings:block/thermo_generator",
+      "x": 90
+    },
+    "facing=north,thermo_cooled=false,thermo_heated=true": {
+      "model": "justdynathings:block/thermo_generator",
+      "x": 90
+    },
+    "facing=north,thermo_cooled=true,thermo_heated=false": {
+      "model": "justdynathings:block/thermo_generator",
+      "x": 90
+    },
+    "facing=north,thermo_cooled=true,thermo_heated=true": {
+      "model": "justdynathings:block/thermo_generator",
+      "x": 90
+    },
+    "facing=south,thermo_cooled=false,thermo_heated=false": {
+      "model": "justdynathings:block/thermo_generator",
+      "x": 90,
+      "y": 180
+    },
+    "facing=south,thermo_cooled=false,thermo_heated=true": {
+      "model": "justdynathings:block/thermo_generator",
+      "x": 90,
+      "y": 180
+    },
+    "facing=south,thermo_cooled=true,thermo_heated=false": {
+      "model": "justdynathings:block/thermo_generator",
+      "x": 90,
+      "y": 180
+    },
+    "facing=south,thermo_cooled=true,thermo_heated=true": {
+      "model": "justdynathings:block/thermo_generator",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up,thermo_cooled=false,thermo_heated=false": {
+      "model": "justdynathings:block/thermo_generator"
+    },
+    "facing=up,thermo_cooled=false,thermo_heated=true": {
+      "model": "justdynathings:block/thermo_generator"
+    },
+    "facing=up,thermo_cooled=true,thermo_heated=false": {
+      "model": "justdynathings:block/thermo_generator"
+    },
+    "facing=up,thermo_cooled=true,thermo_heated=true": {
+      "model": "justdynathings:block/thermo_generator"
+    },
+    "facing=west,thermo_cooled=false,thermo_heated=false": {
+      "model": "justdynathings:block/thermo_generator",
+      "x": 90,
+      "y": 270
+    },
+    "facing=west,thermo_cooled=false,thermo_heated=true": {
+      "model": "justdynathings:block/thermo_generator",
+      "x": 90,
+      "y": 270
+    },
+    "facing=west,thermo_cooled=true,thermo_heated=false": {
+      "model": "justdynathings:block/thermo_generator",
+      "x": 90,
+      "y": 270
+    },
+    "facing=west,thermo_cooled=true,thermo_heated=true": {
+      "model": "justdynathings:block/thermo_generator",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

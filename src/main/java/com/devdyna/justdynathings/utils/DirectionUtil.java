@@ -7,10 +7,18 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.Property;
 
 public class DirectionUtil {
 
     public static Direction[] ALL = Direction.values();
+
+    public static Direction[] HORIZONTAL = {
+        Direction.NORTH,
+        Direction.SOUTH,
+        Direction.EAST,
+        Direction.WEST
+    };
 
     public static int span = 18;
 
@@ -32,12 +40,23 @@ public class DirectionUtil {
             BlockStateProperties.EAST
     };
 
+        public static BooleanProperty[] horizontal_face = {
+            BlockStateProperties.NORTH,
+            BlockStateProperties.SOUTH,
+            BlockStateProperties.EAST,
+            BlockStateProperties.WEST
+    };
+
     public static int indexByDir(Direction d) {
         return Arrays.asList(ALL).indexOf(d);
     }
 
-    public static BooleanProperty StateByDir(Direction d) {
-        return face[Arrays.asList(ALL).indexOf(d)];
+    public static Property<?> StateByDir(Direction d) {
+        return StateByDir(d,face,ALL);
+    }
+
+    public static Property<?> StateByDir(Direction d,Property<?>[] p,Direction[] s) {
+        return p[Arrays.asList(s).indexOf(d)];
     }
 
     public static Direction randomDirection(Level l, Direction[] d) {

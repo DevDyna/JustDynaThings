@@ -12,9 +12,12 @@ import com.devdyna.justdynathings.utils.DirectionUtil;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.AnvilBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -22,6 +25,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 @SuppressWarnings("null")
 public class SolarBlock extends BaseMachineBlock {
@@ -31,16 +36,21 @@ public class SolarBlock extends BaseMachineBlock {
     }
 
     @Override
+    protected VoxelShape getShape(BlockState s, BlockGetter l, BlockPos p, CollisionContext c) {
+        return Block.box(0, 0, 0, 16, 4, 16);
+    }
+
+    @Override
     public BlockState getStateForPlacement(BlockPlaceContext c) {
         var state = defaultBlockState()
                 .setValue(zProperties.ACTIVE, false);
 
         // BlockStateProperties.HORIZONTAL_FACING.getAllValues().forEach(d -> {
 
-        //     state.setValue(
-        //             DirectionUtil.horizontal_face[Arrays.asList(DirectionUtil.HORIZONTAL).indexOf(d.value())],
-        //             c.getLevel().getBlockState(c.getClickedPos().relative(d.value()))
-        //                     .is(zBlocks.SOLARGEN.get()));
+        // state.setValue(
+        // DirectionUtil.horizontal_face[Arrays.asList(DirectionUtil.HORIZONTAL).indexOf(d.value())],
+        // c.getLevel().getBlockState(c.getClickedPos().relative(d.value()))
+        // .is(zBlocks.SOLARGEN.get()));
         // });
 
         return state;
@@ -50,7 +60,7 @@ public class SolarBlock extends BaseMachineBlock {
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> b) {
         b.add(zProperties.ACTIVE);
         // for (BooleanProperty face : DirectionUtil.horizontal_face) {
-        //     b.add(face);
+        // b.add(face);
         // }
     }
 

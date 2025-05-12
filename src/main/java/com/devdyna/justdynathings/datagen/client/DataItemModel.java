@@ -23,8 +23,10 @@ public class DataItemModel extends ItemModelProvider {
                 zItems.zItem.getEntries()
                                 .forEach(item -> DataGenUtil.itemModel(item.get(), this));
 
-                DataGenUtil.itemBlockwithParent(zBlocks.BLAZING_ANVIL.get(), this,
-                                ID + ":block/" + DataGenUtil.getName(zBlocks.BLAZING_ANVIL.get()));
+                DataGenUtil.itemBlock(zBlocks.BLAZING_ANVIL.get(), this);
+                DataGenUtil.itemBlock(zBlocks.THERMOGEN.get(), this);
+                DataGenUtil.itemBlock(zBlocks.SOLARGEN.get(), this);
+                DataGenUtil.itemBlock(zBlocks.BLACKHOLE.get(), this);
 
                 DataGenUtil.itemBlockwithParent(zBlocks.FERRITECORE_CLOCK.get(), this,
                                 "block/cube_all", "all",

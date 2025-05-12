@@ -37,8 +37,8 @@ public class ClockBlock extends BaseMachineBlock {
             BlockHitResult hitResult) {
 
         if (player.isCrouching()) {
-            level.setBlockAndUpdate(pos, state.setValue(DirectionUtil.StateByDir(hitResult.getDirection()),
-                    !state.getValue(DirectionUtil.StateByDir(hitResult.getDirection()))));
+            level.setBlockAndUpdate(pos, state.setValue((BooleanProperty)DirectionUtil.StateByDir(hitResult.getDirection()),
+                    !state.getValue((BooleanProperty)DirectionUtil.StateByDir(hitResult.getDirection()))));
                     //TODO sound
             return InteractionResult.SUCCESS;
         } else {
@@ -55,7 +55,7 @@ public class ClockBlock extends BaseMachineBlock {
     @Override
     protected int getSignal(BlockState b, BlockGetter g, BlockPos p, Direction d) {
         return b.getValue(zProperties.ACTIVE).booleanValue()
-                && b.getValue(DirectionUtil.StateByDir(d.getOpposite())).booleanValue()
+                && b.getValue((BooleanProperty)DirectionUtil.StateByDir(d.getOpposite())).booleanValue()
                         ? 15
                         : 0;
     }

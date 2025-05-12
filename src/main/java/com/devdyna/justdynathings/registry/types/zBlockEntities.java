@@ -76,9 +76,9 @@ public class zBlockEntities {
                         .register(Constants.Blocks.BlazingAnvil,
                                         () -> Builder.of(BlazingAnvilBE::new, zBlocks.BLAZING_ANVIL.get()).build(null));
 
-        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ClockBE>> FERRITECORE_CLOCK = zBE
-                        .register(Constants.Blocks.FerritecoreClock,
-                                        () -> Builder.of(ClockBE::new, zBlocks.FERRITECORE_CLOCK.get()).build(null));
+        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ClockBE>> FERRICORE_CLOCK = zBE
+                        .register(Constants.Blocks.FerricoreClock,
+                                        () -> Builder.of(ClockBE::new, zBlocks.FERRICORE_CLOCK.get()).build(null));
 
         public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<RevitalizerBE>> REVITALIZER = zBE
                         .register(Constants.Blocks.Revitalizer,

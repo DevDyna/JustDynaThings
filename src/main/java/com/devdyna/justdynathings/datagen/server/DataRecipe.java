@@ -42,6 +42,7 @@ public class DataRecipe extends RecipeProvider {
         protected void buildRecipes(RecipeOutput c) {
 
                 ShapedRecipeBuilder.shaped(MISC, zBlocks.FERRITECORE_CLOCK.get(), 1)
+                ShapedRecipeBuilder.shaped(MISC, zBlocks.FERRICORE_CLOCK.get(), 1)
                                 .pattern("ABA")
                                 .pattern("BCB")
                                 .pattern("ABA")

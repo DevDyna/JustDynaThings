@@ -81,8 +81,8 @@ public class zBlocks {
         public static final DeferredHolder<Block, ?> BLAZING_ANVIL = Material
                         .registerItemAndBlock(Constants.Blocks.BlazingAnvil, BlazingAnvilBlock::new);
 
-        public static final DeferredHolder<Block, ?> FERRITECORE_CLOCK = Material
-                        .registerItemAndBlock(Constants.Blocks.FerritecoreClock, ClockBlock::new);
+        public static final DeferredHolder<Block, ?> FERRICORE_CLOCK = Material
+                        .registerItemAndBlock(Constants.Blocks.FerricoreClock, ClockBlock::new);
 
         public static final DeferredHolder<Block, ?> REVITALIZER = Material
                         .registerItemAndBlock(Constants.Blocks.Revitalizer, RevitalizerBlock::new);

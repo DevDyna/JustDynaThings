@@ -17,13 +17,13 @@ public class ClockGUI extends BaseMachineContainer {
     }
 
     public ClockGUI(int windowId, Inventory playerInventory, BlockPos blockPos) {
-        super(zContainers.FERRITECORE_CLOCK.get(), windowId, playerInventory, blockPos);
+        super(zContainers.FERRICORE_CLOCK.get(), windowId, playerInventory, blockPos);
         addPlayerSlots(player.getInventory());
     }
 
     @Override
     public boolean stillValid(Player playerIn) {
-        return stillValid(ContainerLevelAccess.create(player.level(), pos), player, zBlocks.FERRITECORE_CLOCK.get());
+        return stillValid(ContainerLevelAccess.create(player.level(), pos), player, zBlocks.FERRICORE_CLOCK.get());
     }
 
     @Override

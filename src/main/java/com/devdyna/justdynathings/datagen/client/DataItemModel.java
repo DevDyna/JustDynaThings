@@ -28,9 +28,9 @@ public class DataItemModel extends ItemModelProvider {
                 DataGenUtil.itemBlock(zBlocks.SOLARGEN.get(), this);
                 DataGenUtil.itemBlock(zBlocks.BLACKHOLE.get(), this);
 
-                DataGenUtil.itemBlockwithParent(zBlocks.FERRITECORE_CLOCK.get(), this,
+                DataGenUtil.itemBlockwithParent(zBlocks.FERRICORE_CLOCK.get(), this,
                                 "block/cube_all", "all",
-                                ID + ":block/" + DataGenUtil.getName(zBlocks.FERRITECORE_CLOCK.get()) + "/on");
+                                ID + ":block/" + DataGenUtil.getName(zBlocks.FERRICORE_CLOCK.get()) + "/on");
 
                 DataGenUtil.itemBlockwithParent(zBlocks.PHASEBOX.get(), this,
                                 ID + ":block/" + DataGenUtil.getName(zBlocks.PHASEBOX.get()) + "/true");

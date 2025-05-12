@@ -31,8 +31,8 @@ public class zContainers {
                         .register(Constants.Blocks.BlazingAnvil,
                                         () -> IMenuTypeExtension.create(BlazingAnvilGUI::new));
 
-        public static final DeferredHolder<MenuType<?>, MenuType<ClockGUI>> FERRITECORE_CLOCK = zCTNR
-                        .register(Constants.Blocks.FerritecoreClock,
+        public static final DeferredHolder<MenuType<?>, MenuType<ClockGUI>> FERRICORE_CLOCK = zCTNR
+                        .register(Constants.Blocks.FerricoreClock,
                                         () -> IMenuTypeExtension.create(ClockGUI::new));
 
         public static final DeferredHolder<MenuType<?>, MenuType<ThermoGUI>> THERMOGEN = zCTNR

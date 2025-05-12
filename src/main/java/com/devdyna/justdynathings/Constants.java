@@ -16,7 +16,7 @@ public class Constants {
         public static String PhaseBox = "phase_box";
         public static String Reforger = "reforger";
         public static String BlazingAnvil = "blazing_anvil";
-        public static String FerritecoreClock = "ferritecore_clock";
+        public static String FerricoreClock = "ferricore_clock";
         public static String Revitalizer = "revitalizer";
         public static String Ticker = "ticker";
         public static String Sculk = "sculk";

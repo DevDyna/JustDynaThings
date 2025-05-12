@@ -24,7 +24,7 @@ public class Client {
     public static void registerScreens(RegisterMenuScreensEvent event) {
         event.register(zContainers.REFORGER.get(), ReforgerScreen::new);
         event.register(zContainers.BLAZING_ANVIL.get(), BlazingAnvilScreen::new);
-        event.register(zContainers.FERRITECORE_CLOCK.get(), ClockScreen::new);
+        event.register(zContainers.FERRICORE_CLOCK.get(), ClockScreen::new);
         event.register(zContainers.THERMOGEN.get(), ThermoScreen::new);
         event.register(zContainers.BLACKHOLE.get(), BlackHoleScreen::new);
         event.register(zContainers.SOLAR_PANEL.get(), SolarScreen::new);

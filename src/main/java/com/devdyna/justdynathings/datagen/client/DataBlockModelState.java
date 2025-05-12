@@ -40,8 +40,7 @@ public class DataBlockModelState extends BlockStateProvider {
                 PhaseBox(zBlocks.PHASEBOX.get());
                 SimpleBlock(zBlocks.BLACKHOLE.get());
                 SimpleBlock(zBlocks.SOLARGEN.get());
-                DirectionalBlocks(zBlocks.THERMOGEN.get());
-                
+                inversDirectionalBlocks(zBlocks.THERMOGEN.get());
 
         }
 
@@ -87,12 +86,25 @@ public class DataBlockModelState extends BlockStateProvider {
                                 .addModel();
         }
 
-        private void DirectionalBlocks(Block block) {
-                directionalBlock(block, models().getExistingFile(DataGenUtil.getResource(
-                                "block/" + block.getDescriptionId().replace("block." + ID + ".", ""))));
+        private void inversDirectionalBlocks(Block block) {
+                var model = models().getExistingFile(DataGenUtil.getResource(
+                                "block/" + DataGenUtil.getName(block)));
+                getVariantBuilder(block)
+                                .forAllStates(state -> {
+                                        Direction dir = state.getValue(BlockStateProperties.FACING);
+                                        return ConfiguredModel.builder()
+                                                        .modelFile(model)
+                                                        .rotationX(dir == Direction.UP ? 180
+                                                                        : dir.getAxis().isHorizontal() ? 90 : 0)
+                                                        .rotationY(dir.getAxis().isVertical() ? 0
+                                                                        : (int) dir.toYRot() % 360)
+                                                        .build();
+                                });
+
         }
-        private void SimpleBlock(Block block){
-                simpleBlock(block,models().getExistingFile(DataGenUtil.getResource(
+
+        private void SimpleBlock(Block block) {
+                simpleBlock(block, models().getExistingFile(DataGenUtil.getResource(
                                 "block/" + block.getDescriptionId().replace("block." + ID + ".", ""))));
         }
 

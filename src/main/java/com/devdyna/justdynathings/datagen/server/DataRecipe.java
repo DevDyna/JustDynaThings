@@ -113,21 +113,21 @@ public class DataRecipe extends RecipeProvider {
                                 .unlockedBy(ID, itemInv(Blocks.OBSIDIAN.asItem())).group(ID)
                                 .save(c);
 
-                // ShapedRecipeBuilder.shaped(MISC, zBlocks.BUDDING_AMETHYST.get(), 1)
-                //                 .pattern("AAA")
-                //                 .pattern("ABA")
-                //                 .pattern("AAA")
-                //                 .define('B', Blocks.AMETHYST_BLOCK.asItem())
-                //                 .define('A', Items.ECHO_SHARD)
-                //                 .unlockedBy(ID, itemInv(Items.ECHO_SHARD)).group(ID).save(c);
+                ShapedRecipeBuilder.shaped(MISC, zBlocks.BUDDING_AMETHYST.get(), 2)
+                                .pattern("AAA")
+                                .pattern("ABA")
+                                .pattern("AAA")
+                                .define('B', Blocks.AMETHYST_BLOCK.asItem())
+                                .define('A', Items.ECHO_SHARD)
+                                .unlockedBy(ID, itemInv(Items.ECHO_SHARD)).group(ID).save(c);
 
-                // ShapedRecipeBuilder.shaped(MISC, zBlocks.BUDDING_TIME.get(), 1)
-                //                 .pattern("AAA")
-                //                 .pattern("ABA")
-                //                 .pattern("AAA")
-                //                 .define('B', Registration.TimeCrystalBlock_ITEM.get())
-                //                 .define('A', Items.ECHO_SHARD)
-                //                 .unlockedBy(ID, itemInv(Items.ECHO_SHARD)).group(ID).save(c);
+                ShapedRecipeBuilder.shaped(MISC, zBlocks.BUDDING_TIME.get(), 2)
+                                .pattern("AAA")
+                                .pattern("ABA")
+                                .pattern("AAA")
+                                .define('B', Registration.TimeCrystalBlock_ITEM.get())
+                                .define('A', Items.ECHO_SHARD)
+                                .unlockedBy(ID, itemInv(Items.ECHO_SHARD)).group(ID).save(c);
 
                 // GooSpreadRecipeBuilder.shapeless(DataGenUtil.getResource("chaotic"),
                 //                 Blocks.AMETHYST_BLOCK.defaultBlockState(),

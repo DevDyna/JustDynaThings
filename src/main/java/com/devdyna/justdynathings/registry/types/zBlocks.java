@@ -6,6 +6,8 @@ import com.devdyna.justdynathings.registry.Material;
 import com.devdyna.justdynathings.registry.builders.PhaseBox;
 import com.devdyna.justdynathings.registry.builders.black_hole.BlackHoleBlock;
 import com.devdyna.justdynathings.registry.builders.blazing_anvil.BlazingAnvilBlock;
+import com.devdyna.justdynathings.registry.builders.budding.types.amethyst.AmethystBlock;
+import com.devdyna.justdynathings.registry.builders.budding.types.time.TimeBlock;
 import com.devdyna.justdynathings.registry.builders.ferritecore_clock.ClockBlock;
 import com.devdyna.justdynathings.registry.builders.generators.solar.SolarBlock;
 import com.devdyna.justdynathings.registry.builders.generators.thermo.ThermoBlock;
@@ -70,11 +72,11 @@ public class zBlocks {
         public static final DeferredHolder<Block, ?> REFORGER = Material
                         .registerItemAndBlock(Constants.Blocks.Reforger, ReforgerBlock::new);
 
-        // public static final DeferredHolder<Block, ?> BUDDING_TIME = Material.DireStuff
-        //                 .registerBudding(Constants.Budding.Time, () -> new TimeBlock());
+        public static final DeferredHolder<Block, ?> BUDDING_TIME = Material.DireStuff
+                        .registerBudding(Constants.Budding.Time, () -> new TimeBlock());
 
-        // public static final DeferredHolder<Block, ?> BUDDING_AMETHYST = Material.DireStuff
-        //                 .registerBudding(Constants.Budding.Amethyst, () -> new AmethystBlock());
+        public static final DeferredHolder<Block, ?> BUDDING_AMETHYST = Material.DireStuff
+                        .registerBudding(Constants.Budding.Amethyst, () -> new AmethystBlock());
 
         public static final DeferredHolder<Block, ?> BLAZING_ANVIL = Material
                         .registerItemAndBlock(Constants.Blocks.BlazingAnvil, BlazingAnvilBlock::new);

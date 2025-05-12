@@ -4,6 +4,8 @@ import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.registry.builders.black_hole.BlackHoleBE;
 import com.devdyna.justdynathings.registry.builders.blazing_anvil.BlazingAnvilBE;
+import com.devdyna.justdynathings.registry.builders.budding.types.amethyst.AmethystBE;
+import com.devdyna.justdynathings.registry.builders.budding.types.time.TimeBE;
 import com.devdyna.justdynathings.registry.builders.ferritecore_clock.ClockBE;
 import com.devdyna.justdynathings.registry.builders.generators.solar.SolarBE;
 import com.devdyna.justdynathings.registry.builders.generators.thermo.ThermoBE;
@@ -60,15 +62,15 @@ public class zBlockEntities {
                         .register(Constants.Blocks.Reforger,
                                         () -> Builder.of(ReforgerBE::new, zBlocks.REFORGER.get()).build(null));
 
-        // public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<?>> BUDDING_TIME = zBE
-        //                 .register(Constants.Budding.Time, () -> Builder.of(TimeBE::new,
-        //                                 zBlocks.BUDDING_TIME.get())
-        //                                 .build(null));
+        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<?>> BUDDING_TIME = zBE
+                        .register(Constants.Budding.Time, () -> Builder.of(TimeBE::new,
+                                        zBlocks.BUDDING_TIME.get())
+                                        .build(null));
 
-        // public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<?>> BUDDING_AMETHYST = zBE
-        //                 .register(Constants.Budding.Amethyst, () -> Builder.of(AmethystBE::new,
-        //                                 zBlocks.BUDDING_AMETHYST.get())
-        //                                 .build(null));
+        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<?>> BUDDING_AMETHYST = zBE
+                        .register(Constants.Budding.Amethyst, () -> Builder.of(AmethystBE::new,
+                                        zBlocks.BUDDING_AMETHYST.get())
+                                        .build(null));
 
         public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BlazingAnvilBE>> BLAZING_ANVIL = zBE
                         .register(Constants.Blocks.BlazingAnvil,

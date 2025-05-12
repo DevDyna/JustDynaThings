@@ -69,7 +69,7 @@ public class DataGenUtil {
     }
 
     public static ItemModelBuilder itemBlock(Block block, ItemModelProvider b) {
-        return b.withExistingParent(getPath(block), modparent + getPath(block).replace("item/", "block/"));
+        return b.withExistingParent(getPath(block), modparent +"block/"+ getPath(block));
     }
 
     public static ItemModelBuilder itemBlockwithParent(Block block, ItemModelProvider b, String parent) {

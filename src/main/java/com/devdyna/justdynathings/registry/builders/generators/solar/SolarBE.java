@@ -1,9 +1,13 @@
 package com.devdyna.justdynathings.registry.builders.generators.solar;
 
+import java.util.Arrays;
+
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyGenerator;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
+import com.devdyna.justdynathings.registry.types.zBlocks;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.Actions;
+import com.devdyna.justdynathings.utils.DirectionUtil;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineContainerData;
 import com.direwolf20.justdirethings.common.blockentities.basebe.RedstoneControlledBE;
@@ -12,10 +16,14 @@ import com.direwolf20.justdirethings.setup.Registration;
 import com.direwolf20.justdirethings.util.interfacehelpers.RedstoneControlData;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.Holder.Direct;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 
 @SuppressWarnings("null")
 public class SolarBE extends BaseMachineBE implements EnergyGenerator, RedstoneControlledBE {
@@ -42,8 +50,17 @@ public class SolarBE extends BaseMachineBE implements EnergyGenerator, RedstoneC
     }
 
     public void updateBlock() {
-        level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(zProperties.ACTIVE,
-                level.canSeeSkyFromBelowWater(getBlockPos().above()) && level.isDay()));
+        var state = getBlockState().setValue(zProperties.ACTIVE,
+                level.canSeeSkyFromBelowWater(getBlockPos().above()) && level.isDay());
+
+        // for (Direction d : DirectionUtil.HORIZONTAL) {
+        //     state.setValue(
+        //             (BooleanProperty) DirectionUtil.StateByDir(d, DirectionUtil.horizontal_face,
+        //                     DirectionUtil.HORIZONTAL),
+        //             level.getBlockState(getBlockPos().relative(d)).is(zBlocks.SOLARGEN.get()));
+        // }
+
+        level.setBlockAndUpdate(getBlockPos(), state);
     }
 
     @Override

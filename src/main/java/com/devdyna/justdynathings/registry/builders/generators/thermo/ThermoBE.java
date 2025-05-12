@@ -64,10 +64,17 @@ public class ThermoBE extends BaseMachineBE implements FluidMachine, EnergyGener
      * update the blockstate properties
      */
     public void updateBlock() {
-        level.setBlockAndUpdate(getBlockPos(),
-                getBlockState().setValue(zProperties.HEATED,
-                        getHeatBlock().is(zBlockTags.THERMO_HEATER))
-                        .setValue(zProperties.COOLED, canExtractMB()));
+
+        boolean heated = getHeatBlock().is(zBlockTags.THERMO_HEATER);
+        boolean cooled = canExtractMB();
+
+        BlockState currentState = getBlockState();
+        if (currentState.getValue(zProperties.HEATED) != heated
+                || currentState.getValue(zProperties.COOLED) != cooled) {
+            level.setBlockAndUpdate(getBlockPos(), currentState.setValue(zProperties.HEATED, heated)
+                    .setValue(zProperties.COOLED, cooled));
+        }
+
     }
 
     public BlockState getHeatBlock() {

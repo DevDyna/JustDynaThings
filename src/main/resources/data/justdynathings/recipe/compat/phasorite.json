@@ -1,0 +1,22 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "phasoritenetworks"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["AAA", "ABA", "AAA"],
+  "key": {
+    "A": {
+      "item": "minecraft:echo_shard"
+    },
+    "B": {
+      "item": "phasoritenetworks:budding_phasorite"
+    }
+  },
+  "result": {
+    "id": "justdynathings:budding_phasorite",
+    "count": 1
+  }
+}

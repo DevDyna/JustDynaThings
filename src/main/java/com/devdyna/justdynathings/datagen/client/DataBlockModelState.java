@@ -10,15 +10,22 @@ import com.devdyna.justdynathings.utils.DataGenUtil;
 import com.direwolf20.justdirethings.JustDireThings;
 import com.direwolf20.justdirethings.common.blocks.gooblocks.GooBlock_Base;
 
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.AnvilBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.Property;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredHolder;
+import static com.devdyna.justdynathings.compat.ae2.init.AE2_POWERED;
+import static com.devdyna.justdynathings.compat.extendedae.init.EXTENDED_POWERED;
+import static com.devdyna.justdynathings.compat.phasorite.init.PHASORITE_POWERED;
 
 @SuppressWarnings("unused")
 public class DataBlockModelState extends BlockStateProvider {
@@ -38,9 +45,20 @@ public class DataBlockModelState extends BlockStateProvider {
                 BaseGooStateModel(zBlocks.T4_GOO.get());
                 AnvilStateModel(zBlocks.BLAZING_ANVIL.get());
                 PhaseBox(zBlocks.PHASEBOX.get());
-                SimpleBlock(zBlocks.BLACKHOLE.get());
-                SimpleBlock(zBlocks.SOLARGEN.get());
+                DataGenUtil.SimpleBlock(zBlocks.BLACKHOLE.get(), this);
+                DataGenUtil.SimpleBlock(zBlocks.SOLARGEN.get(), this);
                 inversDirectionalBlocks(zBlocks.THERMOGEN.get());
+
+                BaseBuddings(zBlocks.BUDDING_AMETHYST.get(), "minecraft:block/budding_amethyst",
+                                ID + ":block/budding/" + DataGenUtil.getName(zBlocks.BUDDING_AMETHYST.get()));
+                BaseBuddings(zBlocks.BUDDING_TIME.get(), "justdirethings:block/time_crystal_budding_block",
+                                ID + ":block/budding/" + DataGenUtil.getName(zBlocks.BUDDING_TIME.get()));
+                BaseBuddings(AE2_POWERED.get(), "ae2:block/flawless_budding_quartz",
+                                ID + ":block/budding/" + DataGenUtil.getName(AE2_POWERED.get()));
+                BaseBuddings(EXTENDED_POWERED.get(), "extendedae:block/entro_budding_fully",
+                                ID + ":block/budding/" + DataGenUtil.getName(EXTENDED_POWERED.get()));
+                BaseBuddings(PHASORITE_POWERED.get(), "phasoritenetworks:block/budding_phasorite",
+                                ID + ":block/budding/" + DataGenUtil.getName(PHASORITE_POWERED.get()));
 
         }
 
@@ -60,15 +78,12 @@ public class DataBlockModelState extends BlockStateProvider {
         }
 
         private void BaseGooStateModel(Block b, String modname) {
-                getVariantBuilder(b).partialState().with(GooBlock_Base.ALIVE, true).modelForState()
-                                .modelFile(models().getExistingFile(DataGenUtil.getResource("block/goo/"
-                                                + b.getDescriptionId().replace("block." + modname + ".", "") + "/alive",
-                                                modname)))
-                                .addModel().partialState().with(GooBlock_Base.ALIVE, false).modelForState()
-                                .modelFile(models().getExistingFile(DataGenUtil.getResource("block/goo/"
-                                                + b.getDescriptionId().replace("block." + modname + ".", "") + "/dead",
-                                                modname)))
-                                .addModel();
+                DataGenUtil.BiStateBlock(this, b, GooBlock_Base.ALIVE,
+                                DataGenUtil.getResource("block/goo/" + DataGenUtil.getName(b) + "/alive",
+                                                modname),
+                                DataGenUtil.getResource("block/goo/" + DataGenUtil.getName(b) + "/dead",
+                                                modname));
+
         }
 
         private void BaseGooStateModel(Block b) {
@@ -76,14 +91,11 @@ public class DataBlockModelState extends BlockStateProvider {
         }
 
         private void PhaseBox(Block b) {
-                getVariantBuilder(b).partialState().with(zProperties.SOLID, true).modelForState()
-                                .modelFile(models().getExistingFile(DataGenUtil.getResource("block/"
-                                                + b.getDescriptionId().replace("block." + ID + ".", "") + "/" + true)))
-                                .addModel().partialState().with(zProperties.SOLID, false).modelForState()
-                                .modelFile(models().getExistingFile(DataGenUtil.getResource(
-                                                "block/" + b.getDescriptionId().replace("block." + ID + ".", "")
-                                                                + "/" + false)))
-                                .addModel();
+                DataGenUtil.BiStateBlock(this, b, zProperties.SOLID,
+                                DataGenUtil.BlockwithParent(b, this, "block/cube_all", "all",
+                                                "justdynathings:block/phase/true"),
+                                DataGenUtil.cutOut(DataGenUtil.BlockwithParent(b, this, "block/cube_all", "all",
+                                                "justdynathings:block/phase/false")));
         }
 
         private void inversDirectionalBlocks(Block block) {
@@ -103,13 +115,13 @@ public class DataBlockModelState extends BlockStateProvider {
 
         }
 
-        private void SimpleBlock(Block block, String modid) {
-                simpleBlock(block, models().getExistingFile(DataGenUtil.getResource(
-                                "block/" + block.getDescriptionId().replace("block." + ID + ".", ""), modid)));
-        }
+        private void BaseBuddings(Block b, String on, String off) {
+                DataGenUtil.BiStateBlock(this, b, zProperties.ACTIVE,
+                                DataGenUtil.BlockwithParent(b, this, "block/cube_all", "all",
+                                                on),
+                                DataGenUtil.BlockwithParent(b, this, "block/cube_all", "all",
+                                                off));
 
-        private void SimpleBlock(Block block) {
-                SimpleBlock(block, ID);
         }
 
 }

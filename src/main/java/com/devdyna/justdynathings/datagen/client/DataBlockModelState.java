@@ -50,15 +50,20 @@ public class DataBlockModelState extends BlockStateProvider {
                 inversDirectionalBlocks(zBlocks.THERMOGEN.get());
 
                 BaseBuddings(zBlocks.BUDDING_AMETHYST.get(), "minecraft:block/budding_amethyst",
-                                ID + ":block/budding/" + DataGenUtil.getName(zBlocks.BUDDING_AMETHYST.get()));
+                                ID + ":block/budding/" + DataGenUtil.getName(zBlocks.BUDDING_AMETHYST.get())
+                                                .replace("budding_", ""));
                 BaseBuddings(zBlocks.BUDDING_TIME.get(), "justdirethings:block/time_crystal_budding_block",
-                                ID + ":block/budding/" + DataGenUtil.getName(zBlocks.BUDDING_TIME.get()));
+                                ID + ":block/budding/" + DataGenUtil.getName(zBlocks.BUDDING_TIME.get())
+                                                .replace("budding_", ""));
                 BaseBuddings(AE2_POWERED.get(), "ae2:block/flawless_budding_quartz",
-                                ID + ":block/budding/" + DataGenUtil.getName(AE2_POWERED.get()));
+                                ID + ":block/budding/"
+                                                + DataGenUtil.getName(AE2_POWERED.get()).replace("budding_", ""));
                 BaseBuddings(EXTENDED_POWERED.get(), "extendedae:block/entro_budding_fully",
-                                ID + ":block/budding/" + DataGenUtil.getName(EXTENDED_POWERED.get()));
+                                ID + ":block/budding/"
+                                                + DataGenUtil.getName(EXTENDED_POWERED.get()).replace("budding_", ""));
                 BaseBuddings(PHASORITE_POWERED.get(), "phasoritenetworks:block/budding_phasorite",
-                                ID + ":block/budding/" + DataGenUtil.getName(PHASORITE_POWERED.get()));
+                                ID + ":block/budding/"
+                                                + DataGenUtil.getName(PHASORITE_POWERED.get()).replace("budding_", ""));
 
         }
 

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "alive=false": {
+      "model": "justdynathings:block/budding/time/dead"
+    },
+    "alive=true": {
+      "model": "justdynathings:block/budding/time/alive"
+    }
+  }
+}

@@ -7,7 +7,7 @@
       "item": "minecraft:echo_shard"
     },
     "B": {
-      "item": "minecraft:amethyst_block"
+      "tag": "minecraft:amethyst_blocks"
     }
   },
   "pattern": [

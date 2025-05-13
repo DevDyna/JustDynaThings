@@ -1,6 +1,0 @@
-{
-  "parent": "justdynathings:block/ferritecore_clock/template/x",
-  "textures": {
-    "block": "justdynathings:block/ferritecore_clock/on"
-  }
-}

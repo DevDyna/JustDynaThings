@@ -8,10 +8,12 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
 
 public class DataGenUtil {
 
@@ -34,28 +36,33 @@ public class DataGenUtil {
         return BuiltInRegistries.ITEM.getKey(i).getPath();
     }
 
-    public static ResourceLocation getResource(String s,String modid) {
+    
+    public static ResourceLocation getResource(String s, String modid) {
         return ResourceLocation.fromNamespaceAndPath(modid, s);
     }
 
-    public static ResourceLocation getResource(Block b,String modid) {
+    public static ResourceLocation getResource(Block b, String modid) {
         return ResourceLocation.fromNamespaceAndPath(modid, getPath(b));
     }
 
-    public static ResourceLocation getResource(Item i,String modid) {
+    public static ResourceLocation getResource(Item i, String modid) {
         return ResourceLocation.fromNamespaceAndPath(modid, getPath(i));
     }
-
-        public static ResourceLocation getResource(String s) {
-        return getResource(s,ID);
+    
+    /**
+     * @Deprecated
+     * intend use modLoc
+    */
+    public static ResourceLocation getResource(String s) {
+        return getResource(s, ID);
     }
 
     public static ResourceLocation getResource(Block b) {
-        return getResource(b,ID);
+        return getResource(b, ID);
     }
 
     public static ResourceLocation getResource(Item i) {
-        return getResource(i,ID);
+        return getResource(i, ID);
     }
 
     public static ItemModelBuilder itemTool(Item item, ItemModelProvider b) {
@@ -69,7 +76,7 @@ public class DataGenUtil {
     }
 
     public static ItemModelBuilder itemBlock(Block block, ItemModelProvider b) {
-        return b.withExistingParent(getPath(block), modparent +"block/"+ getPath(block));
+        return b.withExistingParent(getPath(block), modparent + "block/" + getPath(block));
     }
 
     public static ItemModelBuilder itemBlockwithParent(Block block, ItemModelProvider b, String parent) {
@@ -122,10 +129,39 @@ public class DataGenUtil {
         d.simpleBlock(b, BlockwithParent(b, d, parent, keyname, texture));
     }
 
-    public static String getName(Block block){
-        return block.getDescriptionId().replace("block." + ID + ".", "");
+    public static String getName(Block block) {
+        return BuiltInRegistries.BLOCK.getKey(block).getPath();
     }
 
+    public static void BiStateBlock(DataBlockModelState t, Block b, BooleanProperty p, ResourceLocation on,
+            ResourceLocation off) {
+        t.getVariantBuilder(b).partialState().with(p, true).modelForState()
+                .modelFile(t.models().getExistingFile(on))
+                .addModel().partialState().with(p, false).modelForState()
+                .modelFile(t.models().getExistingFile(off))
+                .addModel();
+    }
 
+        public static void BiStateBlock(DataBlockModelState t, Block b, BooleanProperty p, ModelFile on,
+            ModelFile off) {
+        t.getVariantBuilder(b).partialState().with(p, true).modelForState()
+                .modelFile(on)
+                .addModel().partialState().with(p, false).modelForState()
+                .modelFile(off)
+                .addModel();
+    }
+
+            public static void SimpleBlock(Block block, String modid,DataBlockModelState t) {
+                t.simpleBlock(block, t.models().getExistingFile(DataGenUtil.getResource(
+                                "block/" + DataGenUtil.getName(block), modid)));
+        }
+
+        public static void SimpleBlock(Block block,DataBlockModelState t) {
+                SimpleBlock(block, ID,t);
+        }
+
+        public static BlockModelBuilder cutOut(BlockModelBuilder b){
+            return b.renderType(CUTOUT);
+        }
 
 }

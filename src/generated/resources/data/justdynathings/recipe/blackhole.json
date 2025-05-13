@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "justdynathings",
+  "key": {
+    "B": {
+      "item": "minecraft:bucket"
+    },
+    "F": {
+      "item": "justdirethings:ferricore_ingot"
+    },
+    "K": {
+      "item": "minecraft:redstone_block"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "pattern": [
+    "FBF",
+    "RKR",
+    "FBF"
+  ],
+  "result": {
+    "count": 1,
+    "id": "justdynathings:blackhole"
+  }
+}

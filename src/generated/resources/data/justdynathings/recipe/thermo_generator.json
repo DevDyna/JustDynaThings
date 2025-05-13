@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "justdynathings",
+  "key": {
+    "B": {
+      "item": "justdirethings:blazegold_ingot"
+    },
+    "E": {
+      "item": "justdirethings:coal_t2"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "pattern": [
+    " E ",
+    "RBR",
+    "BEB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "justdynathings:thermo_generator"
+  }
+}

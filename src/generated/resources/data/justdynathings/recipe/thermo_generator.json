@@ -3,20 +3,20 @@
   "category": "misc",
   "group": "justdynathings",
   "key": {
+    "A": {
+      "item": "justdirethings:eclipsealloy_ingot"
+    },
     "B": {
       "item": "justdirethings:blazegold_ingot"
-    },
-    "E": {
-      "item": "justdirethings:coal_t2"
     },
     "R": {
       "item": "minecraft:redstone"
     }
   },
   "pattern": [
-    " E ",
+    " A ",
     "RBR",
-    "BEB"
+    "AAA"
   ],
   "result": {
     "count": 1,

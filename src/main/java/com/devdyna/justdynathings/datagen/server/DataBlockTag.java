@@ -66,6 +66,8 @@ public class DataBlockTag extends BlockTagsProvider {
                                 Blocks.EXPOSED_COPPER, Blocks.WAXED_EXPOSED_COPPER,
                                 Blocks.OXIDIZED_COPPER, Blocks.WAXED_OXIDIZED_COPPER);
 
+                tag(zMultiTags.AMETHYST_BLOCKS.block()).add(Blocks.AMETHYST_BLOCK, Blocks.BUDDING_AMETHYST);
+
         }
 
 }

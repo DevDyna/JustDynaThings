@@ -22,7 +22,9 @@ public class DataGenUtil {
     private static String mc = "minecraft:";
     public static String TOOL = mc + "item/handheld";
     public static String ITEM = mc + "item/generated";
-    private static String modparent = Main.ID + ":";
+    private static String mod = Main.ID + ":";
+
+    public static String CUBE_ALL = "block/cube_all";
 
     public static Block getBlock(String id) {
         return BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath(Main.ID, id));
@@ -35,8 +37,9 @@ public class DataGenUtil {
     public static String getPath(Item i) {
         return BuiltInRegistries.ITEM.getKey(i).getPath();
     }
-
-    
+    /**
+     * NOT ADDONS
+     */
     public static ResourceLocation getResource(String s, String modid) {
         return ResourceLocation.fromNamespaceAndPath(modid, s);
     }
@@ -48,11 +51,11 @@ public class DataGenUtil {
     public static ResourceLocation getResource(Item i, String modid) {
         return ResourceLocation.fromNamespaceAndPath(modid, getPath(i));
     }
-    
+
     /**
      * @Deprecated
-     * intend use modLoc
-    */
+     *             intend use modLoc
+     */
     public static ResourceLocation getResource(String s) {
         return getResource(s, ID);
     }
@@ -76,7 +79,7 @@ public class DataGenUtil {
     }
 
     public static ItemModelBuilder itemBlock(Block block, ItemModelProvider b) {
-        return b.withExistingParent(getPath(block), modparent + "block/" + getPath(block));
+        return b.withExistingParent(getPath(block), mod + "block/" + getPath(block));
     }
 
     public static ItemModelBuilder itemBlockwithParent(Block block, ItemModelProvider b, String parent) {
@@ -85,7 +88,7 @@ public class DataGenUtil {
 
     public static ItemModelBuilder itemBlockwithParent(Block block, ItemModelProvider b, String parent, String keyname,
             String texture) {
-        return b.withExistingParent(getPath(block), parent).texture(keyname, texture);
+        return itemBlockwithParent(block, b, parent).texture(keyname, texture);
     }
 
     /**
@@ -93,7 +96,7 @@ public class DataGenUtil {
      * @param b       this
      * @param parent  Main.ID + ":block/..."
      * @param keyname "all"
-     * @param texture "minecraft:block/cobblestone"
+     * @param texture "minecraft:block/cobblestone" NOT ADDONS
      * @return blockmodel
      */
     public static BlockModelBuilder BlockwithParent(Block block, BlockStateProvider b,
@@ -103,7 +106,6 @@ public class DataGenUtil {
     }
 
     /**
-     * 
      * @param block
      * @param b
      * @param parent
@@ -142,7 +144,7 @@ public class DataGenUtil {
                 .addModel();
     }
 
-        public static void BiStateBlock(DataBlockModelState t, Block b, BooleanProperty p, ModelFile on,
+    public static void BiStateBlock(DataBlockModelState t, Block b, BooleanProperty p, ModelFile on,
             ModelFile off) {
         t.getVariantBuilder(b).partialState().with(p, true).modelForState()
                 .modelFile(on)
@@ -151,17 +153,55 @@ public class DataGenUtil {
                 .addModel();
     }
 
-            public static void SimpleBlock(Block block, String modid,DataBlockModelState t) {
-                t.simpleBlock(block, t.models().getExistingFile(DataGenUtil.getResource(
-                                "block/" + DataGenUtil.getName(block), modid)));
-        }
+    public static void BiStateBlock(DataBlockModelState t, Block b, BooleanProperty p, ModelFile on,
+            ResourceLocation off) {
+        t.getVariantBuilder(b).partialState().with(p, true).modelForState()
+                .modelFile(on)
+                .addModel().partialState().with(p, false).modelForState()
+                .modelFile(t.models().getExistingFile(off))
+                .addModel();
+    }
 
-        public static void SimpleBlock(Block block,DataBlockModelState t) {
-                SimpleBlock(block, ID,t);
-        }
+    public static void BiStateBlock(DataBlockModelState t, Block b, BooleanProperty p, ResourceLocation on,
+            ModelFile off) {
+        t.getVariantBuilder(b).partialState().with(p, true).modelForState()
+                .modelFile(t.models().getExistingFile(on))
+                .addModel().partialState().with(p, false).modelForState()
+                .modelFile(off)
+                .addModel();
+    }
 
-        public static BlockModelBuilder cutOut(BlockModelBuilder b){
-            return b.renderType(CUTOUT);
-        }
+    public static void SimpleBlock(Block block, String modid, DataBlockModelState t) {
+        t.simpleBlock(block, t.models().getExistingFile(DataGenUtil.getResource(
+                "block/" + DataGenUtil.getName(block), modid)));
+    }
+
+    public static void SimpleBlock(Block block, DataBlockModelState t) {
+        SimpleBlock(block, ID, t);
+    }
+
+    public static BlockModelBuilder cutOut(BlockModelBuilder b) {
+        return b.renderType(CUTOUT);
+    }
+
+
+        public static BlockModelBuilder NamewithParent(String name, BlockStateProvider b,
+            String parent) {
+        return b.models().withExistingParent(name, parent);
+    }
+
+        public static BlockModelBuilder NamewithParent(String name, BlockStateProvider b,
+            String parent, String keyname, String texture) {
+        return b.models().withExistingParent(name, parent)
+                .texture(keyname, texture);
+    }
+
+        public static BlockModelBuilder CubeAll(String name, BlockStateProvider b,
+              String texture) {
+        return b.models().withExistingParent(name, CUBE_ALL)
+                .texture("all", texture);
+    }
+
+
 
 }

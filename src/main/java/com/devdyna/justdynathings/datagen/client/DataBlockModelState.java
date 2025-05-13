@@ -1,7 +1,6 @@
 package com.devdyna.justdynathings.datagen.client;
 
 import static com.devdyna.justdynathings.Main.ID;
-import static net.minecraft.world.level.block.Blocks.ANVIL;
 
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.registry.types.zBlocks;
@@ -19,8 +18,10 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.Property;
+import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import static com.devdyna.justdynathings.compat.ae2.init.AE2_POWERED;
@@ -49,37 +50,48 @@ public class DataBlockModelState extends BlockStateProvider {
                 DataGenUtil.SimpleBlock(zBlocks.SOLARGEN.get(), this);
                 inversDirectionalBlocks(zBlocks.THERMOGEN.get());
 
-                BaseBuddings(zBlocks.BUDDING_AMETHYST.get(), "minecraft:block/budding_amethyst",
-                                ID + ":block/budding/" + DataGenUtil.getName(zBlocks.BUDDING_AMETHYST.get())
-                                                .replace("budding_", ""));
-                BaseBuddings(zBlocks.BUDDING_TIME.get(), "justdirethings:block/time_crystal_budding_block",
-                                ID + ":block/budding/" + DataGenUtil.getName(zBlocks.BUDDING_TIME.get())
-                                                .replace("budding_", ""));
-                BaseBuddings(AE2_POWERED.get(), "ae2:block/flawless_budding_quartz",
-                                ID + ":block/budding/"
-                                                + DataGenUtil.getName(AE2_POWERED.get()).replace("budding_", ""));
-                BaseBuddings(EXTENDED_POWERED.get(), "extendedae:block/entro_budding_fully",
-                                ID + ":block/budding/"
-                                                + DataGenUtil.getName(EXTENDED_POWERED.get()).replace("budding_", ""));
-                BaseBuddings(PHASORITE_POWERED.get(), "phasoritenetworks:block/budding_phasorite",
-                                ID + ":block/budding/"
-                                                + DataGenUtil.getName(PHASORITE_POWERED.get()).replace("budding_", ""));
+                BaseBuddings(zBlocks.BUDDING_AMETHYST.get(), mcLoc("block/budding_amethyst"),
+                                CubeAllCheap(ID + ":block/budding/amethyst", this));
+
+                BaseBuddings(zBlocks.BUDDING_TIME.get(),
+                                modLoc("block/budding/time/alive"),
+                                modLoc("block/budding/time/dead"));
+
+                BaseBuddings(AE2_POWERED.get(),
+                                modLoc("block/budding/certus/alive"),
+                                CubeAllCheap(ID + ":block/budding/certus", this));
+
+                BaseBuddings(EXTENDED_POWERED.get(),
+                                modLoc("block/budding/entro/alive"),
+                                CubeAllCheap(ID + ":block/budding/entro", this));
+
+                BaseBuddings(PHASORITE_POWERED.get(),
+                                modLoc("block/budding/phasorite/alive"),
+                                CubeAllCheap(ID + ":block/budding/phasorite", this));
+
+                // BaseBuddings(zBlocks.BUDDING_AMETHYST.get(),
+                // DataGenUtil.NamewithParent(ID + ":block/budding/amethyst/alive", this,
+                // DataGenUtil.CUBE_ALL, "all", "minecraft:block/budding_amethyst"),
+                // DataGenUtil.NamewithParent(ID + ":block/budding/amethyst/dead", this,
+                // DataGenUtil.CUBE_ALL, "all", ID + ":block/budding/amethyst"));
+                // BaseBuddings(zBlocks.BUDDING_TIME.get(), ID + ":block/budding/time/alive",
+                // ID + ":block/budding/time/dead");
+                // BaseBuddings(AE2_POWERED.get(), ID + ":block/flawless_budding_quartz",
+                // ID + ":block/budding/certus/dead");
+                // BaseBuddings(EXTENDED_POWERED.get(), ID + ":block/entro_budding_fully",
+                // ID + ":block/budding/entro/dead");
+                // BaseBuddings(PHASORITE_POWERED.get(), ID + ":block/budding_phasorite",
+                // ID + ":block/budding/phasorite/dead");
 
         }
 
         private void AnvilStateModel(Block b) {
-                getVariantBuilder(b)
-                                .forAllStates(state -> {
-                                        Direction dir = state.getValue(AnvilBlock.FACING);
-                                        return ConfiguredModel.builder()
-                                                        .modelFile(models()
-                                                                        .getExistingFile(DataGenUtil.getResource(
-                                                                                        "block/" + DataGenUtil
-                                                                                                        .getName(b))))
-                                                        .rotationY(dir == Direction.EAST || dir == Direction.WEST ? 90
-                                                                        : 0)
-                                                        .build();
-                                });
+                getVariantBuilder(b).forAllStates(state -> ConfiguredModel.builder()
+                                .modelFile(models().getExistingFile(DataGenUtil.getResource(
+                                                "block/" + DataGenUtil.getName(b))))
+                                .rotationY(state.getValue(AnvilBlock.FACING) == Direction.EAST
+                                                || state.getValue(AnvilBlock.FACING) == Direction.WEST ? 90 : 0)
+                                .build());
         }
 
         private void BaseGooStateModel(Block b, String modname) {
@@ -97,10 +109,12 @@ public class DataBlockModelState extends BlockStateProvider {
 
         private void PhaseBox(Block b) {
                 DataGenUtil.BiStateBlock(this, b, zProperties.SOLID,
-                                DataGenUtil.BlockwithParent(b, this, "block/cube_all", "all",
+                                DataGenUtil.NamewithParent("justdynathings:block/phase_box/true", this,
+                                                "block/cube_all", "all",
                                                 "justdynathings:block/phase/true"),
-                                DataGenUtil.cutOut(DataGenUtil.BlockwithParent(b, this, "block/cube_all", "all",
-                                                "justdynathings:block/phase/false")));
+                                DataGenUtil.NamewithParent("justdynathings:block/phase_box/false", this,
+                                                "block/cube_all", "all",
+                                                "justdynathings:block/phase/false").renderType(DataGenUtil.CUTOUT));
         }
 
         private void inversDirectionalBlocks(Block block) {
@@ -120,13 +134,27 @@ public class DataBlockModelState extends BlockStateProvider {
 
         }
 
-        private void BaseBuddings(Block b, String on, String off) {
-                DataGenUtil.BiStateBlock(this, b, zProperties.ACTIVE,
-                                DataGenUtil.BlockwithParent(b, this, "block/cube_all", "all",
-                                                on),
-                                DataGenUtil.BlockwithParent(b, this, "block/cube_all", "all",
-                                                off));
+        private void BaseBuddings(Block b, ResourceLocation on, ResourceLocation off) {
+                String blockname = DataGenUtil.getName(b).replace("budding_", "");
+                DataGenUtil.BiStateBlock(this, b, zProperties.GOO_ALIVE, models().getExistingFile(on),
+                                models().getExistingFile(off));
+        }
 
+        private void BaseBuddings(Block b, ModelFile on, ResourceLocation off) {
+                String blockname = DataGenUtil.getName(b).replace("budding_", "");
+                DataGenUtil.BiStateBlock(this, b, zProperties.GOO_ALIVE, on,
+                                models().getExistingFile(off));
+        }
+
+        private void BaseBuddings(Block b, ResourceLocation on, ModelFile off) {
+                String blockname = DataGenUtil.getName(b).replace("budding_", "");
+                DataGenUtil.BiStateBlock(this, b, zProperties.GOO_ALIVE, models().getExistingFile(on),
+                                off);
+
+        }
+
+        public static BlockModelBuilder CubeAllCheap(String nameTexture, BlockStateProvider b) {
+                return DataGenUtil.CubeAll(nameTexture+"/dead", b, nameTexture);
         }
 
 }

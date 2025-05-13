@@ -26,6 +26,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -33,6 +34,9 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.common.conditions.ICondition;
+import net.neoforged.neoforge.common.conditions.IConditionBuilder;
+import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
 import net.neoforged.neoforge.common.crafting.BlockTagIngredient;
 import xyz.milosworks.phasoritenetworks.init.PNBlocks;
 
@@ -49,6 +53,15 @@ public class DataRecipe extends RecipeProvider {
 
         @Override
         protected void buildRecipes(RecipeOutput c) {
+
+
+                //TODO 
+                /*
+                missing energy goo recipe  
+                missing variant energy goo recipe
+                missing creative goo recipe
+
+                */              
 
                 ShapedRecipeBuilder.shaped(MISC, zBlocks.FERRICORE_CLOCK.get(), 1)
                                 .pattern("ABA")
@@ -122,12 +135,14 @@ public class DataRecipe extends RecipeProvider {
                                 .unlockedBy(ID, itemInv(Blocks.OBSIDIAN.asItem())).group(ID)
                                 .save(c);
 
-                // TODO check amethyst budding
-                Budding(zBlocks.BUDDING_AMETHYST.get().asItem(), Items.AMETHYST_BLOCK, c);
+                Budding(zBlocks.BUDDING_AMETHYST.get().asItem(), zMultiTags.AMETHYST_BLOCKS.item(), c);
                 Budding(zBlocks.BUDDING_TIME.get().asItem(), Registration.TimeCrystalBlock.get().asItem(), c);
-                Budding(AE2_POWERED.get().asItem(), AEBlocks.QUARTZ_BLOCK.asItem(), c);
-                Budding(EXTENDED_POWERED.get().asItem(), EAESingletons.ENTRO_BLOCK.asItem(), c);
-                Budding(PHASORITE_POWERED.get().asItem(), PNBlocks.INSTANCE.getPHASORITE_BLOCK().asItem(), c);
+                Budding(AE2_POWERED.get().asItem(), AEBlocks.QUARTZ_BLOCK.asItem(), c
+                                .withConditions(new ICondition[] { new ModLoadedCondition("ae2") }));
+                Budding(EXTENDED_POWERED.get().asItem(), EAESingletons.ENTRO_BLOCK.asItem(), c
+                                .withConditions(new ICondition[] { new ModLoadedCondition("extendedae") }));
+                Budding(PHASORITE_POWERED.get().asItem(), PNBlocks.INSTANCE.getPHASORITE_BLOCK().asItem(), c
+                                .withConditions(new ICondition[] { new ModLoadedCondition("phasoritenetworks") }));
 
                 ShapedRecipeBuilder.shaped(MISC, zBlocks.BLACKHOLE.get(), 1)
                                 .pattern("FBF")
@@ -140,21 +155,21 @@ public class DataRecipe extends RecipeProvider {
                                 .unlockedBy(ID, itemInv(Registration.FerricoreIngot.get())).group(ID).save(c);
 
                 ShapedRecipeBuilder.shaped(MISC, zBlocks.THERMOGEN.get(), 1)
-                                .pattern(" E ")
+                                .pattern(" A ")
                                 .pattern("RBR")
-                                .pattern("BEB")
-                                .define('E', Registration.Coal_T2.get())
+                                .pattern("AAA")
+                                .define('A', Registration.EclipseAlloyIngot.get())
                                 .define('R', Items.REDSTONE)
                                 .define('B', Registration.BlazegoldIngot.get())
-                                .unlockedBy(ID, itemInv(Registration.Coal_T2.get())).group(ID).save(c);
+                                .unlockedBy(ID, itemInv(Registration.EclipseAlloyIngot.get())).group(ID).save(c);
 
                 ShapedRecipeBuilder.shaped(MISC, zBlocks.SOLARGEN.get(), 2)
                                 .pattern("LLL")
                                 .pattern("FCF")
                                 .define('L', Items.LAPIS_LAZULI)
                                 .define('F', Registration.FerricoreIngot.get())
-                                .define('C', Registration.Coal_T2.get())
-                                .unlockedBy(ID, itemInv(Registration.Coal_T2.get())).group(ID).save(c);
+                                .define('C', Registration.Coal_T1.get())
+                                .unlockedBy(ID, itemInv(Registration.Coal_T1.get())).group(ID).save(c);
 
         }
 
@@ -187,14 +202,26 @@ public class DataRecipe extends RecipeProvider {
                 smoking(input, output, xp, 200);
         }
 
-        private void Budding(ItemLike input, Item output, RecipeOutput c) {
-                ShapedRecipeBuilder.shaped(MISC, input, 2)
+        private void Budding(Item output, TagKey<Item> input, RecipeOutput c) {
+                ShapedRecipeBuilder.shaped(MISC, output, 2)
                                 .pattern("AAA")
                                 .pattern("ABA")
                                 .pattern("AAA")
-                                .define('B', output)
+                                .define('B', input)
                                 .define('A', Items.ECHO_SHARD)
-                                .unlockedBy(ID, itemInv(Items.ECHO_SHARD)).group(ID).save(c);
+                                .unlockedBy(ID, itemInv(Items.ECHO_SHARD)).group(ID)
+                                .save(c);
+        }
+
+        private void Budding(Item output, Item input, RecipeOutput c) {
+                ShapedRecipeBuilder.shaped(MISC, output, 2)
+                                .pattern("AAA")
+                                .pattern("ABA")
+                                .pattern("AAA")
+                                .define('B', input)
+                                .define('A', Items.ECHO_SHARD)
+                                .unlockedBy(ID, itemInv(Items.ECHO_SHARD)).group(ID)
+                                .save(c);
         }
 
         /*

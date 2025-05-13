@@ -1,7 +1,0 @@
-{
-	"parent": "block/cube_all",
-	"render_type": "cutout",
-    "textures": {
-        "all": "justdynathings:block/phase/false"
-    }
-}

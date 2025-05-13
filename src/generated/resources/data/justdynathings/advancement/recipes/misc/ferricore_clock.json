@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "justdynathings:ferritecore_clock"
+        "recipe": "justdynathings:ferricore_clock"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "justdynathings:ferritecore_clock"
+      "justdynathings:ferricore_clock"
     ]
   }
 }

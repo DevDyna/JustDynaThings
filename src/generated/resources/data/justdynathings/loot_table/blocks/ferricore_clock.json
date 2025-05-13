@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "justdynathings:ferritecore_clock"
+          "name": "justdynathings:ferricore_clock"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "justdynathings:blocks/ferritecore_clock"
+  "random_sequence": "justdynathings:blocks/ferricore_clock"
 }

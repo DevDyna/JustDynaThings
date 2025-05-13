@@ -141,8 +141,8 @@ public class DataRecipe extends RecipeProvider {
 
                 ShapedRecipeBuilder.shaped(MISC, zBlocks.THERMOGEN.get(), 1)
                                 .pattern(" E ")
-                                .pattern("RGR")
-                                .pattern("GEG")
+                                .pattern("RBR")
+                                .pattern("BEB")
                                 .define('E', Registration.Coal_T2.get())
                                 .define('R', Items.REDSTONE)
                                 .define('B', Registration.BlazegoldIngot.get())

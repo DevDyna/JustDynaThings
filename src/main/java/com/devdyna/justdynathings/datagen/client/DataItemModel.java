@@ -1,6 +1,9 @@
 package com.devdyna.justdynathings.datagen.client;
 
 import static com.devdyna.justdynathings.Main.ID;
+import static com.devdyna.justdynathings.compat.ae2.init.AE2_POWERED;
+import static com.devdyna.justdynathings.compat.extendedae.init.EXTENDED_POWERED;
+import static com.devdyna.justdynathings.compat.phasorite.init.PHASORITE_POWERED;
 
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.registry.types.zBlocks;
@@ -48,6 +51,17 @@ public class DataItemModel extends ItemModelProvider {
                 GooItemModel(zBlocks.T3_GOO.get());
                 GooItemModel(zBlocks.T4_GOO.get());
 
+                BuddingItemModel(zBlocks.BUDDING_AMETHYST.get());
+                BuddingItemModel(zBlocks.BUDDING_TIME.get());
+                BuddingItemModel(AE2_POWERED.get());
+                BuddingItemModel(EXTENDED_POWERED.get());
+                BuddingItemModel(PHASORITE_POWERED.get());
+
+        }
+
+        private void BuddingItemModel(Block b) {
+                DataGenUtil.itemBlockwithParent(b, this,
+                                ID + ":block/budding/" + DataGenUtil.getName(b).replace("budding_", "") + "/dead");
         }
 
         private void GooItemModel(Block b) {

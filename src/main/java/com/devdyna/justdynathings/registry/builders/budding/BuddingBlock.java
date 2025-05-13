@@ -4,8 +4,6 @@ import javax.annotation.Nullable;
 
 import com.devdyna.justdynathings.registry.builders._core.block.BlockBaseBE;
 import com.devdyna.justdynathings.registry.types.zProperties;
-import com.direwolf20.justdirethings.common.blocks.gooblocks.GooBlock_Base;
-
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.Block;

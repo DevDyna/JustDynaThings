@@ -8,7 +8,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class AmethystBE extends BuddingBE{
+public class AmethystBE extends BuddingBE {
 
     public AmethystBE(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
@@ -19,9 +19,7 @@ public class AmethystBE extends BuddingBE{
     }
 
     public AmethystBE(BlockPos pos, BlockState state) {
-        this(
-            zBlockEntities.BUDDING_AMETHYST.get()
-        , pos, state);
+        this(zBlockEntities.BUDDING_AMETHYST.get(), pos, state);
     }
-    
+
 }

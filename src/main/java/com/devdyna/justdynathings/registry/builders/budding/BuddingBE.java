@@ -47,7 +47,7 @@ public class BuddingBE extends BaseMachineBE implements EnergyMachine, FluidMach
 
         updateBlock();
 
-        if (LevelUtil.chance(25, level) && getBlockState().getValue(zProperties.ACTIVE)) {
+        if (LevelUtil.chance(25, level) && getBlockState().getValue(zProperties.GOO_ALIVE)) {
 
             // RANDOM REQUIRE VARIABLE
             Direction dir = DirectionUtil.randomDirection(level, Direction.values());
@@ -129,7 +129,7 @@ public class BuddingBE extends BaseMachineBE implements EnergyMachine, FluidMach
      */
     public void updateBlock() {
         level.setBlockAndUpdate(getBlockPos(),
-                getBlockState().setValue(zProperties.ACTIVE,
+                getBlockState().setValue(zProperties.GOO_ALIVE,
                         canExtractFE() && canExtractMB()));
     }
 

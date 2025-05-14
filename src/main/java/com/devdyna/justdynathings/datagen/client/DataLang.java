@@ -33,6 +33,7 @@ public class DataLang extends LanguageProvider {
         zItems.zItem.getEntries().forEach(b -> addItem(b, named(b.getRegisteredName())));
         zItems.zBucketItem.getEntries().forEach(b -> addItem(b, named(b.getRegisteredName())));
         zItems.zItemTinted.getEntries().forEach(b -> addItem(b, named(b.getRegisteredName())));
+        zItems.zCoals.getEntries().forEach(b -> addItem(b, named(b.getRegisteredName())));
 
         // compats
         List.of(

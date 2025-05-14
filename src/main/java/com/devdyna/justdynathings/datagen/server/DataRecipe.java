@@ -58,8 +58,6 @@ public class DataRecipe extends RecipeProvider {
                 // TODO
                 /*
                  * missing energy goo recipe
-                 * missing variant energy goo recipe
-                 * missing creative goo recipe
                  * 
                  */
 
@@ -108,7 +106,8 @@ public class DataRecipe extends RecipeProvider {
                                 .define('C', Registration.EclipseAlloyIngot.get())
                                 .define('D', Registration.TimeCrystal.get())
                                 .unlockedBy(ID, InventoryChangeTrigger.TriggerInstance
-                                                .hasItems(Registration.TimeCrystal.get()))
+                                                .hasItems(Registration.TimeCrystal.get(),
+                                                                Registration.EclipseAlloyIngot.get()))
                                 .group(ID).save(c);
 
                 ShapelessRecipeBuilder.shapeless(MISC, zBlocks.PHASEBOX.get(), 4)
@@ -169,7 +168,8 @@ public class DataRecipe extends RecipeProvider {
                                 .define('L', Items.LAPIS_LAZULI)
                                 .define('F', Registration.FerricoreIngot.get())
                                 .define('C', Registration.Coal_T1.get())
-                                .unlockedBy(ID, itemInv(Registration.Coal_T1.get())).group(ID).save(c);
+                                .unlockedBy(ID, itemInv(Registration.Coal_T1.get(), Registration.FerricoreIngot.get()))
+                                .group(ID).save(c);
 
                 ShapedRecipeBuilder.shaped(MISC, zBlocks.CREATIVE_GOO.get(), 2)
                                 .pattern("ABA")
@@ -177,19 +177,51 @@ public class DataRecipe extends RecipeProvider {
                                 .pattern("ABA")
                                 .define('A', Registration.TimeCrystal.get())
                                 .define('B', Registration.EclipseAlloyIngot.get())
-                                .define('C', Items.DRAGON_EGG)
-                                .unlockedBy(ID, itemInv(Registration.TimeCrystal.get())).group(ID).save(c);
+                                .define('C', Items.NETHER_STAR)
+                                .unlockedBy(ID, itemInv(Items.NETHER_STAR, Registration.TimeCrystal.get(),
+                                                Registration.EclipseAlloyIngot.get()))
+                                .group(ID).save(c);
+
+                ShapedRecipeBuilder.shaped(MISC, zBlocks.ENERGIZED_GOO.get(), 2)
+                                .pattern("ADA")
+                                .pattern("BCB")
+                                .pattern("ADA")
+                                .define('A', Registration.TimeCrystal.get())
+                                .define('B', Registration.EclipseAlloyIngot.get())
+                                .define('D', Items.REDSTONE_BLOCK)
+                                .define('C', Registration.GooBlock_Tier4_ITEM.get())
+                                .unlockedBy(ID, itemInv(Registration.GooBlock_Tier4_ITEM.get())).group(ID).save(c);
 
                 GooConversion(zMultiTags.T2_SPREAD.block(), Registration.GooBlock_Tier2.get(), c);
                 GooConversion(zMultiTags.T3_SPREAD.block(), Registration.GooBlock_Tier3.get(), c);
                 GooConversion(zMultiTags.T4_SPREAD.block(), Registration.GooBlock_Tier4.get(), c);
+
+                shapeless(zBlocks.T1_GOO.get().asItem(), c,
+                                Registration.Coal_T1.get(),
+                                Registration.RawFerricore.get(),
+                                Registration.GooBlock_Tier1_ITEM.get());
+
+                shapeless(zBlocks.T2_GOO.get().asItem(), c,
+                                Registration.Coal_T2.get(),
+                                Registration.RawBlazegold.get(),
+                                Registration.GooBlock_Tier2_ITEM.get());
+
+                shapeless(zBlocks.T3_GOO.get().asItem(), c,
+                                Registration.Coal_T3.get(),
+                                Registration.Celestigem.get(),
+                                Registration.GooBlock_Tier3_ITEM.get());
+
+                shapeless(zBlocks.T4_GOO.get().asItem(), c,
+                                Registration.Coal_T4.get(),
+                                Registration.RawEclipseAlloy.get(),
+                                Registration.GooBlock_Tier4_ITEM.get());
 
         }
 
         /**
          * @return inventory change criteria trigger
          */
-        private Criterion<?> itemInv(Item i) {
+        private Criterion<?> itemInv(Item... i) {
                 return InventoryChangeTrigger.TriggerInstance.hasItems(i);
         }
 
@@ -239,12 +271,18 @@ public class DataRecipe extends RecipeProvider {
         }
 
         private void GooConversion(TagKey<Block> input, Block goo, RecipeOutput c) {
-                int tier =Integer.parseInt(DataGenUtil.getName(goo).replace("gooblock_tier", ""));
+                int tier = Integer.parseInt(DataGenUtil.getName(goo).replace("gooblock_tier", ""));
                 GooSpreadRecipeTagBuilder.shapeless(DataGenUtil.getResource(goo),
-                                new BlockTagIngredient(input), goo.defaultBlockState(),tier, 100*tier)
+                                new BlockTagIngredient(input), goo.defaultBlockState(), tier, 100 * tier)
                                 .unlockedBy(ID, itemInv(goo.asItem())).group(ID)
                                 .save(c);
+        }
 
+        private void shapeless(Item output, RecipeOutput c, Item... items) {
+                var recipe = ShapelessRecipeBuilder.shapeless(MISC, output);
+                for (Item item : items)
+                        recipe.requires(item);
+                recipe.unlockedBy(ID, itemInv(items)).group(ID).save(c);
         }
 
         /*

@@ -4,13 +4,16 @@
   "group": "justdynathings",
   "ingredients": [
     {
+      "item": "justdirethings:gooblock_tier3"
+    },
+    {
       "item": "justdirethings:coal_t3"
     },
     {
       "item": "justdirethings:celestigem"
     },
     {
-      "item": "justdirethings:gooblock_tier3"
+      "item": "justdirethings:totem_of_death_recall"
     }
   ],
   "result": {

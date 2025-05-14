@@ -11,13 +11,16 @@
       "conditions": {
         "items": [
           {
+            "items": "justdirethings:gooblock_tier1"
+          },
+          {
             "items": "justdirethings:coal_t1"
           },
           {
             "items": "justdirethings:raw_ferricore"
           },
           {
-            "items": "justdirethings:gooblock_tier1"
+            "items": "justdirethings:totem_of_death_recall"
           }
         ]
       },

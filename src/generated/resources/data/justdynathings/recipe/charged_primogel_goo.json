@@ -4,13 +4,16 @@
   "group": "justdynathings",
   "ingredients": [
     {
+      "item": "justdirethings:gooblock_tier1"
+    },
+    {
       "item": "justdirethings:coal_t1"
     },
     {
       "item": "justdirethings:raw_ferricore"
     },
     {
-      "item": "justdirethings:gooblock_tier1"
+      "item": "justdirethings:totem_of_death_recall"
     }
   ],
   "result": {

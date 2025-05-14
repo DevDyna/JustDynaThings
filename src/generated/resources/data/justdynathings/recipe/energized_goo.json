@@ -17,12 +17,12 @@
     }
   },
   "pattern": [
-    "ADA",
+    "DAD",
     "BCB",
-    "ADA"
+    "DAD"
   ],
   "result": {
-    "count": 2,
+    "count": 1,
     "id": "justdynathings:energized_goo"
   }
 }

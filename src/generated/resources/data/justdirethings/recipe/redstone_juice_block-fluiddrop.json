@@ -1,0 +1,17 @@
+{
+  "type": "justdirethings:fluiddrop",
+  "catalyst": "minecraft:redstone",
+  "id": "justdynathings:redstone_juice_block",
+  "input": {
+    "Name": "justdirethings:portal_fluid_block",
+    "Properties": {
+      "level": "0"
+    }
+  },
+  "output": {
+    "Name": "justdynathings:redstone_juice_block",
+    "Properties": {
+      "level": "0"
+    }
+  }
+}

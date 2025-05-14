@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "justdynathings:charged_voidshimmer_goo"
+        "recipe": "justdirethings:redstone_juice_block-fluiddrop"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -11,16 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": "justdirethings:gooblock_tier3"
-          },
-          {
-            "items": "justdirethings:coal_t3"
-          },
-          {
-            "items": "justdirethings:celestigem"
-          },
-          {
-            "items": "justdirethings:totem_of_death_recall"
+            "items": "minecraft:redstone"
           }
         ]
       },
@@ -35,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "justdynathings:charged_voidshimmer_goo"
+      "justdirethings:redstone_juice_block-fluiddrop"
     ]
   }
 }

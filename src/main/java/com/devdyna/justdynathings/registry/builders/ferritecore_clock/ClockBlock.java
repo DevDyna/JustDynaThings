@@ -6,10 +6,13 @@ import com.devdyna.justdynathings.client.builder.clock.ClockGUI;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.Actions;
 import com.devdyna.justdynathings.utils.DirectionUtil;
+import com.devdyna.justdynathings.utils.LevelUtil;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -35,16 +38,29 @@ public class ClockBlock extends BaseMachineBlock {
     @Override
     public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player,
             BlockHitResult hitResult) {
-
+        var value = state.getValue((BooleanProperty) DirectionUtil.StateByDir(hitResult.getDirection()));
         if (player.isCrouching()) {
-            level.setBlockAndUpdate(pos, state.setValue((BooleanProperty)DirectionUtil.StateByDir(hitResult.getDirection()),
-                    !state.getValue((BooleanProperty)DirectionUtil.StateByDir(hitResult.getDirection()))));
-                    //TODO sound
+            level.setBlockAndUpdate(pos,
+                    state.setValue((BooleanProperty) DirectionUtil.StateByDir(hitResult.getDirection()),
+                            !value.booleanValue()));
+            applySound(level,player, pos, value);
             return InteractionResult.SUCCESS;
         } else {
             this.openMenu(player, pos);
             return InteractionResult.SUCCESS;
         }
+    }
+
+    /**
+     * add sound events
+     * 
+     * @param pos
+     */
+    public void applySound(Level l,Player p, BlockPos pos, boolean state) {
+        if (LevelUtil.chance(50, l))
+            l.playSound(p, pos, state ? SoundEvents.COPPER_BULB_TURN_ON : SoundEvents.COPPER_BULB_TURN_OFF,
+                    SoundSource.BLOCKS, l.random.nextInt(50) + 1 * 0.01F,
+                    l.random.nextInt(50) + 1 * 0.01F);
     }
 
     @Override
@@ -55,7 +71,7 @@ public class ClockBlock extends BaseMachineBlock {
     @Override
     protected int getSignal(BlockState b, BlockGetter g, BlockPos p, Direction d) {
         return b.getValue(zProperties.ACTIVE).booleanValue()
-                && b.getValue((BooleanProperty)DirectionUtil.StateByDir(d.getOpposite())).booleanValue()
+                && b.getValue((BooleanProperty) DirectionUtil.StateByDir(d.getOpposite())).booleanValue()
                         ? 15
                         : 0;
     }

@@ -22,7 +22,8 @@ public class Capabilities {
 
                 Block[] EnergyMachineBase = {
                                 zBlocks.BLAZING_ANVIL.get(), zBlocks.REVITALIZER.get(),
-                                zBlocks.TICKER.get(), zBlocks.ENERGIZED_GOO.get(),
+                                // zBlocks.TICKER.get(),
+                                 zBlocks.ENERGIZED_GOO.get(),
                                 zBlocks.T1_GOO.get(), zBlocks.T2_GOO.get(),
                                 zBlocks.T3_GOO.get(), zBlocks.T4_GOO.get(), zBlocks.BLACKHOLE.get()
                 };
@@ -65,12 +66,12 @@ public class Capabilities {
                                 Material.getBuddingAvailable());
 
                 // fluidhandler time storage
-                event.registerBlock(FluidHandler.BLOCK,
-                                (level, pos, state, be,
-                                                side) -> (be instanceof FluidMachineBE || be instanceof FluidMachine)
-                                                                ? be.getData(Registration.PARADOX_FLUID_HANDLER)
-                                                                : null,
-                                zBlocks.TICKER.get());
+                // event.registerBlock(FluidHandler.BLOCK,
+                //                 (level, pos, state, be,
+                //                                 side) -> (be instanceof FluidMachineBE || be instanceof FluidMachine)
+                //                                                 ? be.getData(Registration.PARADOX_FLUID_HANDLER)
+                //                                                 : null,
+                //                 zBlocks.TICKER.get());
 
                 // fluidhandler time storage - buddings
                 event.registerBlock(FluidHandler.BLOCK,

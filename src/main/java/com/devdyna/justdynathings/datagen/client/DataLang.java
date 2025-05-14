@@ -10,7 +10,6 @@ import com.devdyna.justdynathings.registry.types.zBlocks;
 import com.devdyna.justdynathings.registry.types.zItems;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
-import net.neoforged.neoforge.registries.DeferredHolder;
 
 public class DataLang extends LanguageProvider {
 
@@ -25,37 +24,29 @@ public class DataLang extends LanguageProvider {
         add(Main.ID + ".off", "§8[§fControl§8]§f");
         add(Main.ID + ".clock.wip", "N.Y.I. -> shift-click the block to toggle");
 
-        zBlocks.zBlock.getEntries().forEach(b -> RegistryToLang("block", b));
-        zBlocks.zGoo.getEntries().forEach(b -> RegistryToLang("block", b));
-        zBlocks.zOres.getEntries().forEach(b -> RegistryToLang("block", b));
-        zBlocks.zBuddings.getEntries().forEach(b -> RegistryToLang("block", b));
-        zBlocks.zBlockItem.getEntries().forEach(b -> RegistryToLang("block", b));
-        zBlocks.zBlockFluids.getEntries().forEach(b -> RegistryToLang("block", b));
-        zItems.zItem.getEntries().forEach(b -> RegistryToLang("item", b));
-        zItems.zBucketItem.getEntries().forEach(b -> RegistryToLang("item", b));
-        zItems.zItemTinted.getEntries().forEach(b -> RegistryToLang("item", b));
+        zBlocks.zBlock.getEntries().forEach(b -> addBlock(b, named(b.getRegisteredName())));
+        zBlocks.zGoo.getEntries().forEach(b -> addBlock(b, named(b.getRegisteredName())));
+        zBlocks.zOres.getEntries().forEach(b -> addBlock(b, named(b.getRegisteredName())));
+        zBlocks.zBuddings.getEntries().forEach(b -> addBlock(b, named(b.getRegisteredName())));
+        zBlocks.zBlockItem.getEntries().forEach(b -> addBlock(b, named(b.getRegisteredName())));
+        zBlocks.zBlockFluids.getEntries().forEach(b -> addBlock(b, named(b.getRegisteredName())));
+        zItems.zItem.getEntries().forEach(b -> addItem(b, named(b.getRegisteredName())));
+        zItems.zBucketItem.getEntries().forEach(b -> addItem(b, named(b.getRegisteredName())));
+        zItems.zItemTinted.getEntries().forEach(b -> addItem(b, named(b.getRegisteredName())));
 
         // compats
         List.of(
                 Constants.Budding.Certus,
                 Constants.Budding.Entro,
                 Constants.Budding.Phasorite)
-                .forEach(e -> {
-                    add("block." + ID + "." + e, Named(e));
-                });
+                .forEach(e -> add("block." + ID + "." + e, named(e)));
 
     }
 
-    @SuppressWarnings({ "rawtypes" })
-    private void RegistryToLang(String type, DeferredHolder d) {
-        add(type + "." + d.getRegisteredName().replace(":", "."),
-                Named(d.getRegisteredName().replace(Main.ID + ":", "")));
-    }
-
-    private String Named(String text) {
+    private String named(String text) {
 
         StringBuilder result = new StringBuilder();
-        for (String word : text.replaceAll("_", " ").split(" ")) {
+        for (String word : text.replace(ID + ":", "").replaceAll("_", " ").split(" ")) {
             if (!word.isEmpty()) {
                 result.append(Character.toUpperCase(word.charAt(0)))
                         .append(word.substring(1))

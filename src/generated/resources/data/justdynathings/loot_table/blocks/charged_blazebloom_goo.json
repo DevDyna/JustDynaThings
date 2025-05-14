@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "justdynathings:shadowpulse_goo"
+          "name": "justdynathings:charged_blazebloom_goo"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "justdynathings:blocks/shadowpulse_goo"
+  "random_sequence": "justdynathings:blocks/charged_blazebloom_goo"
 }

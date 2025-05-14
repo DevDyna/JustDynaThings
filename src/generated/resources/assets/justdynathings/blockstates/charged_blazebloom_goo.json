@@ -1,10 +1,10 @@
 {
   "variants": {
     "alive=false": {
-      "model": "justdynathings:block/goo/blazebloom_goo/dead"
+      "model": "justdynathings:block/goo/charged_blazebloom_goo/dead"
     },
     "alive=true": {
-      "model": "justdynathings:block/goo/blazebloom_goo/alive"
+      "model": "justdynathings:block/goo/charged_blazebloom_goo/alive"
     }
   }
 }

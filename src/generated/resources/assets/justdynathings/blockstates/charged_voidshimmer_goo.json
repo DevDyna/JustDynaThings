@@ -1,10 +1,10 @@
 {
   "variants": {
     "alive=false": {
-      "model": "justdynathings:block/goo/voidshimmer_goo/dead"
+      "model": "justdynathings:block/goo/charged_voidshimmer_goo/dead"
     },
     "alive=true": {
-      "model": "justdynathings:block/goo/voidshimmer_goo/alive"
+      "model": "justdynathings:block/goo/charged_voidshimmer_goo/alive"
     }
   }
 }

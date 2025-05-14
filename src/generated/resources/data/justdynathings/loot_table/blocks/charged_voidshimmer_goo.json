@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "justdynathings:primogel_goo"
+          "name": "justdynathings:charged_voidshimmer_goo"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "justdynathings:blocks/primogel_goo"
+  "random_sequence": "justdynathings:blocks/charged_voidshimmer_goo"
 }

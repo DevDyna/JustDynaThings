@@ -1,10 +1,10 @@
 {
   "variants": {
     "alive=false": {
-      "model": "justdynathings:block/goo/shadowpulse_goo/dead"
+      "model": "justdynathings:block/goo/charged_shadowpulse_goo/dead"
     },
     "alive=true": {
-      "model": "justdynathings:block/goo/shadowpulse_goo/alive"
+      "model": "justdynathings:block/goo/charged_shadowpulse_goo/alive"
     }
   }
 }

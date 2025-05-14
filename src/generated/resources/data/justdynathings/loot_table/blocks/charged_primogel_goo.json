@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "justdynathings:blazebloom_goo"
+          "name": "justdynathings:charged_primogel_goo"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "justdynathings:blocks/blazebloom_goo"
+  "random_sequence": "justdynathings:blocks/charged_primogel_goo"
 }

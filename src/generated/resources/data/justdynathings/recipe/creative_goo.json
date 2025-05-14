@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "justdynathings",
+  "key": {
+    "A": {
+      "item": "justdirethings:time_crystal"
+    },
+    "B": {
+      "item": "justdirethings:eclipsealloy_ingot"
+    },
+    "C": {
+      "item": "minecraft:dragon_egg"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "BCB",
+    "ABA"
+  ],
+  "result": {
+    "count": 2,
+    "id": "justdynathings:creative_goo"
+  }
+}

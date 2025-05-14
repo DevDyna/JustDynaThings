@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "justdynathings:voidshimmer_goo"
+          "name": "justdynathings:charged_shadowpulse_goo"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "justdynathings:blocks/voidshimmer_goo"
+  "random_sequence": "justdynathings:blocks/charged_shadowpulse_goo"
 }

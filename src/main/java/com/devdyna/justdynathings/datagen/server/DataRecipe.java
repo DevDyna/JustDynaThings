@@ -11,6 +11,7 @@ import com.devdyna.justdynathings.registry.types.zItemTags;
 import com.devdyna.justdynathings.registry.types.zItems;
 import com.devdyna.justdynathings.registry.types.zMultiTags;
 import com.devdyna.justdynathings.utils.DataGenUtil;
+import com.direwolf20.justdirethings.common.blocks.gooblocks.GooBlock_Base;
 import com.direwolf20.justdirethings.datagen.recipes.GooSpreadRecipeBuilder;
 import com.direwolf20.justdirethings.datagen.recipes.GooSpreadRecipeTagBuilder;
 import com.direwolf20.justdirethings.setup.Registration;
@@ -54,14 +55,13 @@ public class DataRecipe extends RecipeProvider {
         @Override
         protected void buildRecipes(RecipeOutput c) {
 
-
-                //TODO 
+                // TODO
                 /*
-                missing energy goo recipe  
-                missing variant energy goo recipe
-                missing creative goo recipe
-
-                */              
+                 * missing energy goo recipe
+                 * missing variant energy goo recipe
+                 * missing creative goo recipe
+                 * 
+                 */
 
                 ShapedRecipeBuilder.shaped(MISC, zBlocks.FERRICORE_CLOCK.get(), 1)
                                 .pattern("ABA")
@@ -138,11 +138,11 @@ public class DataRecipe extends RecipeProvider {
                 Budding(zBlocks.BUDDING_AMETHYST.get().asItem(), zMultiTags.AMETHYST_BLOCKS.item(), c);
                 Budding(zBlocks.BUDDING_TIME.get().asItem(), Registration.TimeCrystalBlock.get().asItem(), c);
                 Budding(AE2_POWERED.get().asItem(), AEBlocks.QUARTZ_BLOCK.asItem(), c
-                                .withConditions(new ICondition[] { new ModLoadedCondition("ae2") }));
+                                .withConditions(DataGenUtil.isModLoaded("ae2")));
                 Budding(EXTENDED_POWERED.get().asItem(), EAESingletons.ENTRO_BLOCK.asItem(), c
-                                .withConditions(new ICondition[] { new ModLoadedCondition("extendedae") }));
+                                .withConditions(DataGenUtil.isModLoaded("extendedae")));
                 Budding(PHASORITE_POWERED.get().asItem(), PNBlocks.INSTANCE.getPHASORITE_BLOCK().asItem(), c
-                                .withConditions(new ICondition[] { new ModLoadedCondition("phasoritenetworks") }));
+                                .withConditions(DataGenUtil.isModLoaded("phasoritenetworks")));
 
                 ShapedRecipeBuilder.shaped(MISC, zBlocks.BLACKHOLE.get(), 1)
                                 .pattern("FBF")
@@ -170,6 +170,17 @@ public class DataRecipe extends RecipeProvider {
                                 .define('F', Registration.FerricoreIngot.get())
                                 .define('C', Registration.Coal_T1.get())
                                 .unlockedBy(ID, itemInv(Registration.Coal_T1.get())).group(ID).save(c);
+
+                ShapedRecipeBuilder.shaped(MISC, zBlocks.CREATIVE_GOO.get(), 2)
+                                .pattern("ABA")
+                                .pattern("BCB")
+                                .pattern("ABA")
+                                .define('A', Registration.TimeCrystal.get())
+                                .define('B', Registration.EclipseAlloyIngot.get())
+                                .define('C', Items.DRAGON_EGG)
+                                .unlockedBy(ID, itemInv(Registration.TimeCrystal.get())).group(ID).save(c);
+
+                GooConversion(zMultiTags.T2_SPREAD.block(), Registration.GooBlock_Tier1.get(), c);
 
         }
 
@@ -222,6 +233,16 @@ public class DataRecipe extends RecipeProvider {
                                 .define('A', Items.ECHO_SHARD)
                                 .unlockedBy(ID, itemInv(Items.ECHO_SHARD)).group(ID)
                                 .save(c);
+
+        }
+
+        private void GooConversion(TagKey<Block> input, Block goo, RecipeOutput c) {
+                int tier =Integer.parseInt(DataGenUtil.getName(goo).replace("gooblock_tier", ""));
+                GooSpreadRecipeTagBuilder.shapeless(DataGenUtil.getResource(goo),
+                                new BlockTagIngredient(input), goo.defaultBlockState(),tier, 100*tier)
+                                .unlockedBy(ID, itemInv(goo.asItem())).group(ID)
+                                .save(c);
+
         }
 
         /*
@@ -240,5 +261,6 @@ public class DataRecipe extends RecipeProvider {
          * //JDT
          * FluidDropRecipeBuilder.shapeless(null, null, null, null);
          * GooSpreadRecipeBuilder.shapeless(null, null, null, 0, 0)
+         * GooSpreadRecipeTagBuilder.shapeless(null, null, null, 0, 0)
          */
 }

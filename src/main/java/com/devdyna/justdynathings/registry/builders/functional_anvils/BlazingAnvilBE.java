@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.registry.builders.blazing_anvil;
+package com.devdyna.justdynathings.registry.builders.functional_anvils;
 
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyMachine;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;

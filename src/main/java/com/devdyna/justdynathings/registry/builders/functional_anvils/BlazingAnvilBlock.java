@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.registry.builders.blazing_anvil;
+package com.devdyna.justdynathings.registry.builders.functional_anvils;
 
 import com.devdyna.justdynathings.client.builder.blazingAnvil.BlazingAnvilGUI;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
@@ -68,9 +68,7 @@ public class BlazingAnvilBlock extends BaseMachineBlock {
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> b) {
-        b
-                .add(AnvilBlock.FACING)
-                .add(zProperties.ACTIVE);
+        b.add(AnvilBlock.FACING,zProperties.ACTIVE);
     }
 
     @Override

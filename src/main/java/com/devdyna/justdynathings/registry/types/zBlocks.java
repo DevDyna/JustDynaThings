@@ -4,7 +4,6 @@ import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.registry.Material;
 import com.devdyna.justdynathings.registry.builders.PhaseBox;
-import com.devdyna.justdynathings.registry.builders._core.block.BlockFuel;
 import com.devdyna.justdynathings.registry.builders.black_hole.BlackHoleBlock;
 import com.devdyna.justdynathings.registry.builders.blazing_anvil.BlazingAnvilBlock;
 import com.devdyna.justdynathings.registry.builders.budding.types.amethyst.AmethystBlock;
@@ -18,9 +17,6 @@ import com.devdyna.justdynathings.registry.builders.goo.energy.energized.EnergyG
 import com.devdyna.justdynathings.registry.builders.reforger.ReforgerBlock;
 import com.devdyna.justdynathings.registry.builders.revitalizer.RevitalizerBlock;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.LiquidBlock;
-import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;

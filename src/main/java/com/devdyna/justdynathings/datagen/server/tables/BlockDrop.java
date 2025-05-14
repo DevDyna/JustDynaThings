@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Set;
 
 import com.devdyna.justdynathings.registry.types.zBlocks;
-import com.devdyna.justdynathings.registry.types.zItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
@@ -45,12 +44,12 @@ public class BlockDrop extends BlockLootSubProvider {
                 zBlocks.zBlockItem.getEntries().forEach(b -> dropSelf(b.get()));
                 zBlocks.zGoo.getEntries().forEach(b -> dropSelf(b.get()));
 
-                // TODO hand-made
                 // oreTable(zBlocks.REDSTONE_ORE.get(), zItems.REDSTONE_FUEL.get(), 3, 5);
                 // oreTable(zBlocks.LAPIS_LAZULI_ORE.get(), zItems.LAPIS_LAZULI_FUEL.get(), 3, 5);
 
         }
 
+        @SuppressWarnings("unused")
         private void oreTable(Block b, Item drop, float min, float max) {
                 add(b, createSilkTouchDispatchTable(b,
                                 this.applyExplosionDecay(b, LootItem.lootTableItem(drop)

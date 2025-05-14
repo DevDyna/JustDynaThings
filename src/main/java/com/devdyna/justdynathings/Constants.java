@@ -62,7 +62,7 @@ public class Constants {
 
     public static String EMBER = "ember";
 
-    public class Fuel {
+    public class Fuel {// TODO NYI
 
         /**
          * @unused
@@ -70,7 +70,7 @@ public class Constants {
          */
         public static int[] DW_FUEL_VALUES = { 2, 4, 8, 16 };
 
-        public static String BIOFUEL = "bio_fuel"; // TODO NYI
+        public static String BIOFUEL = "bio_fuel";
 
         public static String REDSTONE = "redstone_" + EMBER;
         public static String LAPIS_LAZULI = "lapis_lazuli_" + EMBER;

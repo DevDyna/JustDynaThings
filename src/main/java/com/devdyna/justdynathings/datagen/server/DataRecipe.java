@@ -56,12 +56,6 @@ public class DataRecipe extends RecipeProvider {
         @Override
         protected void buildRecipes(RecipeOutput c) {
 
-                // TODO
-                /*
-                 * missing energy goo recipe
-                 * 
-                 */
-
                 ShapedRecipeBuilder.shaped(MISC, zBlocks.FERRICORE_CLOCK.get(), 1)
                                 .pattern("ABA")
                                 .pattern("BCB")
@@ -222,10 +216,10 @@ public class DataRecipe extends RecipeProvider {
                                 Registration.TotemOfDeathRecall.get());
 
                 // FluidDropRecipeBuilder.shapeless(DataGenUtil.getResource(zBlocks.REDSTONE_JUICE_FLUID.get()),
-                //                 Registration.REFINED_T2_FLUID_BLOCK.get().defaultBlockState(),
-                //                 zBlocks.REDSTONE_JUICE_FLUID.get().defaultBlockState(),
-                //                 Items.REDSTONE).unlockedBy(ID, itemInv(Items.REDSTONE)).group(ID)
-                //                 .save(c);
+                // Registration.REFINED_T2_FLUID_BLOCK.get().defaultBlockState(),
+                // zBlocks.REDSTONE_JUICE_FLUID.get().defaultBlockState(),
+                // Items.REDSTONE).unlockedBy(ID, itemInv(Items.REDSTONE)).group(ID)
+                // .save(c);
 
         }
 

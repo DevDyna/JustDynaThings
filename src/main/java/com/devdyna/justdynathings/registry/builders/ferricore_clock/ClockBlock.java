@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.registry.builders.ferritecore_clock;
+package com.devdyna.justdynathings.registry.builders.ferricore_clock;
 
 import javax.annotation.Nullable;
 

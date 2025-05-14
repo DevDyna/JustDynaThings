@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.registry.builders.ferritecore_clock;
+package com.devdyna.justdynathings.registry.builders.ferricore_clock;
 
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
 import com.devdyna.justdynathings.registry.types.zProperties;

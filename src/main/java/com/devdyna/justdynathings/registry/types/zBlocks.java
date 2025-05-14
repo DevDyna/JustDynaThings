@@ -8,7 +8,7 @@ import com.devdyna.justdynathings.registry.builders.black_hole.BlackHoleBlock;
 import com.devdyna.justdynathings.registry.builders.blazing_anvil.BlazingAnvilBlock;
 import com.devdyna.justdynathings.registry.builders.budding.types.amethyst.AmethystBlock;
 import com.devdyna.justdynathings.registry.builders.budding.types.time.TimeBlock;
-import com.devdyna.justdynathings.registry.builders.ferritecore_clock.ClockBlock;
+import com.devdyna.justdynathings.registry.builders.ferricore_clock.ClockBlock;
 import com.devdyna.justdynathings.registry.builders.generators.solar.SolarBlock;
 import com.devdyna.justdynathings.registry.builders.generators.thermo.ThermoBlock;
 import com.devdyna.justdynathings.registry.builders.goo.creative.CreativeGoo;

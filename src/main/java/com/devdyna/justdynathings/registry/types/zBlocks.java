@@ -17,7 +17,11 @@ import com.devdyna.justdynathings.registry.builders.goo.energy.energized.EnergyG
 import com.devdyna.justdynathings.registry.builders.reforger.ReforgerBlock;
 import com.devdyna.justdynathings.registry.builders.revitalizer.RevitalizerBlock;
 import com.devdyna.justdynathings.registry.builders.ticker.TickerBlock;
+
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.LiquidBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -60,15 +64,6 @@ public class zBlocks {
         public static final DeferredHolder<Block, ?> PHASEBOX = Material
                         .registerItemAndBlock(Constants.Blocks.PhaseBox, PhaseBox::new);
 
-        // public static final DeferredHolder<Block, ?> RAW_CHAOTIC = Material.DireStuff
-        //                 .simpleRawOreDW(Constants.Ores.Chaotic.ore);
-
-        // public static final DeferredHolder<Block, ?> RAW_REDSTONIC = Material.DireStuff
-        //                 .simpleRawOreDW(Constants.Ores.Redstonic.ore);
-
-        // public static final DeferredHolder<Block, ?> RAW_COPRINIUM = Material.DireStuff
-        //                 .simpleRawOreDW(Constants.Ores.Coprinium.ore);
-
         public static final DeferredHolder<Block, ?> REFORGER = Material
                         .registerItemAndBlock(Constants.Blocks.Reforger, ReforgerBlock::new);
 
@@ -103,12 +98,12 @@ public class zBlocks {
         public static final DeferredHolder<Block, ?> SOLARGEN = Material
                         .registerItemAndBlock(Constants.Blocks.SolarGen, SolarBlock::new);
 
-        // public static final DeferredHolder<Block, LiquidBlock> CRYSTALLINE_FLUID = zBlockFluids.register(
-        //                 Constants.Fluids.Crystalline.Block,
-        //                 () -> new LiquidBlock(zFluids.CRYSTALLINE_FLOWING.value(), Properties.ofFullCopy(WATER)
-        //                                 .liquid()
-        //                                 .lightLevel(value -> 10)
-        //                                 .emissiveRendering((a, b, c) -> true)));
+        public static final DeferredHolder<Block, LiquidBlock> REDSTONE_JUICE_FLUID = zBlockFluids.register(
+                        Constants.Fluids.RedstoneJuice.Block,
+                        () -> new LiquidBlock(zFluids.REDSTONE_JUICE_FLOWING.value(), Properties.ofFullCopy(Blocks.WATER)
+                                        .liquid()
+                                        .lightLevel(value -> 10)
+                                        .emissiveRendering((a, b, c) -> true)));
 
         // ---------------------------------------------------------------------------------------//
 

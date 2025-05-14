@@ -10,9 +10,13 @@ import com.devdyna.justdynathings.registry.types.zBlocks;
 import com.devdyna.justdynathings.registry.types.zItems;
 import com.devdyna.justdynathings.utils.DataGenUtil;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+import net.neoforged.neoforge.client.model.generators.loaders.DynamicFluidContainerModelBuilder;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.internal.versions.neoforge.NeoForgeVersion;
 
 public class DataItemModel extends ItemModelProvider {
 
@@ -56,6 +60,11 @@ public class DataItemModel extends ItemModelProvider {
                 BuddingItemModel(AE2_POWERED.get());
                 BuddingItemModel(EXTENDED_POWERED.get());
                 BuddingItemModel(PHASORITE_POWERED.get());
+
+                zItems.zBucketItem.getEntries().forEach(b -> withExistingParent(b.getId().getPath(),
+                                ResourceLocation.fromNamespaceAndPath(NeoForgeVersion.MOD_ID, "item/bucket"))
+                                .customLoader(DynamicFluidContainerModelBuilder::begin)
+                                .fluid(((BucketItem) b.get()).content));
 
         }
 

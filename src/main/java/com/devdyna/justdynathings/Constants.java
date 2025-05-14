@@ -100,14 +100,14 @@ public class Constants {
     }
 
     public class Fluids {
-        public static String CRYSTALLINE = "liquid_crystalline";
+        public static String REDSTONE_JUICE = "redstone_juice";
 
-        public class Crystalline {
-            public static String Block = CRYSTALLINE+"_block";
-            public static String Type = CRYSTALLINE+"_fluid";
-            public static String Source= CRYSTALLINE+"_fluid_source";
-            public static String Flowing= CRYSTALLINE+"_fluid_flowing";
-            public static String Bucket= CRYSTALLINE+"_bucket_item";
+        public class RedstoneJuice {
+            public static String Block = REDSTONE_JUICE+"_block";
+            public static String Type = REDSTONE_JUICE+"_fluid";
+            public static String Source= REDSTONE_JUICE+"_fluid_source";
+            public static String Flowing= REDSTONE_JUICE+"_fluid_flowing";
+            public static String Bucket= REDSTONE_JUICE+"_bucket_item";
         }
     }
 

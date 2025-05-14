@@ -182,14 +182,14 @@ public class DataRecipe extends RecipeProvider {
                                                 Registration.EclipseAlloyIngot.get()))
                                 .group(ID).save(c);
 
-                ShapedRecipeBuilder.shaped(MISC, zBlocks.ENERGIZED_GOO.get(), 2)
-                                .pattern("ADA")
+                ShapedRecipeBuilder.shaped(MISC, zBlocks.ENERGIZED_GOO.get(), 1)
+                                .pattern("DAD")
                                 .pattern("BCB")
-                                .pattern("ADA")
+                                .pattern("DAD")
                                 .define('A', Registration.TimeCrystal.get())
                                 .define('B', Registration.EclipseAlloyIngot.get())
-                                .define('D', Items.REDSTONE_BLOCK)
                                 .define('C', Registration.GooBlock_Tier4_ITEM.get())
+                                .define('D', Items.REDSTONE_BLOCK)
                                 .unlockedBy(ID, itemInv(Registration.GooBlock_Tier4_ITEM.get())).group(ID).save(c);
 
                 GooConversion(zMultiTags.T2_SPREAD.block(), Registration.GooBlock_Tier2.get(), c);
@@ -197,24 +197,28 @@ public class DataRecipe extends RecipeProvider {
                 GooConversion(zMultiTags.T4_SPREAD.block(), Registration.GooBlock_Tier4.get(), c);
 
                 shapeless(zBlocks.T1_GOO.get().asItem(), c,
+                                Registration.GooBlock_Tier1_ITEM.get(),
                                 Registration.Coal_T1.get(),
                                 Registration.RawFerricore.get(),
-                                Registration.GooBlock_Tier1_ITEM.get());
+                                Registration.TotemOfDeathRecall.get());
 
                 shapeless(zBlocks.T2_GOO.get().asItem(), c,
+                                Registration.GooBlock_Tier2_ITEM.get(),
                                 Registration.Coal_T2.get(),
                                 Registration.RawBlazegold.get(),
-                                Registration.GooBlock_Tier2_ITEM.get());
+                                Registration.TotemOfDeathRecall.get());
 
                 shapeless(zBlocks.T3_GOO.get().asItem(), c,
+                                Registration.GooBlock_Tier3_ITEM.get(),
                                 Registration.Coal_T3.get(),
                                 Registration.Celestigem.get(),
-                                Registration.GooBlock_Tier3_ITEM.get());
+                                Registration.TotemOfDeathRecall.get());
 
                 shapeless(zBlocks.T4_GOO.get().asItem(), c,
+                                Registration.GooBlock_Tier4_ITEM.get(),
                                 Registration.Coal_T4.get(),
                                 Registration.RawEclipseAlloy.get(),
-                                Registration.GooBlock_Tier4_ITEM.get());
+                                Registration.TotemOfDeathRecall.get());
 
         }
 

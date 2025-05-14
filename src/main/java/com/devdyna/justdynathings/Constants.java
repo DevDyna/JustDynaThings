@@ -54,10 +54,10 @@ public class Constants {
 
     public class Goo {
 
-        public static String T1 = "primogel";
-        public static String T2 = "blazebloom";
-        public static String T3 = "voidshimmer";
-        public static String T4 = "shadowpulse";
+        public static String T1 = "charged_primogel";
+        public static String T2 = "charged_blazebloom";
+        public static String T3 = "charged_voidshimmer";
+        public static String T4 = "charged_shadowpulse";
         public static String Creative = "creative";
         public static String Energized = "energized";
     }

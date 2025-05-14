@@ -14,6 +14,8 @@ import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
+import net.neoforged.neoforge.common.conditions.ICondition;
+import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
 
 public class DataGenUtil {
 
@@ -203,5 +205,8 @@ public class DataGenUtil {
     }
 
 
+    public static ICondition[] isModLoaded(String modid){
+        return new ICondition[] { new ModLoadedCondition(modid) };
+    }
 
 }

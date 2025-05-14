@@ -12,6 +12,7 @@ import com.devdyna.justdynathings.registry.types.zItems;
 import com.devdyna.justdynathings.registry.types.zMultiTags;
 import com.devdyna.justdynathings.utils.DataGenUtil;
 import com.direwolf20.justdirethings.common.blocks.gooblocks.GooBlock_Base;
+import com.direwolf20.justdirethings.datagen.recipes.FluidDropRecipeBuilder;
 import com.direwolf20.justdirethings.datagen.recipes.GooSpreadRecipeBuilder;
 import com.direwolf20.justdirethings.datagen.recipes.GooSpreadRecipeTagBuilder;
 import com.direwolf20.justdirethings.setup.Registration;
@@ -219,6 +220,12 @@ public class DataRecipe extends RecipeProvider {
                                 Registration.Coal_T4.get(),
                                 Registration.RawEclipseAlloy.get(),
                                 Registration.TotemOfDeathRecall.get());
+
+                FluidDropRecipeBuilder.shapeless(DataGenUtil.getResource(zBlocks.REDSTONE_JUICE_FLUID.get()),
+                                Registration.PORTAL_FLUID_BLOCK.get().defaultBlockState(),
+                                zBlocks.REDSTONE_JUICE_FLUID.get().defaultBlockState(),
+                                Items.REDSTONE).unlockedBy(ID, itemInv(Items.REDSTONE)).group(ID)
+                                .save(c);
 
         }
 

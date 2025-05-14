@@ -30,13 +30,26 @@ public class zItems {
         public static final DeferredRegister.Items zCoals = DeferredRegister.createItems(Main.ID);
         // ---------------------------------------------------------------------------------------//
 
-        //TODO add more fuels and add to CTab
-        public static final DeferredHolder<Item, ?> BIOFUEL = Material.DireStuff.FuelItemDW(Constants.Fuel.Biofuel(1),
-                        3);
+        // public static final DeferredHolder<Item, ?> BIO_FUEL = Material.DireStuff.FuelItemDW(Constants.Fuel.BIOFUEL,
+        //                 3);
 
-        public static DeferredHolder<Item, ?> REDSTONE_JUICE_BUCKET = zBucketItem.register(Constants.Fluids.RedstoneJuice.Bucket,
-                        () -> new BucketItem(zFluids.REDSTONE_JUICE_SOURCE.get(),
-                                        new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
+        // public static final DeferredHolder<Item, ?> REDSTONE_FUEL = Material.DireStuff.FuelItemDW(
+        //                 Constants.Fuel.REDSTONE,
+        //                 15);
+
+        // public static final DeferredHolder<Item, ?> LAPIS_LAZULI_FUEL = Material.DireStuff.FuelItemDW(
+        //                 Constants.Fuel.LAPIS_LAZULI,
+        //                 5);
+
+        // public static DeferredHolder<Item, BucketItem> REDSTONE_JUICE_BUCKET = zBucketItem.register(
+        //                 Constants.Fluids.RedstoneJuice.Bucket,
+        //                 () -> new BucketItem(zFluids.REDSTONE_JUICE_SOURCE.get(),
+        //                                 new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
+
+        // public static DeferredHolder<Item, BucketItem> LAPIS_LAZULI_JUICE_BUCKET = zBucketItem.register(
+        //                 Constants.Fluids.LapisLazuliJuice.Bucket,
+        //                 () -> new BucketItem(zFluids.LAPIS_LAZULI_JUICE_SOURCE.get(),
+        //                                 new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
 
         // ---------------------------------------------------------------------------------------//
 

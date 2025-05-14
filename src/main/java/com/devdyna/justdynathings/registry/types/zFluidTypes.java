@@ -76,4 +76,48 @@ public class zFluidTypes {
                 }
             });
 
+
+            public static final DeferredHolder<FluidType, ?> LAPIS_LAZULI_JUICE_FLUID_TYPE = zFluidTypes.register(
+            Constants.Fluids.LAPIS_LAZULI_JUICE,
+            () -> new FluidType(FluidType.Properties.create()
+                    .lightLevel(1)
+                    .viscosity(400)
+                    .canDrown(false)
+                    .canSwim(false)
+                    .canPushEntity(false)
+                    .canConvertToSource(false)
+                    .sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
+                    .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY)) {
+
+                @SuppressWarnings({ "null", "removal" })
+                @Override
+                public void initializeClient(Consumer<IClientFluidTypeExtensions> c) {
+
+                    c.accept(new IClientFluidTypeExtensions() {
+
+                        @Override
+                        public ResourceLocation getStillTexture() {
+                            return ResourceLocation.fromNamespaceAndPath(JustDireThings.MODID, "block/fluid_source");
+                        }
+
+                        @Override
+                        public int getTintColor(FluidState s, BlockAndTintGetter g, BlockPos p) {
+                            return 0x0033FF;
+                        }
+
+                        @Override
+                        public ResourceLocation getFlowingTexture() {
+                            return ResourceLocation.fromNamespaceAndPath(JustDireThings.MODID, "block/fluid_flowing");
+                        }
+
+                        @Override
+                        public ResourceLocation getOverlayTexture() {
+                            return ResourceLocation.fromNamespaceAndPath(JustDireThings.MODID, "block/fluid_overlay");
+                        }
+                        
+                    });
+                    super.initializeClient(c);
+                }
+            });
+
 }

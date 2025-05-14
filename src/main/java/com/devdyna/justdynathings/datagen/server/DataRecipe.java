@@ -221,11 +221,11 @@ public class DataRecipe extends RecipeProvider {
                                 Registration.RawEclipseAlloy.get(),
                                 Registration.TotemOfDeathRecall.get());
 
-                FluidDropRecipeBuilder.shapeless(DataGenUtil.getResource(zBlocks.REDSTONE_JUICE_FLUID.get()),
-                                Registration.PORTAL_FLUID_BLOCK.get().defaultBlockState(),
-                                zBlocks.REDSTONE_JUICE_FLUID.get().defaultBlockState(),
-                                Items.REDSTONE).unlockedBy(ID, itemInv(Items.REDSTONE)).group(ID)
-                                .save(c);
+                // FluidDropRecipeBuilder.shapeless(DataGenUtil.getResource(zBlocks.REDSTONE_JUICE_FLUID.get()),
+                //                 Registration.REFINED_T2_FLUID_BLOCK.get().defaultBlockState(),
+                //                 zBlocks.REDSTONE_JUICE_FLUID.get().defaultBlockState(),
+                //                 Items.REDSTONE).unlockedBy(ID, itemInv(Items.REDSTONE)).group(ID)
+                //                 .save(c);
 
         }
 

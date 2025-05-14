@@ -25,11 +25,18 @@ public class zFluids {
 
     // ---------------------------------------------------------------------------------------//
 
-    public static final DeferredHolder<Fluid, ?> REDSTONE_JUICE_SOURCE = zFluids.register(Constants.Fluids.RedstoneJuice.Source,
-            () -> new BaseFlowingFluid.Source(zProperties.FProp));
-    public static final DeferredHolder<Fluid, FlowingFluid> REDSTONE_JUICE_FLOWING = zFluids.register(Constants.Fluids.RedstoneJuice.Flowing,
-            () -> new BaseFlowingFluid.Flowing(zProperties.FProp));
+//     public static final DeferredHolder<Fluid, ?> REDSTONE_JUICE_SOURCE = zFluids.register(
+//             Constants.Fluids.RedstoneJuice.Source,
+//             () -> new BaseFlowingFluid.Source(zProperties.redstone));
+//     public static final DeferredHolder<Fluid, FlowingFluid> REDSTONE_JUICE_FLOWING = zFluids.register(
+//             Constants.Fluids.RedstoneJuice.Flowing,
+//             () -> new BaseFlowingFluid.Flowing(zProperties.redstone));
 
-
+//     public static final DeferredHolder<Fluid, ?> LAPIS_LAZULI_JUICE_SOURCE = zFluids.register(
+//             Constants.Fluids.LapisLazuliJuice.Source,
+//             () -> new BaseFlowingFluid.Source(zProperties.lapis));
+//     public static final DeferredHolder<Fluid, FlowingFluid> LAPIS_LAZULI_JUICE_FLOWING = zFluids.register(
+//             Constants.Fluids.LapisLazuliJuice.Flowing,
+//             () -> new BaseFlowingFluid.Flowing(zProperties.lapis));
 
 }

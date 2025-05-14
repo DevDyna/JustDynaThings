@@ -1,7 +1,6 @@
 package com.devdyna.justdynathings.registry;
 
 import static com.devdyna.justdynathings.Main.ID;
-
 import java.util.ArrayList;
 import java.util.function.Supplier;
 
@@ -9,8 +8,8 @@ import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.registry.builders.RawOre;
 import com.devdyna.justdynathings.registry.builders._core.block.BlockBase;
+import com.devdyna.justdynathings.registry.builders._core.item.ItemFuel;
 import com.devdyna.justdynathings.registry.builders._core.item.ItemBase;
-import com.devdyna.justdynathings.registry.builders.fuels.item.BaseFuel;
 import com.devdyna.justdynathings.registry.types.*;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -139,8 +138,14 @@ public class Material {
                 }
 
                 public static DeferredHolder<Item, ?> FuelItemDW(String name, int burnrate) {
-                        return zItems.zCoals.register(name, () -> new BaseFuel(burnrate));
+                        return zItems.zCoals.register(name, () -> new ItemFuel(burnrate));
                 }
+
+                // public static DeferredHolder<Block, ?> FuelBlockDW(String name, int burnrate,Supplier<? extends Block> o) {
+                //         DeferredHolder<Block, ?> b = zBlocks.zCoals.register(name,()-> new BlockFuel(burnrate));
+                //         zItems.zCoals.registerSimpleBlockItem(name, o);
+                //         return b;
+                // }
 
 
                 public static DeferredHolder<Block, ?> registerBudding(String blockname, Supplier<? extends Block> sup) {

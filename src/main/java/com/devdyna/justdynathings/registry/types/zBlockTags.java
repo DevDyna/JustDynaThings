@@ -14,6 +14,6 @@ public class zBlockTags {
     public static final TagKey<Block> REFORGER_REPLACE = Material.tagBlock("reforger_replace");
     public static final TagKey<Block> REFORGER_RESULT = Material.tagBlock("reforger_result");
     public static final TagKey<Block> REVITALIZER_GOO = Material.tagBlock("revitalizer_goo");
-    public static final TagKey<Block> TICKER_DENY = Material.tagBlock("ticker_deny");
+    //public static final TagKey<Block> TICKER_DENY = Material.tagBlock("ticker_deny");
     public static final TagKey<Block> THERMO_HEATER = Material.tagBlock("thermo_heater");
 }

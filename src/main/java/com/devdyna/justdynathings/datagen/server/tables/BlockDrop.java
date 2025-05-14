@@ -5,10 +5,15 @@ import java.util.List;
 import java.util.Set;
 
 import com.devdyna.justdynathings.registry.types.zBlocks;
+import com.devdyna.justdynathings.registry.types.zItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -40,13 +45,17 @@ public class BlockDrop extends BlockLootSubProvider {
                 zBlocks.zBlockItem.getEntries().forEach(b -> dropSelf(b.get()));
                 zBlocks.zGoo.getEntries().forEach(b -> dropSelf(b.get()));
 
-                // add(zBlocks.RAW_CHAOTIC.get(), createOreDrop(zBlocks.RAW_CHAOTIC.get(), zItems.CHAOTIC_DUST.get()));
-                // add(zBlocks.RAW_COPRINIUM.get(), createOreDrop(zBlocks.RAW_COPRINIUM.get(), zItems.RAW_COPRINIUM.get()));
-                // add(zBlocks.RAW_REDSTONIC.get(), createOreDrop(zBlocks.RAW_REDSTONIC.get(), zItems.REDSTONIC_GEM.get()));
-
+                // TODO hand-made
+                // oreTable(zBlocks.REDSTONE_ORE.get(), zItems.REDSTONE_FUEL.get(), 3, 5);
+                // oreTable(zBlocks.LAPIS_LAZULI_ORE.get(), zItems.LAPIS_LAZULI_FUEL.get(), 3, 5);
 
         }
 
-        
+        private void oreTable(Block b, Item drop, float min, float max) {
+                add(b, createSilkTouchDispatchTable(b,
+                                this.applyExplosionDecay(b, LootItem.lootTableItem(drop)
+                                                .apply(SetItemCountFunction
+                                                                .setCount(UniformGenerator.between(min, max))))));
+        }
 
 }

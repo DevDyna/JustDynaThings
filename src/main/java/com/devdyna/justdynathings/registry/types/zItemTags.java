@@ -16,7 +16,7 @@ public class zItemTags {
     // public static final TagKey<Item> GOO_REVIVE_TIER_5 = Material.tagItem("goo_revive_tier_5");
 
     public static final TagKey<Item> REFORGER_CATALYST = Material.tagItem("reforger_catalyst");
-    public static final TagKey<Item> FLAWED_REVITALIZER = Material.tagItem("flawed_revitalizer");
+    //public static final TagKey<Item> FLAWED_REVITALIZER = Material.tagItem("flawed_revitalizer");
     public static final TagKey<Item> BLAZINGANVIL_DENY = Material.tagItem("blazing_anvil_deny");
     public static final TagKey<Item> CREATIVE_GOO_WRENCHES = Material.tagItem("creative_goo_wrenches");
 

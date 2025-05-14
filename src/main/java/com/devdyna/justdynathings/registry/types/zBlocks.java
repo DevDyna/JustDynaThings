@@ -4,6 +4,7 @@ import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.registry.Material;
 import com.devdyna.justdynathings.registry.builders.PhaseBox;
+import com.devdyna.justdynathings.registry.builders._core.block.BlockFuel;
 import com.devdyna.justdynathings.registry.builders.black_hole.BlackHoleBlock;
 import com.devdyna.justdynathings.registry.builders.blazing_anvil.BlazingAnvilBlock;
 import com.devdyna.justdynathings.registry.builders.budding.types.amethyst.AmethystBlock;
@@ -16,8 +17,6 @@ import com.devdyna.justdynathings.registry.builders.goo.energy.diregoo.*;
 import com.devdyna.justdynathings.registry.builders.goo.energy.energized.EnergyGoo;
 import com.devdyna.justdynathings.registry.builders.reforger.ReforgerBlock;
 import com.devdyna.justdynathings.registry.builders.revitalizer.RevitalizerBlock;
-import com.devdyna.justdynathings.registry.builders.ticker.TickerBlock;
-
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LiquidBlock;
@@ -35,6 +34,7 @@ public class zBlocks {
                 zGoo.register(bus);
                 zBuddings.register(bus);
                 zBlockFluids.register(bus);
+                zCoals.register(bus);
         }
 
         // ---------------------------------------------------------------------------------------//
@@ -44,6 +44,7 @@ public class zBlocks {
         public static final DeferredRegister.Blocks zGoo = DeferredRegister.createBlocks(Main.ID);
         public static final DeferredRegister.Blocks zBuddings = DeferredRegister.createBlocks(Main.ID);
         public static final DeferredRegister.Blocks zBlockFluids = DeferredRegister.createBlocks(Main.ID);
+        public static final DeferredRegister.Blocks zCoals = DeferredRegister.createBlocks(Main.ID);
         // ---------------------------------------------------------------------------------------//
 
         public static final DeferredHolder<Block, ?> ENERGIZED_GOO = Material.DireStuff
@@ -73,7 +74,7 @@ public class zBlocks {
         public static final DeferredHolder<Block, ?> BUDDING_AMETHYST = Material.DireStuff
                         .registerBudding(Constants.Budding.Amethyst, () -> new AmethystBlock());
 
-                        //TODO convert to CELESTIGEM anvil and make another anvil
+        // TODO convert to CELESTIGEM anvil and make another anvil
         public static final DeferredHolder<Block, ?> BLAZING_ANVIL = Material
                         .registerItemAndBlock(Constants.Blocks.BlazingAnvil, BlazingAnvilBlock::new);
 
@@ -83,8 +84,8 @@ public class zBlocks {
         public static final DeferredHolder<Block, ?> REVITALIZER = Material
                         .registerItemAndBlock(Constants.Blocks.Revitalizer, RevitalizerBlock::new);
 
-        public static final DeferredHolder<Block, ?> TICKER = Material
-                        .registerItemAndBlock(Constants.Blocks.Ticker, TickerBlock::new);
+        // public static final DeferredHolder<Block, ?> TICKER = Material
+        //                 .registerItemAndBlock(Constants.Blocks.Ticker, TickerBlock::new);
 
         public static final DeferredHolder<Block, ?> THERMOGEN = Material
                         .registerItemAndBlock(Constants.Blocks.ThermoGen, ThermoBlock::new);
@@ -92,18 +93,34 @@ public class zBlocks {
         public static final DeferredHolder<Block, ?> BLACKHOLE = Material
                         .registerItemAndBlock(Constants.Blocks.BlackHole, BlackHoleBlock::new);
 
-        // public static final DeferredHolder<Block, ?> SCULK = Material
-        // .registerItemAndBlock(Constants.Blocks.Sculk, SculkBlock::new);
-
         public static final DeferredHolder<Block, ?> SOLARGEN = Material
                         .registerItemAndBlock(Constants.Blocks.SolarGen, SolarBlock::new);
 
-        public static final DeferredHolder<Block, LiquidBlock> REDSTONE_JUICE_FLUID = zBlockFluids.register(
-                        Constants.Fluids.RedstoneJuice.Block,
-                        () -> new LiquidBlock(zFluids.REDSTONE_JUICE_FLOWING.value(), Properties.ofFullCopy(Blocks.WATER)
-                                        .liquid()
-                                        .lightLevel(value -> 10)
-                                        .emissiveRendering((a, b, c) -> true)));
+        // public static final DeferredHolder<Block, ?> REDSTONE_FUEL = Material.registerItemAndBlock(Constants.Fuel.redstone.Block,()-> new BlockFuel(15));
+
+        // public static final DeferredHolder<Block, ?> LAPIS_LAZULI_FUEL = Material.registerItemAndBlock(Constants.Fuel.lapis_lazuli.Block,()-> new BlockFuel(5));
+
+        // public static final DeferredHolder<Block, ?> REDSTONE_ORE = Material.DireStuff
+        //                 .simpleRawOreDW(Constants.Fuel.redstone.Raw);
+
+        // public static final DeferredHolder<Block, ?> LAPIS_LAZULI_ORE = Material.DireStuff
+        //                 .simpleRawOreDW(Constants.Fuel.lapis_lazuli.Raw);
+
+        // public static final DeferredHolder<Block, LiquidBlock> REDSTONE_JUICE_FLUID = zBlockFluids.register(
+        //                 Constants.Fluids.RedstoneJuice.Block,
+        //                 () -> new LiquidBlock(zFluids.REDSTONE_JUICE_FLOWING.value(),
+        //                                 Properties.ofFullCopy(Blocks.WATER)
+        //                                                 .liquid()
+        //                                                 .lightLevel(value -> 10)
+        //                                                 .emissiveRendering((a, b, c) -> true)));
+
+        // public static final DeferredHolder<Block, LiquidBlock> LAPIS_LAZULI_JUICE_FLUID = zBlockFluids.register(
+        //                 Constants.Fluids.LapisLazuliJuice.Block,
+        //                 () -> new LiquidBlock(zFluids.LAPIS_LAZULI_JUICE_FLOWING.value(),
+        //                                 Properties.ofFullCopy(Blocks.WATER)
+        //                                                 .liquid()
+        //                                                 .lightLevel(value -> 1)
+        //                                                 .emissiveRendering((a, b, c) -> true)));
 
         // ---------------------------------------------------------------------------------------//
 

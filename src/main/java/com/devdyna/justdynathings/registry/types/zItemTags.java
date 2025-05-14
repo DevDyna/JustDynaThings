@@ -17,9 +17,11 @@ public class zItemTags {
 
     public static final TagKey<Item> REFORGER_CATALYST = Material.tagItem("reforger_catalyst");
     //public static final TagKey<Item> FLAWED_REVITALIZER = Material.tagItem("flawed_revitalizer");
-    public static final TagKey<Item> BLAZINGANVIL_DENY = Material.tagItem("blazing_anvil_deny");
     public static final TagKey<Item> CREATIVE_GOO_WRENCHES = Material.tagItem("creative_goo_wrenches");
-
+    public static final TagKey<Item> FERRICORE_ANVIL_ALLOW = Material.tagItem("ferricore_anvil/allow_list");
+    public static final TagKey<Item> BLAZING_ANVIL_DENY = Material.tagItem("blazing_anvil_deny");
+    public static final TagKey<Item> CELESTIGEM_DENY = Material.tagItem("celestigem_anvil_deny");
+    public static final TagKey<Item> FERRICORE_ANVIL_REPAIR = Material.tagItem("ferricore_anvil/catalyst");
     // public static final TagKey<Item> DUSTS_CHAOTIC = Material.tagItem("c","dusts/chaotic");
     // public static final TagKey<Item> GEMS_REDSTONIC = Material.tagItem("c","gems/redstonic");
     // public static final TagKey<Item> RAW_MATERIALS_COPRINIUM = Material.tagItem("c","raw_materials/coprinium");

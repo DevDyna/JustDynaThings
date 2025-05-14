@@ -44,11 +44,29 @@ public class DataItemTag extends ItemTagsProvider {
                                 .addOptionalTag(Tags.Items.TOOLS_WRENCH)
                                 .addOptionalTag(JustDireItemTags.WRENCHES);
 
-                tag(zItemTags.BLAZINGANVIL_DENY)
+                tag(zItemTags.BLAZING_ANVIL_DENY)
                                 .add(Items.MACE);
 
+                tag(zItemTags.CELESTIGEM_DENY)
+                                .add(Items.MACE);
+
+                tag(zItemTags.FERRICORE_ANVIL_ALLOW)
+                                .add(
+                                                Registration.FerricoreAxe.get(),
+                                                Registration.FerricorePickaxe.get(),
+                                                Registration.FerricoreShovel.get(),
+                                                Registration.FerricoreHoe.get(),
+                                                Registration.FerricoreSword.get(),
+                                                Registration.FerricoreBow.get(),
+                                                Registration.FerricoreHelmet.get(),
+                                                Registration.FerricoreChestplate.get(),
+                                                Registration.FerricoreLeggings.get(),
+                                                Registration.FerricoreBoots.get());
+
+                tag(zItemTags.FERRICORE_ANVIL_REPAIR).add(Items.IRON_INGOT, Registration.FerricoreIngot.get());
+
                 // tag(zItemTags.FLAWED_REVITALIZER)
-                                // .add(Items.ECHO_SHARD);
+                // .add(Items.ECHO_SHARD);
 
                 tag(zItemTags.REFORGER_CATALYST)
                                 .add(

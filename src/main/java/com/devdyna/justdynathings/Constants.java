@@ -15,7 +15,7 @@ public class Constants {
     public class Blocks {
         public static String PhaseBox = "phase_box";
         public static String Reforger = "reforger";
-        public static String BlazingAnvil = "blazing_anvil";
+        // public static String BlazingAnvil = "blazing_anvil";
         public static String FerricoreClock = "ferricore_clock";
         public static String Revitalizer = "revitalizer";
         public static String Ticker = "ticker";
@@ -23,6 +23,16 @@ public class Constants {
         public static String ThermoGen = "thermo_generator";
         public static String SolarGen = "solar_panel";
         public static String BlackHole = "blackhole";
+    }
+
+    public static String AnvilType = "anvil";
+
+    public class Anvil {
+
+        public static String metallic = "metallic_" + AnvilType;
+        public static String magmatic = "magmatic_" + AnvilType;
+        public static String powered = "powered_" + AnvilType;
+
     }
 
     public static String GooType = "goo";
@@ -62,7 +72,7 @@ public class Constants {
 
     public static String EMBER = "ember";
 
-    public class Fuel {// TODO NYI
+    public class Fuel {// TODO
 
         /**
          * @unused

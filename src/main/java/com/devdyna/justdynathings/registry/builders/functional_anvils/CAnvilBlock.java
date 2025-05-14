@@ -1,9 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.functional_anvils;
 
-import com.devdyna.justdynathings.client.builder.blazingAnvil.BlazingAnvilGUI;
-import com.devdyna.justdynathings.registry.types.zBlockEntities;
 import com.devdyna.justdynathings.registry.types.zProperties;
-import com.devdyna.justdynathings.utils.Actions;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
 
 import net.minecraft.core.BlockPos;
@@ -25,7 +22,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import javax.annotation.Nullable;
 
 @SuppressWarnings("null")
-public class BlazingAnvilBlock extends BaseMachineBlock {
+public class CAnvilBlock extends BaseMachineBlock {
 
     private static final VoxelShape BASE = Block.box(2.0, 0.0, 2.0, 14.0, 4.0, 14.0);
     private static final VoxelShape X_LEG1 = Block.box(3.0, 4.0, 4.0, 13.0, 5.0, 12.0);
@@ -37,7 +34,7 @@ public class BlazingAnvilBlock extends BaseMachineBlock {
     private static final VoxelShape X_AXIS_AABB = Shapes.or(BASE, X_LEG1, X_LEG2, X_TOP);
     private static final VoxelShape Z_AXIS_AABB = Shapes.or(BASE, Z_LEG1, Z_LEG2, Z_TOP);
 
-    public BlazingAnvilBlock() {
+    public CAnvilBlock() {
         super(zProperties.MachineProp
                 .sound(SoundType.ANVIL)
                 .pushReaction(PushReaction.BLOCK));
@@ -46,29 +43,27 @@ public class BlazingAnvilBlock extends BaseMachineBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos p, BlockState s) {
-        return new BlazingAnvilBE(zBlockEntities.BLAZING_ANVIL.get(), p, s);
+        return new CAnvilBE(null, p, s);
     }
 
     @Override
     public void openMenu(Player p, BlockPos b) {
-        Actions.openMenu(p,(w, i, e) -> new BlazingAnvilGUI(w, i, b), b);
     }
 
     @Override
     public boolean isValidBE(BlockEntity b) {
-        return b instanceof BlazingAnvilBE;
+        return b instanceof CAnvilBE;
     }
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext c) {
         return this.defaultBlockState()
-                .setValue(AnvilBlock.FACING, c.getHorizontalDirection().getClockWise())
-                .setValue(zProperties.ACTIVE, true);
+                .setValue(AnvilBlock.FACING, c.getHorizontalDirection().getClockWise());
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> b) {
-        b.add(AnvilBlock.FACING,zProperties.ACTIVE);
+        b.add(AnvilBlock.FACING);
     }
 
     @Override

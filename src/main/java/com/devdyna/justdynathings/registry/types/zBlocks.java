@@ -8,7 +8,9 @@ import com.devdyna.justdynathings.registry.builders.black_hole.BlackHoleBlock;
 import com.devdyna.justdynathings.registry.builders.budding.types.amethyst.AmethystBlock;
 import com.devdyna.justdynathings.registry.builders.budding.types.time.TimeBlock;
 import com.devdyna.justdynathings.registry.builders.ferricore_clock.ClockBlock;
-import com.devdyna.justdynathings.registry.builders.functional_anvils.BlazingAnvilBlock;
+import com.devdyna.justdynathings.registry.builders.functional_anvils.energy.PoweredAnvilBlock;
+import com.devdyna.justdynathings.registry.builders.functional_anvils.magmatic.MagmaAnvilBlock;
+import com.devdyna.justdynathings.registry.builders.functional_anvils.metallic.MetallicAnvilBlock;
 import com.devdyna.justdynathings.registry.builders.generators.solar.SolarBlock;
 import com.devdyna.justdynathings.registry.builders.generators.thermo.ThermoBlock;
 import com.devdyna.justdynathings.registry.builders.goo.creative.CreativeGoo;
@@ -70,10 +72,6 @@ public class zBlocks {
         public static final DeferredHolder<Block, ?> BUDDING_AMETHYST = Material.DireStuff
                         .registerBudding(Constants.Budding.Amethyst, () -> new AmethystBlock());
 
-        // TODO convert to CELESTIGEM anvil and make another anvil
-        public static final DeferredHolder<Block, ?> BLAZING_ANVIL = Material
-                        .registerItemAndBlock(Constants.Blocks.BlazingAnvil, BlazingAnvilBlock::new);
-
         public static final DeferredHolder<Block, ?> FERRICORE_CLOCK = Material
                         .registerItemAndBlock(Constants.Blocks.FerricoreClock, ClockBlock::new);
 
@@ -81,7 +79,7 @@ public class zBlocks {
                         .registerItemAndBlock(Constants.Blocks.Revitalizer, RevitalizerBlock::new);
 
         // public static final DeferredHolder<Block, ?> TICKER = Material
-        //                 .registerItemAndBlock(Constants.Blocks.Ticker, TickerBlock::new);
+        // .registerItemAndBlock(Constants.Blocks.Ticker, TickerBlock::new);
 
         public static final DeferredHolder<Block, ?> THERMOGEN = Material
                         .registerItemAndBlock(Constants.Blocks.ThermoGen, ThermoBlock::new);
@@ -92,31 +90,48 @@ public class zBlocks {
         public static final DeferredHolder<Block, ?> SOLARGEN = Material
                         .registerItemAndBlock(Constants.Blocks.SolarGen, SolarBlock::new);
 
-        // public static final DeferredHolder<Block, ?> REDSTONE_FUEL = Material.registerItemAndBlock(Constants.Fuel.redstone.Block,()-> new BlockFuel(15));
+        // public static final DeferredHolder<Block, ?> REDSTONE_FUEL =
+        // Material.registerItemAndBlock(Constants.Fuel.redstone.Block,()-> new
+        // BlockFuel(15));
 
-        // public static final DeferredHolder<Block, ?> LAPIS_LAZULI_FUEL = Material.registerItemAndBlock(Constants.Fuel.lapis_lazuli.Block,()-> new BlockFuel(5));
+        // public static final DeferredHolder<Block, ?> LAPIS_LAZULI_FUEL =
+        // Material.registerItemAndBlock(Constants.Fuel.lapis_lazuli.Block,()-> new
+        // BlockFuel(5));
 
-        // public static final DeferredHolder<Block, ?> REDSTONE_ORE = Material.DireStuff
-        //                 .simpleRawOreDW(Constants.Fuel.redstone.Raw);
+        // public static final DeferredHolder<Block, ?> REDSTONE_ORE =
+        // Material.DireStuff
+        // .simpleRawOreDW(Constants.Fuel.redstone.Raw);
 
-        // public static final DeferredHolder<Block, ?> LAPIS_LAZULI_ORE = Material.DireStuff
-        //                 .simpleRawOreDW(Constants.Fuel.lapis_lazuli.Raw);
+        // public static final DeferredHolder<Block, ?> LAPIS_LAZULI_ORE =
+        // Material.DireStuff
+        // .simpleRawOreDW(Constants.Fuel.lapis_lazuli.Raw);
 
-        // public static final DeferredHolder<Block, LiquidBlock> REDSTONE_JUICE_FLUID = zBlockFluids.register(
-        //                 Constants.Fluids.RedstoneJuice.Block,
-        //                 () -> new LiquidBlock(zFluids.REDSTONE_JUICE_FLOWING.value(),
-        //                                 Properties.ofFullCopy(Blocks.WATER)
-        //                                                 .liquid()
-        //                                                 .lightLevel(value -> 10)
-        //                                                 .emissiveRendering((a, b, c) -> true)));
+        // public static final DeferredHolder<Block, LiquidBlock> REDSTONE_JUICE_FLUID =
+        // zBlockFluids.register(
+        // Constants.Fluids.RedstoneJuice.Block,
+        // () -> new LiquidBlock(zFluids.REDSTONE_JUICE_FLOWING.value(),
+        // Properties.ofFullCopy(Blocks.WATER)
+        // .liquid()
+        // .lightLevel(value -> 10)
+        // .emissiveRendering((a, b, c) -> true)));
 
-        // public static final DeferredHolder<Block, LiquidBlock> LAPIS_LAZULI_JUICE_FLUID = zBlockFluids.register(
-        //                 Constants.Fluids.LapisLazuliJuice.Block,
-        //                 () -> new LiquidBlock(zFluids.LAPIS_LAZULI_JUICE_FLOWING.value(),
-        //                                 Properties.ofFullCopy(Blocks.WATER)
-        //                                                 .liquid()
-        //                                                 .lightLevel(value -> 1)
-        //                                                 .emissiveRendering((a, b, c) -> true)));
+        // public static final DeferredHolder<Block, LiquidBlock>
+        // LAPIS_LAZULI_JUICE_FLUID = zBlockFluids.register(
+        // Constants.Fluids.LapisLazuliJuice.Block,
+        // () -> new LiquidBlock(zFluids.LAPIS_LAZULI_JUICE_FLOWING.value(),
+        // Properties.ofFullCopy(Blocks.WATER)
+        // .liquid()
+        // .lightLevel(value -> 1)
+        // .emissiveRendering((a, b, c) -> true)));
+
+        public static final DeferredHolder<Block, ?> METALLIC_ANVIL = Material
+                        .registerItemAndBlock(Constants.Anvil.metallic, MetallicAnvilBlock::new);
+
+        public static final DeferredHolder<Block, ?> MAGMATIC_ANVIL = Material
+                        .registerItemAndBlock(Constants.Anvil.magmatic, MagmaAnvilBlock::new);
+
+        public static final DeferredHolder<Block, ?> POWERED_ANVIL = Material
+                        .registerItemAndBlock(Constants.Anvil.powered, PoweredAnvilBlock::new);
 
         // ---------------------------------------------------------------------------------------//
 

@@ -23,6 +23,9 @@ import net.neoforged.neoforge.energy.IEnergyStorage;
 @SuppressWarnings("null")
 public class Actions {
 
+        /**
+         * ONLY REFORGER
+         */
         public static void consumeItem(ItemStack item, Level level) {
                 if (LevelUtil.chance(Config.REFORGER_CHANCE.get(), level))
                         item.shrink(1);

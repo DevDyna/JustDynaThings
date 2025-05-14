@@ -1,6 +1,5 @@
 {
   "block.justdynathings.blackhole": "Blackhole",
-  "block.justdynathings.blazing_anvil": "Blazing Anvil",
   "block.justdynathings.budding_amethyst": "Budding Amethyst",
   "block.justdynathings.budding_certus": "Budding Certus",
   "block.justdynathings.budding_entro": "Budding Entro",
@@ -13,7 +12,10 @@
   "block.justdynathings.creative_goo": "Creative Goo",
   "block.justdynathings.energized_goo": "Energized Goo",
   "block.justdynathings.ferricore_clock": "Ferricore Clock",
+  "block.justdynathings.magmatic_anvil": "Magmatic Anvil",
+  "block.justdynathings.metallic_anvil": "Metallic Anvil",
   "block.justdynathings.phase_box": "Phase Box",
+  "block.justdynathings.powered_anvil": "Powered Anvil",
   "block.justdynathings.reforger": "Reforger",
   "block.justdynathings.revitalizer": "Revitalizer",
   "block.justdynathings.solar_panel": "Solar Panel",

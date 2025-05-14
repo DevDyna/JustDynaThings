@@ -30,5 +30,10 @@ public class zHandlers {
             () -> AttachmentType.serializable((h) -> (h instanceof FluidMachineBE f)
                     ? new JustDireFluidTank(f.getMaxMB(), (fs) -> fs.is(zFluidTags.THERMO_COOLERS))
                     : new JustDireFluidTank(0)).build());
+        
+                    public static final Supplier<AttachmentType<JustDireFluidTank>> MAGMATIC_LIQUID = zHandler.register("magmatic_liquid",
+            () -> AttachmentType.serializable((h) -> (h instanceof FluidMachineBE f)
+                    ? new JustDireFluidTank(f.getMaxMB(), (fs) -> fs.is(zFluidTags.MAGMATIC_LIQUID))
+                    : new JustDireFluidTank(0)).build());
 
 }

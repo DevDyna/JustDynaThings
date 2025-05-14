@@ -44,7 +44,7 @@ public class DataBlockModelState extends BlockStateProvider {
                 BaseGooStateModel(zBlocks.T2_GOO.get());
                 BaseGooStateModel(zBlocks.T3_GOO.get());
                 BaseGooStateModel(zBlocks.T4_GOO.get());
-                AnvilStateModel(zBlocks.BLAZING_ANVIL.get());
+                // AnvilStateModel(zBlocks.BLAZING_ANVIL.get()); TODO
                 PhaseBox(zBlocks.PHASEBOX.get());
                 DataGenUtil.SimpleBlock(zBlocks.BLACKHOLE.get(), this);
                 DataGenUtil.SimpleBlock(zBlocks.SOLARGEN.get(), this);

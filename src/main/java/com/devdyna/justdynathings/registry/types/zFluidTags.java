@@ -12,4 +12,5 @@ public class zFluidTags {
     }
 
     public static final TagKey<Fluid> THERMO_COOLERS = Material.tagFluid("thermo_coolers");
+    public static final TagKey<Fluid> MAGMATIC_LIQUID = Material.tagFluid("magmatic_liquid");
 }

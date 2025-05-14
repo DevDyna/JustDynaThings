@@ -24,6 +24,8 @@ public class DataFluidTag extends FluidTagsProvider {
         protected void addTags(Provider p) {
 
                 tag(zFluidTags.THERMO_COOLERS).addOptionalTag(FluidTags.WATER);
+
+                tag(zFluidTags.MAGMATIC_LIQUID).addOptionalTag(FluidTags.LAVA);
         }
 
 }

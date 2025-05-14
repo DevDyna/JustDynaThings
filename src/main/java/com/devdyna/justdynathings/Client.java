@@ -1,7 +1,9 @@
 package com.devdyna.justdynathings;
 
+import com.devdyna.justdynathings.client.builder.anvil.magmatic.MagmaticAnvilScreen;
+import com.devdyna.justdynathings.client.builder.anvil.metallic.MetallicAnvilScreen;
+import com.devdyna.justdynathings.client.builder.anvil.powered.PoweredAnvilScreen;
 import com.devdyna.justdynathings.client.builder.blackhole.BlackHoleScreen;
-import com.devdyna.justdynathings.client.builder.blazingAnvil.BlazingAnvilScreen;
 import com.devdyna.justdynathings.client.builder.clock.ClockScreen;
 import com.devdyna.justdynathings.client.builder.reforger.ReforgerScreen;
 import com.devdyna.justdynathings.client.builder.solarGen.SolarScreen;
@@ -23,11 +25,13 @@ public class Client {
     @SubscribeEvent
     public static void registerScreens(RegisterMenuScreensEvent event) {
         event.register(zContainers.REFORGER.get(), ReforgerScreen::new);
-        event.register(zContainers.BLAZING_ANVIL.get(), BlazingAnvilScreen::new);
         event.register(zContainers.FERRICORE_CLOCK.get(), ClockScreen::new);
         event.register(zContainers.THERMOGEN.get(), ThermoScreen::new);
         event.register(zContainers.BLACKHOLE.get(), BlackHoleScreen::new);
         event.register(zContainers.SOLAR_PANEL.get(), SolarScreen::new);
+        event.register(zContainers.METALLIC_ANVIL.get(), MetallicAnvilScreen::new);
+        event.register(zContainers.MAGMATIC_ANVIL.get(), MagmaticAnvilScreen::new);
+        event.register(zContainers.POWERED_ANVIL.get(), PoweredAnvilScreen::new);
     }
 
     @SubscribeEvent

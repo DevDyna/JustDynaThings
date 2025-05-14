@@ -1,7 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.sculk;
 
 import com.devdyna.justdynathings.registry.interfaces.be.FluidMachine;
-import com.devdyna.justdynathings.registry.types.zBlockEntities;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.LevelUtil;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
@@ -28,7 +27,7 @@ public class SculkBE extends BaseMachineBE implements FluidMachine {
     }
 
     public SculkBE(BlockPos p, BlockState s) {
-        this(zBlockEntities.BLAZING_ANVIL.get(), p, s);//WIP
+        this(null, p, s);//WIP
     }
 
     @Override

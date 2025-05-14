@@ -67,17 +67,17 @@ public class DataRecipe extends RecipeProvider {
                                                 .hasItems(Registration.FerricoreIngot.get()))
                                 .group(ID).save(c);
 
-                ShapedRecipeBuilder.shaped(MISC, zBlocks.BLAZING_ANVIL.get(), 1)
-                                .pattern("BCB")
-                                .pattern("BDB")
-                                .pattern("BAB")
-                                .define('A', Registration.BlazeGoldBlock.get())
-                                .define('B', Registration.BlazegoldIngot.get())
-                                .define('C', Items.MAGMA_BLOCK)
-                                .define('D', zMultiTags.ANVILS.item())
-                                .unlockedBy(ID, InventoryChangeTrigger.TriggerInstance
-                                                .hasItems(Registration.BlazegoldIngot.get()))
-                                .group(ID).save(c);
+                // ShapedRecipeBuilder.shaped(MISC, zBlocks.BLAZING_ANVIL.get(), 1) TODO
+                //                 .pattern("BCB")
+                //                 .pattern("BDB")
+                //                 .pattern("BAB")
+                //                 .define('A', Registration.BlazeGoldBlock.get())
+                //                 .define('B', Registration.BlazegoldIngot.get())
+                //                 .define('C', Items.MAGMA_BLOCK)
+                //                 .define('D', zMultiTags.ANVILS.item())
+                //                 .unlockedBy(ID, InventoryChangeTrigger.TriggerInstance
+                //                                 .hasItems(Registration.BlazegoldIngot.get()))
+                //                 .group(ID).save(c);
 
                 ShapedRecipeBuilder.shaped(MISC, zBlocks.REFORGER.get(), 1)
                                 .pattern("ADA")

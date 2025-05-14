@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.client.builder.blazingAnvil;
+package com.devdyna.justdynathings.client.builder.anvil.powered;
 
 import com.devdyna.justdynathings.registry.types.zBlocks;
 import com.devdyna.justdynathings.registry.types.zContainers;
@@ -11,14 +11,14 @@ import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.item.ItemStack;
 
 @SuppressWarnings("null")
-public class BlazingAnvilGUI extends BaseMachineContainer {
+public class PoweredAnvilGUI extends BaseMachineContainer {
 
-    public BlazingAnvilGUI(int windowId, Inventory playerInventory, FriendlyByteBuf extraData) {
+    public PoweredAnvilGUI(int windowId, Inventory playerInventory, FriendlyByteBuf extraData) {
         this(windowId, playerInventory, extraData.readBlockPos());
     }
 
-    public BlazingAnvilGUI(int windowId, Inventory playerInventory, BlockPos blockPos) {
-        super(zContainers.BLAZING_ANVIL.get(), windowId, playerInventory, blockPos);
+    public PoweredAnvilGUI(int windowId, Inventory playerInventory, BlockPos blockPos) {
+        super(zContainers.POWERED_ANVIL.get(), windowId, playerInventory, blockPos);
         addPlayerSlots(player.getInventory());
     }
 
@@ -30,7 +30,7 @@ public class BlazingAnvilGUI extends BaseMachineContainer {
 
     @Override
     public boolean stillValid(Player playerIn) {
-        return stillValid(ContainerLevelAccess.create(player.level(), pos), player, zBlocks.BLAZING_ANVIL.get());
+        return stillValid(ContainerLevelAccess.create(player.level(), pos), player, zBlocks.POWERED_ANVIL.get());
     }
 
     @Override

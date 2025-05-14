@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.client.builder.blazingAnvil;
+package com.devdyna.justdynathings.client.builder.anvil.powered;
 
 import com.direwolf20.justdirethings.client.screens.basescreens.BaseMachineScreen;
 import com.direwolf20.justdirethings.client.screens.standardbuttons.ToggleButtonFactory;
@@ -9,8 +9,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.Slot;
 
-public class BlazingAnvilScreen extends BaseMachineScreen<BlazingAnvilGUI> {
-    public BlazingAnvilScreen(BlazingAnvilGUI container, Inventory inv, Component name) {
+public class PoweredAnvilScreen extends BaseMachineScreen<PoweredAnvilGUI> {
+    public PoweredAnvilScreen(PoweredAnvilGUI container, Inventory inv, Component name) {
         super(container, inv, name);
     }
 
@@ -31,6 +31,11 @@ public class BlazingAnvilScreen extends BaseMachineScreen<BlazingAnvilGUI> {
             redstoneMode = MiscHelpers.RedstoneMode.values()[((ToggleButton) b).getTexturePosition()];
             saveSettings();
         }));
+    }
+
+    @Override
+    public void addTickSpeedButton() {
+        //empty remove tick button
     }
 
     @Override

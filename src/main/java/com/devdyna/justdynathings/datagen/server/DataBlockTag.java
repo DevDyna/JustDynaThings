@@ -68,6 +68,17 @@ public class DataBlockTag extends BlockTagsProvider {
 
                 tag(zMultiTags.AMETHYST_BLOCKS.block()).add(Blocks.AMETHYST_BLOCK, Blocks.BUDDING_AMETHYST);
 
+
+
+                tag(zMultiTags.T2_SPREAD.block()).add(
+                                Registration.GooBlock_Tier1.get());
+
+                tag(zMultiTags.T3_SPREAD.block()).add(
+                                Registration.GooBlock_Tier2.get()).addTag(zMultiTags.T2_SPREAD.block());
+
+                tag(zMultiTags.T4_SPREAD.block()).add(
+                                Registration.GooBlock_Tier3.get()).addTag(zMultiTags.T3_SPREAD.block());
+
         }
 
 }

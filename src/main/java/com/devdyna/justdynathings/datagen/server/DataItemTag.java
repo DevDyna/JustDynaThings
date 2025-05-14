@@ -5,10 +5,11 @@ import java.util.concurrent.CompletableFuture;
 import com.devdyna.justdynathings.registry.types.zItemTags;
 import com.devdyna.justdynathings.registry.types.zMultiTags;
 import com.direwolf20.justdirethings.datagen.JustDireItemTags;
+import com.direwolf20.justdirethings.setup.Registration;
+
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
-import static net.minecraft.world.item.Items.*;
 
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
@@ -25,7 +26,7 @@ public class DataItemTag extends ItemTagsProvider {
         @Override
         protected void addTags(Provider p) {
 
-                tag(zMultiTags.ANVILS.item()).add(ANVIL, CHIPPED_ANVIL, DAMAGED_ANVIL);
+                tag(zMultiTags.ANVILS.item()).add(Items.ANVIL, Items.CHIPPED_ANVIL, Items.DAMAGED_ANVIL);
 
                 tag(zMultiTags.COPPER_BULBS.item()).add(
                                 Items.COPPER_BULB,
@@ -44,22 +45,31 @@ public class DataItemTag extends ItemTagsProvider {
                                 .addOptionalTag(JustDireItemTags.WRENCHES);
 
                 tag(zItemTags.BLAZINGANVIL_DENY)
-                                .add(MACE);
+                                .add(Items.MACE);
 
                 tag(zItemTags.FLAWED_REVITALIZER)
-                                .add(ECHO_SHARD);
+                                .add(Items.ECHO_SHARD);
 
                 tag(zItemTags.REFORGER_CATALYST)
                                 .add(
-                                                ECHO_SHARD,
-                                                NETHER_STAR,
-                                                DIAMOND,
-                                                NETHERITE_INGOT,
-                                                NETHERITE_SCRAP,
-                                                HEART_OF_THE_SEA,
-                                                HEAVY_CORE
+                                                Items.ECHO_SHARD,
+                                                Items.NETHER_STAR,
+                                                Items.DIAMOND,
+                                                Items.NETHERITE_INGOT,
+                                                Items.NETHERITE_SCRAP,
+                                                Items.HEART_OF_THE_SEA,
+                                                Items.HEAVY_CORE
                                 // ,zItems.CHAOTIC_DUST.get()
                                 );
+
+                tag(zMultiTags.T2_SPREAD.item()).add(
+                                Registration.GooBlock_Tier1_ITEM.get());
+
+                tag(zMultiTags.T3_SPREAD.item()).add(
+                                Registration.GooBlock_Tier2_ITEM.get()).addTag(zMultiTags.T2_SPREAD.item());
+
+                tag(zMultiTags.T4_SPREAD.item()).add(
+                                Registration.GooBlock_Tier3_ITEM.get()).addTag(zMultiTags.T3_SPREAD.item());
 
         }
 

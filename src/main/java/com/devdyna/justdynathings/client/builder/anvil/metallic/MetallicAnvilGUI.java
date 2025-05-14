@@ -25,7 +25,8 @@ public class MetallicAnvilGUI extends BaseMachineContainer {
     @Override
     public void addMachineSlots() {
         machineHandler = baseMachineBE.getMachineHandler();
-        addSlotBox(machineHandler, 0, 62, -1, 2, 0, 1, 0);
+        addSlotRange(machineHandler, 0, 80, 13, 1, 18);
+        addSlotRange(machineHandler, 1, 60, 13, 1, 18);
     }
 
     @Override

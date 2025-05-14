@@ -19,7 +19,7 @@ public class MagmaAnvilBE extends CAnvilBE implements FluidMachine {
 
     public MagmaAnvilBE(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState) {
         super(pType, pPos, pBlockState);
-        this.MACHINE_SLOTS = 2;
+        this.MACHINE_SLOTS = 1;
         this.condition = canExtractMB() && getMachineHandler().getStackInSlot(0).isDamageableItem()
                 && getMachineHandler().getStackInSlot(0).isDamaged()
                 && !getMachineHandler().getStackInSlot(0).is(zItemTags.BLAZING_ANVIL_DENY);

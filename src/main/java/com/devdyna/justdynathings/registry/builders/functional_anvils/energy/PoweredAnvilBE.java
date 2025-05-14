@@ -19,7 +19,7 @@ public class PoweredAnvilBE extends CAnvilBE implements EnergyMachine {
 
     public PoweredAnvilBE(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState) {
         super(pType, pPos, pBlockState);
-        this.MACHINE_SLOTS = 2;
+        this.MACHINE_SLOTS = 1;
         this.condition = canExtractFE() && getMachineHandler().getStackInSlot(0).isDamageableItem()
                 && getMachineHandler().getStackInSlot(0).isDamaged()
                 && !getMachineHandler().getStackInSlot(0).is(zItemTags.CELESTIGEM_DENY);

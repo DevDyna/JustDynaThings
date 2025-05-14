@@ -26,17 +26,20 @@ public class MetallicAnvilBE extends CAnvilBE {
     }
 
     int i = 0;
+    int delay = 20;
 
-    // @SuppressWarnings("null")
+    @SuppressWarnings("null")
     public void runActions() {
-        if (i < 200) // TODO
+        if (i < delay) // TODO
             i++;
 
-        if (i >= 20) {
+        if (i >= delay) {
             i = 0;
             getMachineHandler().getStackInSlot(1).shrink(1);
         }
-        Actions.repairItem(getMachineHandler().getStackInSlot(0));
+        Actions.repairItem(Capabilities.ItemHandler.BLOCK
+                .getCapability(level, getBlockPos(), getBlockState(), getBlockEntity(), getDirectionValue())
+                .getStackInSlot(0));
     }
 
 }

@@ -5,11 +5,11 @@ import net.neoforged.fml.ModList;
 public class Constants {
 
     // public class Types {
-    //     public static String Item = "item";
-    //     public static String Block = "block";
-    //     public static String BlockEntity = "blockentity";
-    //     public static String Container = "container";
-        public static String CreativeTab = "creative_tab";
+    // public static String Item = "item";
+    // public static String Block = "block";
+    // public static String BlockEntity = "blockentity";
+    // public static String Container = "container";
+    public static String CreativeTab = "creative_tab";
     // }
 
     public class Blocks {
@@ -23,31 +23,6 @@ public class Constants {
         public static String ThermoGen = "thermo_generator";
         public static String SolarGen = "solar_panel";
         public static String BlackHole = "blackhole";
-    }
-
-    public class Ores {
-        public static String ChaoticType = "chaotic";
-
-        public static class Chaotic {
-            public static String dust = ChaoticType + "_dust";
-            public static String ore = ChaoticType + "_ore";
-        }
-
-        public static String RedstonicType = "redstonic";
-
-        public class Redstonic {
-            public static String gem = RedstonicType + "_gem";
-            public static String ore = RedstonicType + "_ore";
-        }
-
-        public static String CopriniumType = "coprinium";
-
-        public class Coprinium {
-            public static String raw = "raw_" + CopriniumType;
-            public static String ingot = CopriniumType + "_ingot";
-            public static String ore = CopriniumType + "_ore";
-
-        }
     }
 
     public static String GooType = "goo";
@@ -85,29 +60,51 @@ public class Constants {
         }
     }
 
+    public static String EMBER = "ember";
+
     public class Fuel {
 
         /**
-         * Values of JDT coals
+         * @unused
+         *         Values of JDT coals
          */
         public static int[] DW_FUEL_VALUES = { 2, 4, 8, 16 };
 
-        public static String BIOFUEL = "biofuel";
+        public static String BIOFUEL = "bio_fuel"; // TODO NYI
 
-        public static String Biofuel(int num) {
-            return BIOFUEL + "_" + String.valueOf(num);
+        public static String REDSTONE = "redstone_" + EMBER;
+        public static String LAPIS_LAZULI = "lapis_lazuli_" + EMBER;
+
+        public class redstone {
+            public static String Block = REDSTONE + "_block";
+            public static String Raw = "raw_" + REDSTONE;
         }
+
+        public class lapis_lazuli {
+            public static String Block = LAPIS_LAZULI + "_block";
+            public static String Raw = "raw_" + LAPIS_LAZULI;
+        }
+
     }
 
     public class Fluids {
         public static String REDSTONE_JUICE = "redstone_juice";
+        public static String LAPIS_LAZULI_JUICE = "lapis_lazuli_juice";
 
         public class RedstoneJuice {
-            public static String Block = REDSTONE_JUICE+"_block";
-            public static String Type = REDSTONE_JUICE+"_fluid";
-            public static String Source= REDSTONE_JUICE+"_fluid_source";
-            public static String Flowing= REDSTONE_JUICE+"_fluid_flowing";
-            public static String Bucket= REDSTONE_JUICE+"_bucket_item";
+            public static String Block = REDSTONE_JUICE + "_block";
+            public static String Type = REDSTONE_JUICE + "_fluid";
+            public static String Source = REDSTONE_JUICE + "_fluid_source";
+            public static String Flowing = REDSTONE_JUICE + "_fluid_flowing";
+            public static String Bucket = REDSTONE_JUICE + "_bucket_item";
+        }
+
+        public class LapisLazuliJuice {
+            public static String Block = LAPIS_LAZULI_JUICE + "_block";
+            public static String Type = LAPIS_LAZULI_JUICE + "_fluid";
+            public static String Source = LAPIS_LAZULI_JUICE + "_fluid_source";
+            public static String Flowing = LAPIS_LAZULI_JUICE + "_fluid_flowing";
+            public static String Bucket = LAPIS_LAZULI_JUICE + "_bucket_item";
         }
     }
 

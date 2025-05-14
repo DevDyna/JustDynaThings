@@ -69,20 +69,6 @@ public class DataBlockModelState extends BlockStateProvider {
                                 modLoc("block/budding/phasorite/alive"),
                                 CubeAllCheap(ID + ":block/budding/phasorite", this));
 
-                // BaseBuddings(zBlocks.BUDDING_AMETHYST.get(),
-                // DataGenUtil.NamewithParent(ID + ":block/budding/amethyst/alive", this,
-                // DataGenUtil.CUBE_ALL, "all", "minecraft:block/budding_amethyst"),
-                // DataGenUtil.NamewithParent(ID + ":block/budding/amethyst/dead", this,
-                // DataGenUtil.CUBE_ALL, "all", ID + ":block/budding/amethyst"));
-                // BaseBuddings(zBlocks.BUDDING_TIME.get(), ID + ":block/budding/time/alive",
-                // ID + ":block/budding/time/dead");
-                // BaseBuddings(AE2_POWERED.get(), ID + ":block/flawless_budding_quartz",
-                // ID + ":block/budding/certus/dead");
-                // BaseBuddings(EXTENDED_POWERED.get(), ID + ":block/entro_budding_fully",
-                // ID + ":block/budding/entro/dead");
-                // BaseBuddings(PHASORITE_POWERED.get(), ID + ":block/budding_phasorite",
-                // ID + ":block/budding/phasorite/dead");
-
         }
 
         private void AnvilStateModel(Block b) {
@@ -154,7 +140,7 @@ public class DataBlockModelState extends BlockStateProvider {
         }
 
         public static BlockModelBuilder CubeAllCheap(String nameTexture, BlockStateProvider b) {
-                return DataGenUtil.CubeAll(nameTexture+"/dead", b, nameTexture);
+                return DataGenUtil.CubeAll(nameTexture + "/dead", b, nameTexture);
         }
 
 }

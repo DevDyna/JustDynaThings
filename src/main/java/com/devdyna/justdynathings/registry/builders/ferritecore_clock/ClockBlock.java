@@ -43,7 +43,7 @@ public class ClockBlock extends BaseMachineBlock {
             level.setBlockAndUpdate(pos,
                     state.setValue((BooleanProperty) DirectionUtil.StateByDir(hitResult.getDirection()),
                             !value.booleanValue()));
-            applySound(level,player, pos, value);
+            applySound(level, player, pos, value);
             return InteractionResult.SUCCESS;
         } else {
             this.openMenu(player, pos);
@@ -56,7 +56,7 @@ public class ClockBlock extends BaseMachineBlock {
      * 
      * @param pos
      */
-    public void applySound(Level l,Player p, BlockPos pos, boolean state) {
+    public void applySound(Level l, Player p, BlockPos pos, boolean state) {
         if (LevelUtil.chance(50, l))
             l.playSound(p, pos, state ? SoundEvents.COPPER_BULB_TURN_ON : SoundEvents.COPPER_BULB_TURN_OFF,
                     SoundSource.BLOCKS, l.random.nextInt(50) + 1 * 0.01F,

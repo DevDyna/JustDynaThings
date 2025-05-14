@@ -47,8 +47,8 @@ public class DataItemTag extends ItemTagsProvider {
                 tag(zItemTags.BLAZINGANVIL_DENY)
                                 .add(Items.MACE);
 
-                tag(zItemTags.FLAWED_REVITALIZER)
-                                .add(Items.ECHO_SHARD);
+                // tag(zItemTags.FLAWED_REVITALIZER)
+                                // .add(Items.ECHO_SHARD);
 
                 tag(zItemTags.REFORGER_CATALYST)
                                 .add(

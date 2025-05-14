@@ -51,13 +51,13 @@ public class DataBlockTag extends BlockTagsProvider {
                                 Registration.GooBlock_Tier3.get(),
                                 Registration.GooBlock_Tier4.get());
 
-                tag(TICKER_DENY).addTag(JustDireBlockTags.TICK_SPEED_DENY);
+                // tag(TICKER_DENY).addTag(JustDireBlockTags.TICK_SPEED_DENY);
 
                 zBlocks.zOres.getEntries()
                                 .forEach(b -> tag(JustDireBlockTags.PARADOX_ALLOW)
-                                                .addOptional(DataGenUtil.getResource(b.get())));
+                                                .add(b.get()));
 
-                tag(JustDireBlockTags.TICK_SPEED_DENY).add(zBlocks.TICKER.get());
+                // tag(JustDireBlockTags.TICK_SPEED_DENY).add(zBlocks.TICKER.get());
 
                 tag(THERMO_HEATER).add(Blocks.MAGMA_BLOCK);
                 tag(zMultiTags.COPPER_BLOCKS.block()).add(

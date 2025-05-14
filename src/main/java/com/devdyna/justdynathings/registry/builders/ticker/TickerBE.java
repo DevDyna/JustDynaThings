@@ -36,7 +36,9 @@ public RedstoneControlData redstoneControlData = new RedstoneControlData();
     }
 
     public TickerBE(BlockPos p, BlockState s) {
-        this(zBlockEntities.TICKER.get(), p, s);
+        this(null,
+            //zBlockEntities.TICKER.get(), 
+        p, s);
     }
 
     @Override
@@ -73,7 +75,9 @@ public RedstoneControlData redstoneControlData = new RedstoneControlData();
     }
 
     public boolean blockValid(BlockPos pos) {
-        return !level.getBlockState(pos).is(zBlockTags.TICKER_DENY);
+        return true
+        //!level.getBlockState(pos).is(zBlockTags.TICKER_DENY)
+        ;
     }
 
     public void playSound(BlockPos pos) {

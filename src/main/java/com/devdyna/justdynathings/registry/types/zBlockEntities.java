@@ -14,8 +14,6 @@ import com.devdyna.justdynathings.registry.builders.goo.energy.diregoo.*;
 import com.devdyna.justdynathings.registry.builders.goo.energy.energized.EnergyGooBE;
 import com.devdyna.justdynathings.registry.builders.reforger.ReforgerBE;
 import com.devdyna.justdynathings.registry.builders.revitalizer.RevitalizerBE;
-import com.devdyna.justdynathings.registry.builders.ticker.TickerBE;
-
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.BlockEntityType.Builder;
@@ -84,9 +82,9 @@ public class zBlockEntities {
                         .register(Constants.Blocks.Revitalizer,
                                         () -> Builder.of(RevitalizerBE::new, zBlocks.REVITALIZER.get()).build(null));
 
-        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TickerBE>> TICKER = zBE
-                        .register(Constants.Blocks.Ticker,
-                                        () -> Builder.of(TickerBE::new, zBlocks.TICKER.get()).build(null));
+        // public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TickerBE>> TICKER = zBE
+        //                 .register(Constants.Blocks.Ticker,
+        //                                 () -> Builder.of(TickerBE::new, zBlocks.TICKER.get()).build(null));
 
         public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ThermoBE>> THERMOGEN = zBE
                         .register(Constants.Blocks.ThermoGen,

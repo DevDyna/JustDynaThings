@@ -12,6 +12,9 @@
         "items": [
           {
             "items": "justdirethings:time_crystal"
+          },
+          {
+            "items": "justdirethings:eclipsealloy_ingot"
           }
         ]
       },

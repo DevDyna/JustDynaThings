@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "justdynathings:creative_goo"
+        "recipe": "justdynathings:charged_shadowpulse_goo"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -11,13 +11,13 @@
       "conditions": {
         "items": [
           {
-            "items": "minecraft:nether_star"
+            "items": "justdirethings:coal_t4"
           },
           {
-            "items": "justdirethings:time_crystal"
+            "items": "justdirethings:raw_eclipsealloy"
           },
           {
-            "items": "justdirethings:eclipsealloy_ingot"
+            "items": "justdirethings:gooblock_tier4"
           }
         ]
       },
@@ -32,7 +32,7 @@
   ],
   "rewards": {
     "recipes": [
-      "justdynathings:creative_goo"
+      "justdynathings:charged_shadowpulse_goo"
     ]
   }
 }

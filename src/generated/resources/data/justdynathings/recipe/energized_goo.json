@@ -10,16 +10,19 @@
       "item": "justdirethings:eclipsealloy_ingot"
     },
     "C": {
-      "item": "minecraft:nether_star"
+      "item": "justdirethings:gooblock_tier4"
+    },
+    "D": {
+      "item": "minecraft:redstone_block"
     }
   },
   "pattern": [
-    "ABA",
+    "ADA",
     "BCB",
-    "ABA"
+    "ADA"
   ],
   "result": {
     "count": 2,
-    "id": "justdynathings:creative_goo"
+    "id": "justdynathings:energized_goo"
   }
 }

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "justdynathings",
+  "ingredients": [
+    {
+      "item": "justdirethings:coal_t3"
+    },
+    {
+      "item": "justdirethings:celestigem"
+    },
+    {
+      "item": "justdirethings:gooblock_tier3"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "justdynathings:charged_voidshimmer_goo"
+  }
+}

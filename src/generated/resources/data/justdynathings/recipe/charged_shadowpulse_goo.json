@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "justdynathings",
+  "ingredients": [
+    {
+      "item": "justdirethings:coal_t4"
+    },
+    {
+      "item": "justdirethings:raw_eclipsealloy"
+    },
+    {
+      "item": "justdirethings:gooblock_tier4"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "justdynathings:charged_shadowpulse_goo"
+  }
+}

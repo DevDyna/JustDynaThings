@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "justdynathings:creative_goo"
+        "recipe": "justdynathings:energized_goo"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -11,13 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": "minecraft:nether_star"
-          },
-          {
-            "items": "justdirethings:time_crystal"
-          },
-          {
-            "items": "justdirethings:eclipsealloy_ingot"
+            "items": "justdirethings:gooblock_tier4"
           }
         ]
       },
@@ -32,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "justdynathings:creative_goo"
+      "justdynathings:energized_goo"
     ]
   }
 }

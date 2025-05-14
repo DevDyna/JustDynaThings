@@ -12,6 +12,9 @@
         "items": [
           {
             "items": "justdirethings:coal_t1"
+          },
+          {
+            "items": "justdirethings:ferricore_ingot"
           }
         ]
       },

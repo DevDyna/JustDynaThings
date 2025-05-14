@@ -1,5 +1,0 @@
-{
-  "parent": "neoforge:item/bucket",
-  "fluid": "justdynathings:redstone_juice_fluid_source",
-  "loader": "neoforge:fluid_container"
-}

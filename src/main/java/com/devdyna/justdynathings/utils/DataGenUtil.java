@@ -39,6 +39,7 @@ public class DataGenUtil {
     public static String getPath(Item i) {
         return BuiltInRegistries.ITEM.getKey(i).getPath();
     }
+
     /**
      * NOT ADDONS
      */
@@ -186,26 +187,24 @@ public class DataGenUtil {
         return b.renderType(CUTOUT);
     }
 
-
-        public static BlockModelBuilder NamewithParent(String name, BlockStateProvider b,
+    public static BlockModelBuilder NamewithParent(String name, BlockStateProvider b,
             String parent) {
         return b.models().withExistingParent(name, parent);
     }
 
-        public static BlockModelBuilder NamewithParent(String name, BlockStateProvider b,
+    public static BlockModelBuilder NamewithParent(String name, BlockStateProvider b,
             String parent, String keyname, String texture) {
         return b.models().withExistingParent(name, parent)
                 .texture(keyname, texture);
     }
 
-        public static BlockModelBuilder CubeAll(String name, BlockStateProvider b,
-              String texture) {
+    public static BlockModelBuilder CubeAll(String name, BlockStateProvider b,
+            String texture) {
         return b.models().withExistingParent(name, CUBE_ALL)
                 .texture("all", texture);
     }
 
-
-    public static ICondition[] isModLoaded(String modid){
+    public static ICondition[] isModLoaded(String modid) {
         return new ICondition[] { new ModLoadedCondition(modid) };
     }
 

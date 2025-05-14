@@ -180,7 +180,9 @@ public class DataRecipe extends RecipeProvider {
                                 .define('C', Items.DRAGON_EGG)
                                 .unlockedBy(ID, itemInv(Registration.TimeCrystal.get())).group(ID).save(c);
 
-                GooConversion(zMultiTags.T2_SPREAD.block(), Registration.GooBlock_Tier1.get(), c);
+                GooConversion(zMultiTags.T2_SPREAD.block(), Registration.GooBlock_Tier2.get(), c);
+                GooConversion(zMultiTags.T3_SPREAD.block(), Registration.GooBlock_Tier3.get(), c);
+                GooConversion(zMultiTags.T4_SPREAD.block(), Registration.GooBlock_Tier4.get(), c);
 
         }
 

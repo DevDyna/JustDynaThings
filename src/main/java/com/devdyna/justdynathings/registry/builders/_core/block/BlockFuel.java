@@ -1,11 +1,11 @@
-package com.devdyna.justdynathings.registry.builders.fuels.block;
+package com.devdyna.justdynathings.registry.builders._core.block;
 
 import com.direwolf20.justdirethings.common.blocks.resources.CoalBlock_T1;
 
-public class BaseFuel extends CoalBlock_T1 {
+public class BlockFuel extends CoalBlock_T1 {
    private int fuelvalue;
 
-   public BaseFuel(int value) {
+   public BlockFuel(int value) {
       fuelvalue = value;
    }
 

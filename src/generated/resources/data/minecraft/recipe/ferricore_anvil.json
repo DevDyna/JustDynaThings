@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "justdirethings:ferricore_block"
+  },
+  "base": {
+    "tag": "minecraft:anvils"
+  },
+  "result": {
+    "count": 1,
+    "id": "justdynathings:ferricore_anvil"
+  },
+  "template": {
+    "item": "justdirethings:template_ferricore"
+  }
+}

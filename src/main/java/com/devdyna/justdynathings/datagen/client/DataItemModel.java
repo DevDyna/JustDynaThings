@@ -30,10 +30,14 @@ public class DataItemModel extends ItemModelProvider {
                 zItems.zItem.getEntries()
                                 .forEach(item -> DataGenUtil.itemModel(item.get(), this));
 
-                // DataGenUtil.itemBlock(zBlocks.BLAZING_ANVIL.get(), this); TODO
                 DataGenUtil.itemBlock(zBlocks.THERMOGEN.get(), this);
                 DataGenUtil.itemBlock(zBlocks.SOLARGEN.get(), this);
                 DataGenUtil.itemBlock(zBlocks.BLACKHOLE.get(), this);
+
+                AnvilBlockItem(zBlocks.METALLIC_ANVIL.get());
+                AnvilBlockItem(zBlocks.MAGMATIC_ANVIL.get());
+                AnvilBlockItem(zBlocks.POWERED_ANVIL.get());
+                AnvilBlockItem(zBlocks.TIME_ANVIL.get());
 
                 DataGenUtil.itemBlockwithParent(zBlocks.FERRICORE_CLOCK.get(), this,
                                 "block/cube_all", "all",
@@ -76,7 +80,11 @@ public class DataItemModel extends ItemModelProvider {
         private void GooItemModel(Block b) {
                 DataGenUtil.itemBlockwithParent(b, this,
                                 ID + ":block/goo/" + DataGenUtil.getName(b) + "/dead");
+        }
 
+        private void AnvilBlockItem(Block b) {
+                DataGenUtil.itemBlockwithParent(b, this,
+                                ID + ":block/anvils/" + DataGenUtil.getName(b).replace("_anvil", ""));
         }
 
 }

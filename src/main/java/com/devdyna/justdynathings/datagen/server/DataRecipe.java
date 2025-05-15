@@ -67,18 +67,6 @@ public class DataRecipe extends RecipeProvider {
                                                 .hasItems(Registration.FerricoreIngot.get()))
                                 .group(ID).save(c);
 
-                // ShapedRecipeBuilder.shaped(MISC, zBlocks.BLAZING_ANVIL.get(), 1) TODO
-                //                 .pattern("BCB")
-                //                 .pattern("BDB")
-                //                 .pattern("BAB")
-                //                 .define('A', Registration.BlazeGoldBlock.get())
-                //                 .define('B', Registration.BlazegoldIngot.get())
-                //                 .define('C', Items.MAGMA_BLOCK)
-                //                 .define('D', zMultiTags.ANVILS.item())
-                //                 .unlockedBy(ID, InventoryChangeTrigger.TriggerInstance
-                //                                 .hasItems(Registration.BlazegoldIngot.get()))
-                //                 .group(ID).save(c);
-
                 ShapedRecipeBuilder.shaped(MISC, zBlocks.REFORGER.get(), 1)
                                 .pattern("ADA")
                                 .pattern("BEB")
@@ -215,6 +203,22 @@ public class DataRecipe extends RecipeProvider {
                                 Registration.RawEclipseAlloy.get(),
                                 Registration.TotemOfDeathRecall.get());
 
+                AnvilRecipe(zBlocks.METALLIC_ANVIL.get(), Registration.FerricoreIngot.get(),
+                                Registration.FerricoreBlock_ITEM.get(), Registration.TEMPLATE_FERRICORE.get(),
+                                zMultiTags.ANVILS.item(), c);
+
+                AnvilRecipe(zBlocks.MAGMATIC_ANVIL.get(), Registration.BlazegoldIngot.get(),
+                                Registration.BlazeGoldBlock_ITEM.get(), Registration.TEMPLATE_BLAZEGOLD.get(),
+                                zBlocks.METALLIC_ANVIL.get(), c);
+
+                AnvilRecipe(zBlocks.POWERED_ANVIL.get(), Registration.Celestigem.get(),
+                                Registration.CelestigemBlock_ITEM.get(), Registration.TEMPLATE_CELESTIGEM.get(),
+                                zBlocks.METALLIC_ANVIL.get(), c);
+
+                AnvilRecipe(zBlocks.TIME_ANVIL.get(), Registration.EclipseAlloyIngot.get(),
+                                Registration.EclipseAlloyBlock_ITEM.get(), Registration.TEMPLATE_ECLIPSEALLOY.get(),
+                                zBlocks.METALLIC_ANVIL.get(), c);
+
                 // FluidDropRecipeBuilder.shapeless(DataGenUtil.getResource(zBlocks.REDSTONE_JUICE_FLUID.get()),
                 // Registration.REFINED_T2_FLUID_BLOCK.get().defaultBlockState(),
                 // zBlocks.REDSTONE_JUICE_FLUID.get().defaultBlockState(),
@@ -288,6 +292,41 @@ public class DataRecipe extends RecipeProvider {
                 for (Item item : items)
                         recipe.requires(item);
                 recipe.unlockedBy(ID, itemInv(items)).group(ID).save(c);
+        }
+
+        private void AnvilRecipe(Block b, Item ingot, Item block, Item template, Block oldAnvil, RecipeOutput c) {
+                ShapedRecipeBuilder.shaped(MISC, b, 1)
+                                .pattern(" I ")
+                                .pattern("IAI")
+                                .pattern(" B ")
+                                .define('I', ingot)
+                                .define('B', block)
+                                .define('A', zMultiTags.ANVILS.item())
+                                .unlockedBy(ID, InventoryChangeTrigger.TriggerInstance
+                                                .hasItems(ingot))
+                                .group(ID).save(c);
+
+                SmithingTransformRecipeBuilder.smithing(Ingredient.of(template), Ingredient.of(oldAnvil.asItem()),
+                                Ingredient.of(block),
+                                MISC, b.asItem());
+        }
+
+        private void AnvilRecipe(Block b, Item ingot, Item block, Item template, TagKey<Item> oldAnvil,
+                        RecipeOutput c) {
+                ShapedRecipeBuilder.shaped(MISC, b, 1)
+                                .pattern(" I ")
+                                .pattern("IAI")
+                                .pattern(" B ")
+                                .define('I', ingot)
+                                .define('B', block)
+                                .define('A', zMultiTags.ANVILS.item())
+                                .unlockedBy(ID, InventoryChangeTrigger.TriggerInstance
+                                                .hasItems(ingot))
+                                .group(ID).save(c);
+
+                SmithingTransformRecipeBuilder.smithing(Ingredient.of(template), Ingredient.of(oldAnvil),
+                                Ingredient.of(block),
+                                MISC, b.asItem());
         }
 
         /*

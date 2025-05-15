@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "justdynathings",
+  "key": {
+    "A": {
+      "tag": "minecraft:anvils"
+    },
+    "B": {
+      "item": "justdirethings:ferricore_block"
+    },
+    "I": {
+      "item": "justdirethings:ferricore_ingot"
+    }
+  },
+  "pattern": [
+    " I ",
+    "IAI",
+    " B "
+  ],
+  "result": {
+    "count": 1,
+    "id": "justdynathings:ferricore_anvil"
+  }
+}

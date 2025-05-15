@@ -1,0 +1,18 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "justdynathings:block/anvils/blazing_gold",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "justdynathings:block/anvils/blazing_gold"
+    },
+    "facing=south": {
+      "model": "justdynathings:block/anvils/blazing_gold"
+    },
+    "facing=west": {
+      "model": "justdynathings:block/anvils/blazing_gold",
+      "y": 90
+    }
+  }
+}

@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "justdynathings:time_anvil"
+          "name": "justdynathings:ferricore_anvil"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "justdynathings:blocks/time_anvil"
+  "random_sequence": "justdynathings:blocks/ferricore_anvil"
 }

@@ -1,5 +1,5 @@
 {
-  "parent": "justdynathings:block/anvils/template_anvil",
+  "parent": "justdynathings:block/anvils/_template_anvil",
   "textures": {
     "plate": "justdirethings:block/blockplacert1_top",
     "pedestal": "justdirethings:block/generatort1_bottom",

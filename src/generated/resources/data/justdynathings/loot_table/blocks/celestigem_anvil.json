@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "justdynathings:metallic_anvil"
+          "name": "justdynathings:celestigem_anvil"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "justdynathings:blocks/metallic_anvil"
+  "random_sequence": "justdynathings:blocks/celestigem_anvil"
 }

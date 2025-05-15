@@ -68,34 +68,17 @@ public class DataBlockModelState extends BlockStateProvider {
                                 modLoc("block/budding/phasorite/alive"),
                                 CubeAllCheap(ID + ":block/budding/phasorite", this));
 
-                AnvilStateModel(zBlocks.METALLIC_ANVIL.get(),
-                                "justdirethings:block/blockswappert1_top",
-                                "justdirethings:block/generatort1_bottom",
-                                "justdirethings:block/ferricore_block");
-                AnvilStateModel(zBlocks.MAGMATIC_ANVIL.get(),
-                                "justdirethings:block/blockplacert1_top",
-                                "justdirethings:block/blockswappert1_bottom",
-                                "justdirethings:block/blazegold_block");
-                AnvilStateModel(zBlocks.POWERED_ANVIL.get(),
-                                "justdirethings:block/blockplacert2_top",
-                                "justdirethings:block/blockbreakert2_bottom",
-                                "justdirethings:block/celestigem_block");
-                AnvilStateModel(zBlocks.TIME_ANVIL.get(),
-                                "justdirethings:block/paradoxmachine_bottom",
-                                "justdirethings:block/blockswappert2_bottom",
-                                "justdirethings:block/eclipsealloy_block");
+                AnvilStateModel(zBlocks.METALLIC_ANVIL.get());
+                AnvilStateModel(zBlocks.MAGMATIC_ANVIL.get());
+                AnvilStateModel(zBlocks.POWERED_ANVIL.get());
+                AnvilStateModel(zBlocks.TIME_ANVIL.get());
 
         }
 
-        private void AnvilStateModel(Block b, String plate, String pedestal, String block) {
-                getVariantBuilder(b).forAllStates(state -> ConfiguredModel.builder()
-                                .modelFile(DataGenUtil
-                                                .NamewithParent("justdynathings:block/anvils/"
-                                                                + DataGenUtil.getName(b).replace("_anvil", ""), this,
-                                                                "justdynathings:block/anvils/template_anvil")
-                                                .texture("plate", plate)
-                                                .texture("pedestal", pedestal)
-                                                .texture("block", block))
+        private void AnvilStateModel(Block b) {
+                getVariantBuilder(b).forAllStates(state -> ConfiguredModel.builder().modelFile(models()
+                                .getExistingFile(DataGenUtil.getResource("block/anvils/"
+                                                + DataGenUtil.getName(b).replace("_anvil", ""))))
                                 .rotationY(state.getValue(AnvilBlock.FACING) == Direction.EAST
                                                 || state.getValue(AnvilBlock.FACING) == Direction.WEST ? 90 : 0)
                                 .build());

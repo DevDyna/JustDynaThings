@@ -124,7 +124,7 @@ public class Material {
         public class DireStuff {
 
                 public static DeferredHolder<Block, ?> simpleGoo(String id, Supplier<? extends Block> sup) {
-                        DeferredHolder<Block, ?> block = zBlocks.zGoo.register(id + "_" + Constants.GooType, sup);
+                        DeferredHolder<Block, ?> block = zBlocks.zGoo.register(id, sup);
                         zItems.zBlockItem.registerSimpleBlockItem(block);
                         return block;
                 }

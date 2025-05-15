@@ -40,12 +40,12 @@ public class Constants {
 
     public class Goo {
 
-        public static String T1 = "charged_primogel";
-        public static String T2 = "charged_blazebloom";
-        public static String T3 = "charged_voidshimmer";
-        public static String T4 = "charged_shadowpulse";
-        public static String Creative = "creative";
-        public static String Energized = "energized";
+        public static String T1 = "charged_primogel_"+GooType;
+        public static String T2 = "charged_blazebloom_"+GooType;
+        public static String T3 = "charged_voidshimmer_"+GooType;
+        public static String T4 = "charged_shadowpulse_"+GooType;
+        public static String Creative = "creative_"+GooType;
+        public static String Energized = "energized_"+GooType;
     }
 
     public static String BuddingType = "budding";

@@ -308,7 +308,10 @@ public class DataRecipe extends RecipeProvider {
 
                 SmithingTransformRecipeBuilder.smithing(Ingredient.of(template), Ingredient.of(oldAnvil.asItem()),
                                 Ingredient.of(block),
-                                MISC, b.asItem());
+                                MISC, b.asItem()).unlocks(ID,
+                                                InventoryChangeTrigger.TriggerInstance
+                                                                .hasItems(ingot))
+                                .save(c, DataGenUtil.getPath(b));
         }
 
         private void AnvilRecipe(Block b, Item ingot, Item block, Item template, TagKey<Item> oldAnvil,
@@ -326,7 +329,10 @@ public class DataRecipe extends RecipeProvider {
 
                 SmithingTransformRecipeBuilder.smithing(Ingredient.of(template), Ingredient.of(oldAnvil),
                                 Ingredient.of(block),
-                                MISC, b.asItem());
+                                MISC, b.asItem()).unlocks(ID,
+                                                InventoryChangeTrigger.TriggerInstance
+                                                                .hasItems(ingot))
+                                .save(c, DataGenUtil.getPath(b));
         }
 
         /*

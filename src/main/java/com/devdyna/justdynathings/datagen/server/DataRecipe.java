@@ -213,11 +213,11 @@ public class DataRecipe extends RecipeProvider {
 
                 AnvilRecipe(zBlocks.POWERED_ANVIL.get(), Registration.Celestigem.get(),
                                 Registration.CelestigemBlock_ITEM.get(), Registration.TEMPLATE_CELESTIGEM.get(),
-                                zBlocks.METALLIC_ANVIL.get(), c);
+                                zBlocks.MAGMATIC_ANVIL.get(), c);
 
                 AnvilRecipe(zBlocks.TIME_ANVIL.get(), Registration.EclipseAlloyIngot.get(),
                                 Registration.EclipseAlloyBlock_ITEM.get(), Registration.TEMPLATE_ECLIPSEALLOY.get(),
-                                zBlocks.METALLIC_ANVIL.get(), c);
+                                zBlocks.POWERED_ANVIL.get(), c);
 
                 // FluidDropRecipeBuilder.shapeless(DataGenUtil.getResource(zBlocks.REDSTONE_JUICE_FLUID.get()),
                 // Registration.REFINED_T2_FLUID_BLOCK.get().defaultBlockState(),

@@ -25,7 +25,7 @@ public class zItemTags {
     public static final TagKey<Item> FERRICORE_ANVIL_REPAIR = Material.tagItem("anvils/ferricore/catalyst");
     public static final TagKey<Item> BLAZING_ANVIL_DENY = Material.tagItem("anvils/blazing/deny");
     public static final TagKey<Item> CELESTIGEM_DENY = Material.tagItem("anvils/celestigem/deny");
-    public static final TagKey<Item> TIME_ANVIL_ALLOW = Material.tagItem("anvils/time/allow");
+    public static final TagKey<Item> TIME_ANVIL_DENY = Material.tagItem("anvils/time/deny");
 
     // public static final TagKey<Item> DUSTS_CHAOTIC =
     // Material.tagItem("c","dusts/chaotic");

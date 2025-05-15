@@ -64,7 +64,7 @@ public class DataItemTag extends ItemTagsProvider {
                                                 Registration.FerricoreBoots.get());
 
                 tag(zItemTags.FERRICORE_ANVIL_REPAIR).add(Items.IRON_INGOT, Registration.FerricoreIngot.get());
-                tag(zItemTags.TIME_ANVIL_ALLOW).addTag(Tags.Items.TOOLS);
+                tag(zItemTags.TIME_ANVIL_DENY).add(Items.MACE,Items.TRIDENT,Items.ELYTRA);
 
 
                 // tag(zItemTags.FLAWED_REVITALIZER)

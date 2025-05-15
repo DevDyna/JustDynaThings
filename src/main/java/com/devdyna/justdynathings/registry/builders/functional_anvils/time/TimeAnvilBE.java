@@ -4,6 +4,7 @@ import com.devdyna.justdynathings.registry.builders.functional_anvils.CAnvilBE;
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyMachine;
 import com.devdyna.justdynathings.registry.interfaces.be.FluidMachine;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
+import com.devdyna.justdynathings.registry.types.zItemTags;
 import com.devdyna.justdynathings.utils.Actions;
 import com.direwolf20.justdirethings.common.blockentities.basebe.FluidContainerData;
 import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineContainerData;
@@ -35,7 +36,7 @@ public class TimeAnvilBE extends CAnvilBE implements EnergyMachine, FluidMachine
         var tool = getMachineHandler().getStackInSlot(0);
         if (isActiveRedstone()) {
             // getMachineHandler() only work inside tick event!
-            if (canExtractFE() && tool.isDamageableItem() // && tool.is(zItemTags.TIME_ANVIL_ALLOW)
+            if (canExtractFE() && tool.isDamageableItem() && tool.is(zItemTags.TIME_ANVIL_ALLOW)
                     && tool.isDamaged()) {
                 applySound();
 

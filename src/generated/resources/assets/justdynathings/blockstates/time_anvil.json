@@ -1,0 +1,18 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "justdynathings:block/anvils/time",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "justdynathings:block/anvils/time"
+    },
+    "facing=south": {
+      "model": "justdynathings:block/anvils/time"
+    },
+    "facing=west": {
+      "model": "justdynathings:block/anvils/time",
+      "y": 90
+    }
+  }
+}

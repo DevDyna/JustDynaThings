@@ -1,7 +1,7 @@
 {
   "parent": "justdynathings:block/anvils/template_anvil",
   "textures": {
-    "plate": "justdirethings:block/blockswappert1_top",
+    "plate": "justdirethings:block/blockplacert1_top",
     "pedestal": "justdirethings:block/generatort1_bottom",
     "block": "justdirethings:block/ferricore_block"
   }

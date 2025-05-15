@@ -61,11 +61,19 @@ public class DataItemTag extends ItemTagsProvider {
                                                 Registration.FerricoreHelmet.get(),
                                                 Registration.FerricoreChestplate.get(),
                                                 Registration.FerricoreLeggings.get(),
-                                                Registration.FerricoreBoots.get());
+                                                Registration.FerricoreBoots.get(),
+                                                Items.IRON_AXE,
+                                                Items.IRON_PICKAXE,
+                                                Items.IRON_SHOVEL,
+                                                Items.IRON_SWORD,
+                                                Items.IRON_HOE,
+                                                Items.IRON_HELMET,
+                                                Items.IRON_CHESTPLATE,
+                                                Items.IRON_LEGGINGS,
+                                                Items.IRON_BOOTS);
 
                 tag(zItemTags.FERRICORE_ANVIL_REPAIR).add(Items.IRON_INGOT, Registration.FerricoreIngot.get());
-                tag(zItemTags.TIME_ANVIL_DENY).add(Items.MACE,Items.TRIDENT,Items.ELYTRA);
-
+                tag(zItemTags.TIME_ANVIL_DENY).add(Items.MACE, Items.TRIDENT, Items.ELYTRA);
 
                 // tag(zItemTags.FLAWED_REVITALIZER)
                 // .add(Items.ECHO_SHARD);

@@ -46,9 +46,9 @@ public class CAnvilBE extends BaseMachineBE implements RedstoneControlledBE {
     public void applySound() {
         if (LevelUtil.chance(5, level))
             level.playSound(null, getBlockPos(),
-                    LevelUtil.chance(75, level)
+                    LevelUtil.chance(50, level)
                             ? SoundEvents.GRINDSTONE_USE
-                            : LevelUtil.chance(50, level)
+                            : LevelUtil.chance(75, level)
                                     ? SoundEvents.SMITHING_TABLE_USE
                                     : SoundEvents.ANVIL_USE,
                     SoundSource.BLOCKS, (level.random.nextInt(10) + 1) * 0.01F,

@@ -7,7 +7,7 @@
       "item": "minecraft:echo_shard"
     },
     "B": {
-      "item": "justdirethings:time_crystal_block"
+      "tag": "justdynathings:time_buddings"
     }
   },
   "pattern": [

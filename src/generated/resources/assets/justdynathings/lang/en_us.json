@@ -23,5 +23,7 @@
   "block.justdynathings.thermo_generator": "Thermo Generator",
   "justdynathings.clock.wip": "N.Y.I. -> shift-click the block to toggle",
   "justdynathings.creative_tab": "Just Dyna Things",
+  "justdynathings.goo.creative_goo.tip": "§aRight click with a wrench to toggle alive state",
+  "justdynathings.goo.energized_goo.tip": "§aProvide energy to active it",
   "justdynathings.off": "§8[§fControl§8]§f"
 }

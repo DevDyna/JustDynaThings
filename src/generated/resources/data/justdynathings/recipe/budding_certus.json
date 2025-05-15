@@ -13,7 +13,7 @@
       "item": "minecraft:echo_shard"
     },
     "B": {
-      "item": "ae2:quartz_block"
+      "tag": "justdynathings:compat/ae2/buddings"
     }
   },
   "pattern": [

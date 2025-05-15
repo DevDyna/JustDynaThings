@@ -13,7 +13,7 @@
       "item": "minecraft:echo_shard"
     },
     "B": {
-      "item": "extendedae:entro_block"
+      "tag": "justdynathings:compat/extendedae/buddings"
     }
   },
   "pattern": [

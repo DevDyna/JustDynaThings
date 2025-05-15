@@ -13,7 +13,7 @@
       "item": "minecraft:echo_shard"
     },
     "B": {
-      "item": "phasoritenetworks:phasorite_block"
+      "tag": "justdynathings:compat/phasoritenetworks/buddings"
     }
   },
   "pattern": [

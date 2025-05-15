@@ -89,7 +89,10 @@ public class DataBlockModelState extends BlockStateProvider {
 
         private void AnvilStateModel(Block b, String plate, String pedestal, String block) {
                 getVariantBuilder(b).forAllStates(state -> ConfiguredModel.builder()
-                                .modelFile(DataGenUtil.NamewithParent("justdynathings:block/template_anvil", this, ID)
+                                .modelFile(DataGenUtil
+                                                .NamewithParent("justdynathings:block/anvils/"
+                                                                + DataGenUtil.getName(b).replace("_anvil", ""), this,
+                                                                "justdynathings:block/anvils/template_anvil")
                                                 .texture("plate", plate)
                                                 .texture("pedestal", pedestal)
                                                 .texture("block", block))

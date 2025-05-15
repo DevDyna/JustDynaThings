@@ -1,0 +1,8 @@
+{
+  "parent": "justdynathings:block/anvils/template_anvil",
+  "textures": {
+    "plate": "justdirethings:block/blockplacert2_top",
+    "pedestal": "justdirethings:block/blockbreakert2_bottom",
+    "block": "justdirethings:block/celestigem_block"
+  }
+}

@@ -29,10 +29,10 @@ public class Constants {
 
     public class Anvil {
 
-        public static String metallic = "metallic_" + AnvilType;
-        public static String magmatic = "magmatic_" + AnvilType;
-        public static String powered = "powered_" + AnvilType;
-        public static String time = "time_" + AnvilType;
+        public static String metallic = "ferricore_" + AnvilType;
+        public static String magmatic = "blazing_gold_" + AnvilType;
+        public static String powered = "celestigem_" + AnvilType;
+        public static String time = "eclipse_alloy_" + AnvilType;
 
     }
 

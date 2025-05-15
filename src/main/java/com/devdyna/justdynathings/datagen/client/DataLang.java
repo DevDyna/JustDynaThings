@@ -23,6 +23,8 @@ public class DataLang extends LanguageProvider {
         add(Main.ID + "." + Constants.CreativeTab, "Just Dyna Things");
         add(Main.ID + ".off", "§8[§fControl§8]§f");
         add(Main.ID + ".clock.wip", "N.Y.I. -> shift-click the block to toggle");
+        add(Main.ID + "."+Constants.GooType+"."+Constants.Goo.Energized +".tip", "§aProvide energy to active it");
+        add(Main.ID + "." + Constants.GooType+"."+Constants.Goo.Creative + ".tip", "§aRight click with a wrench to toggle alive state");
 
         zBlocks.zBlock.getEntries().forEach(b -> addBlock(b, named(b.getRegisteredName())));
         zBlocks.zGoo.getEntries().forEach(b -> addBlock(b, named(b.getRegisteredName())));

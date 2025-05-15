@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.registry.Material;
 import com.direwolf20.justdirethings.common.blockentities.gooblocks.GooBlockBE_Tier4;
@@ -37,5 +38,10 @@ public class EnergyGoo extends GooBlock_Base implements EntityBlock {
 
    protected boolean validRevivalItem(ItemStack itemStack) {
       return false;
+   }
+
+   @SuppressWarnings("null")
+   public void appendHoverText(ItemStack s, Item.TooltipContext c, List<Component> t, TooltipFlag f) {
+      t.add(Component.translatable(Main.ID + "."+Constants.GooType+"."+Constants.Goo.Energized +".tip"));
    }
 }

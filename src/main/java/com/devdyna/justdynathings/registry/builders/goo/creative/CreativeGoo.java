@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.registry.Material;
 import com.devdyna.justdynathings.registry.types.zItemTags;
@@ -72,4 +73,8 @@ public class CreativeGoo extends GooBlock_Base implements EntityBlock {
       return false;
    }
 
+   @SuppressWarnings("null")
+   public void appendHoverText(ItemStack s, Item.TooltipContext c, List<Component> t, TooltipFlag f) {
+      t.add(Component.translatable(Main.ID + "." + Constants.GooType+"."+Constants.Goo.Creative + ".tip"));
+   }
 }

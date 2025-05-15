@@ -6,7 +6,9 @@ import com.devdyna.justdynathings.registry.types.zItemTags;
 import com.devdyna.justdynathings.registry.types.zMultiTags;
 import com.direwolf20.justdirethings.datagen.JustDireItemTags;
 import com.direwolf20.justdirethings.setup.Registration;
+import com.glodblock.github.extendedae.common.EAESingletons;
 
+import appeng.core.definitions.AEBlocks;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -14,6 +16,7 @@ import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.Tags;
+import xyz.milosworks.phasoritenetworks.init.PNBlocks;
 
 @SuppressWarnings("null")
 
@@ -98,6 +101,28 @@ public class DataItemTag extends ItemTagsProvider {
 
                 tag(zMultiTags.T4_SPREAD.item()).add(
                                 Registration.GooBlock_Tier3_ITEM.get()).addTag(zMultiTags.T3_SPREAD.item());
+
+                tag(zItemTags.AE2_COMPAT).add(
+                                AEBlocks.FLAWLESS_BUDDING_QUARTZ.asItem(),
+                                AEBlocks.FLAWED_BUDDING_QUARTZ.asItem(),
+                                AEBlocks.CHIPPED_BUDDING_QUARTZ.asItem(),
+                                AEBlocks.DAMAGED_BUDDING_QUARTZ.asItem(),
+                                AEBlocks.QUARTZ_BLOCK.asItem());
+
+                tag(zItemTags.EXT_COMPAT).add(
+                                EAESingletons.ENTRO_BLOCK.asItem(),
+                                EAESingletons.HALF_ENTROIZED_FLUIX_BUDDING.asItem(),
+                                EAESingletons.HARDLY_ENTROIZED_FLUIX_BUDDING.asItem(),
+                                EAESingletons.MOSTLY_ENTROIZED_FLUIX_BUDDING.asItem(),
+                                EAESingletons.FULLY_ENTROIZED_FLUIX_BUDDING.asItem());
+
+                tag(zItemTags.PHA_COMPAT).add(
+                                PNBlocks.INSTANCE.getBUDDING_PHASORITE_BLOCK().asItem(),
+                                PNBlocks.INSTANCE.getPHASORITE_BLOCK().asItem());
+
+                tag(zItemTags.TIME_BUDDING).add(
+                                Registration.TimeCrystalBlock_ITEM.get(),
+                                Registration.TimeCrystalBuddingBlock_ITEM.get());
 
         }
 

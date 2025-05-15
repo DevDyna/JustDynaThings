@@ -44,7 +44,6 @@ public class DataBlockModelState extends BlockStateProvider {
                 BaseGooStateModel(zBlocks.T2_GOO.get());
                 BaseGooStateModel(zBlocks.T3_GOO.get());
                 BaseGooStateModel(zBlocks.T4_GOO.get());
-                // AnvilStateModel(zBlocks.BLAZING_ANVIL.get()); TODO
                 PhaseBox(zBlocks.PHASEBOX.get());
                 DataGenUtil.SimpleBlock(zBlocks.BLACKHOLE.get(), this);
                 DataGenUtil.SimpleBlock(zBlocks.SOLARGEN.get(), this);
@@ -69,12 +68,31 @@ public class DataBlockModelState extends BlockStateProvider {
                                 modLoc("block/budding/phasorite/alive"),
                                 CubeAllCheap(ID + ":block/budding/phasorite", this));
 
+                AnvilStateModel(zBlocks.METALLIC_ANVIL.get(),
+                                "justdirethings:block/blockswappert1_top",
+                                "justdirethings:block/generatort1_bottom",
+                                "justdirethings:block/ferricore_block");
+                AnvilStateModel(zBlocks.MAGMATIC_ANVIL.get(),
+                                "justdirethings:block/blockplacert1_top",
+                                "justdirethings:block/blockswappert1_bottom",
+                                "justdirethings:block/blazegold_block");
+                AnvilStateModel(zBlocks.POWERED_ANVIL.get(),
+                                "justdirethings:block/blockplacert2_top",
+                                "justdirethings:block/blockbreakert2_bottom",
+                                "justdirethings:block/celestigem_block");
+                AnvilStateModel(zBlocks.TIME_ANVIL.get(),
+                                "justdirethings:block/paradoxmachine_bottom",
+                                "justdirethings:block/blockswappert2_bottom",
+                                "justdirethings:block/eclipsealloy_block");
+
         }
 
-        private void AnvilStateModel(Block b) {
+        private void AnvilStateModel(Block b, String plate, String pedestal, String block) {
                 getVariantBuilder(b).forAllStates(state -> ConfiguredModel.builder()
-                                .modelFile(models().getExistingFile(DataGenUtil.getResource(
-                                                "block/" + DataGenUtil.getName(b))))
+                                .modelFile(DataGenUtil.NamewithParent("justdynathings:block/template_anvil", this, ID)
+                                                .texture("plate", plate)
+                                                .texture("pedestal", pedestal)
+                                                .texture("block", block))
                                 .rotationY(state.getValue(AnvilBlock.FACING) == Direction.EAST
                                                 || state.getValue(AnvilBlock.FACING) == Direction.WEST ? 90 : 0)
                                 .build());
@@ -96,11 +114,10 @@ public class DataBlockModelState extends BlockStateProvider {
         private void PhaseBox(Block b) {
                 DataGenUtil.BiStateBlock(this, b, zProperties.SOLID,
                                 DataGenUtil.NamewithParent("justdynathings:block/phase_box/true", this,
-                                                "block/cube_all", "all",
-                                                "justdynathings:block/phase/true"),
+                                                "block/cube_all").texture("all", "justdynathings:block/phase/true"),
                                 DataGenUtil.NamewithParent("justdynathings:block/phase_box/false", this,
-                                                "block/cube_all", "all",
-                                                "justdynathings:block/phase/false").renderType(DataGenUtil.CUTOUT));
+                                                "block/cube_all").texture("all", "justdynathings:block/phase/false")
+                                                .renderType(DataGenUtil.CUTOUT));
         }
 
         private void inversDirectionalBlocks(Block block) {

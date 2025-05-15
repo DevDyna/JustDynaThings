@@ -95,6 +95,7 @@ public class DataGenUtil {
     }
 
     /**
+     * @deprecated intend use .texture(key,texture)
      * @param block
      * @param b       this
      * @param parent  Main.ID + ":block/..."
@@ -192,6 +193,9 @@ public class DataGenUtil {
         return b.models().withExistingParent(name, parent);
     }
 
+    /**
+     * @deprecated intend use .texture(key,texture)
+     */
     public static BlockModelBuilder NamewithParent(String name, BlockStateProvider b,
             String parent, String keyname, String texture) {
         return b.models().withExistingParent(name, parent)

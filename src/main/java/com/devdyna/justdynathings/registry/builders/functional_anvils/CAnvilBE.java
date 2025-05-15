@@ -41,17 +41,6 @@ public class CAnvilBE extends BaseMachineBE implements RedstoneControlledBE {
 
     @Override
     public void tickServer() {
-        if (isActiveRedstone()) {
-            if (condition) {
-                runActions();
-                applySound();
-            }
-        }
-    }
-
-    public boolean condition = true;
-
-    public void runActions() {
     }
 
     public void applySound() {

@@ -77,7 +77,11 @@ public class Actions {
         }
 
         public static void repairItem(ItemStack i) {
-                i.setDamageValue(i.getDamageValue() - 1);
+                repairItem(i, 1);
+        }
+
+        public static void repairItem(ItemStack i, int damage) {
+                i.setDamageValue(i.getDamageValue() - damage);
         }
 
         public static void tickWhenRandom(BlockPos pos, Level level) {

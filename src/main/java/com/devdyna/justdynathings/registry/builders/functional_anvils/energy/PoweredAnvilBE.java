@@ -20,18 +20,24 @@ public class PoweredAnvilBE extends CAnvilBE implements EnergyMachine {
     public PoweredAnvilBE(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState) {
         super(pType, pPos, pBlockState);
         this.MACHINE_SLOTS = 1;
-        this.condition = canExtractFE() && getMachineHandler().getStackInSlot(0).isDamageableItem()
-                && getMachineHandler().getStackInSlot(0).isDamaged()
-                && !getMachineHandler().getStackInSlot(0).is(zItemTags.CELESTIGEM_DENY);
     }
 
     public PoweredAnvilBE(BlockPos pos, BlockState state) {
         this(zBlockEntities.POWERED_ANVIL.get(), pos, state);
     }
 
-    public void runActions() {
-        extractFEWhenPossible();
-        Actions.repairItem(getMachineHandler().getStackInSlot(0));
+    @Override
+    public void tickServer() {
+        var tool = getMachineHandler().getStackInSlot(0);
+        if (isActiveRedstone()) {
+            // getMachineHandler() only work inside tick event!
+            if (canExtractFE() && tool.isDamageableItem()
+                    && tool.isDamaged() && !tool.is(zItemTags.CELESTIGEM_DENY)) {
+                extractFEWhenPossible();
+                Actions.repairItem(tool);
+                applySound();
+            }
+        }
     }
 
     @Override
@@ -46,12 +52,12 @@ public class PoweredAnvilBE extends CAnvilBE implements EnergyMachine {
 
     @Override
     public int getStandardEnergyCost() {
-        return FErate * 10;
+        return FErate;
     }
 
     @Override
     public int getMaxEnergy() {
-        return FEsize * 10;
+        return FEsize;
     }
 
 }

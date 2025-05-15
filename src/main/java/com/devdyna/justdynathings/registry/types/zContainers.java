@@ -5,6 +5,7 @@ import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.client.builder.anvil.magmatic.MagmaticAnvilGUI;
 import com.devdyna.justdynathings.client.builder.anvil.metallic.MetallicAnvilGUI;
 import com.devdyna.justdynathings.client.builder.anvil.powered.PoweredAnvilGUI;
+import com.devdyna.justdynathings.client.builder.anvil.time.TimeAnvilGUI;
 import com.devdyna.justdynathings.client.builder.blackhole.BlackHoleGUI;
 import com.devdyna.justdynathings.client.builder.clock.ClockGUI;
 import com.devdyna.justdynathings.client.builder.reforger.ReforgerGUI;
@@ -56,5 +57,9 @@ public class zContainers {
         public static final DeferredHolder<MenuType<?>, MenuType<PoweredAnvilGUI>> POWERED_ANVIL = zCTNR
                         .register(Constants.Anvil.powered,
                                         () -> IMenuTypeExtension.create(PoweredAnvilGUI::new));
+
+        public static final DeferredHolder<MenuType<?>, MenuType<TimeAnvilGUI>> TIME_ANVIL = zCTNR
+                        .register(Constants.Anvil.time,
+                                        () -> IMenuTypeExtension.create(TimeAnvilGUI::new));
 
 }

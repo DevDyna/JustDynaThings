@@ -27,6 +27,13 @@ public interface FluidMachine extends FluidMachineBE {
     }
 
     /**
+     * MB--
+     */
+    default void extractMB(int value) {
+        setAmountStored(getAmountStored()-value);
+    }
+
+    /**
      * MB++
      * when not full
      */

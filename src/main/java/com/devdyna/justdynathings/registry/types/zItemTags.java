@@ -11,22 +11,29 @@ public class zItemTags {
 
     }
 
-    // public static final TagKey<Item> GOO_REVIVE_TIER_0 = Material.tagItem("goo_revive_tier_0");
+    // public static final TagKey<Item> GOO_REVIVE_TIER_0 =
+    // Material.tagItem("goo_revive_tier_0");
 
-    // public static final TagKey<Item> GOO_REVIVE_TIER_5 = Material.tagItem("goo_revive_tier_5");
+    // public static final TagKey<Item> GOO_REVIVE_TIER_5 =
+    // Material.tagItem("goo_revive_tier_5");
 
     public static final TagKey<Item> REFORGER_CATALYST = Material.tagItem("reforger_catalyst");
-    //public static final TagKey<Item> FLAWED_REVITALIZER = Material.tagItem("flawed_revitalizer");
+    // public static final TagKey<Item> FLAWED_REVITALIZER =
+    // Material.tagItem("flawed_revitalizer");
     public static final TagKey<Item> CREATIVE_GOO_WRENCHES = Material.tagItem("creative_goo_wrenches");
-    public static final TagKey<Item> FERRICORE_ANVIL_ALLOW = Material.tagItem("ferricore_anvil/allow_list");
-    public static final TagKey<Item> BLAZING_ANVIL_DENY = Material.tagItem("blazing_anvil_deny");
-    public static final TagKey<Item> CELESTIGEM_DENY = Material.tagItem("celestigem_anvil_deny");
-    public static final TagKey<Item> FERRICORE_ANVIL_REPAIR = Material.tagItem("ferricore_anvil/catalyst");
-    // public static final TagKey<Item> DUSTS_CHAOTIC = Material.tagItem("c","dusts/chaotic");
-    // public static final TagKey<Item> GEMS_REDSTONIC = Material.tagItem("c","gems/redstonic");
-    // public static final TagKey<Item> RAW_MATERIALS_COPRINIUM = Material.tagItem("c","raw_materials/coprinium");
-    // public static final TagKey<Item> INGOTS_COPRINIUM = Material.tagItem("c","ingots/coprinium");
+    public static final TagKey<Item> FERRICORE_ANVIL_ALLOW = Material.tagItem("anvils/ferricore/allow");
+    public static final TagKey<Item> FERRICORE_ANVIL_REPAIR = Material.tagItem("anvils/ferricore/catalyst");
+    public static final TagKey<Item> BLAZING_ANVIL_DENY = Material.tagItem("anvils/blazing/deny");
+    public static final TagKey<Item> CELESTIGEM_DENY = Material.tagItem("anvils/celestigem/deny");
+    public static final TagKey<Item> TIME_ANVIL_ALLOW = Material.tagItem("anvils/time/allow");
 
-    
+    // public static final TagKey<Item> DUSTS_CHAOTIC =
+    // Material.tagItem("c","dusts/chaotic");
+    // public static final TagKey<Item> GEMS_REDSTONIC =
+    // Material.tagItem("c","gems/redstonic");
+    // public static final TagKey<Item> RAW_MATERIALS_COPRINIUM =
+    // Material.tagItem("c","raw_materials/coprinium");
+    // public static final TagKey<Item> INGOTS_COPRINIUM =
+    // Material.tagItem("c","ingots/coprinium");
 
 }

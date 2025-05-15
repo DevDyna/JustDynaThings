@@ -7,39 +7,43 @@ import com.devdyna.justdynathings.utils.Actions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.capabilities.Capabilities;
 
 public class MetallicAnvilBE extends CAnvilBE {
 
     public MetallicAnvilBE(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState) {
         super(pType, pPos, pBlockState);
         this.MACHINE_SLOTS = 2;
-        this.condition = 
-        getMachineHandler().getStackInSlot(1).is(zItemTags.FERRICORE_ANVIL_REPAIR)
-        && getMachineHandler().getStackInSlot(0).isDamageableItem()
-        && getMachineHandler().getStackInSlot(0).isDamaged()
-        && getMachineHandler().getStackInSlot(0).is(zItemTags.FERRICORE_ANVIL_ALLOW);
     }
 
     public MetallicAnvilBE(BlockPos pos, BlockState state) {
         this(zBlockEntities.METALLIC_ANVIL.get(), pos, state);
     }
 
-    int i = 0;
-    int delay = 20;
+    int delay = 200;// TODO
+    int i = delay - 1;
 
-    @SuppressWarnings("null")
-    public void runActions() {
-        if (i < delay) // TODO
-            i++;
+    @Override
+    public void tickServer() {
+        var tool = getMachineHandler().getStackInSlot(0);
+        var catalyst = getMachineHandler().getStackInSlot(1);
+        if (isActiveRedstone()) {
+            // getMachineHandler() only work inside tick event!
+            if (catalyst.is(zItemTags.FERRICORE_ANVIL_REPAIR) && tool.isDamageableItem()
+                    && tool.isDamaged() && tool.is(zItemTags.FERRICORE_ANVIL_ALLOW)) {
 
-        if (i >= delay) {
-            i = 0;
-            getMachineHandler().getStackInSlot(1).shrink(1);
+                if (i < delay)
+                    i++;
+
+                if (i >= delay) {
+                    i = 0;
+                    catalyst.shrink(1);
+                }
+                Actions.repairItem(tool);
+
+                applySound();
+
+            }
         }
-        Actions.repairItem(Capabilities.ItemHandler.BLOCK
-                .getCapability(level, getBlockPos(), getBlockState(), getBlockEntity(), getDirectionValue())
-                .getStackInSlot(0));
     }
 
 }

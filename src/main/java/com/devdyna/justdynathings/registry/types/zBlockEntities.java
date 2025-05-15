@@ -9,6 +9,7 @@ import com.devdyna.justdynathings.registry.builders.ferricore_clock.ClockBE;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.energy.PoweredAnvilBE;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.magmatic.MagmaAnvilBE;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.metallic.MetallicAnvilBE;
+import com.devdyna.justdynathings.registry.builders.functional_anvils.time.TimeAnvilBE;
 import com.devdyna.justdynathings.registry.builders.generators.solar.SolarBE;
 import com.devdyna.justdynathings.registry.builders.generators.thermo.ThermoBE;
 import com.devdyna.justdynathings.registry.builders.goo.creative.CreativeGooBE;
@@ -113,6 +114,10 @@ public class zBlockEntities {
         public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<PoweredAnvilBE>> POWERED_ANVIL = zBE
                         .register(Constants.Anvil.powered,
                                         () -> Builder.of(PoweredAnvilBE::new, zBlocks.POWERED_ANVIL.get()).build(null));
+
+                                                public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TimeAnvilBE>> TIME_ANVIL = zBE
+                        .register(Constants.Anvil.time,
+                                        () -> Builder.of(TimeAnvilBE::new, zBlocks.TIME_ANVIL.get()).build(null));
 
 
 }

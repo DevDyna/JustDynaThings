@@ -21,7 +21,7 @@ public class Capabilities {
         public static void regCap(RegisterCapabilitiesEvent event) {
 
                 Block[] EnergyMachineBase = {
-                                zBlocks.POWERED_ANVIL.get(), zBlocks.REVITALIZER.get(),
+                                zBlocks.POWERED_ANVIL.get(), zBlocks.TIME_ANVIL.get(), zBlocks.REVITALIZER.get(),
                                 // zBlocks.TICKER.get(),
                                 zBlocks.ENERGIZED_GOO.get(),
                                 zBlocks.T1_GOO.get(), zBlocks.T2_GOO.get(),
@@ -105,6 +105,13 @@ public class Capabilities {
                                                 ? be.getData(zHandlers.MAGMATIC_LIQUID)
                                                 : null,
                                 zBlocks.MAGMATIC_ANVIL.get());
+
+                // fluid handler time anvil
+                event.registerBlock(FluidHandler.BLOCK, (level, pos, state, be,
+                                side) -> (be instanceof FluidMachineBE || be instanceof FluidMachine)
+                                                ? be.getData(Registration.PARADOX_FLUID_HANDLER)
+                                                : null,
+                                zBlocks.TIME_ANVIL.get());
 
         }
 

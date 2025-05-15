@@ -11,6 +11,7 @@ import com.devdyna.justdynathings.registry.builders.ferricore_clock.ClockBlock;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.energy.PoweredAnvilBlock;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.magmatic.MagmaAnvilBlock;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.metallic.MetallicAnvilBlock;
+import com.devdyna.justdynathings.registry.builders.functional_anvils.time.TimeAnvilBlock;
 import com.devdyna.justdynathings.registry.builders.generators.solar.SolarBlock;
 import com.devdyna.justdynathings.registry.builders.generators.thermo.ThermoBlock;
 import com.devdyna.justdynathings.registry.builders.goo.creative.CreativeGoo;
@@ -132,6 +133,9 @@ public class zBlocks {
 
         public static final DeferredHolder<Block, ?> POWERED_ANVIL = Material
                         .registerItemAndBlock(Constants.Anvil.powered, PoweredAnvilBlock::new);
+        
+                        public static final DeferredHolder<Block, ?> TIME_ANVIL = Material
+                        .registerItemAndBlock(Constants.Anvil.time, TimeAnvilBlock::new);
 
         // ---------------------------------------------------------------------------------------//
 

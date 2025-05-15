@@ -20,18 +20,24 @@ public class MagmaAnvilBE extends CAnvilBE implements FluidMachine {
     public MagmaAnvilBE(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState) {
         super(pType, pPos, pBlockState);
         this.MACHINE_SLOTS = 1;
-        this.condition = canExtractMB() && getMachineHandler().getStackInSlot(0).isDamageableItem()
-                && getMachineHandler().getStackInSlot(0).isDamaged()
-                && !getMachineHandler().getStackInSlot(0).is(zItemTags.BLAZING_ANVIL_DENY);
     }
 
     public MagmaAnvilBE(BlockPos pos, BlockState state) {
         this(zBlockEntities.MAGMATIC_ANVIL.get(), pos, state);
     }
 
-    public void runActions() {
-        extractMBWhenPossible();
-        Actions.repairItem(getMachineHandler().getStackInSlot(0));
+    @Override
+    public void tickServer() {
+        var tool = getMachineHandler().getStackInSlot(0);
+        if (isActiveRedstone()) {
+            // getMachineHandler() only work inside tick event!
+            if (canExtractMB() && tool.isDamageableItem()
+                    && tool.isDamaged() && !tool.is(zItemTags.BLAZING_ANVIL_DENY)) {
+                extractMBWhenPossible();
+                Actions.repairItem(tool);
+                applySound();
+            }
+        }
     }
 
     @Override
@@ -44,14 +50,13 @@ public class MagmaAnvilBE extends CAnvilBE implements FluidMachine {
         return getData(zHandlers.MAGMATIC_LIQUID);
     }
 
-    
     @Override
     public int getMaxMB() {
-        return FLsize / 10;
+        return FLsize;
     }
 
     @Override
     public int getStandardFluidCost() {
-        return FLrate / 100;
+        return 10;
     }
 }

@@ -2,10 +2,10 @@
     "credit": "Made with Blockbench",
     "parent": "block/block",
     "textures": {
-        "2": "justdirethings:block/blockswappert1_top",
-        "3": "justdirethings:block/blockswappert1_bottom",
-        "4": "justdirethings:block/blazegold_block",
-        "particle": "justdirethings:block/blockswappert1_top"
+        "2": "#plate",
+        "3": "#pedestal",
+        "4": "#block",
+        "particle": "#plate"
     },
     "elements": [{
             "from": [2, 0, 2],

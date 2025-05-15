@@ -21,10 +21,10 @@ public class zItemTags {
     // public static final TagKey<Item> FLAWED_REVITALIZER =
     // Material.tagItem("flawed_revitalizer");
     public static final TagKey<Item> CREATIVE_GOO_WRENCHES = Material.tagItem("creative_goo_wrenches");
-    public static final TagKey<Item> FERRICORE_ANVIL_ALLOW = Material.tagItem("anvils/ferricore/allow");
-    public static final TagKey<Item> FERRICORE_ANVIL_REPAIR = Material.tagItem("anvils/ferricore/catalyst");
-    public static final TagKey<Item> BLAZING_ANVIL_DENY = Material.tagItem("anvils/blazing/deny");
-    public static final TagKey<Item> CELESTIGEM_DENY = Material.tagItem("anvils/celestigem/deny");
+    public static final TagKey<Item> FERRICORE_ANVIL_ALLOW = Material.tagItem("anvils/metallic/allow");
+    public static final TagKey<Item> FERRICORE_ANVIL_REPAIR = Material.tagItem("anvils/metallic/catalyst");
+    public static final TagKey<Item> BLAZING_ANVIL_DENY = Material.tagItem("anvils/magmatic/deny");
+    public static final TagKey<Item> CELESTIGEM_DENY = Material.tagItem("anvils/powered/deny");
     public static final TagKey<Item> TIME_ANVIL_DENY = Material.tagItem("anvils/time/deny");
 
     // public static final TagKey<Item> DUSTS_CHAOTIC =

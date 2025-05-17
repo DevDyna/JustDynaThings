@@ -43,7 +43,7 @@ public class CAnvilBlock extends BaseMachineBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos p, BlockState s) {
-        return new CAnvilBE(null, p, s);
+        return new CAnvilBE(p, s);
     }
 
     @Override

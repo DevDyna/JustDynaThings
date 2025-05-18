@@ -70,4 +70,6 @@ public class CAnvilBlock extends BaseMachineBlock {
     protected VoxelShape getShape(BlockState s, BlockGetter l, BlockPos p, CollisionContext c) {
         return s.getValue(AnvilBlock.FACING).getAxis() == Direction.Axis.X ? X_AXIS_AABB : Z_AXIS_AABB;
     }
+
+    //TODO support wrench to rotate
 }

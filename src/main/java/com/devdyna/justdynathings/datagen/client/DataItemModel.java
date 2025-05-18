@@ -31,13 +31,18 @@ public class DataItemModel extends ItemModelProvider {
                                 .forEach(item -> DataGenUtil.itemModel(item.get(), this));
 
                 DataGenUtil.itemBlock(zBlocks.THERMOGEN.get(), this);
-                // DataGenUtil.itemBlock(zBlocks.SOLARGEN.get(), this); //TODO item model
+
                 DataGenUtil.itemBlock(zBlocks.BLACKHOLE.get(), this);
 
                 AnvilBlockItem(zBlocks.METALLIC_ANVIL.get());
                 AnvilBlockItem(zBlocks.MAGMATIC_ANVIL.get());
                 AnvilBlockItem(zBlocks.POWERED_ANVIL.get());
                 AnvilBlockItem(zBlocks.TIME_ANVIL.get());
+
+                SolarBlockItem(zBlocks.FERRICORE_SOLARGEN.get());
+                SolarBlockItem(zBlocks.BLAZEGOLD_SOLARGEN.get());
+                SolarBlockItem(zBlocks.CELESTIGEM_SOLARGEN.get());
+                SolarBlockItem(zBlocks.ECLIPSEALLOY_SOLARGEN.get());
 
                 DataGenUtil.itemBlockwithParent(zBlocks.FERRICORE_CLOCK.get(), this,
                                 "block/cube_all", "all",
@@ -74,7 +79,8 @@ public class DataItemModel extends ItemModelProvider {
 
         private void BuddingItemModel(Block b) {
                 DataGenUtil.itemBlockwithParent(b, this,
-                                ID + ":block/echoing_budding/" + DataGenUtil.getName(b).replace("echoing_budding_", "") + "/dead");
+                                ID + ":block/echoing_budding/" + DataGenUtil.getName(b).replace("echoing_budding_", "")
+                                                + "/dead");
         }
 
         private void GooItemModel(Block b) {
@@ -85,6 +91,11 @@ public class DataItemModel extends ItemModelProvider {
         private void AnvilBlockItem(Block b) {
                 DataGenUtil.itemBlockwithParent(b, this,
                                 ID + ":block/anvils/" + DataGenUtil.getName(b).replace("_anvil", ""));
+        }
+
+        private void SolarBlockItem(Block b) {
+                DataGenUtil.itemBlockwithParent(b, this,
+                                ID + ":block/solar_panel/" + DataGenUtil.getName(b).replace("_solar_panel", ""));
         }
 
 }

@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "justdynathings:block/eclipse_alloy_solar_panel"
+      "model": "justdynathings:block/solar_panel/eclipse_alloy"
     }
   }
 }

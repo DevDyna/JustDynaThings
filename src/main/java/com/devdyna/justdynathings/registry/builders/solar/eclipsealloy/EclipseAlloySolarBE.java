@@ -7,7 +7,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
-@SuppressWarnings("null")
 public class EclipseAlloySolarBE extends SolarBaseBE {
 
     public EclipseAlloySolarBE(BlockEntityType<?> type, BlockPos pos, BlockState blockState) {
@@ -20,17 +19,17 @@ public class EclipseAlloySolarBE extends SolarBaseBE {
 
     @Override
     public int getMaxEnergy() {
-        return 1000;
+        return 1000000;
     }
 
     @Override
     public int FErate() {
-        return FErate;
+        return 640;
     }
 
     @Override
     public boolean canGenerateWhen() {
-        return level.canSeeSkyFromBelowWater(getBlockPos().above()) && level.isDay(); //TODO work make to everywhere
+        return true;
     }
 
 }

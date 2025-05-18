@@ -25,6 +25,12 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 
 public class LevelUtil {
+    /**
+     * 
+     * @param level net.minecraft.world.level.Level.<dimension>
+     * @param dim
+     * @return
+     */
     public static boolean isDimension(Level level, ResourceKey<Level> dim) {
         return level.dimension().equals(dim);
     }

@@ -1,0 +1,60 @@
+{
+  "values": [
+    {
+      "id": "justdynathings:phase_box",
+      "required": false
+    },
+    {
+      "id": "justdynathings:reforger",
+      "required": false
+    },
+    {
+      "id": "justdynathings:ferricore_clock",
+      "required": false
+    },
+    {
+      "id": "justdynathings:revitalizer",
+      "required": false
+    },
+    {
+      "id": "justdynathings:thermo_generator",
+      "required": false
+    },
+    {
+      "id": "justdynathings:blackhole",
+      "required": false
+    },
+    {
+      "id": "justdynathings:ferricore_solar_panel",
+      "required": false
+    },
+    {
+      "id": "justdynathings:blazegold_solar_panel",
+      "required": false
+    },
+    {
+      "id": "justdynathings:celestigem_solar_panel",
+      "required": false
+    },
+    {
+      "id": "justdynathings:eclipse_alloy_solar_panel",
+      "required": false
+    },
+    {
+      "id": "justdynathings:ferricore_anvil",
+      "required": false
+    },
+    {
+      "id": "justdynathings:blazegold_anvil",
+      "required": false
+    },
+    {
+      "id": "justdynathings:celestigem_anvil",
+      "required": false
+    },
+    {
+      "id": "justdynathings:eclipse_alloy_anvil",
+      "required": false
+    }
+  ]
+}

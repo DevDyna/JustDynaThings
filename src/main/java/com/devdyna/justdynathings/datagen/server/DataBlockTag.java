@@ -30,12 +30,22 @@ public class DataBlockTag extends BlockTagsProvider {
         @Override
         protected void addTags(Provider p) {
 
+                //generic blocks
                 zBlocks.zBlock.getEntries()
                                 .forEach(b -> tag(BlockTags.MINEABLE_WITH_PICKAXE)
                                                 .addOptional(DataGenUtil.getResource(b.get())));
+                zBlocks.zBlockItem.getEntries()
+                                .forEach(b -> tag(BlockTags.MINEABLE_WITH_PICKAXE)
+                                                .addOptional(DataGenUtil.getResource(b.get())));
 
+                //ores                                                
                 zBlocks.zOres.getEntries()
                                 .forEach(b -> tag(BlockTags.MINEABLE_WITH_PICKAXE)
+                                                .add(b.get()));
+
+                //goo blocks                             
+                zBlocks.zGoo.getEntries()
+                                .forEach(b -> tag(BlockTags.MINEABLE_WITH_SHOVEL)
                                                 .add(b.get()));
 
                 zBlocks.zOres.getEntries()
@@ -67,8 +77,6 @@ public class DataBlockTag extends BlockTagsProvider {
                                 Blocks.OXIDIZED_COPPER, Blocks.WAXED_OXIDIZED_COPPER);
 
                 tag(zMultiTags.AMETHYST_BLOCKS.block()).add(Blocks.AMETHYST_BLOCK, Blocks.BUDDING_AMETHYST);
-
-
 
                 tag(zMultiTags.T2_SPREAD.block()).add(
                                 Registration.GooBlock_Tier1.get());

@@ -2,12 +2,13 @@ package com.devdyna.justdynathings.registry.builders.solar.blazegold;
 
 import com.devdyna.justdynathings.registry.builders.solar.SolarBaseBE;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
+import com.devdyna.justdynathings.utils.LevelUtil;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
-@SuppressWarnings("null")
 public class BlazeGoldSolarBE extends SolarBaseBE {
 
     public BlazeGoldSolarBE(BlockEntityType<?> type, BlockPos pos, BlockState blockState) {
@@ -20,17 +21,17 @@ public class BlazeGoldSolarBE extends SolarBaseBE {
 
     @Override
     public int getMaxEnergy() {
-        return 1000;
+        return 1000000;
     }
 
     @Override
     public int FErate() {
-        return FErate;
+        return 40;
     }
 
     @Override
     public boolean canGenerateWhen() {
-        return level.canSeeSkyFromBelowWater(getBlockPos().above()) && level.isDay(); //TODO make it work on nether
+        return LevelUtil.isDimension(level, Level.NETHER);
     }
 
 }

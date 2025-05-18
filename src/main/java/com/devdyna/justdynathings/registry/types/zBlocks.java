@@ -36,7 +36,7 @@ public class zBlocks {
                 zBlockItem.register(bus);
                 zGoo.register(bus);
                 zBuddings.register(bus);
-                zBlockFluids.register(bus);
+                // zBlockFluids.register(bus);
                 zCoals.register(bus);
         }
 
@@ -46,7 +46,10 @@ public class zBlocks {
         public static final DeferredRegister.Blocks zBlockItem = DeferredRegister.createBlocks(Main.ID);
         public static final DeferredRegister.Blocks zGoo = DeferredRegister.createBlocks(Main.ID);
         public static final DeferredRegister.Blocks zBuddings = DeferredRegister.createBlocks(Main.ID);
-        public static final DeferredRegister.Blocks zBlockFluids = DeferredRegister.createBlocks(Main.ID);
+        // public static final DeferredRegister.Blocks zBlockFluids = DeferredRegister.createBlocks(Main.ID);
+        /** 
+         * unused (due FuelBlockDW)
+        */
         public static final DeferredRegister.Blocks zCoals = DeferredRegister.createBlocks(Main.ID);
         // ---------------------------------------------------------------------------------------//
 

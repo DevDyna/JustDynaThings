@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "justdynathings:block/celestigem_solar_panel"
+      "model": "justdynathings:block/solar_panel/celestigem"
     }
   }
 }

@@ -27,7 +27,7 @@ public class SolarBaseBE extends BaseMachineBE implements EnergyGenerator, Redst
     }
 
     public SolarBaseBE(BlockPos pos, BlockState blockState) {
-        this(null, pos, blockState);// TODO
+        this(null, pos, blockState);
     }
 
     @Override

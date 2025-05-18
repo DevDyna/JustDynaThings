@@ -7,7 +7,10 @@ import com.devdyna.justdynathings.client.builder.anvil.time.TimeAnvilScreen;
 import com.devdyna.justdynathings.client.builder.blackhole.BlackHoleScreen;
 import com.devdyna.justdynathings.client.builder.clock.ClockScreen;
 import com.devdyna.justdynathings.client.builder.reforger.ReforgerScreen;
-import com.devdyna.justdynathings.client.builder.solarGen.SolarScreen;
+import com.devdyna.justdynathings.client.builder.solarGen.blazegold.BlazegoldSolarPanelScreen;
+import com.devdyna.justdynathings.client.builder.solarGen.celestigem.CelestigemSolarPanelScreen;
+import com.devdyna.justdynathings.client.builder.solarGen.eclipsealloy.EclipseAlloySolarPanelScreen;
+import com.devdyna.justdynathings.client.builder.solarGen.ferricore.FerricoreSolarPanelScreen;
 import com.devdyna.justdynathings.client.builder.thermoGen.ThermoScreen;
 import com.devdyna.justdynathings.registry.builders.goo.creative.CreativeGooRender;
 import com.devdyna.justdynathings.registry.builders.goo.energy.EnergyGooRender;
@@ -29,11 +32,16 @@ public class Client {
         event.register(zContainers.FERRICORE_CLOCK.get(), ClockScreen::new);
         event.register(zContainers.THERMOGEN.get(), ThermoScreen::new);
         event.register(zContainers.BLACKHOLE.get(), BlackHoleScreen::new);
-        event.register(zContainers.SOLAR_PANEL.get(), SolarScreen::new);
         event.register(zContainers.METALLIC_ANVIL.get(), MetallicAnvilScreen::new);
         event.register(zContainers.MAGMATIC_ANVIL.get(), MagmaticAnvilScreen::new);
         event.register(zContainers.POWERED_ANVIL.get(), PoweredAnvilScreen::new);
         event.register(zContainers.TIME_ANVIL.get(), TimeAnvilScreen::new);
+
+        event.register(zContainers.FERRICORE_SOLAR_PANEL.get(), FerricoreSolarPanelScreen::new);
+        event.register(zContainers.BLAZEGOLD_SOLAR_PANEL.get(), BlazegoldSolarPanelScreen::new);
+        event.register(zContainers.CELESTIGEM_SOLAR_PANEL.get(), CelestigemSolarPanelScreen::new);
+        event.register(zContainers.ECLIPSEALLOY_SOLAR_PANEL.get(), EclipseAlloySolarPanelScreen::new);
+
     }
 
     @SubscribeEvent

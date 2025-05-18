@@ -1,0 +1,7 @@
+{
+  "parent": "justdynathings:block/solar_panel/_template",
+  "textures": {
+    "bottom": "justdynathings:block/generator/eclipse_alloy/bottom",
+    "side": "justdynathings:block/generator/eclipse_alloy/side"
+  }
+}

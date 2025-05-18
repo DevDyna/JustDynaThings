@@ -123,16 +123,16 @@ public class DataGenUtil {
     /**
      * @return blockstate and model
      */
-    public static void simpleBlockwithModel(DataBlockModelState d, Block b, String parent) {
+    public static void MonoStateBlock(DataBlockModelState d, Block b, String parent) {
         d.simpleBlock(b, BlockwithParent(b, d, parent));
     }
 
     /**
-     * @return blockstate and model
+     * @deprecated intend use .texture(key,texture)
      */
-    public static void simpleBlockwithModel(DataBlockModelState d, Block b, String parent, String keyname,
+    public static void MonoStateBlock(DataBlockModelState d, Block b, String parent, String keyname,
             String texture) {
-        d.simpleBlock(b, BlockwithParent(b, d, parent, keyname, texture));
+        d.simpleBlock(b, BlockwithParent(b, d, parent).texture(keyname, texture));
     }
 
     public static String getName(Block block) {

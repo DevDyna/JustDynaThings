@@ -19,7 +19,7 @@ public class MetallicAnvilBE extends CAnvilBE {
         this(zBlockEntities.METALLIC_ANVIL.get(), pos, state);
     }
 
-    int delay = 200;// TODO
+    int delay = 200;
     int i = delay - 1;
 
     @Override

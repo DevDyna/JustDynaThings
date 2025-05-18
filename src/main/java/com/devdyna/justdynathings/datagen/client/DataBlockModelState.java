@@ -8,6 +8,7 @@ import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.DataGenUtil;
 import com.direwolf20.justdirethings.JustDireThings;
 import com.direwolf20.justdirethings.common.blocks.gooblocks.GooBlock_Base;
+import com.direwolf20.justdirethings.setup.Registration;
 
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.Direction;
@@ -28,6 +29,8 @@ import static com.devdyna.justdynathings.compat.ae2.init.AE2_POWERED;
 import static com.devdyna.justdynathings.compat.extendedae.init.EXTENDED_POWERED;
 import static com.devdyna.justdynathings.compat.phasorite.init.PHASORITE_POWERED;
 
+import com.devdyna.justdynathings.Constants;
+
 @SuppressWarnings("unused")
 public class DataBlockModelState extends BlockStateProvider {
 
@@ -46,27 +49,32 @@ public class DataBlockModelState extends BlockStateProvider {
                 BaseGooStateModel(zBlocks.T4_GOO.get());
                 PhaseBox(zBlocks.PHASEBOX.get());
                 DataGenUtil.SimpleBlock(zBlocks.BLACKHOLE.get(), this);
-                DataGenUtil.SimpleBlock(zBlocks.SOLARGEN.get(), this);
+
+                BaseSolarPanel(zBlocks.FERRICORE_SOLARGEN.get(), modLoc("block/solar_panel/ferricore"));
+                BaseSolarPanel(zBlocks.BLAZEGOLD_SOLARGEN.get());
+                BaseSolarPanel(zBlocks.CELESTIGEM_SOLARGEN.get());
+                BaseSolarPanel(zBlocks.ECLIPSEALLOY_SOLARGEN.get());
+
                 inversDirectionalBlocks(zBlocks.THERMOGEN.get());
 
                 BaseBuddings(zBlocks.BUDDING_AMETHYST.get(), mcLoc("block/budding_amethyst"),
-                                CubeAllCheap(ID + ":block/budding/amethyst", this));
+                                CubeAllCheap(ID + ":block/echoing_budding/amethyst", this));
 
                 BaseBuddings(zBlocks.BUDDING_TIME.get(),
-                                modLoc("block/budding/time/alive"),
-                                modLoc("block/budding/time/dead"));
+                                modLoc("block/echoing_budding/time/alive"),
+                                modLoc("block/echoing_budding/time/dead"));
 
                 BaseBuddings(AE2_POWERED.get(),
-                                modLoc("block/budding/certus/alive"),
-                                CubeAllCheap(ID + ":block/budding/certus", this));
+                                modLoc("block/echoing_budding/certus/alive"),
+                                CubeAllCheap(ID + ":block/echoing_budding/certus", this));
 
                 BaseBuddings(EXTENDED_POWERED.get(),
-                                modLoc("block/budding/entro/alive"),
-                                CubeAllCheap(ID + ":block/budding/entro", this));
+                                modLoc("block/echoing_budding/entro/alive"),
+                                CubeAllCheap(ID + ":block/echoing_budding/entro", this));
 
                 BaseBuddings(PHASORITE_POWERED.get(),
-                                modLoc("block/budding/phasorite/alive"),
-                                CubeAllCheap(ID + ":block/budding/phasorite", this));
+                                modLoc("block/echoing_budding/phasorite/alive"),
+                                CubeAllCheap(ID + ":block/echoing_budding/phasorite", this));
 
                 AnvilStateModel(zBlocks.METALLIC_ANVIL.get());
                 AnvilStateModel(zBlocks.MAGMATIC_ANVIL.get());
@@ -124,19 +132,19 @@ public class DataBlockModelState extends BlockStateProvider {
         }
 
         private void BaseBuddings(Block b, ResourceLocation on, ResourceLocation off) {
-                String blockname = DataGenUtil.getName(b).replace("budding_", "");
+                String blockname = DataGenUtil.getName(b).replace("echoing_budding_", "");
                 DataGenUtil.BiStateBlock(this, b, zProperties.GOO_ALIVE, models().getExistingFile(on),
                                 models().getExistingFile(off));
         }
 
         private void BaseBuddings(Block b, ModelFile on, ResourceLocation off) {
-                String blockname = DataGenUtil.getName(b).replace("budding_", "");
+                String blockname = DataGenUtil.getName(b).replace("echoing_budding_", "");
                 DataGenUtil.BiStateBlock(this, b, zProperties.GOO_ALIVE, on,
                                 models().getExistingFile(off));
         }
 
         private void BaseBuddings(Block b, ResourceLocation on, ModelFile off) {
-                String blockname = DataGenUtil.getName(b).replace("budding_", "");
+                String blockname = DataGenUtil.getName(b).replace("echoing_budding_", "");
                 DataGenUtil.BiStateBlock(this, b, zProperties.GOO_ALIVE, models().getExistingFile(on),
                                 off);
 
@@ -144,6 +152,37 @@ public class DataBlockModelState extends BlockStateProvider {
 
         public static BlockModelBuilder CubeAllCheap(String nameTexture, BlockStateProvider b) {
                 return DataGenUtil.CubeAll(nameTexture + "/dead", b, nameTexture);
+        }
+
+        private void BaseSolarPanel(Block b) {
+                String blockname = DataGenUtil.getName(b).replace("_solar_panel", "");
+                simpleBlock(b, DataGenUtil.BlockwithParent(b, this, "justdynathings:block/solar_panel/_template")
+                                .texture("side", "justdynathings:block/generator/" + blockname + "/side")
+                                .texture("bottom", "justdynathings:block/generator/" + blockname + "/bottom"));
+        }
+
+        private void BaseSolarPanel(Block b, ResourceLocation model) {
+                simpleBlock(b, models().getExistingFile(model));
+        }
+
+        /**
+         * //TODO
+         * 
+         * block with id generatort < index >
+         * 
+         * 
+         * NO T1 GENERATOR
+         **/
+        private void BaseGenerator(Block b) {
+                String tier = Constants.Tiers.materials
+                                .get(Integer.getInteger(DataGenUtil.getName(b).replace("generatort", "")));
+                simpleBlock(b,
+                                DataGenUtil.BlockwithParent(b, this, "justdynathings:block/generator/_template")
+                                                .texture("side", "justdynathings:block/generator/" + tier
+                                                                + "/side")
+                                                .texture("top", "justdynathings:block/generator/" + tier + "/top")
+                                                .texture("bottom", "justdynathings:block/generator/" + tier
+                                                                + "/bottom"));
         }
 
 }

@@ -145,14 +145,14 @@ public class DataRecipe extends RecipeProvider {
                                 .define('B', Registration.BlazegoldIngot.get())
                                 .unlockedBy(ID, itemInv(Registration.EclipseAlloyIngot.get())).group(ID).save(c);
 
-                ShapedRecipeBuilder.shaped(MISC, zBlocks.SOLARGEN.get(), 2)
-                                .pattern("LLL")
-                                .pattern("FCF")
-                                .define('L', Items.LAPIS_LAZULI)
-                                .define('F', Registration.FerricoreIngot.get())
-                                .define('C', Registration.Coal_T1.get())
-                                .unlockedBy(ID, itemInv(Registration.Coal_T1.get(), Registration.FerricoreIngot.get()))
-                                .group(ID).save(c);
+                // ShapedRecipeBuilder.shaped(MISC, zBlocks.SOLARGEN.get(), 2) // TODO recipes
+                //                 .pattern("LLL")
+                //                 .pattern("FCF")
+                //                 .define('L', Items.LAPIS_LAZULI)
+                //                 .define('F', Registration.FerricoreIngot.get())
+                //                 .define('C', Registration.Coal_T1.get())
+                //                 .unlockedBy(ID, itemInv(Registration.Coal_T1.get(), Registration.FerricoreIngot.get()))
+                //                 .group(ID).save(c);
 
                 ShapedRecipeBuilder.shaped(MISC, zBlocks.CREATIVE_GOO.get(), 2)
                                 .pattern("ABA")

@@ -10,13 +10,17 @@ import com.devdyna.justdynathings.registry.builders.functional_anvils.energy.Pow
 import com.devdyna.justdynathings.registry.builders.functional_anvils.magmatic.MagmaAnvilBE;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.metallic.MetallicAnvilBE;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.time.TimeAnvilBE;
-import com.devdyna.justdynathings.registry.builders.generators.solar.SolarBE;
-import com.devdyna.justdynathings.registry.builders.generators.thermo.ThermoBE;
 import com.devdyna.justdynathings.registry.builders.goo.creative.CreativeGooBE;
 import com.devdyna.justdynathings.registry.builders.goo.energy.diregoo.*;
 import com.devdyna.justdynathings.registry.builders.goo.energy.energized.EnergyGooBE;
 import com.devdyna.justdynathings.registry.builders.reforger.ReforgerBE;
 import com.devdyna.justdynathings.registry.builders.revitalizer.RevitalizerBE;
+import com.devdyna.justdynathings.registry.builders.solar.blazegold.BlazeGoldSolarBE;
+import com.devdyna.justdynathings.registry.builders.solar.celestigem.CelestiGemSolarBE;
+import com.devdyna.justdynathings.registry.builders.solar.eclipsealloy.EclipseAlloySolarBE;
+import com.devdyna.justdynathings.registry.builders.solar.ferricore.FerricoreSolarBE;
+import com.devdyna.justdynathings.registry.builders.thermo.ThermoBE;
+
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.BlockEntityType.Builder;
@@ -81,10 +85,6 @@ public class zBlockEntities {
                         .register(Constants.Blocks.Revitalizer,
                                         () -> Builder.of(RevitalizerBE::new, zBlocks.REVITALIZER.get()).build(null));
 
-        // public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TickerBE>> TICKER = zBE
-        //                 .register(Constants.Blocks.Ticker,
-        //                                 () -> Builder.of(TickerBE::new, zBlocks.TICKER.get()).build(null));
-
         public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ThermoBE>> THERMOGEN = zBE
                         .register(Constants.Blocks.ThermoGen,
                                         () -> Builder.of(ThermoBE::new, zBlocks.THERMOGEN.get()).build(null));
@@ -93,31 +93,42 @@ public class zBlockEntities {
                         .register(Constants.Blocks.BlackHole,
                                         () -> Builder.of(BlackHoleBE::new, zBlocks.BLACKHOLE.get()).build(null));
 
-        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SolarBE>> SOLARGEN = zBE
-                        .register(Constants.Blocks.SolarGen,
-                                        () -> Builder.of(SolarBE::new, zBlocks.SOLARGEN.get()).build(null));
+        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<FerricoreSolarBE>> FERRICORE_SOLARGEN = zBE
+                        .register(Constants.TieredStuff.SolarPanel.t1,
+                                        () -> Builder.of(FerricoreSolarBE::new, zBlocks.FERRICORE_SOLARGEN.get())
+                                                        .build(null));
 
-        // public static final DeferredHolder<BlockEntityType<?>,
-        // BlockEntityType<SculkBE>> SCULK = zBE
-        // .register(Constants.Blocks.Sculk,
-        // () -> Builder.of(SculkBE::new, Blocks.SCULK.get()).build(null));
+        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BlazeGoldSolarBE>> BLAZEGOLD_SOLARGEN = zBE
+                        .register(Constants.TieredStuff.SolarPanel.t2,
+                                        () -> Builder.of(BlazeGoldSolarBE::new, zBlocks.BLAZEGOLD_SOLARGEN.get())
+                                                        .build(null));
 
+        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CelestiGemSolarBE>> CELESTIGEM_SOLARGEN = zBE
+                        .register(Constants.TieredStuff.SolarPanel.t3,
+                                        () -> Builder.of(CelestiGemSolarBE::new, zBlocks.CELESTIGEM_SOLARGEN.get())
+                                                        .build(null));
 
+        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<EclipseAlloySolarBE>> ECLIPSEALLOY_SOLARGEN = zBE
+                        .register(Constants.TieredStuff.SolarPanel.t4,
+                                        () -> Builder.of(EclipseAlloySolarBE::new, zBlocks.ECLIPSEALLOY_SOLARGEN.get())
+                                                        .build(null));
+
+        // TODO rename to match id
         public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<MetallicAnvilBE>> METALLIC_ANVIL = zBE
-                        .register(Constants.Anvil.metallic,
-                                        () -> Builder.of(MetallicAnvilBE::new, zBlocks.METALLIC_ANVIL.get()).build(null));
+                        .register(Constants.TieredStuff.Anvils.t1,
+                                        () -> Builder.of(MetallicAnvilBE::new, zBlocks.METALLIC_ANVIL.get())
+                                                        .build(null));
 
         public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<MagmaAnvilBE>> MAGMATIC_ANVIL = zBE
-                        .register(Constants.Anvil.magmatic,
+                        .register(Constants.TieredStuff.Anvils.t2,
                                         () -> Builder.of(MagmaAnvilBE::new, zBlocks.MAGMATIC_ANVIL.get()).build(null));
 
         public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<PoweredAnvilBE>> POWERED_ANVIL = zBE
-                        .register(Constants.Anvil.powered,
+                        .register(Constants.TieredStuff.Anvils.t3,
                                         () -> Builder.of(PoweredAnvilBE::new, zBlocks.POWERED_ANVIL.get()).build(null));
 
-                                                public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TimeAnvilBE>> TIME_ANVIL = zBE
-                        .register(Constants.Anvil.time,
+        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TimeAnvilBE>> TIME_ANVIL = zBE
+                        .register(Constants.TieredStuff.Anvils.t4,
                                         () -> Builder.of(TimeAnvilBE::new, zBlocks.TIME_ANVIL.get()).build(null));
-
 
 }

@@ -97,7 +97,11 @@ public class Capabilities {
                                 side) -> (be instanceof PoweredMachineBE || be instanceof EnergyMachine)
                                                 ? be.getData(Registration.ENERGYSTORAGE_GENERATORS)
                                                 : null,
-                                zBlocks.THERMOGEN.get(), zBlocks.SOLARGEN.get());
+                                zBlocks.THERMOGEN.get(),
+                                zBlocks.FERRICORE_SOLARGEN.get(), zBlocks.BLAZEGOLD_SOLARGEN.get(),
+                                zBlocks.CELESTIGEM_SOLARGEN.get(), zBlocks.ECLIPSEALLOY_SOLARGEN.get()
+
+                );
 
                 // fluid handler magmatic anvil
                 event.registerBlock(FluidHandler.BLOCK, (level, pos, state, be,

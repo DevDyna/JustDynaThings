@@ -12,13 +12,17 @@ import com.devdyna.justdynathings.registry.builders.functional_anvils.energy.Pow
 import com.devdyna.justdynathings.registry.builders.functional_anvils.magmatic.MagmaAnvilBlock;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.metallic.MetallicAnvilBlock;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.time.TimeAnvilBlock;
-import com.devdyna.justdynathings.registry.builders.generators.solar.SolarBlock;
-import com.devdyna.justdynathings.registry.builders.generators.thermo.ThermoBlock;
 import com.devdyna.justdynathings.registry.builders.goo.creative.CreativeGoo;
 import com.devdyna.justdynathings.registry.builders.goo.energy.diregoo.*;
 import com.devdyna.justdynathings.registry.builders.goo.energy.energized.EnergyGoo;
 import com.devdyna.justdynathings.registry.builders.reforger.ReforgerBlock;
 import com.devdyna.justdynathings.registry.builders.revitalizer.RevitalizerBlock;
+import com.devdyna.justdynathings.registry.builders.solar.blazegold.BlazeGoldSolarBlock;
+import com.devdyna.justdynathings.registry.builders.solar.celestigem.CelestiGemSolarBlock;
+import com.devdyna.justdynathings.registry.builders.solar.eclipsealloy.EclipseAlloySolarBlock;
+import com.devdyna.justdynathings.registry.builders.solar.ferricore.FerricoreSolarBlock;
+import com.devdyna.justdynathings.registry.builders.thermo.ThermoBlock;
+
 import net.minecraft.world.level.block.Block;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -70,7 +74,8 @@ public class zBlocks {
         public static final DeferredHolder<Block, ?> BUDDING_TIME = Material.DireStuff
                         .registerBudding(Constants.Budding.Time, () -> new TimeBlock());
 
-        public static final DeferredHolder<Block, ?> BUDDING_AMETHYST = Material.DireStuff
+        public static final DeferredHolder<Block, ?> BUDDING_AMETHYST = Material.DireStuff // TODO rename all budding
+                                                                                           // echoing_
                         .registerBudding(Constants.Budding.Amethyst, () -> new AmethystBlock());
 
         public static final DeferredHolder<Block, ?> FERRICORE_CLOCK = Material
@@ -79,63 +84,36 @@ public class zBlocks {
         public static final DeferredHolder<Block, ?> REVITALIZER = Material
                         .registerItemAndBlock(Constants.Blocks.Revitalizer, RevitalizerBlock::new);
 
-        // public static final DeferredHolder<Block, ?> TICKER = Material
-        // .registerItemAndBlock(Constants.Blocks.Ticker, TickerBlock::new);
-
-        public static final DeferredHolder<Block, ?> THERMOGEN = Material
+        public static final DeferredHolder<Block, ?> THERMOGEN = Material// TODO more generators based on y-level
                         .registerItemAndBlock(Constants.Blocks.ThermoGen, ThermoBlock::new);
 
         public static final DeferredHolder<Block, ?> BLACKHOLE = Material
                         .registerItemAndBlock(Constants.Blocks.BlackHole, BlackHoleBlock::new);
 
-        public static final DeferredHolder<Block, ?> SOLARGEN = Material
-                        .registerItemAndBlock(Constants.Blocks.SolarGen, SolarBlock::new);
+        public static final DeferredHolder<Block, ?> FERRICORE_SOLARGEN = Material
+                        .registerItemAndBlock(Constants.TieredStuff.SolarPanel.t1, FerricoreSolarBlock::new);
 
-        // public static final DeferredHolder<Block, ?> REDSTONE_FUEL =
-        // Material.registerItemAndBlock(Constants.Fuel.redstone.Block,()-> new
-        // BlockFuel(15));
+        public static final DeferredHolder<Block, ?> BLAZEGOLD_SOLARGEN = Material
+                        .registerItemAndBlock(Constants.TieredStuff.SolarPanel.t2, BlazeGoldSolarBlock::new);
 
-        // public static final DeferredHolder<Block, ?> LAPIS_LAZULI_FUEL =
-        // Material.registerItemAndBlock(Constants.Fuel.lapis_lazuli.Block,()-> new
-        // BlockFuel(5));
+        public static final DeferredHolder<Block, ?> CELESTIGEM_SOLARGEN = Material
+                        .registerItemAndBlock(Constants.TieredStuff.SolarPanel.t3, CelestiGemSolarBlock::new);
 
-        // public static final DeferredHolder<Block, ?> REDSTONE_ORE =
-        // Material.DireStuff
-        // .simpleRawOreDW(Constants.Fuel.redstone.Raw);
+        public static final DeferredHolder<Block, ?> ECLIPSEALLOY_SOLARGEN = Material
+                        .registerItemAndBlock(Constants.TieredStuff.SolarPanel.t4, EclipseAlloySolarBlock::new);
 
-        // public static final DeferredHolder<Block, ?> LAPIS_LAZULI_ORE =
-        // Material.DireStuff
-        // .simpleRawOreDW(Constants.Fuel.lapis_lazuli.Raw);
-
-        // public static final DeferredHolder<Block, LiquidBlock> REDSTONE_JUICE_FLUID =
-        // zBlockFluids.register(
-        // Constants.Fluids.RedstoneJuice.Block,
-        // () -> new LiquidBlock(zFluids.REDSTONE_JUICE_FLOWING.value(),
-        // Properties.ofFullCopy(Blocks.WATER)
-        // .liquid()
-        // .lightLevel(value -> 10)
-        // .emissiveRendering((a, b, c) -> true)));
-
-        // public static final DeferredHolder<Block, LiquidBlock>
-        // LAPIS_LAZULI_JUICE_FLUID = zBlockFluids.register(
-        // Constants.Fluids.LapisLazuliJuice.Block,
-        // () -> new LiquidBlock(zFluids.LAPIS_LAZULI_JUICE_FLOWING.value(),
-        // Properties.ofFullCopy(Blocks.WATER)
-        // .liquid()
-        // .lightLevel(value -> 1)
-        // .emissiveRendering((a, b, c) -> true)));
-
+        // TODO rename to match id
         public static final DeferredHolder<Block, ?> METALLIC_ANVIL = Material
-                        .registerItemAndBlock(Constants.Anvil.metallic, MetallicAnvilBlock::new);
+                        .registerItemAndBlock(Constants.TieredStuff.Anvils.t1, MetallicAnvilBlock::new);
 
         public static final DeferredHolder<Block, ?> MAGMATIC_ANVIL = Material
-                        .registerItemAndBlock(Constants.Anvil.magmatic, MagmaAnvilBlock::new);
+                        .registerItemAndBlock(Constants.TieredStuff.Anvils.t2, MagmaAnvilBlock::new);
 
         public static final DeferredHolder<Block, ?> POWERED_ANVIL = Material
-                        .registerItemAndBlock(Constants.Anvil.powered, PoweredAnvilBlock::new);
-        
-                        public static final DeferredHolder<Block, ?> TIME_ANVIL = Material
-                        .registerItemAndBlock(Constants.Anvil.time, TimeAnvilBlock::new);
+                        .registerItemAndBlock(Constants.TieredStuff.Anvils.t3, PoweredAnvilBlock::new);
+
+        public static final DeferredHolder<Block, ?> TIME_ANVIL = Material
+                        .registerItemAndBlock(Constants.TieredStuff.Anvils.t4, TimeAnvilBlock::new);
 
         // ---------------------------------------------------------------------------------------//
 

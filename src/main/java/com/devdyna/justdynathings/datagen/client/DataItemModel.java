@@ -31,7 +31,7 @@ public class DataItemModel extends ItemModelProvider {
                                 .forEach(item -> DataGenUtil.itemModel(item.get(), this));
 
                 DataGenUtil.itemBlock(zBlocks.THERMOGEN.get(), this);
-                DataGenUtil.itemBlock(zBlocks.SOLARGEN.get(), this);
+                // DataGenUtil.itemBlock(zBlocks.SOLARGEN.get(), this); //TODO item model
                 DataGenUtil.itemBlock(zBlocks.BLACKHOLE.get(), this);
 
                 AnvilBlockItem(zBlocks.METALLIC_ANVIL.get());
@@ -74,7 +74,7 @@ public class DataItemModel extends ItemModelProvider {
 
         private void BuddingItemModel(Block b) {
                 DataGenUtil.itemBlockwithParent(b, this,
-                                ID + ":block/budding/" + DataGenUtil.getName(b).replace("budding_", "") + "/dead");
+                                ID + ":block/echoing_budding/" + DataGenUtil.getName(b).replace("echoing_budding_", "") + "/dead");
         }
 
         private void GooItemModel(Block b) {

@@ -1,54 +1,67 @@
 package com.devdyna.justdynathings;
 
+import java.util.List;
+
 import net.neoforged.fml.ModList;
 
 public class Constants {
 
-    // public class Types {
-    // public static String Item = "item";
-    // public static String Block = "block";
-    // public static String BlockEntity = "blockentity";
-    // public static String Container = "container";
     public static String CreativeTab = "creative_tab";
-    // }
 
     public class Blocks {
         public static String PhaseBox = "phase_box";
         public static String Reforger = "reforger";
-        // public static String BlazingAnvil = "blazing_anvil";
         public static String FerricoreClock = "ferricore_clock";
         public static String Revitalizer = "revitalizer";
         public static String Ticker = "ticker";
         public static String Sculk = "sculk";
         public static String ThermoGen = "thermo_generator";
-        public static String SolarGen = "solar_panel";
         public static String BlackHole = "blackhole";
     }
 
     public static String AnvilType = "anvil";
 
-    public class Anvil {
+    public static String SolarPanelType = "solar_panel";
 
-        public static String metallic = "ferricore_" + AnvilType;
-        public static String magmatic = "blazing_gold_" + AnvilType;
-        public static String powered = "celestigem_" + AnvilType;
-        public static String time = "eclipse_alloy_" + AnvilType;
+    public class TieredStuff {
 
+        public class SolarPanel {
+            public static String t1 = Tiers.ferricore + SolarPanelType;
+            public static String t2 = Tiers.blazegold + SolarPanelType;
+            public static String t3 = Tiers.celestigem + SolarPanelType;
+            public static String t4 = Tiers.eclipsealloy + SolarPanelType;
+        }
+
+        public class Anvils {
+            public static String t1 = Tiers.ferricore + AnvilType;
+            public static String t2 = Tiers.blazegold + AnvilType;
+            public static String t3 = Tiers.celestigem + AnvilType;
+            public static String t4 = Tiers.eclipsealloy + AnvilType;
+        }
+
+    }
+
+    public class Tiers {
+        public static String ferricore = "ferricore_";
+        public static String blazegold = "blazegold_";
+        public static String celestigem = "celestigem_";
+        public static String eclipsealloy = "eclipse_alloy_";
+        public static List<String> materials = List.of(ferricore, blazegold, celestigem, eclipsealloy);
     }
 
     public static String GooType = "goo";
 
     public class Goo {
 
-        public static String T1 = "charged_primogel_"+GooType;
-        public static String T2 = "charged_blazebloom_"+GooType;
-        public static String T3 = "charged_voidshimmer_"+GooType;
-        public static String T4 = "charged_shadowpulse_"+GooType;
-        public static String Creative = "creative_"+GooType;
-        public static String Energized = "energized_"+GooType;
+        public static String T1 = "charged_primogel_" + GooType;
+        public static String T2 = "charged_blazebloom_" + GooType;
+        public static String T3 = "charged_voidshimmer_" + GooType;
+        public static String T4 = "charged_shadowpulse_" + GooType;
+        public static String Creative = "creative_" + GooType;
+        public static String Energized = "energized_" + GooType;
     }
 
-    public static String BuddingType = "budding";
+    public static String BuddingType = "echoing_budding";
 
     public class Budding {
         public static String Amethyst = BuddingType + "_amethyst";
@@ -68,54 +81,6 @@ public class Constants {
     public class System {
         public static String Switch(boolean v) {
             return v ? "on" : "off";
-        }
-    }
-
-    public static String EMBER = "ember";
-
-    public class Fuel {// TODO
-
-        /**
-         * @unused
-         *         Values of JDT coals
-         */
-        public static int[] DW_FUEL_VALUES = { 2, 4, 8, 16 };
-
-        public static String BIOFUEL = "bio_fuel";
-
-        public static String REDSTONE = "redstone_" + EMBER;
-        public static String LAPIS_LAZULI = "lapis_lazuli_" + EMBER;
-
-        public class redstone {
-            public static String Block = REDSTONE + "_block";
-            public static String Raw = "raw_" + REDSTONE;
-        }
-
-        public class lapis_lazuli {
-            public static String Block = LAPIS_LAZULI + "_block";
-            public static String Raw = "raw_" + LAPIS_LAZULI;
-        }
-
-    }
-
-    public class Fluids {
-        public static String REDSTONE_JUICE = "redstone_juice";
-        public static String LAPIS_LAZULI_JUICE = "lapis_lazuli_juice";
-
-        public class RedstoneJuice {
-            public static String Block = REDSTONE_JUICE + "_block";
-            public static String Type = REDSTONE_JUICE + "_fluid";
-            public static String Source = REDSTONE_JUICE + "_fluid_source";
-            public static String Flowing = REDSTONE_JUICE + "_fluid_flowing";
-            public static String Bucket = REDSTONE_JUICE + "_bucket_item";
-        }
-
-        public class LapisLazuliJuice {
-            public static String Block = LAPIS_LAZULI_JUICE + "_block";
-            public static String Type = LAPIS_LAZULI_JUICE + "_fluid";
-            public static String Source = LAPIS_LAZULI_JUICE + "_fluid_source";
-            public static String Flowing = LAPIS_LAZULI_JUICE + "_fluid_flowing";
-            public static String Bucket = LAPIS_LAZULI_JUICE + "_bucket_item";
         }
     }
 

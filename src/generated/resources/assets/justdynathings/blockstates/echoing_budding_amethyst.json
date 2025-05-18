@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "alive=false": {
+      "model": "justdynathings:block/echoing_budding/amethyst/dead"
+    },
+    "alive=true": {
+      "model": "minecraft:block/budding_amethyst"
+    }
+  }
+}

@@ -25,17 +25,19 @@ public class EclipseAlloySolarBE extends SolarBaseBE {
 
     @Override
     public int FErate() {
-        float multipler = 2.0f;
+
         int min = level.getMinBuildHeight();
-        int max = level.getMaxBuildHeight();
-        int middle = (Math.abs(min) + max) == 0 ? 10 : (Math.abs(min) + max) / 2;
+        int max = level.getMaxBuildHeight() - 1;
 
-        int value = getBlockPos().getY();
+        int y = getBlockPos().getY();
 
-        if (value != min && value != max)
-            multipler *= (value - middle == 0 ? 1 : Math.abs(value - middle)) / middle;
+        float middle = (min + max) / 2.0f;
 
-        return (int) (640 * multipler);
+        float unckecked = 1.0f - (((y - middle) / (max - min)) * ((y - middle) / (max - min)) * 4);
+        unckecked = Math.max(unckecked, 0);
+        float value = 0.05f + (1.0f - 0.05f) * (1.0f - unckecked);
+        return (int) (10240 * value);
+
     }
 
     @Override

@@ -30,3 +30,4 @@ src/main/resources/assets/justdynathings/guides/justdynathings/guide/generated.l
 /generated
 /src/generated/resources/.cache
 desktop.ini
+/src/test

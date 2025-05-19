@@ -12,6 +12,9 @@
         "items": [
           {
             "items": "minecraft:echo_shard"
+          },
+          {
+            "items": "justdirethings:polymorphic_catalyst"
           }
         ]
       },

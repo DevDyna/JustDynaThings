@@ -5,24 +5,22 @@
       "modid": "ae2"
     }
   ],
-  "type": "minecraft:crafting_shaped",
+  "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "group": "justdynathings",
-  "key": {
-    "A": {
+  "ingredients": [
+    {
+      "tag": "justdynathings:compat/ae2/buddings"
+    },
+    {
       "item": "minecraft:echo_shard"
     },
-    "B": {
-      "tag": "justdynathings:compat/ae2/buddings"
+    {
+      "item": "justdirethings:polymorphic_catalyst"
     }
-  },
-  "pattern": [
-    "AAA",
-    "ABA",
-    "AAA"
   ],
   "result": {
-    "count": 2,
+    "count": 1,
     "id": "justdynathings:echoing_budding_certus"
   }
 }

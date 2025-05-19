@@ -256,16 +256,18 @@ public class DataRecipe extends RecipeProvider {
         }
 
         private void Budding(Item output, TagKey<Item> input, RecipeOutput c) {
-                ShapedRecipeBuilder.shaped(MISC, output, 2)
-                                .pattern("AAA")
-                                .pattern("ABA")
-                                .pattern("AAA")
-                                .define('B', input)
-                                .define('A', Items.ECHO_SHARD)
-                                .unlockedBy(ID, itemInv(Items.ECHO_SHARD)).group(ID)
+                ShapelessRecipeBuilder.shapeless(MISC, output, 1)
+                                .requires(input)
+                                .requires(Items.ECHO_SHARD)
+                                .requires(Registration.PolymorphicCatalyst.get())
+                                .unlockedBy(ID, itemInv(Items.ECHO_SHARD, Registration.PolymorphicCatalyst.get()))
+                                .group(ID)
                                 .save(c);
         }
 
+        /**
+         * @deprecated not used
+         */
         private void Budding(Item output, Item input, RecipeOutput c) {
                 ShapelessRecipeBuilder.shapeless(MISC, output, 2)
                                 .requires(input)

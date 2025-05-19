@@ -1,22 +1,20 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "group": "justdynathings",
-  "key": {
-    "A": {
+  "ingredients": [
+    {
+      "tag": "justdynathings:time_buddings"
+    },
+    {
       "item": "minecraft:echo_shard"
     },
-    "B": {
-      "tag": "justdynathings:time_buddings"
+    {
+      "item": "justdirethings:polymorphic_catalyst"
     }
-  },
-  "pattern": [
-    "AAA",
-    "ABA",
-    "AAA"
   ],
   "result": {
-    "count": 2,
+    "count": 1,
     "id": "justdynathings:echoing_budding_time"
   }
 }

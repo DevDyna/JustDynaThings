@@ -83,13 +83,13 @@ public class DataItemTag extends ItemTagsProvider {
 
                 tag(zItemTags.REFORGER_CATALYST)
                                 .add(
-                                                Items.ECHO_SHARD,
-                                                Items.NETHER_STAR,
-                                                Items.DIAMOND,
-                                                Items.NETHERITE_INGOT,
-                                                Items.NETHERITE_SCRAP,
-                                                Items.HEART_OF_THE_SEA,
-                                                Items.HEAVY_CORE
+                                                // Items.ECHO_SHARD,
+                                                // Items.NETHER_STAR,
+                                                Items.DIAMOND
+                                                // Items.NETHERITE_INGOT,
+                                                // Items.NETHERITE_SCRAP,
+                                                // Items.HEART_OF_THE_SEA,
+                                                // Items.HEAVY_CORE
                                 // ,zItems.CHAOTIC_DUST.get()
                                 );
 

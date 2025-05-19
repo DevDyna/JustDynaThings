@@ -34,7 +34,7 @@ public class SolarBaseBE extends BaseMachineBE implements EnergyGenerator, Redst
     public void tickServer() {
         updateBlock();
         if (isActiveRedstone() && getBlockState().getValue(zProperties.ACTIVE).booleanValue()) {
-            increaseFEWhenPossible(FErate() / 5);
+            increaseFEWhenPossible(FErate());
         }
         if (canExtractFE())
             Actions.providePowerAdjacent(getBlockPos(), level, FErate());

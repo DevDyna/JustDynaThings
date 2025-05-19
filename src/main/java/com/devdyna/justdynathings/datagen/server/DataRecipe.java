@@ -308,7 +308,7 @@ public class DataRecipe extends RecipeProvider {
                                 MISC, b.asItem()).unlocks(ID,
                                                 InventoryChangeTrigger.TriggerInstance
                                                                 .hasItems(ingot))
-                                .save(c, DataGenUtil.getPath(b));
+                                .save(c, ID + ":" + DataGenUtil.getName(b) + "_smithing");
         }
 
         private void AnvilRecipe(Block b, Item ingot, Item block, Item template, TagKey<Item> oldAnvil,
@@ -329,7 +329,7 @@ public class DataRecipe extends RecipeProvider {
                                 MISC, b.asItem()).unlocks(ID,
                                                 InventoryChangeTrigger.TriggerInstance
                                                                 .hasItems(ingot))
-                                .save(c, DataGenUtil.getPath(b));
+                                .save(c, ID + ":" + DataGenUtil.getName(b) + "_smithing");
         }
 
         private void SolarRecipe(Block output, Item catalyst, Item coal, Item ingot, RecipeOutput c) {

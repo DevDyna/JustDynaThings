@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:blazegold_anvil"
+        "recipe": "justdynathings:ferricore_anvil_smithing"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": "justdirethings:blazegold_ingot"
+            "items": "justdirethings:ferricore_ingot"
           }
         ]
       },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:blazegold_anvil"
+      "justdynathings:ferricore_anvil_smithing"
     ]
   }
 }

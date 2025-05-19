@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:ferricore_anvil"
+        "recipe": "justdynathings:eclipse_alloy_anvil_smithing"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": "justdirethings:ferricore_ingot"
+            "items": "justdirethings:eclipsealloy_ingot"
           }
         ]
       },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:ferricore_anvil"
+      "justdynathings:eclipse_alloy_anvil_smithing"
     ]
   }
 }

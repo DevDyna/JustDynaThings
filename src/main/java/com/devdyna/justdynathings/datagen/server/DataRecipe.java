@@ -131,10 +131,10 @@ public class DataRecipe extends RecipeProvider {
                                 .pattern("RKR")
                                 .pattern("FBF")
                                 .define('F', Registration.FerricoreIngot.get())
-                                .define('K', Items.REDSTONE_BLOCK)
+                                .define('K', Registration.CelestigemBlock_ITEM.get())
                                 .define('R', Items.REDSTONE)
                                 .define('B', Items.BUCKET)
-                                .unlockedBy(ID, itemInv(Registration.FerricoreIngot.get())).group(ID).save(c);
+                                .unlockedBy(ID, itemInv(Registration.FerricoreIngot.get(),Registration.Celestigem.get())).group(ID).save(c);
 
                 ShapedRecipeBuilder.shaped(MISC, zBlocks.THERMOGEN.get(), 1)
                                 .pattern(" A ")

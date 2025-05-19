@@ -8,3 +8,5 @@ navigation:
 # Just Dyna Things
 
 A JustDireThings addon that add new stuff
+
+<SubPages />

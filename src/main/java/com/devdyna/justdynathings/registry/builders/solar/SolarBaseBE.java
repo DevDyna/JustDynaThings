@@ -22,12 +22,12 @@ public class SolarBaseBE extends BaseMachineBE implements EnergyGenerator, Redst
     public RedstoneControlData redstoneControlData = new RedstoneControlData();
     public final PoweredMachineContainerData poweredMachineData = new PoweredMachineContainerData(this);
 
-    public SolarBaseBE(BlockEntityType<?> type, BlockPos pos, BlockState blockState) {
-        super(type, pos, blockState);
+    public SolarBaseBE(BlockEntityType<?> t, BlockPos p, BlockState b) {
+        super(t, p, b);
     }
 
-    public SolarBaseBE(BlockPos pos, BlockState blockState) {
-        this(null, pos, blockState);
+    public SolarBaseBE(BlockPos p, BlockState b) {
+        this(null, p, b);
     }
 
     @Override
@@ -41,11 +41,13 @@ public class SolarBaseBE extends BaseMachineBE implements EnergyGenerator, Redst
     }
 
     public void updateBlock() {
-        var state = getBlockState().setValue(zProperties.ACTIVE,
-                canGenerateWhen());
-        level.setBlockAndUpdate(getBlockPos(), state);
+        level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(zProperties.ACTIVE,
+                canGenerateWhen()));
     }
 
+    /**
+     * DONT use to set FE gen
+     */
     @Override
     public int getStandardEnergyCost() {
         return 0;
@@ -53,7 +55,7 @@ public class SolarBaseBE extends BaseMachineBE implements EnergyGenerator, Redst
 
     @Override
     public int getMaxEnergy() {
-        return 1000;
+        return 0;
     }
 
     @Override
@@ -77,11 +79,11 @@ public class SolarBaseBE extends BaseMachineBE implements EnergyGenerator, Redst
     }
 
     public int FErate() {
-        return FErate;
+        return 0;
     }
 
     public boolean canGenerateWhen() {
-        return level.canSeeSkyFromBelowWater(getBlockPos().above()) && level.isDay();
+        return false;
     }
 
 }

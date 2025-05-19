@@ -145,15 +145,6 @@ public class DataRecipe extends RecipeProvider {
                                 .define('B', Registration.BlazegoldIngot.get())
                                 .unlockedBy(ID, itemInv(Registration.EclipseAlloyIngot.get())).group(ID).save(c);
 
-                // ShapedRecipeBuilder.shaped(MISC, zBlocks.SOLARGEN.get(), 2) // TODO recipes
-                //                 .pattern("LLL")
-                //                 .pattern("FCF")
-                //                 .define('L', Items.LAPIS_LAZULI)
-                //                 .define('F', Registration.FerricoreIngot.get())
-                //                 .define('C', Registration.Coal_T1.get())
-                //                 .unlockedBy(ID, itemInv(Registration.Coal_T1.get(), Registration.FerricoreIngot.get()))
-                //                 .group(ID).save(c);
-
                 ShapedRecipeBuilder.shaped(MISC, zBlocks.CREATIVE_GOO.get(), 2)
                                 .pattern("ABA")
                                 .pattern("BCB")
@@ -219,11 +210,17 @@ public class DataRecipe extends RecipeProvider {
                                 Registration.EclipseAlloyBlock_ITEM.get(), Registration.TEMPLATE_ECLIPSEALLOY.get(),
                                 zBlocks.POWERED_ANVIL.get(), c);
 
-                // FluidDropRecipeBuilder.shapeless(DataGenUtil.getResource(zBlocks.REDSTONE_JUICE_FLUID.get()),
-                // Registration.REFINED_T2_FLUID_BLOCK.get().defaultBlockState(),
-                // zBlocks.REDSTONE_JUICE_FLUID.get().defaultBlockState(),
-                // Items.REDSTONE).unlockedBy(ID, itemInv(Items.REDSTONE)).group(ID)
-                // .save(c);
+                SolarRecipe(zBlocks.FERRICORE_SOLARGEN.get(), Items.LAPIS_LAZULI, 
+                Registration.Coal_T1.get(), Registration.FerricoreIngot.get(), c);
+
+                SolarRecipe(zBlocks.BLAZEGOLD_SOLARGEN.get(), Items.MAGMA_CREAM, 
+                Registration.Coal_T2.get(), Registration.BlazegoldIngot.get(), c);
+
+                SolarRecipe(zBlocks.CELESTIGEM_SOLARGEN.get(), Items.ENDER_PEARL, 
+                Registration.Coal_T3.get(), Registration.Celestigem.get(), c);
+
+                SolarRecipe(zBlocks.ECLIPSEALLOY_SOLARGEN.get(), Items.SCULK_VEIN, 
+                Registration.Coal_T4.get(), Registration.EclipseAlloyIngot.get(), c);
 
         }
 
@@ -333,6 +330,18 @@ public class DataRecipe extends RecipeProvider {
                                                 InventoryChangeTrigger.TriggerInstance
                                                                 .hasItems(ingot))
                                 .save(c, DataGenUtil.getPath(b));
+        }
+
+        private void SolarRecipe(Block output, Item catalyst, Item coal, Item ingot, RecipeOutput c) {
+
+                ShapedRecipeBuilder.shaped(MISC, output, 3)
+                                .pattern("LLL")
+                                .pattern("FCF")
+                                .define('L', catalyst)
+                                .define('F', ingot)
+                                .define('C', coal)
+                                .unlockedBy(ID, itemInv(coal, catalyst, ingot))
+                                .group(ID).save(c);
         }
 
         /*

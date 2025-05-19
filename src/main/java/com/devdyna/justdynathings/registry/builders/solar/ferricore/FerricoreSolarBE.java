@@ -12,12 +12,12 @@ import net.minecraft.world.level.block.state.BlockState;
 @SuppressWarnings("null")
 public class FerricoreSolarBE extends SolarBaseBE {
 
-    public FerricoreSolarBE(BlockEntityType<?> type, BlockPos pos, BlockState blockState) {
-        super(type, pos, blockState);
+    public FerricoreSolarBE(BlockEntityType<?> t, BlockPos p, BlockState b) {
+        super(t, p, b);
     }
 
-    public FerricoreSolarBE(BlockPos pos, BlockState blockState) {
-        this(zBlockEntities.FERRICORE_SOLARGEN.get(), pos, blockState);
+    public FerricoreSolarBE(BlockPos p, BlockState b) {
+        this(zBlockEntities.FERRICORE_SOLARGEN.get(), p, b);
     }
 
     @Override

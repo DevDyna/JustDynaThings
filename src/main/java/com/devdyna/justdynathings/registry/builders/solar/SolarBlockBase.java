@@ -41,17 +41,17 @@ public class SolarBlockBase extends BaseMachineBlock {
 
     @Nullable
     @Override
-    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new SolarBaseBE(pos, state);
+    public BlockEntity newBlockEntity(BlockPos p, BlockState s) {
+        return new SolarBaseBE(p, s);
     }
 
     @Override
-    public boolean isValidBE(BlockEntity be) {
-        return be instanceof SolarBaseBE;
+    public boolean isValidBE(BlockEntity b) {
+        return b instanceof SolarBaseBE;
     }
 
     @Override
-    public void openMenu(Player player, BlockPos blockPos) {
+    public void openMenu(Player p, BlockPos b) {
     }
 
     // brute-force fix for invalid rotation

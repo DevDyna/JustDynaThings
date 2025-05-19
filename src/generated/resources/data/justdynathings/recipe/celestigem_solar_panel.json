@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "justdynathings",
+  "key": {
+    "C": {
+      "item": "justdirethings:coal_t3"
+    },
+    "F": {
+      "item": "justdirethings:celestigem"
+    },
+    "L": {
+      "item": "minecraft:ender_pearl"
+    }
+  },
+  "pattern": [
+    "LLL",
+    "FCF"
+  ],
+  "result": {
+    "count": 3,
+    "id": "justdynathings:celestigem_solar_panel"
+  }
+}

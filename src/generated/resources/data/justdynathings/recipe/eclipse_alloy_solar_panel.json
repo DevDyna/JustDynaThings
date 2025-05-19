@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "justdynathings",
+  "key": {
+    "C": {
+      "item": "justdirethings:coal_t4"
+    },
+    "F": {
+      "item": "justdirethings:eclipsealloy_ingot"
+    },
+    "L": {
+      "item": "minecraft:sculk_vein"
+    }
+  },
+  "pattern": [
+    "LLL",
+    "FCF"
+  ],
+  "result": {
+    "count": 3,
+    "id": "justdynathings:eclipse_alloy_solar_panel"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "justdynathings:blazegold_solar_panel"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "justdynathings": {
+      "conditions": {
+        "items": [
+          {
+            "items": "justdirethings:coal_t2"
+          },
+          {
+            "items": "minecraft:magma_cream"
+          },
+          {
+            "items": "justdirethings:blazegold_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "justdynathings"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "justdynathings:blazegold_solar_panel"
+    ]
+  }
+}

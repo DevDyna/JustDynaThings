@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "justdynathings",
+  "key": {
+    "C": {
+      "item": "justdirethings:coal_t2"
+    },
+    "F": {
+      "item": "justdirethings:blazegold_ingot"
+    },
+    "L": {
+      "item": "minecraft:magma_cream"
+    }
+  },
+  "pattern": [
+    "LLL",
+    "FCF"
+  ],
+  "result": {
+    "count": 3,
+    "id": "justdynathings:blazegold_solar_panel"
+  }
+}

@@ -212,17 +212,17 @@ public class DataRecipe extends RecipeProvider {
                                 Registration.EclipseAlloyBlock_ITEM.get(), Registration.TEMPLATE_ECLIPSEALLOY.get(),
                                 zBlocks.POWERED_ANVIL.get(), c);
 
-                SolarRecipe(zBlocks.FERRICORE_SOLARGEN.get(), Items.LAPIS_LAZULI, 
-                Registration.Coal_T1.get(), Registration.FerricoreIngot.get(), c);
+                SolarRecipe(zBlocks.FERRICORE_SOLARGEN.get(), Items.LAPIS_LAZULI,
+                                Registration.Coal_T1.get(), Registration.FerricoreIngot.get(), c);
 
-                SolarRecipe(zBlocks.BLAZEGOLD_SOLARGEN.get(), Items.MAGMA_CREAM, 
-                Registration.Coal_T2.get(), Registration.BlazegoldIngot.get(), c);
+                SolarRecipe(zBlocks.BLAZEGOLD_SOLARGEN.get(), Items.MAGMA_CREAM,
+                                Registration.Coal_T2.get(), Registration.BlazegoldIngot.get(), c);
 
-                SolarRecipe(zBlocks.CELESTIGEM_SOLARGEN.get(), Items.ENDER_PEARL, 
-                Registration.Coal_T3.get(), Registration.Celestigem.get(), c);
+                SolarRecipe(zBlocks.CELESTIGEM_SOLARGEN.get(), Items.ENDER_PEARL,
+                                Registration.Coal_T3.get(), Registration.Celestigem.get(), c);
 
-                SolarRecipe(zBlocks.ECLIPSEALLOY_SOLARGEN.get(), Items.SCULK_VEIN, 
-                Registration.Coal_T4.get(), Registration.EclipseAlloyIngot.get(), c);
+                SolarRecipe(zBlocks.ECLIPSEALLOY_SOLARGEN.get(), Items.SCULK_VEIN,
+                                Registration.Coal_T4.get(), Registration.EclipseAlloyIngot.get(), c);
 
         }
 

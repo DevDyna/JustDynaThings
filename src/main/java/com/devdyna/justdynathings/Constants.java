@@ -23,6 +23,9 @@ public class Constants {
 
     public static String SolarPanelType = "solar_panel";
 
+    /**
+     * @deprecated intend use SolarPanel / Anvils
+     */
     public class TieredStuff {
 
         public class SolarPanel {
@@ -39,6 +42,20 @@ public class Constants {
             public static String t4 = Tiers.eclipsealloy + AnvilType;
         }
 
+    }
+
+    public class SolarPanel {
+        public static String t1 = Tiers.ferricore + SolarPanelType;
+        public static String t2 = Tiers.blazegold + SolarPanelType;
+        public static String t3 = Tiers.celestigem + SolarPanelType;
+        public static String t4 = Tiers.eclipsealloy + SolarPanelType;
+    }
+
+    public class Anvils {
+        public static String t1 = Tiers.ferricore + AnvilType;
+        public static String t2 = Tiers.blazegold + AnvilType;
+        public static String t3 = Tiers.celestigem + AnvilType;
+        public static String t4 = Tiers.eclipsealloy + AnvilType;
     }
 
     public class Tiers {
@@ -74,8 +91,8 @@ public class Constants {
     public class ModAddonCheck {
         public static boolean AppliedEnergistics2 = ModList.get().isLoaded("ae2");
         public static boolean ExtendedAE = ModList.get().isLoaded("extendedae");
-        public static boolean GuideMe = ModList.get().isLoaded("guideme");
         public static boolean PhasoriteNetworks = ModList.get().isLoaded("phasoritenetworks");
+        public static boolean GuideMe = ModList.get().isLoaded("guideme");
     }
 
     public class System {

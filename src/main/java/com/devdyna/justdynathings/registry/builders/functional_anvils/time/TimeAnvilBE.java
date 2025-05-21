@@ -34,8 +34,7 @@ public class TimeAnvilBE extends CAnvilBE implements EnergyMachine, FluidMachine
     @Override
     public void tickServer() {
         var tool = getMachineHandler().getStackInSlot(0);
-        if (isActiveRedstone()) {
-            // getMachineHandler() only work inside tick event!
+        if (isActiveRedstone()) // getMachineHandler() only work inside tick event!
             if (canExtractFE() && tool.isDamageableItem() && !tool.is(zItemTags.TIME_ANVIL_DENY)
                     && tool.isDamaged()) {
                 applySound();

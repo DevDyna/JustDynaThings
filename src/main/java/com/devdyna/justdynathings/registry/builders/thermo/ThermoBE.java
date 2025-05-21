@@ -62,6 +62,7 @@ public class ThermoBE extends BaseMachineBE implements FluidMachine, EnergyGener
 
     /**
      * update the blockstate properties
+     * Credits: Thanks @S4lvious to optimize block update logic
      */
     public void updateBlock() {
 
@@ -104,6 +105,16 @@ public class ThermoBE extends BaseMachineBE implements FluidMachine, EnergyGener
     }
 
     @Override
+    public BlockEntity getBlockEntity() {
+        return this;
+    }
+
+    @Override
+    public RedstoneControlData getRedstoneControlData() {
+        return redstoneControlData;
+    }
+
+    @Override
     public int getStandardEnergyCost() {
         return 0;
     }
@@ -123,14 +134,6 @@ public class ThermoBE extends BaseMachineBE implements FluidMachine, EnergyGener
         return FLrate / 100;
     }
 
-    @Override
-    public BlockEntity getBlockEntity() {
-        return this;
-    }
 
-    @Override
-    public RedstoneControlData getRedstoneControlData() {
-        return redstoneControlData;
-    }
 
 }

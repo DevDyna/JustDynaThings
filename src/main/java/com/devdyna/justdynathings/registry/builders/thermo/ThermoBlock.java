@@ -38,23 +38,18 @@ public class ThermoBlock extends BaseMachineBlock {
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> b) {
-        b
-                .add(BlockStateProperties.FACING)
-                .add(zProperties.COOLED)
-                .add(zProperties.HEATED);
+        b.add(BlockStateProperties.FACING, zProperties.COOLED, zProperties.HEATED);
     }
 
     @Nullable
     @Override
-    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new ThermoBE(pos, state);
+    public BlockEntity newBlockEntity(BlockPos p, BlockState s) {
+        return new ThermoBE(p, s);
     }
 
     @Override
-    public void openMenu(Player player, BlockPos blockPos) {
-        Actions.openMenu(player,
-                (windowId, playerInventory, playerEntity) -> new ThermoGUI(windowId, playerInventory, blockPos),
-                blockPos);
+    public void openMenu(Player p, BlockPos b) {
+        Actions.openMenu(p, (w, i, e) -> new ThermoGUI(w, i, b), b);
     }
 
     @Override

@@ -88,7 +88,7 @@ public class RevitalizerBE extends BaseMachineBE implements EnergyMachine {
      */
     public void applySound() {
         if (LevelUtil.chance(50, level))
-            level.playSound(null, getBlockPos(), SoundEvents.AMETHYST_BLOCK_RESONATE,
+            level.playSound(null, getBlockPos(), SoundEvents.RESPAWN_ANCHOR_CHARGE,
                     SoundSource.BLOCKS, level.random.nextInt(50) + 1 * 0.01F,
                     level.random.nextInt(50) + 1 * 0.01F);
     }
@@ -122,6 +122,9 @@ public class RevitalizerBE extends BaseMachineBE implements EnergyMachine {
                             .setValue(GooBlock_Base.ALIVE, true));
     }
 
+    /**
+     * has FE and has a Goo to revive
+     */
     public boolean readyToConsume() {
         return getBlockState().getValue(zProperties.ACTIVE).booleanValue()
                 && getBlockState().getValue(zProperties.GOO_FOUND).booleanValue() && checkGooStatus();
@@ -142,7 +145,5 @@ public class RevitalizerBE extends BaseMachineBE implements EnergyMachine {
     public int getMaxEnergy() {
         return FEsize;
     }
-
-
 
 }

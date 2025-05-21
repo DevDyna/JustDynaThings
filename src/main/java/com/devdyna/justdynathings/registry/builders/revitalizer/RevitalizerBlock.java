@@ -31,11 +31,6 @@ public class RevitalizerBlock extends BlockBaseBE {
             Shapes.box(0.5, 0, 0, 1, 1, 1), // east
     };
 
-
-
-    
-
-
     public RevitalizerBlock() {
         super(zProperties.MachineProp);
     }
@@ -66,10 +61,7 @@ public class RevitalizerBlock extends BlockBaseBE {
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> b) {
-        b
-                .add(zProperties.ACTIVE)
-                .add(zProperties.GOO_FOUND)
-                .add(BlockStateProperties.FACING);
+        b.add(zProperties.ACTIVE, zProperties.GOO_FOUND, BlockStateProperties.FACING);
     }
 
 }

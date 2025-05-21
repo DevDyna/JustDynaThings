@@ -54,7 +54,7 @@ public class BuddingBE extends BaseMachineBE implements EnergyMachine, FluidMach
 
             if (growCluster(dir)) {
 
-                applyParticles();
+                // applyParticles();
 
                 applySound(dir);
 
@@ -91,17 +91,15 @@ public class BuddingBE extends BaseMachineBE implements EnergyMachine, FluidMach
                                                                 ? finalCluster
                                                                 : null;
         if (block != null) {
-            BlockState state1 = block.defaultBlockState()
-                    .setValue(TimeCrystalCluster.FACING, dir)
-                    .setValue(TimeCrystalCluster.WATERLOGGED,
-                            Boolean.valueOf(state.getFluidState().getType() == Fluids.WATER));
-            level.setBlockAndUpdate(getBlockPos().relative(dir), state1);
+            level.setBlockAndUpdate(getBlockPos().relative(dir),
+                    block.defaultBlockState()
+                            .setValue(TimeCrystalCluster.FACING, dir)
+                            .setValue(TimeCrystalCluster.WATERLOGGED, state.getFluidState().getType() == Fluids.WATER));
             return true;
         } else
             return false;
 
     }
-
 
     /**
      * add sound events
@@ -113,15 +111,6 @@ public class BuddingBE extends BaseMachineBE implements EnergyMachine, FluidMach
             level.playSound(null, getBlockPos().relative(dir), SoundEvents.AMETHYST_BLOCK_RESONATE,
                     SoundSource.BLOCKS, level.random.nextInt(50) + 1 * 0.01F,
                     level.random.nextInt(50) + 1 * 0.01F);
-    }
-
-    /**
-     * add dire-glitter particles
-     */
-    public void applyParticles() {
-        if (LevelUtil.chance(25, level))
-            LevelUtil.SpawnGlitterParticle(0.0F, 255.0F, 154.0F, getBlockPos(), level, new float[] { 1.0F, 1.0F, 1.0F },
-                    6);
     }
 
     /**

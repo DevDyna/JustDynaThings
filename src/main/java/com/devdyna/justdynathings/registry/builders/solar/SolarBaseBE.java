@@ -3,6 +3,7 @@ package com.devdyna.justdynathings.registry.builders.solar;
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyGenerator;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.Actions;
+import com.devdyna.justdynathings.utils.DirectionUtil;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineContainerData;
 import com.direwolf20.justdirethings.common.blockentities.basebe.RedstoneControlledBE;
@@ -34,10 +35,10 @@ public class SolarBaseBE extends BaseMachineBE implements EnergyGenerator, Redst
     public void tickServer() {
         updateBlock();
         if (isActiveRedstone() && getBlockState().getValue(zProperties.ACTIVE).booleanValue()) {
-            increaseFEWhenPossible(FErate());
+            increaseFEWhenPossible(calculateFE());
         }
         if (canExtractFE())
-            Actions.providePowerAdjacent(getBlockPos(), level, FErate());
+            Actions.providePowerAdjacent(getBlockPos(), level, calculateFE());
     }
 
     public void updateBlock() {
@@ -78,11 +79,56 @@ public class SolarBaseBE extends BaseMachineBE implements EnergyGenerator, Redst
         return redstoneControlData;
     }
 
+    private int calculateFE() {
+        float multiplier = 1f;
+
+        if (enableMultiPopulator()) {
+            int blocks = 1;
+
+            for (BlockPos blockPos : DirectionUtil.around(getBlockPos()))
+                if (level.getBlockState(blockPos).is(getBlockState().getBlock()))
+                    blocks++;
+
+            multiplier *= (blocks / DirectionUtil.around(getBlockPos()).size() + 1);
+        }
+
+        if (enableMultiYLevel()) {
+
+            int min = level.getMinBuildHeight();
+            int max = level.getMaxBuildHeight() - 1;
+
+            int y = getBlockPos().getY();
+
+            float middle = (min + max) / 2.0f;
+
+            float unckecked = 1.0f - (((y - middle) / (max - min)) * ((y - middle) / (max - min)) * 4);
+            unckecked = Math.max(unckecked, 0);
+            multiplier *= 0.05f + (1.0f - 0.05f) * (1.0f - unckecked);
+        }
+
+        return (int) (FErate() * multiplier);
+    }
+
     public int FErate() {
         return 0;
     }
 
     public boolean canGenerateWhen() {
+        return false;
+    }
+
+    /**
+     * More solar panels are placed around it -> more FE rate will generate
+     */
+    public boolean enableMultiPopulator() {
+        return false;
+    }
+
+    /**
+     * Y-level condition multiplier -> Y more higher/lower -> more FE rate will
+     * generate
+     */
+    public boolean enableMultiYLevel() {
         return false;
     }
 

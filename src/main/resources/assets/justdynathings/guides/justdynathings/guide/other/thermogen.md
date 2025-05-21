@@ -10,6 +10,9 @@ item_ids:
 
 # The Power of Earth
 
+Only Heated FE rate : **270 FE/t**
+Heated & Cooled FE rate : **1620 FE/t**
+
 A new generator that generate Forge Energy based on a heat source block and a fluid coolant (optional to provide a multiplier)
 
 <BlockImage id="justdynathings:thermo_generator" scale="4.0" p:facing="down" p:thermo_cooled="false" p:thermo_heated="false"/>

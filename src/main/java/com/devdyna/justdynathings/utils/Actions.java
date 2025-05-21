@@ -1,6 +1,7 @@
 package com.devdyna.justdynathings.utils;
 
 import com.devdyna.justdynathings.Config;
+import com.devdyna.justdynathings.registry.interfaces.be.EnergyGenerator;
 import com.devdyna.justdynathings.registry.types.zBlockTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -127,6 +128,9 @@ public class Actions {
 
                         if (cap == null)
                                 continue;
+
+                        if (cap instanceof EnergyGenerator)
+                                return;
 
                         if (!cap.canReceive() || cap.getEnergyStored() == cap.getMaxEnergyStored())
                                 continue;

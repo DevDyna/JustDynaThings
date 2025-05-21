@@ -85,9 +85,10 @@ public class SolarBaseBE extends BaseMachineBE implements EnergyGenerator, Redst
         if (enableMultiPopulator()) {
             int blocks = 1;
 
-            for (BlockPos blockPos : DirectionUtil.around(getBlockPos()))
+            for (BlockPos blockPos : DirectionUtil.around(getBlockPos())) {
                 if (level.getBlockState(blockPos).is(getBlockState().getBlock()))
                     blocks++;
+            }
 
             multiplier *= (blocks / DirectionUtil.around(getBlockPos()).size() + 1);
         }

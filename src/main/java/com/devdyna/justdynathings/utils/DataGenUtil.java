@@ -212,4 +212,16 @@ public class DataGenUtil {
         return new ICondition[] { new ModLoadedCondition(modid) };
     }
 
+    public static String txtDecor(String name){
+                StringBuilder result = new StringBuilder();
+        for (String word : name.replaceAll("_", " ").split(" ")) {
+            if (!word.isEmpty()) {
+                result.append(Character.toUpperCase(word.charAt(0)))
+                        .append(word.substring(1))
+                        .append(" ");
+            }
+        }
+        return result.toString().trim();
+    }
+
 }

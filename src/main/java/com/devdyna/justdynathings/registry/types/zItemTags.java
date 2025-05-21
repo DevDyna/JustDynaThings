@@ -18,15 +18,15 @@ public class zItemTags {
         // TODO rename to match ids
 
         public static final TagKey<Item> FERRICORE_ANVIL_ALLOW = Material
-                        .tagItem("anvils/" + Constants.TieredStuff.Anvils.t1 + "/allow");
+                        .tagItem("anvils/" + Constants.Anvils.t1 + "/allow");
         public static final TagKey<Item> FERRICORE_ANVIL_REPAIR = Material
-                        .tagItem("anvils/" + Constants.TieredStuff.Anvils.t1 + "/catalyst");
+                        .tagItem("anvils/" + Constants.Anvils.t1 + "/catalyst");
         public static final TagKey<Item> BLAZING_ANVIL_DENY = Material
-                        .tagItem("anvils/" + Constants.TieredStuff.Anvils.t2 + "/deny");
+                        .tagItem("anvils/" + Constants.Anvils.t2 + "/deny");
         public static final TagKey<Item> CELESTIGEM_DENY = Material
-                        .tagItem("anvils/" + Constants.TieredStuff.Anvils.t3 + "/deny");
+                        .tagItem("anvils/" + Constants.Anvils.t3 + "/deny");
         public static final TagKey<Item> TIME_ANVIL_DENY = Material
-                        .tagItem("anvils/" + Constants.TieredStuff.Anvils.t4 + "/deny");
+                        .tagItem("anvils/" + Constants.Anvils.t4 + "/deny");
 
         public static final TagKey<Item> TIME_BUDDING = Material.tagItem("time_buddings");
         public static final TagKey<Item> AE2_COMPAT = Material.tagItem("compat/ae2/buddings");

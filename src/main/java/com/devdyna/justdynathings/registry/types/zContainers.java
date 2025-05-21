@@ -46,36 +46,36 @@ public class zContainers {
                                         () -> IMenuTypeExtension.create(BlackHoleGUI::new));
         // TODO rename to match id
         public static final DeferredHolder<MenuType<?>, MenuType<MetallicAnvilGUI>> METALLIC_ANVIL = zCTNR
-                        .register(Constants.TieredStuff.Anvils.t1,
+                        .register(Constants.Anvils.t1,
                                         () -> IMenuTypeExtension.create(MetallicAnvilGUI::new));
 
         public static final DeferredHolder<MenuType<?>, MenuType<MagmaticAnvilGUI>> MAGMATIC_ANVIL = zCTNR
-                        .register(Constants.TieredStuff.Anvils.t2,
+                        .register(Constants.Anvils.t2,
                                         () -> IMenuTypeExtension.create(MagmaticAnvilGUI::new));
 
         public static final DeferredHolder<MenuType<?>, MenuType<PoweredAnvilGUI>> POWERED_ANVIL = zCTNR
-                        .register(Constants.TieredStuff.Anvils.t3,
+                        .register(Constants.Anvils.t3,
                                         () -> IMenuTypeExtension.create(PoweredAnvilGUI::new));
 
         public static final DeferredHolder<MenuType<?>, MenuType<TimeAnvilGUI>> TIME_ANVIL = zCTNR
-                        .register(Constants.TieredStuff.Anvils.t4,
+                        .register(Constants.Anvils.t4,
                                         () -> IMenuTypeExtension.create(TimeAnvilGUI::new));
 
                                         //maybe could be optimized but if work dont touch it!
         public static final DeferredHolder<MenuType<?>, MenuType<FerricoreSolarPanelGUI>> FERRICORE_SOLAR_PANEL = zCTNR
-                        .register(Constants.TieredStuff.SolarPanel.t1,
+                        .register(Constants.SolarPanel.t1,
                                         () -> IMenuTypeExtension.create(FerricoreSolarPanelGUI::new));
 
         public static final DeferredHolder<MenuType<?>, MenuType<BlazegoldSolarPanelGUI>> BLAZEGOLD_SOLAR_PANEL = zCTNR
-                        .register(Constants.TieredStuff.SolarPanel.t2,
+                        .register(Constants.SolarPanel.t2,
                                         () -> IMenuTypeExtension.create(BlazegoldSolarPanelGUI::new));
 
         public static final DeferredHolder<MenuType<?>, MenuType<CelestigemSolarPanelGUI>> CELESTIGEM_SOLAR_PANEL = zCTNR
-                        .register(Constants.TieredStuff.SolarPanel.t3,
+                        .register(Constants.SolarPanel.t3,
                                         () -> IMenuTypeExtension.create(CelestigemSolarPanelGUI::new));
 
         public static final DeferredHolder<MenuType<?>, MenuType<EclipseAlloySolarPanelGUI>> ECLIPSEALLOY_SOLAR_PANEL = zCTNR
-                        .register(Constants.TieredStuff.SolarPanel.t4,
+                        .register(Constants.SolarPanel.t4,
                                         () -> IMenuTypeExtension.create(EclipseAlloySolarPanelGUI::new));
 
 }

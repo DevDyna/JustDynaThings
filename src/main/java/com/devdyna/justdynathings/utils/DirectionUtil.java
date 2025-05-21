@@ -1,7 +1,9 @@
 package com.devdyna.justdynathings.utils;
 
 import java.util.Arrays;
+import java.util.Set;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
@@ -14,10 +16,10 @@ public class DirectionUtil {
     public static Direction[] ALL = Direction.values();
 
     public static Direction[] HORIZONTAL = {
-        Direction.NORTH,
-        Direction.SOUTH,
-        Direction.EAST,
-        Direction.WEST
+            Direction.NORTH,
+            Direction.SOUTH,
+            Direction.EAST,
+            Direction.WEST
     };
 
     public static int span = 18;
@@ -31,6 +33,18 @@ public class DirectionUtil {
             { 2 * span, 0 } // east
     };
 
+   public static Set<BlockPos> around(BlockPos p) {
+        return Set.of(
+                p.north(),
+                p.south(),
+                p.east(),
+                p.west(),
+                p.north().east(),
+                p.north().west(),
+                p.south().east(),
+                p.south().west());
+    };
+
     public static BooleanProperty[] face = {
             BlockStateProperties.DOWN,
             BlockStateProperties.UP,
@@ -40,7 +54,7 @@ public class DirectionUtil {
             BlockStateProperties.EAST
     };
 
-        public static BooleanProperty[] horizontal_face = {
+    public static BooleanProperty[] horizontal_face = {
             BlockStateProperties.NORTH,
             BlockStateProperties.SOUTH,
             BlockStateProperties.EAST,
@@ -52,10 +66,10 @@ public class DirectionUtil {
     }
 
     public static Property<?> StateByDir(Direction d) {
-        return StateByDir(d,face,ALL);
+        return StateByDir(d, face, ALL);
     }
 
-    public static Property<?> StateByDir(Direction d,Property<?>[] p,Direction[] s) {
+    public static Property<?> StateByDir(Direction d, Property<?>[] p, Direction[] s) {
         return p[Arrays.asList(s).indexOf(d)];
     }
 

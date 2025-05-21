@@ -44,18 +44,17 @@ public class ClockBlock extends BaseMachineBlock {
         var item = player.getMainHandItem();
 
         if (player.isCrouching() &&
-                Config.FERRICORE_CLOCK_WRENCHABLE.get()
+                (Config.FERRICORE_CLOCK_WRENCHABLE.get()
                         ? item.is(JustDireItemTags.WRENCHES) || item.is(JustDireItemTags.TOOLS_WRENCH)
-                        : true) {
-
+                        : true)) {
+            this.openMenu(player, pos);
+            return InteractionResult.SUCCESS;
+        } else {
             level.setBlockAndUpdate(pos,
                     state.setValue((BooleanProperty) DirectionUtil.StateByDir(hitResult.getDirection()),
                             !value.booleanValue()));
 
             applySound(level, player, pos, value);
-            return InteractionResult.SUCCESS;
-        } else {
-            this.openMenu(player, pos);
             return InteractionResult.SUCCESS;
         }
     }

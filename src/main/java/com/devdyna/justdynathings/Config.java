@@ -177,10 +177,10 @@ public class Config {
                                 .define("thermogen_coolant_to_fe", false);
                 THERMOGEN_FE_CAPACITY = qCOMMON
                                 .comment("Total FE Capacity")
-                                .defineInRange("thermogen_maxfe", 10000, 1, Integer.MAX_VALUE);
+                                .defineInRange("thermogen_maxfe", 1000000, 1, Integer.MAX_VALUE);
                 THERMOGEN_MB_CAPACITY = qCOMMON
                                 .comment("Total Coolant Capacity")
-                                .defineInRange("thermogen_maxmb", 10000, 1, Integer.MAX_VALUE);
+                                .defineInRange("thermogen_maxmb", 100000, 1, Integer.MAX_VALUE);
                 THERMOGEN_MB_COST = qCOMMON
                                 .comment("MB/t Coolant cost")
                                 .defineInRange("thermogen_mbrate", 1, 1, Integer.MAX_VALUE);

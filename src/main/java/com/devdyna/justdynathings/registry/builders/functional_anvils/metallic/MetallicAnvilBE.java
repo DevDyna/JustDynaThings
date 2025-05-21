@@ -1,5 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.functional_anvils.metallic;
 
+import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.CAnvilBE;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
 import com.devdyna.justdynathings.registry.types.zItemTags;
@@ -19,7 +20,7 @@ public class MetallicAnvilBE extends CAnvilBE {
         this(zBlockEntities.METALLIC_ANVIL.get(), pos, state);
     }
 
-    int delay = 200;
+    int delay = Config.ANVILS_FERRICORE_ITEM_COOLDOWN.get();
     int i = delay - 1;
 
     @Override
@@ -40,7 +41,8 @@ public class MetallicAnvilBE extends CAnvilBE {
                 }
                 Actions.repairItem(tool);
 
-                applySound();
+                if (Config.ANVIL_FERRICORE_SOUND_EVENT.get())
+                    applySound();
 
             }
         }

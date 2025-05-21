@@ -1,5 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.goo.creative;
 
+import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
 
 import net.minecraft.core.BlockPos;
@@ -12,11 +13,11 @@ public class CreativeGooBE extends NoDieGooLogic {
     }
 
     public int getTier() {
-        return Integer.MAX_VALUE;
+        return Config.GOO_CREATIVE_TIER.get();
     }
 
     public int counterReducer() {
-        return Integer.MAX_VALUE;
+        return Config.GOO_CREATIVE_COUNTER_REDUCER.get();
     }
 
 }

@@ -1,13 +1,12 @@
 package com.devdyna.justdynathings.registry.builders.solar.eclipsealloy;
 
+import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.registry.builders.solar.SolarBaseBE;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
-
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
-@SuppressWarnings("null")
 public class EclipseAlloySolarBE extends SolarBaseBE {
 
     public EclipseAlloySolarBE(BlockEntityType<?> type, BlockPos pos, BlockState blockState) {
@@ -20,29 +19,27 @@ public class EclipseAlloySolarBE extends SolarBaseBE {
 
     @Override
     public int getMaxEnergy() {
-        return 1000000;
+        return Config.SOLARPANEL_ECLIPSEALLOY_FE_CAPACITY.get();
     }
 
     @Override
     public int FErate() {
+        return Config.SOLARPANEL_ECLIPSEALLOY_FE_RATE.get();
+    }
 
-        int min = level.getMinBuildHeight();
-        int max = level.getMaxBuildHeight() - 1;
+    @Override
+    public boolean enableMultiPopulator() {
+        return Config.SOLARPANEL_ECLIPSEALLOY_ENABLE_SPAM.get();
+    }
 
-        int y = getBlockPos().getY();
-
-        float middle = (min + max) / 2.0f;
-
-        float unckecked = 1.0f - (((y - middle) / (max - min)) * ((y - middle) / (max - min)) * 4);
-        unckecked = Math.max(unckecked, 0);
-        float value = 0.05f + (1.0f - 0.05f) * (1.0f - unckecked);
-        return (int) (10240 * value);
-
+    @Override
+    public boolean enableMultiYLevel() {
+        return Config.SOLARPANEL_ECLIPSEALLOY_ENABLE_YLEVEL.get();
     }
 
     @Override
     public boolean canGenerateWhen() {
-        return true;
+        return Config.SOLARPANEL_ECLIPSEALLOY_CONDITIONS_OVERRIDE.get() ? true
+                : true; // no conditions
     }
-
 }

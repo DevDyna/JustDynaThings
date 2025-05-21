@@ -1,5 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.functional_anvils.energy;
 
+import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.CAnvilBE;
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyMachine;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
@@ -35,7 +36,8 @@ public class PoweredAnvilBE extends CAnvilBE implements EnergyMachine {
                     && tool.isDamaged() && !tool.is(zItemTags.CELESTIGEM_DENY)) {
                 extractFEWhenPossible();
                 Actions.repairItem(tool);
-                applySound();
+                if (Config.ANVIL_CELESTIGEM_SOUND_EVENT.get())
+                    applySound();
             }
         }
     }
@@ -52,12 +54,12 @@ public class PoweredAnvilBE extends CAnvilBE implements EnergyMachine {
 
     @Override
     public int getStandardEnergyCost() {
-        return FErate;
+        return Config.ANVILS_CELESTIGEM_FE_RATE.get();
     }
 
     @Override
     public int getMaxEnergy() {
-        return FEsize;
+        return Config.ANVILS_CELESTIGEM_FE_CAPACITY.get();
     }
 
 }

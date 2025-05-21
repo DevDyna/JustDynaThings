@@ -1,5 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.solar.celestigem;
 
+import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.registry.builders.solar.SolarBaseBE;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
 import net.minecraft.core.BlockPos;
@@ -19,18 +20,29 @@ public class CelestiGemSolarBE extends SolarBaseBE {
 
     @Override
     public int getMaxEnergy() {
-        return 1000000;
+        return Config.SOLARPANEL_CELESTIGEM_FE_CAPACITY.get();
     }
 
     @Override
     public int FErate() {
-        return 160;
+        return Config.SOLARPANEL_CELESTIGEM_FE_RATE.get();
+    }
+
+    @Override
+    public boolean enableMultiPopulator() {
+        return Config.SOLARPANEL_CELESTIGEM_ENABLE_SPAM.get();
+    }
+
+    @Override
+    public boolean enableMultiYLevel() {
+        return Config.SOLARPANEL_CELESTIGEM_ENABLE_YLEVEL.get();
     }
 
     @Override
     public boolean canGenerateWhen() {
-        return level.canSeeSkyFromBelowWater(getBlockPos().above()) && level.isDay()
-                && level.getBlockState(getBlockPos().above()).isAir();
+        return Config.SOLARPANEL_CELESTIGEM_CONDITIONS_OVERRIDE.get() ? true
+                : level.canSeeSkyFromBelowWater(getBlockPos().above())
+                        && level.getBlockState(getBlockPos().above()).isAir();
     }
 
 }

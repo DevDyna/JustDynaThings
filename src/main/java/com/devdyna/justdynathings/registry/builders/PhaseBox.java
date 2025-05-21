@@ -84,7 +84,7 @@ public class PhaseBox extends TransparentBlock {
 
     private ItemInteractionResult success(ItemStack i, BlockState s, Level l, BlockPos pos) {
 
-        if (Config.PHASEBOX_WRENCHABLE.get()
+        if (Config.PHASE_BOX_WRENCHABLE.get()
                 ? i.is(JustDireItemTags.WRENCHES) || i.is(JustDireItemTags.TOOLS_WRENCH)
                 : true) {
 

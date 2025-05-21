@@ -2,12 +2,14 @@ package com.devdyna.justdynathings.registry.builders.ferricore_clock;
 
 import javax.annotation.Nullable;
 
+import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.client.builder.clock.ClockGUI;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.Actions;
 import com.devdyna.justdynathings.utils.DirectionUtil;
 import com.devdyna.justdynathings.utils.LevelUtil;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
+import com.direwolf20.justdirethings.datagen.JustDireItemTags;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -39,10 +41,17 @@ public class ClockBlock extends BaseMachineBlock {
     public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player,
             BlockHitResult hitResult) {
         var value = state.getValue((BooleanProperty) DirectionUtil.StateByDir(hitResult.getDirection()));
-        if (player.isCrouching()) {
+        var item = player.getMainHandItem();
+
+        if (player.isCrouching() &&
+                Config.FERRICORE_CLOCK_WRENCHABLE.get()
+                        ? item.is(JustDireItemTags.WRENCHES) || item.is(JustDireItemTags.TOOLS_WRENCH)
+                        : true) {
+
             level.setBlockAndUpdate(pos,
                     state.setValue((BooleanProperty) DirectionUtil.StateByDir(hitResult.getDirection()),
                             !value.booleanValue()));
+
             applySound(level, player, pos, value);
             return InteractionResult.SUCCESS;
         } else {

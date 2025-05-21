@@ -1,5 +1,7 @@
 package com.devdyna.justdynathings.registry.builders.goo.creative;
 
+import com.devdyna.justdynathings.Config;
+
 // import static com.direwolf20.justdirethings.common.blocks.gooblocks.GooBlock_Base.ALIVE;
 
 import com.direwolf20.justdirethings.common.blockentities.basebe.GooBlockBE_Base;
@@ -35,6 +37,7 @@ public class NoDieGooLogic extends GooBlockBE_Base {
 
         updateSideCounter(direction, -1);
         sidedDurations.put(direction, -1);
+        if(Config.GOO_CREATIVE_SOUND_RECIPE.get())
         level.playSound(null, getBlockPos(), SoundEvents.SCULK_BLOCK_BREAK, SoundSource.BLOCKS, 1.0F, 1.0F);
     }
 

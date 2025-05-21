@@ -1,5 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.solar.blazegold;
 
+import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.registry.builders.solar.SolarBaseBE;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
 import com.devdyna.justdynathings.utils.LevelUtil;
@@ -21,17 +22,28 @@ public class BlazeGoldSolarBE extends SolarBaseBE {
 
     @Override
     public int getMaxEnergy() {
-        return 1000000;
+        return Config.SOLARPANEL_BLAZEGOLD_FE_CAPACITY.get();
     }
 
     @Override
     public int FErate() {
-        return 40;
+        return Config.SOLARPANEL_BLAZEGOLD_FE_RATE.get();
+    }
+
+    @Override
+    public boolean enableMultiPopulator() {
+        return Config.SOLARPANEL_BLAZEGOLD_ENABLE_SPAM.get();
+    }
+
+    @Override
+    public boolean enableMultiYLevel() {
+        return Config.SOLARPANEL_BLAZEGOLD_ENABLE_YLEVEL.get();
     }
 
     @Override
     public boolean canGenerateWhen() {
-        return LevelUtil.isDimension(level, Level.NETHER);
+        return Config.SOLARPANEL_BLAZEGOLD_CONDITIONS_OVERRIDE.get() ? true
+                : LevelUtil.isDimension(level, Level.NETHER);
     }
 
 }

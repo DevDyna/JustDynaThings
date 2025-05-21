@@ -6,7 +6,6 @@ import com.devdyna.justdynathings.registry.Material;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.config.ModConfig;
 
 @Mod(Main.ID)
 public class Main {
@@ -15,15 +14,15 @@ public class Main {
         // ! Dont use this , intend of utils.LogUtil !
         // public static final Logger LOG = LogUtils.getLogger();
 
-        public Main(IEventBus modEventBus, ModContainer modContainer) {
+        public Main(IEventBus bus, ModContainer chest) {
 
-                Material.register(modEventBus);
+                Material.register(bus);
 
-                modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+                Config.register(chest);
 
-                modEventBus.addListener(Capabilities::regCap);
+                bus.addListener(Capabilities::regCap);
 
-                core.regCompat(modEventBus);
+                core.regCompat(bus);
 
         }
 

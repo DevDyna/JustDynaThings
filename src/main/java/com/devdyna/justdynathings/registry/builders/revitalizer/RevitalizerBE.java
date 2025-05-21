@@ -1,5 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.revitalizer;
 
+import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyMachine;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
 import com.devdyna.justdynathings.registry.types.zBlockTags;
@@ -48,11 +49,11 @@ public class RevitalizerBE extends BaseMachineBE implements EnergyMachine {
 
         if (readyToConsume()) {
 
-            applyParticles();
+            if (Config.REVITALIZER_TOGGLE_SOUND.get())
+                applySound();
 
-            applySound();
-
-            consumeEnergy();
+            if (LevelUtil.chance(Config.REVITALIZER_CHANCE_FE_COST.get(), level))
+                extractFEWhenPossible();
 
             reviveGoo();
 
@@ -74,15 +75,6 @@ public class RevitalizerBE extends BaseMachineBE implements EnergyMachine {
     }
 
     /**
-     * add dire-glitter particles
-     */
-    public void applyParticles() {
-        if (LevelUtil.chance(25, level))
-            LevelUtil.SpawnGlitterParticle(0.0F, 255.0F, 154.0F, getBlockPos(), level, new float[] { 1.0F, 1.0F, 1.0F },
-                    6);
-    }
-
-    /**
      * add sound events
      * 
      */
@@ -91,14 +83,6 @@ public class RevitalizerBE extends BaseMachineBE implements EnergyMachine {
             level.playSound(null, getBlockPos(), SoundEvents.RESPAWN_ANCHOR_CHARGE,
                     SoundSource.BLOCKS, level.random.nextInt(50) + 1 * 0.01F,
                     level.random.nextInt(50) + 1 * 0.01F);
-    }
-
-    /**
-     * extract energy
-     */
-    public void consumeEnergy() {
-        if (LevelUtil.chance(50, level))
-            extractFEWhenPossible();
     }
 
     /*
@@ -138,12 +122,12 @@ public class RevitalizerBE extends BaseMachineBE implements EnergyMachine {
 
     @Override
     public int getStandardEnergyCost() {
-        return FErate;
+        return Config.REVITALIZER_FE_COST.get();
     }
 
     @Override
     public int getMaxEnergy() {
-        return FEsize;
+        return Config.REVITALIZER_FE_CAPACITY.get();
     }
 
 }

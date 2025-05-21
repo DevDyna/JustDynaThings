@@ -1,5 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.budding;
 
+import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyMachine;
 import com.devdyna.justdynathings.registry.interfaces.be.FluidMachine;
 import com.devdyna.justdynathings.registry.types.zProperties;
@@ -56,13 +57,14 @@ public class BuddingBE extends BaseMachineBE implements EnergyMachine, FluidMach
 
                 // applyParticles();
 
-                applySound(dir);
+                if (Config.BUDDING_GENERAL_SOUND.get())
+                    applySound(dir);
 
-                if(LevelUtil.rnd50(level))
-                extractFEWhenPossible();
+                if (Config.BUDDING_GENERAL_FE_CHANCE.get() ? LevelUtil.rnd50(level) : true)
+                    extractFEWhenPossible();
 
-                if(LevelUtil.rnd50(level))
-                extractMBWhenPossible();
+                if (Config.BUDDING_GENERAL_MB_CHANCE.get() ? LevelUtil.rnd50(level) : true)
+                    extractMBWhenPossible();
 
             }
         }
@@ -123,16 +125,6 @@ public class BuddingBE extends BaseMachineBE implements EnergyMachine, FluidMach
     }
 
     @Override
-    public int getStandardEnergyCost() {
-        return FErate;
-    }
-
-    @Override
-    public int getMaxEnergy() {
-        return FEsize;
-    }
-
-    @Override
     public MachineEnergyStorage getEnergyStorage() {
         return getData(Registration.ENERGYSTORAGE_MACHINES);
     }
@@ -154,14 +146,22 @@ public class BuddingBE extends BaseMachineBE implements EnergyMachine, FluidMach
 
     @Override
     public int getMaxMB() {
-        return FLsize;
+        return Config.BUDDING_GENERAL_MB_CAPACITY.get();
     }
 
     @Override
     public int getStandardFluidCost() {
-        return FLrate;
+        return Config.BUDDING_GENERAL_MB_COST.get();
     }
 
+    @Override
+    public int getStandardEnergyCost() {
+        return Config.BUDDING_GENERAL_FE_COST.get();
+    }
 
+    @Override
+    public int getMaxEnergy() {
+        return Config.BUDDING_GENERAL_FE_CAPACITY.get();
+    }
 
 }

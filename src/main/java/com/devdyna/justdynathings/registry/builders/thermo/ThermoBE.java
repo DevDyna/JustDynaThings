@@ -1,5 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.thermo;
 
+import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyGenerator;
 import com.devdyna.justdynathings.registry.interfaces.be.FluidMachine;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
@@ -30,8 +31,8 @@ public class ThermoBE extends BaseMachineBE implements FluidMachine, EnergyGener
     public final PoweredMachineContainerData poweredMachineData = new PoweredMachineContainerData(this);
     public final FluidContainerData fluidContainerData = new FluidContainerData(this);
 
-    int minFERate = 10;
-    int maxFERate = 100;
+    int minFERate = Config.THERMOGEN_FE_ONLY_HEATED.get();
+    int maxFERate = Config.THERMOGEN_FE_WITH_COOLANT.get();
 
     public ThermoBE(BlockEntityType<?> type, BlockPos pos, BlockState b) {
         super(type, pos, b);
@@ -46,7 +47,7 @@ public class ThermoBE extends BaseMachineBE implements FluidMachine, EnergyGener
         updateBlock();
 
         boolean hasWater = getBlockState().getValue(zProperties.COOLED).booleanValue();
-        int ferate = hasWater ? maxFERate : minFERate;
+        int ferate = hasWater ? maxFERate : (Config.THERMOGEN_REQUIRE_COOLANT.get() ? 0 : minFERate);
 
         if (isActiveRedstone()) {
             if (getBlockState().getValue(zProperties.HEATED).booleanValue()) {
@@ -121,17 +122,17 @@ public class ThermoBE extends BaseMachineBE implements FluidMachine, EnergyGener
 
     @Override
     public int getMaxEnergy() {
-        return FEsize;
+        return Config.THERMOGEN_FE_CAPACITY.get();
     }
 
     @Override
     public int getMaxMB() {
-        return FLsize / 10;
+        return Config.THERMOGEN_MB_CAPACITY.get();
     }
 
     @Override
     public int getStandardFluidCost() {
-        return FLrate / 100;
+        return Config.THERMOGEN_MB_COST.get();
     }
 
 

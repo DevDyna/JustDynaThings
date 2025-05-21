@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.registry.types.zItemTags;
@@ -36,6 +37,7 @@ public class CreativeGoo extends GooBlock_Base {
 
       if ((i.is(zItemTags.CREATIVE_GOO_WRENCHES))) {
 
+         if(Config.GOO_CREATIVE_SOUND_TOGGLE_STATE.get())
          l.playLocalSound(p.getX(), p.getY(),
                p.getZ(),
                SoundEvents.LODESTONE_COMPASS_LOCK,

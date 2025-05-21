@@ -1,5 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.functional_anvils.time;
 
+import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.CAnvilBE;
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyMachine;
 import com.devdyna.justdynathings.registry.interfaces.be.FluidMachine;
@@ -37,24 +38,24 @@ public class TimeAnvilBE extends CAnvilBE implements EnergyMachine, FluidMachine
         if (isActiveRedstone()) // getMachineHandler() only work inside tick event!
             if (canExtractFE() && tool.isDamageableItem() && !tool.is(zItemTags.TIME_ANVIL_DENY)
                     && tool.isDamaged()) {
-                applySound();
+                if (Config.ANVIL_ECLIPSEALLOY_SOUND_EVENT.get())
+                    applySound();
 
-                if (canExtractMB() && getEnergyStored() >= 1000) {
-                    if (tool.getMaxDamage() >= 1000 && tool.getDamageValue() >= tool.getMaxDamage() / 10) {
-                        Actions.repairItem(tool, tool.getMaxDamage() / 10);
-                    } else {
+                if (canExtractMB() && getEnergyStored() >= getDamageLimit()) {
+                    if (tool.getMaxDamage() >= getDamageLimit()
+                            && tool.getDamageValue() >= tool.getMaxDamage() / getDamagePercentuage())
+                        Actions.repairItem(tool, tool.getMaxDamage() / getDamagePercentuage());
+                    else
                         Actions.repairItem(tool, tool.getDamageValue());
-                    }
+
                     extractMB(1);
-                    extractEnergy(getStandardEnergyCost() * 5, remove);
+                    extractEnergy(getStandardEnergyCost() * getDamagePercentuage() / 2, remove);
 
                 } else {
                     extractFEWhenPossible();
                     Actions.repairItem(tool);
                 }
-
             }
-        }
     }
 
     @Override
@@ -68,16 +69,6 @@ public class TimeAnvilBE extends CAnvilBE implements EnergyMachine, FluidMachine
     }
 
     @Override
-    public int getStandardEnergyCost() {
-        return FErate;
-    }
-
-    @Override
-    public int getMaxEnergy() {
-        return FEsize;
-    }
-
-    @Override
     public ContainerData getFluidContainerData() {
         return fluidContainerData;
     }
@@ -88,12 +79,30 @@ public class TimeAnvilBE extends CAnvilBE implements EnergyMachine, FluidMachine
     }
 
     @Override
+    public int getStandardEnergyCost() {
+        return Config.ANVILS_ECLIPSEALLOY_FE_RATE.get();
+    }
+
+    @Override
+    public int getMaxEnergy() {
+        return Config.ANVILS_ECLIPSEALLOY_FE_CAPACITY.get();
+    }
+
+    @Override
     public int getMaxMB() {
-        return FLsize;
+        return Config.ANVILS_ECLIPSEALLOY_MB_CAPACITY.get();
     }
 
     @Override
     public int getStandardFluidCost() {
-        return 1;
+        return Config.ANVILS_ECLIPSEALLOY_MB_RATE.get();
+    }
+
+    public int getDamageLimit() {
+        return Config.ANVILS_ECLIPSEALLOY_DAMAGE_LIMIT.get();
+    }
+
+    public int getDamagePercentuage() {
+        return Config.ANVILS_ECLIPSEALLOY_DAMAGE_PERCENTUAGE.get();
     }
 }

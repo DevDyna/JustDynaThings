@@ -13,16 +13,17 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
+import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyMachine;
 import com.devdyna.justdynathings.registry.types.zProperties;
+import com.devdyna.justdynathings.utils.LevelUtil;
 
 public class FEGoo extends GooBlockBE_Base implements EnergyMachine {
 
-    public final PoweredMachineContainerData poweredMachineData;
+    public final PoweredMachineContainerData poweredMachineData = new PoweredMachineContainerData(this);
 
     public FEGoo(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
-        poweredMachineData = new PoweredMachineContainerData(this);
     }
 
     @Override
@@ -50,7 +51,8 @@ public class FEGoo extends GooBlockBE_Base implements EnergyMachine {
 
         updateSideCounter(direction, -1);
         sidedDurations.put(direction, -1);
-        level.playSound(null, getBlockPos(), SoundEvents.SCULK_BLOCK_BREAK, SoundSource.BLOCKS, 1.0F, 1.0F);
+        if (Config.GOO_FEGOO_SOUND_RECIPE.get())
+            level.playSound(null, getBlockPos(), SoundEvents.SCULK_BLOCK_BREAK, SoundSource.BLOCKS, 1.0F, 1.0F);
 
         if (level != null && !level.isClientSide) {
 
@@ -58,11 +60,11 @@ public class FEGoo extends GooBlockBE_Base implements EnergyMachine {
 
                 extractFEWhenPossible();
 
-                level.playSound(null, getBlockPos(),
-                        canExtractFE() ? SoundEvents.RESPAWN_ANCHOR_DEPLETE.value()
-                                : SoundEvents.SCULK_BLOCK_SPREAD,
-                        SoundSource.BLOCKS, 1.0F, 0.25F);
-
+                if (LevelUtil.chance(25, level) && Config.GOO_FEGOO_SOUND_EXTRA.get())
+                    level.playSound(null, getBlockPos(),
+                            canExtractFE() ? SoundEvents.RESPAWN_ANCHOR_DEPLETE.value()
+                                    : SoundEvents.SCULK_BLOCK_SPREAD,
+                            SoundSource.BLOCKS, 1.0F, 0.25F);
             }
         }
     }
@@ -79,14 +81,12 @@ public class FEGoo extends GooBlockBE_Base implements EnergyMachine {
 
     @Override
     public int getStandardEnergyCost() {
-        return FErate * 10;
+        return Config.GOO_FEGOO_FE_RATE.get() * (Config.GOO_FEGOO_FE_RATE_MULTIPLY.get() ? getTier() : 1);
     }
 
     @Override
     public int getMaxEnergy() {
-        return FEsize;
+        return Config.GOO_FEGOO_FE_CAPACITY.get() * (Config.GOO_FEGOO_FE_CAPACITY_MULTIPLY.get() ? getTier() : 1);
     }
-
-
 
 }

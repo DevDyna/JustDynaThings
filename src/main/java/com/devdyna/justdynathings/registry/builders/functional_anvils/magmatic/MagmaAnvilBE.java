@@ -1,5 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.functional_anvils.magmatic;
 
+import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.CAnvilBE;
 import com.devdyna.justdynathings.registry.interfaces.be.FluidMachine;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
@@ -35,7 +36,8 @@ public class MagmaAnvilBE extends CAnvilBE implements FluidMachine {
                     && tool.isDamaged() && !tool.is(zItemTags.BLAZING_ANVIL_DENY)) {
                 extractMBWhenPossible();
                 Actions.repairItem(tool);
-                applySound();
+                if (Config.ANVIL_BLAZEGOLD_SOUND_EVENT.get())
+                    applySound();
             }
         }
     }
@@ -52,11 +54,11 @@ public class MagmaAnvilBE extends CAnvilBE implements FluidMachine {
 
     @Override
     public int getMaxMB() {
-        return FLsize;
+        return Config.ANVILS_BLAZEGOLD_MB_CAPACITY.get();
     }
 
     @Override
     public int getStandardFluidCost() {
-        return 10;
+        return Config.ANVILS_BLAZEGOLD_MB_RATE.get();
     }
 }

@@ -94,29 +94,29 @@ public class zBlocks {
                         .registerItemAndBlock(Constants.Blocks.BlackHole, BlackHoleBlock::new);
 
         public static final DeferredHolder<Block, ?> FERRICORE_SOLARGEN = Material
-                        .registerItemAndBlock(Constants.TieredStuff.SolarPanel.t1, FerricoreSolarBlock::new);
+                        .registerItemAndBlock(Constants.SolarPanel.t1, FerricoreSolarBlock::new);
 
         public static final DeferredHolder<Block, ?> BLAZEGOLD_SOLARGEN = Material
-                        .registerItemAndBlock(Constants.TieredStuff.SolarPanel.t2, BlazeGoldSolarBlock::new);
+                        .registerItemAndBlock(Constants.SolarPanel.t2, BlazeGoldSolarBlock::new);
 
         public static final DeferredHolder<Block, ?> CELESTIGEM_SOLARGEN = Material
-                        .registerItemAndBlock(Constants.TieredStuff.SolarPanel.t3, CelestiGemSolarBlock::new);
+                        .registerItemAndBlock(Constants.SolarPanel.t3, CelestiGemSolarBlock::new);
 
         public static final DeferredHolder<Block, ?> ECLIPSEALLOY_SOLARGEN = Material
-                        .registerItemAndBlock(Constants.TieredStuff.SolarPanel.t4, EclipseAlloySolarBlock::new);
+                        .registerItemAndBlock(Constants.SolarPanel.t4, EclipseAlloySolarBlock::new);
 
         // TODO rename to match id
         public static final DeferredHolder<Block, ?> METALLIC_ANVIL = Material
-                        .registerItemAndBlock(Constants.TieredStuff.Anvils.t1, MetallicAnvilBlock::new);
+                        .registerItemAndBlock(Constants.Anvils.t1, MetallicAnvilBlock::new);
 
         public static final DeferredHolder<Block, ?> MAGMATIC_ANVIL = Material
-                        .registerItemAndBlock(Constants.TieredStuff.Anvils.t2, MagmaAnvilBlock::new);
+                        .registerItemAndBlock(Constants.Anvils.t2, MagmaAnvilBlock::new);
 
         public static final DeferredHolder<Block, ?> POWERED_ANVIL = Material
-                        .registerItemAndBlock(Constants.TieredStuff.Anvils.t3, PoweredAnvilBlock::new);
+                        .registerItemAndBlock(Constants.Anvils.t3, PoweredAnvilBlock::new);
 
         public static final DeferredHolder<Block, ?> TIME_ANVIL = Material
-                        .registerItemAndBlock(Constants.TieredStuff.Anvils.t4, TimeAnvilBlock::new);
+                        .registerItemAndBlock(Constants.Anvils.t4, TimeAnvilBlock::new);
 
         // ---------------------------------------------------------------------------------------//
 

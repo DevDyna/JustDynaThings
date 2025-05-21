@@ -18,7 +18,7 @@ FE rate : **960**
 - Dimensions = Nether
 
 **Modifiers:**
-Nothing
+- Nothing
 
 <BlockImage id="justdynathings:blazegold_solar_panel" scale="4.0"/>
 

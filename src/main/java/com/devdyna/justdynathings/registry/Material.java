@@ -35,8 +35,6 @@ public class Material {
                 zItemTags.register(bus);
         }
 
-
-
         /**
          * register an block + item
          * 
@@ -53,7 +51,7 @@ public class Material {
          * create an itemtag
          */
         public static TagKey<Item> tagItem(String name) {
-                return tagItem(ID,name);
+                return tagItem(ID, name);
         }
 
         /**
@@ -76,13 +74,13 @@ public class Material {
          * create an blocktag
          */
         public static TagKey<Block> tagBlock(String name) {
-                return tagBlock(ID,name);
+                return tagBlock(ID, name);
         }
 
         /**
          * create an blocktag
          */
-        public static TagKey<Block> tagBlock(String modname,String name) {
+        public static TagKey<Block> tagBlock(String modname, String name) {
                 return TagKey.create(BuiltInRegistries.BLOCK.key(),
                                 ResourceLocation.fromNamespaceAndPath(modname, name));
         }
@@ -141,14 +139,16 @@ public class Material {
                         return zItems.zCoals.register(name, () -> new ItemFuel(burnrate));
                 }
 
-                // public static DeferredHolder<Block, ?> FuelBlockDW(String name, int burnrate,Supplier<? extends Block> o) {
-                //         DeferredHolder<Block, ?> b = zBlocks.zCoals.register(name,()-> new BlockFuel(burnrate));
-                //         zItems.zCoals.registerSimpleBlockItem(name, o);
-                //         return b;
+                // public static DeferredHolder<Block, ?> FuelBlockDW(String name, int
+                // burnrate,Supplier<? extends Block> o) {
+                // DeferredHolder<Block, ?> b = zBlocks.zCoals.register(name,()-> new
+                // BlockFuel(burnrate));
+                // zItems.zCoals.registerSimpleBlockItem(name, o);
+                // return b;
                 // }
 
-
-                public static DeferredHolder<Block, ?> registerBudding(String blockname, Supplier<? extends Block> sup) {
+                public static DeferredHolder<Block, ?> registerBudding(String blockname,
+                                Supplier<? extends Block> sup) {
                         DeferredHolder<Block, ?> block = zBlocks.zBuddings.register(blockname, sup);
                         zItems.zBlockItem.registerSimpleBlockItem(block);
                         return block;

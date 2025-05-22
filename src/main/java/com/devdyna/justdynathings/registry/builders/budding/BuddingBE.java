@@ -111,8 +111,7 @@ public class BuddingBE extends BaseMachineBE implements EnergyMachine, FluidMach
     public void applySound(Direction dir) {
         if (LevelUtil.chance(50, level))
             level.playSound(null, getBlockPos().relative(dir), SoundEvents.AMETHYST_BLOCK_RESONATE,
-                    SoundSource.BLOCKS, level.random.nextInt(50) + 1 * 0.01F,
-                    level.random.nextInt(50) + 1 * 0.01F);
+                    SoundSource.BLOCKS, 1.0F, 0.25F);
     }
 
     /**

@@ -472,8 +472,8 @@ public class Config {
 
         private static void superduperconfig() {
                 qCOMMON.comment("Hello player, Dyna is here !");
-                qCOMMON.comment("If you're wondering that the entire generic config section");
-                qCOMMON.comment("was used as joke , you are right...");
+                qCOMMON.comment("If you're wondering that this config part");
+                qCOMMON.comment("is used as joke , you are right...");
                 qCOMMON.comment("Anyway , can I be of help to you ?")
                                 .define("answer", false);
         }

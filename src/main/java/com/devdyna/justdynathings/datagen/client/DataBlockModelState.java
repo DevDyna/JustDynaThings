@@ -156,7 +156,9 @@ public class DataBlockModelState extends BlockStateProvider {
 
         private void BaseSolarPanel(Block b) {
                 String blockname = DataGenUtil.getName(b).replace("_solar_panel", "");
-                simpleBlock(b, DataGenUtil.NamewithParent("justdynathings:block/solar_panel/"+blockname, this, "justdynathings:block/solar_panel/_template")
+                simpleBlock(b, DataGenUtil
+                                .NamewithParent("justdynathings:block/solar_panel/" + blockname, this,
+                                                "justdynathings:block/solar_panel/_template")
                                 .texture("side", "justdynathings:block/generator/" + blockname + "/side")
                                 .texture("bottom", "justdynathings:block/generator/" + blockname + "/bottom"));
         }
@@ -166,10 +168,7 @@ public class DataBlockModelState extends BlockStateProvider {
         }
 
         /**
-         * //TODO
-         * 
-         * block with id generatort < index >
-         * 
+         * //TODO gen block with id generatort < index >
          * 
          * NO T1 GENERATOR
          **/
@@ -177,7 +176,8 @@ public class DataBlockModelState extends BlockStateProvider {
                 String tier = Constants.Tiers.materials
                                 .get(Integer.getInteger(DataGenUtil.getName(b).replace("generatort", "")));
                 simpleBlock(b,
-                                DataGenUtil.NamewithParent("justdynathings:block/generator/"+tier, this, "justdynathings:block/generator/_template")
+                                DataGenUtil.NamewithParent("justdynathings:block/generator/" + tier, this,
+                                                "justdynathings:block/generator/_template")
                                                 .texture("side", "justdynathings:block/generator/" + tier
                                                                 + "/side")
                                                 .texture("top", "justdynathings:block/generator/" + tier + "/top")

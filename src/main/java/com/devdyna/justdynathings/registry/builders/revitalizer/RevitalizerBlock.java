@@ -1,12 +1,21 @@
 package com.devdyna.justdynathings.registry.builders.revitalizer;
 
+import java.util.List;
+
 import javax.annotation.Nullable;
 
+import com.devdyna.justdynathings.Config;
+import com.devdyna.justdynathings.Constants;
+import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.registry.builders._core.block.BlockBaseBE;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.DirectionUtil;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.Item.TooltipContext;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
@@ -62,6 +71,13 @@ public class RevitalizerBlock extends BlockBaseBE {
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> b) {
         b.add(zProperties.ACTIVE, zProperties.GOO_FOUND, BlockStateProperties.FACING);
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents,
+            TooltipFlag tooltipFlag) {
+        if (!Constants.ModAddonCheck.GuideMe && Config.GUIDEME_WARNING.getAsBoolean())
+            tooltipComponents.add(Component.translatable(Main.ID + ".guideme.missing"));
     }
 
 }

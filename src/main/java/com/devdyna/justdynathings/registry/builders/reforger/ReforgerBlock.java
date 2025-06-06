@@ -1,23 +1,32 @@
 package com.devdyna.justdynathings.registry.builders.reforger;
 
+import com.devdyna.justdynathings.Config;
+import com.devdyna.justdynathings.Constants;
+import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.client.builder.reforger.ReforgerGUI;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.Actions;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item.TooltipContext;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+
+import java.util.List;
+
 import javax.annotation.Nullable;
 
 @SuppressWarnings("null")
 public class ReforgerBlock extends BaseMachineBlock {
-
 
     public ReforgerBlock() {
         super(zProperties.MachineProp);
@@ -31,9 +40,8 @@ public class ReforgerBlock extends BaseMachineBlock {
 
     @Override
     public void openMenu(Player player, BlockPos blockPos) {
-                Actions.openMenu(player,
-                (windowId, playerInventory, playerEntity) -> 
-                new ReforgerGUI(windowId, playerInventory, blockPos),
+        Actions.openMenu(player,
+                (windowId, playerInventory, playerEntity) -> new ReforgerGUI(windowId, playerInventory, blockPos),
                 blockPos);
     }
 
@@ -52,7 +60,14 @@ public class ReforgerBlock extends BaseMachineBlock {
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder
-        .add(BlockStateProperties.FACING)
-        .add(zProperties.ACTIVE);
+                .add(BlockStateProperties.FACING)
+                .add(zProperties.ACTIVE);
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents,
+            TooltipFlag tooltipFlag) {
+        if (!Constants.ModAddonCheck.GuideMe && Config.GUIDEME_WARNING.getAsBoolean())
+            tooltipComponents.add(Component.translatable(Main.ID + ".guideme.missing"));
     }
 }

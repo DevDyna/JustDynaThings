@@ -1,11 +1,20 @@
 package com.devdyna.justdynathings.registry.builders.solar;
 
+import java.util.List;
+
 import javax.annotation.Nullable;
 
+import com.devdyna.justdynathings.Config;
+import com.devdyna.justdynathings.Constants;
+import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.Item.TooltipContext;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
@@ -68,6 +77,14 @@ public class SolarBlockBase extends BaseMachineBlock {
     @Override
     public BlockState rotate(BlockState s, Rotation r) {
         return s;
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents,
+            TooltipFlag tooltipFlag) {
+        if (!Constants.ModAddonCheck.GuideMe && Config.GUIDEME_WARNING.getAsBoolean())
+            tooltipComponents.add(Component.translatable(Main.ID + ".guideme.missing"));
+        tooltipComponents.add(Component.translatable(Main.ID + "." + Constants.SolarPanelType + ".tip"));
     }
 
 }

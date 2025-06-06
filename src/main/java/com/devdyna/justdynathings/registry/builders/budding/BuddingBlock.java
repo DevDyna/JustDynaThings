@@ -1,10 +1,19 @@
 package com.devdyna.justdynathings.registry.builders.budding;
 
+import java.util.List;
+
 import javax.annotation.Nullable;
 
+import com.devdyna.justdynathings.Config;
+import com.devdyna.justdynathings.Constants;
+import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.registry.builders._core.block.BlockBaseBE;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.Item.TooltipContext;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
@@ -15,7 +24,6 @@ import net.minecraft.world.level.block.state.StateDefinition;
 @SuppressWarnings("null")
 public class BuddingBlock extends BlockBaseBE {
 
-
     public BuddingBlock() {
         super(zProperties.MachineProp.sound(SoundType.AMETHYST));
     }
@@ -23,7 +31,7 @@ public class BuddingBlock extends BlockBaseBE {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new BuddingBE(null,pos, state);
+        return new BuddingBE(null, pos, state);
     }
 
     @Override
@@ -34,6 +42,13 @@ public class BuddingBlock extends BlockBaseBE {
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(zProperties.GOO_ALIVE);
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents,
+            TooltipFlag tooltipFlag) {
+        if (!Constants.ModAddonCheck.GuideMe && Config.GUIDEME_WARNING.getAsBoolean())
+            tooltipComponents.add(Component.translatable(Main.ID + ".guideme.missing"));
     }
 
 }

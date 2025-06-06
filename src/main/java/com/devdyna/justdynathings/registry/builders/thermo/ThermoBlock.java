@@ -1,7 +1,12 @@
 package com.devdyna.justdynathings.registry.builders.thermo;
 
+import java.util.List;
+
 import javax.annotation.Nullable;
 
+import com.devdyna.justdynathings.Config;
+import com.devdyna.justdynathings.Constants;
+import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.client.builder.thermoGen.ThermoGUI;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.Actions;
@@ -9,7 +14,11 @@ import com.devdyna.justdynathings.utils.ShapeUtil;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item.TooltipContext;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
@@ -85,6 +94,14 @@ public class ThermoBlock extends BaseMachineBlock {
         }
 
         return shape.optimize();
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents,
+            TooltipFlag tooltipFlag) {
+        if (!Constants.ModAddonCheck.GuideMe && Config.GUIDEME_WARNING.getAsBoolean())
+            tooltipComponents.add(Component.translatable(Main.ID + ".guideme.missing"));
+            tooltipComponents.add(Component.translatable(Main.ID + "." + Constants.Blocks.ThermoGen + ".tip"));
     }
 
 }

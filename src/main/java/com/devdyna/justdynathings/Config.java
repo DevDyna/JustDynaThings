@@ -12,6 +12,8 @@ public class Config {
 
         // TODO rework config logic
 
+        public static BooleanValue GUIDEME_WARNING;
+
         public static BooleanValue PHASE_BOX_WRENCHABLE;
 
         public static IntValue REFORGER_CHANCE;
@@ -132,6 +134,11 @@ public class Config {
 
         private static void general() {
                 qCOMMON.comment("General").push("1-general");
+
+                GUIDEME_WARNING = qCOMMON
+                                .comment("Disable GuideMe warning")
+                                .define("disable_guideme_warning", false);
+
                 superduperconfig();
                 qCOMMON.pop();
         }
@@ -239,7 +246,7 @@ public class Config {
         }
 
         private static void goo() {
-                qCOMMON.comment(DataGenUtil.txtDecor(Constants.GooType)).push("4-" +Constants.GooType);
+                qCOMMON.comment(DataGenUtil.txtDecor(Constants.GooType)).push("4-" + Constants.GooType);
                 qCOMMON.comment(DataGenUtil.txtDecor(Constants.Goo.Creative));
 
                 GOO_CREATIVE_SOUND_TOGGLE_STATE = qCOMMON.comment("Enable/Disable sound on goo state change")
@@ -319,7 +326,7 @@ public class Config {
         }
 
         private static void solar_panel() {
-                qCOMMON.comment(DataGenUtil.txtDecor(Constants.SolarPanelType)).push("5-" +Constants.SolarPanelType);
+                qCOMMON.comment(DataGenUtil.txtDecor(Constants.SolarPanelType)).push("5-" + Constants.SolarPanelType);
                 qCOMMON.comment(DataGenUtil.txtDecor(Constants.SolarPanel.t1));
 
                 SOLARPANEL_FERRICORE_FE_CAPACITY = qCOMMON
@@ -396,7 +403,7 @@ public class Config {
         }
 
         private static void anvil() {
-                qCOMMON.comment(DataGenUtil.txtDecor(Constants.AnvilType)).push("6-" +Constants.AnvilType);
+                qCOMMON.comment(DataGenUtil.txtDecor(Constants.AnvilType)).push("6-" + Constants.AnvilType);
 
                 ANVILS_SOUND_EVENT = qCOMMON
                                 .comment("Enable/Disable the entire sound event of all anvils on item repair")

@@ -30,6 +30,6 @@
   "justdynathings.goo.energized_goo.tip": "§cProvide energy to active it",
   "justdynathings.guideme.missing": "§aFor more info install GuideMe",
   "justdynathings.off": "§8[§fControl§8]§f",
-  "justdynathings.solar_panel.tip": "Generate Forge Energy based on ambiental situations",
-  "justdynathings.thermo_generator.tip": "Generate Forge Energy based on heat sources and coolants"
+  "justdynathings.solar_panel.tip": "Generate Energy from ambiental situations",
+  "justdynathings.thermo_generator.tip": "Generate Energy from heat sources and coolants"
 }

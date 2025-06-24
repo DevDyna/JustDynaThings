@@ -9,15 +9,15 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 ### Classic
 
 - [x] ~~pathchouli support~~ _guideme much better_
-- [ ] Trash can
+- [x] Trash can
 - [ ] Energy/Fluid storage
 - [ ] Creative Energy/Fluid tank
 - [x] Item repair (lava -> blazing anvil)
-- [ ] Item repair (fe)
+- [x] Item repair (fe)
 - [ ] Item/Fluid Transmitter
 - [x] Redstone Clock
-- [ ] Heat Generator (magmablock/lava below -> FE)
-- [ ] Solar-Eclipse Generator (when daytime -> FE)
+- [x] Heat Generator (magmablock/lava below -> FE)
+- [x] Solar-Eclipse Generator (when daytime -> FE)
 - [ ] Culinary Generator (food -> FE)
 - [ ] Engine Generator (Furnace lit -> FE)
 - [ ] Draconite generator (dragon breath -> FE)

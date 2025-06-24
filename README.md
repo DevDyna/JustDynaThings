@@ -14,7 +14,7 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [ ] Creative Energy/Fluid tank
 - [x] Item repair (lava -> blazing anvil)
 - [x] Item repair (fe)
-- [ ] Item/Fluid Transmitter
+- [x] ~~Item/Fluid Transmitter~~ maybe out of scope -> moved to another project
 - [x] Redstone Clock
 - [x] Heat Generator (magmablock/lava below -> FE)
 - [x] Solar-Eclipse Generator (when daytime -> FE)

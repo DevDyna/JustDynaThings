@@ -139,6 +139,10 @@ public class DataGenUtil {
         return BuiltInRegistries.BLOCK.getKey(block).getPath();
     }
 
+    public static String getName(Item item) {
+        return BuiltInRegistries.ITEM.getKey(item).getPath();
+    }
+
     public static void BiStateBlock(DataBlockModelState t, Block b, BooleanProperty p, ResourceLocation on,
             ResourceLocation off) {
         t.getVariantBuilder(b).partialState().with(p, true).modelForState()
@@ -212,8 +216,8 @@ public class DataGenUtil {
         return new ICondition[] { new ModLoadedCondition(modid) };
     }
 
-    public static String txtDecor(String name){
-                StringBuilder result = new StringBuilder();
+    public static String txtDecor(String name) {
+        StringBuilder result = new StringBuilder();
         for (String word : name.replaceAll("_", " ").split(" ")) {
             if (!word.isEmpty()) {
                 result.append(Character.toUpperCase(word.charAt(0)))

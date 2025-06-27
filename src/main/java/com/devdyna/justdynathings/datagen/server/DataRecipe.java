@@ -55,7 +55,7 @@ public class DataRecipe extends RecipeProvider {
                 super(output, completableFuture);
         }
 
-       public static List<Block> denyClearBlocks = List.of(zBlocks.PHASEBOX.get());
+        public static List<Block> denyClearBlocks = List.of(zBlocks.PHASEBOX.get());
 
         @Override
         protected void buildRecipes(RecipeOutput c) {
@@ -305,7 +305,7 @@ public class DataRecipe extends RecipeProvider {
         }
 
         private void shapeless(Item output, RecipeOutput c, Item... items) {
-                shapeless(output, c, ResourceLocation.parse(output.getDescriptionId()), items);
+                shapeless(output, c, ResourceLocation.fromNamespaceAndPath(ID,DataGenUtil.getName(output)), items);
         }
 
         private void shapeless(Item output, RecipeOutput c, ResourceLocation id, Item... items) {

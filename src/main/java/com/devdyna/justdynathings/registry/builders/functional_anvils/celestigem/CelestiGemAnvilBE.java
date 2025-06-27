@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.registry.builders.functional_anvils.energy;
+package com.devdyna.justdynathings.registry.builders.functional_anvils.celestigem;
 
 import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.CAnvilBE;
@@ -14,16 +14,16 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class PoweredAnvilBE extends CAnvilBE implements EnergyMachine {
+public class CelestiGemAnvilBE extends CAnvilBE implements EnergyMachine {
 
     public final PoweredMachineContainerData poweredMachineData = new PoweredMachineContainerData(this);
 
-    public PoweredAnvilBE(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState) {
+    public CelestiGemAnvilBE(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState) {
         super(pType, pPos, pBlockState);
         this.MACHINE_SLOTS = 1;
     }
 
-    public PoweredAnvilBE(BlockPos pos, BlockState state) {
+    public CelestiGemAnvilBE(BlockPos pos, BlockState state) {
         this(zBlockEntities.POWERED_ANVIL.get(), pos, state);
     }
 

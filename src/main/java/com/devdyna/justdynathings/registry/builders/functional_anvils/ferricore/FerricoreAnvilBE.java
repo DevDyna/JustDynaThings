@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.registry.builders.functional_anvils.metallic;
+package com.devdyna.justdynathings.registry.builders.functional_anvils.ferricore;
 
 import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.CAnvilBE;
@@ -9,14 +9,14 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class MetallicAnvilBE extends CAnvilBE {
+public class FerricoreAnvilBE extends CAnvilBE {
 
-    public MetallicAnvilBE(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState) {
+    public FerricoreAnvilBE(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState) {
         super(pType, pPos, pBlockState);
         this.MACHINE_SLOTS = 2;
     }
 
-    public MetallicAnvilBE(BlockPos pos, BlockState state) {
+    public FerricoreAnvilBE(BlockPos pos, BlockState state) {
         this(zBlockEntities.METALLIC_ANVIL.get(), pos, state);
     }
 

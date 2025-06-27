@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.registry.builders.functional_anvils.magmatic;
+package com.devdyna.justdynathings.registry.builders.functional_anvils.blazegold;
 
 import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.CAnvilBE;
@@ -14,16 +14,16 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
 
-public class MagmaAnvilBE extends CAnvilBE implements FluidMachine {
+public class BlazeGoldAnvilBE extends CAnvilBE implements FluidMachine {
 
     public final FluidContainerData fluidContainerData = new FluidContainerData(this);
 
-    public MagmaAnvilBE(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState) {
+    public BlazeGoldAnvilBE(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState) {
         super(pType, pPos, pBlockState);
         this.MACHINE_SLOTS = 1;
     }
 
-    public MagmaAnvilBE(BlockPos pos, BlockState state) {
+    public BlazeGoldAnvilBE(BlockPos pos, BlockState state) {
         this(zBlockEntities.MAGMATIC_ANVIL.get(), pos, state);
     }
 

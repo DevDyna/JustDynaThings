@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.registry.builders.functional_anvils.time;
+package com.devdyna.justdynathings.registry.builders.functional_anvils.eclipsealloy;
 
 import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.CAnvilBE;
@@ -18,17 +18,17 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
 
-public class TimeAnvilBE extends CAnvilBE implements EnergyMachine, FluidMachine {
+public class EclipseAlloyAnvilBE extends CAnvilBE implements EnergyMachine, FluidMachine {
 
     public final PoweredMachineContainerData poweredMachineData = new PoweredMachineContainerData(this);
     public final FluidContainerData fluidContainerData = new FluidContainerData(this);
 
-    public TimeAnvilBE(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState) {
+    public EclipseAlloyAnvilBE(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState) {
         super(pType, pPos, pBlockState);
         this.MACHINE_SLOTS = 1;
     }
 
-    public TimeAnvilBE(BlockPos pos, BlockState state) {
+    public EclipseAlloyAnvilBE(BlockPos pos, BlockState state) {
         this(zBlockEntities.TIME_ANVIL.get(), pos, state);
     }
 

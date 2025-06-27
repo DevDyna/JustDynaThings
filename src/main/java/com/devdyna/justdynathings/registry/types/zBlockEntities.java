@@ -6,10 +6,10 @@ import com.devdyna.justdynathings.registry.builders.black_hole.BlackHoleBE;
 import com.devdyna.justdynathings.registry.builders.budding.types.amethyst.AmethystBE;
 import com.devdyna.justdynathings.registry.builders.budding.types.time.TimeBE;
 import com.devdyna.justdynathings.registry.builders.ferricore_clock.ClockBE;
-import com.devdyna.justdynathings.registry.builders.functional_anvils.energy.PoweredAnvilBE;
-import com.devdyna.justdynathings.registry.builders.functional_anvils.magmatic.MagmaAnvilBE;
-import com.devdyna.justdynathings.registry.builders.functional_anvils.metallic.MetallicAnvilBE;
-import com.devdyna.justdynathings.registry.builders.functional_anvils.time.TimeAnvilBE;
+import com.devdyna.justdynathings.registry.builders.functional_anvils.blazegold.BlazeGoldAnvilBE;
+import com.devdyna.justdynathings.registry.builders.functional_anvils.celestigem.CelestiGemAnvilBE;
+import com.devdyna.justdynathings.registry.builders.functional_anvils.eclipsealloy.EclipseAlloyAnvilBE;
+import com.devdyna.justdynathings.registry.builders.functional_anvils.ferricore.FerricoreAnvilBE;
 import com.devdyna.justdynathings.registry.builders.goo.creative.CreativeGooBE;
 import com.devdyna.justdynathings.registry.builders.goo.energy.diregoo.*;
 import com.devdyna.justdynathings.registry.builders.goo.energy.energized.EnergyGooBE;
@@ -114,21 +114,21 @@ public class zBlockEntities {
                                                         .build(null));
 
         // TODO rename to match id
-        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<MetallicAnvilBE>> METALLIC_ANVIL = zBE
+        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<FerricoreAnvilBE>> METALLIC_ANVIL = zBE
                         .register(Constants.Anvils.t1,
-                                        () -> Builder.of(MetallicAnvilBE::new, zBlocks.METALLIC_ANVIL.get())
+                                        () -> Builder.of(FerricoreAnvilBE::new, zBlocks.METALLIC_ANVIL.get())
                                                         .build(null));
 
-        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<MagmaAnvilBE>> MAGMATIC_ANVIL = zBE
+        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BlazeGoldAnvilBE>> MAGMATIC_ANVIL = zBE
                         .register(Constants.Anvils.t2,
-                                        () -> Builder.of(MagmaAnvilBE::new, zBlocks.MAGMATIC_ANVIL.get()).build(null));
+                                        () -> Builder.of(BlazeGoldAnvilBE::new, zBlocks.MAGMATIC_ANVIL.get()).build(null));
 
-        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<PoweredAnvilBE>> POWERED_ANVIL = zBE
+        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CelestiGemAnvilBE>> POWERED_ANVIL = zBE
                         .register(Constants.Anvils.t3,
-                                        () -> Builder.of(PoweredAnvilBE::new, zBlocks.POWERED_ANVIL.get()).build(null));
+                                        () -> Builder.of(CelestiGemAnvilBE::new, zBlocks.POWERED_ANVIL.get()).build(null));
 
-        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TimeAnvilBE>> TIME_ANVIL = zBE
+        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<EclipseAlloyAnvilBE>> TIME_ANVIL = zBE
                         .register(Constants.Anvils.t4,
-                                        () -> Builder.of(TimeAnvilBE::new, zBlocks.TIME_ANVIL.get()).build(null));
+                                        () -> Builder.of(EclipseAlloyAnvilBE::new, zBlocks.TIME_ANVIL.get()).build(null));
 
 }

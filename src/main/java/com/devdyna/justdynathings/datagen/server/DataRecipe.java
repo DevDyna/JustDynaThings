@@ -272,7 +272,7 @@ public class DataRecipe extends RecipeProvider {
         }
 
         /**
-         * @deprecated not used
+         * @unused not used
          */
         private void Budding(Item output, Item input, RecipeOutput c) {
                 ShapelessRecipeBuilder.shapeless(MISC, output, 2)

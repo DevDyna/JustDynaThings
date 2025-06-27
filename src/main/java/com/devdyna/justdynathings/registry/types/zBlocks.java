@@ -8,10 +8,10 @@ import com.devdyna.justdynathings.registry.builders.black_hole.BlackHoleBlock;
 import com.devdyna.justdynathings.registry.builders.budding.types.amethyst.AmethystBlock;
 import com.devdyna.justdynathings.registry.builders.budding.types.time.TimeBlock;
 import com.devdyna.justdynathings.registry.builders.ferricore_clock.ClockBlock;
-import com.devdyna.justdynathings.registry.builders.functional_anvils.energy.PoweredAnvilBlock;
-import com.devdyna.justdynathings.registry.builders.functional_anvils.magmatic.MagmaAnvilBlock;
-import com.devdyna.justdynathings.registry.builders.functional_anvils.metallic.MetallicAnvilBlock;
-import com.devdyna.justdynathings.registry.builders.functional_anvils.time.TimeAnvilBlock;
+import com.devdyna.justdynathings.registry.builders.functional_anvils.blazegold.BlazeGoldAnvilBlock;
+import com.devdyna.justdynathings.registry.builders.functional_anvils.celestigem.CelestiGemAnvilBlock;
+import com.devdyna.justdynathings.registry.builders.functional_anvils.eclipsealloy.EclipseAlloyAnvilBlock;
+import com.devdyna.justdynathings.registry.builders.functional_anvils.ferricore.FerricoreAnvilBlock;
 import com.devdyna.justdynathings.registry.builders.goo.creative.CreativeGoo;
 import com.devdyna.justdynathings.registry.builders.goo.energy.diregoo.*;
 import com.devdyna.justdynathings.registry.builders.goo.energy.energized.EnergyGoo;
@@ -107,16 +107,16 @@ public class zBlocks {
 
         // TODO rename to match id
         public static final DeferredHolder<Block, ?> METALLIC_ANVIL = Material
-                        .registerItemAndBlock(Constants.Anvils.t1, MetallicAnvilBlock::new);
+                        .registerItemAndBlock(Constants.Anvils.t1, FerricoreAnvilBlock::new);
 
         public static final DeferredHolder<Block, ?> MAGMATIC_ANVIL = Material
-                        .registerItemAndBlock(Constants.Anvils.t2, MagmaAnvilBlock::new);
+                        .registerItemAndBlock(Constants.Anvils.t2, BlazeGoldAnvilBlock::new);
 
         public static final DeferredHolder<Block, ?> POWERED_ANVIL = Material
-                        .registerItemAndBlock(Constants.Anvils.t3, PoweredAnvilBlock::new);
+                        .registerItemAndBlock(Constants.Anvils.t3, CelestiGemAnvilBlock::new);
 
         public static final DeferredHolder<Block, ?> TIME_ANVIL = Material
-                        .registerItemAndBlock(Constants.Anvils.t4, TimeAnvilBlock::new);
+                        .registerItemAndBlock(Constants.Anvils.t4, EclipseAlloyAnvilBlock::new);
 
         // ---------------------------------------------------------------------------------------//
 

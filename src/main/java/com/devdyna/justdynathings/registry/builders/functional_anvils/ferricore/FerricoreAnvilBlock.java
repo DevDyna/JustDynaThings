@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.registry.builders.functional_anvils.metallic;
+package com.devdyna.justdynathings.registry.builders.functional_anvils.ferricore;
 
 import com.devdyna.justdynathings.client.builder.anvil.metallic.MetallicAnvilGUI;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.CAnvilBlock;
@@ -11,15 +11,15 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import javax.annotation.Nullable;
 
-public class MetallicAnvilBlock extends CAnvilBlock {
+public class FerricoreAnvilBlock extends CAnvilBlock {
 
-    public MetallicAnvilBlock() {
+    public FerricoreAnvilBlock() {
     }
 
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos p, BlockState s) {
-        return new MetallicAnvilBE(zBlockEntities.METALLIC_ANVIL.get(), p, s);
+        return new FerricoreAnvilBE(zBlockEntities.METALLIC_ANVIL.get(), p, s);
     }
 
     @Override
@@ -29,7 +29,7 @@ public class MetallicAnvilBlock extends CAnvilBlock {
 
     @Override
     public boolean isValidBE(BlockEntity b) {
-        return b instanceof MetallicAnvilBE;
+        return b instanceof FerricoreAnvilBE;
     }
 
 }

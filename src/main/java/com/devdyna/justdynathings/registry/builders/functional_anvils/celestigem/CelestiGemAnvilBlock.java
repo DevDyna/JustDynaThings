@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.registry.builders.functional_anvils.energy;
+package com.devdyna.justdynathings.registry.builders.functional_anvils.celestigem;
 
 import com.devdyna.justdynathings.client.builder.anvil.powered.PoweredAnvilGUI;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.CAnvilBlock;
@@ -11,15 +11,15 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import javax.annotation.Nullable;
 
-public class PoweredAnvilBlock extends CAnvilBlock {
+public class CelestiGemAnvilBlock extends CAnvilBlock {
 
-    public PoweredAnvilBlock() {
+    public CelestiGemAnvilBlock() {
     }
 
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos p, BlockState s) {
-        return new PoweredAnvilBE(zBlockEntities.POWERED_ANVIL.get(), p, s);
+        return new CelestiGemAnvilBE(zBlockEntities.POWERED_ANVIL.get(), p, s);
     }
 
     @Override
@@ -29,7 +29,7 @@ public class PoweredAnvilBlock extends CAnvilBlock {
 
     @Override
     public boolean isValidBE(BlockEntity b) {
-        return b instanceof PoweredAnvilBE;
+        return b instanceof CelestiGemAnvilBE;
     }
 
 }

@@ -7,32 +7,14 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 # TODO LIST
 
 ### Classic
-
-- [x] ~~pathchouli support~~ _guideme much better_
-- [ ] Trash can
 - [ ] Energy/Fluid storage
 - [ ] Creative Energy/Fluid tank
-- [x] Item repair (lava -> blazing anvil)
-- [ ] Item repair (fe)
-- [ ] Item/Fluid Transmitter
-- [x] Redstone Clock
-- [ ] Heat Generator (magmablock/lava below -> FE)
-- [ ] Solar-Eclipse Generator (when daytime -> FE)
 - [ ] Culinary Generator (food -> FE)
 - [ ] Engine Generator (Furnace lit -> FE)
 - [ ] Draconite generator (dragon breath -> FE)
 
 ### Specialized
-
-- [x] ~~T0 Goo~~ *removed due point-less*
-- [x] ~~T5 Goo~~ *unified to FE Goo*
-- [x] Creative Goo
-- [x] Vanilla QoL recipes (mud -> clay | coarse dirt -> dirt)
-- [x] Reforger (oregenerator)
-- [x] Phase Box (xu1 Ethereal glass like)
-- [x] Energized Goo (FE Goo)
 - [x] Powered Budding *(maybe they will be moved to a separate project)*
-- [x] Goo Revitalizer (alive any goo without item cost)
 - [ ] Sculk Diffuser (Sculk Source without need to kill mobs)
 - [ ] Buffed Fuels (fuel with high multiplier)
 - [ ] Reforger T2 (?)

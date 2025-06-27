@@ -88,7 +88,7 @@ public class zBlocks {
         public static final DeferredHolder<Block, ?> REVITALIZER = Material
                         .registerItemAndBlock(Constants.Blocks.Revitalizer, RevitalizerBlock::new);
 
-        public static final DeferredHolder<Block, ?> THERMOGEN = Material// TODO more generators based on y-level
+        public static final DeferredHolder<Block, ?> THERMOGEN = Material
                         .registerItemAndBlock(Constants.Blocks.ThermoGen, ThermoBlock::new);
 
         public static final DeferredHolder<Block, ?> BLACKHOLE = Material

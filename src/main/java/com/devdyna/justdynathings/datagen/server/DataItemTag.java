@@ -43,9 +43,12 @@ public class DataItemTag extends ItemTagsProvider {
 
                 tag(zMultiTags.AMETHYST_BLOCKS.item()).add(Items.AMETHYST_BLOCK, Items.BUDDING_AMETHYST);
 
-                tag(zItemTags.CREATIVE_GOO_WRENCHES)
+                tag(zItemTags.UNIVERSAL_WRENCH)
                                 .addOptionalTag(Tags.Items.TOOLS_WRENCH)
                                 .addOptionalTag(JustDireItemTags.WRENCHES);
+
+                tag(zItemTags.CREATIVE_GOO_WRENCHES)
+                                .addTag(zItemTags.UNIVERSAL_WRENCH);
 
                 tag(zItemTags.BLAZEGOLD_ANVIL_DENY)
                                 .add(Items.MACE);

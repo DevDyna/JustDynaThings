@@ -203,4 +203,8 @@ public class LevelUtil {
 
     }
 
+    public static void popItemFromPos(Level level, BlockPos pos, ItemStack itemStack) {
+        popItemFromPos(level, pos.getX(), pos.getY(), pos.getZ(), itemStack);
+    }
+
 }

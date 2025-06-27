@@ -15,6 +15,8 @@ public class zItemTags {
         public static final TagKey<Item> REFORGER_CATALYST = Material.tagItem("reforger_catalyst");
         public static final TagKey<Item> CREATIVE_GOO_WRENCHES = Material.tagItem(Constants.Goo.Creative + "_wrenches");
 
+        public static final TagKey<Item> UNIVERSAL_WRENCH = Material.tagItem("universal_wrench");
+
         public static final TagKey<Item> FERRICORE_ANVIL_ALLOW = Material
                         .tagItem(Constants.AnvilType + "s/" + Constants.Tiers.ferricore + "/allow");
         public static final TagKey<Item> FERRICORE_ANVIL_REPAIR = Material

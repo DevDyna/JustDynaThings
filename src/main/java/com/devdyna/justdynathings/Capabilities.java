@@ -4,7 +4,6 @@ import com.devdyna.justdynathings.registry.Material;
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyMachine;
 import com.devdyna.justdynathings.registry.interfaces.be.FluidMachine;
 import com.devdyna.justdynathings.registry.types.zBlocks;
-import com.devdyna.justdynathings.registry.types.zHandlers;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.FluidMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineBE;
@@ -21,14 +20,18 @@ public class Capabilities {
         public static void regCap(RegisterCapabilitiesEvent event) {
 
                 Block[] EnergyMachineBase = {
-                                zBlocks.CELESTIGEM_ANVIL.get(), zBlocks.ECLIPSEALLOY_ANVIL.get(), zBlocks.REVITALIZER.get(),
-                                // zBlocks.TICKER.get(),
+                                zBlocks.CELESTIGEM_ANVIL.get(), zBlocks.ECLIPSEALLOY_ANVIL.get(),
+                                zBlocks.REVITALIZER.get(),
                                 zBlocks.ENERGIZED_GOO.get(),
                                 zBlocks.T1_GOO.get(), zBlocks.T2_GOO.get(),
                                 zBlocks.T3_GOO.get(), zBlocks.T4_GOO.get(), zBlocks.BLACKHOLE.get()
                 };
 
-                Block[] FluidMachineBase = { zBlocks.BLACKHOLE.get() };
+                Block[] FluidMachineBase = {
+                                zBlocks.BLACKHOLE.get(),
+                                zBlocks.THERMOGEN.get(),
+                                zBlocks.BLAZEGOLD_ANVIL.get(),
+                                zBlocks.ECLIPSEALLOY_ANVIL.get() };
 
                 Block[] ItemStacMachineBase = { zBlocks.REFORGER.get(),
                                 zBlocks.FERRICORE_ANVIL.get(),
@@ -68,14 +71,6 @@ public class Capabilities {
                                                 : null,
                                 Material.getBuddingAvailable());
 
-                // fluidhandler time storage
-                // event.registerBlock(FluidHandler.BLOCK,
-                // (level, pos, state, be,
-                // side) -> (be instanceof FluidMachineBE || be instanceof FluidMachine)
-                // ? be.getData(Registration.PARADOX_FLUID_HANDLER)
-                // : null,
-                // zBlocks.TICKER.get());
-
                 // fluidhandler time storage - buddings
                 event.registerBlock(FluidHandler.BLOCK,
                                 (level, pos, state, be,
@@ -84,14 +79,6 @@ public class Capabilities {
                                                                 : null,
                                 Material.getBuddingAvailable());
 
-                // fluidhandler thermo coolers
-                event.registerBlock(FluidHandler.BLOCK,
-                                (level, pos, state, be,
-                                                side) -> (be instanceof FluidMachineBE || be instanceof FluidMachine)
-                                                                ? be.getData(zHandlers.THERMO_FUELS)
-                                                                : null,
-                                zBlocks.THERMOGEN.get());
-
                 // energy handler generators (no recieve)
                 event.registerBlock(EnergyStorage.BLOCK, (level, pos, state, be,
                                 side) -> (be instanceof PoweredMachineBE || be instanceof EnergyMachine)
@@ -99,23 +86,7 @@ public class Capabilities {
                                                 : null,
                                 zBlocks.THERMOGEN.get(),
                                 zBlocks.FERRICORE_SOLARGEN.get(), zBlocks.BLAZEGOLD_SOLARGEN.get(),
-                                zBlocks.CELESTIGEM_SOLARGEN.get(), zBlocks.ECLIPSEALLOY_SOLARGEN.get()
-
-                );
-
-                // fluid handler magmatic anvil
-                event.registerBlock(FluidHandler.BLOCK, (level, pos, state, be,
-                                side) -> (be instanceof FluidMachineBE || be instanceof FluidMachine)
-                                                ? be.getData(zHandlers.MAGMATIC_LIQUID)
-                                                : null,
-                                zBlocks.BLAZEGOLD_ANVIL.get());
-
-                // fluid handler time anvil
-                event.registerBlock(FluidHandler.BLOCK, (level, pos, state, be,
-                                side) -> (be instanceof FluidMachineBE || be instanceof FluidMachine)
-                                                ? be.getData(Registration.PARADOX_FLUID_HANDLER)
-                                                : null,
-                                zBlocks.ECLIPSEALLOY_ANVIL.get());
+                                zBlocks.CELESTIGEM_SOLARGEN.get(), zBlocks.ECLIPSEALLOY_SOLARGEN.get());
 
         }
 

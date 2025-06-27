@@ -1,0 +1,22 @@
+{
+  "values": {
+    "justdirethings:polymorphic_fluid_source": {
+      "coolantEfficiency": 12.5
+    },
+    "justdirethings:refined_t2_fluid_source": {
+      "coolantEfficiency": 1.2
+    },
+    "justdirethings:refined_t3_fluid_source": {
+      "coolantEfficiency": 2.5
+    },
+    "justdirethings:refined_t4_fluid_source": {
+      "coolantEfficiency": 7.5
+    },
+    "justdirethings:time_fluid_source": {
+      "coolantEfficiency": 15.0
+    },
+    "minecraft:water": {
+      "coolantEfficiency": 1.0
+    }
+  }
+}

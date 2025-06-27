@@ -1,11 +1,10 @@
 package com.devdyna.justdynathings.registry.builders.thermo;
 
 import com.devdyna.justdynathings.Config;
+import com.devdyna.justdynathings.datamaps.zDataMaps;
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyGenerator;
 import com.devdyna.justdynathings.registry.interfaces.be.FluidMachine;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
-import com.devdyna.justdynathings.registry.types.zBlockTags;
-import com.devdyna.justdynathings.registry.types.zHandlers;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.Actions;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
@@ -24,15 +23,12 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
 
-@SuppressWarnings("null")
+@SuppressWarnings({ "null", "deprecation" })
 public class ThermoBE extends BaseMachineBE implements FluidMachine, EnergyGenerator, RedstoneControlledBE {
 
     public RedstoneControlData redstoneControlData = new RedstoneControlData();
     public final PoweredMachineContainerData poweredMachineData = new PoweredMachineContainerData(this);
     public final FluidContainerData fluidContainerData = new FluidContainerData(this);
-
-    int minFERate = Config.THERMOGEN_FE_ONLY_HEATED.get();
-    int maxFERate = Config.THERMOGEN_FE_WITH_COOLANT.get();
 
     public ThermoBE(BlockEntityType<?> type, BlockPos pos, BlockState b) {
         super(type, pos, b);
@@ -44,39 +40,39 @@ public class ThermoBE extends BaseMachineBE implements FluidMachine, EnergyGener
 
     @Override
     public void tickServer() {
-        updateBlock();
 
-        boolean hasWater = getBlockState().getValue(zProperties.COOLED).booleanValue();
-        int ferate = hasWater ? maxFERate : (Config.THERMOGEN_REQUIRE_COOLANT.get() ? 0 : minFERate);
+        var heat = getHeatBlock().getBlock().builtInRegistryHolder()
+                .getData(zDataMaps.THERMO_HEAT_SOURCE);
 
-        if (isActiveRedstone()) {
-            if (getBlockState().getValue(zProperties.HEATED).booleanValue()) {
-                if (hasWater)
-                    extractMBWhenPossible();
+        var coolant = getFluidStack().getFluidHolder().getData(zDataMaps.THERMO_COOLANT);
 
-                increaseFEWhenPossible(ferate);
+        updateBlock(heat != null, coolant != null);
+
+        if (isActiveRedstone() && canExtractMB() && canRecieveFE()) {
+            if (getBlockState().getValue(zProperties.ACTIVE).booleanValue()) {
+
+                extractMBWhenPossible((int) (coolant.coolantEfficiency() * 100));
+
+                increaseFEWhenPossible((int) (coolant.coolantEfficiency() * 100 * heat.heatEfficiency()));
             }
             if (canExtractFE())
-                Actions.providePowerAdjacent(getBlockPos(), level, ferate);
+                Actions.providePowerAdjacent(getBlockPos(), level, getEnergyStored());
         }
     }
 
     /**
+     * TODO
+     * <br/>
+     * <br/>
      * update the blockstate properties
-     * Credits: Thanks @S4lvious to optimize block update logic
+     * Credits: Thanks "@S4lvious" to optimize block update logic
+     * <br/>
+     * <br/>
+     * TO verify
      */
-    public void updateBlock() {
-
-        boolean heated = getHeatBlock().is(zBlockTags.THERMO_HEATER);
-        boolean cooled = canExtractMB();
-
-        BlockState currentState = getBlockState();
-        if (currentState.getValue(zProperties.HEATED) != heated
-                || currentState.getValue(zProperties.COOLED) != cooled) {
-            level.setBlockAndUpdate(getBlockPos(), currentState.setValue(zProperties.HEATED, heated)
-                    .setValue(zProperties.COOLED, cooled));
-        }
-
+    public void updateBlock(boolean heat, boolean coolant) {
+        if (getBlockState().getValue(zProperties.ACTIVE) != (heat || coolant))
+            level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(zProperties.ACTIVE, coolant && heat));
     }
 
     public BlockState getHeatBlock() {
@@ -92,7 +88,7 @@ public class ThermoBE extends BaseMachineBE implements FluidMachine, EnergyGener
 
     @Override
     public FluidTank getFluidTank() {
-        return getData(zHandlers.THERMO_FUELS);
+        return getData(Registration.MACHINE_FLUID_HANDLER);
     }
 
     @Override
@@ -132,9 +128,7 @@ public class ThermoBE extends BaseMachineBE implements FluidMachine, EnergyGener
 
     @Override
     public int getStandardFluidCost() {
-        return Config.THERMOGEN_MB_COST.get();
+        return 0;
     }
-
-
 
 }

@@ -41,13 +41,12 @@ public class ThermoBlock extends BaseMachineBlock {
     public BlockState getStateForPlacement(BlockPlaceContext c) {
         return defaultBlockState()
                 .setValue(BlockStateProperties.FACING, c.getClickedFace().getOpposite())
-                .setValue(zProperties.COOLED, false)
-                .setValue(zProperties.HEATED, false);
+                .setValue(zProperties.ACTIVE, false);
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> b) {
-        b.add(BlockStateProperties.FACING, zProperties.COOLED, zProperties.HEATED);
+        b.add(BlockStateProperties.FACING, zProperties.ACTIVE);
     }
 
     @Nullable

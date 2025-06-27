@@ -1,0 +1,25 @@
+{
+  "values": {
+    "minecraft:campfire": {
+      "heatEfficiency": 0.5
+    },
+    "minecraft:fire": {
+      "heatEfficiency": 0.5
+    },
+    "minecraft:lava": {
+      "heatEfficiency": 1.0
+    },
+    "minecraft:lava_cauldron": {
+      "heatEfficiency": 0.99
+    },
+    "minecraft:magma_block": {
+      "heatEfficiency": 0.75
+    },
+    "minecraft:soul_campfire": {
+      "heatEfficiency": 0.75
+    },
+    "minecraft:soul_fire": {
+      "heatEfficiency": 0.75
+    }
+  }
+}

@@ -28,9 +28,18 @@ public interface FluidMachine extends FluidMachineBE {
 
     /**
      * MB--
+     * when not empty
+     */
+    default void extractMBWhenPossible(int value) {
+        setAmountStored(
+                canExtractMB() ? Math.max(getAmountStored() - value, 0) : 0);
+    }
+
+    /**
+     * MB--
      */
     default void extractMB(int value) {
-        setAmountStored(getAmountStored()-value);
+        setAmountStored(getAmountStored() - value);
     }
 
     /**

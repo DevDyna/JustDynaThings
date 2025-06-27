@@ -27,10 +27,10 @@ public class Config {
 
         public static IntValue THERMOGEN_FE_CAPACITY;
         public static IntValue THERMOGEN_MB_CAPACITY;
-        public static IntValue THERMOGEN_MB_COST;
-        public static IntValue THERMOGEN_FE_ONLY_HEATED;
-        public static IntValue THERMOGEN_FE_WITH_COOLANT;
-        public static BooleanValue THERMOGEN_REQUIRE_COOLANT;
+        // public static IntValue THERMOGEN_MB_COST;
+        // public static IntValue THERMOGEN_FE_ONLY_HEATED;
+        // public static IntValue THERMOGEN_FE_WITH_COOLANT;
+        // public static BooleanValue THERMOGEN_REQUIRE_COOLANT;
 
         public static BooleanValue BLACKHOLE_KEEP_STORAGE;
         public static IntValue BLACKHOLE_FE_CAPACITY;
@@ -180,23 +180,23 @@ public class Config {
 
                 qCOMMON.comment(DataGenUtil.txtDecor(Constants.Blocks.ThermoGen));
 
-                THERMOGEN_REQUIRE_COOLANT = qCOMMON.comment("Require a fluid coolant to generate FE")
-                                .define("thermogen_coolant_to_fe", false);
+                // THERMOGEN_REQUIRE_COOLANT = qCOMMON.comment("Require a fluid coolant to generate FE")
+                //                 .define("thermogen_coolant_to_fe", false);
                 THERMOGEN_FE_CAPACITY = qCOMMON
                                 .comment("Total FE Capacity")
                                 .defineInRange("thermogen_maxfe", 1000000, 1, Integer.MAX_VALUE);
                 THERMOGEN_MB_CAPACITY = qCOMMON
                                 .comment("Total Coolant Capacity")
                                 .defineInRange("thermogen_maxmb", 100000, 1, Integer.MAX_VALUE);
-                THERMOGEN_MB_COST = qCOMMON
-                                .comment("MB/t Coolant cost")
-                                .defineInRange("thermogen_mbrate", 1, 1, Integer.MAX_VALUE);
-                THERMOGEN_FE_ONLY_HEATED = qCOMMON
-                                .comment("FE/t generated without a coolant")
-                                .defineInRange("thermogen_not_cool", 270, 1, Integer.MAX_VALUE);
-                THERMOGEN_FE_WITH_COOLANT = qCOMMON
-                                .comment("FE/t generated with a coolant")
-                                .defineInRange("thermogen_very_cool", 1620, 1, Integer.MAX_VALUE);
+                // THERMOGEN_MB_COST = qCOMMON
+                //                 .comment("MB/t Coolant cost")
+                //                 .defineInRange("thermogen_mbrate", 1, 1, Integer.MAX_VALUE);
+                // THERMOGEN_FE_ONLY_HEATED = qCOMMON
+                //                 .comment("FE/t generated without a coolant")
+                //                 .defineInRange("thermogen_not_cool", 270, 1, Integer.MAX_VALUE);
+                // THERMOGEN_FE_WITH_COOLANT = qCOMMON
+                //                 .comment("FE/t generated with a coolant")
+                //                 .defineInRange("thermogen_very_cool", 1620, 1, Integer.MAX_VALUE);
 
                 qCOMMON.comment(DataGenUtil.txtDecor(Constants.Blocks.BlackHole));
 

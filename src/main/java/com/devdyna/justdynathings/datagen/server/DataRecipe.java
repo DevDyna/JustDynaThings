@@ -120,11 +120,15 @@ public class DataRecipe extends RecipeProvider {
                                 .save(c);
 
                 Budding(zBlocks.BUDDING_AMETHYST.get().asItem(), zMultiTags.AMETHYST_BLOCKS.item(), c);
+
                 Budding(zBlocks.BUDDING_TIME.get().asItem(), zItemTags.TIME_BUDDING, c);
+
                 Budding(AE2_POWERED.get().asItem(), zItemTags.AE2_COMPAT, c
                                 .withConditions(DataGenUtil.isModLoaded("ae2")));
+
                 Budding(EXTENDED_POWERED.get().asItem(), zItemTags.EXT_COMPAT, c
                                 .withConditions(DataGenUtil.isModLoaded("extendedae")));
+
                 Budding(PHASORITE_POWERED.get().asItem(), zItemTags.PHA_COMPAT, c
                                 .withConditions(DataGenUtil.isModLoaded("phasoritenetworks")));
 

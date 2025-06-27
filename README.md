@@ -24,7 +24,7 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [ ] Block Picker (Itemstaff like Swapper but manual)
 - [ ] Light Wand (based on [#337](https://github.com/Direwolf20-MC/JustDireThings/issues/337) with gui to select light level)
 - [ ] Paradox Box (Pandora's Box like)
-- [ ] Bio-Azalea Generator (passive FE generator powered by azalea roots)
+- [ ] __Bio-Azalea Generator (passive FE generator powered by azalea roots)__
 - [ ] Crystallizer and Liquid Crystalline
 - [ ] Rocket Boots Upgrade
 - [ ] Raw magmasteel (iron + magma) -> thermogen (?)

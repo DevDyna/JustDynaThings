@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "justdynathings",
+  "ingredients": [
+    {
+      "item": "justdynathings:ferricore_anvil"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "justdynathings:ferricore_anvil"
+  }
+}

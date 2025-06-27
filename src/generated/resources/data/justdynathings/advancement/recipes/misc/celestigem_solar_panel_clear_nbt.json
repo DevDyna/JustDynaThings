@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "justdynathings:celestigem_solar_panel_clear_nbt"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "justdynathings": {
+      "conditions": {
+        "items": [
+          {
+            "items": "justdynathings:celestigem_solar_panel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "justdynathings"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "justdynathings:celestigem_solar_panel_clear_nbt"
+    ]
+  }
+}

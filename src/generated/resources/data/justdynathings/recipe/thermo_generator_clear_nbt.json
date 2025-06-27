@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "justdynathings",
+  "ingredients": [
+    {
+      "item": "justdynathings:thermo_generator"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "justdynathings:thermo_generator"
+  }
+}

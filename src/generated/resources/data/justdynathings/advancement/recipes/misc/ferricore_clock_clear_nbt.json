@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "justdynathings:ferricore_clock_clear_nbt"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "justdynathings": {
+      "conditions": {
+        "items": [
+          {
+            "items": "justdynathings:ferricore_clock"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "justdynathings"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "justdynathings:ferricore_clock_clear_nbt"
+    ]
+  }
+}

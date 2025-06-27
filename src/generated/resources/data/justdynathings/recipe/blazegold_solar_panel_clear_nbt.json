@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "justdynathings",
+  "ingredients": [
+    {
+      "item": "justdynathings:blazegold_solar_panel"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "justdynathings:blazegold_solar_panel"
+  }
+}

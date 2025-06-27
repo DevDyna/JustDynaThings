@@ -41,7 +41,6 @@ public class DataMaps extends DataMapProvider {
                 .add(Registration.FerricoreIngot.get().builtInRegistryHolder(), new FerricoreRepair(128), false)
                 .add(Items.IRON_INGOT.builtInRegistryHolder(), new FerricoreRepair(64), false);
 
-        // TODO expand
         builder(zDataMaps.THERMO_COOLANT)
                 .add(Fluids.WATER.builtInRegistryHolder(), new ThermoCoolant(1.0f), false)
                 .add(Registration.REFINED_T2_FLUID_SOURCE.get().builtInRegistryHolder(), new ThermoCoolant(2.5f),
@@ -50,9 +49,9 @@ public class DataMaps extends DataMapProvider {
                         false)
                 .add(Registration.REFINED_T4_FLUID_SOURCE.get().builtInRegistryHolder(), new ThermoCoolant(7.5f),
                         false)
-                .add(Registration.POLYMORPHIC_FLUID_SOURCE.get().builtInRegistryHolder(), new ThermoCoolant(12.5f),
+                .add(Registration.POLYMORPHIC_FLUID_SOURCE.get().builtInRegistryHolder(), new ThermoCoolant(10.5f),
                         false)
-                .add(Registration.TIME_FLUID_SOURCE.get().builtInRegistryHolder(), new ThermoCoolant(15f), false);
+                .add(Registration.TIME_FLUID_SOURCE.get().builtInRegistryHolder(), new ThermoCoolant(12f), false);
 
         builder(zDataMaps.THERMO_HEAT_SOURCE)
                 .add(Blocks.MAGMA_BLOCK.builtInRegistryHolder(), new ThermoHeatSource(0.75f), false)
@@ -62,7 +61,13 @@ public class DataMaps extends DataMapProvider {
                 .add(Blocks.SOUL_FIRE.builtInRegistryHolder(), new ThermoHeatSource(0.75f), false)
                 .add(Blocks.CAMPFIRE.builtInRegistryHolder(), new ThermoHeatSource(0.5f), false)
                 .add(Blocks.SOUL_CAMPFIRE.builtInRegistryHolder(), new ThermoHeatSource(0.75f), false)
-                .add(Registration.EclipseAlloyBlock.get().builtInRegistryHolder(), new ThermoHeatSource(2.5f), false);
+                .add(Registration.CoalBlock_T1.get().builtInRegistryHolder(), new ThermoHeatSource(2.5f), false)
+                .add(Registration.CoalBlock_T2.get().builtInRegistryHolder(), new ThermoHeatSource(5.5f), false)
+                .add(Registration.CoalBlock_T3.get().builtInRegistryHolder(), new ThermoHeatSource(7.5f), false)
+                .add(Registration.CoalBlock_T4.get().builtInRegistryHolder(), new ThermoHeatSource(10.5f), false)
+                
+                
+                ;
 
     }
 

@@ -1,7 +1,16 @@
 {
   "values": {
-    "justdirethings:eclipsealloy_block": {
+    "justdirethings:coalblock_t1": {
       "heatEfficiency": 2.5
+    },
+    "justdirethings:coalblock_t2": {
+      "heatEfficiency": 5.5
+    },
+    "justdirethings:coalblock_t3": {
+      "heatEfficiency": 7.5
+    },
+    "justdirethings:coalblock_t4": {
+      "heatEfficiency": 10.5
     },
     "minecraft:campfire": {
       "heatEfficiency": 0.5

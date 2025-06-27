@@ -4,10 +4,10 @@
       "coolantEfficiency": 12.5
     },
     "justdirethings:refined_t2_fluid_source": {
-      "coolantEfficiency": 0.5
+      "coolantEfficiency": 1.0
     },
     "justdirethings:refined_t3_fluid_source": {
-      "coolantEfficiency": 2.5
+      "coolantEfficiency": 5.5
     },
     "justdirethings:refined_t4_fluid_source": {
       "coolantEfficiency": 7.5

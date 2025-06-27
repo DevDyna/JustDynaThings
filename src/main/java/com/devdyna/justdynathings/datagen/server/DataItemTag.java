@@ -47,7 +47,7 @@ public class DataItemTag extends ItemTagsProvider {
                                 .addOptionalTag(Tags.Items.TOOLS_WRENCH)
                                 .addOptionalTag(JustDireItemTags.WRENCHES);
 
-                tag(zItemTags.BLAZING_ANVIL_DENY)
+                tag(zItemTags.BLAZEGOLD_ANVIL_DENY)
                                 .add(Items.MACE);
 
                 tag(zItemTags.CELESTIGEM_DENY)
@@ -76,7 +76,7 @@ public class DataItemTag extends ItemTagsProvider {
                                                 Items.IRON_BOOTS);
 
                 tag(zItemTags.FERRICORE_ANVIL_REPAIR).add(Items.IRON_INGOT, Registration.FerricoreIngot.get());
-                tag(zItemTags.TIME_ANVIL_DENY).add(Items.MACE, Items.TRIDENT, Items.ELYTRA);
+                tag(zItemTags.ECLIPSE_ALLOY_ANVIL_DENY).add(Items.MACE, Items.TRIDENT, Items.ELYTRA);
 
                 // tag(zItemTags.FLAWED_REVITALIZER)
                 // .add(Items.ECHO_SHARD);

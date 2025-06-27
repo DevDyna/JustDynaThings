@@ -11,7 +11,7 @@ public class Constants {
     public class Blocks {
         public static String PhaseBox = "phase_box";
         public static String Reforger = "reforger";
-        public static String FerricoreClock = "ferricore_clock";
+        public static String FerricoreClock = Tiers.ferricore + "_clock";
         public static String Revitalizer = "revitalizer";
         public static String Ticker = "ticker";
         public static String Sculk = "sculk";
@@ -23,46 +23,25 @@ public class Constants {
 
     public static String SolarPanelType = "solar_panel";
 
-    /**
-     * @deprecated intend use SolarPanel / Anvils
-     */
-    public class TieredStuff {
-
-        public class SolarPanel {
-            public static String t1 = Tiers.ferricore + SolarPanelType;
-            public static String t2 = Tiers.blazegold + SolarPanelType;
-            public static String t3 = Tiers.celestigem + SolarPanelType;
-            public static String t4 = Tiers.eclipsealloy + SolarPanelType;
-        }
-
-        public class Anvils {
-            public static String t1 = Tiers.ferricore + AnvilType;
-            public static String t2 = Tiers.blazegold + AnvilType;
-            public static String t3 = Tiers.celestigem + AnvilType;
-            public static String t4 = Tiers.eclipsealloy + AnvilType;
-        }
-
-    }
-
     public class SolarPanel {
-        public static String t1 = Tiers.ferricore + SolarPanelType;
-        public static String t2 = Tiers.blazegold + SolarPanelType;
-        public static String t3 = Tiers.celestigem + SolarPanelType;
-        public static String t4 = Tiers.eclipsealloy + SolarPanelType;
+        public static String t1 = Tiers.ferricore + "_" + SolarPanelType;
+        public static String t2 = Tiers.blazegold + "_" + SolarPanelType;
+        public static String t3 = Tiers.celestigem + "_" + SolarPanelType;
+        public static String t4 = Tiers.eclipsealloy + "_" + SolarPanelType;
     }
 
     public class Anvils {
-        public static String t1 = Tiers.ferricore + AnvilType;
-        public static String t2 = Tiers.blazegold + AnvilType;
-        public static String t3 = Tiers.celestigem + AnvilType;
-        public static String t4 = Tiers.eclipsealloy + AnvilType;
+        public static String t1 = Tiers.ferricore + "_" + AnvilType;
+        public static String t2 = Tiers.blazegold + "_" + AnvilType;
+        public static String t3 = Tiers.celestigem + "_" + AnvilType;
+        public static String t4 = Tiers.eclipsealloy + "_" + AnvilType;
     }
 
     public class Tiers {
-        public static String ferricore = "ferricore_";
-        public static String blazegold = "blazegold_";
-        public static String celestigem = "celestigem_";
-        public static String eclipsealloy = "eclipse_alloy_";
+        public static String ferricore = "ferricore";
+        public static String blazegold = "blazegold";
+        public static String celestigem = "celestigem";
+        public static String eclipsealloy = "eclipse_alloy";
         public static List<String> materials = List.of(ferricore, blazegold, celestigem, eclipsealloy);
     }
 

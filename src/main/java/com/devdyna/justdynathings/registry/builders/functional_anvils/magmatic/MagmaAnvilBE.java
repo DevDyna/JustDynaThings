@@ -33,7 +33,7 @@ public class MagmaAnvilBE extends CAnvilBE implements FluidMachine {
         if (isActiveRedstone()) {
             // getMachineHandler() only work inside tick event!
             if (canExtractMB() && tool.isDamageableItem()
-                    && tool.isDamaged() && !tool.is(zItemTags.BLAZING_ANVIL_DENY)) {
+                    && tool.isDamaged() && !tool.is(zItemTags.BLAZEGOLD_ANVIL_DENY)) {
                 extractMBWhenPossible();
                 Actions.repairItem(tool);
                 if (Config.ANVIL_BLAZEGOLD_SOUND_EVENT.get())

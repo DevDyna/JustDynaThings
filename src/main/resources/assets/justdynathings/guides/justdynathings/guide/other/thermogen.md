@@ -33,4 +33,4 @@ A new generator that generate Forge Energy based on a heat source block and a fl
 
 </GameScene>
 
-<RecipeFor id="justdynathings:thermo_generator" />
+<Recipe id="justdynathings:thermo_generator" />

@@ -4,8 +4,8 @@ import com.direwolf20.justdirethings.common.blockentities.basebe.FluidMachineBE;
 
 public interface FluidMachine extends FluidMachineBE {
 
-    int FLrate = 100;
-    int FLsize = 10000;
+    // int FLrate = 100;
+    // int FLsize = 10000;
 
     /**
      * MB / tick

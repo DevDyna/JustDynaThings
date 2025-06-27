@@ -173,6 +173,7 @@ public class DataBlockModelState extends BlockStateProvider {
          * NO T1 GENERATOR
          **/
         private void BaseGenerator(Block b) {
+                //TODO check if it work again
                 String tier = Constants.Tiers.materials
                                 .get(Integer.getInteger(DataGenUtil.getName(b).replace("generatort", "")));
                 simpleBlock(b,

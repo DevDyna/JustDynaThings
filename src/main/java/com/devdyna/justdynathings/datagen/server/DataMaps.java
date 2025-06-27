@@ -43,8 +43,8 @@ public class DataMaps extends DataMapProvider {
 
         // TODO expand
         builder(zDataMaps.THERMO_COOLANT)
-                .add(Fluids.WATER.builtInRegistryHolder(), new ThermoCoolant(1), false)
-                .add(Registration.REFINED_T2_FLUID_SOURCE.get().builtInRegistryHolder(), new ThermoCoolant(1.0f),
+                .add(Fluids.WATER.builtInRegistryHolder(), new ThermoCoolant(1.0f), false)
+                .add(Registration.REFINED_T2_FLUID_SOURCE.get().builtInRegistryHolder(), new ThermoCoolant(2.5f),
                         false)
                 .add(Registration.REFINED_T3_FLUID_SOURCE.get().builtInRegistryHolder(), new ThermoCoolant(5.5f),
                         false)

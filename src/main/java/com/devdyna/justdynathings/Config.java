@@ -99,7 +99,7 @@ public class Config {
 
         public static BooleanValue ANVILS_SOUND_EVENT;
 
-        public static IntValue ANVILS_FERRICORE_ITEM_COOLDOWN;
+        // public static IntValue ANVILS_FERRICORE_ITEM_COOLDOWN;
         public static BooleanValue ANVIL_FERRICORE_SOUND_EVENT;
 
         public static IntValue ANVILS_BLAZEGOLD_MB_RATE;
@@ -412,9 +412,9 @@ public class Config {
 
                 qCOMMON.comment(DataGenUtil.txtDecor(Constants.Anvils.t1));
 
-                ANVILS_FERRICORE_ITEM_COOLDOWN = qCOMMON
-                                .comment("Ticks of delay to consume a metallic items")
-                                .defineInRange("anvil_ferricore_cooldown", 200, 10, Integer.MAX_VALUE);
+                // ANVILS_FERRICORE_ITEM_COOLDOWN = qCOMMON
+                //                 .comment("Ticks of delay to consume a metallic items")
+                //                 .defineInRange("anvil_ferricore_cooldown", 200, 10, Integer.MAX_VALUE);
                 ANVIL_FERRICORE_SOUND_EVENT = qCOMMON
                                 .comment("Enable/Disable sound event on item repair")
                                 .define("anvil_ferricore_sound", true);

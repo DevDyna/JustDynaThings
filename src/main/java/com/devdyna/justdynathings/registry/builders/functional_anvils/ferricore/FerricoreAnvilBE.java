@@ -1,6 +1,7 @@
 package com.devdyna.justdynathings.registry.builders.functional_anvils.ferricore;
 
 import com.devdyna.justdynathings.Config;
+import com.devdyna.justdynathings.datamaps.zDataMaps;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.CAnvilBE;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
 import com.devdyna.justdynathings.registry.types.zItemTags;
@@ -20,8 +21,8 @@ public class FerricoreAnvilBE extends CAnvilBE {
         this(zBlockEntities.FERRICORE_ANVIL.get(), pos, state);
     }
 
-    int delay = Config.ANVILS_FERRICORE_ITEM_COOLDOWN.get();
-    int i = delay - 1;
+    // int delay = Config.ANVILS_FERRICORE_ITEM_COOLDOWN.get();
+    // int i = delay - 1;
 
     @Override
     public void tickServer() {
@@ -29,17 +30,19 @@ public class FerricoreAnvilBE extends CAnvilBE {
         var catalyst = getMachineHandler().getStackInSlot(1);
         if (isActiveRedstone()) {
             // getMachineHandler() only work inside tick event!
-            if (catalyst.is(zItemTags.FERRICORE_ANVIL_REPAIR) && tool.isDamageableItem()
-                    && tool.isDamaged() && tool.is(zItemTags.FERRICORE_ANVIL_ALLOW)) {
+            var data = catalyst.getItemHolder().getData(zDataMaps.FERRICORE_REPAIR);
 
-                if (i < delay)
-                    i++;
+            if (data != null && tool.isDamageableItem()
+                    && tool.isDamaged() && !tool.is(zItemTags.FERRICORE_ANVIL_DENY)) {
 
-                if (i >= delay) {
-                    i = 0;
+                // if (i < delay)
+                //     i++;
+
+                // if (i >= delay) {
+                //     i = 0;
                     catalyst.shrink(1);
-                }
-                Actions.repairItem(tool);
+                // }
+                Actions.repairItem(tool,data.durability());
 
                 if (Config.ANVIL_FERRICORE_SOUND_EVENT.get())
                     applySound();

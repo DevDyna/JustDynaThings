@@ -17,10 +17,10 @@ public class zItemTags {
 
         public static final TagKey<Item> UNIVERSAL_WRENCH = Material.tagItem("universal_wrench");
 
-        public static final TagKey<Item> FERRICORE_ANVIL_ALLOW = Material
-                        .tagItem(Constants.AnvilType + "s/" + Constants.Tiers.ferricore + "/allow");
-        public static final TagKey<Item> FERRICORE_ANVIL_REPAIR = Material
-                        .tagItem(Constants.AnvilType + "s/" + Constants.Tiers.ferricore + "/catalyst");
+        public static final TagKey<Item> FERRICORE_ANVIL_DENY = Material
+                        .tagItem(Constants.AnvilType + "s/" + Constants.Tiers.ferricore + "/deny");
+        // public static final TagKey<Item> FERRICORE_ANVIL_REPAIR = Material
+        //                 .tagItem(Constants.AnvilType + "s/" + Constants.Tiers.ferricore + "/catalyst");
         public static final TagKey<Item> BLAZEGOLD_ANVIL_DENY = Material
                         .tagItem(Constants.AnvilType + "s/" + Constants.Tiers.blazegold + "/deny");
         public static final TagKey<Item> CELESTIGEM_DENY = Material

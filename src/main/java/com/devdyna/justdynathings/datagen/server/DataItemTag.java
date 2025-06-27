@@ -56,45 +56,14 @@ public class DataItemTag extends ItemTagsProvider {
                 tag(zItemTags.CELESTIGEM_DENY)
                                 .add(Items.MACE);
 
-                tag(zItemTags.FERRICORE_ANVIL_ALLOW)
-                                .add(
-                                                Registration.FerricoreAxe.get(),
-                                                Registration.FerricorePickaxe.get(),
-                                                Registration.FerricoreShovel.get(),
-                                                Registration.FerricoreHoe.get(),
-                                                Registration.FerricoreSword.get(),
-                                                Registration.FerricoreBow.get(),
-                                                Registration.FerricoreHelmet.get(),
-                                                Registration.FerricoreChestplate.get(),
-                                                Registration.FerricoreLeggings.get(),
-                                                Registration.FerricoreBoots.get(),
-                                                Items.IRON_AXE,
-                                                Items.IRON_PICKAXE,
-                                                Items.IRON_SHOVEL,
-                                                Items.IRON_SWORD,
-                                                Items.IRON_HOE,
-                                                Items.IRON_HELMET,
-                                                Items.IRON_CHESTPLATE,
-                                                Items.IRON_LEGGINGS,
-                                                Items.IRON_BOOTS);
+                tag(zItemTags.FERRICORE_ANVIL_DENY)
+                                .add(Items.MACE);
 
-                tag(zItemTags.FERRICORE_ANVIL_REPAIR).add(Items.IRON_INGOT, Registration.FerricoreIngot.get());
-                tag(zItemTags.ECLIPSE_ALLOY_ANVIL_DENY).add(Items.MACE, Items.TRIDENT, Items.ELYTRA);
-
-                // tag(zItemTags.FLAWED_REVITALIZER)
-                // .add(Items.ECHO_SHARD);
+                tag(zItemTags.ECLIPSE_ALLOY_ANVIL_DENY)
+                                .add(Items.MACE);
 
                 tag(zItemTags.REFORGER_CATALYST)
-                                .add(
-                                                // Items.ECHO_SHARD,
-                                                // Items.NETHER_STAR,
-                                                Items.DIAMOND
-                                                // Items.NETHERITE_INGOT,
-                                                // Items.NETHERITE_SCRAP,
-                                                // Items.HEART_OF_THE_SEA,
-                                                // Items.HEAVY_CORE
-                                // ,zItems.CHAOTIC_DUST.get()
-                                );
+                                .add(Items.DIAMOND);
 
                 tag(zMultiTags.T2_SPREAD.item()).add(
                                 Registration.GooBlock_Tier1_ITEM.get());

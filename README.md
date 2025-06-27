@@ -27,17 +27,17 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [ ] Bio-Azalea Generator (passive FE generator powered by azalea roots)
 - [ ] Crystallizer and Liquid Crystalline
 - [ ] Rocket Boots Upgrade
-- [ ] Raw magmasteel (iron + magma) -> thermogen
+- [ ] Raw magmasteel (iron + magma) -> thermogen (?)
 - [ ] Mushroom Tree Feller upgrade
 
 ### Implemented but not fully completed
+- [ ] Reforger jei integration
 - [ ] Ticker rework and datagen
 - [ ] Sculk rework and datagen
-- [ ] Legacy Energized Goo datagen stuff
-- [ ] Updating GuideMe Documentation
-- [ ] Buddings datagen
-- [ ] ThermoGen datagen
-- [ ] BlackHole datagen
-- [ ] Liquid Crystalline datagen
+- [x] Legacy Energized Goo datagen stuff
+- [x] Updating GuideMe Documentation
+- [ ] Buddings datagen (?)
+- [ ] ThermoGen datamaps + jei integration
+- [ ] BlackHole rework and datagen
 - [ ] ThermoGen + Pipez dont work
 

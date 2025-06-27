@@ -10,27 +10,39 @@ item_ids:
 
 # The Power of Earth
 
-Only Heated FE rate : **270 FE/t**
-Heated & Cooled FE rate : **1620 FE/t**
+A new generator that generate Forge Energy based on a heat source blocks and a fluid coolant
 
-A new generator that generate Forge Energy based on a heat source block and a fluid coolant (optional to provide a multiplier)
+## Default Heat Sources
 
-<BlockImage id="justdynathings:thermo_generator" scale="4.0" p:facing="down" p:thermo_cooled="false" p:thermo_heated="false"/>
+| Item                                                                 | Registry ID                 | Efficiency (float) |
+| -------------------------------------------------------------------- | --------------------------- | ------------------ |
+| <ItemImage id= "minecraft:campfire"  scale="0.75" />                 | minecraft:campfire          | 0.5x               |
+| <ItemImage id= "minecraft:flint_and_steel"   scale="0.75" /> (fire)      | minecraft:fire              | 0.5x               |
+| <ItemImage id="minecraft:magma_block"   scale="0.75" />              | minecraft:magma_block       | 0.75x              |
+| <ItemImage id="minecraft:soul_campfire"  scale="0.75" />             | minecraft:soul_campfire     | 0.75x              |
+| <ItemImage id="minecraft:flint_and_steel"    scale="0.75" /> (soul_fire) | minecraft:soul_fire         | 0.75x              |
+| <ItemImage id= "minecraft:cauldron"   scale="0.75" /> (lava)         | minecraft:lava_cauldron     | 0.99x              |
+| <ItemImage id= "minecraft:lava_bucket"         scale="0.75" />       | minecraft:lava              | 1.0x               |
+| <ItemImage id= "justdirethings:coalblock_t1"  scale="0.75" />        | justdirethings:coalblock_t1 | 2.5x               |
+| <ItemImage id="justdirethings:coalblock_t2"  scale="0.75" />         | justdirethings:coalblock_t2 | 5.5x               |
+| <ItemImage id="justdirethings:coalblock_t3"  scale="0.75" />         | justdirethings:coalblock_t3 | 7.5x               |
+| <ItemImage id="justdirethings:coalblock_t4"  scale="0.75" />         | justdirethings:coalblock_t4 | 10.5x              |
 
-<GameScene zoom="4" interactive={true}>
-  <Block id="minecraft:magma_block"/>
-  <Block y="1" id="justdynathings:thermo_generator" scale="4.0" p:facing="down" p:thermo_cooled="false" p:thermo_heated="true"/>
+## Default Coolants
 
-  <Block y="-1" id="justdynathings:thermo_generator" scale="4.0" p:facing="up" p:thermo_cooled="false" p:thermo_heated="true"/>
+| Item                                                                      | Registry ID                             | Efficiency (float) |
+| ------------------------------------------------------------------------- | --------------------------------------- | ------------------ |
+| <ItemImage id= "minecraft:water_bucket"            scale="0.75" />        | minecraft:water                         | 1.0x               |
+| <ItemImage id="justdirethings:refined_t2_fluid_bucket"  scale="0.75" />   | justdirethings:refined_t2_fluid_source  | 2.5x               |
+| <ItemImage id= "justdirethings:refined_t3_fluid_bucket"  scale="0.75" />  | justdirethings:refined_t3_fluid_source  | 5.5x               |
+| <ItemImage id= "justdirethings:refined_t4_fluid_bucket"  scale="0.75" />  | justdirethings:refined_t4_fluid_source  | 7.5x               |
+| <ItemImage id= "justdirethings:polymorphic_fluid_bucket"  scale="0.75" /> | justdirethings:polymorphic_fluid_source | 10.5x              |
+| <ItemImage id= "justdirethings:time_fluid_bucket"    scale="0.75" />      | justdirethings:time_fluid_source        | 12.0x              |
 
-  <Block x="1" id="justdynathings:thermo_generator" scale="4.0" p:facing="west" p:thermo_cooled="false" p:thermo_heated="true"/>
+More info here :
 
-  <Block x="-1" id="justdynathings:thermo_generator" scale="4.0" p:facing="east" p:thermo_cooled="false" p:thermo_heated="true"/>
+[[Coolants](https://github.com/DevDyna/JustDynaThings/blob/main/src/generated/resources/data/justdynathings/data_maps/fluid/thermo/coolants.json)] [[Heat Sources](https://github.com/DevDyna/JustDynaThings/blob/main/src/generated/resources/data/justdynathings/data_maps/block/thermo/heat_sources.json)]
 
-  <BoxAnnotation color="#00FF00" min="0.25 -0.75 0.25" max="0.75 -1 0.75">
-        Yes , you can place upsidedown and it work!
-  </BoxAnnotation>
-
-</GameScene>
+<BlockImage id="justdynathings:thermo_generator" scale="4.0" p:facing="down" p:active="true"/>
 
 <Recipe id="justdynathings:thermo_generator" />

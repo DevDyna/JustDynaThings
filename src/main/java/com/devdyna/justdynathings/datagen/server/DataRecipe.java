@@ -2,6 +2,7 @@ package com.devdyna.justdynathings.datagen.server;
 
 import static net.minecraft.data.recipes.RecipeCategory.MISC;
 
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
@@ -28,6 +29,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -53,10 +55,11 @@ public class DataRecipe extends RecipeProvider {
                 super(output, completableFuture);
         }
 
+       public static List<Block> denyClearBlocks = List.of(zBlocks.PHASEBOX.get());
+
         @Override
         protected void buildRecipes(RecipeOutput c) {
-
-                // TODO recipe to clear nbt
+                // ---------------------------------------------------------------------------------------//
 
                 ShapedRecipeBuilder.shaped(MISC, zBlocks.FERRICORE_CLOCK.get(), 1)
                                 .pattern("ABA")
@@ -230,6 +233,15 @@ public class DataRecipe extends RecipeProvider {
                 SolarRecipe(zBlocks.ECLIPSEALLOY_SOLARGEN.get(), Items.SCULK_VEIN,
                                 Registration.Coal_T4.get(), Registration.EclipseAlloyIngot.get(), c);
 
+                zBlocks.zBlockItem.getEntries()
+                                .forEach(i -> {
+                                        if (!denyClearBlocks.contains(i.get()))
+                                                shapeless(i.get().asItem(), c,
+                                                                ResourceLocation.parse(i.getId() + "_clear_nbt"),
+                                                                i.get().asItem());
+                                });
+
+                // ---------------------------------------------------------------------------------------//
         }
 
         /**
@@ -293,10 +305,14 @@ public class DataRecipe extends RecipeProvider {
         }
 
         private void shapeless(Item output, RecipeOutput c, Item... items) {
+                shapeless(output, c, ResourceLocation.parse(output.getDescriptionId()), items);
+        }
+
+        private void shapeless(Item output, RecipeOutput c, ResourceLocation id, Item... items) {
                 var recipe = ShapelessRecipeBuilder.shapeless(MISC, output);
                 for (Item item : items)
                         recipe.requires(item);
-                recipe.unlockedBy(ID, itemInv(items)).group(ID).save(c);
+                recipe.unlockedBy(ID, itemInv(items)).group(ID).save(c, id);
         }
 
         private void AnvilRecipe(Block b, Item ingot, Item block, Item template, Block oldAnvil, RecipeOutput c) {

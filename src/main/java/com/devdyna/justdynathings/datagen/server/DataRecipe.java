@@ -202,21 +202,21 @@ public class DataRecipe extends RecipeProvider {
                                 Registration.RawEclipseAlloy.get(),
                                 Registration.TotemOfDeathRecall.get());
 
-                AnvilRecipe(zBlocks.METALLIC_ANVIL.get(), Registration.FerricoreIngot.get(),
+                AnvilRecipe(zBlocks.FERRICORE_ANVIL.get(), Registration.FerricoreIngot.get(),
                                 Registration.FerricoreBlock_ITEM.get(), Registration.TEMPLATE_FERRICORE.get(),
                                 zMultiTags.ANVILS.item(), c);
 
-                AnvilRecipe(zBlocks.MAGMATIC_ANVIL.get(), Registration.BlazegoldIngot.get(),
+                AnvilRecipe(zBlocks.BLAZEGOLD_ANVIL.get(), Registration.BlazegoldIngot.get(),
                                 Registration.BlazeGoldBlock_ITEM.get(), Registration.TEMPLATE_BLAZEGOLD.get(),
-                                zBlocks.METALLIC_ANVIL.get(), c);
+                                zBlocks.FERRICORE_ANVIL.get(), c);
 
-                AnvilRecipe(zBlocks.POWERED_ANVIL.get(), Registration.Celestigem.get(),
+                AnvilRecipe(zBlocks.CELESTIGEM_ANVIL.get(), Registration.Celestigem.get(),
                                 Registration.CelestigemBlock_ITEM.get(), Registration.TEMPLATE_CELESTIGEM.get(),
-                                zBlocks.MAGMATIC_ANVIL.get(), c);
+                                zBlocks.BLAZEGOLD_ANVIL.get(), c);
 
-                AnvilRecipe(zBlocks.TIME_ANVIL.get(), Registration.EclipseAlloyIngot.get(),
+                AnvilRecipe(zBlocks.ECLIPSEALLOY_ANVIL.get(), Registration.EclipseAlloyIngot.get(),
                                 Registration.EclipseAlloyBlock_ITEM.get(), Registration.TEMPLATE_ECLIPSEALLOY.get(),
-                                zBlocks.POWERED_ANVIL.get(), c);
+                                zBlocks.CELESTIGEM_ANVIL.get(), c);
 
                 SolarRecipe(zBlocks.FERRICORE_SOLARGEN.get(), Items.LAPIS_LAZULI,
                                 Registration.Coal_T1.get(), Registration.FerricoreIngot.get(), c);

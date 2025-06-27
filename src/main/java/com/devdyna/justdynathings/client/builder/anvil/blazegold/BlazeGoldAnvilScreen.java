@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.client.builder.anvil.powered;
+package com.devdyna.justdynathings.client.builder.anvil.blazegold;
 
 import com.direwolf20.justdirethings.client.screens.basescreens.BaseMachineScreen;
 import com.direwolf20.justdirethings.client.screens.standardbuttons.ToggleButtonFactory;
@@ -10,8 +10,8 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
-public class PoweredAnvilScreen extends BaseMachineScreen<PoweredAnvilGUI> {
-    public PoweredAnvilScreen(PoweredAnvilGUI container, Inventory inv, Component name) {
+public class BlazeGoldAnvilScreen extends BaseMachineScreen<BlazeGoldAnvilGUI> {
+    public BlazeGoldAnvilScreen(BlazeGoldAnvilGUI container, Inventory inv, Component name) {
         super(container, inv, name);
     }
 

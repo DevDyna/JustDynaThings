@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.functional_anvils.blazegold;
 
-import com.devdyna.justdynathings.client.builder.anvil.magmatic.MagmaticAnvilGUI;
+import com.devdyna.justdynathings.client.builder.anvil.blazegold.BlazeGoldAnvilGUI;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.CAnvilBlock;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
 import com.devdyna.justdynathings.utils.Actions;
@@ -19,12 +19,12 @@ public class BlazeGoldAnvilBlock extends CAnvilBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos p, BlockState s) {
-        return new BlazeGoldAnvilBE(zBlockEntities.MAGMATIC_ANVIL.get(), p, s);
+        return new BlazeGoldAnvilBE(zBlockEntities.BLAZEGOLD_ANVIL.get(), p, s);
     }
 
     @Override
     public void openMenu(Player p, BlockPos b) {
-        Actions.openMenu(p, (w, i, e) -> new MagmaticAnvilGUI(w, i, b), b);
+        Actions.openMenu(p, (w, i, e) -> new BlazeGoldAnvilGUI(w, i, b), b);
     }
 
     @Override

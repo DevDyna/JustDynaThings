@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.client.builder.anvil.magmatic;
+package com.devdyna.justdynathings.client.builder.anvil.eclipsealloy;
 
 import com.devdyna.justdynathings.registry.types.zBlocks;
 import com.devdyna.justdynathings.registry.types.zContainers;
@@ -11,14 +11,14 @@ import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.item.ItemStack;
 
 @SuppressWarnings("null")
-public class MagmaticAnvilGUI extends BaseMachineContainer {
+public class EclipseAlloyAnvilGUI extends BaseMachineContainer {
 
-    public MagmaticAnvilGUI(int windowId, Inventory playerInventory, FriendlyByteBuf extraData) {
+    public EclipseAlloyAnvilGUI(int windowId, Inventory playerInventory, FriendlyByteBuf extraData) {
         this(windowId, playerInventory, extraData.readBlockPos());
     }
 
-    public MagmaticAnvilGUI(int windowId, Inventory playerInventory, BlockPos blockPos) {
-        super(zContainers.MAGMATIC_ANVIL.get(), windowId, playerInventory, blockPos);
+    public EclipseAlloyAnvilGUI(int windowId, Inventory playerInventory, BlockPos blockPos) {
+        super(zContainers.ECLIPSEALLOY_ANVIL.get(), windowId, playerInventory, blockPos);
         addPlayerSlots(player.getInventory());
     }
 
@@ -30,7 +30,7 @@ public class MagmaticAnvilGUI extends BaseMachineContainer {
 
     @Override
     public boolean stillValid(Player playerIn) {
-        return stillValid(ContainerLevelAccess.create(player.level(), pos), player, zBlocks.MAGMATIC_ANVIL.get());
+        return stillValid(ContainerLevelAccess.create(player.level(), pos), player, zBlocks.ECLIPSEALLOY_ANVIL.get());
     }
 
     @Override

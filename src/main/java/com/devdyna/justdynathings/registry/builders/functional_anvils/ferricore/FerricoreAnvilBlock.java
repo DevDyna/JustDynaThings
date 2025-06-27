@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.functional_anvils.ferricore;
 
-import com.devdyna.justdynathings.client.builder.anvil.metallic.MetallicAnvilGUI;
+import com.devdyna.justdynathings.client.builder.anvil.ferricore.FerricoreAnvilGUI;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.CAnvilBlock;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
 import com.devdyna.justdynathings.utils.Actions;
@@ -19,12 +19,12 @@ public class FerricoreAnvilBlock extends CAnvilBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos p, BlockState s) {
-        return new FerricoreAnvilBE(zBlockEntities.METALLIC_ANVIL.get(), p, s);
+        return new FerricoreAnvilBE(zBlockEntities.FERRICORE_ANVIL.get(), p, s);
     }
 
     @Override
     public void openMenu(Player p, BlockPos b) {
-        Actions.openMenu(p, (w, i, e) -> new MetallicAnvilGUI(w, i, b), b);
+        Actions.openMenu(p, (w, i, e) -> new FerricoreAnvilGUI(w, i, b), b);
     }
 
     @Override

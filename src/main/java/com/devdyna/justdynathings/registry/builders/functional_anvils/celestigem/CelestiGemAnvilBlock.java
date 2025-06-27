@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.functional_anvils.celestigem;
 
-import com.devdyna.justdynathings.client.builder.anvil.powered.PoweredAnvilGUI;
+import com.devdyna.justdynathings.client.builder.anvil.celestigem.CelestiGemAnvilGUI;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.CAnvilBlock;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
 import com.devdyna.justdynathings.utils.Actions;
@@ -19,12 +19,12 @@ public class CelestiGemAnvilBlock extends CAnvilBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos p, BlockState s) {
-        return new CelestiGemAnvilBE(zBlockEntities.POWERED_ANVIL.get(), p, s);
+        return new CelestiGemAnvilBE(zBlockEntities.CELESTIGEM_ANVIL.get(), p, s);
     }
 
     @Override
     public void openMenu(Player p, BlockPos b) {
-        Actions.openMenu(p, (w, i, e) -> new PoweredAnvilGUI(w, i, b), b);
+        Actions.openMenu(p, (w, i, e) -> new CelestiGemAnvilGUI(w, i, b), b);
     }
 
     @Override

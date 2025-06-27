@@ -34,10 +34,10 @@ public class DataItemModel extends ItemModelProvider {
 
                 DataGenUtil.itemBlock(zBlocks.BLACKHOLE.get(), this);
 
-                AnvilBlockItem(zBlocks.METALLIC_ANVIL.get());
-                AnvilBlockItem(zBlocks.MAGMATIC_ANVIL.get());
-                AnvilBlockItem(zBlocks.POWERED_ANVIL.get());
-                AnvilBlockItem(zBlocks.TIME_ANVIL.get());
+                AnvilBlockItem(zBlocks.FERRICORE_ANVIL.get());
+                AnvilBlockItem(zBlocks.BLAZEGOLD_ANVIL.get());
+                AnvilBlockItem(zBlocks.CELESTIGEM_ANVIL.get());
+                AnvilBlockItem(zBlocks.ECLIPSEALLOY_ANVIL.get());
 
                 SolarBlockItem(zBlocks.FERRICORE_SOLARGEN.get());
                 SolarBlockItem(zBlocks.BLAZEGOLD_SOLARGEN.get());

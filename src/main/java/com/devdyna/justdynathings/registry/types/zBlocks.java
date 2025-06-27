@@ -46,10 +46,11 @@ public class zBlocks {
         public static final DeferredRegister.Blocks zBlockItem = DeferredRegister.createBlocks(Main.ID);
         public static final DeferredRegister.Blocks zGoo = DeferredRegister.createBlocks(Main.ID);
         public static final DeferredRegister.Blocks zBuddings = DeferredRegister.createBlocks(Main.ID);
-        // public static final DeferredRegister.Blocks zBlockFluids = DeferredRegister.createBlocks(Main.ID);
-        /** 
+        // public static final DeferredRegister.Blocks zBlockFluids =
+        // DeferredRegister.createBlocks(Main.ID);
+        /**
          * unused (due FuelBlockDW)
-        */
+         */
         public static final DeferredRegister.Blocks zCoals = DeferredRegister.createBlocks(Main.ID);
         // ---------------------------------------------------------------------------------------//
 
@@ -105,17 +106,16 @@ public class zBlocks {
         public static final DeferredHolder<Block, ?> ECLIPSEALLOY_SOLARGEN = Material
                         .registerItemAndBlock(Constants.SolarPanel.t4, EclipseAlloySolarBlock::new);
 
-        // TODO rename to match id
-        public static final DeferredHolder<Block, ?> METALLIC_ANVIL = Material
+        public static final DeferredHolder<Block, ?> FERRICORE_ANVIL = Material
                         .registerItemAndBlock(Constants.Anvils.t1, FerricoreAnvilBlock::new);
 
-        public static final DeferredHolder<Block, ?> MAGMATIC_ANVIL = Material
+        public static final DeferredHolder<Block, ?> BLAZEGOLD_ANVIL = Material
                         .registerItemAndBlock(Constants.Anvils.t2, BlazeGoldAnvilBlock::new);
 
-        public static final DeferredHolder<Block, ?> POWERED_ANVIL = Material
+        public static final DeferredHolder<Block, ?> CELESTIGEM_ANVIL = Material
                         .registerItemAndBlock(Constants.Anvils.t3, CelestiGemAnvilBlock::new);
 
-        public static final DeferredHolder<Block, ?> TIME_ANVIL = Material
+        public static final DeferredHolder<Block, ?> ECLIPSEALLOY_ANVIL = Material
                         .registerItemAndBlock(Constants.Anvils.t4, EclipseAlloyAnvilBlock::new);
 
         // ---------------------------------------------------------------------------------------//

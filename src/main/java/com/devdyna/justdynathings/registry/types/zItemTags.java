@@ -15,18 +15,16 @@ public class zItemTags {
         public static final TagKey<Item> REFORGER_CATALYST = Material.tagItem("reforger_catalyst");
         public static final TagKey<Item> CREATIVE_GOO_WRENCHES = Material.tagItem(Constants.Goo.Creative + "_wrenches");
 
-        // TODO rename to match ids
-
         public static final TagKey<Item> FERRICORE_ANVIL_ALLOW = Material
-                        .tagItem(Constants.AnvilType+"s/" + Constants.Tiers.ferricore + "/allow");
+                        .tagItem(Constants.AnvilType + "s/" + Constants.Tiers.ferricore + "/allow");
         public static final TagKey<Item> FERRICORE_ANVIL_REPAIR = Material
-                        .tagItem(Constants.AnvilType+"s/" + Constants.Tiers.ferricore + "/catalyst");
+                        .tagItem(Constants.AnvilType + "s/" + Constants.Tiers.ferricore + "/catalyst");
         public static final TagKey<Item> BLAZEGOLD_ANVIL_DENY = Material
-                        .tagItem(Constants.AnvilType+"s/" + Constants.Tiers.blazegold + "/deny");
+                        .tagItem(Constants.AnvilType + "s/" + Constants.Tiers.blazegold + "/deny");
         public static final TagKey<Item> CELESTIGEM_DENY = Material
-                        .tagItem(Constants.AnvilType+"s/" + Constants.Tiers.celestigem + "/deny");
+                        .tagItem(Constants.AnvilType + "s/" + Constants.Tiers.celestigem + "/deny");
         public static final TagKey<Item> ECLIPSE_ALLOY_ANVIL_DENY = Material
-                        .tagItem(Constants.AnvilType+"s/" + Constants.Tiers.eclipsealloy + "/deny");
+                        .tagItem(Constants.AnvilType + "s/" + Constants.Tiers.eclipsealloy + "/deny");
 
         public static final TagKey<Item> TIME_BUDDING = Material.tagItem("time_buddings");
         public static final TagKey<Item> AE2_COMPAT = Material.tagItem("compat/ae2/buddings");

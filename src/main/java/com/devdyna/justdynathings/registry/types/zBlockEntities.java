@@ -113,22 +113,24 @@ public class zBlockEntities {
                                         () -> Builder.of(EclipseAlloySolarBE::new, zBlocks.ECLIPSEALLOY_SOLARGEN.get())
                                                         .build(null));
 
-        // TODO rename to match id
-        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<FerricoreAnvilBE>> METALLIC_ANVIL = zBE
+        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<FerricoreAnvilBE>> FERRICORE_ANVIL = zBE
                         .register(Constants.Anvils.t1,
-                                        () -> Builder.of(FerricoreAnvilBE::new, zBlocks.METALLIC_ANVIL.get())
+                                        () -> Builder.of(FerricoreAnvilBE::new, zBlocks.FERRICORE_ANVIL.get())
                                                         .build(null));
 
-        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BlazeGoldAnvilBE>> MAGMATIC_ANVIL = zBE
+        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BlazeGoldAnvilBE>> BLAZEGOLD_ANVIL = zBE
                         .register(Constants.Anvils.t2,
-                                        () -> Builder.of(BlazeGoldAnvilBE::new, zBlocks.MAGMATIC_ANVIL.get()).build(null));
+                                        () -> Builder.of(BlazeGoldAnvilBE::new, zBlocks.BLAZEGOLD_ANVIL.get())
+                                                        .build(null));
 
-        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CelestiGemAnvilBE>> POWERED_ANVIL = zBE
+        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CelestiGemAnvilBE>> CELESTIGEM_ANVIL = zBE
                         .register(Constants.Anvils.t3,
-                                        () -> Builder.of(CelestiGemAnvilBE::new, zBlocks.POWERED_ANVIL.get()).build(null));
+                                        () -> Builder.of(CelestiGemAnvilBE::new, zBlocks.CELESTIGEM_ANVIL.get())
+                                                        .build(null));
 
-        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<EclipseAlloyAnvilBE>> TIME_ANVIL = zBE
+        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<EclipseAlloyAnvilBE>> ECLIPSEALLOY_ANVIL = zBE
                         .register(Constants.Anvils.t4,
-                                        () -> Builder.of(EclipseAlloyAnvilBE::new, zBlocks.TIME_ANVIL.get()).build(null));
+                                        () -> Builder.of(EclipseAlloyAnvilBE::new, zBlocks.ECLIPSEALLOY_ANVIL.get())
+                                                        .build(null));
 
 }

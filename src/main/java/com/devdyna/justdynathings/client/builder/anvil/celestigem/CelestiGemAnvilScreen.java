@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.client.builder.anvil.time;
+package com.devdyna.justdynathings.client.builder.anvil.celestigem;
 
 import com.direwolf20.justdirethings.client.screens.basescreens.BaseMachineScreen;
 import com.direwolf20.justdirethings.client.screens.standardbuttons.ToggleButtonFactory;
@@ -10,8 +10,8 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
-public class TimeAnvilScreen extends BaseMachineScreen<TimeAnvilGUI> {
-    public TimeAnvilScreen(TimeAnvilGUI container, Inventory inv, Component name) {
+public class CelestiGemAnvilScreen extends BaseMachineScreen<CelestiGemAnvilGUI> {
+    public CelestiGemAnvilScreen(CelestiGemAnvilGUI container, Inventory inv, Component name) {
         super(container, inv, name);
     }
 

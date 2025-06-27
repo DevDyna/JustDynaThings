@@ -21,7 +21,7 @@ public class Capabilities {
         public static void regCap(RegisterCapabilitiesEvent event) {
 
                 Block[] EnergyMachineBase = {
-                                zBlocks.POWERED_ANVIL.get(), zBlocks.TIME_ANVIL.get(), zBlocks.REVITALIZER.get(),
+                                zBlocks.CELESTIGEM_ANVIL.get(), zBlocks.ECLIPSEALLOY_ANVIL.get(), zBlocks.REVITALIZER.get(),
                                 // zBlocks.TICKER.get(),
                                 zBlocks.ENERGIZED_GOO.get(),
                                 zBlocks.T1_GOO.get(), zBlocks.T2_GOO.get(),
@@ -31,9 +31,9 @@ public class Capabilities {
                 Block[] FluidMachineBase = { zBlocks.BLACKHOLE.get() };
 
                 Block[] ItemStacMachineBase = { zBlocks.REFORGER.get(),
-                                zBlocks.METALLIC_ANVIL.get(),
-                                zBlocks.MAGMATIC_ANVIL.get(),
-                                zBlocks.POWERED_ANVIL.get(),
+                                zBlocks.FERRICORE_ANVIL.get(),
+                                zBlocks.BLAZEGOLD_ANVIL.get(),
+                                zBlocks.CELESTIGEM_ANVIL.get(),
                                 zBlocks.BLACKHOLE.get() };
 
                 // ---------------------------------------------------------------------------------------//
@@ -108,14 +108,14 @@ public class Capabilities {
                                 side) -> (be instanceof FluidMachineBE || be instanceof FluidMachine)
                                                 ? be.getData(zHandlers.MAGMATIC_LIQUID)
                                                 : null,
-                                zBlocks.MAGMATIC_ANVIL.get());
+                                zBlocks.BLAZEGOLD_ANVIL.get());
 
                 // fluid handler time anvil
                 event.registerBlock(FluidHandler.BLOCK, (level, pos, state, be,
                                 side) -> (be instanceof FluidMachineBE || be instanceof FluidMachine)
                                                 ? be.getData(Registration.PARADOX_FLUID_HANDLER)
                                                 : null,
-                                zBlocks.TIME_ANVIL.get());
+                                zBlocks.ECLIPSEALLOY_ANVIL.get());
 
         }
 

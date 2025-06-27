@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.functional_anvils.eclipsealloy;
 
-import com.devdyna.justdynathings.client.builder.anvil.time.TimeAnvilGUI;
+import com.devdyna.justdynathings.client.builder.anvil.eclipsealloy.EclipseAlloyAnvilGUI;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.CAnvilBlock;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
 import com.devdyna.justdynathings.utils.Actions;
@@ -19,12 +19,12 @@ public class EclipseAlloyAnvilBlock extends CAnvilBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos p, BlockState s) {
-        return new EclipseAlloyAnvilBE(zBlockEntities.TIME_ANVIL.get(), p, s);
+        return new EclipseAlloyAnvilBE(zBlockEntities.ECLIPSEALLOY_ANVIL.get(), p, s);
     }
 
     @Override
     public void openMenu(Player p, BlockPos b) {
-        Actions.openMenu(p, (w, i, e) -> new TimeAnvilGUI(w, i, b), b);
+        Actions.openMenu(p, (w, i, e) -> new EclipseAlloyAnvilGUI(w, i, b), b);
     }
 
     @Override

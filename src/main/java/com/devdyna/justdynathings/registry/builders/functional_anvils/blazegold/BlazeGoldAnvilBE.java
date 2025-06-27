@@ -24,7 +24,7 @@ public class BlazeGoldAnvilBE extends CAnvilBE implements FluidMachine {
     }
 
     public BlazeGoldAnvilBE(BlockPos pos, BlockState state) {
-        this(zBlockEntities.MAGMATIC_ANVIL.get(), pos, state);
+        this(zBlockEntities.BLAZEGOLD_ANVIL.get(), pos, state);
     }
 
     @Override

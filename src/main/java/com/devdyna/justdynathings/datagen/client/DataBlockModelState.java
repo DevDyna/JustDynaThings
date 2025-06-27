@@ -76,10 +76,10 @@ public class DataBlockModelState extends BlockStateProvider {
                                 modLoc("block/echoing_budding/phasorite/alive"),
                                 CubeAllCheap(ID + ":block/echoing_budding/phasorite", this));
 
-                AnvilStateModel(zBlocks.METALLIC_ANVIL.get());
-                AnvilStateModel(zBlocks.MAGMATIC_ANVIL.get());
-                AnvilStateModel(zBlocks.POWERED_ANVIL.get());
-                AnvilStateModel(zBlocks.TIME_ANVIL.get());
+                AnvilStateModel(zBlocks.FERRICORE_ANVIL.get());
+                AnvilStateModel(zBlocks.BLAZEGOLD_ANVIL.get());
+                AnvilStateModel(zBlocks.CELESTIGEM_ANVIL.get());
+                AnvilStateModel(zBlocks.ECLIPSEALLOY_ANVIL.get());
 
         }
 

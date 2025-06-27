@@ -29,7 +29,7 @@ public class EclipseAlloyAnvilBE extends CAnvilBE implements EnergyMachine, Flui
     }
 
     public EclipseAlloyAnvilBE(BlockPos pos, BlockState state) {
-        this(zBlockEntities.TIME_ANVIL.get(), pos, state);
+        this(zBlockEntities.ECLIPSEALLOY_ANVIL.get(), pos, state);
     }
 
     @Override

@@ -1,9 +1,9 @@
 package com.devdyna.justdynathings;
 
-import com.devdyna.justdynathings.client.builder.anvil.magmatic.MagmaticAnvilScreen;
-import com.devdyna.justdynathings.client.builder.anvil.metallic.MetallicAnvilScreen;
-import com.devdyna.justdynathings.client.builder.anvil.powered.PoweredAnvilScreen;
-import com.devdyna.justdynathings.client.builder.anvil.time.TimeAnvilScreen;
+import com.devdyna.justdynathings.client.builder.anvil.blazegold.BlazeGoldAnvilScreen;
+import com.devdyna.justdynathings.client.builder.anvil.celestigem.CelestiGemAnvilScreen;
+import com.devdyna.justdynathings.client.builder.anvil.eclipsealloy.EclipseAlloyAnvilScreen;
+import com.devdyna.justdynathings.client.builder.anvil.ferricore.FerricoreAnvilScreen;
 import com.devdyna.justdynathings.client.builder.blackhole.BlackHoleScreen;
 import com.devdyna.justdynathings.client.builder.clock.ClockScreen;
 import com.devdyna.justdynathings.client.builder.reforger.ReforgerScreen;
@@ -32,10 +32,10 @@ public class Client {
         event.register(zContainers.FERRICORE_CLOCK.get(), ClockScreen::new);
         event.register(zContainers.THERMOGEN.get(), ThermoScreen::new);
         event.register(zContainers.BLACKHOLE.get(), BlackHoleScreen::new);
-        event.register(zContainers.METALLIC_ANVIL.get(), MetallicAnvilScreen::new);
-        event.register(zContainers.MAGMATIC_ANVIL.get(), MagmaticAnvilScreen::new);
-        event.register(zContainers.POWERED_ANVIL.get(), PoweredAnvilScreen::new);
-        event.register(zContainers.TIME_ANVIL.get(), TimeAnvilScreen::new);
+        event.register(zContainers.FERRICORE_ANVIL.get(), FerricoreAnvilScreen::new);
+        event.register(zContainers.BLAZEGOLD_ANVIL.get(), BlazeGoldAnvilScreen::new);
+        event.register(zContainers.CELESTIGEM_ANVIL.get(), CelestiGemAnvilScreen::new);
+        event.register(zContainers.ECLIPSEALLOY_ANVIL.get(), EclipseAlloyAnvilScreen::new);
 
         event.register(zContainers.FERRICORE_SOLAR_PANEL.get(), FerricoreSolarPanelScreen::new);
         event.register(zContainers.BLAZEGOLD_SOLAR_PANEL.get(), BlazegoldSolarPanelScreen::new);

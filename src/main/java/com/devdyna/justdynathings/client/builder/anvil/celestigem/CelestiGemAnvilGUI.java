@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.client.builder.anvil.time;
+package com.devdyna.justdynathings.client.builder.anvil.celestigem;
 
 import com.devdyna.justdynathings.registry.types.zBlocks;
 import com.devdyna.justdynathings.registry.types.zContainers;
@@ -11,14 +11,14 @@ import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.item.ItemStack;
 
 @SuppressWarnings("null")
-public class TimeAnvilGUI extends BaseMachineContainer {
+public class CelestiGemAnvilGUI extends BaseMachineContainer {
 
-    public TimeAnvilGUI(int windowId, Inventory playerInventory, FriendlyByteBuf extraData) {
+    public CelestiGemAnvilGUI(int windowId, Inventory playerInventory, FriendlyByteBuf extraData) {
         this(windowId, playerInventory, extraData.readBlockPos());
     }
 
-    public TimeAnvilGUI(int windowId, Inventory playerInventory, BlockPos blockPos) {
-        super(zContainers.TIME_ANVIL.get(), windowId, playerInventory, blockPos);
+    public CelestiGemAnvilGUI(int windowId, Inventory playerInventory, BlockPos blockPos) {
+        super(zContainers.CELESTIGEM_ANVIL.get(), windowId, playerInventory, blockPos);
         addPlayerSlots(player.getInventory());
     }
 
@@ -30,7 +30,7 @@ public class TimeAnvilGUI extends BaseMachineContainer {
 
     @Override
     public boolean stillValid(Player playerIn) {
-        return stillValid(ContainerLevelAccess.create(player.level(), pos), player, zBlocks.TIME_ANVIL.get());
+        return stillValid(ContainerLevelAccess.create(player.level(), pos), player, zBlocks.CELESTIGEM_ANVIL.get());
     }
 
     @Override

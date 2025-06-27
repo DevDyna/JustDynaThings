@@ -17,7 +17,7 @@ public class FerricoreAnvilBE extends CAnvilBE {
     }
 
     public FerricoreAnvilBE(BlockPos pos, BlockState state) {
-        this(zBlockEntities.METALLIC_ANVIL.get(), pos, state);
+        this(zBlockEntities.FERRICORE_ANVIL.get(), pos, state);
     }
 
     int delay = Config.ANVILS_FERRICORE_ITEM_COOLDOWN.get();

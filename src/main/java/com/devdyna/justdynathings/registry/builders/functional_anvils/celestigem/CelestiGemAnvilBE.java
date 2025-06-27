@@ -24,7 +24,7 @@ public class CelestiGemAnvilBE extends CAnvilBE implements EnergyMachine {
     }
 
     public CelestiGemAnvilBE(BlockPos pos, BlockState state) {
-        this(zBlockEntities.POWERED_ANVIL.get(), pos, state);
+        this(zBlockEntities.CELESTIGEM_ANVIL.get(), pos, state);
     }
 
     @Override

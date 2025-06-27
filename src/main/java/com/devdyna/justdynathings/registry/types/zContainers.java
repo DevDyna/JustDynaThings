@@ -2,10 +2,10 @@ package com.devdyna.justdynathings.registry.types;
 
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
-import com.devdyna.justdynathings.client.builder.anvil.magmatic.MagmaticAnvilGUI;
-import com.devdyna.justdynathings.client.builder.anvil.metallic.MetallicAnvilGUI;
-import com.devdyna.justdynathings.client.builder.anvil.powered.PoweredAnvilGUI;
-import com.devdyna.justdynathings.client.builder.anvil.time.TimeAnvilGUI;
+import com.devdyna.justdynathings.client.builder.anvil.blazegold.BlazeGoldAnvilGUI;
+import com.devdyna.justdynathings.client.builder.anvil.celestigem.CelestiGemAnvilGUI;
+import com.devdyna.justdynathings.client.builder.anvil.eclipsealloy.EclipseAlloyAnvilGUI;
+import com.devdyna.justdynathings.client.builder.anvil.ferricore.FerricoreAnvilGUI;
 import com.devdyna.justdynathings.client.builder.blackhole.BlackHoleGUI;
 import com.devdyna.justdynathings.client.builder.clock.ClockGUI;
 import com.devdyna.justdynathings.client.builder.reforger.ReforgerGUI;
@@ -44,24 +44,24 @@ public class zContainers {
         public static final DeferredHolder<MenuType<?>, MenuType<BlackHoleGUI>> BLACKHOLE = zCTNR
                         .register(Constants.Blocks.BlackHole,
                                         () -> IMenuTypeExtension.create(BlackHoleGUI::new));
-        // TODO rename to match id
-        public static final DeferredHolder<MenuType<?>, MenuType<MetallicAnvilGUI>> METALLIC_ANVIL = zCTNR
+
+        public static final DeferredHolder<MenuType<?>, MenuType<FerricoreAnvilGUI>> FERRICORE_ANVIL = zCTNR
                         .register(Constants.Anvils.t1,
-                                        () -> IMenuTypeExtension.create(MetallicAnvilGUI::new));
+                                        () -> IMenuTypeExtension.create(FerricoreAnvilGUI::new));
 
-        public static final DeferredHolder<MenuType<?>, MenuType<MagmaticAnvilGUI>> MAGMATIC_ANVIL = zCTNR
+        public static final DeferredHolder<MenuType<?>, MenuType<BlazeGoldAnvilGUI>> BLAZEGOLD_ANVIL = zCTNR
                         .register(Constants.Anvils.t2,
-                                        () -> IMenuTypeExtension.create(MagmaticAnvilGUI::new));
+                                        () -> IMenuTypeExtension.create(BlazeGoldAnvilGUI::new));
 
-        public static final DeferredHolder<MenuType<?>, MenuType<PoweredAnvilGUI>> POWERED_ANVIL = zCTNR
+        public static final DeferredHolder<MenuType<?>, MenuType<CelestiGemAnvilGUI>> CELESTIGEM_ANVIL = zCTNR
                         .register(Constants.Anvils.t3,
-                                        () -> IMenuTypeExtension.create(PoweredAnvilGUI::new));
+                                        () -> IMenuTypeExtension.create(CelestiGemAnvilGUI::new));
 
-        public static final DeferredHolder<MenuType<?>, MenuType<TimeAnvilGUI>> TIME_ANVIL = zCTNR
+        public static final DeferredHolder<MenuType<?>, MenuType<EclipseAlloyAnvilGUI>> ECLIPSEALLOY_ANVIL = zCTNR
                         .register(Constants.Anvils.t4,
-                                        () -> IMenuTypeExtension.create(TimeAnvilGUI::new));
+                                        () -> IMenuTypeExtension.create(EclipseAlloyAnvilGUI::new));
 
-                                        //maybe could be optimized but if work dont touch it!
+        // maybe could be optimized but if work dont touch it!
         public static final DeferredHolder<MenuType<?>, MenuType<FerricoreSolarPanelGUI>> FERRICORE_SOLAR_PANEL = zCTNR
                         .register(Constants.SolarPanel.t1,
                                         () -> IMenuTypeExtension.create(FerricoreSolarPanelGUI::new));

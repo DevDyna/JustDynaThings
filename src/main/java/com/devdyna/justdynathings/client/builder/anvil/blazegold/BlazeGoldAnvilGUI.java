@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.client.builder.anvil.metallic;
+package com.devdyna.justdynathings.client.builder.anvil.blazegold;
 
 import com.devdyna.justdynathings.registry.types.zBlocks;
 import com.devdyna.justdynathings.registry.types.zContainers;
@@ -11,27 +11,26 @@ import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.item.ItemStack;
 
 @SuppressWarnings("null")
-public class MetallicAnvilGUI extends BaseMachineContainer {
+public class BlazeGoldAnvilGUI extends BaseMachineContainer {
 
-    public MetallicAnvilGUI(int windowId, Inventory playerInventory, FriendlyByteBuf extraData) {
+    public BlazeGoldAnvilGUI(int windowId, Inventory playerInventory, FriendlyByteBuf extraData) {
         this(windowId, playerInventory, extraData.readBlockPos());
     }
 
-    public MetallicAnvilGUI(int windowId, Inventory playerInventory, BlockPos blockPos) {
-        super(zContainers.METALLIC_ANVIL.get(), windowId, playerInventory, blockPos);
+    public BlazeGoldAnvilGUI(int windowId, Inventory playerInventory, BlockPos blockPos) {
+        super(zContainers.BLAZEGOLD_ANVIL.get(), windowId, playerInventory, blockPos);
         addPlayerSlots(player.getInventory());
     }
 
     @Override
     public void addMachineSlots() {
         machineHandler = baseMachineBE.getMachineHandler();
-        addSlotRange(machineHandler, 0, 60, 13, 1, 18);
-        addSlotRange(machineHandler, 1, 80, 13, 1, 18);
+        addSlotRange(machineHandler, 0, 80, 13, 1, 18);
     }
 
     @Override
     public boolean stillValid(Player playerIn) {
-        return stillValid(ContainerLevelAccess.create(player.level(), pos), player, zBlocks.METALLIC_ANVIL.get());
+        return stillValid(ContainerLevelAccess.create(player.level(), pos), player, zBlocks.BLAZEGOLD_ANVIL.get());
     }
 
     @Override

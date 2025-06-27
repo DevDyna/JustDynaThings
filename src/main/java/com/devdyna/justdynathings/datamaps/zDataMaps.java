@@ -14,7 +14,7 @@ import net.neoforged.neoforge.registries.datamaps.RegisterDataMapTypesEvent;
 public class zDataMaps {
 
     public static final DataMapType<Item, FerricoreRepair> FERRICORE_REPAIR = DataMapType.builder(
-            ResourceLocation.fromNamespaceAndPath(ID, "anvils/ferricore_repair"),
+            ResourceLocation.fromNamespaceAndPath(ID, "anvils/ferricore/repair"),
             Registries.ITEM,
             FerricoreRepair.CODEC).build();
 

@@ -99,12 +99,12 @@ public class SculkBE extends BaseMachineBE implements FluidMachine {
 
     @Override
     public int getStandardFluidCost() {
-        return FLrate;
+        return 0;
     }
 
     @Override
     public int getMaxMB() {
-        return FLsize;
+        return 0;
     }
 
 

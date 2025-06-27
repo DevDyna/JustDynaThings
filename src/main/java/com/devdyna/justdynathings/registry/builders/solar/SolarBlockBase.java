@@ -26,6 +26,8 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+//TODO shift-click with wrench to quick-pickup
+
 @SuppressWarnings("null")
 public class SolarBlockBase extends BaseMachineBlock {
 

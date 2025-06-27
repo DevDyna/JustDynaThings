@@ -1,5 +1,8 @@
 {
   "values": {
+    "justdirethings:eclipsealloy_block": {
+      "heatEfficiency": 2.5
+    },
     "minecraft:campfire": {
       "heatEfficiency": 0.5
     },

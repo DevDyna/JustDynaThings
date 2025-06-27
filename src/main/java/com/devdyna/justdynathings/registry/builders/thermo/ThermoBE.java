@@ -48,16 +48,17 @@ public class ThermoBE extends BaseMachineBE implements FluidMachine, EnergyGener
 
         updateBlock(heat != null, coolant != null);
 
-        if (isActiveRedstone() && canExtractMB() && canRecieveFE()) {
-            if (getBlockState().getValue(zProperties.ACTIVE).booleanValue()) {
+        if (heat != null && coolant != null)
+            if (isActiveRedstone() && canExtractMB() && canRecieveFE()) {
+                if (getBlockState().getValue(zProperties.ACTIVE).booleanValue()) {
 
-                extractMBWhenPossible((int) (coolant.coolantEfficiency() * 100));
+                    extractMBWhenPossible((int) (1 / (coolant.coolantEfficiency() * 10)));
 
-                increaseFEWhenPossible((int) (coolant.coolantEfficiency() * 100 * heat.heatEfficiency()));
+                    increaseFEWhenPossible((int) ((1 / coolant.coolantEfficiency()) * 1250 * heat.heatEfficiency()));
+                }
+                if (canExtractFE())
+                    Actions.providePowerAdjacent(getBlockPos(), level, getEnergyStored());
             }
-            if (canExtractFE())
-                Actions.providePowerAdjacent(getBlockPos(), level, getEnergyStored());
-        }
     }
 
     /**

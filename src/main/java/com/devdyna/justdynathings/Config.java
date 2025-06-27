@@ -200,6 +200,7 @@ public class Config {
 
                 qCOMMON.comment(DataGenUtil.txtDecor(Constants.Blocks.BlackHole));
 
+                //TODO rework to make more blackhole storages
                 BLACKHOLE_KEEP_STORAGE = qCOMMON.comment("Keep stored stuff when redstone disable it")
                                 .define("blackhole_keep", true);
                 BLACKHOLE_FE_CAPACITY = qCOMMON

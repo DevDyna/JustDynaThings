@@ -35,8 +35,7 @@ public class DataMaps extends DataMapProvider {
     @Override
     protected void gather() {
 
-
-//TODO jei integration
+        // TODO jei integration
 
         builder(zDataMaps.FERRICORE_REPAIR)
                 .add(Registration.FerricoreIngot.get().builtInRegistryHolder(), new FerricoreRepair(128), false)
@@ -62,7 +61,8 @@ public class DataMaps extends DataMapProvider {
                 .add(Blocks.FIRE.builtInRegistryHolder(), new ThermoHeatSource(0.5f), false)
                 .add(Blocks.SOUL_FIRE.builtInRegistryHolder(), new ThermoHeatSource(0.75f), false)
                 .add(Blocks.CAMPFIRE.builtInRegistryHolder(), new ThermoHeatSource(0.5f), false)
-                .add(Blocks.SOUL_CAMPFIRE.builtInRegistryHolder(), new ThermoHeatSource(0.75f), false);
+                .add(Blocks.SOUL_CAMPFIRE.builtInRegistryHolder(), new ThermoHeatSource(0.75f), false)
+                .add(Registration.EclipseAlloyBlock.get().builtInRegistryHolder(), new ThermoHeatSource(2.5f), false);
 
     }
 

@@ -1,6 +1,7 @@
 package com.devdyna.justdynathings;
 
 import com.devdyna.justdynathings.compat.core;
+import com.devdyna.justdynathings.datamaps.zDataMaps;
 import com.devdyna.justdynathings.registry.Material;
 
 import net.neoforged.bus.api.IEventBus;
@@ -21,6 +22,7 @@ public class Main {
                 Config.register(chest);
 
                 bus.addListener(Capabilities::regCap);
+                bus.addListener(zDataMaps::register);
 
                 core.regCompat(bus);
 

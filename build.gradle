@@ -109,25 +109,30 @@ configurations {
 }
 
 repositories {
-    exclusiveContent {
-        forRepository {
-            maven {
-                url "https://cursemaven.com"
-            }
-        }
-        filter {
+
+    //required for jei
+        maven {
+        url = "https://maven.blamejared.com"
+    }
+
+    maven {
+        url "https://cursemaven.com"
+        content {
             includeGroup "curse.maven"
         }
-    }
-    maven {
-        url "https://maven.su5ed.dev/releases"
     }
 }
 
 dependencies {
+
+    //jei
+    compileOnly "mezz.jei:jei-${jei_minecraft}-common-api:${jei_version}"
+    compileOnly "mezz.jei:jei-${jei_minecraft}-neoforge-api:${jei_version}"
+    localRuntime "mezz.jei:jei-${jei_minecraft}-neoforge:${jei_version}"
+
     //main
     implementation "curse.maven:justdirethings-1002348:6369120"
-    implementation "curse.maven:jei-238222:5846880"
+    
     //compats
     implementation "curse.maven:ae2-223794:6140781"
     implementation "curse.maven:extendedae-892005:6164133"
@@ -137,6 +142,12 @@ dependencies {
     implementation "curse.maven:glodium-957920:5821676"
     implementation "curse.maven:kotlin-351264:5978393"
     implementation "curse.maven:owo-532610:6314117"
+
+
+    compileOnly "mezz.jei:jei-1.21.1-common-api:19.18.10.218"
+    compileOnly "mezz.jei:jei-1.21.1-neoforge-api:19.18.10.218"
+    runtimeOnly "mezz.jei:jei-1.21.1-neoforge:19.18.10.218"
+
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

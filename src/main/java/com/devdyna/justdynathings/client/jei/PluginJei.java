@@ -8,6 +8,7 @@ import java.util.List;
 import com.devdyna.justdynathings.datagen.server.DataRecipe;
 import com.devdyna.justdynathings.registry.types.zBlocks;
 import mezz.jei.api.IModPlugin;
+import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.RecipeTypes;
 import mezz.jei.api.runtime.IJeiRuntime;
 import net.minecraft.client.Minecraft;
@@ -16,7 +17,8 @@ import net.minecraft.world.item.crafting.CraftingRecipe;
 import net.minecraft.world.item.crafting.RecipeHolder;
 
 @SuppressWarnings("null")
-public class JeiPlugin implements IModPlugin {
+@JeiPlugin
+public class PluginJei implements IModPlugin {
 
     @Override
     public ResourceLocation getPluginUid() {

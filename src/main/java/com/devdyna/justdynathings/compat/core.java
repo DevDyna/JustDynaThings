@@ -24,24 +24,24 @@ public class core {
         private static void ae2_compat(IEventBus bus) {
                 LogUtil.info("AppliedEnergistics2"
                                 + (Constants.ModAddonCheck.AppliedEnergistics2 ? " found " : " not found "));
-                if (Constants.ModAddonCheck.AppliedEnergistics2) {
+                if (Constants.ModAddonCheck.AppliedEnergistics2)
                         com.devdyna.justdynathings.compat.ae2.init.register(bus);
-                }
+
         }
 
         private static void extendedae_compat(IEventBus bus) {
                 LogUtil.info("ExtendedAE" + (Constants.ModAddonCheck.ExtendedAE ? " found " : " not found "));
-                if (Constants.ModAddonCheck.ExtendedAE) {
+                if (Constants.ModAddonCheck.ExtendedAE)
                         com.devdyna.justdynathings.compat.extendedae.init.register(bus);
-                }
+
         }
 
         private static void phasorite_compat(IEventBus bus) {
                 LogUtil.info("PhasoriteNetworks"
                                 + (Constants.ModAddonCheck.PhasoriteNetworks ? " found " : " not found "));
-                if (Constants.ModAddonCheck.PhasoriteNetworks) {
+                if (Constants.ModAddonCheck.PhasoriteNetworks)
                         com.devdyna.justdynathings.compat.phasorite.init.register(bus);
-                }
+
         }
 
         private static void createGuide() {
@@ -52,4 +52,5 @@ public class core {
                         Guide.builder(ResourceLocation.parse(Main.ID + ":guide")).build();
 
         }
+
 }

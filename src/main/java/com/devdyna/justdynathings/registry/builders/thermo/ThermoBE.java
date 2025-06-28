@@ -52,9 +52,9 @@ public class ThermoBE extends BaseMachineBE implements FluidMachine, EnergyGener
             if (isActiveRedstone() && canExtractMB() && canRecieveFE()) {
                 if (getBlockState().getValue(zProperties.ACTIVE).booleanValue()) {
 
-                    extractMBWhenPossible((int) ((coolant.coolantEfficiency() * 50)));
+                    extractMBWhenPossible((int) ((125 / coolant.coolantEfficiency())));
 
-                    increaseFEWhenPossible((int) (coolant.coolantEfficiency() * 1250 * heat.heatEfficiency()));
+                    increaseFEWhenPossible((int) (125 * coolant.coolantEfficiency() * heat.heatEfficiency()));
                 }
                 if (canExtractFE())
                     Actions.providePowerAdjacent(getBlockPos(), level, getEnergyStored());
@@ -62,9 +62,6 @@ public class ThermoBE extends BaseMachineBE implements FluidMachine, EnergyGener
     }
 
     /**
-     * TODO
-     * <br/>
-     * <br/>
      * update the blockstate properties
      * Credits: Thanks "@S4lvious" to optimize block update logic
      * <br/>
@@ -119,12 +116,12 @@ public class ThermoBE extends BaseMachineBE implements FluidMachine, EnergyGener
 
     @Override
     public int getMaxEnergy() {
-        return Config.THERMOGEN_FE_CAPACITY.get();
+        return Config.THERMOGEN_FE_CAPACITY.getAsInt();
     }
 
     @Override
     public int getMaxMB() {
-        return Config.THERMOGEN_MB_CAPACITY.get();
+        return Config.THERMOGEN_MB_CAPACITY.getAsInt();
     }
 
     @Override

@@ -40,12 +40,10 @@ A new generator that generate Forge Energy based on a heat source blocks and a f
 | <ItemImage id= "justdirethings:polymorphic_fluid_bucket"  scale="0.75" /> | justdirethings:polymorphic_fluid_source | 2.5x               |
 | <ItemImage id= "justdirethings:time_fluid_bucket"    scale="0.75" />      | justdirethings:time_fluid_source        | 10.0x              |
 
-More info here :
-
-[[Coolants](https://github.com/DevDyna/JustDynaThings/blob/main/src/generated/resources/data/justdynathings/data_maps/fluid/thermo/coolants.json)] [[Heat Sources](https://github.com/DevDyna/JustDynaThings/blob/main/src/generated/resources/data/justdynathings/data_maps/block/thermo/heat_sources.json)]
-
 ## Looking inside
 
 FE gen = 125 x CoolantEfficiency x HeatEfficiency
 
 MB cost = 125 / CoolantEfficiency
+
+[[Coolants](https://github.com/DevDyna/JustDynaThings/blob/main/src/generated/resources/data/justdynathings/data_maps/fluid/thermo_coolants.json)] [[Heat Sources](https://github.com/DevDyna/JustDynaThings/blob/main/src/generated/resources/data/justdynathings/data_maps/block/thermo_heat_sources.json)]

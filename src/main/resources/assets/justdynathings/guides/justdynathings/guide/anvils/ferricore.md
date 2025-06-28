@@ -16,4 +16,4 @@ An anvil that repair tools with <ItemLink id="minecraft:iron_ingot"/> or <ItemLi
 
 <RecipeFor id="justdynathings:ferricore_anvil" />
 
-Repair items and durability repair is [datadriven](https://github.com/DevDyna/JustDynaThings/blob/main/src/generated/resources/data/justdynathings/data_maps/item/anvils/ferricore/repair.json)
+Repair items and durability repair is [DataDriven](https://github.com/DevDyna/JustDynaThings/blob/main/src/generated/resources/data/justdynathings/data_maps/item/anvils/ferricore_repair.json)

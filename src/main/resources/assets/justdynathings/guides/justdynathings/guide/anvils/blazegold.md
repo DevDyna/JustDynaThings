@@ -10,7 +10,7 @@ item_ids:
 
 # BlazeGold Anvil
 
-An anvil that repair items using lava or other high temperature fluids
+An anvil that repair items using a [high temperature fluid](https://github.com/DevDyna/JustDynaThings/blob/main/src/generated/resources/data/justdynathings/data_maps/fluid/anvils/blazegold_repair.json)
 
 <BlockImage id="justdynathings:blazegold_anvil" scale="4.0"/>
 

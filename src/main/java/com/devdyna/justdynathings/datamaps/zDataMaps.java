@@ -21,12 +21,12 @@ public class zDataMaps {
                         FerricoreItemRepair.CODEC).build();
 
         public static final DataMapType<Block, ThermoBlockHeatSource> THERMO_HEAT_SOURCE = DataMapType.builder(
-                        ResourceLocation.fromNamespaceAndPath(ID, "thermo/heat_sources"),
+                        ResourceLocation.fromNamespaceAndPath(ID, "thermo_heat_sources"),
                         Registries.BLOCK,
                         ThermoBlockHeatSource.CODEC).build();
 
         public static final DataMapType<Fluid, ThermoFluidCoolant> THERMO_COOLANT = DataMapType.builder(
-                        ResourceLocation.fromNamespaceAndPath(ID, "thermo/coolants"),
+                        ResourceLocation.fromNamespaceAndPath(ID, "thermo_coolants"),
                         Registries.FLUID,
                         ThermoFluidCoolant.CODEC).build();
 

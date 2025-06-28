@@ -49,9 +49,9 @@ public class DataMaps extends DataMapProvider {
                         false)
                 .add(Registration.REFINED_T4_FLUID_SOURCE.get().builtInRegistryHolder(), new ThermoCoolant(7.5f),
                         false)
-                .add(Registration.POLYMORPHIC_FLUID_SOURCE.get().builtInRegistryHolder(), new ThermoCoolant(10.5f),
+                .add(Registration.POLYMORPHIC_FLUID_SOURCE.get().builtInRegistryHolder(), new ThermoCoolant(2.5f),
                         false)
-                .add(Registration.TIME_FLUID_SOURCE.get().builtInRegistryHolder(), new ThermoCoolant(12f), false);
+                .add(Registration.TIME_FLUID_SOURCE.get().builtInRegistryHolder(), new ThermoCoolant(10f), false);
 
         builder(zDataMaps.THERMO_HEAT_SOURCE)
                 .add(Blocks.MAGMA_BLOCK.builtInRegistryHolder(), new ThermoHeatSource(0.75f), false)

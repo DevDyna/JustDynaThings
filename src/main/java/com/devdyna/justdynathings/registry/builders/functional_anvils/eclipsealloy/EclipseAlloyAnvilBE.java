@@ -1,6 +1,7 @@
 package com.devdyna.justdynathings.registry.builders.functional_anvils.eclipsealloy;
 
 import com.devdyna.justdynathings.Config;
+import com.devdyna.justdynathings.datamaps.zDataMaps;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.CAnvilBE;
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyMachine;
 import com.devdyna.justdynathings.registry.interfaces.be.FluidMachine;
@@ -34,8 +35,9 @@ public class EclipseAlloyAnvilBE extends CAnvilBE implements EnergyMachine, Flui
 
     @Override
     public void tickServer() {
+        var fluid = getFluidStack().getFluidHolder().getData(zDataMaps.ECLIPSEALLOY_FLUID);
         var tool = getMachineHandler().getStackInSlot(0);
-        if (isActiveRedstone()) // getMachineHandler() only work inside tick event!
+        if (isActiveRedstone() && fluid != null) // getMachineHandler() only work inside tick event!
             if (canExtractFE() && tool.isDamageableItem() && !tool.is(zItemTags.ECLIPSE_ALLOY_ANVIL_DENY)
                     && tool.isDamaged()) {
                 if (Config.ANVIL_ECLIPSEALLOY_SOUND_EVENT.get())
@@ -43,13 +45,15 @@ public class EclipseAlloyAnvilBE extends CAnvilBE implements EnergyMachine, Flui
 
                 if (canExtractMB() && getEnergyStored() >= getDamageLimit()) {
                     if (tool.getMaxDamage() >= getDamageLimit()
-                            && tool.getDamageValue() >= tool.getMaxDamage() / getDamagePercentuage())
-                        Actions.repairItem(tool, tool.getMaxDamage() / getDamagePercentuage());
+                            && tool.getDamageValue() >= tool.getMaxDamage() / fluid.percentuage())
+                        Actions.repairItem(tool,
+                                (int) (tool.getMaxDamage() / fluid.percentuage()));
                     else
                         Actions.repairItem(tool, tool.getDamageValue());
 
-                    extractMB(1);
-                    extractEnergy(getStandardEnergyCost() * getDamagePercentuage() / 2, remove);
+                    extractMB((int) (4*fluid.percentuage()));
+                    extractEnergy((int) (getStandardEnergyCost() * fluid.percentuage() / 2),
+                            remove);
 
                 } else {
                     extractFEWhenPossible();
@@ -75,7 +79,7 @@ public class EclipseAlloyAnvilBE extends CAnvilBE implements EnergyMachine, Flui
 
     @Override
     public FluidTank getFluidTank() {
-        return getData(Registration.PARADOX_FLUID_HANDLER);
+        return getData(Registration.MACHINE_FLUID_HANDLER);
     }
 
     @Override
@@ -102,7 +106,7 @@ public class EclipseAlloyAnvilBE extends CAnvilBE implements EnergyMachine, Flui
         return Config.ANVILS_ECLIPSEALLOY_DAMAGE_LIMIT.get();
     }
 
-    public int getDamagePercentuage() {
-        return Config.ANVILS_ECLIPSEALLOY_DAMAGE_PERCENTUAGE.get();
-    }
+    // public int getDamagePercentuage() {
+    //     return Config.ANVILS_ECLIPSEALLOY_DAMAGE_PERCENTUAGE.get();
+    // }
 }

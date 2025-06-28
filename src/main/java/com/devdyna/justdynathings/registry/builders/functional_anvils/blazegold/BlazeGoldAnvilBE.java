@@ -1,13 +1,15 @@
 package com.devdyna.justdynathings.registry.builders.functional_anvils.blazegold;
 
 import com.devdyna.justdynathings.Config;
+import com.devdyna.justdynathings.datamaps.zDataMaps;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.CAnvilBE;
 import com.devdyna.justdynathings.registry.interfaces.be.FluidMachine;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
-import com.devdyna.justdynathings.registry.types.zHandlers;
 import com.devdyna.justdynathings.registry.types.zItemTags;
 import com.devdyna.justdynathings.utils.Actions;
 import com.direwolf20.justdirethings.common.blockentities.basebe.FluidContainerData;
+import com.direwolf20.justdirethings.setup.Registration;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -29,13 +31,15 @@ public class BlazeGoldAnvilBE extends CAnvilBE implements FluidMachine {
 
     @Override
     public void tickServer() {
+        
+        var fluid = getFluidStack().getFluidHolder().getData(zDataMaps.BLAZEGOLD_FLUID);
         var tool = getMachineHandler().getStackInSlot(0);
-        if (isActiveRedstone()) {
+        if (isActiveRedstone() && fluid != null) {
             // getMachineHandler() only work inside tick event!
             if (canExtractMB() && tool.isDamageableItem()
                     && tool.isDamaged() && !tool.is(zItemTags.BLAZEGOLD_ANVIL_DENY)) {
-                extractMBWhenPossible();
-                Actions.repairItem(tool);
+                extractMBWhenPossible((int) (20/fluid.efficiency()));
+                Actions.repairItem(tool,(int) fluid.efficiency());
                 if (Config.ANVIL_BLAZEGOLD_SOUND_EVENT.get())
                     applySound();
             }
@@ -49,7 +53,7 @@ public class BlazeGoldAnvilBE extends CAnvilBE implements FluidMachine {
 
     @Override
     public FluidTank getFluidTank() {
-        return getData(zHandlers.MAGMATIC_LIQUID);
+        return getData(Registration.MACHINE_FLUID_HANDLER);
     }
 
     @Override

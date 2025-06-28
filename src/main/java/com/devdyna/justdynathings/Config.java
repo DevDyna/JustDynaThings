@@ -115,7 +115,7 @@ public class Config {
         public static IntValue ANVILS_ECLIPSEALLOY_FE_RATE;
         public static IntValue ANVILS_ECLIPSEALLOY_FE_CAPACITY;
         public static IntValue ANVILS_ECLIPSEALLOY_DAMAGE_LIMIT;
-        public static IntValue ANVILS_ECLIPSEALLOY_DAMAGE_PERCENTUAGE;
+        // public static IntValue ANVILS_ECLIPSEALLOY_DAMAGE_PERCENTUAGE;
         public static BooleanValue ANVIL_ECLIPSEALLOY_SOUND_EVENT;
 
         public static void register(ModContainer c) {
@@ -461,9 +461,9 @@ public class Config {
                 ANVILS_ECLIPSEALLOY_DAMAGE_LIMIT = qCOMMON
                                 .comment("Minimal damage until it was counted as insta-repaireable")
                                 .defineInRange("anvil_eclipsealloy_damage_limit", 1000, 1, Integer.MAX_VALUE);
-                ANVILS_ECLIPSEALLOY_DAMAGE_PERCENTUAGE = qCOMMON
-                                .comment("Percentuage of damage repaired when the tool is over the Damage Limit")
-                                .defineInRange("anvil_eclipsealloy_damage_percentuage", 10, 1, 99);
+                // ANVILS_ECLIPSEALLOY_DAMAGE_PERCENTUAGE = qCOMMON
+                //                 .comment("Percentuage of damage repaired when the tool is over the Damage Limit")
+                //                 .defineInRange("anvil_eclipsealloy_damage_percentuage", 10, 1, 99);
                 ANVIL_ECLIPSEALLOY_SOUND_EVENT = qCOMMON
                                 .comment("Enable/Disable sound event on item repair")
                                 .define("anvil_eclipsealloy_sound", true);

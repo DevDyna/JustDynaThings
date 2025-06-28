@@ -37,7 +37,7 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [x] Legacy Energized Goo datagen stuff
 - [x] Updating GuideMe Documentation
 - [ ] Buddings datagen (?)
-- [ ] ThermoGen datamaps + jei integration
+- [ ] ThermoGen jei integration
 - [ ] BlackHole rework and datagen
 - [ ] ThermoGen + Pipez dont work
 

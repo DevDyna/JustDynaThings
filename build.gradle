@@ -138,12 +138,13 @@ dependencies {
     implementation "curse.maven:extendedae-892005:6164133"
     implementation "curse.maven:phasorite-1140963:6091868"
     implementation "curse.maven:guideme-1173950:6688687"
+
     //datagen libs
     implementation "curse.maven:glodium-957920:5821676"
     implementation "curse.maven:kotlin-351264:5978393"
     implementation "curse.maven:owo-532610:6314117"
 
-
+    //jei integration
     compileOnly "mezz.jei:jei-1.21.1-common-api:19.18.10.218"
     compileOnly "mezz.jei:jei-1.21.1-neoforge-api:19.18.10.218"
     runtimeOnly "mezz.jei:jei-1.21.1-neoforge:19.18.10.218"
@@ -154,27 +155,34 @@ dependencies {
 // A missing property will result in an error. Properties are expanded using ${} Groovy notation.
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
     var replaceProperties = [
-            minecraft_version       :   minecraft_version,
-            minecraft_version_range :   minecraft_version_range,
-            neo_version             :   neo_version,
-            neo_version_range       :   neo_version_range,
-            loader_version_range    :   loader_version_range,
-            mod_id                  :   mod_id,
-            mod_name                :   mod_name,
-            mod_license             :   mod_license,
-            mod_version             :   mod_version,
-            mod_authors             :   mod_authors,
-            mod_description         :   mod_description,
-            dire_version            :   dire_version,
-            dire_version_range      :   dire_version_range,
-            ae_version              :   ae_version,
-            ae_version_range        :   ae_version_range,
-            extendedae_version      :   extendedae_version,
-            extendedae_version_range:   extendedae_version_range,
-            phasorite_version       :   phasorite_version,
-            phasorite_version_range :   phasorite_version_range,
-            guideme_version         :   guideme_version,
-            guideme_version_range   :   guideme_version_range
+            //base
+            minecraft_version               : minecraft_version,
+            minecraft_version_range         : minecraft_version_range,
+            neo_version                     : neo_version,
+            neo_version_range               : neo_version_range,
+            loader_version_range            : loader_version_range,
+            //main mod
+            mod_id                          : mod_id,
+            mod_name                        : mod_name,
+            mod_license                     : mod_license,
+            mod_version                     : mod_version,
+            mod_authors                     : mod_authors,
+            mod_description                 : mod_description,
+            //main compat
+            dire_version                    : dire_version,
+            dire_version_range              : dire_version_range,
+            //other compats
+            ae_version                      : ae_version,
+            ae_version_range                : ae_version_range,
+            //
+            extendedae_version              : extendedae_version,
+            extendedae_version_range        : extendedae_version_range,
+            //
+            phasorite_version               : phasorite_version,
+            phasorite_version_range         : phasorite_version_range,
+            //
+            guideme_version                 : guideme_version,
+            guideme_version_range           : guideme_version_range
     ]
     inputs.properties replaceProperties
     expand replaceProperties

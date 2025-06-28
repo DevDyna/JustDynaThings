@@ -122,9 +122,9 @@ public class DataRecipe extends RecipeProvider {
                                 .unlockedBy(ID, itemInv(Blocks.OBSIDIAN.asItem())).group(ID)
                                 .save(c);
 
-                Budding(zBlocks.BUDDING_AMETHYST.get().asItem(), zMultiTags.AMETHYST_BLOCKS.item(), c);
+                Budding(zBlocks.ECHOING_BUDDING_AMETHYST.get().asItem(), zMultiTags.AMETHYST_BLOCKS.item(), c);
 
-                Budding(zBlocks.BUDDING_TIME.get().asItem(), zItemTags.TIME_BUDDING, c);
+                Budding(zBlocks.ECHOING_BUDDING_TIME.get().asItem(), zItemTags.TIME_BUDDING, c);
 
                 Budding(AE2_POWERED.get().asItem(), zItemTags.AE2_COMPAT, c
                                 .withConditions(DataGenUtil.isModLoaded("ae2")));

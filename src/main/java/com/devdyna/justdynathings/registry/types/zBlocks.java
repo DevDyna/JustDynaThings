@@ -75,11 +75,11 @@ public class zBlocks {
         public static final DeferredHolder<Block, ?> REFORGER = Material
                         .registerItemAndBlock(Constants.Blocks.Reforger, ReforgerBlock::new);
 
-        public static final DeferredHolder<Block, ?> BUDDING_TIME = Material.DireStuff
+        public static final DeferredHolder<Block, ?> ECHOING_BUDDING_TIME = Material.DireStuff
                         .registerBudding(Constants.Budding.Time, () -> new TimeBlock());
 
-        public static final DeferredHolder<Block, ?> BUDDING_AMETHYST = Material.DireStuff // TODO rename all budding
-                                                                                           // echoing_
+        public static final DeferredHolder<Block, ?> ECHOING_BUDDING_AMETHYST = Material.DireStuff
+                                                                                           
                         .registerBudding(Constants.Budding.Amethyst, () -> new AmethystBlock());
 
         public static final DeferredHolder<Block, ?> FERRICORE_CLOCK = Material

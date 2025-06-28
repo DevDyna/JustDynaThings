@@ -57,10 +57,10 @@ public class DataBlockModelState extends BlockStateProvider {
 
                 inversDirectionalBlocks(zBlocks.THERMOGEN.get());
 
-                BaseBuddings(zBlocks.BUDDING_AMETHYST.get(), mcLoc("block/budding_amethyst"),
+                BaseBuddings(zBlocks.ECHOING_BUDDING_AMETHYST.get(), mcLoc("block/budding_amethyst"),
                                 CubeAllCheap(ID + ":block/echoing_budding/amethyst", this));
 
-                BaseBuddings(zBlocks.BUDDING_TIME.get(),
+                BaseBuddings(zBlocks.ECHOING_BUDDING_TIME.get(),
                                 modLoc("block/echoing_budding/time/alive"),
                                 modLoc("block/echoing_budding/time/dead"));
 

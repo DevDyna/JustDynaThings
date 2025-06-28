@@ -87,8 +87,8 @@ public class Material {
 
         public static Block[] getBuddingAvailable() {
                 ArrayList<Block> a = new ArrayList<>();
-                a.add(zBlocks.BUDDING_AMETHYST.get());
-                a.add(zBlocks.BUDDING_TIME.get());
+                a.add(zBlocks.ECHOING_BUDDING_AMETHYST.get());
+                a.add(zBlocks.ECHOING_BUDDING_TIME.get());
                 if (Constants.ModAddonCheck.AppliedEnergistics2)
                         a.add(com.devdyna.justdynathings.compat.ae2.init.AE2_POWERED.get());
                 if (Constants.ModAddonCheck.ExtendedAE)

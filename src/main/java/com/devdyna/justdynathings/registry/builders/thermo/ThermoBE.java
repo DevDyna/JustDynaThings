@@ -46,7 +46,7 @@ public class ThermoBE extends BaseMachineBE implements FluidMachine, EnergyGener
 
         var coolant = getFluidStack().getFluidHolder().getData(zDataMaps.THERMO_COOLANT);
 
-        updateBlock(heat != null, coolant != null);
+        updateBlock(heat != null && coolant != null);
 
         if (heat != null && coolant != null)
             if (isActiveRedstone() && canExtractMB() && canRecieveFE()) {
@@ -61,16 +61,8 @@ public class ThermoBE extends BaseMachineBE implements FluidMachine, EnergyGener
             }
     }
 
-    /**
-     * update the blockstate properties
-     * Credits: Thanks "@S4lvious" to optimize block update logic
-     * <br/>
-     * <br/>
-     * TO verify
-     */
-    public void updateBlock(boolean heat, boolean coolant) {
-        if (getBlockState().getValue(zProperties.ACTIVE) != (heat || coolant))
-            level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(zProperties.ACTIVE, coolant && heat));
+    public void updateBlock(boolean state) {
+            level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(zProperties.ACTIVE, state));
     }
 
     public BlockState getHeatBlock() {

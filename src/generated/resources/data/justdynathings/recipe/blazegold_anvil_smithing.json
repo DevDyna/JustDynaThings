@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smithing_transform",
   "addition": {
-    "item": "justdirethings:blazegold_block"
+    "item": "justdirethings:blazegold_ingot"
   },
   "base": {
     "item": "justdynathings:ferricore_anvil"

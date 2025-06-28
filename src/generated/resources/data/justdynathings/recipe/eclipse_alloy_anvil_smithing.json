@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smithing_transform",
   "addition": {
-    "item": "justdirethings:eclipsealloy_block"
+    "item": "justdirethings:eclipsealloy_ingot"
   },
   "base": {
     "item": "justdynathings:celestigem_anvil"

@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smithing_transform",
   "addition": {
-    "item": "justdirethings:celestigem_block"
+    "item": "justdirethings:celestigem"
   },
   "base": {
     "item": "justdynathings:blazegold_anvil"

@@ -15,8 +15,8 @@
   },
   "pattern": [
     " A ",
-    "RBR",
-    "AAA"
+    "AAA",
+    "RBR"
   ],
   "result": {
     "count": 1,

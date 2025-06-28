@@ -1,0 +1,16 @@
+{
+  "values": {
+    "justdirethings:refined_t2_fluid_source": {
+      "efficiency": 2.5
+    },
+    "justdirethings:refined_t3_fluid_source": {
+      "efficiency": 5.5
+    },
+    "justdirethings:refined_t4_fluid_source": {
+      "efficiency": 7.5
+    },
+    "minecraft:lava": {
+      "efficiency": 1.0
+    }
+  }
+}

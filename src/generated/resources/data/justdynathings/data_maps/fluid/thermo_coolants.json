@@ -1,0 +1,13 @@
+{
+  "values": {
+    "justdirethings:polymorphic_fluid_source": {
+      "coolantEfficiency": 2.5
+    },
+    "justdirethings:time_fluid_source": {
+      "coolantEfficiency": 5.0
+    },
+    "minecraft:water": {
+      "coolantEfficiency": 1.0
+    }
+  }
+}

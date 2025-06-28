@@ -1,10 +1,10 @@
 {
   "values": {
     "justdirethings:ferricore_ingot": {
-      "efficiency": 128
+      "durability": 128
     },
     "minecraft:iron_ingot": {
-      "efficiency": 64
+      "durability": 64
     }
   }
 }

@@ -37,10 +37,7 @@ A new generator that generate Forge Energy based on a heat source blocks and a f
 | Item                                                                      | Registry ID                             | Efficiency (float) |
 | ------------------------------------------------------------------------- | --------------------------------------- | ------------------ |
 | <ItemImage id= "minecraft:water_bucket"            scale="0.75" />        | minecraft:water                         | 1.0x               |
-| <ItemImage id="justdirethings:refined_t2_fluid_bucket"  scale="0.75" />   | justdirethings:refined_t2_fluid_source  | 2.5x               |
 | <ItemImage id= "justdirethings:polymorphic_fluid_bucket"  scale="0.75" /> | justdirethings:polymorphic_fluid_source | 2.5x               |
-| <ItemImage id= "justdirethings:refined_t3_fluid_bucket"  scale="0.75" />  | justdirethings:refined_t3_fluid_source  | 5.5x               |
-| <ItemImage id= "justdirethings:refined_t4_fluid_bucket"  scale="0.75" />  | justdirethings:refined_t4_fluid_source  | 7.5x               |
 | <ItemImage id= "justdirethings:time_fluid_bucket"    scale="0.75" />      | justdirethings:time_fluid_source        | 10.0x              |
 
 More info here :

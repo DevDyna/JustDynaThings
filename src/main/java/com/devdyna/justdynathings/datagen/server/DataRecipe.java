@@ -349,7 +349,7 @@ public class DataRecipe extends RecipeProvider {
                                 .group(ID).save(c);
 
                 SmithingTransformRecipeBuilder.smithing(Ingredient.of(template), Ingredient.of(oldAnvil),
-                                Ingredient.of(block),
+                                Ingredient.of(ingot),
                                 MISC, b.asItem()).unlocks(ID,
                                                 InventoryChangeTrigger.TriggerInstance
                                                                 .hasItems(ingot))

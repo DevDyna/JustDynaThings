@@ -25,50 +25,65 @@ import net.neoforged.neoforge.fluids.FluidStack;
 @SuppressWarnings("unused")
 public class DataMaps extends DataMapProvider {
 
-    private static int BASE_BURN_RATE = 200; // 1 item
+        private static int BASE_BURN_RATE = 200; // 1 item
 
-    public DataMaps(PackOutput p, CompletableFuture<Provider> l) {
-        super(p, l);
-    }
+        public DataMaps(PackOutput p, CompletableFuture<Provider> l) {
+                super(p, l);
+        }
 
-    @SuppressWarnings("deprecation")
-    @Override
-    protected void gather() {
+        @SuppressWarnings("deprecation")
+        @Override
+        protected void gather() {
 
-        // TODO jei integration
+                // TODO jei integration
 
-        builder(zDataMaps.FERRICORE_REPAIR)
-                .add(Registration.FerricoreIngot.get().builtInRegistryHolder(), new FerricoreRepair(128), false)
-                .add(Items.IRON_INGOT.builtInRegistryHolder(), new FerricoreRepair(64), false);
+                builder(zDataMaps.FERRICORE_REPAIR)
+                                .add(Registration.FerricoreIngot.get().builtInRegistryHolder(),
+                                                new FerricoreItemRepair(128), false)
+                                .add(Items.IRON_INGOT.builtInRegistryHolder(), new FerricoreItemRepair(64), false);
 
-        builder(zDataMaps.THERMO_COOLANT)
-                .add(Fluids.WATER.builtInRegistryHolder(), new ThermoCoolant(1.0f), false)
-                .add(Registration.REFINED_T2_FLUID_SOURCE.get().builtInRegistryHolder(), new ThermoCoolant(2.5f),
-                        false)
-                .add(Registration.REFINED_T3_FLUID_SOURCE.get().builtInRegistryHolder(), new ThermoCoolant(5.5f),
-                        false)
-                .add(Registration.REFINED_T4_FLUID_SOURCE.get().builtInRegistryHolder(), new ThermoCoolant(7.5f),
-                        false)
-                .add(Registration.POLYMORPHIC_FLUID_SOURCE.get().builtInRegistryHolder(), new ThermoCoolant(2.5f),
-                        false)
-                .add(Registration.TIME_FLUID_SOURCE.get().builtInRegistryHolder(), new ThermoCoolant(10f), false);
+                builder(zDataMaps.THERMO_COOLANT)
+                                .add(Fluids.WATER.builtInRegistryHolder(), new ThermoFluidCoolant(1.0f), false)
+                                .add(Registration.POLYMORPHIC_FLUID_SOURCE.get().builtInRegistryHolder(),
+                                                new ThermoFluidCoolant(2.5f),
+                                                false)
+                                .add(Registration.TIME_FLUID_SOURCE.get().builtInRegistryHolder(),
+                                                new ThermoFluidCoolant(5f), false);
 
-        builder(zDataMaps.THERMO_HEAT_SOURCE)
-                .add(Blocks.MAGMA_BLOCK.builtInRegistryHolder(), new ThermoHeatSource(0.75f), false)
-                .add(Blocks.LAVA.builtInRegistryHolder(), new ThermoHeatSource(1f), false)
-                .add(Blocks.LAVA_CAULDRON.builtInRegistryHolder(), new ThermoHeatSource(0.99f), false)
-                .add(Blocks.FIRE.builtInRegistryHolder(), new ThermoHeatSource(0.5f), false)
-                .add(Blocks.SOUL_FIRE.builtInRegistryHolder(), new ThermoHeatSource(0.75f), false)
-                .add(Blocks.CAMPFIRE.builtInRegistryHolder(), new ThermoHeatSource(0.5f), false)
-                .add(Blocks.SOUL_CAMPFIRE.builtInRegistryHolder(), new ThermoHeatSource(0.75f), false)
-                .add(Registration.CoalBlock_T1.get().builtInRegistryHolder(), new ThermoHeatSource(2.5f), false)
-                .add(Registration.CoalBlock_T2.get().builtInRegistryHolder(), new ThermoHeatSource(5.5f), false)
-                .add(Registration.CoalBlock_T3.get().builtInRegistryHolder(), new ThermoHeatSource(7.5f), false)
-                .add(Registration.CoalBlock_T4.get().builtInRegistryHolder(), new ThermoHeatSource(10.5f), false)
-                
-                
-                ;
+                builder(zDataMaps.THERMO_HEAT_SOURCE)
+                                .add(Blocks.MAGMA_BLOCK.builtInRegistryHolder(), new ThermoBlockHeatSource(0.75f), false)
+                                .add(Blocks.LAVA.builtInRegistryHolder(), new ThermoBlockHeatSource(1f), false)
+                                .add(Blocks.LAVA_CAULDRON.builtInRegistryHolder(), new ThermoBlockHeatSource(0.99f), false)
+                                .add(Blocks.FIRE.builtInRegistryHolder(), new ThermoBlockHeatSource(0.5f), false)
+                                .add(Blocks.SOUL_FIRE.builtInRegistryHolder(), new ThermoBlockHeatSource(0.75f), false)
+                                .add(Blocks.CAMPFIRE.builtInRegistryHolder(), new ThermoBlockHeatSource(0.5f), false)
+                                .add(Blocks.SOUL_CAMPFIRE.builtInRegistryHolder(), new ThermoBlockHeatSource(0.75f), false)
+                                .add(Registration.CoalBlock_T1.get().builtInRegistryHolder(),
+                                                new ThermoBlockHeatSource(2.5f), false)
+                                .add(Registration.CoalBlock_T2.get().builtInRegistryHolder(),
+                                                new ThermoBlockHeatSource(5.5f), false)
+                                .add(Registration.CoalBlock_T3.get().builtInRegistryHolder(),
+                                                new ThermoBlockHeatSource(7.5f), false)
+                                .add(Registration.CoalBlock_T4.get().builtInRegistryHolder(),
+                                                new ThermoBlockHeatSource(10.5f), false);
 
-    }
+                builder(zDataMaps.BLAZEGOLD_FLUID)
+                                .add(Fluids.LAVA.builtInRegistryHolder(), new BlazeGoldFluidRepair(1.0F), false)
+                                .add(Registration.REFINED_T2_FLUID_SOURCE.get().builtInRegistryHolder(),
+                                                new BlazeGoldFluidRepair(2.5f),
+                                                false)
+                                .add(Registration.REFINED_T3_FLUID_SOURCE.get().builtInRegistryHolder(),
+                                                new BlazeGoldFluidRepair(5.5f),
+                                                false)
+                                .add(Registration.REFINED_T4_FLUID_SOURCE.get().builtInRegistryHolder(),
+                                                new BlazeGoldFluidRepair(7.5f),
+                                                false);
+
+                builder(zDataMaps.ECLIPSEALLOY_FLUID)
+                                .add(Registration.TIME_FLUID_SOURCE.get().builtInRegistryHolder(),
+                                                new EclipseAlloyFluidRepair(10.0f),
+                                                false);
+
+        }
 
 }

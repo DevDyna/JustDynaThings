@@ -18,6 +18,7 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 
@@ -25,7 +26,8 @@ import net.minecraft.world.level.block.state.StateDefinition;
 public class BuddingBlock extends BlockBaseBE {
 
     public BuddingBlock() {
-        super(zProperties.MachineProp.sound(SoundType.AMETHYST));
+        super(BlockBehaviour.Properties.of()
+                .strength(1.25f).sound(SoundType.AMETHYST).destroyTime(1.25F));
     }
 
     @Nullable

@@ -10,7 +10,7 @@ item_ids:
 
 # 核源铁太阳能板
 
-会生产Forge能量（Forge Energy）的太阳能板。
+会生产Forge能量（Forge Energy，FE）的太阳能板。
 
 FE生产速率：**240**
 

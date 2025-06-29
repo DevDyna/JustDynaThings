@@ -39,5 +39,5 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [ ] Buddings datagen (?)
 - [ ] ThermoGen jei integration
 - [ ] BlackHole rework and datagen
-- [ ] ThermoGen + Pipez dont work
+- [x] ThermoGen + Pipez dont work
 

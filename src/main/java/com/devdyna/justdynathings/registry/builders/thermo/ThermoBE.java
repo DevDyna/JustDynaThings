@@ -1,5 +1,8 @@
 package com.devdyna.justdynathings.registry.builders.thermo;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.datamaps.zDataMaps;
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyGenerator;
@@ -16,11 +19,14 @@ import com.direwolf20.justdirethings.setup.Registration;
 import com.direwolf20.justdirethings.util.interfacehelpers.RedstoneControlData;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.neoforged.neoforge.capabilities.BlockCapabilityCache;
+import net.neoforged.neoforge.energy.IEnergyStorage;
 import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
 
 @SuppressWarnings({ "null", "deprecation" })
@@ -29,6 +35,7 @@ public class ThermoBE extends BaseMachineBE implements FluidMachine, EnergyGener
     public RedstoneControlData redstoneControlData = new RedstoneControlData();
     public final PoweredMachineContainerData poweredMachineData = new PoweredMachineContainerData(this);
     public final FluidContainerData fluidContainerData = new FluidContainerData(this);
+    private final Map<Direction, BlockCapabilityCache<IEnergyStorage, Direction>> cache = new HashMap<>();
 
     public ThermoBE(BlockEntityType<?> type, BlockPos pos, BlockState b) {
         super(type, pos, b);
@@ -57,12 +64,12 @@ public class ThermoBE extends BaseMachineBE implements FluidMachine, EnergyGener
                     increaseFEWhenPossible((int) (125 * coolant.coolantEfficiency() * heat.heatEfficiency()));
                 }
                 if (canExtractFE())
-                    Actions.providePowerAdjacent(getBlockPos(), level, getEnergyStored());
+                    Actions.providePowerAdjacent(level,getBlockPos(),cache,getEnergyStored());
             }
     }
 
     public void updateBlock(boolean state) {
-            level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(zProperties.ACTIVE, state));
+        level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(zProperties.ACTIVE, state));
     }
 
     public BlockState getHeatBlock() {

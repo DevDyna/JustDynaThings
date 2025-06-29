@@ -1,8 +1,12 @@
 package com.devdyna.justdynathings.utils;
 
+import java.util.Map;
+
 import com.devdyna.justdynathings.Config;
-import com.devdyna.justdynathings.registry.interfaces.be.EnergyGenerator;
+import com.devdyna.justdynathings.registry.interfaces.be.EnergyMachine;
 import com.devdyna.justdynathings.registry.types.zBlockTags;
+import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineBE;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
@@ -18,6 +22,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.neoforged.neoforge.capabilities.BlockCapabilityCache;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.energy.IEnergyStorage;
 
@@ -114,41 +119,39 @@ public class Actions {
         /**
          * Provide power at adjacent be blocks
          * 
-         * @param pos    block that provide power
          * @param level
-         * @param FErate
+         * @param pos generator blockpos
+         * @param map cache map to store capabilities
+         * @param fe rate
          */
-        public static void providePowerAdjacent(BlockPos pos, Level level, int FErate) {
+        public static void providePowerAdjacent(Level level, BlockPos pos,
+                        Map<Direction, BlockCapabilityCache<IEnergyStorage, Direction>> map, int fe) {
 
-                for (Direction direction : Direction.values()) {
-                        BlockPos relative = pos.relative(direction);
-                        if (level.getBlockEntity(relative) == null)
-                                continue;
-                        IEnergyStorage cap = getEnergyCap(level, relative, direction);
+                var be = level.getBlockEntity(pos);
 
-                        if (cap == null)
-                                continue;
+                if (be == null)
+                        return;
 
-                        if (cap instanceof EnergyGenerator)
-                                return;
+                if (((EnergyMachine) be).canExtractFE())
+                        for (Direction dir : Direction.values()) {
 
-                        if (!cap.canReceive() || cap.getEnergyStored() == cap.getMaxEnergyStored())
-                                continue;
+                                var cache = map.get(dir);
+                                if (cache == null)
+                                        cache = BlockCapabilityCache.create(
+                                                        Capabilities.EnergyStorage.BLOCK,
+                                                        (ServerLevel) level,
+                                                        pos.relative(dir),
+                                                        dir.getOpposite());
+                                map.put(dir, cache);
 
-                        if (cap.receiveEnergy(FErate * 10, true) <= 0)
-                                continue;
-                        cap.receiveEnergy(FErate, false);
-                        getEnergyCap(level, pos, direction).extractEnergy(FErate, false);
-                }
-
-        }
-
-        /**
-         * Cannot be Null BlockEntity position!
-         */
-        public static IEnergyStorage getEnergyCap(Level level, BlockPos pos, Direction dir) {
-                return Capabilities.EnergyStorage.BLOCK.getCapability(level, pos, level.getBlockState(pos),
-                                level.getBlockEntity(pos), dir);
+                                IEnergyStorage cap = cache.getCapability();
+                                if (cap == null)
+                                        continue;
+                                int simOn = cap.receiveEnergy(fe * 10, true);
+                                if (simOn <= 0)
+                                        continue;
+                                cap.receiveEnergy(((PoweredMachineBE) be).extractEnergy(simOn, false), false);
+                        }
         }
 
 }

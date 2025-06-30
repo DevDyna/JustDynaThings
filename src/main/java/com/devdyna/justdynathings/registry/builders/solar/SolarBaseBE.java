@@ -7,6 +7,7 @@ import com.devdyna.justdynathings.registry.interfaces.be.EnergyGenerator;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.Actions;
 import com.devdyna.justdynathings.utils.DirectionUtil;
+import com.devdyna.justdynathings.utils.LevelUtil;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineContainerData;
 import com.direwolf20.justdirethings.common.blockentities.basebe.RedstoneControlledBE;
@@ -16,7 +17,9 @@ import com.direwolf20.justdirethings.util.interfacehelpers.RedstoneControlData;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
@@ -29,8 +32,6 @@ public class SolarBaseBE extends BaseMachineBE implements EnergyGenerator, Redst
     public RedstoneControlData redstoneControlData = new RedstoneControlData();
     public final PoweredMachineContainerData poweredMachineData = new PoweredMachineContainerData(this);
     private final Map<Direction, BlockCapabilityCache<IEnergyStorage, Direction>> cache = new HashMap<>();
-
-
 
     public SolarBaseBE(BlockEntityType<?> t, BlockPos p, BlockState b) {
         super(t, p, b);
@@ -47,7 +48,7 @@ public class SolarBaseBE extends BaseMachineBE implements EnergyGenerator, Redst
             increaseFEWhenPossible(calculateFE());
         }
         if (canExtractFE())
-            Actions.providePowerAdjacent(level,getBlockPos(),cache, calculateFE());
+            Actions.providePowerAdjacent(level, getBlockPos(), cache, calculateFE());
     }
 
     public void updateBlock() {
@@ -123,8 +124,19 @@ public class SolarBaseBE extends BaseMachineBE implements EnergyGenerator, Redst
         return 0;
     }
 
-    public boolean canGenerateWhen() {
-        return false;
+    private boolean canGenerateWhen() {
+        var result = true;
+        if (enableCleanSky())
+            result &= canSeeSky();
+
+        if (enableDayTimeOnly())
+            result &= isDayTime();
+
+        var checkBiome = LevelUtil.isBiome(level, getBlockPos(), getBiomeTag());
+
+        result &= isAllowBiome() ? checkBiome : !checkBiome;
+
+        return result;
     }
 
     /**
@@ -140,6 +152,31 @@ public class SolarBaseBE extends BaseMachineBE implements EnergyGenerator, Redst
      */
     public boolean enableMultiYLevel() {
         return false;
+    }
+
+    private boolean canSeeSky() {
+        return level.canSeeSkyFromBelowWater(getBlockPos().above())
+                && level.getBlockState(getBlockPos().above()).isAir();
+    }
+
+    private boolean isDayTime() {
+        return level.isDay();
+    }
+
+    public TagKey<Biome> getBiomeTag() {
+        return null;
+    }
+
+    public boolean isAllowBiome() {
+        return false;
+    }
+
+    public boolean enableCleanSky() {
+        return true;
+    }
+
+    public boolean enableDayTimeOnly() {
+        return true;
     }
 
 }

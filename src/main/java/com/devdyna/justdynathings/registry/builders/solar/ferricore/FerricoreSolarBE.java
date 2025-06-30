@@ -2,15 +2,14 @@ package com.devdyna.justdynathings.registry.builders.solar.ferricore;
 
 import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.registry.builders.solar.SolarBaseBE;
+import com.devdyna.justdynathings.registry.types.zBiomeTags;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
-import com.devdyna.justdynathings.utils.LevelUtil;
-
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.Level;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
-@SuppressWarnings("null")
 public class FerricoreSolarBE extends SolarBaseBE {
 
     public FerricoreSolarBE(BlockEntityType<?> t, BlockPos p, BlockState b) {
@@ -42,11 +41,23 @@ public class FerricoreSolarBE extends SolarBaseBE {
     }
 
     @Override
-    public boolean canGenerateWhen() {
-        return Config.SOLARPANEL_FERRICORE_CONDITIONS_OVERRIDE.get() ? true
-                : level.canSeeSkyFromBelowWater(getBlockPos().above()) && level.isDay()
-                        && level.getBlockState(getBlockPos().above()).isAir()
-                        && LevelUtil.isDimension(level, Level.OVERWORLD);
+    public boolean enableCleanSky() {
+        return Config.SOLARPANEL_FERRICORE_ENABLE_SKY.get();
+    }
+
+    @Override
+    public boolean enableDayTimeOnly() {
+        return Config.SOLARPANEL_FERRICORE_ENABLE_DAYTIME.get();
+    }
+
+    @Override
+    public TagKey<Biome> getBiomeTag() {
+        return zBiomeTags.FERRICORE_SOLAR_PANEL_BIOME_LIST;
+    }
+
+    @Override
+    public boolean isAllowBiome() {
+        return Config.SOLARPANEL_FERRICORE_BIOMES.get();
     }
 
 }

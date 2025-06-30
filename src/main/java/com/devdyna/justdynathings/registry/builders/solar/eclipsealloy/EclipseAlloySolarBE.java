@@ -2,8 +2,11 @@ package com.devdyna.justdynathings.registry.builders.solar.eclipsealloy;
 
 import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.registry.builders.solar.SolarBaseBE;
+import com.devdyna.justdynathings.registry.types.zBiomeTags;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
 import net.minecraft.core.BlockPos;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -37,9 +40,23 @@ public class EclipseAlloySolarBE extends SolarBaseBE {
         return Config.SOLARPANEL_ECLIPSEALLOY_ENABLE_YLEVEL.get();
     }
 
+     @Override
+    public boolean enableCleanSky() {
+        return Config.SOLARPANEL_ECLIPSEALLOY_ENABLE_SKY.get();
+    }
+
     @Override
-    public boolean canGenerateWhen() {
-        return Config.SOLARPANEL_ECLIPSEALLOY_CONDITIONS_OVERRIDE.get() ? true
-                : true; // no conditions
+    public boolean enableDayTimeOnly() {
+        return Config.SOLARPANEL_ECLIPSEALLOY_ENABLE_DAYTIME.get();
+    }
+
+    @Override
+    public TagKey<Biome> getBiomeTag() {
+        return zBiomeTags.ECLIPSEALLOY_SOLAR_PANEL_BIOME_LIST;
+    }
+
+    @Override
+    public boolean isAllowBiome() {
+        return Config.SOLARPANEL_ECLIPSEALLOY_BIOMES.get();
     }
 }

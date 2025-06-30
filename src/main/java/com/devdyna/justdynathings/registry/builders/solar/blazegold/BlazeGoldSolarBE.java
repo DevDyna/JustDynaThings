@@ -2,11 +2,11 @@ package com.devdyna.justdynathings.registry.builders.solar.blazegold;
 
 import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.registry.builders.solar.SolarBaseBE;
+import com.devdyna.justdynathings.registry.types.zBiomeTags;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
-import com.devdyna.justdynathings.utils.LevelUtil;
-
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.Level;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -41,9 +41,23 @@ public class BlazeGoldSolarBE extends SolarBaseBE {
     }
 
     @Override
-    public boolean canGenerateWhen() {
-        return Config.SOLARPANEL_BLAZEGOLD_CONDITIONS_OVERRIDE.get() ? true
-                : LevelUtil.isDimension(level, Level.NETHER);
+    public boolean enableCleanSky() {
+        return Config.SOLARPANEL_BLAZEGOLD_ENABLE_SKY.get();
+    }
+
+    @Override
+    public boolean enableDayTimeOnly() {
+        return Config.SOLARPANEL_BLAZEGOLD_ENABLE_DAYTIME.get();
+    }
+
+    @Override
+    public TagKey<Biome> getBiomeTag() {
+        return zBiomeTags.BLAZEGOLD_SOLAR_PANEL_BIOME_LIST;
+    }
+
+    @Override
+    public boolean isAllowBiome() {
+        return Config.SOLARPANEL_BLAZEGOLD_BIOMES.get();
     }
 
 }

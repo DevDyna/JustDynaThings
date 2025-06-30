@@ -17,6 +17,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootParams;
@@ -33,6 +34,14 @@ public class LevelUtil {
      */
     public static boolean isDimension(Level level, ResourceKey<Level> dim) {
         return level.dimension().equals(dim);
+    }
+
+    public static boolean isBiome(Level level, BlockPos pos, String modid, String biome) {
+        return level.getBiome(pos).is(ResourceLocation.fromNamespaceAndPath(modid, biome));
+    }
+
+        public static boolean isBiome(Level level, BlockPos pos, TagKey<Biome> biome) {
+        return level.getBiome(pos).is(biome);
     }
 
     public static void SimplePlaceBlock(Level level, BlockPos pos, Block block) {

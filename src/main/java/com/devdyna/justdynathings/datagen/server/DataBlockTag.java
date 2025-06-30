@@ -61,15 +61,10 @@ public class DataBlockTag extends BlockTagsProvider {
                                 Registration.GooBlock_Tier3.get(),
                                 Registration.GooBlock_Tier4.get());
 
-                // tag(TICKER_DENY).addTag(JustDireBlockTags.TICK_SPEED_DENY);
-
                 zBlocks.zOres.getEntries()
                                 .forEach(b -> tag(JustDireBlockTags.PARADOX_ALLOW)
                                                 .add(b.get()));
 
-                // tag(JustDireBlockTags.TICK_SPEED_DENY).add(zBlocks.TICKER.get());
-
-                tag(THERMO_HEATER).add(Blocks.MAGMA_BLOCK);
                 tag(zMultiTags.COPPER_BLOCKS.block()).add(
                                 Blocks.COPPER_BLOCK, Blocks.WAXED_COPPER_BLOCK,
                                 Blocks.WEATHERED_COPPER, Blocks.WAXED_WEATHERED_COPPER,

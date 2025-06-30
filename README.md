@@ -14,6 +14,7 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [ ] Draconite generator (dragon breath -> FE)
 
 ### Specialized
+- Experience pedestal (clicking with items generate experience)
 - [x] Powered Budding *(maybe they will be moved to a separate project)*
 - [ ] Sculk Diffuser (Sculk Source without need to kill mobs)
 - [ ] Buffed Fuels (fuel with high multiplier)
@@ -34,10 +35,9 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [ ] Reforger jei integration
 - [ ] Ticker rework and datagen
 - [ ] Sculk rework and datagen
-- [x] Legacy Energized Goo datagen stuff
-- [x] Updating GuideMe Documentation
 - [ ] Buddings datagen (?)
 - [ ] ThermoGen jei integration
 - [ ] BlackHole rework and datagen
-- [x] ThermoGen + Pipez dont work
-
+- [ ] Solar panel upgrade recipe
+- [ ] Powered goo upgrade recipe
+- [ ] Waterlogging many blocks

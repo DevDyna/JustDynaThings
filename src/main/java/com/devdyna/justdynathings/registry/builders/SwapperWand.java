@@ -72,7 +72,7 @@ public class SwapperWand extends Item {
         level.setBlock(item.get(JustDireDataComponents.BOUND_GLOBAL_POS).pos(), recieve, 51);
         level.setBlock(pos, transmit, 51);
         item.set(JustDireDataComponents.BOUND_GLOBAL_POS, null);
-        player.playSound(SoundEvents.LODESTONE_COMPASS_LOCK);
+        player.playSound(SoundEvents.END_PORTAL_FRAME_FILL);
         consumeDurability(player, item);
     }
 

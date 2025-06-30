@@ -384,7 +384,7 @@ public class Config {
 
                 SOLARPANEL_CELESTIGEM_FE_CAPACITY = qCOMMON
                                 .comment("FE Capacity")
-                                .defineInRange("solar_celestigem_maxfe", 100000, 1, Integer.MAX_VALUE);
+                                .defineInRange("solar_celestigem_maxfe", 1000000, 1, Integer.MAX_VALUE);
                 SOLARPANEL_CELESTIGEM_FE_RATE = qCOMMON
                                 .comment("FE/t production")
                                 .defineInRange("solar_celestigem_ferate", 3840, 1, Integer.MAX_VALUE);

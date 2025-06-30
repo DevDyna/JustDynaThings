@@ -10,7 +10,6 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
-@SuppressWarnings("null")
 public class CelestiGemSolarBE extends SolarBaseBE {
 
     public CelestiGemSolarBE(BlockEntityType<?> type, BlockPos pos, BlockState blockState) {

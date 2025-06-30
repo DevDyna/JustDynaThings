@@ -1,5 +1,8 @@
 package com.devdyna.justdynathings.registry.builders.solar;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyGenerator;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.Actions;
@@ -12,16 +15,22 @@ import com.direwolf20.justdirethings.setup.Registration;
 import com.direwolf20.justdirethings.util.interfacehelpers.RedstoneControlData;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.capabilities.BlockCapabilityCache;
+import net.neoforged.neoforge.energy.IEnergyStorage;
 
 @SuppressWarnings("null")
 public class SolarBaseBE extends BaseMachineBE implements EnergyGenerator, RedstoneControlledBE {
 
     public RedstoneControlData redstoneControlData = new RedstoneControlData();
     public final PoweredMachineContainerData poweredMachineData = new PoweredMachineContainerData(this);
+    private final Map<Direction, BlockCapabilityCache<IEnergyStorage, Direction>> cache = new HashMap<>();
+
+
 
     public SolarBaseBE(BlockEntityType<?> t, BlockPos p, BlockState b) {
         super(t, p, b);
@@ -38,7 +47,7 @@ public class SolarBaseBE extends BaseMachineBE implements EnergyGenerator, Redst
             increaseFEWhenPossible(calculateFE());
         }
         if (canExtractFE())
-            Actions.providePowerAdjacent(getBlockPos(), level, calculateFE());
+            Actions.providePowerAdjacent(level,getBlockPos(),cache, calculateFE());
     }
 
     public void updateBlock() {

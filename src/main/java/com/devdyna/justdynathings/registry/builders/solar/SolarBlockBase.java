@@ -27,7 +27,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 @SuppressWarnings("null")
-public class SolarBlockBase extends BaseMachineBlock {
+public class SolarBlockBase extends BaseMachineBlock{
 
     public SolarBlockBase() {
         super(zProperties.MachineProp);

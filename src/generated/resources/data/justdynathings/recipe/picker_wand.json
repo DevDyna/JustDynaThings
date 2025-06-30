@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "justdynathings",
+  "key": {
+    "C": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "E": {
+      "item": "minecraft:ender_eye"
+    },
+    "I": {
+      "item": "justdirethings:blazegold_ingot"
+    }
+  },
+  "pattern": [
+    " CE",
+    " IC",
+    "I  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "justdynathings:picker_wand"
+  }
+}

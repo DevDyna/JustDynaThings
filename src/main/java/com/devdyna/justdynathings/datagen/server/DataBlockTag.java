@@ -14,6 +14,7 @@ import static com.devdyna.justdynathings.registry.types.zBlockTags.*;
 
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.Tags;
@@ -83,8 +84,16 @@ public class DataBlockTag extends BlockTagsProvider {
                 tag(zMultiTags.T4_SPREAD.block()).add(
                                 Registration.GooBlock_Tier3.get()).addTag(zMultiTags.T3_SPREAD.block());
 
-                tag(zBlockTags.PICKER_DENY).addTag(Tags.Blocks.RELOCATION_NOT_SUPPORTED);
-                tag(zBlockTags.SWAPPER_DENY).addTag(Tags.Blocks.RELOCATION_NOT_SUPPORTED);
+                tag(zBlockTags.PICKER_DENY).addTag(Tags.Blocks.RELOCATION_NOT_SUPPORTED)
+                                // JustDireBlockTags.SWAPPERDENY only work on datagen...
+                                .add(Blocks.PISTON_HEAD).add(Blocks.MOVING_PISTON).add(Blocks.BEDROCK)
+                                .add(Blocks.END_PORTAL_FRAME).add(Blocks.CANDLE_CAKE).addTag(BlockTags.BEDS)
+                                .addTag(BlockTags.PORTALS).addTag(BlockTags.DOORS);
+
+                tag(zBlockTags.SWAPPER_DENY).addTag(Tags.Blocks.RELOCATION_NOT_SUPPORTED)
+                                .add(Blocks.PISTON_HEAD).add(Blocks.MOVING_PISTON).add(Blocks.BEDROCK)
+                                .add(Blocks.END_PORTAL_FRAME).add(Blocks.CANDLE_CAKE).addTag(BlockTags.BEDS)
+                                .addTag(BlockTags.PORTALS).addTag(BlockTags.DOORS);
 
         }
 

@@ -1,7 +1,5 @@
 package com.devdyna.justdynathings.registry.types;
 
-import static net.minecraft.world.item.Items.*;
-
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
 import com.direwolf20.justdirethings.common.blocks.gooblocks.GooBlock_Base;
 
@@ -29,7 +27,7 @@ public class zProperties {
 
         public static final BlockBehaviour.Properties bProp = BlockBehaviour.Properties.of();
         public static final Properties iProp = new Item.Properties();
-        public static final Properties iPropBucket = iProp.craftRemainder(BUCKET).stacksTo(1);
+        // public static final Properties iPropBucket = iProp.craftRemainder(BUCKET).stacksTo(1);
 
         public final static BaseFlowingFluid.Properties FProp(DeferredHolder<FluidType, ?> type,
                         DeferredHolder<Fluid, ?> source, DeferredHolder<Fluid, FlowingFluid> flowing,

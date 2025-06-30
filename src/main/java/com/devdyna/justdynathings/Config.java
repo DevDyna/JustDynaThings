@@ -27,10 +27,6 @@ public class Config {
 
         public static IntValue THERMOGEN_FE_CAPACITY;
         public static IntValue THERMOGEN_MB_CAPACITY;
-        // public static IntValue THERMOGEN_MB_COST;
-        // public static IntValue THERMOGEN_FE_ONLY_HEATED;
-        // public static IntValue THERMOGEN_FE_WITH_COOLANT;
-        // public static BooleanValue THERMOGEN_REQUIRE_COOLANT;
 
         public static BooleanValue BLACKHOLE_KEEP_STORAGE;
         public static IntValue BLACKHOLE_FE_CAPACITY;
@@ -77,29 +73,36 @@ public class Config {
         public static IntValue SOLARPANEL_FERRICORE_FE_RATE;
         public static BooleanValue SOLARPANEL_FERRICORE_ENABLE_YLEVEL;
         public static BooleanValue SOLARPANEL_FERRICORE_ENABLE_SPAM;
-        public static BooleanValue SOLARPANEL_FERRICORE_CONDITIONS_OVERRIDE;
+        public static BooleanValue SOLARPANEL_FERRICORE_ENABLE_SKY;
+        public static BooleanValue SOLARPANEL_FERRICORE_ENABLE_DAYTIME;
+        public static BooleanValue SOLARPANEL_FERRICORE_BIOMES;
 
         public static IntValue SOLARPANEL_BLAZEGOLD_FE_CAPACITY;
         public static IntValue SOLARPANEL_BLAZEGOLD_FE_RATE;
         public static BooleanValue SOLARPANEL_BLAZEGOLD_ENABLE_YLEVEL;
         public static BooleanValue SOLARPANEL_BLAZEGOLD_ENABLE_SPAM;
-        public static BooleanValue SOLARPANEL_BLAZEGOLD_CONDITIONS_OVERRIDE;
+        public static BooleanValue SOLARPANEL_BLAZEGOLD_ENABLE_SKY;
+        public static BooleanValue SOLARPANEL_BLAZEGOLD_ENABLE_DAYTIME;
+        public static BooleanValue SOLARPANEL_BLAZEGOLD_BIOMES;
 
         public static IntValue SOLARPANEL_CELESTIGEM_FE_CAPACITY;
         public static IntValue SOLARPANEL_CELESTIGEM_FE_RATE;
         public static BooleanValue SOLARPANEL_CELESTIGEM_ENABLE_YLEVEL;
         public static BooleanValue SOLARPANEL_CELESTIGEM_ENABLE_SPAM;
-        public static BooleanValue SOLARPANEL_CELESTIGEM_CONDITIONS_OVERRIDE;
+        public static BooleanValue SOLARPANEL_CELESTIGEM_ENABLE_SKY;
+        public static BooleanValue SOLARPANEL_CELESTIGEM_ENABLE_DAYTIME;
+        public static BooleanValue SOLARPANEL_CELESTIGEM_BIOMES;
 
         public static IntValue SOLARPANEL_ECLIPSEALLOY_FE_CAPACITY;
         public static IntValue SOLARPANEL_ECLIPSEALLOY_FE_RATE;
         public static BooleanValue SOLARPANEL_ECLIPSEALLOY_ENABLE_YLEVEL;
         public static BooleanValue SOLARPANEL_ECLIPSEALLOY_ENABLE_SPAM;
-        public static BooleanValue SOLARPANEL_ECLIPSEALLOY_CONDITIONS_OVERRIDE;
+        public static BooleanValue SOLARPANEL_ECLIPSEALLOY_ENABLE_SKY;
+        public static BooleanValue SOLARPANEL_ECLIPSEALLOY_ENABLE_DAYTIME;
+        public static BooleanValue SOLARPANEL_ECLIPSEALLOY_BIOMES;
 
         public static BooleanValue ANVILS_SOUND_EVENT;
 
-        // public static IntValue ANVILS_FERRICORE_ITEM_COOLDOWN;
         public static BooleanValue ANVIL_FERRICORE_SOUND_EVENT;
 
         public static IntValue ANVILS_BLAZEGOLD_MB_RATE;
@@ -115,7 +118,7 @@ public class Config {
         public static IntValue ANVILS_ECLIPSEALLOY_FE_RATE;
         public static IntValue ANVILS_ECLIPSEALLOY_FE_CAPACITY;
         public static IntValue ANVILS_ECLIPSEALLOY_DAMAGE_LIMIT;
-        // public static IntValue ANVILS_ECLIPSEALLOY_DAMAGE_PERCENTUAGE;
+
         public static BooleanValue ANVIL_ECLIPSEALLOY_SOUND_EVENT;
 
         public static void register(ModContainer c) {
@@ -180,27 +183,16 @@ public class Config {
 
                 qCOMMON.comment(DataGenUtil.txtDecor(Constants.Blocks.ThermoGen));
 
-                // THERMOGEN_REQUIRE_COOLANT = qCOMMON.comment("Require a fluid coolant to generate FE")
-                //                 .define("thermogen_coolant_to_fe", false);
                 THERMOGEN_FE_CAPACITY = qCOMMON
                                 .comment("Total FE Capacity")
                                 .defineInRange("thermogen_maxfe", 1000000, 1, Integer.MAX_VALUE);
                 THERMOGEN_MB_CAPACITY = qCOMMON
                                 .comment("Total Coolant Capacity")
                                 .defineInRange("thermogen_maxmb", 100000, 1, Integer.MAX_VALUE);
-                // THERMOGEN_MB_COST = qCOMMON
-                //                 .comment("MB/t Coolant cost")
-                //                 .defineInRange("thermogen_mbrate", 1, 1, Integer.MAX_VALUE);
-                // THERMOGEN_FE_ONLY_HEATED = qCOMMON
-                //                 .comment("FE/t generated without a coolant")
-                //                 .defineInRange("thermogen_not_cool", 270, 1, Integer.MAX_VALUE);
-                // THERMOGEN_FE_WITH_COOLANT = qCOMMON
-                //                 .comment("FE/t generated with a coolant")
-                //                 .defineInRange("thermogen_very_cool", 1620, 1, Integer.MAX_VALUE);
 
                 qCOMMON.comment(DataGenUtil.txtDecor(Constants.Blocks.BlackHole));
 
-                //TODO rework to make more blackhole storages
+                // TODO rework to make more blackhole storages
                 BLACKHOLE_KEEP_STORAGE = qCOMMON.comment("Keep stored stuff when redstone disable it")
                                 .define("blackhole_keep", true);
                 BLACKHOLE_FE_CAPACITY = qCOMMON
@@ -332,7 +324,7 @@ public class Config {
 
                 SOLARPANEL_FERRICORE_FE_CAPACITY = qCOMMON
                                 .comment("FE Capacity")
-                                .defineInRange("solar_ferricore_maxfe", 10000, 1, Integer.MAX_VALUE);
+                                .defineInRange("solar_ferricore_maxfe", 100000, 1, Integer.MAX_VALUE);
                 SOLARPANEL_FERRICORE_FE_RATE = qCOMMON
                                 .comment("FE/t production")
                                 .defineInRange("solar_ferricore_ferate", 240, 1, Integer.MAX_VALUE);
@@ -342,9 +334,15 @@ public class Config {
                 SOLARPANEL_FERRICORE_ENABLE_SPAM = qCOMMON
                                 .comment("Enable/Disable Solar-Spam multiplier to reduce FE gen based on cheap prices")
                                 .define("solar_ferricore_spam", false);
-                SOLARPANEL_FERRICORE_CONDITIONS_OVERRIDE = qCOMMON
-                                .comment("Enable/Disable the entire system of conditions to keep active forever")
-                                .define("solar_ferricore_override", false);
+                SOLARPANEL_FERRICORE_ENABLE_SKY = qCOMMON
+                                .comment("Enable/Disable condition to see the sky")
+                                .define("solar_ferricore_sky", true);
+                SOLARPANEL_FERRICORE_ENABLE_DAYTIME = qCOMMON
+                                .comment("Enable/Disable condition of daytime only")
+                                .define("solar_ferricore_day", true);
+                SOLARPANEL_FERRICORE_BIOMES = qCOMMON
+                                .comment("Change the logic of biometag | True == whitelist | False == blacklist")
+                                .define("solar_ferricore_biome_list", true);
 
                 qCOMMON.comment(DataGenUtil.txtDecor(Constants.SolarPanel.t2));
 
@@ -360,15 +358,21 @@ public class Config {
                 SOLARPANEL_BLAZEGOLD_ENABLE_SPAM = qCOMMON
                                 .comment("Enable/Disable Solar-Spam multiplier to reduce FE gen based on cheap prices")
                                 .define("solar_blazegold_spam", false);
-                SOLARPANEL_BLAZEGOLD_CONDITIONS_OVERRIDE = qCOMMON
-                                .comment("Enable/Disable the entire system of conditions to keep active forever")
-                                .define("solar_blazegold_override", false);
+                SOLARPANEL_BLAZEGOLD_ENABLE_SKY = qCOMMON
+                                .comment("Enable/Disable condition to see the sky")
+                                .define("solar_blazegold_sky", false);
+                SOLARPANEL_BLAZEGOLD_ENABLE_DAYTIME = qCOMMON
+                                .comment("Enable/Disable condition of daytime only")
+                                .define("solar_blazegold_day", false);
+                SOLARPANEL_BLAZEGOLD_BIOMES = qCOMMON
+                                .comment("Change the logic of biometag | True == whitelist | False == blacklist")
+                                .define("solar_blazegold_biome_list", true);
 
                 qCOMMON.comment(DataGenUtil.txtDecor(Constants.SolarPanel.t3));
 
                 SOLARPANEL_CELESTIGEM_FE_CAPACITY = qCOMMON
                                 .comment("FE Capacity")
-                                .defineInRange("solar_celestigem_maxfe", 100000, 1, Integer.MAX_VALUE);
+                                .defineInRange("solar_celestigem_maxfe", 1000000, 1, Integer.MAX_VALUE);
                 SOLARPANEL_CELESTIGEM_FE_RATE = qCOMMON
                                 .comment("FE/t production")
                                 .defineInRange("solar_celestigem_ferate", 3840, 1, Integer.MAX_VALUE);
@@ -378,9 +382,15 @@ public class Config {
                 SOLARPANEL_CELESTIGEM_ENABLE_SPAM = qCOMMON
                                 .comment("Enable/Disable Solar-Spam multiplier to reduce FE gen based on cheap prices")
                                 .define("solar_celestigem_spam", true);
-                SOLARPANEL_CELESTIGEM_CONDITIONS_OVERRIDE = qCOMMON
-                                .comment("Enable/Disable the entire system of conditions to keep active forever")
-                                .define("solar_celestigem_override", false);
+                SOLARPANEL_CELESTIGEM_ENABLE_SKY = qCOMMON
+                                .comment("Enable/Disable condition to see the sky")
+                                .define("solar_celestigem_sky", true);
+                SOLARPANEL_CELESTIGEM_ENABLE_DAYTIME = qCOMMON
+                                .comment("Enable/Disable condition of daytime only")
+                                .define("solar_celestigem_day", false);
+                SOLARPANEL_CELESTIGEM_BIOMES = qCOMMON
+                                .comment("Change the logic of biometag | True == whitelist | False == blacklist")
+                                .define("solar_celestigem_biome_list", false);
 
                 qCOMMON.comment(DataGenUtil.txtDecor(Constants.SolarPanel.t4));
 
@@ -396,9 +406,15 @@ public class Config {
                 SOLARPANEL_ECLIPSEALLOY_ENABLE_SPAM = qCOMMON
                                 .comment("Enable/Disable Solar-Spam multiplier to reduce FE gen based on cheap prices")
                                 .define("solar_eclipsealloy_spam", true);
-                SOLARPANEL_ECLIPSEALLOY_CONDITIONS_OVERRIDE = qCOMMON
-                                .comment("Enable/Disable the entire system of conditions to keep active forever")
-                                .define("solar_eclipsealloy_override", false);
+                SOLARPANEL_ECLIPSEALLOY_ENABLE_SKY = qCOMMON
+                                .comment("Enable/Disable condition to see the sky")
+                                .define("solar_eclipsealloy_sky", false);
+                SOLARPANEL_ECLIPSEALLOY_ENABLE_DAYTIME = qCOMMON
+                                .comment("Enable/Disable condition of daytime only")
+                                .define("solar_eclipsealloy_day", false);
+                SOLARPANEL_ECLIPSEALLOY_BIOMES = qCOMMON
+                                .comment("Change the logic of biometag | True == whitelist | False == blacklist")
+                                .define("solar_eclipsealloy_biome_list", false);
 
                 qCOMMON.pop();
         }
@@ -412,9 +428,6 @@ public class Config {
 
                 qCOMMON.comment(DataGenUtil.txtDecor(Constants.Anvils.t1));
 
-                // ANVILS_FERRICORE_ITEM_COOLDOWN = qCOMMON
-                //                 .comment("Ticks of delay to consume a metallic items")
-                //                 .defineInRange("anvil_ferricore_cooldown", 200, 10, Integer.MAX_VALUE);
                 ANVIL_FERRICORE_SOUND_EVENT = qCOMMON
                                 .comment("Enable/Disable sound event on item repair")
                                 .define("anvil_ferricore_sound", true);
@@ -461,9 +474,7 @@ public class Config {
                 ANVILS_ECLIPSEALLOY_DAMAGE_LIMIT = qCOMMON
                                 .comment("Minimal damage until it was counted as insta-repaireable")
                                 .defineInRange("anvil_eclipsealloy_damage_limit", 1000, 1, Integer.MAX_VALUE);
-                // ANVILS_ECLIPSEALLOY_DAMAGE_PERCENTUAGE = qCOMMON
-                //                 .comment("Percentuage of damage repaired when the tool is over the Damage Limit")
-                //                 .defineInRange("anvil_eclipsealloy_damage_percentuage", 10, 1, 99);
+
                 ANVIL_ECLIPSEALLOY_SOUND_EVENT = qCOMMON
                                 .comment("Enable/Disable sound event on item repair")
                                 .define("anvil_eclipsealloy_sound", true);

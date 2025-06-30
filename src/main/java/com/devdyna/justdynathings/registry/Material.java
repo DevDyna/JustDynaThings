@@ -3,7 +3,6 @@ package com.devdyna.justdynathings.registry;
 import static com.devdyna.justdynathings.Main.ID;
 import java.util.ArrayList;
 import java.util.function.Supplier;
-
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.registry.builders.RawOre;
@@ -11,10 +10,13 @@ import com.devdyna.justdynathings.registry.builders._core.block.BlockBase;
 import com.devdyna.justdynathings.registry.builders._core.item.ItemFuel;
 import com.devdyna.justdynathings.registry.builders._core.item.ItemBase;
 import com.devdyna.justdynathings.registry.types.*;
+
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.Fluid;
@@ -33,6 +35,8 @@ public class Material {
                 zHandlers.register(bus);
                 zItems.register(bus);
                 zItemTags.register(bus);
+                zComponents.register(bus);
+                zBiomeTags.register(bus);
         }
 
         /**
@@ -60,6 +64,13 @@ public class Material {
         public static TagKey<Fluid> tagFluid(String name) {
                 return TagKey.create(BuiltInRegistries.FLUID.key(),
                                 ResourceLocation.fromNamespaceAndPath(Main.ID, name));
+        }
+
+        /**
+         * create an biome tag
+         */
+        public static TagKey<Biome> tagBiome(String name) {
+                return TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(Main.ID, name));
         }
 
         /**

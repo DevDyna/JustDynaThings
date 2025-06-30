@@ -32,6 +32,9 @@ public class zCreativeTab {
                                                 // generic items
                                                 zItems.zItem.getEntries().forEach(e -> output.accept((Item) e.get()));
 
+                                                // tools
+                                                zItems.zItemHanded.getEntries().forEach(e -> output.accept((Item) e.get()));
+
                                                 // fuels
                                                 zItems.zCoals.getEntries()
                                                                 .forEach(e -> output.accept((Item) e.get()));

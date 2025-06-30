@@ -233,6 +233,28 @@ public class DataRecipe extends RecipeProvider {
                 SolarRecipe(zBlocks.ECLIPSEALLOY_SOLARGEN.get(), Items.SCULK_VEIN,
                                 Registration.Coal_T4.get(), Registration.EclipseAlloyIngot.get(), c);
 
+                ShapedRecipeBuilder.shaped(MISC, zItems.PICKER_STAFF.get(), 1)
+                                .pattern(" CE")
+                                .pattern(" IC")
+                                .pattern("I  ")
+                                .define('I', Registration.BlazegoldIngot.get())
+                                .define('C', Items.LAPIS_LAZULI)
+                                .define('E', Items.ENDER_EYE)
+                                .unlockedBy(ID, itemInv(Items.ENDER_EYE, Items.LAPIS_LAZULI,
+                                                Registration.BlazegoldIngot.get()))
+                                .group(ID).save(c);
+
+                ShapedRecipeBuilder.shaped(MISC, zItems.SWAP_STAFF.get(), 1)
+                                .pattern(" CE")
+                                .pattern(" IC")
+                                .pattern("I  ")
+                                .define('I', Registration.BlazegoldIngot.get())
+                                .define('C', Items.REDSTONE)
+                                .define('E', Items.ENDER_EYE)
+                                .unlockedBy(ID, itemInv(Items.ENDER_EYE, Items.REDSTONE,
+                                                Registration.BlazegoldIngot.get()))
+                                .group(ID).save(c);
+
                 zBlocks.zBlockItem.getEntries()
                                 .forEach(i -> {
                                         if (!denyClearBlocks.contains(i.get()))
@@ -305,7 +327,7 @@ public class DataRecipe extends RecipeProvider {
         }
 
         private void shapeless(Item output, RecipeOutput c, Item... items) {
-                shapeless(output, c, ResourceLocation.fromNamespaceAndPath(ID,DataGenUtil.getName(output)), items);
+                shapeless(output, c, ResourceLocation.fromNamespaceAndPath(ID, DataGenUtil.getName(output)), items);
         }
 
         private void shapeless(Item output, RecipeOutput c, ResourceLocation id, Item... items) {

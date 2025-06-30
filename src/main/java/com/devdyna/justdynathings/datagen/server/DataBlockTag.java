@@ -3,6 +3,7 @@ package com.devdyna.justdynathings.datagen.server;
 import java.util.concurrent.CompletableFuture;
 
 import com.devdyna.justdynathings.Main;
+import com.devdyna.justdynathings.registry.types.zBlockTags;
 import com.devdyna.justdynathings.registry.types.zBlocks;
 import com.devdyna.justdynathings.registry.types.zMultiTags;
 import com.devdyna.justdynathings.utils.DataGenUtil;
@@ -30,7 +31,7 @@ public class DataBlockTag extends BlockTagsProvider {
         @Override
         protected void addTags(Provider p) {
 
-                //generic blocks
+                // generic blocks
                 zBlocks.zBlock.getEntries()
                                 .forEach(b -> tag(BlockTags.MINEABLE_WITH_PICKAXE)
                                                 .addOptional(DataGenUtil.getResource(b.get())));
@@ -38,12 +39,12 @@ public class DataBlockTag extends BlockTagsProvider {
                                 .forEach(b -> tag(BlockTags.MINEABLE_WITH_PICKAXE)
                                                 .addOptional(DataGenUtil.getResource(b.get())));
 
-                //ores                                                
+                // ores
                 zBlocks.zOres.getEntries()
                                 .forEach(b -> tag(BlockTags.MINEABLE_WITH_PICKAXE)
                                                 .add(b.get()));
 
-                //goo blocks                             
+                // goo blocks
                 zBlocks.zGoo.getEntries()
                                 .forEach(b -> tag(BlockTags.MINEABLE_WITH_SHOVEL)
                                                 .add(b.get()));
@@ -81,6 +82,9 @@ public class DataBlockTag extends BlockTagsProvider {
 
                 tag(zMultiTags.T4_SPREAD.block()).add(
                                 Registration.GooBlock_Tier3.get()).addTag(zMultiTags.T3_SPREAD.block());
+
+                tag(zBlockTags.PICKER_DENY).addTag(Tags.Blocks.RELOCATION_NOT_SUPPORTED);
+                tag(zBlockTags.SWAPPER_DENY).addTag(Tags.Blocks.RELOCATION_NOT_SUPPORTED);
 
         }
 

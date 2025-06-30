@@ -30,6 +30,9 @@ public class DataItemModel extends ItemModelProvider {
                 zItems.zItem.getEntries()
                                 .forEach(item -> DataGenUtil.itemModel(item.get(), this));
 
+                //TODO ITEM TEXTURES AND GUIDEME
+                // zItems.zItemHanded.getEntries().forEach(item -> DataGenUtil.itemTool(item.get(), this));
+
                 DataGenUtil.itemBlock(zBlocks.THERMOGEN.get(), this);
 
                 DataGenUtil.itemBlock(zBlocks.BLACKHOLE.get(), this);

@@ -20,8 +20,10 @@ public class DataLang extends LanguageProvider {
     @Override
     protected void addTranslations() {
 
-        // deprecated
-        add(Main.ID + ".off", "§8[§fControl§8]§f");
+        add(ID + ".invalid_block", "§cInvalid Block");
+        add(ID + ".wand.blockstate", "BlockState : ");
+        add(ID + ".wand.dimension", "Dimension : ");
+        add(ID + ".wand.pos", "BlockPos : ");
 
         // creative tab
         add(Main.ID + "." + Constants.CreativeTab, "Just Dyna Things");
@@ -53,6 +55,7 @@ public class DataLang extends LanguageProvider {
         zItems.zBucketItem.getEntries().forEach(b -> addItem(b, named(b.getRegisteredName())));
         zItems.zItemTinted.getEntries().forEach(b -> addItem(b, named(b.getRegisteredName())));
         zItems.zCoals.getEntries().forEach(b -> addItem(b, named(b.getRegisteredName())));
+        zItems.zItemHanded.getEntries().forEach(b -> addItem(b, named(b.getRegisteredName())));
 
         // compats
         List.of(

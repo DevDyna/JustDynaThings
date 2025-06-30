@@ -8,6 +8,11 @@ public class Constants {
 
     public static String CreativeTab = "creative_tab";
 
+    public class Items{
+        public static String Swapper = "swapper_wand";
+        public static String Picker = "picker_wand";
+    }
+
     public class Blocks {
         public static String PhaseBox = "phase_box";
         public static String Reforger = "reforger";

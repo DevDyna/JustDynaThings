@@ -1,7 +1,13 @@
 package com.devdyna.justdynathings.registry.types;
 
+import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
+import com.devdyna.justdynathings.registry.builders.PickerWand;
+import com.devdyna.justdynathings.registry.builders.SwapperWand;
+
+import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class zItems {
@@ -12,9 +18,11 @@ public class zItems {
                 zBucketItem.register(bus);
                 zBlockItem.register(bus);
                 zCoals.register(bus);
+                zItemHanded.register(bus);
         }
 
         // ---------------------------------------------------------------------------------------//
+        public static final DeferredRegister.Items zItemHanded = DeferredRegister.createItems(Main.ID);
         public static final DeferredRegister.Items zItem = DeferredRegister.createItems(Main.ID);
         public static final DeferredRegister.Items zItemTinted = DeferredRegister.createItems(Main.ID);
         // DONT USE IT , ONLY FUNCTIONAL
@@ -23,28 +31,28 @@ public class zItems {
         public static final DeferredRegister.Items zCoals = DeferredRegister.createItems(Main.ID);
         // ---------------------------------------------------------------------------------------//
 
-        // public static final DeferredHolder<Item, ?> BIO_FUEL = Material.DireStuff.FuelItemDW(Constants.Fuel.BIOFUEL,
-        //                 3);
+        //TODO FUELS
+        // public static final DeferredHolder<Item, ?> BIO_FUEL =
+        // Material.DireStuff.FuelItemDW(Constants.Fuel.BIOFUEL,
+        // 3);
 
-        // public static final DeferredHolder<Item, ?> REDSTONE_FUEL = Material.DireStuff.FuelItemDW(
-        //                 Constants.Fuel.REDSTONE,
-        //                 15);
+        // public static final DeferredHolder<Item, ?> REDSTONE_FUEL =
+        // Material.DireStuff.FuelItemDW(
+        // Constants.Fuel.REDSTONE,
+        // 15);
 
-        // public static final DeferredHolder<Item, ?> LAPIS_LAZULI_FUEL = Material.DireStuff.FuelItemDW(
-        //                 Constants.Fuel.LAPIS_LAZULI,
-        //                 5);
-
-        // public static DeferredHolder<Item, BucketItem> REDSTONE_JUICE_BUCKET = zBucketItem.register(
-        //                 Constants.Fluids.RedstoneJuice.Bucket,
-        //                 () -> new BucketItem(zFluids.REDSTONE_JUICE_SOURCE.get(),
-        //                                 new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
-
-        // public static DeferredHolder<Item, BucketItem> LAPIS_LAZULI_JUICE_BUCKET = zBucketItem.register(
-        //                 Constants.Fluids.LapisLazuliJuice.Bucket,
-        //                 () -> new BucketItem(zFluids.LAPIS_LAZULI_JUICE_SOURCE.get(),
-        //                                 new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
+        // public static final DeferredHolder<Item, ?> LAPIS_LAZULI_FUEL =
+        // Material.DireStuff.FuelItemDW(
+        // Constants.Fuel.LAPIS_LAZULI,
+        // 5);
 
         // ---------------------------------------------------------------------------------------//
+
+        public static final DeferredHolder<Item, ?> SWAP_STAFF =
+        zItemHanded.register(Constants.Items.Swapper,()-> new SwapperWand());
+
+        public static final DeferredHolder<Item, ?> PICKER_STAFF =
+        zItemHanded.register(Constants.Items.Picker,()-> new PickerWand());
 
         public static void registerLists() {
 

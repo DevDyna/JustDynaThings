@@ -11,7 +11,6 @@ import com.devdyna.justdynathings.registry.types.zBiomeTags;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.BiomeTagsProvider;
-import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
@@ -32,12 +31,10 @@ public class DataBiomeTag extends BiomeTagsProvider {
 
                 tag(zBiomeTags.BLAZEGOLD_SOLAR_PANEL_BIOME_LIST)
                                 .addTag(Tags.Biomes.IS_NETHER);
-
-                tag(zBiomeTags.FERRICORE_SOLAR_PANEL_BIOME_LIST)
-                                .addOptional(ResourceLocation.parse("example"));
-
-                tag(zBiomeTags.FERRICORE_SOLAR_PANEL_BIOME_LIST)
-                                .addOptional(ResourceLocation.parse("example"));
+                // noOp
+                tag(zBiomeTags.CELESTIGEM_SOLAR_PANEL_BIOME_LIST);
+                // noOp
+                tag(zBiomeTags.ECLIPSEALLOY_SOLAR_PANEL_BIOME_LIST);
         }
 
 }

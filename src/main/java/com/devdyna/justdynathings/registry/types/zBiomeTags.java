@@ -14,15 +14,15 @@ public class zBiomeTags {
         }
 
         public static final TagKey<Biome> FERRICORE_SOLAR_PANEL_BIOME_LIST = Material
-                        .tagBiome(Constants.SolarPanelType + "s/" + Constants.Tiers.ferricore + "/list");
+                        .tagBiome(Constants.SolarPanelType + "s/" + Constants.Tiers.ferricore + "_allow");
 
         public static final TagKey<Biome> BLAZEGOLD_SOLAR_PANEL_BIOME_LIST = Material
-                        .tagBiome(Constants.SolarPanelType + "s/" + Constants.Tiers.blazegold + "/list");
+                        .tagBiome(Constants.SolarPanelType + "s/" + Constants.Tiers.blazegold + "_allow");
 
         public static final TagKey<Biome> CELESTIGEM_SOLAR_PANEL_BIOME_LIST = Material
-                        .tagBiome(Constants.SolarPanelType + "s/" + Constants.Tiers.celestigem + "/list");
+                        .tagBiome(Constants.SolarPanelType + "s/" + Constants.Tiers.celestigem + "_allow");
 
         public static final TagKey<Biome> ECLIPSEALLOY_SOLAR_PANEL_BIOME_LIST = Material
-                        .tagBiome(Constants.SolarPanelType + "s/" + Constants.Tiers.eclipsealloy + "/list");
+                        .tagBiome(Constants.SolarPanelType + "s/" + Constants.Tiers.eclipsealloy + "_allow");
 
 }

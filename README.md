@@ -14,8 +14,8 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [ ] Draconite generator (dragon breath -> FE)
 
 ### Specialized
-- Experience pedestal (clicking with items generate experience)
-- [x] Powered Budding *(maybe they will be moved to a separate project)*
+- [ ] Plant Harvester
+- [ ] Experience pedestal (clicking with items generate experience)
 - [ ] Sculk Diffuser (Sculk Source without need to kill mobs)
 - [ ] Buffed Fuels (fuel with high multiplier)
 - [ ] Reforger T2 (?)
@@ -23,9 +23,7 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [ ] Bacteria Catalyst (Eclipse staff like but descructive)
 - [ ] Generator T2
 - [ ] Block Picker (Itemstaff like Swapper but manual)
-- [ ] ~~Light Wand (based on [#337](https://github.com/Direwolf20-MC/JustDireThings/issues/337) with gui to select light level)~~
 - [ ] Paradox Box (Pandora's Box like)
-- [ ] ~~Bio-Azalea Generator (passive FE generator powered by azalea roots)~~ (maybe i will move to another project but here is out of topic)
 - [ ] Crystallizer and Liquid Crystalline
 - [ ] Rocket Boots Upgrade
 - [ ] Raw magmasteel (iron + magma) -> thermogen (?)  

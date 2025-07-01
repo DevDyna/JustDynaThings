@@ -83,13 +83,13 @@ public class DataBlockTag extends BlockTagsProvider {
                 tag(zMultiTags.T4_SPREAD.block()).add(
                                 Registration.GooBlock_Tier3.get()).addTag(zMultiTags.T3_SPREAD.block());
 
-                tag(zBlockTags.PICKER_DENY).addTag(Tags.Blocks.RELOCATION_NOT_SUPPORTED)
+                tag(zBlockTags.PICKER_DENY)
                                 // JustDireBlockTags.SWAPPERDENY only work on datagen...
                                 .add(Blocks.PISTON_HEAD).add(Blocks.MOVING_PISTON).add(Blocks.BEDROCK)
                                 .add(Blocks.END_PORTAL_FRAME).add(Blocks.CANDLE_CAKE).addTag(BlockTags.BEDS)
                                 .addTag(BlockTags.PORTALS).addTag(BlockTags.DOORS);
 
-                tag(zBlockTags.SWAPPER_DENY).addTag(Tags.Blocks.RELOCATION_NOT_SUPPORTED)
+                tag(zBlockTags.SWAPPER_DENY)
                                 .add(Blocks.PISTON_HEAD).add(Blocks.MOVING_PISTON).add(Blocks.BEDROCK)
                                 .add(Blocks.END_PORTAL_FRAME).add(Blocks.CANDLE_CAKE).addTag(BlockTags.BEDS)
                                 .addTag(BlockTags.PORTALS).addTag(BlockTags.DOORS);

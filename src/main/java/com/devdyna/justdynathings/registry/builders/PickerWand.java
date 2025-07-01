@@ -7,10 +7,12 @@ import java.util.List;
 import com.devdyna.justdynathings.registry.types.zBlockTags;
 import com.devdyna.justdynathings.registry.types.zComponents;
 import com.devdyna.justdynathings.registry.types.zProperties;
+import com.direwolf20.justdirethings.common.blockentities.BlockSwapperT1BE;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -63,15 +65,22 @@ public class PickerWand extends Item {
 
     private void pickupBlock(ItemStack item, BlockPos pos, Level level, Player player, Direction face) {
         item.set(zComponents.STATE, level.getBlockState(pos));
-        level.setBlockAndUpdate(pos, Blocks.AIR.defaultBlockState());
-        player.playSound(SoundEvents.ITEM_FRAME_ADD_ITEM);
+        player.playSound(SoundEvents.SHULKER_TELEPORT, 1F, 1F);
+        if (!level.isClientSide()) {
+            level.setBlockAndUpdate(pos, Blocks.AIR.defaultBlockState());
+            BlockSwapperT1BE.teleportParticles((ServerLevel) level, pos);
+        }
     }
 
     private void placeBlock(ItemStack item, BlockPos pos, Level level, Player player, BlockState state,
             Direction face) {
-        level.setBlockAndUpdate(pos.relative(face), state);
+        if (!level.isClientSide()) {
+            level.setBlockAndUpdate(pos.relative(face), state);
+            BlockSwapperT1BE.teleportParticles((ServerLevel) level, pos);
+            level.markAndNotifyBlock(pos.relative(face), level.getChunkAt(pos.relative(face)), state, state, 3, 512);
+        }
+        player.playSound(SoundEvents.SHULKER_TELEPORT, 1F, 0.25F);
         item.set(zComponents.STATE, null);
-        player.playSound(SoundEvents.ITEM_FRAME_REMOVE_ITEM);
         consumeDurability(player, item);
     }
 

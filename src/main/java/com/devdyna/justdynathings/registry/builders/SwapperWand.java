@@ -6,12 +6,14 @@ import java.util.List;
 
 import com.devdyna.justdynathings.registry.types.zBlockTags;
 import com.devdyna.justdynathings.registry.types.zProperties;
+import com.direwolf20.justdirethings.common.blockentities.BlockSwapperT1BE;
 import com.direwolf20.justdirethings.common.items.datacomponents.JustDireDataComponents;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.GlobalPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -62,17 +64,25 @@ public class SwapperWand extends Item {
 
     private void bindGPos(ItemStack item, Player player, Level level, BlockPos pos) {
         item.set(JustDireDataComponents.BOUND_GLOBAL_POS, new GlobalPos(level.dimension(), pos));
-        player.playSound(SoundEvents.END_PORTAL_FRAME_FILL);
+        player.playSound(SoundEvents.END_PORTAL_FRAME_FILL, 1.0F, 1.0F);
     }
 
     private void swapBlocks(Player player, ItemStack item, Level level, BlockState state, BlockPos pos) {
         var transmit = level.getBlockState(item.get(JustDireDataComponents.BOUND_GLOBAL_POS).pos());
         var recieve = state;
-
-        level.setBlock(item.get(JustDireDataComponents.BOUND_GLOBAL_POS).pos(), recieve, 51);
-        level.setBlock(pos, transmit, 51);
+        
+        if (!level.isClientSide()) {
+            level.setBlockAndUpdate(item.get(JustDireDataComponents.BOUND_GLOBAL_POS).pos(), recieve);
+            level.setBlockAndUpdate(pos, transmit);
+            BlockSwapperT1BE.teleportParticles((ServerLevel) level,
+                    item.get(JustDireDataComponents.BOUND_GLOBAL_POS).pos());
+            BlockSwapperT1BE.teleportParticles((ServerLevel) level, pos);
+            level.markAndNotifyBlock(pos, level.getChunkAt(pos), state, state, 3, 512);
+            level.markAndNotifyBlock(item.get(JustDireDataComponents.BOUND_GLOBAL_POS).pos(),
+                    level.getChunkAt(item.get(JustDireDataComponents.BOUND_GLOBAL_POS).pos()), state, state, 3, 512);
+        }
+        player.playSound(SoundEvents.END_PORTAL_FRAME_FILL, 3.0F, 0.25F);
         item.set(JustDireDataComponents.BOUND_GLOBAL_POS, null);
-        player.playSound(SoundEvents.END_PORTAL_FRAME_FILL);
         consumeDurability(player, item);
     }
 

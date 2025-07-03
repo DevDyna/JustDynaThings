@@ -24,6 +24,7 @@ public class DataLang extends LanguageProvider {
         add(ID + ".wand.blockstate", "BlockState : ");
         add(ID + ".wand.dimension", "Dimension : ");
         add(ID + ".wand.pos", "BlockPos : ");
+        add(ID + ".disabled", "Item Disabled");
 
         // creative tab
         add(Main.ID + "." + Constants.CreativeTab, "Just Dyna Things");

@@ -79,7 +79,7 @@ public class zBlocks {
                         .registerBudding(Constants.Budding.Time, () -> new TimeBlock());
 
         public static final DeferredHolder<Block, ?> ECHOING_BUDDING_AMETHYST = Material.DireStuff
-                                                                                           
+
                         .registerBudding(Constants.Budding.Amethyst, () -> new AmethystBlock());
 
         public static final DeferredHolder<Block, ?> FERRICORE_CLOCK = Material
@@ -122,6 +122,7 @@ public class zBlocks {
 
         public static void registerLists() {
 
+                // startup.ITEMS.get().forEach(i -> Material.registerItemAndBlock(i+"_rawore", RawOre::new));
                 // List.of(...).forEach(p -> ??);
         }
 

@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "goo_upgrade",
+  "key": {
+    "B": {
+      "item": "minecraft:sculk"
+    },
+    "G": {
+      "item": "justdynathings:charged_voidshimmer_goo"
+    },
+    "N": {
+      "item": "minecraft:echo_shard"
+    },
+    "R": {
+      "item": "minecraft:sculk_shrieker"
+    }
+  },
+  "pattern": [
+    "BRB",
+    "NGN",
+    "BRB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "justdynathings:charged_shadowpulse_goo"
+  }
+}

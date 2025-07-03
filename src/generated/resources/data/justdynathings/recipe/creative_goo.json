@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "group": "justdynathings",
+  "group": "creative_goo",
   "key": {
     "A": {
       "item": "justdirethings:time_crystal"

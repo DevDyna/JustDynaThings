@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "goo_upgrade",
+  "key": {
+    "B": {
+      "item": "minecraft:ender_pearl"
+    },
+    "G": {
+      "item": "justdynathings:charged_blazebloom_goo"
+    },
+    "N": {
+      "item": "minecraft:dragon_breath"
+    },
+    "R": {
+      "item": "minecraft:end_stone"
+    }
+  },
+  "pattern": [
+    "BRB",
+    "NGN",
+    "BRB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "justdynathings:charged_voidshimmer_goo"
+  }
+}

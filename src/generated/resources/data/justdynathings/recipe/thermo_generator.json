@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "group": "justdynathings",
+  "group": "thermo_generator",
   "key": {
     "A": {
       "item": "justdirethings:eclipsealloy_ingot"

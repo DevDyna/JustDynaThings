@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "group": "justdynathings",
+  "group": "ferricore_clock",
   "key": {
     "A": {
       "item": "justdirethings:ferricore_ingot"

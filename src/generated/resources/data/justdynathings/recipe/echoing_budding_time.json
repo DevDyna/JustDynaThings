@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "group": "justdynathings",
+  "group": "echoing_budding",
   "ingredients": [
     {
       "tag": "justdynathings:time_buddings"

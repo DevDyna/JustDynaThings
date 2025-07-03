@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "goo_upgrade",
+  "key": {
+    "B": {
+      "item": "minecraft:blaze_powder"
+    },
+    "G": {
+      "item": "justdynathings:charged_primogel_goo"
+    },
+    "N": {
+      "item": "minecraft:nether_wart"
+    },
+    "R": {
+      "tag": "c:dusts/redstone"
+    }
+  },
+  "pattern": [
+    "BRB",
+    "NGN",
+    "BRB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "justdynathings:charged_blazebloom_goo"
+  }
+}

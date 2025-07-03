@@ -24,6 +24,11 @@ public class FerricoreAnvilBE extends CAnvilBE {
     // int delay = Config.ANVILS_FERRICORE_ITEM_COOLDOWN.get();
     // int i = delay - 1;
 
+    private static boolean canConsume = true;
+    private static int totalToRepair = 0;
+
+    int i = 0;
+
     @Override
     public void tickServer() {
         var tool = getMachineHandler().getStackInSlot(0);
@@ -33,21 +38,27 @@ public class FerricoreAnvilBE extends CAnvilBE {
             var data = catalyst.getItemHolder().getData(zDataMaps.FERRICORE_REPAIR);
 
             if (data != null && tool.isDamageableItem()
-                    && tool.isDamaged() && !tool.is(zItemTags.FERRICORE_ANVIL_DENY)) {
+                    && tool.isDamaged() && !tool.is(zItemTags.FERRICORE_ANVIL_DENY) && canConsume) {
 
-                // if (i < delay)
-                //     i++;
-
-                // if (i >= delay) {
-                //     i = 0;
-                    catalyst.shrink(1);
-                // }
-                Actions.repairItem(tool,data.durability());
-
-                if (common.ANVIL_FERRICORE_SOUND_EVENT.get())
-                    applySound();
-
+                catalyst.shrink(1);
+                canConsume = false;
+                totalToRepair = data.durability();
             }
+
+            if (!canConsume) {
+                if (i < totalToRepair) {
+                    i++;
+                    Actions.repairItem(tool, 1);
+                    if (common.ANVIL_FERRICORE_SOUND_EVENT.get())
+                        applySound();
+                }
+
+                if (i >= totalToRepair) {
+                    i = 0;
+                    canConsume = true;
+                }
+            }
+
         }
     }
 

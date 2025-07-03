@@ -11,7 +11,7 @@ public class zItemTags {
         public static void register(IEventBus bus) {
         }
 
-        public static final TagKey<Item> REFORGER_CATALYST = Material.tagItem("reforger_catalyst");
+        // public static final TagKey<Item> REFORGER_CATALYST = Material.tagItem("reforger_catalyst");
 
         public static final TagKey<Item> CREATIVE_GOO_WRENCHES = Material.tagItem(Constants.Goo.Creative + "_wrenches");
 

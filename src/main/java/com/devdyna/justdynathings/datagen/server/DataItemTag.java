@@ -62,8 +62,8 @@ public class DataItemTag extends ItemTagsProvider {
                 tag(zItemTags.ECLIPSE_ALLOY_ANVIL_DENY)
                                 .add(Items.MACE);
 
-                tag(zItemTags.REFORGER_CATALYST)
-                                .add(Items.DIAMOND);
+                // tag(zItemTags.REFORGER_CATALYST)
+                //                 .add(Items.DIAMOND);
 
                 tag(zMultiTags.T2_SPREAD.item()).add(
                                 Registration.GooBlock_Tier1_ITEM.get());

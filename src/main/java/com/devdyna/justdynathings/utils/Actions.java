@@ -2,7 +2,6 @@ package com.devdyna.justdynathings.utils;
 
 import java.util.Map;
 
-import com.devdyna.justdynathings.config.common;
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyMachine;
 import com.devdyna.justdynathings.registry.types.zBlockTags;
 import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineBE;
@@ -33,10 +32,10 @@ public class Actions {
          * ONLY REFORGER
          * @deprecated
          */
-        public static void consumeItem(ItemStack item, Level level) {
-                if (LevelUtil.chance(common.REFORGER_CHANCE.get(), level))
-                        item.shrink(1);
-        }
+        // public static void consumeItem(ItemStack item, Level level) {
+        //         if (LevelUtil.chance(common.REFORGER_CHANCE.get(), level))
+        //                 item.shrink(1);
+        // }
 
         public static void consumeItem(ItemStack item, Level level, int chance) {
                 if (LevelUtil.chance(chance, level))

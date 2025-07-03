@@ -17,7 +17,7 @@ public class common {
 
         public static BooleanValue PHASE_BOX_WRENCHABLE;
 
-        public static IntValue REFORGER_CHANCE;
+        // public static IntValue REFORGER_CHANCE;
 
         public static BooleanValue FERRICORE_CLOCK_WRENCHABLE;
 
@@ -155,11 +155,11 @@ public class common {
                                 .comment("Require any wrench to change Phase Box state intend of nothing")
                                 .define("phasebox_requireWrench", false);
 
-                qCOMMON.comment(DataGenUtil.txtDecor(Constants.Blocks.Reforger));
+                // qCOMMON.comment(DataGenUtil.txtDecor(Constants.Blocks.Reforger));
 
-                REFORGER_CHANCE = qCOMMON
-                                .comment("Chance to consume reforger catalyst")
-                                .defineInRange("consumeChance", 50, 1, 99);
+                // REFORGER_CHANCE = qCOMMON
+                //                 .comment("Chance to consume reforger catalyst")
+                //                 .defineInRange("consumeChance", 50, 1, 99);
 
                 qCOMMON.comment(DataGenUtil.txtDecor(Constants.Blocks.FerricoreClock));
 

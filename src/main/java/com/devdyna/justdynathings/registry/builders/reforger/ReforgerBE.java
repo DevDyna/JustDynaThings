@@ -1,14 +1,17 @@
 package com.devdyna.justdynathings.registry.builders.reforger;
 
-import com.devdyna.justdynathings.config.common;
+import java.util.Random;
+
 import com.devdyna.justdynathings.datamaps.zDataMaps;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.LevelUtil;
+import com.direwolf20.justdirethings.client.particles.gooexplodeparticle.GooExplodeParticleData;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.RedstoneControlledBE;
 import com.direwolf20.justdirethings.util.interfacehelpers.RedstoneControlData;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.item.ItemStack;
@@ -61,7 +64,8 @@ public class ReforgerBE extends BaseMachineBE implements RedstoneControlledBE {
 
             if (holder.getData(zDataMaps.REFORGER_oneToOne) != null) {
                 if (stateRelated.is(holder.getData(zDataMaps.REFORGER_oneToOne).input().getBlock())) {
-                    success(holder.getData(zDataMaps.REFORGER_oneToOne).output(), posRel, item, level);
+                    success(holder.getData(zDataMaps.REFORGER_oneToOne).output(), posRel, item, level,
+                            holder.getData(zDataMaps.REFORGER_oneToOne).chanceToUse());
                     return;
                 }
             }
@@ -72,14 +76,16 @@ public class ReforgerBE extends BaseMachineBE implements RedstoneControlledBE {
                             holder.getData(zDataMaps.REFORGER_oneToMany).output(),
                             LevelUtil.getRandomValue(
                                     LevelUtil.getSizeTag(holder.getData(zDataMaps.REFORGER_oneToMany).output()), level))
-                            .defaultBlockState(), posRel, item, level);
+                            .defaultBlockState(), posRel, item, level,
+                            holder.getData(zDataMaps.REFORGER_oneToMany).chanceToUse());
                     return;
                 }
             }
 
             if (holder.getData(zDataMaps.REFORGER_manyToOne) != null) {
                 if (stateRelated.is(holder.getData(zDataMaps.REFORGER_manyToOne).input())) {
-                    success(holder.getData(zDataMaps.REFORGER_manyToOne).output(), posRel, item, level);
+                    success(holder.getData(zDataMaps.REFORGER_manyToOne).output(), posRel, item, level,
+                            holder.getData(zDataMaps.REFORGER_manyToOne).chanceToUse());
                     return;
                 }
             }
@@ -97,22 +103,31 @@ public class ReforgerBE extends BaseMachineBE implements RedstoneControlledBE {
                                 !item.isEmpty()));
     }
 
-    public void success(BlockState b, BlockPos pos, ItemStack item, Level level) {
-
+    public void success(BlockState b, BlockPos pos, ItemStack item, Level level, int cosChance) {
+        spawnParticles((ServerLevel) level, pos);
+        applySound();
         // adjusted rotation for rotable blocks like JDT raw ores
         if (b.getValue(BlockStateProperties.FACING) != null)
             b = b.setValue(BlockStateProperties.FACING, getBlockState()
                     .getValue(BlockStateProperties.FACING));
         level.setBlockAndUpdate(pos, b);
-        if (LevelUtil.chance(common.REFORGER_CHANCE.get(), level))
+        if (LevelUtil.chance(cosChance, level))
             item.shrink(1);
     }
 
     public void applySound() {
         if (LevelUtil.chance(50, level))
-            level.playSound(null, getBlockPos(), SoundEvents.BEACON_POWER_SELECT,
-                    SoundSource.BLOCKS, (level.random.nextInt(50) + 1) * 0.01F,
-                    (level.random.nextInt(50) + 1) * 0.01F);
+            level.playSound(null, getBlockPos(), SoundEvents.STRIDER_EAT,
+                    SoundSource.BLOCKS, 1F, 0.1F);
+    }
+
+    public void spawnParticles(ServerLevel level, BlockPos pos) {
+        for (int i = 0; i < 20; ++i)
+            level.sendParticles(new GooExplodeParticleData(new ItemStack(getBlockState().getBlock())),
+                    (double) pos.getX() + new Random().nextDouble(),
+                    (double) pos.getY() + new Random().nextDouble(),
+                    (double) pos.getZ() + new Random().nextDouble(),
+                    1, 0.0, 0.0, 0.0, 0.0);
     }
 
 }

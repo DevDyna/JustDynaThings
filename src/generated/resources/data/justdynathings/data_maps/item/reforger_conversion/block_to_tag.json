@@ -1,7 +1,14 @@
 {
   "values": {
-    "minecraft:diamond": {
+    "justdirethings:celestigem": {
       "chanceToUse": 50,
+      "input": {
+        "Name": "minecraft:stone"
+      },
+      "output": "c:ores_in_ground/stone"
+    },
+    "minecraft:diamond": {
+      "chanceToUse": 95,
       "input": {
         "Name": "minecraft:stone"
       },

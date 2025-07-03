@@ -95,35 +95,35 @@ public class DataMaps extends DataMapProvider {
                                 .add(Items.DIAMOND.builtInRegistryHolder(),
                                                 new ReforgerResult.oneToMany(
                                                                 Blocks.STONE.defaultBlockState(),
-                                                                Tags.Blocks.ORES_IN_GROUND_STONE),
+                                                                Tags.Blocks.ORES_IN_GROUND_STONE,50),
                                                 false);
 
                 builder(zDataMaps.REFORGER_manyToOne)
                                 .add(Registration.Coal_T1.get().builtInRegistryHolder(),
                                                 new ReforgerResult.manyToOne(
                                                                 JustDireBlockTags.CHARCOAL,
-                                                                Registration.RawCoal_T1.get().defaultBlockState()),
+                                                                Registration.RawCoal_T1.get().defaultBlockState(),25),
                                                 false);
 
                 builder(zDataMaps.REFORGER_oneToOne)
                                 .add(Registration.Coal_T2.get().builtInRegistryHolder(),
                                                 new ReforgerResult.oneToOne(
                                                                 Registration.RawCoal_T1.get().defaultBlockState(),
-                                                                Registration.RawCoal_T2.get().defaultBlockState()),
+                                                                Registration.RawCoal_T2.get().defaultBlockState(),50),
                                                 false);
 
                 builder(zDataMaps.REFORGER_oneToOne)
                                 .add(Registration.Coal_T3.get().builtInRegistryHolder(),
                                                 new ReforgerResult.oneToOne(
                                                                 Registration.RawCoal_T2.get().defaultBlockState(),
-                                                                Registration.RawCoal_T3.get().defaultBlockState()),
+                                                                Registration.RawCoal_T3.get().defaultBlockState(),75),
                                                 false);
 
                 builder(zDataMaps.REFORGER_oneToOne)
                                 .add(Registration.Coal_T4.get().builtInRegistryHolder(),
                                                 new ReforgerResult.oneToOne(
                                                                 Registration.RawCoal_T3.get().defaultBlockState(),
-                                                                Registration.RawCoal_T4.get().defaultBlockState()),
+                                                                Registration.RawCoal_T4.get().defaultBlockState(),100),
                                                 false);
 
         }

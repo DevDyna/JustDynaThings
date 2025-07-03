@@ -4,9 +4,9 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
+import com.devdyna.justdynathings.config.common;
 import com.devdyna.justdynathings.registry.builders._core.block.BlockBaseBE;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import net.minecraft.core.BlockPos;
@@ -49,7 +49,7 @@ public class BuddingBlock extends BlockBaseBE {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents,
             TooltipFlag tooltipFlag) {
-        if (!Constants.ModAddonCheck.GuideMe && Config.GUIDEME_WARNING.getAsBoolean())
+        if (!Constants.ModAddonCheck.GuideMe && common.GUIDEME_WARNING.getAsBoolean())
             tooltipComponents.add(Component.translatable(Main.ID + ".guideme.missing"));
     }
 

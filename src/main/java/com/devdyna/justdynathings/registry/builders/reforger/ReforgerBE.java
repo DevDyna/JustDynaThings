@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.reforger;
 
-import com.devdyna.justdynathings.Config;
+import com.devdyna.justdynathings.config.common;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
 import com.devdyna.justdynathings.registry.types.zBlockTags;
 import com.devdyna.justdynathings.registry.types.zItemTags;
@@ -61,7 +61,7 @@ public class ReforgerBE extends BaseMachineBE implements RedstoneControlledBE {
 
                 playSound(pos);
 
-                Actions.consumeItem(item, level,Config.REFORGER_CHANCE.get());
+                Actions.consumeItem(item, level,common.REFORGER_CHANCE.get());
 
             }}
     }

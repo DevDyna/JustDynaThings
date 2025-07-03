@@ -1,5 +1,6 @@
-package com.devdyna.justdynathings;
+package com.devdyna.justdynathings.config;
 
+import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.utils.DataGenUtil;
 
 import net.neoforged.fml.ModContainer;
@@ -7,7 +8,7 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.neoforge.common.ModConfigSpec;
 import net.neoforged.neoforge.common.ModConfigSpec.*;
 
-public class Config {
+public class common {
         private static final ModConfigSpec.Builder qCOMMON = new ModConfigSpec.Builder();
 
         // TODO rework config logic

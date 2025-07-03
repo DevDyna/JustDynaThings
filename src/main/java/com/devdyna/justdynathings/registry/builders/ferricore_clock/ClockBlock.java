@@ -4,10 +4,10 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.client.builder.clock.ClockGUI;
+import com.devdyna.justdynathings.config.common;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.Actions;
 import com.devdyna.justdynathings.utils.DirectionUtil;
@@ -52,7 +52,7 @@ public class ClockBlock extends BaseMachineBlock {
         var item = player.getMainHandItem();
 
         if (player.isCrouching() &&
-                (Config.FERRICORE_CLOCK_WRENCHABLE.get()
+                (common.FERRICORE_CLOCK_WRENCHABLE.get()
                         ? item.is(JustDireItemTags.WRENCHES) || item.is(JustDireItemTags.TOOLS_WRENCH)
                         : true)) {
             this.openMenu(player, pos);
@@ -146,7 +146,7 @@ public class ClockBlock extends BaseMachineBlock {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents,
             TooltipFlag tooltipFlag) {
-        if (!Constants.ModAddonCheck.GuideMe && Config.GUIDEME_WARNING.getAsBoolean())
+        if (!Constants.ModAddonCheck.GuideMe && common.GUIDEME_WARNING.getAsBoolean())
             tooltipComponents.add(Component.translatable(Main.ID + ".guideme.missing"));
     }
 

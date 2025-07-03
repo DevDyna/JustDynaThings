@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.solar.eclipsealloy;
 
-import com.devdyna.justdynathings.Config;
+import com.devdyna.justdynathings.config.common;
 import com.devdyna.justdynathings.registry.builders.solar.SolarBaseBE;
 import com.devdyna.justdynathings.registry.types.zBiomeTags;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
@@ -22,32 +22,32 @@ public class EclipseAlloySolarBE extends SolarBaseBE {
 
     @Override
     public int getMaxEnergy() {
-        return Config.SOLARPANEL_ECLIPSEALLOY_FE_CAPACITY.get();
+        return common.SOLARPANEL_ECLIPSEALLOY_FE_CAPACITY.get();
     }
 
     @Override
     public int FErate() {
-        return Config.SOLARPANEL_ECLIPSEALLOY_FE_RATE.get();
+        return common.SOLARPANEL_ECLIPSEALLOY_FE_RATE.get();
     }
 
     @Override
     public boolean enableMultiPopulator() {
-        return Config.SOLARPANEL_ECLIPSEALLOY_ENABLE_SPAM.get();
+        return common.SOLARPANEL_ECLIPSEALLOY_ENABLE_SPAM.get();
     }
 
     @Override
     public boolean enableMultiYLevel() {
-        return Config.SOLARPANEL_ECLIPSEALLOY_ENABLE_YLEVEL.get();
+        return common.SOLARPANEL_ECLIPSEALLOY_ENABLE_YLEVEL.get();
     }
 
      @Override
     public boolean enableCleanSky() {
-        return Config.SOLARPANEL_ECLIPSEALLOY_ENABLE_SKY.get();
+        return common.SOLARPANEL_ECLIPSEALLOY_ENABLE_SKY.get();
     }
 
     @Override
     public boolean enableDayTimeOnly() {
-        return Config.SOLARPANEL_ECLIPSEALLOY_ENABLE_DAYTIME.get();
+        return common.SOLARPANEL_ECLIPSEALLOY_ENABLE_DAYTIME.get();
     }
 
     @Override
@@ -57,6 +57,6 @@ public class EclipseAlloySolarBE extends SolarBaseBE {
 
     @Override
     public boolean isAllowBiome() {
-        return Config.SOLARPANEL_ECLIPSEALLOY_BIOMES.get();
+        return common.SOLARPANEL_ECLIPSEALLOY_BIOMES.get();
     }
 }

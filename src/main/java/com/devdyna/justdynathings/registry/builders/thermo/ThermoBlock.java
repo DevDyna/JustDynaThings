@@ -4,10 +4,10 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.client.builder.thermoGen.ThermoGUI;
+import com.devdyna.justdynathings.config.common;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.Actions;
 import com.devdyna.justdynathings.utils.ShapeUtil;
@@ -98,7 +98,7 @@ public class ThermoBlock extends BaseMachineBlock {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents,
             TooltipFlag tooltipFlag) {
-        if (!Constants.ModAddonCheck.GuideMe && Config.GUIDEME_WARNING.getAsBoolean())
+        if (!Constants.ModAddonCheck.GuideMe && common.GUIDEME_WARNING.getAsBoolean())
             tooltipComponents.add(Component.translatable(Main.ID + ".guideme.missing"));
             tooltipComponents.add(Component.translatable(Main.ID + "." + Constants.Blocks.ThermoGen + ".tip"));
     }

@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.revitalizer;
 
-import com.devdyna.justdynathings.Config;
+import com.devdyna.justdynathings.config.common;
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyMachine;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
 import com.devdyna.justdynathings.registry.types.zBlockTags;
@@ -49,10 +49,10 @@ public class RevitalizerBE extends BaseMachineBE implements EnergyMachine {
 
         if (readyToConsume()) {
 
-            if (Config.REVITALIZER_TOGGLE_SOUND.get())
+            if (common.REVITALIZER_TOGGLE_SOUND.get())
                 applySound();
 
-            if (LevelUtil.chance(Config.REVITALIZER_CHANCE_FE_COST.get(), level))
+            if (LevelUtil.chance(common.REVITALIZER_CHANCE_FE_COST.get(), level))
                 extractFEWhenPossible();
 
             reviveGoo();
@@ -122,12 +122,12 @@ public class RevitalizerBE extends BaseMachineBE implements EnergyMachine {
 
     @Override
     public int getStandardEnergyCost() {
-        return Config.REVITALIZER_FE_COST.get();
+        return common.REVITALIZER_FE_COST.get();
     }
 
     @Override
     public int getMaxEnergy() {
-        return Config.REVITALIZER_FE_CAPACITY.get();
+        return common.REVITALIZER_FE_CAPACITY.get();
     }
 
 }

@@ -2,9 +2,9 @@ package com.devdyna.justdynathings.registry.builders;
 
 import java.util.List;
 
-import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
+import com.devdyna.justdynathings.config.common;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.LevelUtil;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
@@ -91,7 +91,7 @@ public class PhaseBox extends TransparentBlock {
 
     private ItemInteractionResult success(ItemStack i, BlockState s, Level l, BlockPos pos) {
 
-        if (Config.PHASE_BOX_WRENCHABLE.get()
+        if (common.PHASE_BOX_WRENCHABLE.get()
                 ? i.is(JustDireItemTags.WRENCHES) || i.is(JustDireItemTags.TOOLS_WRENCH)
                 : true) {
 
@@ -110,7 +110,7 @@ public class PhaseBox extends TransparentBlock {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents,
             TooltipFlag tooltipFlag) {
-        if (!Constants.ModAddonCheck.GuideMe && Config.GUIDEME_WARNING.getAsBoolean())
+        if (!Constants.ModAddonCheck.GuideMe && common.GUIDEME_WARNING.getAsBoolean())
             tooltipComponents.add(Component.translatable(Main.ID + ".guideme.missing"));
     }
 }

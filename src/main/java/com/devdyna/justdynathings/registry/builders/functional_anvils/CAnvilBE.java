@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.functional_anvils;
 
-import com.devdyna.justdynathings.Config;
+import com.devdyna.justdynathings.config.common;
 import com.devdyna.justdynathings.utils.LevelUtil;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.RedstoneControlledBE;
@@ -45,7 +45,7 @@ public class CAnvilBE extends BaseMachineBE implements RedstoneControlledBE {
     }
 
     public void applySound() {
-        if (LevelUtil.chance(5, level) && Config.ANVILS_SOUND_EVENT.get())
+        if (LevelUtil.chance(5, level) && common.ANVILS_SOUND_EVENT.get())
             level.playSound(null, getBlockPos(),
                     LevelUtil.chance(50, level)
                             ? SoundEvents.GRINDSTONE_USE

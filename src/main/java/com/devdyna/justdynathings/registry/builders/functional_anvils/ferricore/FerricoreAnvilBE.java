@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.functional_anvils.ferricore;
 
-import com.devdyna.justdynathings.Config;
+import com.devdyna.justdynathings.config.common;
 import com.devdyna.justdynathings.datamaps.zDataMaps;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.CAnvilBE;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
@@ -44,7 +44,7 @@ public class FerricoreAnvilBE extends CAnvilBE {
                 // }
                 Actions.repairItem(tool,data.durability());
 
-                if (Config.ANVIL_FERRICORE_SOUND_EVENT.get())
+                if (common.ANVIL_FERRICORE_SOUND_EVENT.get())
                     applySound();
 
             }

@@ -3,7 +3,7 @@ package com.devdyna.justdynathings.registry.builders.thermo;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.devdyna.justdynathings.Config;
+import com.devdyna.justdynathings.config.common;
 import com.devdyna.justdynathings.datamaps.zDataMaps;
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyGenerator;
 import com.devdyna.justdynathings.registry.interfaces.be.FluidMachine;
@@ -115,12 +115,12 @@ public class ThermoBE extends BaseMachineBE implements FluidMachine, EnergyGener
 
     @Override
     public int getMaxEnergy() {
-        return Config.THERMOGEN_FE_CAPACITY.getAsInt();
+        return common.THERMOGEN_FE_CAPACITY.getAsInt();
     }
 
     @Override
     public int getMaxMB() {
-        return Config.THERMOGEN_MB_CAPACITY.getAsInt();
+        return common.THERMOGEN_MB_CAPACITY.getAsInt();
     }
 
     @Override

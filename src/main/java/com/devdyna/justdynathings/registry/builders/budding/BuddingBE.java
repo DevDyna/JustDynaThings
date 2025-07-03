@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.budding;
 
-import com.devdyna.justdynathings.Config;
+import com.devdyna.justdynathings.config.common;
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyMachine;
 import com.devdyna.justdynathings.registry.interfaces.be.FluidMachine;
 import com.devdyna.justdynathings.registry.types.zProperties;
@@ -57,13 +57,13 @@ public class BuddingBE extends BaseMachineBE implements EnergyMachine, FluidMach
 
                 // applyParticles();
 
-                if (Config.BUDDING_GENERAL_SOUND.get())
+                if (common.BUDDING_GENERAL_SOUND.get())
                     applySound(dir);
 
-                if (Config.BUDDING_GENERAL_FE_CHANCE.get() ? LevelUtil.rnd50(level) : true)
+                if (common.BUDDING_GENERAL_FE_CHANCE.get() ? LevelUtil.rnd50(level) : true)
                     extractFEWhenPossible();
 
-                if (Config.BUDDING_GENERAL_MB_CHANCE.get() ? LevelUtil.rnd50(level) : true)
+                if (common.BUDDING_GENERAL_MB_CHANCE.get() ? LevelUtil.rnd50(level) : true)
                     extractMBWhenPossible();
 
             }
@@ -145,22 +145,22 @@ public class BuddingBE extends BaseMachineBE implements EnergyMachine, FluidMach
 
     @Override
     public int getMaxMB() {
-        return Config.BUDDING_GENERAL_MB_CAPACITY.get();
+        return common.BUDDING_GENERAL_MB_CAPACITY.get();
     }
 
     @Override
     public int getStandardFluidCost() {
-        return Config.BUDDING_GENERAL_MB_COST.get();
+        return common.BUDDING_GENERAL_MB_COST.get();
     }
 
     @Override
     public int getStandardEnergyCost() {
-        return Config.BUDDING_GENERAL_FE_COST.get();
+        return common.BUDDING_GENERAL_FE_COST.get();
     }
 
     @Override
     public int getMaxEnergy() {
-        return Config.BUDDING_GENERAL_FE_CAPACITY.get();
+        return common.BUDDING_GENERAL_FE_CAPACITY.get();
     }
 
 }

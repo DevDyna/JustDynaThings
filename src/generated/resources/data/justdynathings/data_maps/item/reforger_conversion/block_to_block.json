@@ -1,6 +1,7 @@
 {
   "values": {
     "justdirethings:coal_t2": {
+      "chanceToUse": 50,
       "input": {
         "Name": "justdirethings:raw_coal_t1_ore",
         "Properties": {
@@ -15,6 +16,7 @@
       }
     },
     "justdirethings:coal_t3": {
+      "chanceToUse": 75,
       "input": {
         "Name": "justdirethings:raw_coal_t2_ore",
         "Properties": {
@@ -29,6 +31,7 @@
       }
     },
     "justdirethings:coal_t4": {
+      "chanceToUse": 100,
       "input": {
         "Name": "justdirethings:raw_coal_t3_ore",
         "Properties": {

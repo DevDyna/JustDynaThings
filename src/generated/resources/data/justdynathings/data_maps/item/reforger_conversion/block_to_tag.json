@@ -1,6 +1,7 @@
 {
   "values": {
     "minecraft:diamond": {
+      "chanceToUse": 50,
       "input": {
         "Name": "minecraft:stone"
       },

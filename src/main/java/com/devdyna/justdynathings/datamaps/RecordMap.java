@@ -1,15 +1,10 @@
 package com.devdyna.justdynathings.datamaps;
 
-import java.rmi.registry.Registry;
-
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -45,5 +40,29 @@ public class RecordMap {
                 .apply(instance, ThermoFluidCoolant::new));
     }
 
+    public class ReforgerResult {
+
+        public record oneToOne(BlockState input, BlockState output) {
+            public static final Codec<oneToOne> CODEC = RecordCodecBuilder.create(instance -> instance.group(
+                    BlockState.CODEC.fieldOf("input").forGetter(oneToOne::input),
+                    BlockState.CODEC.fieldOf("output").forGetter(oneToOne::output))
+                    .apply(instance, oneToOne::new));
+        }
+
+        public record oneToMany(BlockState input, TagKey<Block> output) {
+            public static final Codec<oneToMany> CODEC = RecordCodecBuilder.create(instance -> instance.group(
+                    BlockState.CODEC.fieldOf("input").forGetter(oneToMany::input),
+                    TagKey.codec(Registries.BLOCK).fieldOf("output").forGetter(oneToMany::output))
+                    .apply(instance, oneToMany::new));
+        }
+
+                public record manyToOne(TagKey<Block> input, BlockState output) {
+            public static final Codec<manyToOne> CODEC = RecordCodecBuilder.create(instance -> instance.group(
+                    TagKey.codec(Registries.BLOCK).fieldOf("input").forGetter(manyToOne::input),
+                    BlockState.CODEC.fieldOf("output").forGetter(manyToOne::output))
+                    .apply(instance, manyToOne::new));
+        }
+
+    }
 
 }

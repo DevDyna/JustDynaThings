@@ -31,6 +31,7 @@ public class Actions {
 
         /**
          * ONLY REFORGER
+         * @deprecated
          */
         public static void consumeItem(ItemStack item, Level level) {
                 if (LevelUtil.chance(common.REFORGER_CHANCE.get(), level))
@@ -47,6 +48,7 @@ public class Actions {
                         item.shrink(itemcount);
         }
 
+        @Deprecated
         public static void reforgerReplaceBlock(BlockPos pos, Level level) {
                 level.setBlockAndUpdate(pos,
                                 LevelUtil
@@ -58,12 +60,14 @@ public class Actions {
                                                 .defaultBlockState());
         }
 
+        @Deprecated
         public static boolean checkItemBlock(Level level, BlockPos pos, TagKey<Block> b,
                         ItemStack item, TagKey<Item> i) {
                 return level.getBlockState(pos).is(b)
                                 && item.is(i);
         }
 
+        @Deprecated
         public static boolean checkItemBlock(Level level, BlockPos pos, TagKey<Block> b,
                         ItemStack item, TagKey<Item> i, boolean itemInvert) {
                 return level.getBlockState(pos).is(b)

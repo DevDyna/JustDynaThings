@@ -40,6 +40,21 @@ public class zDataMaps {
                         Registries.FLUID,
                         EclipseAlloyFluidRepair.CODEC).synced(EclipseAlloyFluidRepair.CODEC, false).build();
 
+        public static final DataMapType<Item, ReforgerResult.oneToOne> REFORGER_oneToOne = DataMapType.builder(
+                        ResourceLocation.fromNamespaceAndPath(ID, "reforger_conversion/block_to_block"),
+                        Registries.ITEM,
+                        ReforgerResult.oneToOne.CODEC).synced(ReforgerResult.oneToOne.CODEC, false).build();
+
+        public static final DataMapType<Item, ReforgerResult.oneToMany> REFORGER_oneToMany = DataMapType.builder(
+                        ResourceLocation.fromNamespaceAndPath(ID, "reforger_conversion/block_to_tag"),
+                        Registries.ITEM,
+                        ReforgerResult.oneToMany.CODEC).synced(ReforgerResult.oneToMany.CODEC, false).build();
+
+        public static final DataMapType<Item, ReforgerResult.manyToOne> REFORGER_manyToOne = DataMapType.builder(
+                        ResourceLocation.fromNamespaceAndPath(ID, "reforger_conversion/tag_to_block"),
+                        Registries.ITEM,
+                        ReforgerResult.manyToOne.CODEC).synced(ReforgerResult.manyToOne.CODEC, false).build();
+
         @SubscribeEvent
         public static void register(RegisterDataMapTypesEvent event) {
                 event.register(FERRICORE_REPAIR);
@@ -47,5 +62,8 @@ public class zDataMaps {
                 event.register(THERMO_COOLANT);
                 event.register(BLAZEGOLD_FLUID);
                 event.register(ECLIPSEALLOY_FLUID);
+                event.register(REFORGER_oneToOne);
+                event.register(REFORGER_oneToMany);
+                event.register(REFORGER_manyToOne);
         }
 }

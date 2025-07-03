@@ -1,10 +1,9 @@
 package com.devdyna.justdynathings.registry.builders.reforger;
 
 import com.devdyna.justdynathings.config.common;
+import com.devdyna.justdynathings.datamaps.zDataMaps;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
-import com.devdyna.justdynathings.registry.types.zBlockTags;
-import com.devdyna.justdynathings.registry.types.zItemTags;
-import com.devdyna.justdynathings.utils.Actions;
+import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.LevelUtil;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.RedstoneControlledBE;
@@ -13,11 +12,13 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
+@SuppressWarnings("null")
 public class ReforgerBE extends BaseMachineBE implements RedstoneControlledBE {
 
     public RedstoneControlData redstoneControlData = new RedstoneControlData();
@@ -42,37 +43,76 @@ public class ReforgerBE extends BaseMachineBE implements RedstoneControlledBE {
     }
 
     @Override
-    public void tickClient() {
-    }
-
-    @Override
     public void tickServer() {
-        if (isActiveRedstone())
-{        ItemStack item = getMachineHandler().getStackInSlot(0);
 
-        BlockPos pos = getBlockPos()
+        ItemStack item = getMachineHandler().getStackInSlot(0);
+        BlockPos posRel = getBlockPos()
                 .relative(getBlockState()
                         .getValue(BlockStateProperties.FACING));
+        BlockState stateRelated = level.getBlockState(posRel);
 
-        if (!item.isEmpty())
-            if (Actions.checkItemBlock(level, pos, zBlockTags.REFORGER_REPLACE, item, zItemTags.REFORGER_CATALYST)) {
+        var holder = item.getItemHolder();
 
-                Actions.reforgerReplaceBlock(pos, level);
+        if (item != null)
+            updateBlock(item);
 
-                playSound(pos);
+        if (level.getGameTime() % tickSpeed == 0 && isActiveRedstone()
+                && getBlockState().getValue(zProperties.ACTIVE).booleanValue()) {
 
-                Actions.consumeItem(item, level,common.REFORGER_CHANCE.get());
+            if (holder.getData(zDataMaps.REFORGER_oneToOne) != null) {
+                if (stateRelated.is(holder.getData(zDataMaps.REFORGER_oneToOne).input().getBlock())) {
+                    success(holder.getData(zDataMaps.REFORGER_oneToOne).output(), posRel, item, level);
+                    return;
+                }
+            }
 
-            }}
+            if (holder.getData(zDataMaps.REFORGER_oneToMany) != null) {
+                if (stateRelated.is(holder.getData(zDataMaps.REFORGER_oneToMany).input().getBlock())) {
+                    success(LevelUtil.ResourceByTag(
+                            holder.getData(zDataMaps.REFORGER_oneToMany).output(),
+                            LevelUtil.getRandomValue(
+                                    LevelUtil.getSizeTag(holder.getData(zDataMaps.REFORGER_oneToMany).output()), level))
+                            .defaultBlockState(), posRel, item, level);
+                    return;
+                }
+            }
+
+            if (holder.getData(zDataMaps.REFORGER_manyToOne) != null) {
+                if (stateRelated.is(holder.getData(zDataMaps.REFORGER_manyToOne).input())) {
+                    success(holder.getData(zDataMaps.REFORGER_manyToOne).output(), posRel, item, level);
+                    return;
+                }
+            }
+
+        }
     }
 
-        @SuppressWarnings("null")
-        public void playSound(BlockPos pos) {
-        level.playLocalSound(pos.getX(), pos.getY(),
-                pos.getZ(),
-                SoundEvents.AMETHYST_BLOCK_BREAK,
-                SoundSource.BLOCKS, 100,
-                LevelUtil.getRandomValue(9, level) * 0.1f, true);
+    /**
+     * update the blockstate properties
+     */
+    public void updateBlock(ItemStack item) {
+        level.setBlockAndUpdate(getBlockPos(),
+                getBlockState()
+                        .setValue(zProperties.ACTIVE,
+                                !item.isEmpty()));
+    }
+
+    public void success(BlockState b, BlockPos pos, ItemStack item, Level level) {
+
+        // adjusted rotation for rotable blocks like JDT raw ores
+        if (b.getValue(BlockStateProperties.FACING) != null)
+            b = b.setValue(BlockStateProperties.FACING, getBlockState()
+                    .getValue(BlockStateProperties.FACING));
+        level.setBlockAndUpdate(pos, b);
+        if (LevelUtil.chance(common.REFORGER_CHANCE.get(), level))
+            item.shrink(1);
+    }
+
+    public void applySound() {
+        if (LevelUtil.chance(50, level))
+            level.playSound(null, getBlockPos(), SoundEvents.BEACON_POWER_SELECT,
+                    SoundSource.BLOCKS, (level.random.nextInt(50) + 1) * 0.01F,
+                    (level.random.nextInt(50) + 1) * 0.01F);
     }
 
 }

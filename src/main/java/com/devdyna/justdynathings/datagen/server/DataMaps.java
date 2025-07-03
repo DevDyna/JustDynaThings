@@ -6,14 +6,18 @@ import com.devdyna.justdynathings.datamaps.zDataMaps;
 import com.devdyna.justdynathings.datamaps.RecordMap.*;
 import com.devdyna.justdynathings.registry.types.zFluidTags;
 import com.devdyna.justdynathings.registry.types.zItemTags;
+import com.devdyna.justdynathings.utils.DataGenUtil;
+import com.direwolf20.justdirethings.datagen.JustDireBlockTags;
 import com.direwolf20.justdirethings.setup.Registration;
 
 import net.minecraft.core.HolderLookup.Provider;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
@@ -51,13 +55,16 @@ public class DataMaps extends DataMapProvider {
                                                 new ThermoFluidCoolant(5f), false);
 
                 builder(zDataMaps.THERMO_HEAT_SOURCE)
-                                .add(Blocks.MAGMA_BLOCK.builtInRegistryHolder(), new ThermoBlockHeatSource(0.75f), false)
+                                .add(Blocks.MAGMA_BLOCK.builtInRegistryHolder(), new ThermoBlockHeatSource(0.75f),
+                                                false)
                                 .add(Blocks.LAVA.builtInRegistryHolder(), new ThermoBlockHeatSource(1f), false)
-                                .add(Blocks.LAVA_CAULDRON.builtInRegistryHolder(), new ThermoBlockHeatSource(0.99f), false)
+                                .add(Blocks.LAVA_CAULDRON.builtInRegistryHolder(), new ThermoBlockHeatSource(0.99f),
+                                                false)
                                 .add(Blocks.FIRE.builtInRegistryHolder(), new ThermoBlockHeatSource(0.5f), false)
                                 .add(Blocks.SOUL_FIRE.builtInRegistryHolder(), new ThermoBlockHeatSource(0.75f), false)
                                 .add(Blocks.CAMPFIRE.builtInRegistryHolder(), new ThermoBlockHeatSource(0.5f), false)
-                                .add(Blocks.SOUL_CAMPFIRE.builtInRegistryHolder(), new ThermoBlockHeatSource(0.75f), false)
+                                .add(Blocks.SOUL_CAMPFIRE.builtInRegistryHolder(), new ThermoBlockHeatSource(0.75f),
+                                                false)
                                 .add(Registration.CoalBlock_T1.get().builtInRegistryHolder(),
                                                 new ThermoBlockHeatSource(2.5f), false)
                                 .add(Registration.CoalBlock_T2.get().builtInRegistryHolder(),
@@ -82,6 +89,41 @@ public class DataMaps extends DataMapProvider {
                 builder(zDataMaps.ECLIPSEALLOY_FLUID)
                                 .add(Registration.TIME_FLUID_SOURCE.get().builtInRegistryHolder(),
                                                 new EclipseAlloyFluidRepair(10.0f),
+                                                false);
+
+                builder(zDataMaps.REFORGER_oneToMany)
+                                .add(Items.DIAMOND.builtInRegistryHolder(),
+                                                new ReforgerResult.oneToMany(
+                                                                Blocks.STONE.defaultBlockState(),
+                                                                Tags.Blocks.ORES_IN_GROUND_STONE),
+                                                false);
+
+                builder(zDataMaps.REFORGER_manyToOne)
+                                .add(Registration.Coal_T1.get().builtInRegistryHolder(),
+                                                new ReforgerResult.manyToOne(
+                                                                JustDireBlockTags.CHARCOAL,
+                                                                Registration.RawCoal_T1.get().defaultBlockState()),
+                                                false);
+
+                builder(zDataMaps.REFORGER_oneToOne)
+                                .add(Registration.Coal_T2.get().builtInRegistryHolder(),
+                                                new ReforgerResult.oneToOne(
+                                                                Registration.RawCoal_T1.get().defaultBlockState(),
+                                                                Registration.RawCoal_T2.get().defaultBlockState()),
+                                                false);
+
+                builder(zDataMaps.REFORGER_oneToOne)
+                                .add(Registration.Coal_T3.get().builtInRegistryHolder(),
+                                                new ReforgerResult.oneToOne(
+                                                                Registration.RawCoal_T2.get().defaultBlockState(),
+                                                                Registration.RawCoal_T3.get().defaultBlockState()),
+                                                false);
+
+                builder(zDataMaps.REFORGER_oneToOne)
+                                .add(Registration.Coal_T4.get().builtInRegistryHolder(),
+                                                new ReforgerResult.oneToOne(
+                                                                Registration.RawCoal_T3.get().defaultBlockState(),
+                                                                Registration.RawCoal_T4.get().defaultBlockState()),
                                                 false);
 
         }

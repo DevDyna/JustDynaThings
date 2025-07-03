@@ -44,9 +44,6 @@ public class DataLoot extends BlockLootSubProvider {
                 zBlocks.zBlockItem.getEntries().forEach(b -> dropSelf(b.get()));
                 zBlocks.zGoo.getEntries().forEach(b -> dropSelf(b.get()));
 
-                // oreTable(zBlocks.REDSTONE_ORE.get(), zItems.REDSTONE_FUEL.get(), 3, 5);
-                // oreTable(zBlocks.LAPIS_LAZULI_ORE.get(), zItems.LAPIS_LAZULI_FUEL.get(), 3, 5);
-
         }
 
         @SuppressWarnings("unused")

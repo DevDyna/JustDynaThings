@@ -53,9 +53,6 @@ public class DataBlockTag extends BlockTagsProvider {
                                 .forEach(b -> tag(Tags.Blocks.ORES)
                                                 .add(b.get()));
 
-                // tag(REFORGER_REPLACE).addTag(BlockTags.STONE_ORE_REPLACEABLES);
-                // tag(REFORGER_RESULT).addTag(Tags.Blocks.ORES_IN_GROUND_STONE);
-
                 tag(REVITALIZER_GOO).add(
                                 Registration.GooBlock_Tier1.get(),
                                 Registration.GooBlock_Tier2.get(),

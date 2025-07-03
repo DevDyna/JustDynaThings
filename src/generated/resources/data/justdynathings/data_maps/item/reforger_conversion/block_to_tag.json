@@ -1,0 +1,10 @@
+{
+  "values": {
+    "minecraft:diamond": {
+      "input": {
+        "Name": "minecraft:stone"
+      },
+      "output": "c:ores_in_ground/stone"
+    }
+  }
+}

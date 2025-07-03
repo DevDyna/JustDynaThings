@@ -1,0 +1,13 @@
+{
+  "values": {
+    "justdirethings:coal_t1": {
+      "input": "c:storage_blocks/charcoal",
+      "output": {
+        "Name": "justdirethings:raw_coal_t1_ore",
+        "Properties": {
+          "facing": "north"
+        }
+      }
+    }
+  }
+}

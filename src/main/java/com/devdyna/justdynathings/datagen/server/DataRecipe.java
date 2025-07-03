@@ -268,7 +268,7 @@ public class DataRecipe extends RecipeProvider {
 
                 ShapedRecipeBuilder.shaped(MISC, zBlocks.T2_GOO.get(), 1)
                                 .pattern("BRB")
-                                .pattern("RDR")
+                                .pattern("RGR")
                                 .pattern("BRB")
                                 .define('B', Items.BLAZE_POWDER)
                                 .define('R', Tags.Items.DUSTS_REDSTONE)
@@ -280,7 +280,7 @@ public class DataRecipe extends RecipeProvider {
 
                 ShapedRecipeBuilder.shaped(MISC, zBlocks.T3_GOO.get(), 1)
                                 .pattern("BRB")
-                                .pattern("RDR")
+                                .pattern("RGR")
                                 .pattern("BRB")
                                 .define('B', Items.ENDER_PEARL)
                                 .define('R', Items.END_STONE)
@@ -292,7 +292,7 @@ public class DataRecipe extends RecipeProvider {
 
                 ShapedRecipeBuilder.shaped(MISC, zBlocks.T4_GOO.get(), 1)
                                 .pattern("BRB")
-                                .pattern("RDR")
+                                .pattern("RGR")
                                 .pattern("BRB")
                                 .define('B', Items.SCULK)
                                 .define('R', Items.SCULK_SHRIEKER)
@@ -301,6 +301,10 @@ public class DataRecipe extends RecipeProvider {
                                 .unlockedBy(ID, itemInv(
                                                 zBlocks.T3_GOO.get().asItem()))
                                 .group(Constants.GooType + "_upgrade").save(c);
+
+
+                                //TODO solar recipes upgrade
+
 
                 // ---------------------------------------------------------------------------------------//
         }

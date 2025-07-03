@@ -15,5 +15,4 @@ public class zMultiTags {
     public static final MultiTag T3_SPREAD = new MultiTag(ID, "t3_spread");
     public static final MultiTag T4_SPREAD = new MultiTag(ID, "t4_spread");
 
-
 }

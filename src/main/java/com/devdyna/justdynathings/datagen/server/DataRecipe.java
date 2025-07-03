@@ -268,7 +268,7 @@ public class DataRecipe extends RecipeProvider {
 
                 ShapedRecipeBuilder.shaped(MISC, zBlocks.T2_GOO.get(), 1)
                                 .pattern("BRB")
-                                .pattern("RGR")
+                                .pattern("NGN")
                                 .pattern("BRB")
                                 .define('B', Items.BLAZE_POWDER)
                                 .define('R', Tags.Items.DUSTS_REDSTONE)
@@ -276,11 +276,12 @@ public class DataRecipe extends RecipeProvider {
                                 .define('G', zBlocks.T1_GOO.get())
                                 .unlockedBy(ID, itemInv(
                                                 zBlocks.T1_GOO.get().asItem()))
-                                .group(Constants.GooType + "_upgrade").save(c);
+                                .group(Constants.GooType + "_upgrade")
+                                .save(c, ResourceLocation.parse(zBlocks.T2_GOO.getId() + "_upgrade"));
 
                 ShapedRecipeBuilder.shaped(MISC, zBlocks.T3_GOO.get(), 1)
                                 .pattern("BRB")
-                                .pattern("RGR")
+                                .pattern("NGN")
                                 .pattern("BRB")
                                 .define('B', Items.ENDER_PEARL)
                                 .define('R', Items.END_STONE)
@@ -288,11 +289,12 @@ public class DataRecipe extends RecipeProvider {
                                 .define('G', zBlocks.T2_GOO.get())
                                 .unlockedBy(ID, itemInv(
                                                 zBlocks.T2_GOO.get().asItem()))
-                                .group(Constants.GooType + "_upgrade").save(c);
+                                .group(Constants.GooType + "_upgrade")
+                                .save(c, ResourceLocation.parse(zBlocks.T2_GOO.getId() + "_upgrade"));
 
                 ShapedRecipeBuilder.shaped(MISC, zBlocks.T4_GOO.get(), 1)
                                 .pattern("BRB")
-                                .pattern("RGR")
+                                .pattern("NGN")
                                 .pattern("BRB")
                                 .define('B', Items.SCULK)
                                 .define('R', Items.SCULK_SHRIEKER)
@@ -300,11 +302,10 @@ public class DataRecipe extends RecipeProvider {
                                 .define('G', zBlocks.T3_GOO.get())
                                 .unlockedBy(ID, itemInv(
                                                 zBlocks.T3_GOO.get().asItem()))
-                                .group(Constants.GooType + "_upgrade").save(c);
+                                .group(Constants.GooType + "_upgrade")
+                                .save(c, ResourceLocation.parse(zBlocks.T2_GOO.getId() + "_upgrade"));
 
-
-                                //TODO solar recipes upgrade
-
+                // TODO solar recipes upgrade
 
                 // ---------------------------------------------------------------------------------------//
         }

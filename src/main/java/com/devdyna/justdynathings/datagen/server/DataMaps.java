@@ -3,7 +3,7 @@ package com.devdyna.justdynathings.datagen.server;
 import java.util.concurrent.CompletableFuture;
 
 import com.devdyna.justdynathings.datamaps.zDataMaps;
-import com.devdyna.justdynathings.datamaps.records.*;
+import com.devdyna.justdynathings.datamaps.RecordMap.*;
 import com.devdyna.justdynathings.registry.types.zFluidTags;
 import com.devdyna.justdynathings.registry.types.zItemTags;
 import com.direwolf20.justdirethings.setup.Registration;

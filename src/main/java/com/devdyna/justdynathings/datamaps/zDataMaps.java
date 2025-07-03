@@ -2,7 +2,7 @@ package com.devdyna.justdynathings.datamaps;
 
 import static com.devdyna.justdynathings.Main.ID;
 
-import com.devdyna.justdynathings.datamaps.records.*;
+import com.devdyna.justdynathings.datamaps.RecordMap.*;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;

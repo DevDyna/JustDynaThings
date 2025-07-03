@@ -28,8 +28,12 @@ public class DataGenUtil {
 
     public static String CUBE_ALL = "block/cube_all";
 
-    public static Block getBlock(String id) {
+    public static Block getModBlock(String id) {
         return BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath(Main.ID, id));
+    }
+
+    public static Block getBlock(String modid,String id) {
+        return BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath(modid, id));
     }
 
     public static String getPath(Block b) {
@@ -226,6 +230,23 @@ public class DataGenUtil {
             }
         }
         return result.toString().trim();
+    }
+
+    public static String getMod(Block block) {
+        return BuiltInRegistries.BLOCK.getKey(block).getNamespace();
+    }
+
+    public static String getMod(Item item) {
+        return BuiltInRegistries.ITEM.getKey(item).getNamespace();
+    }
+
+    public static String getFullName(Block block) {
+        return BuiltInRegistries.BLOCK.getKey(block).getNamespace() + ":"
+                + BuiltInRegistries.BLOCK.getKey(block).getPath();
+    }
+
+    public static String getFullName(Item item) {
+        return BuiltInRegistries.ITEM.getKey(item).getNamespace() + ":" + BuiltInRegistries.ITEM.getKey(item).getPath();
     }
 
 }

@@ -47,17 +47,17 @@ public class Actions {
                         item.shrink(itemcount);
         }
 
-        @Deprecated
-        public static void reforgerReplaceBlock(BlockPos pos, Level level) {
-                level.setBlockAndUpdate(pos,
-                                LevelUtil
-                                                .ResourceByTag(zBlockTags.REFORGER_RESULT,
-                                                                LevelUtil.getRandomValue(
-                                                                                LevelUtil.getSizeTag(
-                                                                                                zBlockTags.REFORGER_RESULT),
-                                                                                level))
-                                                .defaultBlockState());
-        }
+        // @Deprecated
+        // public static void reforgerReplaceBlock(BlockPos pos, Level level) {
+        //         level.setBlockAndUpdate(pos,
+        //                         LevelUtil
+        //                                         .ResourceByTag(zBlockTags.REFORGER_RESULT,
+        //                                                         LevelUtil.getRandomValue(
+        //                                                                         LevelUtil.getSizeTag(
+        //                                                                                         zBlockTags.REFORGER_RESULT),
+        //                                                                         level))
+        //                                         .defaultBlockState());
+        // }
 
         @Deprecated
         public static boolean checkItemBlock(Level level, BlockPos pos, TagKey<Block> b,

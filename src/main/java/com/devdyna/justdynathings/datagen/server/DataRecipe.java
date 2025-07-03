@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
+import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.registry.types.zBlockTags;
 import com.devdyna.justdynathings.registry.types.zBlocks;
 import com.devdyna.justdynathings.registry.types.zItemTags;
@@ -70,7 +71,7 @@ public class DataRecipe extends RecipeProvider {
                                 .define('C', zMultiTags.COPPER_BULBS.item())
                                 .unlockedBy(ID, InventoryChangeTrigger.TriggerInstance
                                                 .hasItems(Registration.FerricoreIngot.get()))
-                                .group(ID).save(c);
+                                .group(Constants.Blocks.FerricoreClock).save(c);
 
                 ShapedRecipeBuilder.shaped(MISC, zBlocks.REFORGER.get(), 1)
                                 .pattern("ADA")
@@ -83,7 +84,7 @@ public class DataRecipe extends RecipeProvider {
                                 .define('E', Registration.Celestigem.get())
                                 .unlockedBy(ID, InventoryChangeTrigger.TriggerInstance
                                                 .hasItems(Registration.Celestigem.get()))
-                                .group(ID).save(c);
+                                .group(Constants.Blocks.Reforger).save(c);
 
                 ShapedRecipeBuilder.shaped(MISC, zBlocks.REVITALIZER.get(), 1)
                                 .pattern("CDC")
@@ -96,7 +97,7 @@ public class DataRecipe extends RecipeProvider {
                                 .unlockedBy(ID, InventoryChangeTrigger.TriggerInstance
                                                 .hasItems(Registration.TimeCrystal.get(),
                                                                 Registration.EclipseAlloyIngot.get()))
-                                .group(ID).save(c);
+                                .group(Constants.Blocks.Revitalizer).save(c);
 
                 ShapelessRecipeBuilder.shapeless(MISC, zBlocks.PHASEBOX.get(), 4)
                                 .requires(Registration.Celestigem.get())
@@ -104,22 +105,22 @@ public class DataRecipe extends RecipeProvider {
                                 .requires(Tags.Items.GEMS_LAPIS)
                                 .unlockedBy(ID, InventoryChangeTrigger.TriggerInstance
                                                 .hasItems(Registration.Celestigem.get()))
-                                .group(ID).save(c);
+                                .group(Constants.Blocks.PhaseBox).save(c);
 
                 GooSpreadRecipeBuilder.shapeless(DataGenUtil.getResource("dirt"),
                                 Blocks.COARSE_DIRT.defaultBlockState(),
                                 Blocks.DIRT.defaultBlockState(), 1, 200)
-                                .unlockedBy(ID, itemInv(Blocks.COARSE_DIRT.asItem())).group(ID).save(c);
+                                .unlockedBy(ID, itemInv(Blocks.COARSE_DIRT.asItem())).group("dirt-goo").save(c);
 
                 GooSpreadRecipeBuilder.shapeless(DataGenUtil.getResource("clay"),
                                 Blocks.MUD.defaultBlockState(),
                                 Blocks.CLAY.defaultBlockState(), 1, 200)
-                                .unlockedBy(ID, itemInv(Blocks.MUD.asItem())).group(ID).save(c);
+                                .unlockedBy(ID, itemInv(Blocks.MUD.asItem())).group("clay-goo").save(c);
 
                 GooSpreadRecipeBuilder.shapeless(DataGenUtil.getResource("crying_obsidian"),
                                 Blocks.OBSIDIAN.defaultBlockState(),
                                 Blocks.CRYING_OBSIDIAN.defaultBlockState(), 3, 200)
-                                .unlockedBy(ID, itemInv(Blocks.OBSIDIAN.asItem())).group(ID)
+                                .unlockedBy(ID, itemInv(Blocks.OBSIDIAN.asItem())).group("obsidian-goo")
                                 .save(c);
 
                 Budding(zBlocks.ECHOING_BUDDING_AMETHYST.get().asItem(), zMultiTags.AMETHYST_BLOCKS.item(), c);
@@ -145,7 +146,7 @@ public class DataRecipe extends RecipeProvider {
                                 .define('B', Items.BUCKET)
                                 .unlockedBy(ID, itemInv(Registration.FerricoreIngot.get(),
                                                 Registration.Celestigem.get()))
-                                .group(ID).save(c);
+                                .group(Constants.Blocks.BlackHole).save(c);
 
                 ShapedRecipeBuilder.shaped(MISC, zBlocks.THERMOGEN.get(), 1)
                                 .pattern(" A ")
@@ -154,7 +155,8 @@ public class DataRecipe extends RecipeProvider {
                                 .define('A', Registration.EclipseAlloyIngot.get())
                                 .define('R', Items.REDSTONE)
                                 .define('B', Registration.BlazegoldIngot.get())
-                                .unlockedBy(ID, itemInv(Registration.EclipseAlloyIngot.get())).group(ID).save(c);
+                                .unlockedBy(ID, itemInv(Registration.EclipseAlloyIngot.get()))
+                                .group(Constants.Blocks.ThermoGen).save(c);
 
                 ShapedRecipeBuilder.shaped(MISC, zBlocks.CREATIVE_GOO.get(), 2)
                                 .pattern("ABA")
@@ -165,7 +167,7 @@ public class DataRecipe extends RecipeProvider {
                                 .define('C', Items.NETHER_STAR)
                                 .unlockedBy(ID, itemInv(Items.NETHER_STAR, Registration.TimeCrystal.get(),
                                                 Registration.EclipseAlloyIngot.get()))
-                                .group(ID).save(c);
+                                .group(Constants.Goo.Creative).save(c);
 
                 ShapedRecipeBuilder.shaped(MISC, zBlocks.ENERGIZED_GOO.get(), 1)
                                 .pattern("DAD")
@@ -175,7 +177,8 @@ public class DataRecipe extends RecipeProvider {
                                 .define('B', Registration.EclipseAlloyIngot.get())
                                 .define('C', Registration.GooBlock_Tier4_ITEM.get())
                                 .define('D', Items.REDSTONE_BLOCK)
-                                .unlockedBy(ID, itemInv(Registration.GooBlock_Tier4_ITEM.get())).group(ID).save(c);
+                                .unlockedBy(ID, itemInv(Registration.GooBlock_Tier4_ITEM.get()))
+                                .group(Constants.Goo.Energized).save(c);
 
                 GooConversion(zMultiTags.T2_SPREAD.block(), Registration.GooBlock_Tier2.get(), c);
                 GooConversion(zMultiTags.T3_SPREAD.block(), Registration.GooBlock_Tier3.get(), c);
@@ -242,7 +245,7 @@ public class DataRecipe extends RecipeProvider {
                                 .define('E', Items.ENDER_EYE)
                                 .unlockedBy(ID, itemInv(Items.ENDER_EYE, Items.LAPIS_LAZULI,
                                                 Registration.BlazegoldIngot.get()))
-                                .group(ID).save(c);
+                                .group(Constants.Items.Picker).save(c);
 
                 ShapedRecipeBuilder.shaped(MISC, zItems.SWAP_STAFF.get(), 1)
                                 .pattern(" CE")
@@ -253,7 +256,7 @@ public class DataRecipe extends RecipeProvider {
                                 .define('E', Items.ENDER_EYE)
                                 .unlockedBy(ID, itemInv(Items.ENDER_EYE, Items.REDSTONE,
                                                 Registration.BlazegoldIngot.get()))
-                                .group(ID).save(c);
+                                .group(Constants.Items.Swapper).save(c);
 
                 zBlocks.zBlockItem.getEntries()
                                 .forEach(i -> {
@@ -262,6 +265,42 @@ public class DataRecipe extends RecipeProvider {
                                                                 ResourceLocation.parse(i.getId() + "_clear_nbt"),
                                                                 i.get().asItem());
                                 });
+
+                ShapedRecipeBuilder.shaped(MISC, zBlocks.T2_GOO.get(), 1)
+                                .pattern("BRB")
+                                .pattern("RDR")
+                                .pattern("BRB")
+                                .define('B', Items.BLAZE_POWDER)
+                                .define('R', Tags.Items.DUSTS_REDSTONE)
+                                .define('N', Items.NETHER_WART)
+                                .define('G', zBlocks.T1_GOO.get())
+                                .unlockedBy(ID, itemInv(
+                                                zBlocks.T1_GOO.get().asItem()))
+                                .group(Constants.GooType + "_upgrade").save(c);
+
+                ShapedRecipeBuilder.shaped(MISC, zBlocks.T3_GOO.get(), 1)
+                                .pattern("BRB")
+                                .pattern("RDR")
+                                .pattern("BRB")
+                                .define('B', Items.ENDER_PEARL)
+                                .define('R', Items.END_STONE)
+                                .define('N', Items.DRAGON_BREATH)
+                                .define('G', zBlocks.T2_GOO.get())
+                                .unlockedBy(ID, itemInv(
+                                                zBlocks.T2_GOO.get().asItem()))
+                                .group(Constants.GooType + "_upgrade").save(c);
+
+                ShapedRecipeBuilder.shaped(MISC, zBlocks.T4_GOO.get(), 1)
+                                .pattern("BRB")
+                                .pattern("RDR")
+                                .pattern("BRB")
+                                .define('B', Items.SCULK)
+                                .define('R', Items.SCULK_SHRIEKER)
+                                .define('N', Items.ECHO_SHARD)
+                                .define('G', zBlocks.T3_GOO.get())
+                                .unlockedBy(ID, itemInv(
+                                                zBlocks.T3_GOO.get().asItem()))
+                                .group(Constants.GooType + "_upgrade").save(c);
 
                 // ---------------------------------------------------------------------------------------//
         }
@@ -301,7 +340,7 @@ public class DataRecipe extends RecipeProvider {
                                 .requires(Items.ECHO_SHARD)
                                 .requires(Registration.PolymorphicCatalyst.get())
                                 .unlockedBy(ID, itemInv(Items.ECHO_SHARD, Registration.PolymorphicCatalyst.get()))
-                                .group(ID)
+                                .group(Constants.BuddingType)
                                 .save(c);
         }
 
@@ -314,7 +353,7 @@ public class DataRecipe extends RecipeProvider {
                                 .requires(Items.ECHO_SHARD)
                                 .requires(Registration.PolymorphicCatalyst.get())
                                 .unlockedBy(ID, itemInv(Items.ECHO_SHARD, Registration.PolymorphicCatalyst.get()))
-                                .group(ID)
+                                .group(Constants.BuddingType)
                                 .save(c);
         }
 
@@ -322,14 +361,20 @@ public class DataRecipe extends RecipeProvider {
                 int tier = Integer.parseInt(DataGenUtil.getName(goo).replace("gooblock_tier", ""));
                 GooSpreadRecipeTagBuilder.shapeless(DataGenUtil.getResource(goo),
                                 new BlockTagIngredient(input), goo.defaultBlockState(), tier, 100 * tier)
-                                .unlockedBy(ID, itemInv(goo.asItem())).group(ID)
+                                .unlockedBy(ID, itemInv(goo.asItem())).group("goo-recipes")
                                 .save(c);
         }
 
+        /**
+         * group id generic
+         */
         private void shapeless(Item output, RecipeOutput c, Item... items) {
                 shapeless(output, c, ResourceLocation.fromNamespaceAndPath(ID, DataGenUtil.getName(output)), items);
         }
 
+        /**
+         * group id generic
+         */
         private void shapeless(Item output, RecipeOutput c, ResourceLocation id, Item... items) {
                 var recipe = ShapelessRecipeBuilder.shapeless(MISC, output);
                 for (Item item : items)
@@ -347,7 +392,7 @@ public class DataRecipe extends RecipeProvider {
                                 .define('A', zMultiTags.ANVILS.item())
                                 .unlockedBy(ID, InventoryChangeTrigger.TriggerInstance
                                                 .hasItems(ingot))
-                                .group(ID).save(c);
+                                .group(Constants.AnvilType).save(c);
 
                 SmithingTransformRecipeBuilder.smithing(Ingredient.of(template), Ingredient.of(oldAnvil.asItem()),
                                 Ingredient.of(ingot),
@@ -368,7 +413,7 @@ public class DataRecipe extends RecipeProvider {
                                 .define('A', zMultiTags.ANVILS.item())
                                 .unlockedBy(ID, InventoryChangeTrigger.TriggerInstance
                                                 .hasItems(ingot))
-                                .group(ID).save(c);
+                                .group(Constants.AnvilType).save(c);
 
                 SmithingTransformRecipeBuilder.smithing(Ingredient.of(template), Ingredient.of(oldAnvil),
                                 Ingredient.of(ingot),
@@ -387,7 +432,7 @@ public class DataRecipe extends RecipeProvider {
                                 .define('F', ingot)
                                 .define('C', coal)
                                 .unlockedBy(ID, itemInv(coal, catalyst, ingot))
-                                .group(ID).save(c);
+                                .group(Constants.SolarPanelType).save(c);
         }
 
         /*

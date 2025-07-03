@@ -30,11 +30,10 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [ ] Mushroom Tree Feller upgrade
 
 ### Implemented but not fully completed
-- [ ] Reforger jei integration
+- [ ] Datamaps and tags jei integration
 - [ ] Ticker rework and datagen
 - [ ] Sculk rework and datagen
 - [ ] Buddings datagen (?)
-- [ ] ThermoGen jei integration
 - [ ] BlackHole rework and datagen
 - [ ] Solar panel upgrade recipe
 - [ ] Powered goo upgrade recipe

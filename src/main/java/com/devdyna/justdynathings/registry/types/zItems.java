@@ -2,6 +2,8 @@ package com.devdyna.justdynathings.registry.types;
 
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
+import com.devdyna.justdynathings.Constants.ModAddonCheck;
+import com.devdyna.justdynathings.registry.builders.DisabledItem;
 import com.devdyna.justdynathings.registry.builders.PickerWand;
 import com.devdyna.justdynathings.registry.builders.SwapperWand;
 
@@ -19,19 +21,22 @@ public class zItems {
                 zBlockItem.register(bus);
                 zCoals.register(bus);
                 zItemHanded.register(bus);
+                zDisabled.register(bus);
         }
 
+        // TODO clean up some unused stuff
         // ---------------------------------------------------------------------------------------//
         public static final DeferredRegister.Items zItemHanded = DeferredRegister.createItems(Main.ID);
         public static final DeferredRegister.Items zItem = DeferredRegister.createItems(Main.ID);
         public static final DeferredRegister.Items zItemTinted = DeferredRegister.createItems(Main.ID);
         // DONT USE IT , ONLY FUNCTIONAL
+        public static final DeferredRegister.Items zDisabled = DeferredRegister.createItems(Main.ID);
         public static final DeferredRegister.Items zBucketItem = DeferredRegister.createItems(Main.ID);
         public static final DeferredRegister.Items zBlockItem = DeferredRegister.createItems(Main.ID);
         public static final DeferredRegister.Items zCoals = DeferredRegister.createItems(Main.ID);
         // ---------------------------------------------------------------------------------------//
 
-        //TODO FUELS
+        // TODO FUELS
         // public static final DeferredHolder<Item, ?> BIO_FUEL =
         // Material.DireStuff.FuelItemDW(Constants.Fuel.BIOFUEL,
         // 3);
@@ -48,14 +53,26 @@ public class zItems {
 
         // ---------------------------------------------------------------------------------------//
 
-        public static final DeferredHolder<Item, ?> SWAP_STAFF =
-        zItemHanded.register(Constants.Items.Swapper,()-> new SwapperWand());
+        public static final DeferredHolder<Item, ?> SWAP_STAFF = zItemHanded.register(Constants.Items.Swapper,
+                        () -> new SwapperWand());
 
-        public static final DeferredHolder<Item, ?> PICKER_STAFF =
-        zItemHanded.register(Constants.Items.Picker,()-> new PickerWand());
+        public static final DeferredHolder<Item, ?> PICKER_STAFF = zItemHanded.register(Constants.Items.Picker,
+                        () -> new PickerWand());
 
         public static void registerLists() {
+                if (!ModAddonCheck.AppliedEnergistics2)
+                        createMissingItem(Constants.Budding.Certus);
 
+                if (!ModAddonCheck.ExtendedAE)
+                        createMissingItem(Constants.Budding.Entro);
+
+                if (!ModAddonCheck.PhasoriteNetworks)
+                        createMissingItem(Constants.Budding.Phasorite);
+
+        }
+
+        private static void createMissingItem(String name) {
+                zDisabled.register(name,() -> new DisabledItem());
         }
 
 }

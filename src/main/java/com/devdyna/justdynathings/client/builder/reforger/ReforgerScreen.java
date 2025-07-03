@@ -27,10 +27,11 @@ public class ReforgerScreen extends BaseMachineScreen<ReforgerGUI> {
 
     @Override
     public void addRedstoneButtons() {
-        addRenderableWidget(ToggleButtonFactory.REDSTONEBUTTON(getGuiLeft() + 104, topSectionTop + 38, redstoneMode.ordinal(), b -> {
-            redstoneMode = MiscHelpers.RedstoneMode.values()[((ToggleButton) b).getTexturePosition()];
-            saveSettings();
-        }));
+        addRenderableWidget(ToggleButtonFactory.REDSTONEBUTTON(getGuiLeft() + 104, topSectionTop + 38,
+                redstoneMode.ordinal(), b -> {
+                    redstoneMode = MiscHelpers.RedstoneMode.values()[((ToggleButton) b).getTexturePosition()];
+                    saveSettings();
+                }));
     }
 
     @Override

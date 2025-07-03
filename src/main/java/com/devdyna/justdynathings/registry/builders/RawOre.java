@@ -12,4 +12,13 @@ public class RawOre extends BaseRawOre {
                 .strength(destroytime,explosiondestroy)
         );
     }
+
+        public RawOre() {
+        super(Properties.of()
+                .sound(SoundType.AMETHYST)
+                .requiresCorrectToolForDrops()
+                .noOcclusion()
+                .strength(1.5F,2.0F)
+        );
+    }
 }

@@ -277,7 +277,7 @@ public class DataRecipe extends RecipeProvider {
                                 .unlockedBy(ID, itemInv(
                                                 zBlocks.T1_GOO.get().asItem()))
                                 .group(Constants.GooType + "_upgrade")
-                                .save(c, ResourceLocation.parse(zBlocks.T2_GOO.getId() + "_upgrade"));
+                                .save(c, ResourceLocation.parse(zBlocks.T1_GOO.getId() + "_upgrade"));
 
                 ShapedRecipeBuilder.shaped(MISC, zBlocks.T3_GOO.get(), 1)
                                 .pattern("BRB")
@@ -303,7 +303,7 @@ public class DataRecipe extends RecipeProvider {
                                 .unlockedBy(ID, itemInv(
                                                 zBlocks.T3_GOO.get().asItem()))
                                 .group(Constants.GooType + "_upgrade")
-                                .save(c, ResourceLocation.parse(zBlocks.T2_GOO.getId() + "_upgrade"));
+                                .save(c, ResourceLocation.parse(zBlocks.T3_GOO.getId() + "_upgrade"));
 
                 // TODO solar recipes upgrade
 

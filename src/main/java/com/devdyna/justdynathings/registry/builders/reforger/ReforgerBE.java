@@ -107,8 +107,8 @@ public class ReforgerBE extends BaseMachineBE implements RedstoneControlledBE {
         spawnParticles((ServerLevel) level, pos);
         applySound();
         // adjusted rotation for rotable blocks like JDT raw ores
-        if (b.getValue(BlockStateProperties.FACING) != null)
-            b = b.setValue(BlockStateProperties.FACING, getBlockState()
+        if (b.getOptionalValue(BlockStateProperties.FACING).isPresent())
+            b = b.trySetValue(BlockStateProperties.FACING, getBlockState()
                     .getValue(BlockStateProperties.FACING));
         level.setBlockAndUpdate(pos, b);
         if (LevelUtil.chance(cosChance, level))

@@ -4,7 +4,7 @@
   "group": "anvil",
   "key": {
     "A": {
-      "tag": "minecraft:anvils"
+      "item": "justdynathings:celestigem_anvil"
     },
     "B": {
       "item": "justdirethings:eclipsealloy_block"

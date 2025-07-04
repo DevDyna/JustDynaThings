@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "justdirethings:coal_t3"
+  },
+  "base": {
+    "item": "justdynathings:blazegold_solar_panel"
+  },
+  "result": {
+    "count": 1,
+    "id": "justdynathings:celestigem_solar_panel"
+  },
+  "template": {
+    "item": "justdirethings:template_celestigem"
+  }
+}

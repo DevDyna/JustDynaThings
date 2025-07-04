@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "justdirethings:coal_t4"
+  },
+  "base": {
+    "item": "justdynathings:celestigem_solar_panel"
+  },
+  "result": {
+    "count": 1,
+    "id": "justdynathings:eclipse_alloy_solar_panel"
+  },
+  "template": {
+    "item": "justdirethings:template_eclipsealloy"
+  }
+}

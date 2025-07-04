@@ -4,7 +4,7 @@
   "group": "anvil",
   "key": {
     "A": {
-      "tag": "minecraft:anvils"
+      "item": "justdynathings:ferricore_anvil"
     },
     "B": {
       "item": "justdirethings:blazegold_block"

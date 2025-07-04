@@ -225,16 +225,20 @@ public class DataRecipe extends RecipeProvider {
                                 zBlocks.CELESTIGEM_ANVIL.get(), c);
 
                 SolarRecipe(zBlocks.FERRICORE_SOLARGEN.get(), Items.LAPIS_LAZULI,
-                                Registration.Coal_T1.get(), Registration.FerricoreIngot.get(), c);
+                                Registration.Coal_T1.get(), Registration.FerricoreIngot.get(), null, null, c);
 
                 SolarRecipe(zBlocks.BLAZEGOLD_SOLARGEN.get(), Items.MAGMA_CREAM,
-                                Registration.Coal_T2.get(), Registration.BlazegoldIngot.get(), c);
+                                Registration.Coal_T2.get(), Registration.BlazegoldIngot.get(),
+                                Registration.TEMPLATE_BLAZEGOLD.get(), zBlocks.FERRICORE_SOLARGEN.get().asItem(), c);
 
                 SolarRecipe(zBlocks.CELESTIGEM_SOLARGEN.get(), Items.ENDER_PEARL,
-                                Registration.Coal_T3.get(), Registration.Celestigem.get(), c);
+                                Registration.Coal_T3.get(), Registration.Celestigem.get(),
+                                Registration.TEMPLATE_CELESTIGEM.get(), zBlocks.BLAZEGOLD_SOLARGEN.get().asItem(), c);
 
                 SolarRecipe(zBlocks.ECLIPSEALLOY_SOLARGEN.get(), Items.SCULK_VEIN,
-                                Registration.Coal_T4.get(), Registration.EclipseAlloyIngot.get(), c);
+                                Registration.Coal_T4.get(), Registration.EclipseAlloyIngot.get(),
+                                Registration.TEMPLATE_ECLIPSEALLOY.get(), zBlocks.CELESTIGEM_SOLARGEN.get().asItem(),
+                                c);
 
                 ShapedRecipeBuilder.shaped(MISC, zItems.PICKER_STAFF.get(), 1)
                                 .pattern(" CE")
@@ -304,8 +308,6 @@ public class DataRecipe extends RecipeProvider {
                                                 zBlocks.T3_GOO.get().asItem()))
                                 .group(Constants.GooType + "_upgrade")
                                 .save(c, ResourceLocation.parse(zBlocks.T3_GOO.getId() + "_upgrade"));
-
-                // TODO solar recipes upgrade
 
                 // ---------------------------------------------------------------------------------------//
         }
@@ -394,7 +396,7 @@ public class DataRecipe extends RecipeProvider {
                                 .pattern(" B ")
                                 .define('I', ingot)
                                 .define('B', block)
-                                .define('A', zMultiTags.ANVILS.item())
+                                .define('A', oldAnvil)
                                 .unlockedBy(ID, InventoryChangeTrigger.TriggerInstance
                                                 .hasItems(ingot))
                                 .group(Constants.AnvilType).save(c);
@@ -415,7 +417,7 @@ public class DataRecipe extends RecipeProvider {
                                 .pattern(" B ")
                                 .define('I', ingot)
                                 .define('B', block)
-                                .define('A', zMultiTags.ANVILS.item())
+                                .define('A', oldAnvil)
                                 .unlockedBy(ID, InventoryChangeTrigger.TriggerInstance
                                                 .hasItems(ingot))
                                 .group(Constants.AnvilType).save(c);
@@ -428,7 +430,8 @@ public class DataRecipe extends RecipeProvider {
                                 .save(c, ID + ":" + DataGenUtil.getName(b) + "_smithing");
         }
 
-        private void SolarRecipe(Block output, Item catalyst, Item coal, Item ingot, RecipeOutput c) {
+        private void SolarRecipe(Block output, Item catalyst, Item coal, Item ingot, Item template, Item oldSolar,
+                        RecipeOutput c) {
 
                 ShapedRecipeBuilder.shaped(MISC, output, 3)
                                 .pattern("LLL")
@@ -438,6 +441,13 @@ public class DataRecipe extends RecipeProvider {
                                 .define('C', coal)
                                 .unlockedBy(ID, itemInv(coal, catalyst, ingot))
                                 .group(Constants.SolarPanelType).save(c);
+
+                if (oldSolar != null || template != null)
+                        SmithingTransformRecipeBuilder.smithing(Ingredient.of(template), Ingredient.of(oldSolar),
+                                        Ingredient.of(coal),
+                                        MISC, output.asItem()).unlocks(ID,
+                                                        itemInv(coal, catalyst, ingot))
+                                        .save(c, ID + ":" + DataGenUtil.getName(output) + "_smithing");
         }
 
         /*

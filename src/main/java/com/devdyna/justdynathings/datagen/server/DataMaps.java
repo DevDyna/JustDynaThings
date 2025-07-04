@@ -115,16 +115,14 @@ public class DataMaps extends DataMapProvider {
                                                 new ReforgerResult.oneToOne(
                                                                 Registration.RawCoal_T1.get().defaultBlockState(),
                                                                 Registration.RawCoal_T2.get().defaultBlockState(), 50),
-                                                false);
+                                                false)
 
-                builder(zDataMaps.REFORGER_oneToOne)
                                 .add(Registration.Coal_T3.get().builtInRegistryHolder(),
                                                 new ReforgerResult.oneToOne(
                                                                 Registration.RawCoal_T2.get().defaultBlockState(),
                                                                 Registration.RawCoal_T3.get().defaultBlockState(), 75),
-                                                false);
+                                                false)
 
-                builder(zDataMaps.REFORGER_oneToOne)
                                 .add(Registration.Coal_T4.get().builtInRegistryHolder(),
                                                 new ReforgerResult.oneToOne(
                                                                 Registration.RawCoal_T3.get().defaultBlockState(),

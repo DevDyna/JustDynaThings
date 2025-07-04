@@ -1,14 +1,23 @@
 package com.devdyna.justdynathings.registry.builders.functional_anvils.blazegold;
 
+import com.devdyna.justdynathings.Constants;
+import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.client.builder.anvil.blazegold.BlazeGoldAnvilGUI;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.CAnvilBlock;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
 import com.devdyna.justdynathings.utils.Actions;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item.TooltipContext;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+
+import java.util.List;
+
 import javax.annotation.Nullable;
 
 public class BlazeGoldAnvilBlock extends CAnvilBlock {
@@ -32,4 +41,9 @@ public class BlazeGoldAnvilBlock extends CAnvilBlock {
         return b instanceof BlazeGoldAnvilBE;
     }
 
+    @Override
+    public void appendHoverText(ItemStack i, TooltipContext c, List<Component> t,
+            TooltipFlag f) {
+        t.add(Component.translatable(Main.ID + "." + Constants.Anvils.t2 + ".tip"));
+    }
 }

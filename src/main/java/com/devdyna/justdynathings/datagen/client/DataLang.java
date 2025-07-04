@@ -25,6 +25,27 @@ public class DataLang extends LanguageProvider {
         add(ID + ".wand.dimension", "Dimension : ");
         add(ID + ".wand.pos", "BlockPos : ");
         add(ID + ".disabled", "Item Disabled");
+        add(Main.ID + "." + Constants.Blocks.Reforger + ".tip",
+                "§7Convert blocks using a catalyst to other blocks");
+
+add(Main.ID + "." + Constants.Anvils.t1 + ".tip",
+                "§7Repair items using metallic ingots");
+
+add(Main.ID + "." + Constants.Anvils.t2 + ".tip",
+                "§7Repair items using hot fluids");
+
+                add(Main.ID + "." + Constants.Anvils.t3 + ".tip",
+                "§7Repair items using Forge Energy");
+
+                add(Main.ID + "." + Constants.Anvils.t4 + ".tip",
+                "§7Repair items using Forge Energy");
+
+                add(Main.ID + "." + Constants.Anvils.t4 + ".boost",
+                "§7Can be boosted using Fluid Time");
+
+add(Main.ID + "." + Constants.BuddingType + ".tip",
+                "§7Grow clusters using Fluid Time and Forge Energy");
+
 
         // creative tab
         add(Main.ID + "." + Constants.CreativeTab, "Just Dyna Things");
@@ -40,9 +61,9 @@ public class DataLang extends LanguageProvider {
                 "§cProvide energy to active it");
         add(Main.ID + "." + Constants.GooType + "." + Constants.Goo.Creative + ".tip",
                 "§cRight click with a wrench to toggle alive state");
-        add(Main.ID + "." + Constants.SolarPanelType + ".tip", "Generate Energy from ambiental situations");
+        add(Main.ID + "." + Constants.SolarPanelType + ".tip", "§7Generate Energy from ambiental situations");
         add(Main.ID + "." + Constants.Blocks.ThermoGen + ".tip",
-                "Generate Energy from heat sources and coolants");
+                "§7Generate Energy from heat sources and coolants");
 
         // registry keys
         zBlocks.zBlock.getEntries().forEach(b -> addBlock(b, named(b.getRegisteredName())));

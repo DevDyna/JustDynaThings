@@ -47,10 +47,11 @@ public class BuddingBlock extends BlockBaseBE {
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents,
-            TooltipFlag tooltipFlag) {
+    public void appendHoverText(ItemStack i, TooltipContext c, List<Component> t,
+            TooltipFlag f) {
         if (!Constants.ModAddonCheck.GuideMe && common.GUIDEME_WARNING.getAsBoolean())
-            tooltipComponents.add(Component.translatable(Main.ID + ".guideme.missing"));
+            t.add(Component.translatable(Main.ID + ".guideme.missing"));
+        t.add(Component.translatable(Main.ID + "." + Constants.BuddingType + ".tip"));
     }
 
 }

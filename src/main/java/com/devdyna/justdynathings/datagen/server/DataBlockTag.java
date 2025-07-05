@@ -91,6 +91,10 @@ public class DataBlockTag extends BlockTagsProvider {
                                 .add(Blocks.END_PORTAL_FRAME).add(Blocks.CANDLE_CAKE).addTag(BlockTags.BEDS)
                                 .addTag(BlockTags.PORTALS).addTag(BlockTags.DOORS);
 
+                tag(zBlockTags.COAL_BLOCKS)
+                                .addTag(JustDireBlockTags.CHARCOAL)
+                                .add(Blocks.COAL_BLOCK);
+
         }
 
 }

@@ -20,4 +20,7 @@ public class zBlockTags {
     public static final TagKey<Block> SWAPPER_DENY = Material.tagBlock("swapper_deny");
 
 
+        public static final TagKey<Block> COAL_BLOCKS = Material.tagBlock("coal_blocks");
+
+
 }

@@ -4,6 +4,7 @@ import java.util.concurrent.CompletableFuture;
 
 import com.devdyna.justdynathings.datamaps.zDataMaps;
 import com.devdyna.justdynathings.datamaps.RecordMap.*;
+import com.devdyna.justdynathings.registry.types.zBlockTags;
 import com.devdyna.justdynathings.registry.types.zFluidTags;
 import com.devdyna.justdynathings.registry.types.zItemTags;
 import com.devdyna.justdynathings.utils.DataGenUtil;
@@ -106,7 +107,7 @@ public class DataMaps extends DataMapProvider {
                 builder(zDataMaps.REFORGER_manyToOne)
                                 .add(Registration.Coal_T1.get().builtInRegistryHolder(),
                                                 new ReforgerResult.manyToOne(
-                                                                JustDireBlockTags.CHARCOAL,
+                                                                zBlockTags.COAL_BLOCKS,
                                                                 Registration.RawCoal_T1.get().defaultBlockState(), 25),
                                                 false);
 

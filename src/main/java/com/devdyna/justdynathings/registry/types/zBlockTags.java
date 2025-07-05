@@ -11,11 +11,6 @@ public class zBlockTags {
 
     }
 
-    // public static final TagKey<Block> REFORGER_REPLACE =
-    // Material.tagBlock("reforger_replace");
-    // public static final TagKey<Block> REFORGER_RESULT =
-    // Material.tagBlock("reforger_result");
-
     public static final TagKey<Block> REVITALIZER_GOO = Material.tagBlock("revitalizer_goo");
 
     public static final TagKey<Block> PICKER_DENY = Material.tagBlock("picker_deny");

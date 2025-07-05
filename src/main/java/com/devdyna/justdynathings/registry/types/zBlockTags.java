@@ -16,6 +16,6 @@ public class zBlockTags {
     public static final TagKey<Block> PICKER_DENY = Material.tagBlock("picker_deny");
     public static final TagKey<Block> SWAPPER_DENY = Material.tagBlock("swapper_deny");
 
-    public static final TagKey<Block> COAL_BLOCKS = Material.tagBlock("storage_blocks/valid_coal_t1");
+    public static final TagKey<Block> COAL_BLOCKS = Material.tagBlock("storage_blocks/unified_coals");
 
 }

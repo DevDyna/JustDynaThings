@@ -1,0 +1,10 @@
+{
+  "values": [
+    "minecraft:coal_block",
+    "justdirethings:charcoal",
+    {
+      "id": "#c:storage_blocks/charcoal",
+      "required": false
+    }
+  ]
+}

@@ -2,7 +2,7 @@
   "values": {
     "justdirethings:coal_t1": {
       "chanceToUse": 25,
-      "input": "c:storage_blocks/charcoal",
+      "input": "justdynathings:storage_blocks/unified_coals",
       "output": {
         "Name": "justdirethings:raw_coal_t1_ore",
         "Properties": {

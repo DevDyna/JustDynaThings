@@ -21,13 +21,14 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [ ] Reforger T2 (?)
 - [ ] Experience Reactor (farmable xp mob-less)
 - [ ] Bacteria Catalyst (Eclipse staff like but descructive)
-- [ ] Generator T2
+- [ ] Generator T2-3-4
 - [ ] Block Picker (Itemstaff like Swapper but manual)
 - [ ] Paradox Box (Pandora's Box like)
 - [ ] Crystallizer and Liquid Crystalline
 - [ ] Rocket Boots Upgrade
 - [ ] Raw magmasteel (iron + magma) -> thermogen (?)  
 - [ ] Mushroom Tree Feller upgrade
+- [ ] Pocket generator T2-3-4 [(?)](https://github.com/Direwolf20-MC/JustDireThings/blob/main/src/main/resources/assets/justdirethings/textures/item/pocket_generator_t4.png)
 
 ### Implemented but not fully completed
 - [ ] Datamaps and tags jei integration
@@ -36,5 +37,5 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [ ] Buddings datagen (?)
 - [ ] BlackHole rework and datagen
 - [ ] Solar panel upgrade recipe
-- [ ] Powered goo upgrade recipe
+- [x] Powered goo upgrade recipe
 - [ ] Waterlogging many blocks

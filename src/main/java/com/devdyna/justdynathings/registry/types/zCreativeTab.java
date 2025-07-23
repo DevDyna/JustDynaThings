@@ -46,6 +46,11 @@ public class zCreativeTab {
                                                 zItems.zBucketItem.getEntries()
                                                                 .forEach(e -> output.accept((Item) e.get()));
 
+                                                zItems.zGooUpgraders.getEntries()
+                                                                .forEach(e -> output.accept((Item) e.get()));
+
+
+
                                                 // compat items
                                                 if (Constants.ModAddonCheck.AppliedEnergistics2)
                                                         com.devdyna.justdynathings.compat.ae2.init.zAE_ITM.getEntries()

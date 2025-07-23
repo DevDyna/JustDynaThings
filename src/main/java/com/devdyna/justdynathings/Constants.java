@@ -8,9 +8,18 @@ public class Constants {
 
     public static String CreativeTab = "creative_tab";
 
-    public class Items{
+    public class Items {
         public static String Swapper = "swapper_wand";
         public static String Picker = "picker_wand";
+
+    }
+
+    public class GooUpgraders {
+        public static String base = "goo_upgrader";
+        public static String T1 = base + "_t1";
+        public static String T2 = base + "_t2";
+        public static String T3 = base + "_t3";
+        public static String T4 = base + "_t4";
     }
 
     public class Blocks {
@@ -60,6 +69,7 @@ public class Constants {
         public static String T4 = "charged_shadowpulse_" + GooType;
         public static String Creative = "creative_" + GooType;
         public static String Energized = "energized_" + GooType;
+        public static List<String> goos = List.of("primogel", "blazebloom", "voidshimmer", "shadowpulse", "energized");
     }
 
     public static String BuddingType = "echoing_budding";

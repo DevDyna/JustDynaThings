@@ -175,9 +175,10 @@ public class DataRecipe extends RecipeProvider {
                                 .pattern("DAD")
                                 .define('A', Registration.TimeCrystal.get())
                                 .define('B', Registration.EclipseAlloyIngot.get())
-                                .define('C', Registration.GooBlock_Tier4_ITEM.get())
+                                .define('C', zMultiTags.T4_GOO_TYPE.item())
                                 .define('D', Items.REDSTONE_BLOCK)
-                                .unlockedBy(ID, itemInv(Registration.GooBlock_Tier4_ITEM.get()))
+                                .unlockedBy(ID, itemInv(Registration.TimeCrystal.get(),
+                                                Registration.EclipseAlloyIngot.get()))
                                 .group(Constants.Goo.Energized).save(c);
 
                 GooConversion(zMultiTags.T2_SPREAD.block(), Registration.GooBlock_Tier2.get(), c);
@@ -309,6 +310,59 @@ public class DataRecipe extends RecipeProvider {
                                 .group(Constants.GooType + "_upgrade")
                                 .save(c, ResourceLocation.parse(zBlocks.T3_GOO.getId() + "_upgrade"));
 
+                ShapedRecipeBuilder.shaped(MISC, zItems.GOO_UPGRADER_T1.get(), 1)
+                                .pattern("BRB")
+                                .pattern("NGN")
+                                .pattern("BRB")
+                                .define('B', Items.BLAZE_POWDER)
+                                .define('R', Tags.Items.DUSTS_REDSTONE)
+                                .define('N', Items.NETHER_WART)
+                                .define('G', Registration.UPGRADE_BASE.get())
+                                .unlockedBy(ID, itemInv(
+                                                Items.REDSTONE, Items.NETHER_WART, Items.BLAZE_POWDER,
+                                                Registration.UPGRADE_BASE.get()))
+                                .group(Constants.GooUpgraders.base)
+                                .save(c);
+
+                ShapedRecipeBuilder.shaped(MISC, zItems.GOO_UPGRADER_T2.get(), 1)
+                                .pattern("BRB")
+                                .pattern("NGN")
+                                .pattern("BRB")
+                                .define('B', Items.ENDER_PEARL)
+                                .define('R', Items.END_STONE)
+                                .define('N', Items.DRAGON_BREATH)
+                                .define('G', Registration.UPGRADE_BASE.get())
+                                .unlockedBy(ID, itemInv(
+                                                Items.ENDER_PEARL, Items.END_STONE, Items.DRAGON_BREATH,
+                                                Registration.UPGRADE_BASE.get()))
+                                .group(Constants.GooUpgraders.base)
+                                .save(c);
+
+                ShapedRecipeBuilder.shaped(MISC, zItems.GOO_UPGRADER_T3.get(), 1)
+                                .pattern("BRB")
+                                .pattern("NGN")
+                                .pattern("BRB")
+                                .define('B', Items.SCULK)
+                                .define('R', Items.SCULK_SHRIEKER)
+                                .define('N', Items.ECHO_SHARD)
+                                .define('G', Registration.UPGRADE_BASE.get())
+                                .unlockedBy(ID, itemInv(
+                                                Items.SCULK, Items.SCULK_SHRIEKER, Registration.UPGRADE_BASE.get(),
+                                                Items.ECHO_SHARD))
+                                .group(Constants.GooUpgraders.base)
+                                .save(c);
+
+                ShapedRecipeBuilder.shaped(MISC, zItems.GOO_UPGRADER_T4.get(), 1)
+                                .pattern("DAD")
+                                .pattern("BCB")
+                                .pattern("DAD")
+                                .define('A', Registration.TimeCrystal.get())
+                                .define('B', Registration.EclipseAlloyIngot.get())
+                                .define('C', Registration.UPGRADE_BASE.get())
+                                .define('D', Items.REDSTONE_BLOCK)
+                                .unlockedBy(ID, itemInv(Registration.UPGRADE_BASE.get(), Registration.TimeCrystal.get(),
+                                                Registration.EclipseAlloyIngot.get()))
+                                .group(Constants.GooUpgraders.base).save(c);
                 // ---------------------------------------------------------------------------------------//
         }
 

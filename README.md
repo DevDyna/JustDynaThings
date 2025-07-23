@@ -14,7 +14,8 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [ ] Draconite generator (dragon breath -> FE)
 
 ### Specialized
-- [ ] Plant Harvester
+- [ ] Advanced Energy Transmitter/Item Collector (?)
+~~- [ ] Plant Harvester~~ moved to [Synergy](https://github.com/DevDyna/Synergy)
 - [ ] Experience pedestal (clicking with items generate experience)
 - [ ] Sculk Diffuser (Sculk Source without need to kill mobs)
 - [ ] Buffed Fuels (fuel with high multiplier)
@@ -22,7 +23,7 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [ ] Experience Reactor (farmable xp mob-less)
 - [ ] Bacteria Catalyst (Eclipse staff like but descructive)
 - [ ] Generator T2-3-4
-- [ ] Block Picker (Itemstaff like Swapper but manual)
+- [x] Block Picker (Itemstaff like Swapper but manual)
 - [ ] Paradox Box (Pandora's Box like)
 - [ ] Crystallizer and Liquid Crystalline
 - [ ] Rocket Boots Upgrade
@@ -35,7 +36,7 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [ ] Ticker rework and datagen
 - [ ] Sculk rework and datagen
 - [ ] Buddings datagen (?)
-- [ ] BlackHole rework and datagen
-- [ ] Solar panel upgrade recipe
+- [ ] BlackHole rework and datagen (?)
+- [x] Solar panel upgrade recipe
 - [x] Powered goo upgrade recipe
 - [ ] Waterlogging many blocks

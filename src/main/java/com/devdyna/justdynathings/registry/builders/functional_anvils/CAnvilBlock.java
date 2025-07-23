@@ -15,8 +15,10 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.AnvilBlock;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -87,5 +89,19 @@ public class CAnvilBlock extends BaseMachineBlock {
             tooltipComponents.add(Component.translatable(Main.ID + ".guideme.missing"));
     }
 
-    // TODO support wrench to rotate
+    @Override
+    public BlockState direRotate(BlockState s, Rotation r) {
+        return s.cycle(AnvilBlock.FACING);
+    }
+
+    @Override
+    public BlockState direRotate(BlockState s, LevelAccessor l, BlockPos p, Rotation d) {
+        return s.cycle(AnvilBlock.FACING);
+    }
+
+    @Override
+    public BlockState rotate(BlockState s, Rotation r) {
+        return s.cycle(AnvilBlock.FACING);
+    }
+
 }

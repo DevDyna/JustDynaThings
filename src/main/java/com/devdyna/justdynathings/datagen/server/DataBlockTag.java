@@ -96,6 +96,22 @@ public class DataBlockTag extends BlockTagsProvider {
                                 .add(Registration.CharcoalBlock.get())
                                 .addOptionalTag(JustDireBlockTags.CHARCOAL);
 
+                tag(zMultiTags.T1_GOO_TYPE.block())
+                                .add(Registration.GooBlock_Tier1.get(),
+                                                zBlocks.T1_GOO.get());
+
+                tag(zMultiTags.T2_GOO_TYPE.block())
+                                .add(Registration.GooBlock_Tier2.get(),
+                                                zBlocks.T2_GOO.get());
+
+                tag(zMultiTags.T3_GOO_TYPE.block())
+                                .add(Registration.GooBlock_Tier3.get(),
+                                                zBlocks.T3_GOO.get());
+
+                tag(zMultiTags.T4_GOO_TYPE.block())
+                                .add(Registration.GooBlock_Tier4.get(),
+                                                zBlocks.T4_GOO.get());
+
         }
 
 }

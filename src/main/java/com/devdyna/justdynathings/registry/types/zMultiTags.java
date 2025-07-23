@@ -15,4 +15,9 @@ public class zMultiTags {
     public static final MultiTag T3_SPREAD = new MultiTag(ID, "t3_spread");
     public static final MultiTag T4_SPREAD = new MultiTag(ID, "t4_spread");
 
+    public static final MultiTag T1_GOO_TYPE = new MultiTag(ID, "t1_goo_type");
+    public static final MultiTag T2_GOO_TYPE = new MultiTag(ID, "t2_goo_type");
+    public static final MultiTag T3_GOO_TYPE = new MultiTag(ID, "t3_goo_type");
+    public static final MultiTag T4_GOO_TYPE = new MultiTag(ID, "t4_goo_type");
+
 }

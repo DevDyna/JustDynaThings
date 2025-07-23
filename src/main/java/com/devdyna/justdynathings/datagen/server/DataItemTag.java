@@ -2,6 +2,7 @@ package com.devdyna.justdynathings.datagen.server;
 
 import java.util.concurrent.CompletableFuture;
 
+import com.devdyna.justdynathings.registry.types.zBlocks;
 import com.devdyna.justdynathings.registry.types.zItemTags;
 import com.devdyna.justdynathings.registry.types.zMultiTags;
 import com.direwolf20.justdirethings.datagen.JustDireItemTags;
@@ -92,6 +93,22 @@ public class DataItemTag extends ItemTagsProvider {
                 tag(zItemTags.TIME_BUDDING).add(
                                 Registration.TimeCrystalBlock_ITEM.get(),
                                 Registration.TimeCrystalBuddingBlock_ITEM.get());
+
+                tag(zMultiTags.T1_GOO_TYPE.item())
+                                .add(Registration.GooBlock_Tier1.get().asItem(),
+                                                zBlocks.T1_GOO.get().asItem());
+
+                tag(zMultiTags.T2_GOO_TYPE.item())
+                                .add(Registration.GooBlock_Tier2.get().asItem(),
+                                                zBlocks.T2_GOO.get().asItem());
+
+                tag(zMultiTags.T3_GOO_TYPE.item())
+                                .add(Registration.GooBlock_Tier3.get().asItem(),
+                                                zBlocks.T3_GOO.get().asItem());
+
+                tag(zMultiTags.T4_GOO_TYPE.item())
+                                .add(Registration.GooBlock_Tier4.get().asItem(),
+                                                zBlocks.T4_GOO.get().asItem());
 
         }
 

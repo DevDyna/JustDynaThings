@@ -3,6 +3,7 @@ package com.devdyna.justdynathings.registry.builders.solar;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.devdyna.justdynathings.registry.interfaces.be.EnergyCharger;
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyGenerator;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.Actions;
@@ -27,7 +28,7 @@ import net.neoforged.neoforge.capabilities.BlockCapabilityCache;
 import net.neoforged.neoforge.energy.IEnergyStorage;
 
 @SuppressWarnings("null")
-public class SolarBaseBE extends BaseMachineBE implements EnergyGenerator, RedstoneControlledBE {
+public class SolarBaseBE extends BaseMachineBE implements EnergyGenerator, RedstoneControlledBE , EnergyCharger{
 
     public RedstoneControlData redstoneControlData = new RedstoneControlData();
     public final PoweredMachineContainerData poweredMachineData = new PoweredMachineContainerData(this);
@@ -35,6 +36,7 @@ public class SolarBaseBE extends BaseMachineBE implements EnergyGenerator, Redst
 
     public SolarBaseBE(BlockEntityType<?> t, BlockPos p, BlockState b) {
         super(t, p, b);
+        MACHINE_SLOTS = 1;
     }
 
     public SolarBaseBE(BlockPos p, BlockState b) {
@@ -49,6 +51,9 @@ public class SolarBaseBE extends BaseMachineBE implements EnergyGenerator, Redst
         }
         if (canExtractFE())
             Actions.providePowerAdjacent(level, getBlockPos(), cache, calculateFE());
+
+            if (isActiveRedstone() && canExtractFE())
+            chargeFEtoItemStack(getMachineHandler().getStackInSlot(0), getEnergyStorage());
     }
 
     public void updateBlock() {

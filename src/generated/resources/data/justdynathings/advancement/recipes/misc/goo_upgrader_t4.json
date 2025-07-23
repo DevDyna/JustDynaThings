@@ -3,13 +3,16 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "justdynathings:energized_goo"
+        "recipe": "justdynathings:goo_upgrader_t4"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
     "justdynathings": {
       "conditions": {
         "items": [
+          {
+            "items": "justdirethings:upgrade_blank"
+          },
           {
             "items": "justdirethings:time_crystal"
           },
@@ -29,7 +32,7 @@
   ],
   "rewards": {
     "recipes": [
-      "justdynathings:energized_goo"
+      "justdynathings:goo_upgrader_t4"
     ]
   }
 }

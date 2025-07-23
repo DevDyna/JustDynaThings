@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "goo_upgrader",
+  "key": {
+    "B": {
+      "item": "minecraft:ender_pearl"
+    },
+    "G": {
+      "item": "justdirethings:upgrade_blank"
+    },
+    "N": {
+      "item": "minecraft:dragon_breath"
+    },
+    "R": {
+      "item": "minecraft:end_stone"
+    }
+  },
+  "pattern": [
+    "BRB",
+    "NGN",
+    "BRB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "justdynathings:goo_upgrader_t2"
+  }
+}

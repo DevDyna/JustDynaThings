@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "group": "energized_goo",
+  "group": "goo_upgrader",
   "key": {
     "A": {
       "item": "justdirethings:time_crystal"
@@ -10,7 +10,7 @@
       "item": "justdirethings:eclipsealloy_ingot"
     },
     "C": {
-      "tag": "justdynathings:t4_goo_type"
+      "item": "justdirethings:upgrade_blank"
     },
     "D": {
       "item": "minecraft:redstone_block"
@@ -23,6 +23,6 @@
   ],
   "result": {
     "count": 1,
-    "id": "justdynathings:energized_goo"
+    "id": "justdynathings:goo_upgrader_t4"
   }
 }

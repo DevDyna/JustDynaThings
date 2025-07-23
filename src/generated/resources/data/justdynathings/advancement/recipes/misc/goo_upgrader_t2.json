@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "justdynathings:energized_goo"
+        "recipe": "justdynathings:goo_upgrader_t2"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -11,10 +11,16 @@
       "conditions": {
         "items": [
           {
-            "items": "justdirethings:time_crystal"
+            "items": "minecraft:ender_pearl"
           },
           {
-            "items": "justdirethings:eclipsealloy_ingot"
+            "items": "minecraft:end_stone"
+          },
+          {
+            "items": "minecraft:dragon_breath"
+          },
+          {
+            "items": "justdirethings:upgrade_blank"
           }
         ]
       },
@@ -29,7 +35,7 @@
   ],
   "rewards": {
     "recipes": [
-      "justdynathings:energized_goo"
+      "justdynathings:goo_upgrader_t2"
     ]
   }
 }

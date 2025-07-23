@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "justdynathings:energized_goo"
+        "recipe": "justdynathings:goo_upgrader_t3"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -11,10 +11,16 @@
       "conditions": {
         "items": [
           {
-            "items": "justdirethings:time_crystal"
+            "items": "minecraft:sculk"
           },
           {
-            "items": "justdirethings:eclipsealloy_ingot"
+            "items": "minecraft:sculk_shrieker"
+          },
+          {
+            "items": "justdirethings:upgrade_blank"
+          },
+          {
+            "items": "minecraft:echo_shard"
           }
         ]
       },
@@ -29,7 +35,7 @@
   ],
   "rewards": {
     "recipes": [
-      "justdynathings:energized_goo"
+      "justdynathings:goo_upgrader_t3"
     ]
   }
 }

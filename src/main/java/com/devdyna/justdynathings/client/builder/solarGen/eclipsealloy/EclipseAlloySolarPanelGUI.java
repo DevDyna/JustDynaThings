@@ -26,6 +26,7 @@ public class EclipseAlloySolarPanelGUI extends BaseMachineContainer {
     @Override
     public void addMachineSlots() {
         machineHandler = baseMachineBE.getMachineHandler();
+        addSlotRange(machineHandler, 0, 80, 13, 1, 18);
     }
 
     @Override

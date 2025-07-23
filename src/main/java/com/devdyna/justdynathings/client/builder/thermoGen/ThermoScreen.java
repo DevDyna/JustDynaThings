@@ -8,8 +8,10 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.ItemStack;
 
 public class ThermoScreen extends BaseMachineScreen<ThermoGUI> {
+
     public ThermoScreen(ThermoGUI container, Inventory inv, Component name) {
         super(container, inv, name);
     }
@@ -27,19 +29,25 @@ public class ThermoScreen extends BaseMachineScreen<ThermoGUI> {
 
     @Override
     public void addRedstoneButtons() {
-        addRenderableWidget(ToggleButtonFactory.REDSTONEBUTTON(getGuiLeft() + 104, topSectionTop + 38, redstoneMode.ordinal(), b -> {
-            redstoneMode = MiscHelpers.RedstoneMode.values()[((ToggleButton) b).getTexturePosition()];
-            saveSettings();
-        }));
+        addRenderableWidget(ToggleButtonFactory.REDSTONEBUTTON(getGuiLeft() + 104, topSectionTop + 38,
+                redstoneMode.ordinal(), b -> {
+                    redstoneMode = MiscHelpers.RedstoneMode.values()[((ToggleButton) b).getTexturePosition()];
+                    saveSettings();
+                }));
     }
 
     @Override
     public void addTickSpeedButton() {
-        //empty remove tick button
+        // empty remove tick button
     }
 
     @Override
     protected void drawMachineSlot(GuiGraphics guiGraphics, Slot slot) {
-        super.drawMachineSlot(guiGraphics, slot);
+        ItemStack itemStack = slot.getItem();
+        if (itemStack.isEmpty())
+            guiGraphics.blit(JUSTSLOT, getGuiLeft() + slot.x - 1, getGuiTop() + slot.y - 1, 18, 0, 18, 18);
+        else
+            super.drawMachineSlot(guiGraphics, slot);
     }
+
 }

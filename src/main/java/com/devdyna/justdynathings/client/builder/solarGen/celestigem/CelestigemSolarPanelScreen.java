@@ -8,6 +8,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.ItemStack;
 
 public class CelestigemSolarPanelScreen extends BaseMachineScreen<CelestigemSolarPanelGUI> {
     public CelestigemSolarPanelScreen(CelestigemSolarPanelGUI container, Inventory inv, Component name) {
@@ -40,6 +41,10 @@ public class CelestigemSolarPanelScreen extends BaseMachineScreen<CelestigemSola
 
     @Override
     protected void drawMachineSlot(GuiGraphics guiGraphics, Slot slot) {
-        super.drawMachineSlot(guiGraphics, slot);
+        ItemStack itemStack = slot.getItem();
+        if (itemStack.isEmpty())
+            guiGraphics.blit(JUSTSLOT, getGuiLeft() + slot.x - 1, getGuiTop() + slot.y - 1, 18, 0, 18, 18);
+        else
+            super.drawMachineSlot(guiGraphics, slot);
     }
 }

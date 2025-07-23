@@ -6,7 +6,7 @@ import net.neoforged.neoforge.energy.IEnergyStorage;
 
 public interface EnergyCharger {
 
-    default void charge(ItemStack item , IEnergyStorage block){
+    default void chargeFEtoItemStack(ItemStack item , IEnergyStorage block){
 
         // var item = getMachineHandler().getStackInSlot(0);
 

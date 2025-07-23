@@ -4,7 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.devdyna.justdynathings.config.common;
+import com.devdyna.justdynathings.config.startup;
 import com.devdyna.justdynathings.datamaps.zDataMaps;
+import com.devdyna.justdynathings.datamaps.RecordMap.ThermoBlockHeatSource;
+import com.devdyna.justdynathings.datamaps.RecordMap.ThermoFluidCoolant;
+import com.devdyna.justdynathings.registry.interfaces.be.EnergyCharger;
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyGenerator;
 import com.devdyna.justdynathings.registry.interfaces.be.FluidMachine;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
@@ -30,7 +34,8 @@ import net.neoforged.neoforge.energy.IEnergyStorage;
 import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
 
 @SuppressWarnings({ "null", "deprecation" })
-public class ThermoBE extends BaseMachineBE implements FluidMachine, EnergyGenerator, RedstoneControlledBE {
+public class ThermoBE extends BaseMachineBE
+        implements FluidMachine, EnergyGenerator, RedstoneControlledBE, EnergyCharger {
 
     public RedstoneControlData redstoneControlData = new RedstoneControlData();
     public final PoweredMachineContainerData poweredMachineData = new PoweredMachineContainerData(this);
@@ -39,6 +44,7 @@ public class ThermoBE extends BaseMachineBE implements FluidMachine, EnergyGener
 
     public ThermoBE(BlockEntityType<?> type, BlockPos pos, BlockState b) {
         super(type, pos, b);
+        MACHINE_SLOTS = 1;
     }
 
     public ThermoBE(BlockPos pos, BlockState b) {
@@ -66,6 +72,9 @@ public class ThermoBE extends BaseMachineBE implements FluidMachine, EnergyGener
                 if (canExtractFE())
                     Actions.providePowerAdjacent(level,getBlockPos(),cache,getEnergyStored());
             }
+
+        if (isActiveRedstone() && canExtractFE())
+            charge(getMachineHandler().getStackInSlot(0), getEnergyStorage());
     }
 
     public void updateBlock(boolean state) {

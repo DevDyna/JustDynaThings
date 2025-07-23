@@ -1,5 +1,6 @@
 package com.devdyna.justdynathings.client.builder.solarGen.blazegold;
 
+import com.devdyna.justdynathings.client.core.ExtraSlots;
 import com.direwolf20.justdirethings.client.screens.basescreens.BaseMachineScreen;
 import com.direwolf20.justdirethings.client.screens.standardbuttons.ToggleButtonFactory;
 import com.direwolf20.justdirethings.client.screens.widgets.ToggleButton;
@@ -10,7 +11,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
-public class BlazegoldSolarPanelScreen extends BaseMachineScreen<BlazegoldSolarPanelGUI> {
+public class BlazegoldSolarPanelScreen extends BaseMachineScreen<BlazegoldSolarPanelGUI> implements ExtraSlots {
     public BlazegoldSolarPanelScreen(BlazegoldSolarPanelGUI container, Inventory inv, Component name) {
         super(container, inv, name);
     }
@@ -28,22 +29,23 @@ public class BlazegoldSolarPanelScreen extends BaseMachineScreen<BlazegoldSolarP
 
     @Override
     public void addRedstoneButtons() {
-        addRenderableWidget(ToggleButtonFactory.REDSTONEBUTTON(getGuiLeft() + 104, topSectionTop + 38, redstoneMode.ordinal(), b -> {
-            redstoneMode = MiscHelpers.RedstoneMode.values()[((ToggleButton) b).getTexturePosition()];
-            saveSettings();
-        }));
+        addRenderableWidget(ToggleButtonFactory.REDSTONEBUTTON(getGuiLeft() + 104, topSectionTop + 38,
+                redstoneMode.ordinal(), b -> {
+                    redstoneMode = MiscHelpers.RedstoneMode.values()[((ToggleButton) b).getTexturePosition()];
+                    saveSettings();
+                }));
     }
 
     @Override
     public void addTickSpeedButton() {
-        //empty remove tick button
+        // empty remove tick button
     }
 
     @Override
     protected void drawMachineSlot(GuiGraphics guiGraphics, Slot slot) {
         ItemStack itemStack = slot.getItem();
         if (itemStack.isEmpty())
-            guiGraphics.blit(JUSTSLOT, getGuiLeft() + slot.x - 1, getGuiTop() + slot.y - 1, 18, 0, 18, 18);
+            addSlotCharge(guiGraphics, slot);
         else
             super.drawMachineSlot(guiGraphics, slot);
     }

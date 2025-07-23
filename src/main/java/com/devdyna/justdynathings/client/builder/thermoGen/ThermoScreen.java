@@ -1,5 +1,6 @@
 package com.devdyna.justdynathings.client.builder.thermoGen;
 
+import com.devdyna.justdynathings.client.core.ExtraSlots;
 import com.direwolf20.justdirethings.client.screens.basescreens.BaseMachineScreen;
 import com.direwolf20.justdirethings.client.screens.standardbuttons.ToggleButtonFactory;
 import com.direwolf20.justdirethings.client.screens.widgets.ToggleButton;
@@ -10,7 +11,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
-public class ThermoScreen extends BaseMachineScreen<ThermoGUI> {
+public class ThermoScreen extends BaseMachineScreen<ThermoGUI> implements ExtraSlots {
 
     public ThermoScreen(ThermoGUI container, Inventory inv, Component name) {
         super(container, inv, name);
@@ -45,7 +46,7 @@ public class ThermoScreen extends BaseMachineScreen<ThermoGUI> {
     protected void drawMachineSlot(GuiGraphics guiGraphics, Slot slot) {
         ItemStack itemStack = slot.getItem();
         if (itemStack.isEmpty())
-            guiGraphics.blit(JUSTSLOT, getGuiLeft() + slot.x - 1, getGuiTop() + slot.y - 1, 18, 0, 18, 18);
+            addSlotCharge(guiGraphics, slot);
         else
             super.drawMachineSlot(guiGraphics, slot);
     }

@@ -1,21 +1,17 @@
 package com.devdyna.justdynathings.client.builder.anvil.ferricore;
 
-import com.devdyna.justdynathings.Main;
+import com.devdyna.justdynathings.client.core.ExtraSlots;
 import com.direwolf20.justdirethings.client.screens.basescreens.BaseMachineScreen;
 import com.direwolf20.justdirethings.client.screens.standardbuttons.ToggleButtonFactory;
 import com.direwolf20.justdirethings.client.screens.widgets.ToggleButton;
 import com.direwolf20.justdirethings.util.MiscHelpers;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
-public class FerricoreAnvilScreen extends BaseMachineScreen<FerricoreAnvilGUI> {
-
-    protected final ResourceLocation FUELSLOT = ResourceLocation.fromNamespaceAndPath(Main.ID,
-            "textures/gui/fuel.png");
+public class FerricoreAnvilScreen extends BaseMachineScreen<FerricoreAnvilGUI> implements ExtraSlots{
 
     public FerricoreAnvilScreen(FerricoreAnvilGUI container, Inventory inv, Component name) {
         super(container, inv, name);
@@ -53,7 +49,7 @@ public class FerricoreAnvilScreen extends BaseMachineScreen<FerricoreAnvilGUI> {
             if (slot.getSlotIndex() == 0)
                 guiGraphics.blit(JUSTSLOT, getGuiLeft() + slot.x - 1, getGuiTop() + slot.y - 1, 18, 0, 18, 18);
             else if (slot.getSlotIndex() == 1)
-                guiGraphics.blit(FUELSLOT, getGuiLeft() + slot.x - 1, getGuiTop() + slot.y - 1, 0, 0, 18, 18);
+                addSlotFlame(guiGraphics, slot);
         } else
             super.drawMachineSlot(guiGraphics, slot);
 

@@ -37,7 +37,7 @@ public class Capabilities {
                                 zBlocks.FERRICORE_ANVIL.get(),
                                 zBlocks.BLAZEGOLD_ANVIL.get(),
                                 zBlocks.CELESTIGEM_ANVIL.get(),
-                                zBlocks.BLACKHOLE.get() };
+                                zBlocks.BLACKHOLE.get() ,zBlocks.THERMOGEN.get()};
 
                 // ---------------------------------------------------------------------------------------//
                 // generic itemhandler

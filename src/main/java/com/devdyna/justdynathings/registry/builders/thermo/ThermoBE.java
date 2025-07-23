@@ -4,10 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.devdyna.justdynathings.config.common;
-import com.devdyna.justdynathings.config.startup;
 import com.devdyna.justdynathings.datamaps.zDataMaps;
-import com.devdyna.justdynathings.datamaps.RecordMap.ThermoBlockHeatSource;
-import com.devdyna.justdynathings.datamaps.RecordMap.ThermoFluidCoolant;
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyCharger;
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyGenerator;
 import com.devdyna.justdynathings.registry.interfaces.be.FluidMachine;

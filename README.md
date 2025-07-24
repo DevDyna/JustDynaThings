@@ -9,9 +9,10 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 ### Classic
 
 - [ ] Energy/Fluid storage
-- [ ] Creative Energy/Fluid tank - ~~[ ] Culinary Generator (food -> FE)~~ out of topic
-  - ~~[ ] Engine Generator (Furnace lit -> FE)~~ out of topic
-    - ~~[ ] Draconite generator (dragon breath -> FE)~~ out of topic
+- [ ] Creative Energy/Fluid tank
+- ~~[ ] Culinary Generator (food -> FE)~~ out of topic
+- ~~[ ] Engine Generator (Furnace lit -> FE)~~ out of topic
+- ~~[ ] Draconite generator (dragon breath -> FE)~~ out of topic
 
 ### Specialized
 

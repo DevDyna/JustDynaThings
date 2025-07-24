@@ -89,6 +89,29 @@ public class Constants {
         public static boolean GuideMe = ModList.get().isLoaded("guideme");
     }
 
+    public class DataMaps {
+        public class Anvils {
+            private static String anvil = "anvils/";
+            public static String ferricore_repair = anvil + "ferricore_repair";
+            public static String blazegold_repair = anvil + "blazegold_repair";
+            public static String eclipsealloy_repair = anvil + "eclipsealloy_repair";
+        }
+
+        public class Thermo {
+            private static String thermo = "thermo_";
+            public static String thermo_heat_sources = thermo + "heat_sources";
+            public static String thermo_coolants = thermo + "coolants";
+        }
+
+        public class Reforger {
+            private static String reforger = "reforger_conversion/";
+            public static String block_to_block = reforger + "block_to_block";
+            public static String block_to_tag = reforger + "block_to_tag";
+            public static String tag_to_block = reforger + "tag_to_block";
+        }
+    }
+
+    @Deprecated
     public class System {
         public static String Switch(boolean v) {
             return v ? "on" : "off";

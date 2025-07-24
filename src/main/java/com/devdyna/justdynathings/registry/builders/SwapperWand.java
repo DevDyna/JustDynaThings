@@ -4,6 +4,7 @@ import static com.devdyna.justdynathings.Main.ID;
 
 import java.util.List;
 
+import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.registry.types.zBlockTags;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import com.direwolf20.justdirethings.common.blockentities.BlockSwapperT1BE;
@@ -70,7 +71,7 @@ public class SwapperWand extends Item {
     private void swapBlocks(Player player, ItemStack item, Level level, BlockState state, BlockPos pos) {
         var transmit = level.getBlockState(item.get(JustDireDataComponents.BOUND_GLOBAL_POS).pos());
         var recieve = state;
-        
+
         if (!level.isClientSide()) {
             level.setBlockAndUpdate(item.get(JustDireDataComponents.BOUND_GLOBAL_POS).pos(), recieve);
             level.setBlockAndUpdate(pos, transmit);
@@ -108,6 +109,9 @@ public class SwapperWand extends Item {
     @Override
     public void appendHoverText(ItemStack i, TooltipContext c, List<Component> t,
             TooltipFlag f) {
+
+        t.add(Component.translatable(ID + "." + Constants.Items.Swapper));
+
         if (i.get(JustDireDataComponents.BOUND_GLOBAL_POS) != null) {
             t.add(Component.translatable(ID + ".wand.dimension")
                     .append(Component

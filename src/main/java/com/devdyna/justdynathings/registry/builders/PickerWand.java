@@ -4,6 +4,7 @@ import static com.devdyna.justdynathings.Main.ID;
 
 import java.util.List;
 
+import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.registry.types.zBlockTags;
 import com.devdyna.justdynathings.registry.types.zComponents;
 import com.devdyna.justdynathings.registry.types.zProperties;
@@ -106,6 +107,9 @@ public class PickerWand extends Item {
     @Override
     public void appendHoverText(ItemStack i, TooltipContext c, List<Component> t,
             TooltipFlag f) {
+
+        t.add(Component.translatable(ID + "." + Constants.Items.Picker));
+
         if (i.get(zComponents.STATE) != null) {
             t.add(Component.translatable(ID + ".wand.blockstate")
                     .append(Component

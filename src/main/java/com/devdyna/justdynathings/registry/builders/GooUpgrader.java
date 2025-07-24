@@ -1,10 +1,18 @@
 package com.devdyna.justdynathings.registry.builders;
 
+import static com.devdyna.justdynathings.Main.ID;
+
 import java.util.ArrayList;
+import java.util.List;
+
+import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.registry.types.zProperties;
 
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.Block;
 
@@ -37,6 +45,12 @@ public class GooUpgrader extends Item {
         } else
 
             return super.useOn(c);
+    }
+
+    @Override
+    public void appendHoverText(ItemStack i, TooltipContext c, List<Component> t,
+            TooltipFlag f) {
+                t.add(Component.translatable(ID+"."+Constants.GooUpgraders.base));
     }
 
 }

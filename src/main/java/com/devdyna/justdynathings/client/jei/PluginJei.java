@@ -5,6 +5,9 @@ import static com.devdyna.justdynathings.Main.ID;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.devdyna.justdynathings.client.jei.datamaps.categories;
+import com.devdyna.justdynathings.client.jei.datamaps.records;
+import com.devdyna.justdynathings.client.jei.datamaps.categories.*;
 import com.devdyna.justdynathings.datagen.server.DataRecipe;
 import com.devdyna.justdynathings.registry.types.zBlocks;
 import com.direwolf20.justdirethings.client.jei.GooSpreadRecipeCategory;
@@ -12,8 +15,11 @@ import com.direwolf20.justdirethings.client.jei.GooSpreadRecipeTagCategory;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.RecipeTypes;
+import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
+import mezz.jei.api.registration.IRecipeCategoryRegistration;
+import mezz.jei.api.registration.IRecipeRegistration;
 import mezz.jei.api.runtime.IJeiRuntime;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
@@ -50,7 +56,7 @@ public class PluginJei implements IModPlugin {
     }
 
     @Override
-    public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
+    public void registerRecipeCatalysts(IRecipeCatalystRegistration r) {
 
         List<RecipeType<? extends CraftingRecipe>> recipeTypes = List.of(GooSpreadRecipeCategory.TYPE,
                 GooSpreadRecipeTagCategory.TYPE);
@@ -63,6 +69,33 @@ public class PluginJei implements IModPlugin {
                 zBlocks.T3_GOO.get(),
                 zBlocks.T4_GOO.get());
 
-        gooBlocks.forEach(b -> recipeTypes.forEach(r -> registration.addRecipeCatalyst(new ItemStack(b), r)));
+        gooBlocks.forEach(b -> recipeTypes.forEach(t -> r.addRecipeCatalyst(new ItemStack(b), t)));
+
+        r.addRecipeCatalyst(zBlocks.FERRICORE_ANVIL.get(), FerricoreItemRepairCategory.TYPE);
+        r.addRecipeCatalyst(zBlocks.BLAZEGOLD_ANVIL.get(), BlazeGoldFluidRepairCategory.TYPE);
+        r.addRecipeCatalyst(zBlocks.ECLIPSEALLOY_ANVIL.get(), EclipseAlloyFluidRepairCategory.TYPE);
+        r.addRecipeCatalyst(zBlocks.THERMOGEN.get(), ThermoBlockHeatSourceCategory.TYPE);
+        r.addRecipeCatalyst(zBlocks.THERMOGEN.get(), ThermoFluidCoolantCategory.TYPE);
+
     }
+
+    @Override
+    public void registerCategories(IRecipeCategoryRegistration r) {
+        IGuiHelper h = r.getJeiHelpers().getGuiHelper();
+        r.addRecipeCategories(new categories.FerricoreItemRepairCategory(h));
+        r.addRecipeCategories(new categories.BlazeGoldFluidRepairCategory(h));
+        r.addRecipeCategories(new categories.EclipseAlloyFluidRepairCategory(h));
+        r.addRecipeCategories(new categories.ThermoBlockHeatSourceCategory(h));
+        r.addRecipeCategories(new categories.ThermoFluidCoolantCategory(h));
+    }
+
+    @Override
+    public void registerRecipes(IRecipeRegistration r) {
+        r.addRecipes(FerricoreItemRepairCategory.TYPE, records.FerricoreItemRepair.get());
+        r.addRecipes(BlazeGoldFluidRepairCategory.TYPE, records.BlazeGoldFluidRepair.get());
+        r.addRecipes(EclipseAlloyFluidRepairCategory.TYPE, records.EclipseAlloyFluidRepair.get());
+        r.addRecipes(ThermoBlockHeatSourceCategory.TYPE, records.ThermoBlockHeatSource.get());
+        r.addRecipes(ThermoFluidCoolantCategory.TYPE, records.ThermoFluidCoolant.get());
+    }
+
 }

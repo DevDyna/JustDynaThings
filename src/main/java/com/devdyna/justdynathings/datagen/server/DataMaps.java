@@ -40,8 +40,6 @@ public class DataMaps extends DataMapProvider {
         @Override
         protected void gather() {
 
-                // TODO jei integration
-
                 builder(zDataMaps.FERRICORE_REPAIR)
                                 .add(Registration.FerricoreIngot.get().builtInRegistryHolder(),
                                                 new FerricoreItemRepair(128), false)

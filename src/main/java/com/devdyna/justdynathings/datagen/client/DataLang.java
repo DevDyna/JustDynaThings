@@ -8,6 +8,7 @@ import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.registry.types.zBlocks;
 import com.devdyna.justdynathings.registry.types.zItems;
+
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
@@ -87,6 +88,24 @@ public class DataLang extends LanguageProvider {
                                 Constants.Budding.Entro,
                                 Constants.Budding.Phasorite)
                                 .forEach(e -> add("block." + ID + "." + e, named(e)));
+
+                List.of(
+                                Constants.DataMaps.Anvils.ferricore_repair,
+                                Constants.DataMaps.Anvils.blazegold_repair,
+                                Constants.DataMaps.Anvils.eclipsealloy_repair,
+
+                                Constants.DataMaps.Thermo.thermo_coolants,
+                                Constants.DataMaps.Thermo.thermo_heat_sources,
+                                Constants.DataMaps.Reforger.block_to_block,
+                                Constants.DataMaps.Reforger.block_to_tag,
+                                Constants.DataMaps.Reforger.tag_to_block
+
+                ).forEach(j -> add(ID + ".jei.category." + j, named(j.replace("anvils/", ""))));
+
+                add(ID + "." + Constants.GooUpgraders.base, "§7Right click on a goo to upgrade it to the next tier");
+                                add(ID + "." + Constants.Items.Picker, "§7Allow to pickup simple blocks and place where you want");
+                                add(ID + "." + Constants.Items.Swapper, "§7Allow to swap simple blocks without break it");
+
 
         }
 

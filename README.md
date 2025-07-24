@@ -7,15 +7,17 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 # TODO LIST
 
 ### Classic
+
 - [ ] Energy/Fluid storage
 - [ ] Creative Energy/Fluid tank
-- [ ] Culinary Generator (food -> FE)
-- [ ] Engine Generator (Furnace lit -> FE)
-- [ ] Draconite generator (dragon breath -> FE)
+      ~~ - [ ] Culinary Generator (food -> FE)~~ out of topic
+      ~~ - [ ] Engine Generator (Furnace lit -> FE)~~ out of topic
+      ~~ - [ ] Draconite generator (dragon breath -> FE)~~ out of topic
 
 ### Specialized
+
 - [ ] Advanced Energy Transmitter/Item Collector (?)
-~~- [ ] Plant Harvester~~ moved to [Synergy](https://github.com/DevDyna/Synergy)
+      ~~ - [ ] Plant Harvester~~ moved to [Synergy](https://github.com/DevDyna/Synergy)
 - [ ] Experience pedestal (clicking with items generate experience)
 - [ ] Sculk Diffuser (Sculk Source without need to kill mobs)
 - [ ] Buffed Fuels (fuel with high multiplier)
@@ -27,11 +29,12 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [ ] Paradox Box (Pandora's Box like)
 - [ ] Crystallizer and Liquid Crystalline
 - [ ] Rocket Boots Upgrade
-- [ ] Raw magmasteel (iron + magma) -> thermogen (?)  
+- [ ] Raw magmasteel (iron + magma) -> thermogen (?)
 - [ ] Mushroom Tree Feller upgrade
 - [ ] Pocket generator T2-3-4 [(?)](https://github.com/Direwolf20-MC/JustDireThings/blob/main/src/main/resources/assets/justdirethings/textures/item/pocket_generator_t4.png)
 
 ### Implemented but not fully completed
+
 - [ ] Datamaps and tags jei integration
 - [ ] Ticker rework and datagen
 - [ ] Sculk rework and datagen

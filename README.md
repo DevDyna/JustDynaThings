@@ -10,7 +10,7 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 
 - [ ] Energy/Fluid storage
 - [ ] Creative Energy/Fluid tank
-- [ ] 
+
 ~~- Culinary Generator (food -> FE)~~ out of topic
 
 ~~- Engine Generator (Furnace lit -> FE)~~ out of topic

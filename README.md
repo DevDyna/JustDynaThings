@@ -10,13 +10,13 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 
 - [ ] Energy/Fluid storage
 - [ ] Creative Energy/Fluid tank
-- ~~[ ] Culinary Generator (food -> FE)~~ out of topic
-- ~~[ ] Engine Generator (Furnace lit -> FE)~~ out of topic
-- ~~[ ] Draconite generator (dragon breath -> FE)~~ out of topic
+- ~~ [ ] Culinary Generator (food -> FE)~~ out of topic
+- ~~ [ ] Engine Generator (Furnace lit -> FE)~~ out of topic
+- ~~ [ ] Draconite generator (dragon breath -> FE)~~ out of topic
 
 ### Specialized
 
-- [ ] Advanced Energy Transmitter/Item Collector (?) - ~~[ ] Plant Harvester~~ moved to [Synergy](https://github.com/DevDyna/Synergy)
+- [ ] Advanced Energy Transmitter/Item Collector (?) - ~~ [ ] Plant Harvester~~ moved to [Synergy](https://github.com/DevDyna/Synergy)
 - [ ] Experience pedestal (clicking with items generate experience)
 - [ ] Sculk Diffuser (Sculk Source without need to kill mobs)
 - [ ] Buffed Fuels (fuel with high multiplier)

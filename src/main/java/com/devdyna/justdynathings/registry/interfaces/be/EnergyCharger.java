@@ -28,6 +28,7 @@ public interface EnergyCharger {
                                 false),
                         false);
 
+            }
 
         }
 

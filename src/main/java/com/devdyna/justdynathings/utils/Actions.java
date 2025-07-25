@@ -27,15 +27,6 @@ import net.neoforged.neoforge.energy.IEnergyStorage;
 @SuppressWarnings("null")
 public class Actions {
 
-        /**
-         * ONLY REFORGER
-         * @deprecated
-         */
-        // public static void consumeItem(ItemStack item, Level level) {
-        //         if (LevelUtil.chance(common.REFORGER_CHANCE.get(), level))
-        //                 item.shrink(1);
-        // }
-
         public static void consumeItem(ItemStack item, Level level, int chance) {
                 if (LevelUtil.chance(chance, level))
                         item.shrink(1);
@@ -45,18 +36,6 @@ public class Actions {
                 if (LevelUtil.chance(chance, level))
                         item.shrink(itemcount);
         }
-
-        // @Deprecated
-        // public static void reforgerReplaceBlock(BlockPos pos, Level level) {
-        //         level.setBlockAndUpdate(pos,
-        //                         LevelUtil
-        //                                         .ResourceByTag(zBlockTags.REFORGER_RESULT,
-        //                                                         LevelUtil.getRandomValue(
-        //                                                                         LevelUtil.getSizeTag(
-        //                                                                                         zBlockTags.REFORGER_RESULT),
-        //                                                                         level))
-        //                                         .defaultBlockState());
-        // }
 
         @Deprecated
         public static boolean checkItemBlock(Level level, BlockPos pos, TagKey<Block> b,
@@ -122,9 +101,9 @@ public class Actions {
          * Provide power at adjacent be blocks
          * 
          * @param level
-         * @param pos generator blockpos
-         * @param map cache map to store capabilities
-         * @param fe rate
+         * @param pos   generator blockpos
+         * @param map   cache map to store capabilities
+         * @param fe    rate
          */
         public static void providePowerAdjacent(Level level, BlockPos pos,
                         Map<Direction, BlockCapabilityCache<IEnergyStorage, Direction>> map, int fe) {

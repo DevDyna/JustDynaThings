@@ -28,7 +28,7 @@ import net.neoforged.neoforge.capabilities.BlockCapabilityCache;
 import net.neoforged.neoforge.energy.IEnergyStorage;
 
 @SuppressWarnings("null")
-public class SolarBaseBE extends BaseMachineBE implements EnergyGenerator, RedstoneControlledBE , EnergyCharger{
+public class SolarBaseBE extends BaseMachineBE implements EnergyGenerator, RedstoneControlledBE, EnergyCharger {
 
     public RedstoneControlData redstoneControlData = new RedstoneControlData();
     public final PoweredMachineContainerData poweredMachineData = new PoweredMachineContainerData(this);
@@ -37,6 +37,7 @@ public class SolarBaseBE extends BaseMachineBE implements EnergyGenerator, Redst
     public SolarBaseBE(BlockEntityType<?> t, BlockPos p, BlockState b) {
         super(t, p, b);
         MACHINE_SLOTS = 1;
+
     }
 
     public SolarBaseBE(BlockPos p, BlockState b) {
@@ -52,8 +53,9 @@ public class SolarBaseBE extends BaseMachineBE implements EnergyGenerator, Redst
         if (canExtractFE())
             Actions.providePowerAdjacent(level, getBlockPos(), cache, calculateFE());
 
-            if (isActiveRedstone() && canExtractFE())
-            chargeFEtoItemStack(getMachineHandler().getStackInSlot(0), getEnergyStorage());
+        if (isActiveRedstone() && canExtractFE())
+            chargeFEtoItemStack(level, getBlockPos(), getMachineHandler().getStackInSlot(0), getEnergyStorage());
+
     }
 
     public void updateBlock() {

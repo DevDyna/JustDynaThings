@@ -54,7 +54,7 @@ public class SolarBaseBE extends BaseMachineBE implements EnergyGenerator, Redst
             Actions.providePowerAdjacent(level, getBlockPos(), cache, calculateFE());
 
         if (isActiveRedstone() && canExtractFE())
-            chargeFEtoItemStack(level, getBlockPos(), getMachineHandler().getStackInSlot(0), getEnergyStorage());
+            chargeFEtoItemStack(level, getBlockPos(), getMachineHandler(), getEnergyStorage());
 
     }
 

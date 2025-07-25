@@ -8,8 +8,6 @@ public interface EnergyCharger {
 
     default void chargeFEtoItemStack(ItemStack item , IEnergyStorage block){
 
-        // var item = getMachineHandler().getStackInSlot(0);
-
         if (block.canExtract() && item != null ) {
             var cap = item.getCapability(Capabilities.EnergyStorage.ITEM);
 

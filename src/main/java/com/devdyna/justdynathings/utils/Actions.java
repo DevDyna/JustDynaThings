@@ -77,10 +77,10 @@ public class Actions {
         }
 
         public static void openMenu(Player p, MenuConstructor c, BlockPos pos) {
-                p.openMenu(new SimpleMenuProvider(c,
-                                Component.translatable("")), (buf -> {
-                                        buf.writeBlockPos(pos);
-                                }));
+                        p.openMenu(new SimpleMenuProvider(c,
+                                        Component.translatable("")), (buf -> {
+                                                buf.writeBlockPos(pos);
+                                        }));
         }
 
         @SuppressWarnings({ "unchecked" })

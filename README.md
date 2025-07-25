@@ -45,3 +45,4 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [x] Solar panel upgrade recipe
 - [x] Powered goo upgrade recipe
 - [ ] Waterlogging many blocks
+- [ ] Swapper dont check at the end of swapping

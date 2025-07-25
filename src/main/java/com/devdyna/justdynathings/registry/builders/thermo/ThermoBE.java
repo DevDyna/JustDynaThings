@@ -71,7 +71,7 @@ public class ThermoBE extends BaseMachineBE
             }
 
         if (isActiveRedstone() && canExtractFE())
-            chargeFEtoItemStack(getMachineHandler().getStackInSlot(0), getEnergyStorage());
+            chargeFEtoItemStack(level, getBlockPos(), getMachineHandler().getStackInSlot(0), getEnergyStorage());
     }
 
     public void updateBlock(boolean state) {

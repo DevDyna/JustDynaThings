@@ -14,6 +14,7 @@ import net.neoforged.neoforge.items.ItemStackHandler;
 public interface EnergyCharger {
 
     default void chargeFEtoItemStack(Level level, BlockPos pos, ItemStack item, IEnergyStorage block) {
+        try {
             if (block.canExtract() && item != null) {
                 var cap = item.getCapability(Capabilities.EnergyStorage.ITEM);
 
@@ -30,9 +31,17 @@ public interface EnergyCharger {
 
             }
 
+        } catch (Exception e) {
+
+            var be = level.getBlockEntity(pos);
+
+            if (be == null)
+                return;
+
+            LogUtil.error("Corrupted Block Entity Storage at " + pos.toString() + "\nFormatted to prevent bugs");
+
+            be.setData(Registration.MACHINE_HANDLER, new ItemStackHandler(1));
         }
-
-
 
     }
 

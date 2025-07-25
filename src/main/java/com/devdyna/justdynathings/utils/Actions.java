@@ -77,10 +77,15 @@ public class Actions {
         }
 
         public static void openMenu(Player p, MenuConstructor c, BlockPos pos) {
+                try {
                         p.openMenu(new SimpleMenuProvider(c,
                                         Component.translatable("")), (buf -> {
                                                 buf.writeBlockPos(pos);
                                         }));
+                } catch (Exception e) {
+                        LogUtil.error("Menu provided at " + pos.toString() + " failed to open!");
+                }
+
         }
 
         @SuppressWarnings({ "unchecked" })

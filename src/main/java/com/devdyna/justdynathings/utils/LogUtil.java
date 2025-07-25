@@ -15,6 +15,13 @@ public class LogUtil {
     }
 
     /**
+     * send an error on logs
+     */
+    public static void error(String text) {
+        LOGGER.error(text);
+    }
+
+    /**
      * send a decorative separator
      */
     public static void decor(int size) {

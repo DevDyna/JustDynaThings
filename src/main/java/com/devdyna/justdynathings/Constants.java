@@ -118,4 +118,28 @@ public class Constants {
         }
     }
 
+    public class Config {
+
+        public static String G_FEGOO = "generic_energy_goo";
+
+
+        public static String WRENCH = "_require_wrench";
+        public static String FE_RATE = "_energy_every_tick";
+        public static String FE_MAX = "_max_energy_storage";
+
+        public static String MB_RATE = "_fluid_every_tick";
+        public static String MB_MAX = "_max_fluid_storage";
+        public static String SOUND = "_emit_sound";
+
+        public static String TIER = "_tier";
+        public static String REDUCER = "_counter_reducer";
+
+        public static String YLEVEL = "_reduce_production_at_y_level";
+        public static String SPAM = "_reduce_production_when_placed_alone";
+        public static String SKY = "_require_to_see_sky";
+        public static String DAY = "_require_dayTime";
+        public static String BIOMES = "_biomeTag_list";
+
+    }
+
 }

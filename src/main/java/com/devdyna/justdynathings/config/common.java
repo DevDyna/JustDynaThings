@@ -14,8 +14,6 @@ public class common {
 
         // TODO rework config logic
 
-        // TODO FIX DISPLAY NAMES (CARBON CONFIG compat)
-
         public static BooleanValue GUIDEME_WARNING;
 
         public static BooleanValue PHASE_BOX_WRENCHABLE;

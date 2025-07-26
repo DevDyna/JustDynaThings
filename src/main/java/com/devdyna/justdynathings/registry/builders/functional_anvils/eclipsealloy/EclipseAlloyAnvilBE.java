@@ -105,8 +105,4 @@ public class EclipseAlloyAnvilBE extends CAnvilBE implements EnergyMachine, Flui
     public int getDamageLimit() {
         return common.ANVILS_ECLIPSEALLOY_DAMAGE_LIMIT.get();
     }
-
-    // public int getDamagePercentuage() {
-    //     return Config.ANVILS_ECLIPSEALLOY_DAMAGE_PERCENTUAGE.get();
-    // }
 }

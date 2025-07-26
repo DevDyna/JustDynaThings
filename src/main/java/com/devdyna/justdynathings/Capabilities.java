@@ -20,28 +20,46 @@ public class Capabilities {
         public static void regCap(RegisterCapabilitiesEvent event) {
 
                 Block[] EnergyMachineBase = {
-                                zBlocks.CELESTIGEM_ANVIL.get(), zBlocks.ECLIPSEALLOY_ANVIL.get(),
+
+                                zBlocks.CELESTIGEM_ANVIL.get(),
+                                zBlocks.ECLIPSEALLOY_ANVIL.get(),
+
                                 zBlocks.REVITALIZER.get(),
+
                                 zBlocks.ENERGIZED_GOO.get(),
                                 zBlocks.T1_GOO.get(), zBlocks.T2_GOO.get(),
-                                zBlocks.T3_GOO.get(), zBlocks.T4_GOO.get(), zBlocks.BLACKHOLE.get()
+                                zBlocks.T3_GOO.get(), zBlocks.T4_GOO.get(),
+
+                                zBlocks.BLACKHOLE.get()
                 };
 
                 Block[] FluidMachineBase = {
+
                                 zBlocks.BLACKHOLE.get(),
                                 zBlocks.THERMOGEN.get(),
-                                zBlocks.BLAZEGOLD_ANVIL.get(),
-                                zBlocks.ECLIPSEALLOY_ANVIL.get() };
 
-                Block[] ItemStacMachineBase = { zBlocks.REFORGER.get(),
+                                zBlocks.BLAZEGOLD_ANVIL.get(),
+                                zBlocks.ECLIPSEALLOY_ANVIL.get()
+                };
+
+                Block[] ItemStacMachineBase = {
+
+                                zBlocks.REFORGER.get(),
+
                                 zBlocks.FERRICORE_ANVIL.get(),
                                 zBlocks.BLAZEGOLD_ANVIL.get(),
                                 zBlocks.CELESTIGEM_ANVIL.get(),
-                                zBlocks.BLACKHOLE.get(), zBlocks.THERMOGEN.get(),
+                                zBlocks.ECLIPSEALLOY_ANVIL.get(),
+
+                                zBlocks.BLACKHOLE.get(),
+                                zBlocks.THERMOGEN.get(),
+
                                 zBlocks.FERRICORE_SOLARGEN.get(),
                                 zBlocks.BLAZEGOLD_SOLARGEN.get(),
                                 zBlocks.CELESTIGEM_SOLARGEN.get(),
-                                zBlocks.ECLIPSEALLOY_SOLARGEN.get() };
+                                zBlocks.ECLIPSEALLOY_SOLARGEN.get()
+
+                };
 
                 // ---------------------------------------------------------------------------------------//
                 // generic itemhandler

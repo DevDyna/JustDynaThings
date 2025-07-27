@@ -165,6 +165,9 @@ public class DataBlockModelState extends BlockStateProvider {
 
         private void BaseSolarPanel(Block b, ResourceLocation model) {
                 simpleBlock(b, models().getExistingFile(model));
+        /**
+         * Ferricore Generator Block doesnt exist!
+         */
         }
 
         /**

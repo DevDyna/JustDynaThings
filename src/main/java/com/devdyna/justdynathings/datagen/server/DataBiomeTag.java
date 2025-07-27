@@ -27,7 +27,7 @@ public class DataBiomeTag extends BiomeTagsProvider {
         protected void addTags(Provider p) {
 
                 tag(zBiomeTags.FERRICORE_SOLAR_PANEL_BIOME_LIST)
-                                .addTag(Tags.Biomes.IS_OVERWORLD);
+                                .addTag(Tags.Biomes.IS_OVERWORLD).addTag(Tags.Biomes.IS_VOID);
 
                 tag(zBiomeTags.BLAZEGOLD_SOLAR_PANEL_BIOME_LIST)
                                 .addTag(Tags.Biomes.IS_NETHER);

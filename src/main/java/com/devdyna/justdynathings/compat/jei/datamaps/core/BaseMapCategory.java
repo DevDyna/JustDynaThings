@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.client.jei.datamaps.core;
+package com.devdyna.justdynathings.compat.jei.datamaps.core;
 
 import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.helpers.IGuiHelper;

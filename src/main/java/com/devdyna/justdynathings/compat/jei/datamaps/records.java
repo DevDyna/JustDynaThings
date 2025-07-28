@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.client.jei.datamaps;
+package com.devdyna.justdynathings.compat.jei.datamaps;
 
 import java.util.ArrayList;
 import java.util.Comparator;

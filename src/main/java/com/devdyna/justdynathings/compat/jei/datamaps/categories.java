@@ -1,10 +1,10 @@
-package com.devdyna.justdynathings.client.jei.datamaps;
+package com.devdyna.justdynathings.compat.jei.datamaps;
 
 import static com.devdyna.justdynathings.Main.ID;
 
 import com.devdyna.justdynathings.Constants;
-import com.devdyna.justdynathings.client.jei.datamaps.core.BaseMapCategory;
-import com.devdyna.justdynathings.client.jei.datamaps.records.*;
+import com.devdyna.justdynathings.compat.jei.datamaps.core.BaseMapCategory;
+import com.devdyna.justdynathings.compat.jei.datamaps.records.*;
 import com.devdyna.justdynathings.registry.types.zBlocks;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;

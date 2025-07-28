@@ -1,13 +1,13 @@
-package com.devdyna.justdynathings.client.jei;
+package com.devdyna.justdynathings.compat.jei;
 
 import static com.devdyna.justdynathings.Main.ID;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.devdyna.justdynathings.client.jei.datamaps.categories;
-import com.devdyna.justdynathings.client.jei.datamaps.records;
-import com.devdyna.justdynathings.client.jei.datamaps.categories.*;
+import com.devdyna.justdynathings.compat.jei.datamaps.categories;
+import com.devdyna.justdynathings.compat.jei.datamaps.records;
+import com.devdyna.justdynathings.compat.jei.datamaps.categories.*;
 import com.devdyna.justdynathings.datagen.server.DataRecipe;
 import com.devdyna.justdynathings.registry.types.zBlocks;
 import com.direwolf20.justdirethings.client.jei.GooSpreadRecipeCategory;

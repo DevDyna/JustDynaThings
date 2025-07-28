@@ -6,11 +6,13 @@ import javax.annotation.Nullable;
 
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
+import com.devdyna.justdynathings.config.common;
 import com.devdyna.justdynathings.registry.Material;
 import com.direwolf20.justdirethings.common.blockentities.gooblocks.GooBlockBE_Tier4;
 import com.direwolf20.justdirethings.common.blocks.gooblocks.GooBlock_Base;
 import com.direwolf20.justdirethings.datagen.JustDireItemTags;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -42,6 +44,11 @@ public class EnergyT3 extends GooBlock_Base implements EntityBlock {
 
    @SuppressWarnings("null")
    public void appendHoverText(ItemStack s, Item.TooltipContext c, List<Component> t, TooltipFlag f) {
-      t.add(Component.translatable(Main.ID + "."+Constants.GooType+"."+Constants.Goo.Energized +".tip"));
+      t.add(Component.translatable(Main.ID + "." + Constants.GooType + "." + Constants.Goo.Energized + ".tip"));
+      if (f.hasShiftDown())
+         t.add(Component.translatable(Main.ID + "." + Constants.GooType + ".tier")
+               .append(Component.literal("" + common.GOO_T3_TIER.get())));
+      else
+         t.add(Component.translatable("justdirethings.shiftmoreinfo").withStyle(ChatFormatting.GRAY));
    }
 }

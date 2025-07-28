@@ -22,10 +22,10 @@ public class DataLang extends LanguageProvider {
         protected void addTranslations() {
 
                 add(ID + ".invalid_block", "§cInvalid Block");
-                add(ID + ".wand.blockstate", "BlockState : ");
-                add(ID + ".wand.dimension", "Dimension : ");
-                add(ID + ".wand.pos", "BlockPos : ");
-                add(ID + ".disabled", "Item Disabled");
+                add(ID + ".wand.blockstate", "§7BlockState : ");
+                add(ID + ".wand.dimension", "§7Dimension : ");
+                add(ID + ".wand.pos", "§7BlockPos : ");
+                add(ID + ".disabled", "§cItem Disabled");
                 add(Main.ID + "." + Constants.Blocks.Reforger + ".tip",
                                 "§7Convert blocks using a catalyst to other blocks");
 
@@ -105,6 +105,8 @@ public class DataLang extends LanguageProvider {
                 add(ID + "." + Constants.GooUpgraders.base, "§7Right click on a goo to upgrade it to the next tier");
                                 add(ID + "." + Constants.Items.Picker, "§7Allow to pickup simple blocks and place where you want");
                                 add(ID + "." + Constants.Items.Swapper, "§7Allow to swap simple blocks without break it");
+
+                add(Main.ID + "."+Constants.GooType+".tier", "§aGoo Tier: ");
 
 
         }

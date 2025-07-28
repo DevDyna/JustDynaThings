@@ -182,7 +182,9 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
             phasorite_version_range         : phasorite_version_range,
             //
             guideme_version                 : guideme_version,
-            guideme_version_range           : guideme_version_range
+            guideme_version_range           : guideme_version_range,
+
+            jei_version                     : jei_version
     ]
     inputs.properties replaceProperties
     expand replaceProperties

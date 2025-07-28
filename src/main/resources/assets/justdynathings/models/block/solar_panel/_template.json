@@ -1,164 +1,21 @@
 {
+  "format_version": "1.21.6",
   "credit": "Made with Blockbench",
   "parent": "block/block",
   "render_type": "cutout",
-  "texture_size": [32, 32],
-  "textures": {
-    "side": "#side",
-    "bottom": "#bottom",
-    "solar_panel": "justdynathings:block/solar/solar_panel",
-    "particle": "#side"
-  },
+  "textures": { "particle": "#bottom" },
   "elements": [
     {
       "from": [0, 0, 0],
-      "to": [16, 4, 1],
-      "faces": {
-        "north": {
-          "uv": [0, 12, 16, 16],
-          "texture": "#side"
-        },
-        "east": {
-          "uv": [15, 12, 16, 16],
-          "texture": "#side"
-        },
-        "south": {
-          "uv": [0, 12, 16, 16],
-          "texture": "#side"
-        },
-        "west": {
-          "uv": [0, 12, 1, 16],
-          "texture": "#side"
-        },
-        "up": {
-          "uv": [0, 0, 16, 1],
-          "texture": "#side"
-        },
-        "down": {
-          "uv": [0, 0, 16, 1],
-          "texture": "#bottom"
-        }
-      }
-    },
-    {
-      "from": [0, 0, 15],
       "to": [16, 4, 16],
+      "rotation": { "angle": 0, "axis": "y", "origin": [1, 0, -1] },
       "faces": {
-        "north": {
-          "uv": [0, 12, 16, 16],
-          "texture": "#side"
-        },
-        "east": {
-          "uv": [15, 12, 16, 16],
-          "texture": "#side"
-        },
-        "south": {
-          "uv": [0, 12, 16, 16],
-          "texture": "#side"
-        },
-        "west": {
-          "uv": [0, 12, 1, 16],
-          "texture": "#side"
-        },
-        "up": {
-          "uv": [0, 0, 16, 1],
-          "texture": "#side"
-        },
-        "down": {
-          "uv": [0, 15, 16, 16],
-          "texture": "#bottom"
-        }
-      }
-    },
-    {
-      "from": [0, 0, 1],
-      "to": [1, 4, 15],
-      "rotation": {
-        "angle": 0,
-        "axis": "y",
-        "origin": [0, 0, -1]
-      },
-      "faces": {
-        "north": {
-          "uv": [0, 12, 16, 16],
-          "texture": "#side"
-        },
-        "east": {
-          "uv": [0, 12, 16, 16],
-          "texture": "#side"
-        },
-        "south": {
-          "uv": [0, 12, 16, 16],
-          "texture": "#side"
-        },
-        "west": {
-          "uv": [0, 12, 16, 16],
-          "texture": "#side"
-        },
-        "up": {
-          "uv": [1, 0, 15, 1],
-          "rotation": 90,
-          "texture": "#side"
-        },
-        "down": {
-          "uv": [15, 1, 16, 15],
-          "texture": "#bottom"
-        }
-      }
-    },
-    {
-      "from": [15, 0, 1],
-      "to": [16, 4, 15],
-      "rotation": {
-        "angle": 0,
-        "axis": "y",
-        "origin": [15, 0, -1]
-      },
-      "faces": {
-        "north": {
-          "uv": [0, 12, 16, 16],
-          "texture": "#side"
-        },
-        "east": {
-          "uv": [0, 12, 16, 16],
-          "texture": "#side"
-        },
-        "south": {
-          "uv": [0, 12, 16, 16],
-          "texture": "#side"
-        },
-        "west": {
-          "uv": [0, 12, 16, 16],
-          "texture": "#side"
-        },
-        "up": {
-          "uv": [15, 1, 1, 0],
-          "rotation": 90,
-          "texture": "#side"
-        },
-        "down": {
-          "uv": [0, 1, 1, 15],
-          "texture": "#bottom"
-        }
-      }
-    },
-    {
-      "from": [1, 0, 1],
-      "to": [15, 4, 15],
-      "rotation": {
-        "angle": 0,
-        "axis": "y",
-        "origin": [1, 0, -1]
-      },
-      "faces": {
-        "up": {
-          "uv": [1, 1, 15, 15],
-          "texture": "#solar_panel"
-        },
-        "down": {
-          "uv": [1, 1, 15, 15],
-          "texture": "#bottom"
-        }
+        "north": { "uv": [0, 12, 16, 16], "texture": "#side" },
+        "east": { "uv": [0, 12, 16, 16], "texture": "#side" },
+        "south": { "uv": [0, 12, 16, 16], "texture": "#side" },
+        "west": { "uv": [0, 12, 16, 16], "texture": "#side" },
+        "down": { "uv": [1, 1, 15, 15], "texture": "#bottom" },
+        "up": { "uv": [0, 0, 16, 16], "texture": "#solar_panel" }
       }
     }
   ]

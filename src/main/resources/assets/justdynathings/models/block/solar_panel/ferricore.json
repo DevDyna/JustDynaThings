@@ -2,6 +2,7 @@
   "parent": "justdynathings:block/solar_panel/_template",
   "textures": {
     "side": "justdirethings:block/generatort1_side",
-    "bottom": "justdirethings:block/generatort1_bottom"
+    "bottom": "justdirethings:block/generatort1_bottom",
+    "solar_panel": "justdynathings:block/solar_panel/ferricore"
   }
 }

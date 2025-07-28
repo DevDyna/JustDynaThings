@@ -160,14 +160,16 @@ public class DataBlockModelState extends BlockStateProvider {
                                 .NamewithParent("justdynathings:block/solar_panel/" + blockname, this,
                                                 "justdynathings:block/solar_panel/_template")
                                 .texture("side", "justdynathings:block/generator/" + blockname + "/side")
-                                .texture("bottom", "justdynathings:block/generator/" + blockname + "/bottom"));
+                                .texture("bottom", "justdynathings:block/generator/" + blockname + "/bottom")
+                                .texture("solar_panel", "justdynathings:block/solar_panel/"+blockname));
         }
 
-        private void BaseSolarPanel(Block b, ResourceLocation model) {
-                simpleBlock(b, models().getExistingFile(model));
         /**
          * Ferricore Generator Block doesnt exist!
          */
+        private void BaseSolarPanel(Block b, ResourceLocation model) {
+                simpleBlock(b, models().getExistingFile(model));
+        
         }
 
         /**

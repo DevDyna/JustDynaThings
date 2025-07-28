@@ -34,13 +34,14 @@
   "justdynathings.celestigem_anvil.tip": "§7Repair items using Forge Energy",
   "justdynathings.clock.wip": "N.Y.I. -> shift-click the block to toggle",
   "justdynathings.creative_tab": "Just Dyna Things",
-  "justdynathings.disabled": "Item Disabled",
+  "justdynathings.disabled": "§cItem Disabled",
   "justdynathings.echoing_budding.tip": "§7Grow clusters using Fluid Time and Forge Energy",
   "justdynathings.eclipse_alloy_anvil.boost": "§7Can be boosted using Fluid Time",
   "justdynathings.eclipse_alloy_anvil.tip": "§7Repair items using Forge Energy",
   "justdynathings.ferricore_anvil.tip": "§7Repair items using metallic ingots",
   "justdynathings.goo.creative_goo.tip": "§cRight click with a wrench to toggle alive state",
   "justdynathings.goo.energized_goo.tip": "§cProvide energy to active it",
+  "justdynathings.goo.tier": "§aGoo Tier: ",
   "justdynathings.goo_upgrader": "§7Right click on a goo to upgrade it to the next tier",
   "justdynathings.guideme.missing": "§aFor more info install GuideMe",
   "justdynathings.invalid_block": "§cInvalid Block",
@@ -57,7 +58,7 @@
   "justdynathings.solar_panel.tip": "§7Generate Energy from ambiental situations",
   "justdynathings.swapper_wand": "§7Allow to swap simple blocks without break it",
   "justdynathings.thermo_generator.tip": "§7Generate Energy from heat sources and coolants",
-  "justdynathings.wand.blockstate": "BlockState : ",
-  "justdynathings.wand.dimension": "Dimension : ",
-  "justdynathings.wand.pos": "BlockPos : "
+  "justdynathings.wand.blockstate": "§7BlockState : ",
+  "justdynathings.wand.dimension": "§7Dimension : ",
+  "justdynathings.wand.pos": "§7BlockPos : "
 }

@@ -1,0 +1,12 @@
+{
+  "loader": "fusion:model",
+  "type": "connecting",
+  "parent": "minecraft:block/cube_all",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "all": "justdynathings:block/phase/false"
+  },
+  "connections": {
+    "type": "is_same_block"
+  }
+}

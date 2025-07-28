@@ -2,6 +2,7 @@
   "parent": "justdynathings:block/solar_panel/_template",
   "textures": {
     "bottom": "justdynathings:block/generator/celestigem/bottom",
-    "side": "justdynathings:block/generator/celestigem/side"
+    "side": "justdynathings:block/generator/celestigem/side",
+    "solar_panel": "justdynathings:block/solar_panel/celestigem"
   }
 }

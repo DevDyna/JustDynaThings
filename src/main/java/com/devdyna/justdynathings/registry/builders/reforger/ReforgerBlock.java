@@ -67,8 +67,8 @@ public class ReforgerBlock extends BaseMachineBlock {
     @Override
     public void appendHoverText(ItemStack i, TooltipContext c, List<Component> t,
             TooltipFlag f) {
-        if (!Constants.ModAddonCheck.GuideMe && common.GUIDEME_WARNING.getAsBoolean())
-            t.add(Component.translatable(Main.ID + ".guideme.missing"));
+        if (Constants.ModAddonCheck.docCheck && !common.DOC_WARNING.getAsBoolean())
+            t.add(Component.translatable(Main.ID + ".doc.missing"));
         t.add(Component.translatable(Main.ID + "." + Constants.Blocks.Reforger + ".tip"));
     }
 }

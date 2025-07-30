@@ -110,7 +110,7 @@ public class PhaseBox extends TransparentBlock {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents,
             TooltipFlag tooltipFlag) {
-        if (!Constants.ModAddonCheck.GuideMe && common.GUIDEME_WARNING.getAsBoolean())
-            tooltipComponents.add(Component.translatable(Main.ID + ".guideme.missing"));
+        if (Constants.ModAddonCheck.docCheck && !common.DOC_WARNING.getAsBoolean())
+            tooltipComponents.add(Component.translatable(Main.ID + ".doc.missing"));
     }
 }

@@ -14,7 +14,7 @@ public class common {
 
         // TODO rework config logic
 
-        public static BooleanValue GUIDEME_WARNING;
+        public static BooleanValue DOC_WARNING;
 
         public static BooleanValue PHASE_BOX_WRENCHABLE;
 
@@ -138,9 +138,9 @@ public class common {
         private static void general() {
                 qCOMMON.comment("General").push("1-general");
 
-                GUIDEME_WARNING = qCOMMON
-                                .comment("Disable GuideMe warning")
-                                .define("disable_guideme_warning", false);
+                DOC_WARNING = qCOMMON
+                                .comment("Disable Documentation warning")
+                                .define("disable_doc_warning", false);
 
                 superduperconfig();
                 qCOMMON.pop();

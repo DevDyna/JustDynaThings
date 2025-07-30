@@ -54,7 +54,7 @@ public class DataLang extends LanguageProvider {
                 add(Main.ID + ".clock.wip", "N.Y.I. -> shift-click the block to toggle");
 
                 // missing guideme
-                add(ID + ".guideme.missing", "§aFor more info install GuideMe");
+                add(ID + ".doc.missing", "§aFor more info consider to install GuideMe or Patchouli");
 
                 // generic type tooltips
                 add(Main.ID + "." + Constants.GooType + "." + Constants.Goo.Energized + ".tip",

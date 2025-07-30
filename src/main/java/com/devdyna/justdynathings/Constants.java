@@ -87,6 +87,9 @@ public class Constants {
         public static boolean ExtendedAE = ModList.get().isLoaded("extendedae");
         public static boolean PhasoriteNetworks = ModList.get().isLoaded("phasoritenetworks");
         public static boolean GuideMe = ModList.get().isLoaded("guideme");
+        public static boolean Patchouli = ModList.get().isLoaded("patchouli");
+
+        public static boolean docCheck = !(GuideMe || Patchouli);
     }
 
     public class DataMaps {
@@ -121,7 +124,6 @@ public class Constants {
     public class Config {
 
         public static String G_FEGOO = "generic_energy_goo";
-
 
         public static String WRENCH = "_require_wrench";
         public static String FE_RATE = "_energy_every_tick";

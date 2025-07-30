@@ -13,7 +13,7 @@ item_ids:
 
 A block that can be toggled to disable/enable the solid state
 
-Also it can be CTM when installed **ConnectedTexturesMod**
+Also it can be CTM when installed **Fusion** ~~ConnectedTexturesMod~~
 
 <BlockImage id="justdynathings:phase_box" scale="4.0"/>
 

@@ -103,11 +103,12 @@ public class DataLang extends LanguageProvider {
                 ).forEach(j -> add(ID + ".jei.category." + j, named(j.replace("anvils/", ""))));
 
                 add(ID + "." + Constants.GooUpgraders.base, "§7Right click on a goo to upgrade it to the next tier");
-                                add(ID + "." + Constants.Items.Picker, "§7Allow to pickup simple blocks and place where you want");
-                                add(ID + "." + Constants.Items.Swapper, "§7Allow to swap simple blocks without break it");
+                add(ID + "." + Constants.Items.Picker, "§7Allow to pickup simple blocks and place where you want");
+                add(ID + "." + Constants.Items.Swapper, "§7Allow to swap simple blocks without break it");
 
-                add(Main.ID + "."+Constants.GooType+".tier", "§aGoo Tier: ");
+                add(Main.ID + "." + Constants.GooType + ".tier", "§7Goo Tier: ");
 
+                add(Main.ID + "." + Constants.SolarPanelType + ".ferate", "§7Max FE rate : ");
 
         }
 

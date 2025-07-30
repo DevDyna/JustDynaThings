@@ -12,12 +12,14 @@ item_ids:
 
 A solar panel that generate Forge Energy
 
-MAX FE rate : **3840**
+Default Max FE rate : **3840**
 
-**Conditions:**
+**Default Conditions:**
 - See sky = true
 - More solar panels are near to other more will produce
 
 <BlockImage id="justdynathings:celestigem_solar_panel" scale="4.0"/>
 
 <Recipe id="justdynathings:celestigem_solar_panel" />
+
+*Note: Everything can be modified via configs so dont trust at all!*

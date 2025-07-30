@@ -12,12 +12,14 @@ item_ids:
 
 A solar panel that generate Forge Energy
 
-MAX FE rate : **11520**
+Default Max FE rate : **11520**
 
-**Conditions:**
+**Default Conditions:**
 - More solar panels are near to other more will produce
 - High/Low Y-level will increase the multiplier , middle Y-level will decrease the multiplier
 
 <BlockImage id="justdynathings:eclipse_alloy_solar_panel" scale="4.0"/>
 
 <Recipe id="justdynathings:eclipse_alloy_solar_panel" />
+
+*Note: Everything can be modified via configs so dont trust at all!*

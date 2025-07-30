@@ -46,7 +46,7 @@ public class CelestiGemSolarBlock extends SolarBlockBase {
         @Override
         public void appendHoverText(ItemStack s, TooltipContext c, List<Component> t,
                         TooltipFlag f) {
-
+                super.appendHoverText(s, c, t, f);
                 if (f.hasShiftDown()) {
                         t.add(Component.translatable(Main.ID + "." + Constants.SolarPanelType + ".ferate")
                                         .append(Component.literal("" + common.SOLARPANEL_CELESTIGEM_FE_RATE.get())));

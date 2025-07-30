@@ -44,6 +44,7 @@ public class CelestiGemAnvilBlock extends CAnvilBlock {
     @Override
     public void appendHoverText(ItemStack i, TooltipContext c, List<Component> t,
             TooltipFlag f) {
+        super.appendHoverText(i, c, t, f);
         t.add(Component.translatable(Main.ID + "." + Constants.Anvils.t3 + ".tip"));
     }
 

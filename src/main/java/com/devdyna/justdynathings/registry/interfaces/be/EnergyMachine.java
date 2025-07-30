@@ -9,6 +9,7 @@ public interface EnergyMachine extends PoweredMachineBE {
 
     /**
      * FE / tick
+     * DONT use to set FE gen
      */
     int getStandardEnergyCost();
 

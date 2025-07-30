@@ -80,11 +80,11 @@ public class SolarBlockBase extends BaseMachineBlock{
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents,
-            TooltipFlag tooltipFlag) {
+    public void appendHoverText(ItemStack s, TooltipContext c, List<Component> t,
+            TooltipFlag f) {
         if (!Constants.ModAddonCheck.GuideMe && common.GUIDEME_WARNING.getAsBoolean())
-            tooltipComponents.add(Component.translatable(Main.ID + ".guideme.missing"));
-        tooltipComponents.add(Component.translatable(Main.ID + "." + Constants.SolarPanelType + ".tip"));
+            t.add(Component.translatable(Main.ID + ".guideme.missing"));
+        t.add(Component.translatable(Main.ID + "." + Constants.SolarPanelType + ".tip"));
     }
 
 }

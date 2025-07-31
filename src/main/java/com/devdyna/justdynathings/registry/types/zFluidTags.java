@@ -1,9 +1,5 @@
 package com.devdyna.justdynathings.registry.types;
 
-import com.devdyna.justdynathings.registry.Material;
-
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.level.material.Fluid;
 import net.neoforged.bus.api.IEventBus;
 
 public class zFluidTags {
@@ -11,6 +7,6 @@ public class zFluidTags {
 
     }
 
-    public static final TagKey<Fluid> THERMO_COOLERS = Material.tagFluid("thermo_coolers");
-    public static final TagKey<Fluid> MAGMATIC_LIQUID = Material.tagFluid("magmatic_liquid");
+    // public static final TagKey<Fluid> THERMO_COOLERS = Material.tagFluid("thermo_coolers");
+    // public static final TagKey<Fluid> MAGMATIC_LIQUID = Material.tagFluid("magmatic_liquid");
 }

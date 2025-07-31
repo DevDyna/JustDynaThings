@@ -111,6 +111,9 @@ public class DataLang extends LanguageProvider {
 
                 add(Main.ID + "." + Constants.SolarPanelType + ".ferate", "§7Max FE rate : ");
 
+                add(ID + ".init_invalid","§cInitial Block isn't anymore valid");
+                add(ID + ".clear_pos","§7Position Cleared");
+
         }
 
         private String named(String text) {

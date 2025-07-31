@@ -18,6 +18,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -33,6 +34,18 @@ public class SwapperWand extends Item {
         super(zProperties.iProp
                 .component(JustDireDataComponents.BOUND_GLOBAL_POS, null)
                 .stacksTo(1).durability(256));
+    }
+
+    @Override
+    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+        var item = player.getItemInHand(hand);
+        if (item.get(JustDireDataComponents.BOUND_GLOBAL_POS) != null) {
+            item.set(JustDireDataComponents.BOUND_GLOBAL_POS, null);
+            player.displayClientMessage(Component.translatable(ID + ".clear_pos"), true);
+            player.playSound(SoundEvents.ITEM_FRAME_REMOVE_ITEM, 1.0F, 1.0F);
+            return InteractionResultHolder.success(item);
+        } else
+            return super.use(level, player, hand);
     }
 
     @Override
@@ -69,21 +82,32 @@ public class SwapperWand extends Item {
     }
 
     private void swapBlocks(Player player, ItemStack item, Level level, BlockState state, BlockPos pos) {
+
+        var wandPos = item.get(JustDireDataComponents.BOUND_GLOBAL_POS).pos();
+
+        if (level.getBlockEntity(wandPos) != null || level.getBlockState(wandPos).is(zBlockTags.SWAPPER_DENY)) {
+            swapFail(player);
+            return;
+        }
+
         var transmit = level.getBlockState(item.get(JustDireDataComponents.BOUND_GLOBAL_POS).pos());
         var recieve = state;
 
         if (!level.isClientSide()) {
-            level.setBlockAndUpdate(item.get(JustDireDataComponents.BOUND_GLOBAL_POS).pos(), recieve);
+
+            level.setBlockAndUpdate(wandPos, recieve);
             level.setBlockAndUpdate(pos, transmit);
             BlockSwapperT1BE.teleportParticles((ServerLevel) level,
-                    item.get(JustDireDataComponents.BOUND_GLOBAL_POS).pos());
+                    wandPos);
             BlockSwapperT1BE.teleportParticles((ServerLevel) level, pos);
             level.markAndNotifyBlock(pos, level.getChunkAt(pos), state, state, 3, 512);
-            level.markAndNotifyBlock(item.get(JustDireDataComponents.BOUND_GLOBAL_POS).pos(),
-                    level.getChunkAt(item.get(JustDireDataComponents.BOUND_GLOBAL_POS).pos()), state, state, 3, 512);
+            level.markAndNotifyBlock(wandPos,
+                    level.getChunkAt(wandPos), state, state, 3, 512);
         }
+
         player.playSound(SoundEvents.END_PORTAL_FRAME_FILL, 3.0F, 0.25F);
         item.set(JustDireDataComponents.BOUND_GLOBAL_POS, null);
+
         consumeDurability(player, item);
     }
 
@@ -93,6 +117,11 @@ public class SwapperWand extends Item {
 
     private void pickUpFail(Player player) {
         player.displayClientMessage(Component.translatable(ID + ".invalid_block"), true);
+        failPlace(player);
+    }
+
+    private void swapFail(Player player) {
+        player.displayClientMessage(Component.translatable(ID + ".init_invalid"), true);
         failPlace(player);
     }
 

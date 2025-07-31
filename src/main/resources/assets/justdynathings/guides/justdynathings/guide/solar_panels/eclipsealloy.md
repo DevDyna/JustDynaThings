@@ -2,7 +2,7 @@
 navigation:
   title: Eclipse Alloy Solar Panel
   icon: "justdynathings:eclipse_alloy_solar_panel"
-  position : 4
+  position: 4
   parent: justdynathings:solar_panels.md
 item_ids:
   - justdynathings:eclipse_alloy_solar_panel
@@ -15,6 +15,7 @@ A solar panel that generate Forge Energy
 Default Max FE rate : **11520**
 
 **Default Conditions:**
+
 - More solar panels are near to other more will produce
 - High/Low Y-level will increase the multiplier , middle Y-level will decrease the multiplier
 
@@ -22,4 +23,4 @@ Default Max FE rate : **11520**
 
 <Recipe id="justdynathings:eclipse_alloy_solar_panel" />
 
-*Note: Everything can be modified via configs so dont trust at all!*
+_Note: Everything can be modified via configs so dont trust at all!_

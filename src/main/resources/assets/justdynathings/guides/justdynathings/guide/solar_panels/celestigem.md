@@ -2,7 +2,7 @@
 navigation:
   title: Celestigem Solar Panel
   icon: "justdynathings:celestigem_solar_panel"
-  position : 3
+  position: 3
   parent: justdynathings:solar_panels.md
 item_ids:
   - justdynathings:celestigem_solar_panel
@@ -15,6 +15,7 @@ A solar panel that generate Forge Energy
 Default Max FE rate : **3840**
 
 **Default Conditions:**
+
 - See sky = true
 - More solar panels are near to other more will produce
 
@@ -22,4 +23,4 @@ Default Max FE rate : **3840**
 
 <Recipe id="justdynathings:celestigem_solar_panel" />
 
-*Note: Everything can be modified via configs so dont trust at all!*
+_Note: Everything can be modified via configs so dont trust at all!_

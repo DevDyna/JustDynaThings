@@ -22,5 +22,4 @@ FE gen = 125 x CoolantEfficiency x HeatEfficiency
 
 MB cost = 125 / CoolantEfficiency
 
-
-*probably it will be simplified on future*
+_probably it will be simplified on future_

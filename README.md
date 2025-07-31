@@ -20,7 +20,7 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 ### Specialized
 
 - [ ] Advanced Energy Transmitter/Item Collector (?)
-- [ ] ~~  Plant Harvester~~ moved to [Synergy](https://github.com/DevDyna/Synergy)
+- ~~Plant Harvester~~ moved to [Synergy](https://github.com/DevDyna/Synergy)
 - [ ] Experience pedestal (clicking with items generate experience)
 - [ ] Sculk Diffuser (Sculk Source without need to kill mobs)
 - [ ] Buffed Fuels (fuel with high multiplier)

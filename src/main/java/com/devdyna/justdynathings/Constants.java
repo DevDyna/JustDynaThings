@@ -94,7 +94,7 @@ public class Constants {
 
     public class DataMaps {
         public class Anvils {
-            private static String anvil = "anvils/";
+            public static String anvil = "anvils/";
             public static String ferricore_repair = anvil + "ferricore_repair";
             public static String blazegold_repair = anvil + "blazegold_repair";
             public static String eclipsealloy_repair = anvil + "eclipsealloy_repair";
@@ -107,7 +107,7 @@ public class Constants {
         }
 
         public class Reforger {
-            private static String reforger = "reforger_conversion/";
+            public static String reforger = "reforger_conversion/";
             public static String block_to_block = reforger + "block_to_block";
             public static String block_to_tag = reforger + "block_to_tag";
             public static String tag_to_block = reforger + "tag_to_block";

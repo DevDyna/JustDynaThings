@@ -48,7 +48,6 @@ public class PluginJei implements IModPlugin {
                 Minecraft.getInstance().level.getRecipeManager()
                         .byKey(ResourceLocation.parse(b.getId() + "_clear_nbt"))
                         .ifPresent(r -> toHide.add((RecipeHolder<CraftingRecipe>) r));
-
             }
         });
 
@@ -74,28 +73,46 @@ public class PluginJei implements IModPlugin {
         r.addRecipeCatalyst(zBlocks.FERRICORE_ANVIL.get(), FerricoreItemRepairCategory.TYPE);
         r.addRecipeCatalyst(zBlocks.BLAZEGOLD_ANVIL.get(), BlazeGoldFluidRepairCategory.TYPE);
         r.addRecipeCatalyst(zBlocks.ECLIPSEALLOY_ANVIL.get(), EclipseAlloyFluidRepairCategory.TYPE);
+
         r.addRecipeCatalyst(zBlocks.THERMOGEN.get(), ThermoBlockHeatSourceCategory.TYPE);
         r.addRecipeCatalyst(zBlocks.THERMOGEN.get(), ThermoFluidCoolantCategory.TYPE);
+
+        r.addRecipeCatalyst(zBlocks.REFORGER.get(), ReforgerOneToOneCategory.TYPE);
+        r.addRecipeCatalyst(zBlocks.REFORGER.get(), ReforgerOneToManyCategory.TYPE);
+        r.addRecipeCatalyst(zBlocks.REFORGER.get(), ReforgerManyToOneCategory.TYPE);
 
     }
 
     @Override
     public void registerCategories(IRecipeCategoryRegistration r) {
         IGuiHelper h = r.getJeiHelpers().getGuiHelper();
+
         r.addRecipeCategories(new categories.FerricoreItemRepairCategory(h));
         r.addRecipeCategories(new categories.BlazeGoldFluidRepairCategory(h));
         r.addRecipeCategories(new categories.EclipseAlloyFluidRepairCategory(h));
+
         r.addRecipeCategories(new categories.ThermoBlockHeatSourceCategory(h));
         r.addRecipeCategories(new categories.ThermoFluidCoolantCategory(h));
+
+        r.addRecipeCategories(new categories.ReforgerOneToOneCategory(h));
+        r.addRecipeCategories(new categories.ReforgerOneToManyCategory(h));
+        r.addRecipeCategories(new categories.ReforgerManyToOneCategory(h));
     }
 
     @Override
     public void registerRecipes(IRecipeRegistration r) {
+
         r.addRecipes(FerricoreItemRepairCategory.TYPE, records.FerricoreItemRepair.get());
         r.addRecipes(BlazeGoldFluidRepairCategory.TYPE, records.BlazeGoldFluidRepair.get());
         r.addRecipes(EclipseAlloyFluidRepairCategory.TYPE, records.EclipseAlloyFluidRepair.get());
+
         r.addRecipes(ThermoBlockHeatSourceCategory.TYPE, records.ThermoBlockHeatSource.get());
         r.addRecipes(ThermoFluidCoolantCategory.TYPE, records.ThermoFluidCoolant.get());
+
+        r.addRecipes(ReforgerOneToOneCategory.TYPE, records.reforger.oneToOne.get());
+        r.addRecipes(ReforgerOneToManyCategory.TYPE, records.reforger.oneToMany.get());
+        r.addRecipes(ReforgerManyToOneCategory.TYPE, records.reforger.manyToOne.get());
+
     }
 
 }

@@ -6,6 +6,7 @@ import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.compat.jei.datamaps.core.BaseMapCategory;
 import com.devdyna.justdynathings.compat.jei.datamaps.records.*;
 import com.devdyna.justdynathings.registry.types.zBlocks;
+import com.devdyna.justdynathings.utils.ItemUtil;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
@@ -28,196 +29,351 @@ import net.minecraft.world.level.block.SoulFireBlock;
 @SuppressWarnings("null")
 public class categories {
 
-    public static class FerricoreItemRepairCategory extends BaseMapCategory<records.FerricoreItemRepair> {
-        public static final RecipeType<FerricoreItemRepair> TYPE = RecipeType.create(ID,
-                Constants.DataMaps.Anvils.ferricore_repair,
-                FerricoreItemRepair.class);
+        public static class FerricoreItemRepairCategory extends BaseMapCategory<records.FerricoreItemRepair> {
+                public static final RecipeType<FerricoreItemRepair> TYPE = RecipeType.create(ID,
+                                Constants.DataMaps.Anvils.ferricore_repair,
+                                FerricoreItemRepair.class);
 
-        public FerricoreItemRepairCategory(IGuiHelper guiHelper) {
-            super(guiHelper, zBlocks.FERRICORE_ANVIL.get(),
-                    Component.translatable(ID + ".jei.category." + Constants.DataMaps.Anvils.ferricore_repair),
-                    guiHelper.drawableBuilder(ResourceLocation.fromNamespaceAndPath(ID, "textures/gui/labelled.png"), 0,
-                            0, 160, 24).addPadding(1, 0, 0, 0).build());
+                public FerricoreItemRepairCategory(IGuiHelper guiHelper) {
+                        super(guiHelper, zBlocks.FERRICORE_ANVIL.get(),
+                                        Component.translatable(ID + ".jei.category."
+                                                        + Constants.DataMaps.Anvils.ferricore_repair),
+                                        guiHelper.drawableBuilder(
+                                                        ResourceLocation.fromNamespaceAndPath(ID,
+                                                                        "textures/gui/labelled.png"),
+                                                        0,
+                                                        0, 160, 24).addPadding(1, 0, 0, 0).build());
+                }
+
+                @Override
+                public RecipeType<FerricoreItemRepair> getRecipeType() {
+                        return TYPE;
+                }
+
+                @Override
+                public void setRecipe(IRecipeLayoutBuilder b, FerricoreItemRepair map, IFocusGroup focuses) {
+                        b.addSlot(RecipeIngredientRole.INPUT, 4, 5)
+                                        .addItemLike(map.item());
+                }
+
+                @Override
+                public void draw(FerricoreItemRepair map, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics,
+                                double mouseX,
+                                double mouseY) {
+                        guiGraphics.drawString(Minecraft.getInstance().font,
+                                        "Durability : " + map.durability(), 30, 9, 0x444444, false);
+                }
         }
 
-        @Override
-        public RecipeType<FerricoreItemRepair> getRecipeType() {
-            return TYPE;
+        public static class BlazeGoldFluidRepairCategory extends BaseMapCategory<records.BlazeGoldFluidRepair> {
+                public static final RecipeType<BlazeGoldFluidRepair> TYPE = RecipeType.create(ID,
+                                Constants.DataMaps.Anvils.blazegold_repair,
+                                BlazeGoldFluidRepair.class);
+
+                public BlazeGoldFluidRepairCategory(IGuiHelper guiHelper) {
+                        super(guiHelper, zBlocks.BLAZEGOLD_ANVIL.get(),
+                                        Component.translatable(ID + ".jei.category."
+                                                        + Constants.DataMaps.Anvils.blazegold_repair),
+                                        guiHelper.drawableBuilder(
+                                                        ResourceLocation.fromNamespaceAndPath(ID,
+                                                                        "textures/gui/labelled.png"),
+                                                        0,
+                                                        0, 160, 24).addPadding(1, 0, 0, 0).build());
+                }
+
+                @Override
+                public RecipeType<BlazeGoldFluidRepair> getRecipeType() {
+                        return TYPE;
+                }
+
+                @Override
+                public void setRecipe(IRecipeLayoutBuilder b, BlazeGoldFluidRepair map, IFocusGroup focuses) {
+                        b.addSlot(RecipeIngredientRole.INPUT, 4, 5)
+                                        .addFluidStack(map.fluid());
+                }
+
+                @Override
+                public void draw(BlazeGoldFluidRepair map, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics,
+                                double mouseX,
+                                double mouseY) {
+                        guiGraphics.drawString(Minecraft.getInstance().font,
+                                        "Efficiency : " + map.efficiency(), 30, 9, 0x444444, false);
+                }
         }
 
-        @Override
-        public void setRecipe(IRecipeLayoutBuilder b, FerricoreItemRepair map, IFocusGroup focuses) {
-            b.addSlot(RecipeIngredientRole.INPUT, 4, 5)
-                    .addItemLike(map.item());
+        public static class EclipseAlloyFluidRepairCategory extends BaseMapCategory<records.EclipseAlloyFluidRepair> {
+                public static final RecipeType<EclipseAlloyFluidRepair> TYPE = RecipeType.create(ID,
+                                Constants.DataMaps.Anvils.eclipsealloy_repair,
+                                EclipseAlloyFluidRepair.class);
+
+                public EclipseAlloyFluidRepairCategory(IGuiHelper guiHelper) {
+                        super(guiHelper, zBlocks.ECLIPSEALLOY_ANVIL.get(),
+                                        Component.translatable(ID + ".jei.category."
+                                                        + Constants.DataMaps.Anvils.eclipsealloy_repair),
+                                        guiHelper.drawableBuilder(
+                                                        ResourceLocation.fromNamespaceAndPath(ID,
+                                                                        "textures/gui/labelled.png"),
+                                                        0,
+                                                        0, 160, 24).addPadding(1, 0, 0, 0).build());
+                }
+
+                @Override
+                public RecipeType<EclipseAlloyFluidRepair> getRecipeType() {
+                        return TYPE;
+                }
+
+                @Override
+                public void setRecipe(IRecipeLayoutBuilder b, EclipseAlloyFluidRepair map, IFocusGroup focuses) {
+                        b.addSlot(RecipeIngredientRole.INPUT, 4, 5)
+                                        .addFluidStack(map.fluid());
+                }
+
+                @Override
+                public void draw(EclipseAlloyFluidRepair map, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics,
+                                double mouseX,
+                                double mouseY) {
+                        guiGraphics.drawString(Minecraft.getInstance().font,
+                                        "Percentuage : " + map.percentuage(), 30, 9, 0x444444, false);
+                }
         }
 
-        @Override
-        public void draw(FerricoreItemRepair map, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics,
-                double mouseX,
-                double mouseY) {
-            guiGraphics.drawString(Minecraft.getInstance().font,
-                    "Durability : " + map.durability(), 30, 9, 0x444444, false);
-        }
-    }
+        public static class ThermoBlockHeatSourceCategory extends BaseMapCategory<records.ThermoBlockHeatSource> {
+                public static final RecipeType<ThermoBlockHeatSource> TYPE = RecipeType.create(ID,
+                                Constants.DataMaps.Thermo.thermo_heat_sources,
+                                ThermoBlockHeatSource.class);
 
-    public static class BlazeGoldFluidRepairCategory extends BaseMapCategory<records.BlazeGoldFluidRepair> {
-        public static final RecipeType<BlazeGoldFluidRepair> TYPE = RecipeType.create(ID,
-                Constants.DataMaps.Anvils.blazegold_repair,
-                BlazeGoldFluidRepair.class);
+                public ThermoBlockHeatSourceCategory(IGuiHelper guiHelper) {
+                        super(guiHelper, Items.MAGMA_BLOCK,
+                                        Component.translatable(ID + ".jei.category."
+                                                        + Constants.DataMaps.Thermo.thermo_heat_sources),
+                                        guiHelper.drawableBuilder(
+                                                        ResourceLocation.fromNamespaceAndPath(ID,
+                                                                        "textures/gui/labelled.png"),
+                                                        0,
+                                                        0, 160, 24).addPadding(1, 0, 0, 0).build());
+                }
 
-        public BlazeGoldFluidRepairCategory(IGuiHelper guiHelper) {
-            super(guiHelper, zBlocks.BLAZEGOLD_ANVIL.get(),
-                    Component.translatable(ID + ".jei.category." + Constants.DataMaps.Anvils.blazegold_repair),
-                    guiHelper.drawableBuilder(ResourceLocation.fromNamespaceAndPath(ID, "textures/gui/labelled.png"), 0,
-                            0, 160, 24).addPadding(1, 0, 0, 0).build());
-        }
+                @Override
+                public RecipeType<ThermoBlockHeatSource> getRecipeType() {
+                        return TYPE;
+                }
 
-        @Override
-        public RecipeType<BlazeGoldFluidRepair> getRecipeType() {
-            return TYPE;
-        }
+                @Override
+                public void setRecipe(IRecipeLayoutBuilder b, ThermoBlockHeatSource map, IFocusGroup focuses) {
 
-        @Override
-        public void setRecipe(IRecipeLayoutBuilder b, BlazeGoldFluidRepair map, IFocusGroup focuses) {
-            b.addSlot(RecipeIngredientRole.INPUT, 4, 5)
-                    .addFluidStack(map.fluid());
-        }
+                        if (map.block() instanceof LiquidBlock fluid)
+                                try {
+                                        b.addSlot(RecipeIngredientRole.INPUT, 4, 5)
+                                                        .addItemLike(fluid.fluid.getBucket());
+                                } catch (Exception e) {
 
-        @Override
-        public void draw(BlazeGoldFluidRepair map, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics,
-                double mouseX,
-                double mouseY) {
-            guiGraphics.drawString(Minecraft.getInstance().font,
-                    "Efficiency : " + map.efficiency(), 30, 9, 0x444444, false);
-        }
-    }
+                                }
 
-    public static class EclipseAlloyFluidRepairCategory extends BaseMapCategory<records.EclipseAlloyFluidRepair> {
-        public static final RecipeType<EclipseAlloyFluidRepair> TYPE = RecipeType.create(ID,
-                Constants.DataMaps.Anvils.eclipsealloy_repair,
-                EclipseAlloyFluidRepair.class);
+                        if (map.block() instanceof FireBlock || map.block() instanceof SoulFireBlock)
+                                try {
+                                        var item = new ItemStack(Items.FIRE_CHARGE);
+                                        item.set(DataComponents.ITEM_NAME,
+                                                        Component.translatable(map.block().getDescriptionId()));
 
-        public EclipseAlloyFluidRepairCategory(IGuiHelper guiHelper) {
-            super(guiHelper, zBlocks.ECLIPSEALLOY_ANVIL.get(),
-                    Component.translatable(ID + ".jei.category." + Constants.DataMaps.Anvils.eclipsealloy_repair),
-                    guiHelper.drawableBuilder(ResourceLocation.fromNamespaceAndPath(ID, "textures/gui/labelled.png"), 0,
-                            0, 160, 24).addPadding(1, 0, 0, 0).build());
-        }
+                                        b.addSlot(RecipeIngredientRole.INPUT, 4, 5)
+                                                        .addItemStack(item);
+                                } catch (Exception e) {
 
-        @Override
-        public RecipeType<EclipseAlloyFluidRepair> getRecipeType() {
-            return TYPE;
-        }
+                                }
 
-        @Override
-        public void setRecipe(IRecipeLayoutBuilder b, EclipseAlloyFluidRepair map, IFocusGroup focuses) {
-            b.addSlot(RecipeIngredientRole.INPUT, 4, 5)
-                    .addFluidStack(map.fluid());
-        }
+                        if (map.block() instanceof LayeredCauldronBlock || map.block() instanceof LavaCauldronBlock)
+                                try {
+                                        var item = new ItemStack(Items.CAULDRON);
+                                        item.set(DataComponents.ITEM_NAME,
+                                                        Component.translatable(map.block().getDescriptionId()));
 
-        @Override
-        public void draw(EclipseAlloyFluidRepair map, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics,
-                double mouseX,
-                double mouseY) {
-            guiGraphics.drawString(Minecraft.getInstance().font,
-                    "Percentuage : " + map.percentuage(), 30, 9, 0x444444, false);
-        }
-    }
+                                        b.addSlot(RecipeIngredientRole.INPUT, 4, 5)
+                                                        .addItemStack(item);
+                                } catch (Exception e) {
 
-    public static class ThermoBlockHeatSourceCategory extends BaseMapCategory<records.ThermoBlockHeatSource> {
-        public static final RecipeType<ThermoBlockHeatSource> TYPE = RecipeType.create(ID,
-                Constants.DataMaps.Thermo.thermo_heat_sources,
-                ThermoBlockHeatSource.class);
+                                }
 
-        public ThermoBlockHeatSourceCategory(IGuiHelper guiHelper) {
-            super(guiHelper, Items.MAGMA_BLOCK,
-                    Component.translatable(ID + ".jei.category." + Constants.DataMaps.Thermo.thermo_heat_sources),
-                    guiHelper.drawableBuilder(ResourceLocation.fromNamespaceAndPath(ID, "textures/gui/labelled.png"), 0,
-                            0, 160, 24).addPadding(1, 0, 0, 0).build());
-        }
-
-        @Override
-        public RecipeType<ThermoBlockHeatSource> getRecipeType() {
-            return TYPE;
-        }
-
-        @Override
-        public void setRecipe(IRecipeLayoutBuilder b, ThermoBlockHeatSource map, IFocusGroup focuses) {
-
-            if (map.block() instanceof LiquidBlock fluid)
-                try {
-                    b.addSlot(RecipeIngredientRole.INPUT, 4, 5)
-                            .addItemLike(fluid.fluid.getBucket());
-                } catch (Exception e) {
+                        b.addSlot(RecipeIngredientRole.INPUT, 4, 5)
+                                        .addItemLike(map.block().asItem());
 
                 }
 
-            if (map.block() instanceof FireBlock || map.block() instanceof SoulFireBlock)
-                try {
-                    var item = new ItemStack(Items.FIRE_CHARGE);
-                    item.set(DataComponents.ITEM_NAME, Component.translatable(map.block().getDescriptionId()));
+                @Override
+                public void draw(ThermoBlockHeatSource map, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics,
+                                double mouseX,
+                                double mouseY) {
+                        guiGraphics.drawString(Minecraft.getInstance().font,
+                                        "Efficiency : " + map.heatEfficiency(), 30, 9, 0x444444, false);
+                }
+        }
 
-                    b.addSlot(RecipeIngredientRole.INPUT, 4, 5)
-                            .addItemStack(item);
-                } catch (Exception e) {
+        public static class ThermoFluidCoolantCategory extends BaseMapCategory<records.ThermoFluidCoolant> {
+                public static final RecipeType<ThermoFluidCoolant> TYPE = RecipeType.create(ID,
+                                Constants.DataMaps.Thermo.thermo_coolants,
+                                ThermoFluidCoolant.class);
 
+                public ThermoFluidCoolantCategory(IGuiHelper guiHelper) {
+                        super(guiHelper, Items.WATER_BUCKET,
+                                        Component.translatable(ID + ".jei.category."
+                                                        + Constants.DataMaps.Thermo.thermo_coolants),
+                                        guiHelper.drawableBuilder(
+                                                        ResourceLocation.fromNamespaceAndPath(ID,
+                                                                        "textures/gui/labelled.png"),
+                                                        0,
+                                                        0, 160, 24).addPadding(1, 0, 0, 0).build());
                 }
 
-            if (map.block() instanceof LayeredCauldronBlock || map.block() instanceof LavaCauldronBlock)
-                try {
-                    var item = new ItemStack(Items.CAULDRON);
-                    item.set(DataComponents.ITEM_NAME, Component.translatable(map.block().getDescriptionId()));
-
-                    b.addSlot(RecipeIngredientRole.INPUT, 4, 5)
-                            .addItemStack(item);
-                } catch (Exception e) {
-
+                @Override
+                public RecipeType<ThermoFluidCoolant> getRecipeType() {
+                        return TYPE;
                 }
 
-            b.addSlot(RecipeIngredientRole.INPUT, 4, 5)
-                    .addItemLike(map.block().asItem());
+                @Override
+                public void setRecipe(IRecipeLayoutBuilder b, ThermoFluidCoolant map, IFocusGroup focuses) {
+                        b.addSlot(RecipeIngredientRole.INPUT, 4, 5)
+                                        .addFluidStack(map.fluid());
+                }
 
+                @Override
+                public void draw(ThermoFluidCoolant map, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics,
+                                double mouseX,
+                                double mouseY) {
+                        guiGraphics.drawString(Minecraft.getInstance().font,
+                                        "Efficiency : " + map.coolantEfficiency(), 30, 9, 0x444444, false);
+                }
         }
 
-        @Override
-        public void draw(ThermoBlockHeatSource map, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics,
-                double mouseX,
-                double mouseY) {
-            guiGraphics.drawString(Minecraft.getInstance().font,
-                    "Efficiency : " + map.heatEfficiency(), 30, 9, 0x444444, false);
-        }
-    }
+        public static class ReforgerOneToOneCategory extends BaseMapCategory<records.reforger.oneToOne> {
+                public static final RecipeType<reforger.oneToOne> TYPE = RecipeType.create(ID,
+                                Constants.DataMaps.Reforger.block_to_block,
+                                reforger.oneToOne.class);
 
-    public static class ThermoFluidCoolantCategory extends BaseMapCategory<records.ThermoFluidCoolant> {
-        public static final RecipeType<ThermoFluidCoolant> TYPE = RecipeType.create(ID,
-                Constants.DataMaps.Thermo.thermo_coolants,
-                ThermoFluidCoolant.class);
+                public ReforgerOneToOneCategory(IGuiHelper guiHelper) {
+                        super(guiHelper, zBlocks.REFORGER.get(),
+                                        Component.translatable(ID + ".jei.category."
+                                                        + Constants.DataMaps.Reforger.block_to_block),
+                                        guiHelper.drawableBuilder(
+                                                        ResourceLocation.fromNamespaceAndPath(ID,
+                                                                        "textures/gui/reforger.png"),
+                                                        0,
+                                                        0, 160, 24).addPadding(1, 0, 0, 0).build());
+                }
 
-        public ThermoFluidCoolantCategory(IGuiHelper guiHelper) {
-            super(guiHelper, Items.WATER_BUCKET,
-                    Component.translatable(ID + ".jei.category." + Constants.DataMaps.Thermo.thermo_coolants),
-                    guiHelper.drawableBuilder(ResourceLocation.fromNamespaceAndPath(ID, "textures/gui/labelled.png"), 0,
-                            0, 160, 24).addPadding(1, 0, 0, 0).build());
+                @Override
+                public RecipeType<reforger.oneToOne> getRecipeType() {
+                        return TYPE;
+                }
+
+                @Override
+                public void setRecipe(IRecipeLayoutBuilder b, reforger.oneToOne map, IFocusGroup focuses) {
+                        b.addSlot(RecipeIngredientRole.INPUT, 4, 5)
+                                        .addItemStack(new ItemStack(map.input().getBlock()));
+
+                        b.addSlot(RecipeIngredientRole.CATALYST, 41, 5)
+                                        .addItemStack(new ItemStack(map.catalyst()));
+
+                        b.addSlot(RecipeIngredientRole.OUTPUT, 107, 5)
+                                        .addItemStack(new ItemStack(map.output().getBlock()));
+                }
+
+                @Override
+                public void draw(reforger.oneToOne map, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics,
+                                double mouseX,
+                                double mouseY) {
+                        guiGraphics.drawString(Minecraft.getInstance().font,
+                                        (map.chanceToUse() < 10 ? " " : "") + (map.chanceToUse() < 100 ? " " : "")
+                                                        + map.chanceToUse() + "%",
+                                        61, 9, 0x444444, false);
+                }
         }
 
-        @Override
-        public RecipeType<ThermoFluidCoolant> getRecipeType() {
-            return TYPE;
+        public static class ReforgerOneToManyCategory extends BaseMapCategory<records.reforger.oneToMany> {
+                public static final RecipeType<reforger.oneToMany> TYPE = RecipeType.create(ID,
+                                Constants.DataMaps.Reforger.block_to_tag,
+                                reforger.oneToMany.class);
+
+                public ReforgerOneToManyCategory(IGuiHelper guiHelper) {
+                        super(guiHelper, zBlocks.REFORGER.get(),
+                                        Component.translatable(ID + ".jei.category."
+                                                        + Constants.DataMaps.Reforger.block_to_tag),
+                                        guiHelper.drawableBuilder(
+                                                        ResourceLocation.fromNamespaceAndPath(ID,
+                                                                        "textures/gui/reforger.png"),
+                                                        0,
+                                                        0, 160, 24).addPadding(1, 0, 0, 0).build());
+                }
+
+                @Override
+                public RecipeType<reforger.oneToMany> getRecipeType() {
+                        return TYPE;
+                }
+
+                @Override
+                public void setRecipe(IRecipeLayoutBuilder b, reforger.oneToMany map, IFocusGroup focuses) {
+                        b.addSlot(RecipeIngredientRole.INPUT, 4, 5)
+                                        .addItemStack(new ItemStack(map.input().getBlock()));
+
+                        b.addSlot(RecipeIngredientRole.CATALYST, 41, 5)
+                                        .addItemStack(new ItemStack(map.catalyst()));
+
+                        b.addSlot(RecipeIngredientRole.OUTPUT, 107, 5)
+                                        .addItemStacks(ItemUtil.blocksToItems(map.output()));
+                }
+
+                @Override
+                public void draw(reforger.oneToMany map, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics,
+                                double mouseX,
+                                double mouseY) {
+                        guiGraphics.drawString(Minecraft.getInstance().font,
+                                        (map.chanceToUse() < 10 ? " " : "") + (map.chanceToUse() < 100 ? " " : "")
+                                                        + map.chanceToUse() + "%",
+                                        61, 9, 0x444444, false);
+                }
         }
 
-        @Override
-        public void setRecipe(IRecipeLayoutBuilder b, ThermoFluidCoolant map, IFocusGroup focuses) {
-            b.addSlot(RecipeIngredientRole.INPUT, 4, 5)
-                    .addFluidStack(map.fluid());
-        }
+        public static class ReforgerManyToOneCategory extends BaseMapCategory<records.reforger.manyToOne> {
+                public static final RecipeType<reforger.manyToOne> TYPE = RecipeType.create(ID,
+                                Constants.DataMaps.Reforger.tag_to_block,
+                                reforger.manyToOne.class);
 
-        @Override
-        public void draw(ThermoFluidCoolant map, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics,
-                double mouseX,
-                double mouseY) {
-            guiGraphics.drawString(Minecraft.getInstance().font,
-                    "Efficiency : " + map.coolantEfficiency(), 30, 9, 0x444444, false);
+                public ReforgerManyToOneCategory(IGuiHelper guiHelper) {
+                        super(guiHelper, zBlocks.REFORGER.get(),
+                                        Component.translatable(ID + ".jei.category."
+                                                        + Constants.DataMaps.Reforger.tag_to_block),
+                                        guiHelper.drawableBuilder(
+                                                        ResourceLocation.fromNamespaceAndPath(ID,
+                                                                        "textures/gui/reforger.png"),
+                                                        0,
+                                                        0, 160, 24).addPadding(1, 0, 0, 0).build());
+                }
+
+                @Override
+                public RecipeType<reforger.manyToOne> getRecipeType() {
+                        return TYPE;
+                }
+
+                @Override
+                public void setRecipe(IRecipeLayoutBuilder b, reforger.manyToOne map, IFocusGroup focuses) {
+
+                        b.addSlot(RecipeIngredientRole.INPUT, 4, 5)
+                                        .addItemStacks(ItemUtil.blocksToItems(map.input()));
+
+                        b.addSlot(RecipeIngredientRole.CATALYST, 41, 5)
+                                        .addItemStack(new ItemStack(map.catalyst()));
+
+                        b.addSlot(RecipeIngredientRole.OUTPUT, 107, 5)
+                                        .addItemStack(new ItemStack(map.output().getBlock()));
+                }
+
+                @Override
+                public void draw(reforger.manyToOne map, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics,
+                                double mouseX,
+                                double mouseY) {
+                        guiGraphics.drawString(Minecraft.getInstance().font,
+                                        (map.chanceToUse() < 10 ? " " : "") + (map.chanceToUse() < 100 ? " " : "")
+                                                        + map.chanceToUse() + "%",
+                                        61, 9, 0x444444, false);
+                }
         }
-    }
 
 }

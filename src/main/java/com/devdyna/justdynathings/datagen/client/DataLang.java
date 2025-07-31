@@ -100,7 +100,8 @@ public class DataLang extends LanguageProvider {
                                 Constants.DataMaps.Reforger.block_to_tag,
                                 Constants.DataMaps.Reforger.tag_to_block
 
-                ).forEach(j -> add(ID + ".jei.category." + j, named(j.replace("anvils/", ""))));
+                ).forEach(j -> add(ID + ".jei.category." + j, named(j.replaceAll(
+                                Constants.DataMaps.Anvils.anvil , "").replace(Constants.DataMaps.Reforger.reforger, "reforger_"))));
 
                 add(ID + "." + Constants.GooUpgraders.base, "§7Right click on a goo to upgrade it to the next tier");
                 add(ID + "." + Constants.Items.Picker, "§7Allow to pickup simple blocks and place where you want");

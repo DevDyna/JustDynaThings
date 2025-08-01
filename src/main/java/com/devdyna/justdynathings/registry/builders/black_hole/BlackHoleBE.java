@@ -37,7 +37,7 @@ public class BlackHoleBE extends BaseMachineBE implements EnergyMachine, FluidMa
 
     @Override
     public void tickServer() {
-
+        super.tickServer();
         if (common.BLACKHOLE_KEEP_STORAGE.get() ? isActiveRedstone() : true) {
             ItemStack item = getMachineHandler().getStackInSlot(0);
             if (!item.isEmpty())

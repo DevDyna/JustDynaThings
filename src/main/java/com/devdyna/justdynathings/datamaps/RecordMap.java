@@ -50,6 +50,7 @@ public class RecordMap {
                     .apply(instance, oneToOne::new));
         }
 
+        //TODO unify with manyToOne with a boolean flag to invert
         public record oneToMany(BlockState input, TagKey<Block> output,int chanceToUse) {
             public static final Codec<oneToMany> CODEC = RecordCodecBuilder.create(instance -> instance.group(
                     BlockState.CODEC.fieldOf("input").forGetter(oneToMany::input),

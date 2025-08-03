@@ -15,9 +15,3 @@ item_ids:
 <BlockImage id="justdynathings:eclipse_alloy_anvil" scale="4.0"/>
 
 <RecipeFor id="justdynathings:eclipse_alloy_anvil" />
-
-## 默认冷却剂
-
-| 物品                                                                 | 效率  |
-| -------------------------------------------------------------------- | ----- |
-| <ItemLink id= "justdirethings:time_fluid_bucket"    scale="0.75" />  | 10.0x |

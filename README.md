@@ -32,6 +32,8 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - [ ] Raw magmasteel (iron + magma) -> thermogen (?)
 - [ ] Mushroom Tree Feller upgrade
 - [ ] Pocket generator T2-3-4 [(?)](https://github.com/Direwolf20-MC/JustDireThings/blob/main/src/main/resources/assets/justdirethings/textures/item/pocket_generator_t4.png)
+- [ ] Budding Revitalizer
+- [ ] Budding Booster
 
 ### Implemented but not fully completed
 

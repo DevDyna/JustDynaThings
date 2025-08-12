@@ -13,6 +13,7 @@ This mod add new machines and useful stuff for [JustDireThings](https://legacy.
 - ~~Culinary Generator (food -> FE)~~ out of topic
 - ~~Engine Generator (Furnace lit -> FE)~~ out of topic
 - ~~Draconite generator (dragon breath -> FE)~~ out of topic
+- [ ] Improved Furnaces (?)
 
 ### Specialized
 

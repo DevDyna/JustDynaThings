@@ -1,13 +1,13 @@
 ---
 navigation:
-  title: Echoing Buddings
+  title: Echoing Budding Resources
   icon: "justdynathings:echoing_budding_amethyst"
   position: 2
 ---
 
 # A new way to farm budding resources
 
-Buddings that just require **Time Fluid** and **Energy** to grow clusters
+Budding resources that just require **Time Fluid** and **Energy** to grow clusters
 
 <GameScene zoom="2" interactive={true}>
   <Block id="justdynathings:echoing_budding_time" p:alive="true"/>

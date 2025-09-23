@@ -30,7 +30,7 @@ public class DataItemTag extends ItemTagsProvider {
         @Override
         protected void addTags(Provider p) {
 
-                tag(zMultiTags.ANVILS.item()).add(Items.ANVIL, Items.CHIPPED_ANVIL, Items.DAMAGED_ANVIL);
+                // tag(zMultiTags.ANVILS.item()).add(Items.ANVIL, Items.CHIPPED_ANVIL, Items.DAMAGED_ANVIL);
 
                 tag(zMultiTags.COPPER_BULBS.item()).add(
                                 Items.COPPER_BULB,

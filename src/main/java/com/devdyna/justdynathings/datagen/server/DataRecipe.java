@@ -31,6 +31,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -211,7 +212,7 @@ public class DataRecipe extends RecipeProvider {
 
                 AnvilRecipe(zBlocks.FERRICORE_ANVIL.get(), Registration.FerricoreIngot.get(),
                                 Registration.FerricoreBlock_ITEM.get(), Registration.TEMPLATE_FERRICORE.get(),
-                                zMultiTags.ANVILS.item(), c);
+                                ItemTags.ANVIL, c);
 
                 AnvilRecipe(zBlocks.BLAZEGOLD_ANVIL.get(), Registration.BlazegoldIngot.get(),
                                 Registration.BlazeGoldBlock_ITEM.get(), Registration.TEMPLATE_BLAZEGOLD.get(),

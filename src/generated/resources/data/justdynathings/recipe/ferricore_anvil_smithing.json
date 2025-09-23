@@ -4,7 +4,7 @@
     "item": "justdirethings:ferricore_ingot"
   },
   "base": {
-    "tag": "minecraft:anvils"
+    "tag": "minecraft:anvil"
   },
   "result": {
     "count": 1,

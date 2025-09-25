@@ -66,9 +66,9 @@ public abstract class BaseReforgerCategory<T> implements IRecipeCategory<T> {
 
         @Override
         public void setRecipe(IRecipeLayoutBuilder b, T recipe, IFocusGroup focuses) {
-                setInput(b.addSlot(RecipeIngredientRole.INPUT, 4, 5), recipe);
-                setCatalyst(b.addSlot(RecipeIngredientRole.CATALYST, 41, 5), recipe);
-                setOutput(b.addSlot(RecipeIngredientRole.OUTPUT, 107, 5), recipe);
+                setInput(b.addSlot(RecipeIngredientRole.INPUT, 4, 4), recipe);
+                setCatalyst(b.addSlot(RecipeIngredientRole.CATALYST, 41, 4), recipe);
+                setOutput(b.addSlot(RecipeIngredientRole.OUTPUT, 107, 4), recipe);
         }
 
         @Override
@@ -81,6 +81,6 @@ public abstract class BaseReforgerCategory<T> implements IRecipeCategory<T> {
                                 (setChance(recipe) < 10 ? " " : "")
                                                 + (setChance(recipe) < 100 ? " " : "")
                                                 + setChance(recipe) + "%",
-                                61, 9, 0x444444, false);
+                                61, 8, 0x444444, false);
         }
 }

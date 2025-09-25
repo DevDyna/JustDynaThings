@@ -172,7 +172,7 @@ public class ReforgerBE extends BaseMachineBE implements RedstoneControlledBE {
 
     public void spawnParticles(ServerLevel level, BlockPos pos) {
         for (int i = 0; i < 20; ++i)
-            level.sendParticles(new GooExplodeParticleData(new ItemStack(getBlockState().getBlock())),
+            level.sendParticles(new GooExplodeParticleData(new ItemStack(level.getBlockState(pos).getBlock())),
                     (double) pos.getX() + new Random().nextDouble(),
                     (double) pos.getY() + new Random().nextDouble(),
                     (double) pos.getZ() + new Random().nextDouble(),

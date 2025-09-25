@@ -1,0 +1,13 @@
+{
+  "type": "justdynathings:reforger_conversion/block_to_tag",
+  "catalyst": {
+    "item": "minecraft:diamond"
+  },
+  "chanceToUse": 95,
+  "input": {
+    "Name": "minecraft:stone"
+  },
+  "output": {
+    "tag": "c:ores_in_ground/stone"
+  }
+}

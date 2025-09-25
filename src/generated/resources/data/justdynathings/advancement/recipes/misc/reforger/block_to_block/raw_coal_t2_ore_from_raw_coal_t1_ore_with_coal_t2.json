@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "justdynathings:reforger/block_to_block/raw_coal_t2_ore_from_raw_coal_t1_ore_with_coal_t2"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "justdynathings": {
+      "conditions": {
+        "items": [
+          {
+            "items": "justdirethings:coal_t2"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "justdynathings"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "justdynathings:reforger/block_to_block/raw_coal_t2_ore_from_raw_coal_t1_ore_with_coal_t2"
+    ]
+  }
+}

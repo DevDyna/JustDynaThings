@@ -1,0 +1,19 @@
+{
+  "type": "justdynathings:reforger_conversion/block_to_block",
+  "catalyst": {
+    "item": "justdirethings:coal_t3"
+  },
+  "chanceToUse": 50,
+  "input": {
+    "Name": "justdirethings:raw_coal_t2_ore",
+    "Properties": {
+      "facing": "north"
+    }
+  },
+  "output": {
+    "Name": "justdirethings:raw_coal_t3_ore",
+    "Properties": {
+      "facing": "north"
+    }
+  }
+}

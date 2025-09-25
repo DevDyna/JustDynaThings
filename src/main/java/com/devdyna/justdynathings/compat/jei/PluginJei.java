@@ -8,8 +8,10 @@ import java.util.List;
 import com.devdyna.justdynathings.compat.jei.datamaps.categories;
 import com.devdyna.justdynathings.compat.jei.datamaps.records;
 import com.devdyna.justdynathings.compat.jei.datamaps.categories.*;
+import com.devdyna.justdynathings.compat.jei.reforger.*;
 import com.devdyna.justdynathings.datagen.server.DataRecipe;
 import com.devdyna.justdynathings.registry.types.zBlocks;
+import com.devdyna.justdynathings.registry.types.zRecipeTypes;
 import com.direwolf20.justdirethings.client.jei.GooSpreadRecipeCategory;
 import com.direwolf20.justdirethings.client.jei.GooSpreadRecipeTagCategory;
 import mezz.jei.api.IModPlugin;
@@ -77,9 +79,9 @@ public class PluginJei implements IModPlugin {
         r.addRecipeCatalyst(zBlocks.THERMOGEN.get(), ThermoBlockHeatSourceCategory.TYPE);
         r.addRecipeCatalyst(zBlocks.THERMOGEN.get(), ThermoFluidCoolantCategory.TYPE);
 
-        r.addRecipeCatalyst(zBlocks.REFORGER.get(), ReforgerOneToOneCategory.TYPE);
-        r.addRecipeCatalyst(zBlocks.REFORGER.get(), ReforgerOneToManyCategory.TYPE);
-        r.addRecipeCatalyst(zBlocks.REFORGER.get(), ReforgerManyToOneCategory.TYPE);
+        r.addRecipeCatalyst(zBlocks.REFORGER.get(), OTO.TYPE);
+        r.addRecipeCatalyst(zBlocks.REFORGER.get(), OTM.TYPE);
+        r.addRecipeCatalyst(zBlocks.REFORGER.get(), MTO.TYPE);
 
     }
 
@@ -94,13 +96,17 @@ public class PluginJei implements IModPlugin {
         r.addRecipeCategories(new categories.ThermoBlockHeatSourceCategory(h));
         r.addRecipeCategories(new categories.ThermoFluidCoolantCategory(h));
 
-        r.addRecipeCategories(new categories.ReforgerOneToOneCategory(h));
-        r.addRecipeCategories(new categories.ReforgerOneToManyCategory(h));
-        r.addRecipeCategories(new categories.ReforgerManyToOneCategory(h));
+        // reforger
+        r.addRecipeCategories(new OTO(h));
+        r.addRecipeCategories(new OTM(h));
+        r.addRecipeCategories(new MTO(h));
+
     }
 
     @Override
     public void registerRecipes(IRecipeRegistration r) {
+
+        var recipes = Minecraft.getInstance().level.getRecipeManager();
 
         r.addRecipes(FerricoreItemRepairCategory.TYPE, records.FerricoreItemRepair.get());
         r.addRecipes(BlazeGoldFluidRepairCategory.TYPE, records.BlazeGoldFluidRepair.get());
@@ -109,9 +115,14 @@ public class PluginJei implements IModPlugin {
         r.addRecipes(ThermoBlockHeatSourceCategory.TYPE, records.ThermoBlockHeatSource.get());
         r.addRecipes(ThermoFluidCoolantCategory.TYPE, records.ThermoFluidCoolant.get());
 
-        r.addRecipes(ReforgerOneToOneCategory.TYPE, records.reforger.oneToOne.get());
-        r.addRecipes(ReforgerOneToManyCategory.TYPE, records.reforger.oneToMany.get());
-        r.addRecipes(ReforgerManyToOneCategory.TYPE, records.reforger.manyToOne.get());
+        r.addRecipes(OTO.TYPE, recipes.getAllRecipesFor(zRecipeTypes.REFORGER_OTO.getType())
+                .stream().map(RecipeHolder::value).toList());
+
+        r.addRecipes(OTM.TYPE, recipes.getAllRecipesFor(zRecipeTypes.REFORGER_OTM.getType())
+                .stream().map(RecipeHolder::value).toList());
+
+        r.addRecipes(MTO.TYPE, recipes.getAllRecipesFor(zRecipeTypes.REFORGER_MTO.getType())
+                .stream().map(RecipeHolder::value).toList());
 
     }
 

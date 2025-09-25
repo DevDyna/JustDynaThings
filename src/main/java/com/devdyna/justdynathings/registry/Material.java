@@ -37,6 +37,7 @@ public class Material {
                 zItemTags.register(bus);
                 zComponents.register(bus);
                 zBiomeTags.register(bus);
+                zRecipeTypes.register(bus);
         }
 
         /**

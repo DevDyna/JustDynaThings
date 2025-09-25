@@ -1,10 +1,11 @@
 package com.devdyna.justdynathings.registry.builders.reforger;
 
+import java.util.Optional;
 import java.util.Random;
 
-import com.devdyna.justdynathings.datamaps.zDataMaps;
-import com.devdyna.justdynathings.registry.types.zBlockEntities;
-import com.devdyna.justdynathings.registry.types.zProperties;
+import com.devdyna.justdynathings.recipetypes.input.*;
+import com.devdyna.justdynathings.recipetypes.type.*;
+import com.devdyna.justdynathings.registry.types.*;
 import com.devdyna.justdynathings.utils.LevelUtil;
 import com.direwolf20.justdirethings.client.particles.gooexplodeparticle.GooExplodeParticleData;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
@@ -14,12 +15,16 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.neoforged.neoforge.common.crafting.BlockTagIngredient;
 
 @SuppressWarnings("null")
 public class ReforgerBE extends BaseMachineBE implements RedstoneControlledBE {
@@ -54,7 +59,7 @@ public class ReforgerBE extends BaseMachineBE implements RedstoneControlledBE {
                         .getValue(BlockStateProperties.FACING));
         BlockState stateRelated = level.getBlockState(posRel);
 
-        var holder = item.getItemHolder();
+        // var holder = item.getItemHolder();
 
         if (item != null)
             updateBlock(item);
@@ -62,33 +67,77 @@ public class ReforgerBE extends BaseMachineBE implements RedstoneControlledBE {
         if (level.getGameTime() % tickSpeed == 0 && isActiveRedstone()
                 && getBlockState().getValue(zProperties.ACTIVE).booleanValue()) {
 
-            if (holder.getData(zDataMaps.REFORGER_oneToOne) != null) {
-                if (stateRelated.is(holder.getData(zDataMaps.REFORGER_oneToOne).input().getBlock())) {
-                    success(holder.getData(zDataMaps.REFORGER_oneToOne).output(), posRel, item, level,
-                            holder.getData(zDataMaps.REFORGER_oneToOne).chanceToUse());
-                    return;
-                }
+            Optional<RecipeHolder<ReforgerOTORecipe>> oto = level.getRecipeManager()
+                    .getRecipeFor(zRecipeTypes.REFORGER_OTO.getType(),
+                            new BlockStateItemInput(stateRelated, item), level);
+
+            if (!oto.isEmpty()) {
+                var recipe = oto.get().value();
+                success(recipe.getOutputState(), posRel, item, level, recipe.getChanceToUse());
+                return;
             }
 
-            if (holder.getData(zDataMaps.REFORGER_oneToMany) != null) {
-                if (stateRelated.is(holder.getData(zDataMaps.REFORGER_oneToMany).input().getBlock())) {
-                    success(LevelUtil.ResourceByTag(
-                            holder.getData(zDataMaps.REFORGER_oneToMany).output(),
-                            LevelUtil.getRandomValue(
-                                    LevelUtil.getSizeTag(holder.getData(zDataMaps.REFORGER_oneToMany).output()), level))
-                            .defaultBlockState(), posRel, item, level,
-                            holder.getData(zDataMaps.REFORGER_oneToMany).chanceToUse());
-                    return;
-                }
+            Optional<RecipeHolder<ReforgerOTMRecipe>> otm = level.getRecipeManager()
+                    .getRecipeFor(zRecipeTypes.REFORGER_OTM.getType(),
+                            new BlockStateItemInput(stateRelated, item), level);
+
+            if (!otm.isEmpty()) {
+                var recipe = otm.get().value();
+
+                var tag = recipe.getOutputState().getTag();
+
+                success(LevelUtil.ResourceByTag(tag, LevelUtil.getRandomValue(LevelUtil.getSizeTag(tag), level))
+                        .defaultBlockState(), posRel, item, level, recipe.getChanceToUse());
+                return;
             }
 
-            if (holder.getData(zDataMaps.REFORGER_manyToOne) != null) {
-                if (stateRelated.is(holder.getData(zDataMaps.REFORGER_manyToOne).input())) {
-                    success(holder.getData(zDataMaps.REFORGER_manyToOne).output(), posRel, item, level,
-                            holder.getData(zDataMaps.REFORGER_manyToOne).chanceToUse());
+            for (TagKey<Block> tag : stateRelated.getTags().toList()) {
+                Optional<RecipeHolder<ReforgerMTORecipe>> mto = level.getRecipeManager()
+                        .getRecipeFor(zRecipeTypes.REFORGER_MTO.getType(),
+                                new BlockTagItemInput(new BlockTagIngredient(tag), item), level);
+
+                if (!mto.isEmpty()) {
+                    var recipe = mto.get().value();
+                    success(recipe.getOutputState(), posRel, item, level, recipe.getChanceToUse());
                     return;
                 }
+
             }
+
+            // if (holder.getData(zDataMaps.REFORGER_oneToOne) != null) {
+            // if
+            // (stateRelated.is(holder.getData(zDataMaps.REFORGER_oneToOne).input().getBlock()))
+            // {
+            // success(holder.getData(zDataMaps.REFORGER_oneToOne).output(), posRel, item,
+            // level,
+            // holder.getData(zDataMaps.REFORGER_oneToOne).chanceToUse());
+            // return;
+            // }
+            // }
+
+            // if (holder.getData(zDataMaps.REFORGER_oneToMany) != null) {
+            // if
+            // (stateRelated.is(holder.getData(zDataMaps.REFORGER_oneToMany).input().getBlock()))
+            // {
+            // success(LevelUtil.ResourceByTag(
+            // holder.getData(zDataMaps.REFORGER_oneToMany).output(),
+            // LevelUtil.getRandomValue(
+            // LevelUtil.getSizeTag(holder.getData(zDataMaps.REFORGER_oneToMany).output()),
+            // level))
+            // .defaultBlockState(), posRel, item, level,
+            // holder.getData(zDataMaps.REFORGER_oneToMany).chanceToUse());
+            // return;
+            // }
+            // }
+
+            // if (holder.getData(zDataMaps.REFORGER_manyToOne) != null) {
+            // if (stateRelated.is(holder.getData(zDataMaps.REFORGER_manyToOne).input())) {
+            // success(holder.getData(zDataMaps.REFORGER_manyToOne).output(), posRel, item,
+            // level,
+            // holder.getData(zDataMaps.REFORGER_manyToOne).chanceToUse());
+            // return;
+            // }
+            // }
 
         }
     }

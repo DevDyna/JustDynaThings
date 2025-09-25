@@ -6,10 +6,8 @@ import java.util.List;
 import com.devdyna.justdynathings.datamaps.zDataMaps;
 
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluid;
 
 public class records {
@@ -103,55 +101,55 @@ public class records {
         }
     }
 
-    public class reforger {
-        public record oneToOne(BlockState input, Item catalyst, BlockState output, int chanceToUse) {
-            public static List<oneToOne> get() {
-                List<oneToOne> result = new ArrayList<>();
+    // public class reforger {
+    //     public record oneToOne(BlockState input, Item catalyst, BlockState output, int chanceToUse) {
+    //         public static List<oneToOne> get() {
+    //             List<oneToOne> result = new ArrayList<>();
 
-                for (var entry : BuiltInRegistries.ITEM.getDataMap(zDataMaps.REFORGER_oneToOne).entrySet()) {
+    //             for (var entry : BuiltInRegistries.ITEM.getDataMap(zDataMaps.REFORGER_oneToOne).entrySet()) {
 
-                    var item = BuiltInRegistries.ITEM.get(entry.getKey().location());
+    //                 var item = BuiltInRegistries.ITEM.get(entry.getKey().location());
 
-                    result.add(new oneToOne(entry.getValue().input(), item, entry.getValue().output(),
-                            entry.getValue().chanceToUse()));
-                }
-                result.sort(Comparator.comparingDouble(p -> p.chanceToUse));
-                return result;
-            }
-        }
+    //                 result.add(new oneToOne(entry.getValue().input(), item, entry.getValue().output(),
+    //                         entry.getValue().chanceToUse()));
+    //             }
+    //             result.sort(Comparator.comparingDouble(p -> p.chanceToUse));
+    //             return result;
+    //         }
+    //     }
 
-        public record oneToMany(BlockState input, Item catalyst, TagKey<Block> output, int chanceToUse) {
-            public static List<oneToMany> get() {
-                List<oneToMany> result = new ArrayList<>();
+    //     public record oneToMany(BlockState input, Item catalyst, TagKey<Block> output, int chanceToUse) {
+    //         public static List<oneToMany> get() {
+    //             List<oneToMany> result = new ArrayList<>();
 
-                for (var entry : BuiltInRegistries.ITEM.getDataMap(zDataMaps.REFORGER_oneToMany).entrySet()) {
+    //             for (var entry : BuiltInRegistries.ITEM.getDataMap(zDataMaps.REFORGER_oneToMany).entrySet()) {
 
-                    var item = BuiltInRegistries.ITEM.get(entry.getKey().location());
+    //                 var item = BuiltInRegistries.ITEM.get(entry.getKey().location());
 
-                    result.add(new oneToMany(entry.getValue().input(), item, entry.getValue().output(),
-                            entry.getValue().chanceToUse()));
+    //                 result.add(new oneToMany(entry.getValue().input(), item, entry.getValue().output(),
+    //                         entry.getValue().chanceToUse()));
 
-                }
-                result.sort(Comparator.comparingDouble(p -> p.chanceToUse));
-                return result;
-            }
-        }
+    //             }
+    //             result.sort(Comparator.comparingDouble(p -> p.chanceToUse));
+    //             return result;
+    //         }
+    //     }
 
-        public record manyToOne(TagKey<Block> input, Item catalyst, BlockState output, int chanceToUse) {
-            public static List<manyToOne> get() {
-                List<manyToOne> result = new ArrayList<>();
+    //     public record manyToOne(TagKey<Block> input, Item catalyst, BlockState output, int chanceToUse) {
+    //         public static List<manyToOne> get() {
+    //             List<manyToOne> result = new ArrayList<>();
 
-                for (var entry : BuiltInRegistries.ITEM.getDataMap(zDataMaps.REFORGER_manyToOne).entrySet()) {
+    //             for (var entry : BuiltInRegistries.ITEM.getDataMap(zDataMaps.REFORGER_manyToOne).entrySet()) {
 
-                    var item = BuiltInRegistries.ITEM.get(entry.getKey().location());
+    //                 var item = BuiltInRegistries.ITEM.get(entry.getKey().location());
 
-                    result.add(new manyToOne(entry.getValue().input(), item, entry.getValue().output(),
-                            entry.getValue().chanceToUse()));
-                }
-                result.sort(Comparator.comparingDouble(p -> p.chanceToUse));
-                return result;
-            }
-        }
-    }
+    //                 result.add(new manyToOne(entry.getValue().input(), item, entry.getValue().output(),
+    //                         entry.getValue().chanceToUse()));
+    //             }
+    //             result.sort(Comparator.comparingDouble(p -> p.chanceToUse));
+    //             return result;
+    //         }
+    //     }
+    // }
 
 }

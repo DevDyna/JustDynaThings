@@ -90,43 +90,33 @@ public class DataMaps extends DataMapProvider {
                                                 new EclipseAlloyFluidRepair(10.0f),
                                                 false);
 
-                builder(zDataMaps.REFORGER_oneToMany)
-                                .add(Items.DIAMOND.builtInRegistryHolder(),
-                                                new ReforgerResult.oneToMany(
-                                                                Blocks.STONE.defaultBlockState(),
-                                                                Tags.Blocks.ORES_IN_GROUND_STONE, 95),
-                                                false)
-                                .add(Registration.Celestigem.get().builtInRegistryHolder(),
-                                                new ReforgerResult.oneToMany(
-                                                                Blocks.STONE.defaultBlockState(),
-                                                                Tags.Blocks.ORES_IN_GROUND_STONE, 50),
-                                                false);
 
-                builder(zDataMaps.REFORGER_manyToOne)
-                                .add(Registration.Coal_T1.get().builtInRegistryHolder(),
-                                                new ReforgerResult.manyToOne(
-                                                                zBlockTags.COAL_BLOCKS,
-                                                                Registration.RawCoal_T1.get().defaultBlockState(), 25),
-                                                false);
 
-                builder(zDataMaps.REFORGER_oneToOne)
-                                .add(Registration.Coal_T2.get().builtInRegistryHolder(),
-                                                new ReforgerResult.oneToOne(
-                                                                Registration.RawCoal_T1.get().defaultBlockState(),
-                                                                Registration.RawCoal_T2.get().defaultBlockState(), 50),
-                                                false)
+                // builder(zDataMaps.REFORGER_manyToOne)
+                //                 .add(Registration.Coal_T1.get().builtInRegistryHolder(),
+                //                                 new ReforgerResult.manyToOne(
+                //                                                 zBlockTags.COAL_BLOCKS,
+                //                                                 Registration.RawCoal_T1.get().defaultBlockState(), 25),
+                //                                 false);
 
-                                .add(Registration.Coal_T3.get().builtInRegistryHolder(),
-                                                new ReforgerResult.oneToOne(
-                                                                Registration.RawCoal_T2.get().defaultBlockState(),
-                                                                Registration.RawCoal_T3.get().defaultBlockState(), 75),
-                                                false)
+                // builder(zDataMaps.REFORGER_oneToOne)
+                //                 .add(Registration.Coal_T2.get().builtInRegistryHolder(),
+                //                                 new ReforgerResult.oneToOne(
+                //                                                 Registration.RawCoal_T1.get().defaultBlockState(),
+                //                                                 Registration.RawCoal_T2.get().defaultBlockState(), 50),
+                //                                 false)
 
-                                .add(Registration.Coal_T4.get().builtInRegistryHolder(),
-                                                new ReforgerResult.oneToOne(
-                                                                Registration.RawCoal_T3.get().defaultBlockState(),
-                                                                Registration.RawCoal_T4.get().defaultBlockState(), 100),
-                                                false);
+                //                 .add(Registration.Coal_T3.get().builtInRegistryHolder(),
+                //                                 new ReforgerResult.oneToOne(
+                //                                                 Registration.RawCoal_T2.get().defaultBlockState(),
+                //                                                 Registration.RawCoal_T3.get().defaultBlockState(), 75),
+                //                                 false)
+
+                //                 .add(Registration.Coal_T4.get().builtInRegistryHolder(),
+                //                                 new ReforgerResult.oneToOne(
+                //                                                 Registration.RawCoal_T3.get().defaultBlockState(),
+                //                                                 Registration.RawCoal_T4.get().defaultBlockState(), 100),
+                //                                 false);
 
         }
 

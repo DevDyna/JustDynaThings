@@ -6,7 +6,6 @@ import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.compat.jei.datamaps.core.BaseMapCategory;
 import com.devdyna.justdynathings.compat.jei.datamaps.records.*;
 import com.devdyna.justdynathings.registry.types.zBlocks;
-import com.devdyna.justdynathings.utils.ItemUtil;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
@@ -243,137 +242,130 @@ public class categories {
                 }
         }
 
-        public static class ReforgerOneToOneCategory extends BaseMapCategory<records.reforger.oneToOne> {
-                public static final RecipeType<reforger.oneToOne> TYPE = RecipeType.create(ID,
-                                Constants.DataMaps.Reforger.block_to_block,
-                                reforger.oneToOne.class);
+        // }
 
-                public ReforgerOneToOneCategory(IGuiHelper guiHelper) {
-                        super(guiHelper, zBlocks.REFORGER.get(),
-                                        Component.translatable(ID + ".jei.category."
-                                                        + Constants.DataMaps.Reforger.block_to_block),
-                                        guiHelper.drawableBuilder(
-                                                        ResourceLocation.fromNamespaceAndPath(ID,
-                                                                        "textures/gui/reforger.png"),
-                                                        0,
-                                                        0, 160, 24).addPadding(1, 0, 0, 0).build());
-                }
+        // public static class ReforgerOneToOneCategory implements
+        // IRecipeCategory<REFORGER_OTO> {
+        // public static final RecipeType<REFORGER_OTO> TYPE = RecipeType.create(ID,
+        // Constants.DataMaps.Reforger.block_to_block,
+        // REFORGER_OTO.class);
 
-                @Override
-                public RecipeType<reforger.oneToOne> getRecipeType() {
-                        return TYPE;
-                }
+        // public ReforgerOneToOneCategory(IGuiHelper guiHelper) {
+        // super(guiHelper, zBlocks.REFORGER.get(),
+        // Component.translatable(ID + ".jei.category."
+        // + Constants.DataMaps.Reforger.block_to_block),
+        // guiHelper.drawableBuilder(
+        // ResourceLocation.fromNamespaceAndPath(ID,
+        // "textures/gui/reforger.png"),
+        // 0,
+        // 0, 160, 24).addPadding(1, 0, 0, 0).build());
+        // }
 
-                @Override
-                public void setRecipe(IRecipeLayoutBuilder b, reforger.oneToOne map, IFocusGroup focuses) {
-                        b.addSlot(RecipeIngredientRole.INPUT, 4, 5)
-                                        .addItemStack(new ItemStack(map.input().getBlock()));
+        // @Override
+        // public RecipeType<reforger.oneToOne> getRecipeType() {
+        // return TYPE;
+        // }
 
-                        b.addSlot(RecipeIngredientRole.CATALYST, 41, 5)
-                                        .addItemStack(new ItemStack(map.catalyst()));
+        // @Override
+        // public void setRecipe(IRecipeLayoutBuilder b, reforger.oneToOne map,
+        // IFocusGroup focuses) {
+        //
+        // }
 
-                        b.addSlot(RecipeIngredientRole.OUTPUT, 107, 5)
-                                        .addItemStack(new ItemStack(map.output().getBlock()));
-                }
+        // public static class ReforgerOneToManyCategory extends
+        // BaseMapCategory<records.reforger.oneToMany> {
+        // public static final RecipeType<reforger.oneToMany> TYPE =
+        // RecipeType.create(ID,
+        // Constants.DataMaps.Reforger.block_to_tag,
+        // reforger.oneToMany.class);
 
-                @Override
-                public void draw(reforger.oneToOne map, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics,
-                                double mouseX,
-                                double mouseY) {
-                        guiGraphics.drawString(Minecraft.getInstance().font,
-                                        (map.chanceToUse() < 10 ? " " : "") + (map.chanceToUse() < 100 ? " " : "")
-                                                        + map.chanceToUse() + "%",
-                                        61, 9, 0x444444, false);
-                }
-        }
+        // public ReforgerOneToManyCategory(IGuiHelper guiHelper) {
+        // super(guiHelper, zBlocks.REFORGER.get(),
+        // Component.translatable(ID + ".jei.category."
+        // + Constants.DataMaps.Reforger.block_to_tag),
+        // guiHelper.drawableBuilder(
+        // ResourceLocation.fromNamespaceAndPath(ID,
+        // "textures/gui/reforger.png"),
+        // 0,
+        // 0, 160, 24).addPadding(1, 0, 0, 0).build());
+        // }
 
-        public static class ReforgerOneToManyCategory extends BaseMapCategory<records.reforger.oneToMany> {
-                public static final RecipeType<reforger.oneToMany> TYPE = RecipeType.create(ID,
-                                Constants.DataMaps.Reforger.block_to_tag,
-                                reforger.oneToMany.class);
+        // @Override
+        // public RecipeType<reforger.oneToMany> getRecipeType() {
+        // return TYPE;
+        // }
 
-                public ReforgerOneToManyCategory(IGuiHelper guiHelper) {
-                        super(guiHelper, zBlocks.REFORGER.get(),
-                                        Component.translatable(ID + ".jei.category."
-                                                        + Constants.DataMaps.Reforger.block_to_tag),
-                                        guiHelper.drawableBuilder(
-                                                        ResourceLocation.fromNamespaceAndPath(ID,
-                                                                        "textures/gui/reforger.png"),
-                                                        0,
-                                                        0, 160, 24).addPadding(1, 0, 0, 0).build());
-                }
+        // @Override
+        // public void setRecipe(IRecipeLayoutBuilder b, reforger.oneToMany map,
+        // IFocusGroup focuses) {
+        // b.addSlot(RecipeIngredientRole.INPUT, 4, 5)
+        // .addItemStack(new ItemStack(map.input().getBlock()));
 
-                @Override
-                public RecipeType<reforger.oneToMany> getRecipeType() {
-                        return TYPE;
-                }
+        // b.addSlot(RecipeIngredientRole.CATALYST, 41, 5)
+        // .addItemStack(new ItemStack(map.catalyst()));
 
-                @Override
-                public void setRecipe(IRecipeLayoutBuilder b, reforger.oneToMany map, IFocusGroup focuses) {
-                        b.addSlot(RecipeIngredientRole.INPUT, 4, 5)
-                                        .addItemStack(new ItemStack(map.input().getBlock()));
+        // b.addSlot(RecipeIngredientRole.OUTPUT, 107, 5)
+        // .addItemStacks(ItemUtil.blocksToItems(map.output()));
+        // }
 
-                        b.addSlot(RecipeIngredientRole.CATALYST, 41, 5)
-                                        .addItemStack(new ItemStack(map.catalyst()));
+        // @Override
+        // public void draw(reforger.oneToMany map, IRecipeSlotsView recipeSlotsView,
+        // GuiGraphics guiGraphics,
+        // double mouseX,
+        // double mouseY) {
+        // guiGraphics.drawString(Minecraft.getInstance().font,
+        // (map.chanceToUse() < 10 ? " " : "") + (map.chanceToUse() < 100 ? " " : "")
+        // + map.chanceToUse() + "%",
+        // 61, 9, 0x444444, false);
+        // }
+        // }
 
-                        b.addSlot(RecipeIngredientRole.OUTPUT, 107, 5)
-                                        .addItemStacks(ItemUtil.blocksToItems(map.output()));
-                }
+        // public static class ReforgerManyToOneCategory extends
+        // BaseMapCategory<records.reforger.manyToOne> {
+        // public static final RecipeType<reforger.manyToOne> TYPE =
+        // RecipeType.create(ID,
+        // Constants.DataMaps.Reforger.tag_to_block,
+        // reforger.manyToOne.class);
 
-                @Override
-                public void draw(reforger.oneToMany map, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics,
-                                double mouseX,
-                                double mouseY) {
-                        guiGraphics.drawString(Minecraft.getInstance().font,
-                                        (map.chanceToUse() < 10 ? " " : "") + (map.chanceToUse() < 100 ? " " : "")
-                                                        + map.chanceToUse() + "%",
-                                        61, 9, 0x444444, false);
-                }
-        }
+        // public ReforgerManyToOneCategory(IGuiHelper guiHelper) {
+        // super(guiHelper, zBlocks.REFORGER.get(),
+        // Component.translatable(ID + ".jei.category."
+        // + Constants.DataMaps.Reforger.tag_to_block),
+        // guiHelper.drawableBuilder(
+        // ResourceLocation.fromNamespaceAndPath(ID,
+        // "textures/gui/reforger.png"),
+        // 0,
+        // 0, 160, 24).addPadding(1, 0, 0, 0).build());
+        // }
 
-        public static class ReforgerManyToOneCategory extends BaseMapCategory<records.reforger.manyToOne> {
-                public static final RecipeType<reforger.manyToOne> TYPE = RecipeType.create(ID,
-                                Constants.DataMaps.Reforger.tag_to_block,
-                                reforger.manyToOne.class);
+        // @Override
+        // public RecipeType<reforger.manyToOne> getRecipeType() {
+        // return TYPE;
+        // }
 
-                public ReforgerManyToOneCategory(IGuiHelper guiHelper) {
-                        super(guiHelper, zBlocks.REFORGER.get(),
-                                        Component.translatable(ID + ".jei.category."
-                                                        + Constants.DataMaps.Reforger.tag_to_block),
-                                        guiHelper.drawableBuilder(
-                                                        ResourceLocation.fromNamespaceAndPath(ID,
-                                                                        "textures/gui/reforger.png"),
-                                                        0,
-                                                        0, 160, 24).addPadding(1, 0, 0, 0).build());
-                }
+        // @Override
+        // public void setRecipe(IRecipeLayoutBuilder b, reforger.manyToOne map,
+        // IFocusGroup focuses) {
 
-                @Override
-                public RecipeType<reforger.manyToOne> getRecipeType() {
-                        return TYPE;
-                }
+        // b.addSlot(RecipeIngredientRole.INPUT, 4, 5)
+        // .addItemStacks(ItemUtil.blocksToItems(map.input()));
 
-                @Override
-                public void setRecipe(IRecipeLayoutBuilder b, reforger.manyToOne map, IFocusGroup focuses) {
+        // b.addSlot(RecipeIngredientRole.CATALYST, 41, 5)
+        // .addItemStack(new ItemStack(map.catalyst()));
 
-                        b.addSlot(RecipeIngredientRole.INPUT, 4, 5)
-                                        .addItemStacks(ItemUtil.blocksToItems(map.input()));
+        // b.addSlot(RecipeIngredientRole.OUTPUT, 107, 5)
+        // .addItemStack(new ItemStack(map.output().getBlock()));
+        // }
 
-                        b.addSlot(RecipeIngredientRole.CATALYST, 41, 5)
-                                        .addItemStack(new ItemStack(map.catalyst()));
-
-                        b.addSlot(RecipeIngredientRole.OUTPUT, 107, 5)
-                                        .addItemStack(new ItemStack(map.output().getBlock()));
-                }
-
-                @Override
-                public void draw(reforger.manyToOne map, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics,
-                                double mouseX,
-                                double mouseY) {
-                        guiGraphics.drawString(Minecraft.getInstance().font,
-                                        (map.chanceToUse() < 10 ? " " : "") + (map.chanceToUse() < 100 ? " " : "")
-                                                        + map.chanceToUse() + "%",
-                                        61, 9, 0x444444, false);
-                }
-        }
+        // @Override
+        // public void draw(reforger.manyToOne map, IRecipeSlotsView recipeSlotsView,
+        // GuiGraphics guiGraphics,
+        // double mouseX,
+        // double mouseY) {
+        // guiGraphics.drawString(Minecraft.getInstance().font,
+        // (map.chanceToUse() < 10 ? " " : "") + (map.chanceToUse() < 100 ? " " : "")
+        // + map.chanceToUse() + "%",
+        // 61, 9, 0x444444, false);
+        // }
 
 }

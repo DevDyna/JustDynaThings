@@ -24,7 +24,6 @@ import net.neoforged.neoforge.capabilities.BlockCapabilityCache;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.energy.IEnergyStorage;
 
-@SuppressWarnings("null")
 public class Actions {
 
         public static void consumeItem(ItemStack item, Level level, int chance) {

@@ -7,6 +7,7 @@
     "minecraft:candle_cake",
     "#minecraft:beds",
     "#minecraft:portals",
-    "#minecraft:doors"
+    "#minecraft:doors",
+    "#c:relocation_not_supported"
   ]
 }

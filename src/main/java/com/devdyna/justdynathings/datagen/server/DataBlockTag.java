@@ -20,7 +20,7 @@ import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
-@SuppressWarnings("null")
+@SuppressWarnings({ "null", "unchecked" })
 
 public class DataBlockTag extends BlockTagsProvider {
 
@@ -80,20 +80,23 @@ public class DataBlockTag extends BlockTagsProvider {
                 tag(zMultiTags.T4_SPREAD.block()).add(
                                 Registration.GooBlock_Tier3.get()).addTag(zMultiTags.T3_SPREAD.block());
 
+                // JustDireBlockTags.SWAPPERDENY only work on datagen...
                 tag(zBlockTags.PICKER_DENY)
-                                // JustDireBlockTags.SWAPPERDENY only work on datagen...
-                                .add(Blocks.PISTON_HEAD).add(Blocks.MOVING_PISTON).add(Blocks.BEDROCK)
-                                .add(Blocks.END_PORTAL_FRAME).add(Blocks.CANDLE_CAKE).addTag(BlockTags.BEDS)
-                                .addTag(BlockTags.PORTALS).addTag(BlockTags.DOORS);
+                                .add(Blocks.PISTON_HEAD, Blocks.MOVING_PISTON, Blocks.BEDROCK,
+                                                Blocks.END_PORTAL_FRAME, Blocks.CANDLE_CAKE)
+                                .addTags(BlockTags.BEDS,
+                                                BlockTags.PORTALS, BlockTags.DOORS,
+                                                Tags.Blocks.RELOCATION_NOT_SUPPORTED);
 
                 tag(zBlockTags.SWAPPER_DENY)
-                                .add(Blocks.PISTON_HEAD).add(Blocks.MOVING_PISTON).add(Blocks.BEDROCK)
-                                .add(Blocks.END_PORTAL_FRAME).add(Blocks.CANDLE_CAKE).addTag(BlockTags.BEDS)
-                                .addTag(BlockTags.PORTALS).addTag(BlockTags.DOORS);
+                                .add(Blocks.PISTON_HEAD, Blocks.MOVING_PISTON, Blocks.BEDROCK,
+                                                Blocks.END_PORTAL_FRAME, Blocks.CANDLE_CAKE)
+                                .addTags(BlockTags.BEDS,
+                                                BlockTags.PORTALS, BlockTags.DOORS,
+                                                Tags.Blocks.RELOCATION_NOT_SUPPORTED);
 
                 tag(zBlockTags.COAL_BLOCKS)
-                                .add(Blocks.COAL_BLOCK)
-                                .add(Registration.CharcoalBlock.get())
+                                .add(Blocks.COAL_BLOCK, Registration.CharcoalBlock.get())
                                 .addOptionalTag(JustDireBlockTags.CHARCOAL);
 
                 tag(zMultiTags.T1_GOO_TYPE.block())

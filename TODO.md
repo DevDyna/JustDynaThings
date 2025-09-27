@@ -30,6 +30,7 @@
 - [ ] Pocket generator T2-3-4 [(?)](https://github.com/Direwolf20-MC/JustDireThings/blob/main/src/main/resources/assets/justdirethings/textures/item/pocket_generator_t4.png)
 - [ ] Budding Revitalizer (like revitalizer but based to revitalize time and flawed buddings)
 - [ ] Budding Booster (like a sprinkler but based for buddings )
+- [ ] Advanced Experience holder
 
 ### Implemented but not fully completed
 

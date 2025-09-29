@@ -12,6 +12,7 @@ import com.devdyna.justdynathings.registry.builders.solar.SolarBlockBase;
 import com.devdyna.justdynathings.utils.Actions;
 
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
@@ -47,7 +48,7 @@ public class EclipseAlloySolarBlock extends SolarBlockBase {
         public void appendHoverText(ItemStack s, TooltipContext c, List<Component> t,
                         TooltipFlag f) {
                 super.appendHoverText(s, c, t, f);
-                if (f.hasShiftDown()) {
+                if (Screen.hasShiftDown()) {
                         t.add(Component.translatable(Main.ID + "." + Constants.SolarPanelType + ".ferate")
                                         .append(Component.literal("" + common.SOLARPANEL_ECLIPSEALLOY_FE_RATE.get())));
                 } else

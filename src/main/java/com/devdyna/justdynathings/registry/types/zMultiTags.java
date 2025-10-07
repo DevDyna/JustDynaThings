@@ -4,6 +4,7 @@ import static com.devdyna.justdynathings.Main.ID;
 
 import com.devdyna.justdynathings.registry.custom.MultiTag;
 
+@Deprecated
 public class zMultiTags {
 
     // public static final MultiTag ANVILS = new MultiTag("minecraft", "anvils");

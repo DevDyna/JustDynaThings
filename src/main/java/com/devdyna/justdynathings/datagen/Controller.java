@@ -37,7 +37,7 @@ public class Controller {
         // server
         DataBlockTag blocktag = new DataBlockTag(po, pr, f);
         providerGen(e, g, blocktag);
-        providerGen(e, g, new DataItemTag(po, pr, blocktag.contentsGetter()));
+        providerGen(e, g, new DataItemTag(po, pr, blocktag.contentsGetter(),f));
         providerGen(e, g, new DataBiomeTag(po, pr, f));
         providerGen(e, g, new LootTableProvider(po, Set.of(), List.of(new LootTableProvider.SubProviderEntry(DataLoot::new, LootContextParamSets.BLOCK)), pr));
         providerGen(e, g, new DataRecipe(po, pr));

@@ -38,7 +38,7 @@ public class DataMaps extends DataMapProvider {
 
         @SuppressWarnings("deprecation")
         @Override
-        protected void gather() {
+        protected void gather() {//TODO maybe it the time to move everything to recipetypes
 
                 builder(zDataMaps.FERRICORE_REPAIR)
                                 .add(Registration.FerricoreIngot.get().builtInRegistryHolder(),
@@ -89,34 +89,6 @@ public class DataMaps extends DataMapProvider {
                                 .add(Registration.TIME_FLUID_SOURCE.get().builtInRegistryHolder(),
                                                 new EclipseAlloyFluidRepair(10.0f),
                                                 false);
-
-
-
-                // builder(zDataMaps.REFORGER_manyToOne)
-                //                 .add(Registration.Coal_T1.get().builtInRegistryHolder(),
-                //                                 new ReforgerResult.manyToOne(
-                //                                                 zBlockTags.COAL_BLOCKS,
-                //                                                 Registration.RawCoal_T1.get().defaultBlockState(), 25),
-                //                                 false);
-
-                // builder(zDataMaps.REFORGER_oneToOne)
-                //                 .add(Registration.Coal_T2.get().builtInRegistryHolder(),
-                //                                 new ReforgerResult.oneToOne(
-                //                                                 Registration.RawCoal_T1.get().defaultBlockState(),
-                //                                                 Registration.RawCoal_T2.get().defaultBlockState(), 50),
-                //                                 false)
-
-                //                 .add(Registration.Coal_T3.get().builtInRegistryHolder(),
-                //                                 new ReforgerResult.oneToOne(
-                //                                                 Registration.RawCoal_T2.get().defaultBlockState(),
-                //                                                 Registration.RawCoal_T3.get().defaultBlockState(), 75),
-                //                                 false)
-
-                //                 .add(Registration.Coal_T4.get().builtInRegistryHolder(),
-                //                                 new ReforgerResult.oneToOne(
-                //                                                 Registration.RawCoal_T3.get().defaultBlockState(),
-                //                                                 Registration.RawCoal_T4.get().defaultBlockState(), 100),
-                //                                 false);
 
         }
 

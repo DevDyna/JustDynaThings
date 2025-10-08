@@ -28,6 +28,8 @@ import net.minecraft.world.level.block.BuddingAmethystBlock;
 @SuppressWarnings("null")
 public class BuddingBE extends BaseMachineBE implements EnergyMachine, FluidMachine {
 
+    //TODO rework time fluid -> recipe types with differents efficiency
+
     public final PoweredMachineContainerData poweredMachineData = new PoweredMachineContainerData(this);
     public final FluidContainerData fluidContainerData = new FluidContainerData(this);
     public Block smallCluster;

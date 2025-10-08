@@ -5,6 +5,7 @@ import static com.devdyna.justdynathings.Main.ID;
 import java.util.List;
 
 import com.devdyna.justdynathings.Constants;
+import com.devdyna.justdynathings.config.common;
 import com.devdyna.justdynathings.registry.types.zBlockTags;
 import com.devdyna.justdynathings.registry.types.zComponents;
 import com.devdyna.justdynathings.registry.types.zProperties;
@@ -25,6 +26,7 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.common.util.FakePlayer;
 
 @SuppressWarnings("null")
 public class PickerWand extends Item {
@@ -43,23 +45,24 @@ public class PickerWand extends Item {
         var face = c.getClickedFace();
         var item = c.getItemInHand();
         var player = c.getPlayer();
+        
+        if (!(!common.PICKER_WAND_FAKE_PLAYER_ALLOWED.get() && player instanceof FakePlayer))
+            if (c.getHand() != InteractionHand.OFF_HAND) {
 
-        if (c.getHand() != InteractionHand.OFF_HAND) {
+                var state = item.get(zComponents.STATE);
 
-            var state = item.get(zComponents.STATE);
-
-            if (state == null) {
-                if (level.getBlockEntity(pos) == null && !level.getBlockState(pos).is(zBlockTags.PICKER_DENY))
-                    pickupBlock(item, pos, level, player, face);
+                if (state == null) {
+                    if (level.getBlockEntity(pos) == null && !level.getBlockState(pos).is(zBlockTags.PICKER_DENY))
+                        pickupBlock(item, pos, level, player, face);
+                    else
+                        pickUpFail(player);
+                } else if (level.getBlockState(pos).isAir())
+                    failPlace(player);
                 else
-                    pickUpFail(player);
-            } else if (level.getBlockState(pos).isAir())
-                failPlace(player);
-            else
-                placeBlock(item, pos, level, player, state, face);
+                    placeBlock(item, pos, level, player, state, face);
 
-            return InteractionResult.SUCCESS;
-        }
+                return InteractionResult.SUCCESS;
+            }
 
         return super.useOn(c);
     }

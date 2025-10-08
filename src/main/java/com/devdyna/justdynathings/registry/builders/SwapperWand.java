@@ -5,6 +5,7 @@ import static com.devdyna.justdynathings.Main.ID;
 import java.util.List;
 
 import com.devdyna.justdynathings.Constants;
+import com.devdyna.justdynathings.config.common;
 import com.devdyna.justdynathings.registry.types.zBlockTags;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import com.direwolf20.justdirethings.common.blockentities.BlockSwapperT1BE;
@@ -26,6 +27,7 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.common.util.FakePlayer;
 
 @SuppressWarnings("null")
 public class SwapperWand extends Item {
@@ -58,22 +60,23 @@ public class SwapperWand extends Item {
         var player = c.getPlayer();
         var state = level.getBlockState(pos);
 
-        if (c.getHand() != InteractionHand.OFF_HAND) {
+        if (!(!common.SWAPPER_FAKE_PLAYER_ALLOWED.get() && player instanceof FakePlayer))
+            if (c.getHand() != InteractionHand.OFF_HAND) {
 
-            var globalPos = item.get(JustDireDataComponents.BOUND_GLOBAL_POS);
+                var globalPos = item.get(JustDireDataComponents.BOUND_GLOBAL_POS);
 
-            if (level.getBlockEntity(pos) == null && !level.getBlockState(pos).is(zBlockTags.SWAPPER_DENY))
-                if (globalPos == null)
-                    bindGPos(item, player, level, pos);
+                if (level.getBlockEntity(pos) == null && !level.getBlockState(pos).is(zBlockTags.SWAPPER_DENY))
+                    if (globalPos == null)
+                        bindGPos(item, player, level, pos);
+                    else
+                        swapBlocks(player, item, level, state, pos);
                 else
-                    swapBlocks(player, item, level, state, pos);
-            else
-                pickUpFail(player);
+                    pickUpFail(player);
 
-            return InteractionResult.SUCCESS;
-        }
-
+                return InteractionResult.SUCCESS;
+            }
         return super.useOn(c);
+
     }
 
     private void bindGPos(ItemStack item, Player player, Level level, BlockPos pos) {

@@ -15,6 +15,13 @@ public class LogUtil {
     }
 
     /**
+     * send a warn on logs
+     */
+    public static void warn(String text) {
+        LOGGER.warn(text);
+    }
+
+    /**
      * send an error on logs
      */
     public static void error(String text) {

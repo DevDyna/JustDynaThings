@@ -144,7 +144,8 @@ public class SwapperWand extends Item {
         if (i.get(JustDireDataComponents.BOUND_GLOBAL_POS) != null) {
             t.add(Component.translatable(ID + ".wand.dimension")
                     .append(Component
-                            .literal(i.get(JustDireDataComponents.BOUND_GLOBAL_POS).dimension().registry().toString())
+                            .translatable(
+                                    i.get(JustDireDataComponents.BOUND_GLOBAL_POS).dimension().location().getPath())
                             .withStyle(ChatFormatting.GREEN)));
             t.add(Component.translatable(ID + ".wand.pos")
 

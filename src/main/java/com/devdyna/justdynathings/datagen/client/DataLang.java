@@ -5,7 +5,6 @@ import static com.devdyna.justdynathings.Main.ID;
 import java.util.List;
 
 import com.devdyna.justdynathings.Constants;
-import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.registry.types.zBlocks;
 import com.devdyna.justdynathings.registry.types.zItems;
 

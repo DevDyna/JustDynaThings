@@ -1,7 +1,5 @@
 package com.devdyna.justdynathings.registry.builders;
 
-import static com.devdyna.justdynathings.Main.ID;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -19,11 +17,9 @@ import com.direwolf20.justdirethings.util.MiscTools;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.HitResult.Type;
 import net.neoforged.neoforge.common.util.FakePlayer;
-import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
@@ -100,11 +96,11 @@ public class AdvancedTimeWand extends TimeWand {
 
     }
 
-    public boolean checkFakePlayer(Player player) {
+    protected boolean checkFakePlayer(Player player) {
         return !common.ADVANCED_TIME_WAND_FAKE_PLAYER_ALLOWED.get() && player instanceof FakePlayer;
     }
 
-    public boolean changeMode(Level level, Player player, InteractionHand hand, ItemStack item) {
+    protected boolean changeMode(Level level, Player player, InteractionHand hand, ItemStack item) {
 
         if (!player.isCrouching())
             return false;
@@ -186,14 +182,14 @@ public class AdvancedTimeWand extends TimeWand {
         return false;
     }
 
-    private void message(Player player, String type) {
+    protected void message(Player player, String type) {
         player.displayClientMessage(
                 Component.translatable(Main.ID + "." + Constants.Wands.AdvancedTimeWand
                         + "." + type),
                 true);
     }
 
-    private void playTimeWandSound(Level serverLevel, BlockPos pos, int setRate) {
+    protected void playTimeWandSound(Level serverLevel, BlockPos pos, int setRate) {
         float pitch = switch (setRate) {
             case 1 -> 0.707107F;
             case 2 -> 0.793701F;
@@ -212,13 +208,13 @@ public class AdvancedTimeWand extends TimeWand {
                 pitch);
     }
 
-    private void resetComponent(Player player, InteractionHand hand) {
+    protected void resetComponent(Player player, InteractionHand hand) {
         var item = player.getItemInHand(hand);
         player.swing(hand);
         item.set(zComponents.MODE, MODES.NORMAL);
     }
 
-    private void clickSuccess(ItemStack item, int mb, int fe, Level level, BlockPos pos, int rate) {
+    protected void clickSuccess(ItemStack item, int mb, int fe, Level level, BlockPos pos, int rate) {
         FluidContainingItem.consumeFluid(item, mb);
         PoweredItem.consumeEnergy(item, fe);
         playTimeWandSound(level, pos, rate); // Play sound based on the click count

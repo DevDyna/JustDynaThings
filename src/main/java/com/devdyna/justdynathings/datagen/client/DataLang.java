@@ -15,7 +15,7 @@ import net.neoforged.neoforge.common.data.LanguageProvider;
 public class DataLang extends LanguageProvider {
 
         public DataLang(PackOutput o) {
-                super(o, Main.ID, "en_us");
+                super(o, ID, "en_us");
         }
 
         @Override
@@ -27,43 +27,43 @@ public class DataLang extends LanguageProvider {
                 add(ID + ".wand.pos", "§7BlockPos : ");
                 add(ID + ".disabled", "§cItem Disabled");
 
-                add(Main.ID + "." + Constants.Blocks.Reforger + ".tip",
+                add(ID + "." + Constants.Blocks.Reforger + ".tip",
                                 "§7Convert blocks using a catalyst to other blocks");
 
-                add(Main.ID + "." + Constants.Anvils.t1 + ".tip",
+                add(ID + "." + Constants.Anvils.t1 + ".tip",
                                 "§7Repair items using metallic ingots");
 
-                add(Main.ID + "." + Constants.Anvils.t2 + ".tip",
+                add(ID + "." + Constants.Anvils.t2 + ".tip",
                                 "§7Repair items using hot fluids");
 
-                add(Main.ID + "." + Constants.Anvils.t3 + ".tip",
+                add(ID + "." + Constants.Anvils.t3 + ".tip",
                                 "§7Repair items using Forge Energy");
 
-                add(Main.ID + "." + Constants.Anvils.t4 + ".tip",
+                add(ID + "." + Constants.Anvils.t4 + ".tip",
                                 "§7Repair items using Forge Energy");
 
-                add(Main.ID + "." + Constants.Anvils.t4 + ".boost",
+                add(ID + "." + Constants.Anvils.t4 + ".boost",
                                 "§7Can be boosted using Fluid Time");
 
-                add(Main.ID + "." + Constants.BuddingType + ".tip",
+                add(ID + "." + Constants.BuddingType + ".tip",
                                 "§7Grow clusters using Fluid Time and Forge Energy");
 
                 // creative tab
-                add(Main.ID + "." + Constants.CreativeTab, "Just Dyna Things");
+                add(ID + "." + Constants.CreativeTab, "Just Dyna Things");
 
                 // wip
-                add(Main.ID + ".clock.wip", "N.Y.I. -> shift-click the block to toggle");
+                add(ID + ".clock.wip", "N.Y.I. -> shift-click the block to toggle");
 
                 // missing guideme
                 add(ID + ".doc.missing", "§aFor more info consider to install GuideMe or Patchouli");
 
                 // generic type tooltips
-                add(Main.ID + "." + Constants.GooType + "." + Constants.Goo.Energized + ".tip",
+                add(ID + "." + Constants.GooType + "." + Constants.Goo.Energized + ".tip",
                                 "§cProvide energy to active it");
-                add(Main.ID + "." + Constants.GooType + "." + Constants.Goo.Creative + ".tip",
+                add(ID + "." + Constants.GooType + "." + Constants.Goo.Creative + ".tip",
                                 "§cRight click with a wrench to toggle alive state");
-                add(Main.ID + "." + Constants.SolarPanelType + ".tip", "§7Generate Energy from ambiental situations");
-                add(Main.ID + "." + Constants.Blocks.ThermoGen + ".tip",
+                add(ID + "." + Constants.SolarPanelType + ".tip", "§7Generate Energy from ambiental situations");
+                add(ID + "." + Constants.Blocks.ThermoGen + ".tip",
                                 "§7Generate Energy from heat sources and coolants");
 
                 // registry keys
@@ -109,12 +109,22 @@ public class DataLang extends LanguageProvider {
                 add(ID + "." + Constants.Wands.Picker, "§7Allow to pickup simple blocks and place where you want");
                 add(ID + "." + Constants.Wands.Swapper, "§7Allow to swap simple blocks without break it");
 
-                add(Main.ID + "." + Constants.GooType + ".tier", "§7Goo Tier: ");
+                add(ID + "." + Constants.GooType + ".tier", "§7Goo Tier: ");
 
-                add(Main.ID + "." + Constants.SolarPanelType + ".ferate", "§7Max FE rate : ");
+                add(ID + "." + Constants.SolarPanelType + ".ferate", "§7Max FE rate : ");
 
-                add(ID + ".init_invalid","§cInitial Block isn't anymore valid");
-                add(ID + ".clear_pos","§7Position Cleared");
+                add(ID + ".init_invalid", "§cInitial Block isn't anymore valid");
+                add(ID + ".clear_pos", "§7Position Cleared");
+
+                add(ID + "." + Constants.Wands.AdvancedTimeWand,
+                                "§7More capable and configurable version of Time wand");
+
+                add(ID + "." + Constants.Wands.AdvancedTimeWand + ".mode.disabled", "§cThis Mode was disabled");
+
+                add(ID + "." + Constants.Wands.AdvancedTimeWand + ".mode.normal", "Mode set to §aNormal");
+                add(ID + "." + Constants.Wands.AdvancedTimeWand + ".mode.x2", "Mode set to §a2x");
+                add(ID + "." + Constants.Wands.AdvancedTimeWand + ".mode.x4", "Mode set to §a4x");
+                add(ID + "." + Constants.Wands.AdvancedTimeWand + ".mode.max", "Mode set to §aMax");
 
         }
 

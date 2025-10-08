@@ -16,11 +16,14 @@ import com.devdyna.justdynathings.registry.builders.goo.creative.CreativeGooRend
 import com.devdyna.justdynathings.registry.builders.goo.energy.EnergyGooRender;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
 import com.devdyna.justdynathings.registry.types.zContainers;
+import com.devdyna.justdynathings.registry.types.zItems;
+import com.direwolf20.justdirethings.client.itemcustomrenders.FluidbarDecorator;
 
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterItemDecorationsEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 
 //IT WORK , DONT TOUCH IT
@@ -55,4 +58,10 @@ public class Client {
         event.registerBlockEntityRenderer(zBlockEntities.T4_GOO.get(), EnergyGooRender::new);
 
     }
+
+    @SubscribeEvent
+    public static void renderDecorators(RegisterItemDecorationsEvent event) {
+        event.register(zItems.ADVANCED_TIME_WAND.get(), new FluidbarDecorator());
+    }
+
 }

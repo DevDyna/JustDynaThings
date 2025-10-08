@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings;
 
-import com.devdyna.justdynathings.compat.core;
+import com.devdyna.justdynathings.compat.*;
 import com.devdyna.justdynathings.config.*;
 import com.devdyna.justdynathings.datamaps.zDataMaps;
 import com.devdyna.justdynathings.registry.Material;
@@ -18,15 +18,14 @@ public class Main {
 
         public Main(IEventBus bus, ModContainer chest) {
 
-                // startup.register(chest); //TODO need to define what to do with this
-                common.register(chest);
+                config.core(chest);
 
                 Material.register(bus);
 
                 bus.addListener(Capabilities::regCap);
                 bus.addListener(zDataMaps::register);
 
-                core.regCompat(bus);
+                compat.core(bus);
 
         }
 

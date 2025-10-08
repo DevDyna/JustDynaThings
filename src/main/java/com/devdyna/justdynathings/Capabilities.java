@@ -1,12 +1,17 @@
 package com.devdyna.justdynathings;
 
 import com.devdyna.justdynathings.registry.Material;
+import com.devdyna.justdynathings.registry.builders.AdvancedTimeWand;
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyMachine;
 import com.devdyna.justdynathings.registry.interfaces.be.FluidMachine;
 import com.devdyna.justdynathings.registry.types.zBlocks;
+import com.devdyna.justdynathings.registry.types.zItems;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.FluidMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineBE;
+import com.direwolf20.justdirethings.common.capabilities.EnergyStorageItemstack;
+import com.direwolf20.justdirethings.common.items.datacomponents.JustDireDataComponents;
+import com.direwolf20.justdirethings.common.items.interfaces.PoweredItem;
 import com.direwolf20.justdirethings.setup.Registration;
 
 import net.minecraft.world.level.block.Block;
@@ -14,7 +19,10 @@ import net.neoforged.neoforge.capabilities.Capabilities.EnergyStorage;
 import net.neoforged.neoforge.capabilities.Capabilities.FluidHandler;
 import net.neoforged.neoforge.capabilities.Capabilities.ItemHandler;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
+import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.capability.templates.FluidHandlerItemStack;
 
+@SuppressWarnings("null")
 public class Capabilities {
 
         public static void regCap(RegisterCapabilitiesEvent event) {
@@ -42,7 +50,7 @@ public class Capabilities {
                                 zBlocks.ECLIPSEALLOY_ANVIL.get()
                 };
 
-                Block[] ItemStacMachineBase = {
+                Block[] ItemStackMachineBase = {
 
                                 zBlocks.REFORGER.get(),
 
@@ -68,7 +76,7 @@ public class Capabilities {
                                                 side) -> be instanceof BaseMachineBE
                                                                 ? be.getData(Registration.MACHINE_HANDLER)
                                                                 : null,
-                                ItemStacMachineBase);
+                                ItemStackMachineBase);
 
                 // generic energyhandler
                 event.registerBlock(EnergyStorage.BLOCK, (level, pos, state, be,
@@ -109,6 +117,38 @@ public class Capabilities {
                                 zBlocks.THERMOGEN.get(),
                                 zBlocks.FERRICORE_SOLARGEN.get(), zBlocks.BLAZEGOLD_SOLARGEN.get(),
                                 zBlocks.CELESTIGEM_SOLARGEN.get(), zBlocks.ECLIPSEALLOY_SOLARGEN.get());
+
+                event.registerItem(EnergyStorage.ITEM,
+                                (i, c) -> {
+                                        if (i.getItem() instanceof PoweredItem poweredItem)
+
+                                                return new EnergyStorageItemstack(poweredItem.getMaxEnergy(), i);
+                                        else
+                                                return null;
+
+                                }, zItems.ADVANCED_TIME_WAND.get());
+
+                event.registerItem(FluidHandler.ITEM, (i, c) -> {
+
+                        if (i.getItem() instanceof AdvancedTimeWand w) {
+                                return new FluidHandlerItemStack(JustDireDataComponents.FLUID_CONTAINER, i,
+                                                w.getMaxMB()) {
+                                        @Override
+                                        public boolean isFluidValid(int tank, FluidStack stack) {
+                                                return stack.is(Registration.TIME_FLUID_TYPE.get());
+                                        }
+
+                                        @Override
+                                        public boolean canFillFluidType(FluidStack fluid) {
+                                                return fluid.is(Registration.TIME_FLUID_TYPE.get());
+                                        }
+
+                                };
+                        } else
+                                return null;
+                },
+
+                                zItems.ADVANCED_TIME_WAND.get());
 
         }
 

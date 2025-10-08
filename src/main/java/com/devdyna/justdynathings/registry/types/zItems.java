@@ -5,6 +5,7 @@ import java.util.Arrays;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.Constants.ModAddonCheck;
+import com.devdyna.justdynathings.registry.builders.AdvancedTimeWand;
 import com.devdyna.justdynathings.registry.builders.DisabledItem;
 import com.devdyna.justdynathings.registry.builders.GooUpgrader;
 import com.devdyna.justdynathings.registry.builders.PickerWand;
@@ -101,6 +102,10 @@ public class zItems {
                                         new ArrayList<>(Arrays.asList(zBlocks.ENERGIZED_GOO.get())), true
 
                         ));
+
+
+                public static final DeferredHolder<Item, ?> ADVANCED_TIME_WAND = zItemHanded.register(Constants.Wands.AdvancedTimeWand,
+                        () -> new AdvancedTimeWand());
 
         public static void registerLists() {
                 if (!ModAddonCheck.AppliedEnergistics2)

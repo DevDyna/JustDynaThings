@@ -3,7 +3,6 @@ package com.devdyna.justdynathings.config;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Constants.*;
 import com.devdyna.justdynathings.utils.DataGenUtil;
-
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.neoforge.common.ModConfigSpec;
@@ -121,6 +120,22 @@ public class common {
 
         public static BooleanValue ANVIL_ECLIPSEALLOY_SOUND_EVENT;
 
+        public static BooleanValue ADVANCED_TIME_WAND_FAKE_PLAYER_ALLOWED;
+        public static BooleanValue PICKER_WAND_FAKE_PLAYER_ALLOWED;
+        public static BooleanValue SWAPPER_FAKE_PLAYER_ALLOWED;
+
+        public static IntValue ADVANCED_TIME_WAND_FE_CAPACITY;
+        public static IntValue ADVANCED_TIME_WAND_FE_RATE;
+        public static IntValue ADVANCED_TIME_WAND_MB_CAPACITY;
+        public static IntValue ADVANCED_TIME_WAND_MB_RATE;
+
+        public static ConfigValue<Integer> ADVANCED_TIME_WAND_NORMAL_MODE;
+        public static ConfigValue<Integer> ADVANCED_TIME_WAND_X2_MODE;
+        public static ConfigValue<Integer> ADVANCED_TIME_WAND_X4_MODE;
+        public static ConfigValue<Integer> ADVANCED_TIME_WAND_MAX_MODE;
+
+        public static ConfigValue<Integer> ADVANCED_TIME_WAND_MAX_MULTIPLIER;
+
         public static void register(ModContainer c) {
                 regCommon();
                 c.registerConfig(ModConfig.Type.COMMON, qCOMMON.build());
@@ -133,6 +148,7 @@ public class common {
                 goo();
                 solar_panel();
                 anvil();
+                wands();
         }
 
         private static void general() {
@@ -478,6 +494,56 @@ public class common {
                                 .define(Anvils.t4 + Config.SOUND, true);
 
                 qCOMMON.pop();
+        }
+
+        private static void wands() {
+                qCOMMON.comment(DataGenUtil.txtDecor("wands")).push("7-wands");
+
+                PICKER_WAND_FAKE_PLAYER_ALLOWED = qCOMMON
+                                .comment("Picker Wand support Fake Players")
+                                .define(Wands.Picker + "_allow_fakeplayer", false);
+
+                SWAPPER_FAKE_PLAYER_ALLOWED = qCOMMON
+                                .comment("Swapper Wand support Fake Players")
+                                .define(Wands.Swapper + "_allow_fakeplayer", false);
+
+                ADVANCED_TIME_WAND_FAKE_PLAYER_ALLOWED = qCOMMON
+                                .comment("Advanced Time Wand support Fake Players")
+                                .define(Wands.AdvancedTimeWand + "_allow_fakeplayer", true);
+
+                ADVANCED_TIME_WAND_MB_CAPACITY = qCOMMON
+                                .comment("MB Capacity")
+                                .defineInRange(Wands.AdvancedTimeWand + Config.MB_MAX, 8_000_000, 1, Integer.MAX_VALUE);
+
+                ADVANCED_TIME_WAND_FE_CAPACITY = qCOMMON
+                                .comment("FE Capacity")
+                                .defineInRange(Wands.AdvancedTimeWand + Config.FE_MAX, 10_000_000, 1,
+                                                Integer.MAX_VALUE);
+
+                ADVANCED_TIME_WAND_NORMAL_MODE = qCOMMON.comment(
+                                "Mode NORMAL [1|2|4|8]")
+                                .define(Wands.AdvancedTimeWand + "_mode_normal", 1,
+                                                (value) -> config.validateADW("_mode_normal", value));
+
+                ADVANCED_TIME_WAND_X2_MODE = qCOMMON.comment(
+                                "Mode X2 [1|2|4|8]").define(Wands.AdvancedTimeWand + "_mode_x2", 2,
+                                                (value) -> config.validateADW("_mode_x2", value));
+
+                ADVANCED_TIME_WAND_X4_MODE = qCOMMON.comment(
+                                "Mode X4 [1|2|4|8]").define(Wands.AdvancedTimeWand + "_mode_x4", 4,
+                                                (value) -> config.validateADW("_mode_x4", value));
+
+                ADVANCED_TIME_WAND_MAX_MODE = qCOMMON.comment(
+                                "Mode MAX [1|2|4|8]").define(Wands.AdvancedTimeWand + "_mode_max", 8,
+                                                (value) -> config.validateADW("_mode_max", value));
+
+                ADVANCED_TIME_WAND_MAX_MULTIPLIER = qCOMMON.comment(
+                                "Max speed applicable with Advanced Time Wand\n It can disable other wand-modes when below 256\n This value should be a power of two")
+                                .define(Wands.AdvancedTimeWand + "_max_multiplier", 256,
+                                                (value) -> config.maxADW(value));
+
+                qCOMMON.pop();
+
         }
 
         private static void superduperconfig() {

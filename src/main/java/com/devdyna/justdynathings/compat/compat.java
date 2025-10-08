@@ -8,16 +8,16 @@ import guideme.Guide;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.bus.api.IEventBus;
 
-public class core {
+public class compat {
 
-        public static void regCompat(IEventBus bus) {
+        public static void core(IEventBus bus) {
                 LogUtil.decor(20);
                 LogUtil.info("JustDynaThings Compatibility Checker started");
                 LogUtil.decor(20);
-                core.ae2_compat(bus);
-                core.extendedae_compat(bus);
-                core.phasorite_compat(bus);
-                core.createGuide();
+                ae2_compat(bus);
+                extendedae_compat(bus);
+                phasorite_compat(bus);
+                createGuide();
                 LogUtil.decor(20);
         }
 

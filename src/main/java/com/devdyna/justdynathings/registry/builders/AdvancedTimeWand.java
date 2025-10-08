@@ -229,10 +229,10 @@ public class AdvancedTimeWand extends TimeWand {
             var value = MODES.list.indexOf(i.get(zComponents.MODE));
 
             t.add(Component.literal("§c[" +
-                    (value == 0 ? "§a" : "§c") + "Normal§c|" +
-                    (value == 1 ? "§a" : "§c") + "2xSpeed§c|" +
-                    (value == 2 ? "§a" : "§c") + "4xSpeed§c|" +
-                    (value == 3 ? "§a" : "§c") + "MaxSpeed§c]"));
+                    (value == 0 ? "§a" : "§c") + "1x§c|" +
+                    (value == 1 ? "§a" : "§c") + "2x§c|" +
+                    (value == 2 ? "§a" : "§c") + "4x§c|" +
+                    (value == 3 ? "§a" : "§c") + "8x§c]"));
         }
 
     }

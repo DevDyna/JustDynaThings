@@ -8,7 +8,7 @@ public class Constants {
 
     public static String CreativeTab = "creative_tab";
 
-    public class Items {
+    public class Wands {
         public static String Swapper = "swapper_wand";
         public static String Picker = "picker_wand";
 

@@ -108,7 +108,7 @@ public class PickerWand extends Item {
     public void appendHoverText(ItemStack i, TooltipContext c, List<Component> t,
             TooltipFlag f) {
 
-        t.add(Component.translatable(ID + "." + Constants.Items.Picker));
+        t.add(Component.translatable(ID + "." + Constants.Wands.Picker));
 
         if (i.get(zComponents.STATE) != null) {
             t.add(Component.translatable(ID + ".wand.blockstate")

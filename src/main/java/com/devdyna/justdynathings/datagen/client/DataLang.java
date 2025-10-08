@@ -26,6 +26,7 @@ public class DataLang extends LanguageProvider {
                 add(ID + ".wand.dimension", "§7Dimension : ");
                 add(ID + ".wand.pos", "§7BlockPos : ");
                 add(ID + ".disabled", "§cItem Disabled");
+
                 add(Main.ID + "." + Constants.Blocks.Reforger + ".tip",
                                 "§7Convert blocks using a catalyst to other blocks");
 
@@ -101,11 +102,12 @@ public class DataLang extends LanguageProvider {
                                 Constants.DataMaps.Reforger.tag_to_block
 
                 ).forEach(j -> add(ID + ".jei.category." + j, named(j.replaceAll(
-                                Constants.DataMaps.Anvils.anvil , "").replace(Constants.DataMaps.Reforger.reforger, "reforger_"))));
+                                Constants.DataMaps.Anvils.anvil, "")
+                                .replace(Constants.DataMaps.Reforger.reforger, "reforger_"))));
 
                 add(ID + "." + Constants.GooUpgraders.base, "§7Right click on a goo to upgrade it to the next tier");
-                add(ID + "." + Constants.Items.Picker, "§7Allow to pickup simple blocks and place where you want");
-                add(ID + "." + Constants.Items.Swapper, "§7Allow to swap simple blocks without break it");
+                add(ID + "." + Constants.Wands.Picker, "§7Allow to pickup simple blocks and place where you want");
+                add(ID + "." + Constants.Wands.Swapper, "§7Allow to swap simple blocks without break it");
 
                 add(Main.ID + "." + Constants.GooType + ".tier", "§7Goo Tier: ");
 

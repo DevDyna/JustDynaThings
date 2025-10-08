@@ -139,7 +139,7 @@ public class SwapperWand extends Item {
     public void appendHoverText(ItemStack i, TooltipContext c, List<Component> t,
             TooltipFlag f) {
 
-        t.add(Component.translatable(ID + "." + Constants.Items.Swapper));
+        t.add(Component.translatable(ID + "." + Constants.Wands.Swapper));
 
         if (i.get(JustDireDataComponents.BOUND_GLOBAL_POS) != null) {
             t.add(Component.translatable(ID + ".wand.dimension")

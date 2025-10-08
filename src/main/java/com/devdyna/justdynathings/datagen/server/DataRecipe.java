@@ -252,7 +252,7 @@ public class DataRecipe extends RecipeProvider {
                                 .define('E', Items.ENDER_EYE)
                                 .unlockedBy(ID, itemInv(Items.ENDER_EYE, Items.LAPIS_LAZULI,
                                                 Registration.BlazegoldIngot.get()))
-                                .group(Constants.Items.Picker).save(c);
+                                .group(Constants.Wands.Picker).save(c);
 
                 ShapedRecipeBuilder.shaped(MISC, zItems.SWAP_STAFF.get(), 1)
                                 .pattern(" CE")
@@ -263,7 +263,7 @@ public class DataRecipe extends RecipeProvider {
                                 .define('E', Items.ENDER_EYE)
                                 .unlockedBy(ID, itemInv(Items.ENDER_EYE, Items.REDSTONE,
                                                 Registration.BlazegoldIngot.get()))
-                                .group(Constants.Items.Swapper).save(c);
+                                .group(Constants.Wands.Swapper).save(c);
 
                 zBlocks.zBlockItem.getEntries()
                                 .forEach(i -> {

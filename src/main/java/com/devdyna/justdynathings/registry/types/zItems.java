@@ -60,10 +60,10 @@ public class zItems {
 
         // ---------------------------------------------------------------------------------------//
 
-        public static final DeferredHolder<Item, ?> SWAP_STAFF = zItemHanded.register(Constants.Items.Swapper,
+        public static final DeferredHolder<Item, ?> SWAP_STAFF = zItemHanded.register(Constants.Wands.Swapper,
                         () -> new SwapperWand());
 
-        public static final DeferredHolder<Item, ?> PICKER_STAFF = zItemHanded.register(Constants.Items.Picker,
+        public static final DeferredHolder<Item, ?> PICKER_STAFF = zItemHanded.register(Constants.Wands.Picker,
                         () -> new PickerWand());
 
         public static final DeferredHolder<Item, ?> GOO_UPGRADER_T1 = zGooUpgraders.register(Constants.GooUpgraders.T1,

@@ -8,6 +8,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
+@Deprecated
 public class MultiTag {
 
     private TagKey<Item> item;

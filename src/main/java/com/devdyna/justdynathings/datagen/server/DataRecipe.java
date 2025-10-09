@@ -409,6 +409,19 @@ public class DataRecipe extends RecipeProvider {
                                 .output(Registration.RawCoal_T4.get().defaultBlockState())
                                 .unlockedBy().group(Constants.DataMaps.Reforger.block_to_block).save(c);
 
+
+ShapedRecipeBuilder.shaped(MISC, zItems.ADVANCED_TIME_WAND.get())
+                                .pattern(" EC")
+                                .pattern(" WE")
+                                .pattern("E  ")
+                                .define('C', Registration.TimeCrystal.get())
+                                .define('E', Registration.EclipseAlloyIngot.get())
+                                .define('W', Registration.TimeWand.get())
+                                .unlockedBy(ID, InventoryChangeTrigger.TriggerInstance
+                                                .hasItems(Registration.TimeCrystal.get(),
+                                                                Registration.EclipseAlloyIngot.get()))
+                                .group(Constants.Wands.AdvancedTimeWand).save(c);
+
         }
 
         /**

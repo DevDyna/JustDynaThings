@@ -6,6 +6,7 @@ import javax.annotation.Nullable;
 
 import com.devdyna.justdynathings.registry.types.zBlocks;
 import com.devdyna.justdynathings.utils.DataGenUtil;
+import com.devdyna.justdynathings.utils.LogUtil;
 
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.builder.IRecipeSlotBuilder;
@@ -66,9 +67,22 @@ public abstract class BaseReforgerCategory<T> implements IRecipeCategory<T> {
 
         @Override
         public void setRecipe(IRecipeLayoutBuilder b, T recipe, IFocusGroup focuses) {
-                setInput(b.addSlot(RecipeIngredientRole.INPUT, 4, 4), recipe);
-                setCatalyst(b.addSlot(RecipeIngredientRole.CATALYST, 41, 4), recipe);
-                setOutput(b.addSlot(RecipeIngredientRole.OUTPUT, 107, 4), recipe);
+                try {
+                        setInput(b.addSlot(RecipeIngredientRole.INPUT, 4, 4), recipe);
+                } catch (Exception e) {
+                        LogUtil.error(e.getLocalizedMessage());
+                }
+                try {
+                        setCatalyst(b.addSlot(RecipeIngredientRole.CATALYST, 41, 4), recipe);
+                } catch (Exception e) {
+                        LogUtil.error(e.getLocalizedMessage());
+                }
+                try {
+                        setOutput(b.addSlot(RecipeIngredientRole.OUTPUT, 107, 4), recipe);
+                } catch (Exception e) {
+                        LogUtil.error(e.getLocalizedMessage());
+                }
+
         }
 
         @Override

@@ -2,7 +2,6 @@ package com.devdyna.justdynathings.datagen.server;
 
 import java.util.concurrent.CompletableFuture;
 
-import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.registry.types.zBlockTags;
 import com.devdyna.justdynathings.registry.types.zBlocks;
 import com.devdyna.justdynathings.registry.types.zMultiTags;
@@ -10,6 +9,7 @@ import com.devdyna.justdynathings.utils.DataGenUtil;
 import com.direwolf20.justdirethings.datagen.JustDireBlockTags;
 import com.direwolf20.justdirethings.setup.Registration;
 
+import static com.devdyna.justdynathings.Main.ID;
 import static com.devdyna.justdynathings.registry.types.zBlockTags.*;
 
 import net.minecraft.core.HolderLookup.Provider;
@@ -24,8 +24,8 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 public class DataBlockTag extends BlockTagsProvider {
 
-        public DataBlockTag(PackOutput o, CompletableFuture<Provider> l, ExistingFileHelper f) {
-                super(o, l, Main.ID, f);
+        public DataBlockTag(PackOutput o, CompletableFuture<Provider> p, ExistingFileHelper f) {
+                super(o, p, ID, f);
         }
 
         @Override

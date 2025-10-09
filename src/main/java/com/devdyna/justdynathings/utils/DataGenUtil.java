@@ -75,9 +75,12 @@ public class DataGenUtil {
         return getResource(i, ID);
     }
 
+    /**
+     * @deprecated use handheldItem(item)
+     */
+    @Deprecated
     public static ItemModelBuilder itemTool(Item item, ItemModelProvider b) {
-        return b.withExistingParent(getPath(item), TOOL).texture("layer0",
-                getResource("item/" + getPath(item)));
+        return b.handheldItem(item);
     }
 
     public static ItemModelBuilder itemModel(Item item, ItemModelProvider b) {

@@ -4,9 +4,8 @@ import static com.devdyna.justdynathings.Main.ID;
 
 import java.util.concurrent.CompletableFuture;
 
-import com.devdyna.justdynathings.registry.types.zBlocks;
+import com.devdyna.justdynathings.registry.types.zBlockTags;
 import com.devdyna.justdynathings.registry.types.zItemTags;
-import com.devdyna.justdynathings.registry.types.zMultiTags;
 import com.direwolf20.justdirethings.datagen.JustDireItemTags;
 import com.direwolf20.justdirethings.setup.Registration;
 import com.glodblock.github.extendedae.common.EAESingletons;
@@ -34,7 +33,16 @@ public class DataItemTag extends ItemTagsProvider {
         @Override
         protected void addTags(Provider p) {
 
-                tag(zMultiTags.COPPER_BULBS.item()).add(
+                copy(zBlockTags.AMETHYST_BLOCKS, zItemTags.AMETHYST_BLOCKS);
+                copy(zBlockTags.T1_GOO_TYPE, zItemTags.T1_GOO_TYPE);
+                copy(zBlockTags.T2_GOO_TYPE, zItemTags.T2_GOO_TYPE);
+                copy(zBlockTags.T2_SPREAD, zItemTags.T2_SPREAD);
+                copy(zBlockTags.T3_GOO_TYPE, zItemTags.T3_GOO_TYPE);
+                copy(zBlockTags.T3_SPREAD, zItemTags.T3_SPREAD);
+                copy(zBlockTags.T4_GOO_TYPE, zItemTags.T4_GOO_TYPE);
+                copy(zBlockTags.T4_SPREAD, zItemTags.T4_SPREAD);
+
+               tag(zItemTags.COPPER_BULBS).add(
                                 Items.COPPER_BULB,
                                 Items.EXPOSED_COPPER_BULB,
                                 Items.WEATHERED_COPPER_BULB,
@@ -44,7 +52,6 @@ public class DataItemTag extends ItemTagsProvider {
                                 Items.WAXED_WEATHERED_COPPER_BULB,
                                 Items.WAXED_OXIDIZED_COPPER_BULB);
 
-                tag(zMultiTags.AMETHYST_BLOCKS.item()).add(Items.AMETHYST_BLOCK, Items.BUDDING_AMETHYST);
 
                 tag(zItemTags.UNIVERSAL_WRENCH)
                                 .addOptionalTag(Tags.Items.TOOLS_WRENCH)
@@ -64,15 +71,6 @@ public class DataItemTag extends ItemTagsProvider {
 
                 tag(zItemTags.ECLIPSE_ALLOY_ANVIL_DENY)
                                 .add(Items.MACE);
-
-                tag(zMultiTags.T2_SPREAD.item()).add(
-                                Registration.GooBlock_Tier1_ITEM.get());
-
-                tag(zMultiTags.T3_SPREAD.item()).add(
-                                Registration.GooBlock_Tier2_ITEM.get()).addTag(zMultiTags.T2_SPREAD.item());
-
-                tag(zMultiTags.T4_SPREAD.item()).add(
-                                Registration.GooBlock_Tier3_ITEM.get()).addTag(zMultiTags.T3_SPREAD.item());
 
                 tag(zItemTags.AE2_COMPAT).add(
                                 AEBlocks.FLAWLESS_BUDDING_QUARTZ.asItem(),
@@ -95,22 +93,6 @@ public class DataItemTag extends ItemTagsProvider {
                 tag(zItemTags.TIME_BUDDING).add(
                                 Registration.TimeCrystalBlock_ITEM.get(),
                                 Registration.TimeCrystalBuddingBlock_ITEM.get());
-
-                tag(zMultiTags.T1_GOO_TYPE.item())
-                                .add(Registration.GooBlock_Tier1.get().asItem(),
-                                                zBlocks.T1_GOO.get().asItem());
-
-                tag(zMultiTags.T2_GOO_TYPE.item())
-                                .add(Registration.GooBlock_Tier2.get().asItem(),
-                                                zBlocks.T2_GOO.get().asItem());
-
-                tag(zMultiTags.T3_GOO_TYPE.item())
-                                .add(Registration.GooBlock_Tier3.get().asItem(),
-                                                zBlocks.T3_GOO.get().asItem());
-
-                tag(zMultiTags.T4_GOO_TYPE.item())
-                                .add(Registration.GooBlock_Tier4.get().asItem(),
-                                                zBlocks.T4_GOO.get().asItem());
 
         }
 

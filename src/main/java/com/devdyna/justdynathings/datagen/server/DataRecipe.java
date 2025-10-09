@@ -70,7 +70,7 @@ public class DataRecipe extends RecipeProvider {
                                 .pattern("ABA")
                                 .define('A', Registration.FerricoreIngot.get())
                                 .define('B', Tags.Items.DUSTS_REDSTONE)
-                                .define('C', zMultiTags.COPPER_BULBS.item())
+                                .define('C', zItemTags.COPPER_BULBS)
                                 .unlockedBy(ID, InventoryChangeTrigger.TriggerInstance
                                                 .hasItems(Registration.FerricoreIngot.get()))
                                 .group(Constants.Blocks.FerricoreClock).save(c);
@@ -125,7 +125,7 @@ public class DataRecipe extends RecipeProvider {
                                 .unlockedBy(ID, itemInv(Blocks.OBSIDIAN.asItem())).group("obsidian-goo")
                                 .save(c);
 
-                Budding(zBlocks.ECHOING_BUDDING_AMETHYST.get().asItem(), zMultiTags.AMETHYST_BLOCKS.item(), c);
+                Budding(zBlocks.ECHOING_BUDDING_AMETHYST.get().asItem(), zItemTags.AMETHYST_BLOCKS, c);
 
                 Budding(zBlocks.ECHOING_BUDDING_TIME.get().asItem(), zItemTags.TIME_BUDDING, c);
 
@@ -177,15 +177,15 @@ public class DataRecipe extends RecipeProvider {
                                 .pattern("DAD")
                                 .define('A', Registration.TimeCrystal.get())
                                 .define('B', Registration.EclipseAlloyIngot.get())
-                                .define('C', zMultiTags.T4_GOO_TYPE.item())
+                                .define('C', zItemTags.T4_GOO_TYPE)
                                 .define('D', Items.REDSTONE_BLOCK)
                                 .unlockedBy(ID, itemInv(Registration.TimeCrystal.get(),
                                                 Registration.EclipseAlloyIngot.get()))
                                 .group(Constants.Goo.Energized).save(c);
 
-                GooConversion(zMultiTags.T2_SPREAD.block(), Registration.GooBlock_Tier2.get(), c);
-                GooConversion(zMultiTags.T3_SPREAD.block(), Registration.GooBlock_Tier3.get(), c);
-                GooConversion(zMultiTags.T4_SPREAD.block(), Registration.GooBlock_Tier4.get(), c);
+                GooConversion(zBlockTags.T2_SPREAD, Registration.GooBlock_Tier2.get(), c);
+                GooConversion(zBlockTags.T3_SPREAD, Registration.GooBlock_Tier3.get(), c);
+                GooConversion(zBlockTags.T4_SPREAD, Registration.GooBlock_Tier4.get(), c);
 
                 shapeless(zBlocks.T1_GOO.get().asItem(), c,
                                 Registration.GooBlock_Tier1_ITEM.get(),

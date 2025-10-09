@@ -4,7 +4,6 @@ import java.util.concurrent.CompletableFuture;
 
 import com.devdyna.justdynathings.registry.types.zBlockTags;
 import com.devdyna.justdynathings.registry.types.zBlocks;
-import com.devdyna.justdynathings.registry.types.zMultiTags;
 import com.devdyna.justdynathings.utils.DataGenUtil;
 import com.direwolf20.justdirethings.datagen.JustDireBlockTags;
 import com.direwolf20.justdirethings.setup.Registration;
@@ -63,57 +62,54 @@ public class DataBlockTag extends BlockTagsProvider {
                                 .forEach(b -> tag(JustDireBlockTags.PARADOX_ALLOW)
                                                 .add(b.get()));
 
-                tag(zMultiTags.COPPER_BLOCKS.block()).add(
-                                Blocks.COPPER_BLOCK, Blocks.WAXED_COPPER_BLOCK,
-                                Blocks.WEATHERED_COPPER, Blocks.WAXED_WEATHERED_COPPER,
-                                Blocks.EXPOSED_COPPER, Blocks.WAXED_EXPOSED_COPPER,
-                                Blocks.OXIDIZED_COPPER, Blocks.WAXED_OXIDIZED_COPPER);
+                tag(zBlockTags.AMETHYST_BLOCKS).add(Blocks.AMETHYST_BLOCK, Blocks.BUDDING_AMETHYST);
 
-                tag(zMultiTags.AMETHYST_BLOCKS.block()).add(Blocks.AMETHYST_BLOCK, Blocks.BUDDING_AMETHYST);
-
-                tag(zMultiTags.T2_SPREAD.block()).add(
+                tag(zBlockTags.T2_SPREAD).add(
                                 Registration.GooBlock_Tier1.get());
 
-                tag(zMultiTags.T3_SPREAD.block()).add(
-                                Registration.GooBlock_Tier2.get()).addTag(zMultiTags.T2_SPREAD.block());
+                tag(zBlockTags.T3_SPREAD).add(
+                                Registration.GooBlock_Tier2.get()).addTag(zBlockTags.T2_SPREAD);
 
-                tag(zMultiTags.T4_SPREAD.block()).add(
-                                Registration.GooBlock_Tier3.get()).addTag(zMultiTags.T3_SPREAD.block());
+                tag(zBlockTags.T4_SPREAD).add(
+                                Registration.GooBlock_Tier3.get()).addTag(zBlockTags.T3_SPREAD);
 
-                // JustDireBlockTags.SWAPPERDENY only work on datagen...
                 tag(zBlockTags.PICKER_DENY)
                                 .add(Blocks.PISTON_HEAD, Blocks.MOVING_PISTON, Blocks.BEDROCK,
                                                 Blocks.END_PORTAL_FRAME, Blocks.CANDLE_CAKE)
                                 .addTags(BlockTags.BEDS,
                                                 BlockTags.PORTALS, BlockTags.DOORS,
-                                                Tags.Blocks.RELOCATION_NOT_SUPPORTED);
+                                                Tags.Blocks.RELOCATION_NOT_SUPPORTED)
+                                .addOptionalTag(JustDireBlockTags.SWAPPERDENY.location());
 
                 tag(zBlockTags.SWAPPER_DENY)
                                 .add(Blocks.PISTON_HEAD, Blocks.MOVING_PISTON, Blocks.BEDROCK,
                                                 Blocks.END_PORTAL_FRAME, Blocks.CANDLE_CAKE)
                                 .addTags(BlockTags.BEDS,
                                                 BlockTags.PORTALS, BlockTags.DOORS,
-                                                Tags.Blocks.RELOCATION_NOT_SUPPORTED);
+                                                Tags.Blocks.RELOCATION_NOT_SUPPORTED)
+                                .addOptionalTag(JustDireBlockTags.SWAPPERDENY.location());
 
                 tag(zBlockTags.COAL_BLOCKS)
                                 .add(Blocks.COAL_BLOCK, Registration.CharcoalBlock.get())
                                 .addOptionalTag(JustDireBlockTags.CHARCOAL);
 
-                tag(zMultiTags.T1_GOO_TYPE.block())
+                tag(zBlockTags.T1_GOO_TYPE)
                                 .add(Registration.GooBlock_Tier1.get(),
                                                 zBlocks.T1_GOO.get());
 
-                tag(zMultiTags.T2_GOO_TYPE.block())
+                tag(zBlockTags.T2_GOO_TYPE)
                                 .add(Registration.GooBlock_Tier2.get(),
                                                 zBlocks.T2_GOO.get());
 
-                tag(zMultiTags.T3_GOO_TYPE.block())
+                tag(zBlockTags.T3_GOO_TYPE)
                                 .add(Registration.GooBlock_Tier3.get(),
                                                 zBlocks.T3_GOO.get());
 
-                tag(zMultiTags.T4_GOO_TYPE.block())
+                tag(zBlockTags.T4_GOO_TYPE)
                                 .add(Registration.GooBlock_Tier4.get(),
                                                 zBlocks.T4_GOO.get());
+
+                tag(zBlockTags.ADVANCED_TIME_DENY).addOptional(JustDireBlockTags.TICK_SPEED_DENY.location());
 
         }
 

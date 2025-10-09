@@ -38,18 +38,16 @@ public class DataBlockTag extends BlockTagsProvider {
                                 .forEach(b -> tag(BlockTags.MINEABLE_WITH_PICKAXE)
                                                 .addOptional(DataGenUtil.getResource(b.get())));
 
-                // ores
                 zBlocks.zOres.getEntries()
-                                .forEach(b -> tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                                                .add(b.get()));
+                                .forEach(b -> {
+                                        tag(BlockTags.MINEABLE_WITH_PICKAXE)
+                                                        .add(b.get());
+                                        tag(JustDireBlockTags.PARADOX_ALLOW).add(b.get());
+                                        tag(Tags.Blocks.ORES).add(b.get());
+                                });
 
-                // goo blocks
                 zBlocks.zGoo.getEntries()
                                 .forEach(b -> tag(BlockTags.MINEABLE_WITH_SHOVEL)
-                                                .add(b.get()));
-
-                zBlocks.zOres.getEntries()
-                                .forEach(b -> tag(Tags.Blocks.ORES)
                                                 .add(b.get()));
 
                 tag(REVITALIZER_GOO).add(
@@ -57,10 +55,6 @@ public class DataBlockTag extends BlockTagsProvider {
                                 Registration.GooBlock_Tier2.get(),
                                 Registration.GooBlock_Tier3.get(),
                                 Registration.GooBlock_Tier4.get());
-
-                zBlocks.zOres.getEntries()
-                                .forEach(b -> tag(JustDireBlockTags.PARADOX_ALLOW)
-                                                .add(b.get()));
 
                 tag(zBlockTags.AMETHYST_BLOCKS).add(Blocks.AMETHYST_BLOCK, Blocks.BUDDING_AMETHYST);
 

@@ -19,6 +19,7 @@ import com.direwolf20.justdirethings.util.MiscTools;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.HitResult.Type;
 import net.neoforged.neoforge.common.util.FakePlayer;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -70,10 +71,10 @@ public class AdvancedTimeWand extends TimeWand {
             return InteractionResultHolder.fail(item);
 
         if (!item.has(zComponents.MODE))
-            resetComponent(level,player, hand);
+            resetComponent(level, player, hand);
 
         if (!MODES.list.contains(item.get(zComponents.MODE)))
-            resetComponent(level,player, hand);
+            resetComponent(level, player, hand);
 
         switch (hitResult.getType()) {
             case Type.MISS: {
@@ -108,6 +109,7 @@ public class AdvancedTimeWand extends TimeWand {
             return false;
 
         var mode = item.get(zComponents.MODE);
+
         player.swing(hand);
 
         String resultMode = mode;
@@ -118,7 +120,7 @@ public class AdvancedTimeWand extends TimeWand {
             resultMode = MODES.list.get(MODES.list.indexOf(resultMode) + 1);
 
         item.set(zComponents.MODE, resultMode);
-        message(player, "mode." + resultMode);
+        message(player, "tip." + resultMode);
 
         return true;
     }
@@ -210,7 +212,7 @@ public class AdvancedTimeWand extends TimeWand {
                 pitch);
     }
 
-    protected void resetComponent(Level level,Player player, InteractionHand hand) {
+    protected void resetComponent(Level level, Player player, InteractionHand hand) {
         var item = player.getItemInHand(hand);
         player.swing(hand);
         item.set(zComponents.MODE, MODES.NORMAL);
@@ -220,7 +222,7 @@ public class AdvancedTimeWand extends TimeWand {
                 SoundSource.BLOCKS, (level.random.nextInt(10) + 1) * 0.01F,
                 level.random.nextInt(50) + 1 * 0.01F);
 
-                message(player, "mode.reset");
+        message(player, "mode.reset");
 
     }
 
@@ -233,19 +235,34 @@ public class AdvancedTimeWand extends TimeWand {
 
     @Override
     public void appendHoverText(ItemStack i, TooltipContext context, List<Component> t, TooltipFlag flagIn) {
-        super.appendHoverText(i, context, t, flagIn);
 
         t.add(Component.translatable(Main.ID + "." + Constants.Wands.AdvancedTimeWand));
         if (i.get(zComponents.MODE) != null) {
             var value = MODES.list.indexOf(i.get(zComponents.MODE));
 
-            t.add(Component.literal("§c[" +
-                    (value == 0 ? "§a" : "§c") + "1x§c|" +
-                    (value == 1 ? "§a" : "§c") + "2x§c|" +
-                    (value == 2 ? "§a" : "§c") + "4x§c|" +
-                    (value == 3 ? "§a" : "§c") + "8x§c]"));
-        }
+            var normal = Component.translatable(ID + "." + Constants.Wands.AdvancedTimeWand + ".mode.normal")
+                    .withStyle((value == 0 ? ChatFormatting.GREEN : ChatFormatting.GRAY));
 
+            var x2 = Component.translatable(ID + "." + Constants.Wands.AdvancedTimeWand + ".mode.x2")
+                    .withStyle((value == 1 ? ChatFormatting.GREEN : ChatFormatting.GRAY));
+
+            var x4 = Component.translatable(ID + "." + Constants.Wands.AdvancedTimeWand + ".mode.x4")
+                    .withStyle((value == 2 ? ChatFormatting.GREEN : ChatFormatting.GRAY));
+
+            var max = Component.translatable(ID + "." + Constants.Wands.AdvancedTimeWand + ".mode.max")
+                    .withStyle((value == 3 ? ChatFormatting.GREEN : ChatFormatting.GRAY));
+
+            var start = Component.literal("[ ").withStyle(ChatFormatting.GRAY);
+            var mid = Component.literal(" | ").withStyle(ChatFormatting.GRAY);
+            var end = Component.literal(" ]").withStyle(ChatFormatting.GRAY);
+
+            t.add(start
+                    .append(normal).append(mid)
+                    .append(x2).append(mid)
+                    .append(x4).append(mid)
+                    .append(max).append(end));
+
+        }
         super.appendHoverText(i, context, t, flagIn);
     }
 

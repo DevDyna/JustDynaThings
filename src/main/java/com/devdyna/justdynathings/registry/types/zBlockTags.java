@@ -17,7 +17,7 @@ public class zBlockTags {
 
     public static final TagKey<Block> COAL_BLOCKS = Material.tagBlock("storage_blocks/unified_coals");
 
-    public static final TagKey<Block> AMETHYST_BLOCKS = Material.tagBlock("minecraft", "amethyst_blocks");
+    // public static final TagKey<Block> AMETHYST_BLOCKS = Material.tagBlock("minecraft", "amethyst_blocks");
 
     public static final TagKey<Block> T2_SPREAD = Material.tagBlock("t2_spread");
     public static final TagKey<Block> T3_SPREAD = Material.tagBlock("t3_spread");

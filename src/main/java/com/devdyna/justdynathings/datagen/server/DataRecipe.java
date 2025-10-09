@@ -8,11 +8,7 @@ import java.util.concurrent.CompletableFuture;
 
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.recipetypes.builders.*;
-import com.devdyna.justdynathings.registry.types.zBlockTags;
-import com.devdyna.justdynathings.registry.types.zBlocks;
-import com.devdyna.justdynathings.registry.types.zItemTags;
-import com.devdyna.justdynathings.registry.types.zItems;
-import com.devdyna.justdynathings.registry.types.zMultiTags;
+import com.devdyna.justdynathings.registry.types.*;
 import com.devdyna.justdynathings.utils.DataGenUtil;
 import com.direwolf20.justdirethings.common.blocks.gooblocks.GooBlock_Base;
 import com.direwolf20.justdirethings.datagen.recipes.FluidDropRecipeBuilder;

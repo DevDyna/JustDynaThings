@@ -33,7 +33,8 @@ public class DataItemTag extends ItemTagsProvider {
         @Override
         protected void addTags(Provider p) {
 
-                copy(zBlockTags.AMETHYST_BLOCKS, zItemTags.AMETHYST_BLOCKS);
+                tag(zItemTags.AMETHYST_BLOCKS).add(Items.AMETHYST_BLOCK, Items.BUDDING_AMETHYST);
+
                 copy(zBlockTags.T1_GOO_TYPE, zItemTags.T1_GOO_TYPE);
                 copy(zBlockTags.T2_GOO_TYPE, zItemTags.T2_GOO_TYPE);
                 copy(zBlockTags.T2_SPREAD, zItemTags.T2_SPREAD);
@@ -42,7 +43,7 @@ public class DataItemTag extends ItemTagsProvider {
                 copy(zBlockTags.T4_GOO_TYPE, zItemTags.T4_GOO_TYPE);
                 copy(zBlockTags.T4_SPREAD, zItemTags.T4_SPREAD);
 
-               tag(zItemTags.COPPER_BULBS).add(
+                tag(zItemTags.COPPER_BULBS).add(
                                 Items.COPPER_BULB,
                                 Items.EXPOSED_COPPER_BULB,
                                 Items.WEATHERED_COPPER_BULB,
@@ -51,7 +52,6 @@ public class DataItemTag extends ItemTagsProvider {
                                 Items.WAXED_EXPOSED_COPPER_BULB,
                                 Items.WAXED_WEATHERED_COPPER_BULB,
                                 Items.WAXED_OXIDIZED_COPPER_BULB);
-
 
                 tag(zItemTags.UNIVERSAL_WRENCH)
                                 .addOptionalTag(Tags.Items.TOOLS_WRENCH)

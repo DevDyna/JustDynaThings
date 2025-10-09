@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "advanced_time_wand",
+  "key": {
+    "C": {
+      "item": "justdirethings:time_crystal"
+    },
+    "E": {
+      "item": "justdirethings:eclipsealloy_ingot"
+    },
+    "W": {
+      "item": "justdirethings:time_wand"
+    }
+  },
+  "pattern": [
+    " EC",
+    " WE",
+    "E  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "justdynathings:advanced_time_wand"
+  }
+}

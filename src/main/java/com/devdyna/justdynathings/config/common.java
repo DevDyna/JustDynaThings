@@ -513,7 +513,7 @@ public class common {
 
                 ADVANCED_TIME_WAND_MB_CAPACITY = qCOMMON
                                 .comment("MB Capacity")
-                                .defineInRange(Wands.AdvancedTimeWand + Config.MB_MAX, 8_000_000, 1, Integer.MAX_VALUE);
+                                .defineInRange(Wands.AdvancedTimeWand + Config.MB_MAX, 800_000, 1, Integer.MAX_VALUE);
 
                 ADVANCED_TIME_WAND_FE_CAPACITY = qCOMMON
                                 .comment("FE Capacity")

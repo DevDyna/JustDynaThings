@@ -26,8 +26,9 @@ import xyz.milosworks.phasoritenetworks.init.PNBlocks;
 
 public class DataItemTag extends ItemTagsProvider {
 
-        public DataItemTag(PackOutput o, CompletableFuture<Provider> p, CompletableFuture<TagLookup<Block>> b,ExistingFileHelper f) {
-                super(o, p, b,ID,f);
+        public DataItemTag(PackOutput o, CompletableFuture<Provider> p, CompletableFuture<TagLookup<Block>> b,
+                        ExistingFileHelper f) {
+                super(o, p, b, ID, f);
         }
 
         @Override

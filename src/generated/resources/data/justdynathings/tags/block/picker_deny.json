@@ -8,6 +8,10 @@
     "#minecraft:beds",
     "#minecraft:portals",
     "#minecraft:doors",
-    "#c:relocation_not_supported"
+    "#c:relocation_not_supported",
+    {
+      "id": "#justdirethings:swapper_deny",
+      "required": false
+    }
   ]
 }

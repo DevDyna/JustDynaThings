@@ -30,7 +30,7 @@ public class DataItemModel extends ItemModelProvider {
                 zItems.zItem.getEntries()
                                 .forEach(item -> DataGenUtil.itemModel(item.get(), this));
 
-                zItems.zItemHanded.getEntries().forEach(item -> DataGenUtil.itemTool(item.get(), this));
+                zItems.zItemHanded.getEntries().forEach(item -> handheldItem(item.get()));
 
                 zItems.zGooUpgraders.getEntries()
                                 .forEach(item -> DataGenUtil.itemModel(item.get(), this));

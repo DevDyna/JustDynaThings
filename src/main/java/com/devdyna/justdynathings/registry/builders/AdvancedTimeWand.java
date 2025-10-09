@@ -68,10 +68,10 @@ public class AdvancedTimeWand extends TimeWand {
             return InteractionResultHolder.fail(item);
 
         if (!item.has(zComponents.MODE))
-            resetComponent(player, hand);
+            resetComponent(level,player, hand);
 
         if (!MODES.list.contains(item.get(zComponents.MODE)))
-            resetComponent(player, hand);
+            resetComponent(level,player, hand);
 
         switch (hitResult.getType()) {
             case Type.MISS: {
@@ -208,10 +208,18 @@ public class AdvancedTimeWand extends TimeWand {
                 pitch);
     }
 
-    protected void resetComponent(Player player, InteractionHand hand) {
+    protected void resetComponent(Level level,Player player, InteractionHand hand) {
         var item = player.getItemInHand(hand);
         player.swing(hand);
         item.set(zComponents.MODE, MODES.NORMAL);
+
+        level.playSound(null, player.getOnPos(),
+                SoundEvents.AMETHYST_BLOCK_CHIME,
+                SoundSource.BLOCKS, (level.random.nextInt(10) + 1) * 0.01F,
+                level.random.nextInt(50) + 1 * 0.01F);
+
+                message(player, "mode.reset");
+
     }
 
     protected void clickSuccess(ItemStack item, int mb, int fe, Level level, BlockPos pos, int rate) {
@@ -224,6 +232,7 @@ public class AdvancedTimeWand extends TimeWand {
     @Override
     public void appendHoverText(ItemStack i, TooltipContext context, List<Component> t, TooltipFlag flagIn) {
         super.appendHoverText(i, context, t, flagIn);
+
         t.add(Component.translatable(Main.ID + "." + Constants.Wands.AdvancedTimeWand));
         if (i.get(zComponents.MODE) != null) {
             var value = MODES.list.indexOf(i.get(zComponents.MODE));
@@ -235,6 +244,7 @@ public class AdvancedTimeWand extends TimeWand {
                     (value == 3 ? "§a" : "§c") + "8x§c]"));
         }
 
+        super.appendHoverText(i, context, t, flagIn);
     }
 
 }

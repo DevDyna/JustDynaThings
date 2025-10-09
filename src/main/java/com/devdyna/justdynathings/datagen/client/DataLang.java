@@ -119,6 +119,7 @@ public class DataLang extends LanguageProvider {
                                 "§7More capable and configurable version of Time wand");
 
                 add(ID + "." + Constants.Wands.AdvancedTimeWand + ".mode.disabled", "§cThis Mode was disabled");
+                add(ID + "." + Constants.Wands.AdvancedTimeWand + ".mode.reset", "This wand is ready to be used!");
 
                 add(ID + "." + Constants.Wands.AdvancedTimeWand + ".mode.normal", "Mode set to §aNormal");
                 add(ID + "." + Constants.Wands.AdvancedTimeWand + ".mode.x2", "Mode set to §a2x");

@@ -9,6 +9,7 @@ import com.devdyna.justdynathings.registry.builders.AdvancedTimeWand;
 import com.devdyna.justdynathings.registry.builders.DisabledItem;
 import com.devdyna.justdynathings.registry.builders.GooUpgrader;
 import com.devdyna.justdynathings.registry.builders.PickerWand;
+import com.devdyna.justdynathings.registry.builders.StabilizerWand;
 import com.devdyna.justdynathings.registry.builders.SwapperWand;
 import com.direwolf20.justdirethings.setup.Registration;
 
@@ -106,6 +107,9 @@ public class zItems {
         public static final DeferredHolder<Item, ?> ADVANCED_TIME_WAND = zItemHanded.register(
                         Constants.Wands.AdvancedTime,
                         () -> new AdvancedTimeWand());
+
+        public static final DeferredHolder<Item, ?> STABILIZER_WAND = zItemHanded.register(Constants.Wands.Stabilizer,
+                        () -> new StabilizerWand());
 
         public static void registerLists() {
                 if (!ModAddonCheck.AppliedEnergistics2)

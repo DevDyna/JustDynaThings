@@ -2,6 +2,7 @@ package com.devdyna.justdynathings.datagen.server;
 
 import static net.minecraft.data.recipes.RecipeCategory.MISC;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
@@ -10,7 +11,13 @@ import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.recipetypes.builders.*;
 import com.devdyna.justdynathings.registry.types.*;
 import com.devdyna.justdynathings.utils.DataGenUtil;
+import com.devdyna.justdynathings.utils.LogUtil;
+import com.direwolf20.justdirethings.JustDireThings;
 import com.direwolf20.justdirethings.common.blocks.gooblocks.GooBlock_Base;
+import com.direwolf20.justdirethings.common.items.datacomponents.JustDireDataComponents;
+import com.direwolf20.justdirethings.common.items.interfaces.Ability;
+import com.direwolf20.justdirethings.common.items.interfaces.ToolRecords.AbilityBinding;
+import com.direwolf20.justdirethings.datagen.recipes.AbilityRecipeBuilder;
 import com.direwolf20.justdirethings.datagen.recipes.FluidDropRecipeBuilder;
 import com.direwolf20.justdirethings.datagen.recipes.GooSpreadRecipeBuilder;
 import com.direwolf20.justdirethings.datagen.recipes.GooSpreadRecipeTagBuilder;
@@ -25,12 +32,14 @@ import net.minecraft.advancements.Criterion;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.component.DataComponentType;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
@@ -41,6 +50,7 @@ import net.neoforged.neoforge.common.conditions.ICondition;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
 import net.neoforged.neoforge.common.crafting.BlockTagIngredient;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import xyz.milosworks.phasoritenetworks.init.PNBlocks;
 
 import static com.devdyna.justdynathings.compat.ae2.init.AE2_POWERED;
@@ -405,8 +415,7 @@ public class DataRecipe extends RecipeProvider {
                                 .output(Registration.RawCoal_T4.get().defaultBlockState())
                                 .unlockedBy().group(Constants.DataMaps.Reforger.block_to_block).save(c);
 
-
-ShapedRecipeBuilder.shaped(MISC, zItems.ADVANCED_TIME_WAND.get())
+                ShapedRecipeBuilder.shaped(MISC, zItems.ADVANCED_TIME_WAND.get())
                                 .pattern(" EC")
                                 .pattern(" WE")
                                 .pattern("E  ")
@@ -418,6 +427,31 @@ ShapedRecipeBuilder.shaped(MISC, zItems.ADVANCED_TIME_WAND.get())
                                                                 Registration.EclipseAlloyIngot.get()))
                                 .group(Constants.Wands.AdvancedTime).save(c);
 
+                registerStabilizerStaff(c);
+
+        }
+
+        @SuppressWarnings("unchecked")
+        private void registerStabilizerStaff(RecipeOutput c) {
+                var item = new ItemStack(zItems.STABILIZER_WAND.get());
+
+                item.set((DataComponentType<Boolean>) JustDireDataComponents.COMPONENTS.getEntries().stream()
+                                .filter(e -> e.getId()
+                                                .equals(DataGenUtil.getResource("stupefy_upgrade_installed",
+                                                                JustDireThings.MODID)))
+                                .findFirst()
+                                .map(DeferredHolder::get)
+                                .orElse(null), true);
+                ShapedRecipeBuilder.shaped(MISC, item)
+                                .pattern(" CE")
+                                .pattern(" IC")
+                                .pattern("I  ")
+                                .define('I', Registration.BlazegoldIngot.get())
+                                .define('C', Items.REDSTONE)
+                                .define('E', Items.QUARTZ)
+                                .unlockedBy(ID, itemInv(Items.ENDER_EYE, Items.REDSTONE,
+                                                Registration.BlazegoldIngot.get()))
+                                .group(Constants.Wands.Stabilizer).save(c);
         }
 
         /**

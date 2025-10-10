@@ -11,6 +11,7 @@ public class Constants {
     public class Wands {
         public static String Swapper = "swapper_wand";
         public static String Picker = "picker_wand";
+        public static String Stabilizer = "stabilizer_wand";
         public static String AdvancedTime = "advanced_time_wand";
 
     }

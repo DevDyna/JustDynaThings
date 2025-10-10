@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "stabilizer_wand",
+  "key": {
+    "C": {
+      "item": "minecraft:redstone"
+    },
+    "E": {
+      "item": "minecraft:quartz"
+    },
+    "I": {
+      "item": "justdirethings:blazegold_ingot"
+    }
+  },
+  "pattern": [
+    " CE",
+    " IC",
+    "I  "
+  ],
+  "result": {
+    "components": {
+      "justdirethings:stupefy_upgrade_installed": true
+    },
+    "count": 1,
+    "id": "justdynathings:stabilizer_wand"
+  }
+}

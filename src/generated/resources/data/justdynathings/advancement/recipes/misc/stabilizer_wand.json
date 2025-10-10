@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "justdynathings:stabilizer_wand"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "justdynathings": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:ender_eye"
+          },
+          {
+            "items": "minecraft:redstone"
+          },
+          {
+            "items": "justdirethings:blazegold_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "justdynathings"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "justdynathings:stabilizer_wand"
+    ]
+  }
+}

@@ -77,30 +77,19 @@ public class AdvancedTimeWand extends TimeWand {
             resetComponent(level, player, hand);
 
         switch (hitResult.getType()) {
-            case Type.MISS: {
-                if (checkFakePlayer(player))
-                    return InteractionResultHolder.fail(item);
-
+            case Type.MISS:
                 if (changeMode(level, player, hand, item))
                     return InteractionResultHolder.success(item);
-            }
 
-            case Type.BLOCK: {
-                if (checkFakePlayer(player))
-                    return InteractionResultHolder.fail(item);
+            case Type.BLOCK:
                 if (this.spawnEntity(level, player, hitResult.getBlockPos(), item))
                     return InteractionResultHolder.success(item);
-            }
 
             case Type.ENTITY:
             default:
                 return super.use(level, player, hand);
         }
 
-    }
-
-    protected boolean checkFakePlayer(Player player) {
-        return !common.ADVANCED_TIME_WAND_FAKE_PLAYER_ALLOWED.get() && player instanceof FakePlayer;
     }
 
     protected boolean changeMode(Level level, Player player, InteractionHand hand, ItemStack item) {

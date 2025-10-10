@@ -3,12 +3,12 @@
 
 ### Classic
 
-- [ ] Energy/Fluid storage
-- [ ] Creative Energy/Fluid tank
+- ~~Energy/Fluid storage~~ out of topic
+- ~~Creative Energy/Fluid tank~~ out of topic
 - ~~Culinary Generator (food -> FE)~~ out of topic
 - ~~Engine Generator (Furnace lit -> FE)~~ out of topic
 - ~~Draconite generator (dragon breath -> FE)~~ out of topic
-- [ ] Improved Furnaces (?)
+- ~~Improved Furnaces (?)~~ out of topic
 
 ### Specialized
 
@@ -21,12 +21,11 @@
 - [ ] Experience Reactor (farmable xp mob-less)
 - [ ] Bacteria Catalyst (Eclipse staff like but descructive)
 - [ ] Generator T2-3-4
-- [x] Block Picker (Itemstaff like Swapper but manual)
 - [ ] Paradox Box (Pandora's Box like)
-- [ ] Crystallizer and Liquid Crystalline
-- [ ] Rocket Boots Upgrade
+- ~~Crystallizer and Liquid Crystalline~~ out of topic
+- [ ] Rocket Boots
 - [ ] Raw magmasteel (iron + magma) -> thermogen (?)
-- [ ] Mushroom Tree Feller upgrade
+- [ ] Mushroom Tree Feller
 - [ ] Pocket generator T2-3-4 [(?)](https://github.com/Direwolf20-MC/JustDireThings/blob/main/src/main/resources/assets/justdirethings/textures/item/pocket_generator_t4.png)
 - [ ] Budding Revitalizer (like revitalizer but based to revitalize time and flawed buddings)
 - [ ] Budding Booster (like a sprinkler but based for buddings )
@@ -34,12 +33,8 @@
 
 ### Implemented but not fully completed
 
-- [x] Datamaps and tags jei integration
 - [ ] Ticker rework and datagen
 - [ ] Buddings datagen (?)
 - [ ] BlackHole rework and datagen (?)
-- [x] Solar panel upgrade recipe
-- [x] Powered goo upgrade recipe
 - [ ] Waterlogging many blocks
-- [x] Swapper dont check at the end of swapping
 - [ ] Budding JEI category

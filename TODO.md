@@ -30,6 +30,8 @@
 - [ ] Budding Revitalizer (like revitalizer but based to revitalize time and flawed buddings)
 - [ ] Budding Booster (like a sprinkler but based for buddings )
 - [ ] Advanced Experience holder
+- [ ] Paradox Decreaser
+
 
 ### Implemented but not fully completed
 

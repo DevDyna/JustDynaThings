@@ -188,7 +188,7 @@ public class AdvancedTimeWand extends TimeWand {
 
     protected void message(Player player, String type) {
         player.displayClientMessage(
-                Component.translatable(Main.ID + "." + Constants.Wands.AdvancedTimeWand
+                Component.translatable(Main.ID + "." + Constants.Wands.AdvancedTime
                         + "." + type),
                 true);
     }
@@ -236,20 +236,20 @@ public class AdvancedTimeWand extends TimeWand {
     @Override
     public void appendHoverText(ItemStack i, TooltipContext context, List<Component> t, TooltipFlag flagIn) {
 
-        t.add(Component.translatable(Main.ID + "." + Constants.Wands.AdvancedTimeWand));
+        t.add(Component.translatable(Main.ID + "." + Constants.Wands.AdvancedTime));
         if (i.get(zComponents.MODE) != null) {
             var value = MODES.list.indexOf(i.get(zComponents.MODE));
 
-            var normal = Component.translatable(ID + "." + Constants.Wands.AdvancedTimeWand + ".mode.normal")
+            var normal = Component.translatable(ID + "." + Constants.Wands.AdvancedTime + ".mode.normal")
                     .withStyle((value == 0 ? ChatFormatting.GREEN : ChatFormatting.GRAY));
 
-            var x2 = Component.translatable(ID + "." + Constants.Wands.AdvancedTimeWand + ".mode.x2")
+            var x2 = Component.translatable(ID + "." + Constants.Wands.AdvancedTime + ".mode.x2")
                     .withStyle((value == 1 ? ChatFormatting.GREEN : ChatFormatting.GRAY));
 
-            var x4 = Component.translatable(ID + "." + Constants.Wands.AdvancedTimeWand + ".mode.x4")
+            var x4 = Component.translatable(ID + "." + Constants.Wands.AdvancedTime + ".mode.x4")
                     .withStyle((value == 2 ? ChatFormatting.GREEN : ChatFormatting.GRAY));
 
-            var max = Component.translatable(ID + "." + Constants.Wands.AdvancedTimeWand + ".mode.max")
+            var max = Component.translatable(ID + "." + Constants.Wands.AdvancedTime + ".mode.max")
                     .withStyle((value == 3 ? ChatFormatting.GREEN : ChatFormatting.GRAY));
 
             var start = Component.literal("[ ").withStyle(ChatFormatting.GRAY);

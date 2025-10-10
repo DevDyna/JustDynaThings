@@ -416,7 +416,7 @@ ShapedRecipeBuilder.shaped(MISC, zItems.ADVANCED_TIME_WAND.get())
                                 .unlockedBy(ID, InventoryChangeTrigger.TriggerInstance
                                                 .hasItems(Registration.TimeCrystal.get(),
                                                                 Registration.EclipseAlloyIngot.get()))
-                                .group(Constants.Wands.AdvancedTimeWand).save(c);
+                                .group(Constants.Wands.AdvancedTime).save(c);
 
         }
 

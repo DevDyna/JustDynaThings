@@ -115,21 +115,21 @@ public class DataLang extends LanguageProvider {
                 add(ID + ".init_invalid", "§cInitial Block isn't anymore valid");
                 add(ID + ".clear_pos", "§7Position Cleared");
 
-                add(ID + "." + Constants.Wands.AdvancedTimeWand,
+                add(ID + "." + Constants.Wands.AdvancedTime,
                                 "§7More capable and configurable version of Time wand");
 
-                add(ID + "." + Constants.Wands.AdvancedTimeWand + ".mode.disabled", "§cThis Mode was disabled");
-                add(ID + "." + Constants.Wands.AdvancedTimeWand + ".mode.reset", "This wand is ready to be used!");
+                add(ID + "." + Constants.Wands.AdvancedTime + ".mode.disabled", "§cThis Mode was disabled");
+                add(ID + "." + Constants.Wands.AdvancedTime + ".mode.reset", "This wand is ready to be used!");
 
-                add(ID + "." + Constants.Wands.AdvancedTimeWand + ".tip.normal", "Mode set to §aNormal");
-                add(ID + "." + Constants.Wands.AdvancedTimeWand + ".tip.x2", "Mode set to §a2x");
-                add(ID + "." + Constants.Wands.AdvancedTimeWand + ".tip.x4", "Mode set to §a4x");
-                add(ID + "." + Constants.Wands.AdvancedTimeWand + ".tip.max", "Mode set to §aMax");
+                add(ID + "." + Constants.Wands.AdvancedTime + ".tip.normal", "Mode set to §aNormal");
+                add(ID + "." + Constants.Wands.AdvancedTime + ".tip.x2", "Mode set to §a2x");
+                add(ID + "." + Constants.Wands.AdvancedTime + ".tip.x4", "Mode set to §a4x");
+                add(ID + "." + Constants.Wands.AdvancedTime + ".tip.max", "Mode set to §aMax");
                 
-                add(ID + "." + Constants.Wands.AdvancedTimeWand + ".mode.normal", "1x");
-                add(ID + "." + Constants.Wands.AdvancedTimeWand + ".mode.x2", "2x");
-                add(ID + "." + Constants.Wands.AdvancedTimeWand + ".mode.x4", "4x");
-                add(ID + "." + Constants.Wands.AdvancedTimeWand + ".mode.max", "8x");
+                add(ID + "." + Constants.Wands.AdvancedTime + ".mode.normal", "1x");
+                add(ID + "." + Constants.Wands.AdvancedTime + ".mode.x2", "2x");
+                add(ID + "." + Constants.Wands.AdvancedTime + ".mode.x4", "4x");
+                add(ID + "." + Constants.Wands.AdvancedTime + ".mode.max", "8x");
 
 
 

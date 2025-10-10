@@ -509,37 +509,37 @@ public class common {
 
                 ADVANCED_TIME_WAND_FAKE_PLAYER_ALLOWED = qCOMMON
                                 .comment("Advanced Time Wand support Fake Players")
-                                .define(Wands.AdvancedTimeWand + "_allow_fakeplayer", true);
+                                .define(Wands.AdvancedTime + "_allow_fakeplayer", true);
 
                 ADVANCED_TIME_WAND_MB_CAPACITY = qCOMMON
                                 .comment("MB Capacity")
-                                .defineInRange(Wands.AdvancedTimeWand + Config.MB_MAX, 800_000, 1, Integer.MAX_VALUE);
+                                .defineInRange(Wands.AdvancedTime + Config.MB_MAX, 800_000, 1, Integer.MAX_VALUE);
 
                 ADVANCED_TIME_WAND_FE_CAPACITY = qCOMMON
                                 .comment("FE Capacity")
-                                .defineInRange(Wands.AdvancedTimeWand + Config.FE_MAX, 10_000_000, 1,
+                                .defineInRange(Wands.AdvancedTime + Config.FE_MAX, 10_000_000, 1,
                                                 Integer.MAX_VALUE);
 
                 ADVANCED_TIME_WAND_NORMAL_MODE = qCOMMON.comment(
                                 "Mode NORMAL [1|2|4|8]")
-                                .define(Wands.AdvancedTimeWand + "_mode_normal", 1,
+                                .define(Wands.AdvancedTime + "_mode_normal", 1,
                                                 (value) -> config.validateADW("_mode_normal", value));
 
                 ADVANCED_TIME_WAND_X2_MODE = qCOMMON.comment(
-                                "Mode X2 [1|2|4|8]").define(Wands.AdvancedTimeWand + "_mode_x2", 2,
+                                "Mode X2 [1|2|4|8]").define(Wands.AdvancedTime + "_mode_x2", 2,
                                                 (value) -> config.validateADW("_mode_x2", value));
 
                 ADVANCED_TIME_WAND_X4_MODE = qCOMMON.comment(
-                                "Mode X4 [1|2|4|8]").define(Wands.AdvancedTimeWand + "_mode_x4", 4,
+                                "Mode X4 [1|2|4|8]").define(Wands.AdvancedTime + "_mode_x4", 4,
                                                 (value) -> config.validateADW("_mode_x4", value));
 
                 ADVANCED_TIME_WAND_MAX_MODE = qCOMMON.comment(
-                                "Mode MAX [1|2|4|8]").define(Wands.AdvancedTimeWand + "_mode_max", 8,
+                                "Mode MAX [1|2|4|8]").define(Wands.AdvancedTime + "_mode_max", 8,
                                                 (value) -> config.validateADW("_mode_max", value));
 
                 ADVANCED_TIME_WAND_MAX_MULTIPLIER = qCOMMON.comment(
                                 "Max speed applicable with Advanced Time Wand\n It can disable other wand-modes when below 256\n This value should be a power of two")
-                                .define(Wands.AdvancedTimeWand + "_max_multiplier", 256,
+                                .define(Wands.AdvancedTime + "_max_multiplier", 256,
                                                 (value) -> config.maxADW(value));
 
                 qCOMMON.pop();

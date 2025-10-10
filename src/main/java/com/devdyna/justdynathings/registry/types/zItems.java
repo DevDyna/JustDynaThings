@@ -103,8 +103,8 @@ public class zItems {
 
                         ));
 
-
-                public static final DeferredHolder<Item, ?> ADVANCED_TIME_WAND = zItemHanded.register(Constants.Wands.AdvancedTimeWand,
+        public static final DeferredHolder<Item, ?> ADVANCED_TIME_WAND = zItemHanded.register(
+                        Constants.Wands.AdvancedTime,
                         () -> new AdvancedTimeWand());
 
         public static void registerLists() {

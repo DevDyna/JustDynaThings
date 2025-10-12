@@ -2,6 +2,7 @@ package com.devdyna.justdynathings.registry;
 
 import static com.devdyna.justdynathings.Main.ID;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.function.Supplier;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
@@ -19,10 +20,14 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.BlockEntityType.BlockEntitySupplier;
 import net.minecraft.world.level.material.Fluid;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
+@SuppressWarnings({ "null", "unchecked" })
 public class Material {
         public static void register(IEventBus bus) {
                 zBlockEntities.register(bus);
@@ -166,6 +171,20 @@ public class Material {
                         return block;
                 }
 
+        }
+
+        /**
+         * @param factory     Class::new
+         * @param validBlocks BLOCK1,BLOCK2
+         */
+
+        public static <T extends BlockEntity> DeferredHolder<BlockEntityType<?>, BlockEntityType<T>> createBlockEntity(
+                        String name,
+                        BlockEntitySupplier<T> factory, Supplier<? extends Block>... validBlocks) {
+                return zBlockEntities.zBE.register(name,
+                                () -> BlockEntityType.Builder.of(factory, Arrays.stream(validBlocks)
+                                                .map(Supplier::get)
+                                                .toArray(Block[]::new)).build(null));
         }
 
 }

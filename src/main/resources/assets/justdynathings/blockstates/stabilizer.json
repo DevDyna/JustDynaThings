@@ -6,7 +6,7 @@
         "facing": "down"
       },
       "apply": {
-        "model": "justdynathings:block/revitalizer/x/on"
+        "model": "justdynathings:block/stabilizer/x/on"
       }
     },
     {
@@ -15,7 +15,7 @@
         "facing": "up"
       },
       "apply": {
-        "model": "justdynathings:block/revitalizer/x/on",
+        "model": "justdynathings:block/stabilizer/x/on",
         "x": 180
       }
     },
@@ -25,7 +25,7 @@
         "facing": "north"
       },
       "apply": {
-        "model": "justdynathings:block/revitalizer/x/on",
+        "model": "justdynathings:block/stabilizer/x/on",
         "x": 270
       }
     },
@@ -35,7 +35,7 @@
         "facing": "south"
       },
       "apply": {
-        "model": "justdynathings:block/revitalizer/x/on",
+        "model": "justdynathings:block/stabilizer/x/on",
         "x": 90
       }
     },
@@ -45,7 +45,7 @@
         "facing": "east"
       },
       "apply": {
-        "model": "justdynathings:block/revitalizer/z/on",
+        "model": "justdynathings:block/stabilizer/z/on",
         "y": 180
       }
     },
@@ -55,7 +55,7 @@
         "facing": "west"
       },
       "apply": {
-        "model": "justdynathings:block/revitalizer/z/on"
+        "model": "justdynathings:block/stabilizer/z/on"
       }
     },
 
@@ -65,7 +65,7 @@
         "facing": "down"
       },
       "apply": {
-        "model": "justdynathings:block/revitalizer/x/off"
+        "model": "justdynathings:block/stabilizer/x/off"
       }
     },
     {
@@ -74,7 +74,7 @@
         "facing": "up"
       },
       "apply": {
-        "model": "justdynathings:block/revitalizer/x/off",
+        "model": "justdynathings:block/stabilizer/x/off",
         "x": 180
       }
     },
@@ -84,7 +84,7 @@
         "facing": "north"
       },
       "apply": {
-        "model": "justdynathings:block/revitalizer/x/off",
+        "model": "justdynathings:block/stabilizer/x/off",
         "x": 270
       }
     },
@@ -94,7 +94,7 @@
         "facing": "south"
       },
       "apply": {
-        "model": "justdynathings:block/revitalizer/x/off",
+        "model": "justdynathings:block/stabilizer/x/off",
         "x": 90
       }
     },
@@ -104,7 +104,7 @@
         "facing": "east"
       },
       "apply": {
-        "model": "justdynathings:block/revitalizer/z/off",
+        "model": "justdynathings:block/stabilizer/z/off",
         "y": 180
       }
     },
@@ -114,7 +114,7 @@
         "facing": "west"
       },
       "apply": {
-        "model": "justdynathings:block/revitalizer/z/off"
+        "model": "justdynathings:block/stabilizer/z/off"
       }
     },
 
@@ -124,7 +124,7 @@
         "facing": "down"
       },
       "apply": {
-        "model": "justdynathings:block/revitalizer/x/tentacles"
+        "model": "justdynathings:block/stabilizer/x/tentacles"
       }
     },
     {
@@ -133,7 +133,7 @@
         "facing": "up"
       },
       "apply": {
-        "model": "justdynathings:block/revitalizer/x/tentacles",
+        "model": "justdynathings:block/stabilizer/x/tentacles",
         "x": 180
       }
     },
@@ -143,7 +143,7 @@
         "facing": "north"
       },
       "apply": {
-        "model": "justdynathings:block/revitalizer/x/tentacles",
+        "model": "justdynathings:block/stabilizer/x/tentacles",
         "x": 270
       }
     },
@@ -153,7 +153,7 @@
         "facing": "south"
       },
       "apply": {
-        "model": "justdynathings:block/revitalizer/x/tentacles",
+        "model": "justdynathings:block/stabilizer/x/tentacles",
         "x": 90
       }
     },
@@ -163,7 +163,7 @@
         "facing": "east"
       },
       "apply": {
-        "model": "justdynathings:block/revitalizer/z/tentacles",
+        "model": "justdynathings:block/stabilizer/z/tentacles",
         "y": 180
       }
     },
@@ -173,7 +173,7 @@
         "facing": "west"
       },
       "apply": {
-        "model": "justdynathings:block/revitalizer/z/tentacles"
+        "model": "justdynathings:block/stabilizer/z/tentacles"
       }
     }
   ]

@@ -1,0 +1,6 @@
+{
+	"parent": "justdynathings:block/stabilizer/z/base",
+	"textures": {
+		"top": "justdynathings:block/stabilizer/core/off"
+	}
+}

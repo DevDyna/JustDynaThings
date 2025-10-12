@@ -33,6 +33,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
@@ -42,7 +43,11 @@ import net.minecraft.world.phys.BlockHitResult;
 public class ClockBlock extends BaseMachineBlock {
 
     public ClockBlock() {
-        super(zProperties.MachineProp.sound(SoundType.COPPER_BULB));
+        super(BlockBehaviour.Properties.of()
+                .requiresCorrectToolForDrops()
+                .strength(2.0f).destroyTime(2.0f)
+                .isRedstoneConductor(BaseMachineBlock::never)
+                .sound(SoundType.COPPER_BULB));
     }
 
     @Override

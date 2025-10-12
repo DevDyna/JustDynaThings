@@ -7,7 +7,6 @@ import java.util.function.Supplier;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.registry.builders.RawOre;
-import com.devdyna.justdynathings.registry.builders._core.block.BlockBase;
 import com.devdyna.justdynathings.registry.builders._core.item.ItemFuel;
 import com.devdyna.justdynathings.registry.builders._core.item.ItemBase;
 import com.devdyna.justdynathings.registry.types.*;
@@ -124,17 +123,16 @@ public class Material {
                                 ItemBase::new);
         }
 
-        public static DeferredHolder<Block, ?> createBlock(String name) {
-                return zBlocks.zBlock.register(name,
-                                BlockBase::new);
-        }
+        // public static DeferredHolder<Block, ?> createBlock(String name) {
+        //         return zBlocks.zBlock.register(name, Block::new);
+        // }
 
-        @Deprecated
-        public static DeferredHolder<Block, ?> createBlockItem(String name) {
-                zItems.zBlockItem.register(name, ItemBase::new);
-                return zBlocks.zBlockItem.register(name,
-                                BlockBase::new);
-        }
+        // @Deprecated
+        // public static DeferredHolder<Block, ?> createBlockItem(String name) {
+        //         zItems.zBlockItem.register(name, ItemBase::new);
+        //         return zBlocks.zBlockItem.register(name,
+        //                         BlockBase::new);
+        // }
 
         public class DireStuff {
 

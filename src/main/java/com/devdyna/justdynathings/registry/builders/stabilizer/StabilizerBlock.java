@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.registry.builders.revitalizer;
+package com.devdyna.justdynathings.registry.builders.stabilizer;
 
 import java.util.List;
 
@@ -11,6 +11,8 @@ import com.devdyna.justdynathings.registry.builders._core.block.BlockBaseBE;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.DirectionUtil;
+import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item.TooltipContext;
@@ -19,7 +21,9 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -29,7 +33,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 @SuppressWarnings("null")
 
-public class RevitalizerBlock extends BlockBaseBE {
+public class StabilizerBlock extends BlockBaseBE {
 
     public static VoxelShape[] shapes = {
             Shapes.box(0, 0, 0, 1, 0.5, 1), // down
@@ -40,8 +44,12 @@ public class RevitalizerBlock extends BlockBaseBE {
             Shapes.box(0.5, 0, 0, 1, 1, 1), // east
     };
 
-    public RevitalizerBlock() {
-        super(zProperties.MachineProp);
+    public StabilizerBlock() {
+        super(BlockBehaviour.Properties.of()
+                .requiresCorrectToolForDrops()
+                .strength(2.0f).destroyTime(2.0f)
+                .sound(SoundType.CHAIN)
+                .isRedstoneConductor(BaseMachineBlock::never));
     }
 
     @Override
@@ -57,7 +65,7 @@ public class RevitalizerBlock extends BlockBaseBE {
     @Override
     @Nullable
     public BlockEntity newBlockEntity(BlockPos p, BlockState s) {
-        return new RevitalizerBE(zBlockEntities.REVITALIZER.get(), p, s);
+        return new StabilizerBE(zBlockEntities.REVITALIZER.get(), p, s);
     }
 
     @Override

@@ -47,4 +47,7 @@ public class zItemTags {
         public static final TagKey<Item> T3_GOO_TYPE = Material.tagItem("t3_goo_type");
         public static final TagKey<Item> T4_GOO_TYPE = Material.tagItem("t4_goo_type");
 
+        public static final TagKey<Item> INTERACTIVE = Material.tagItem("interactive");
+
+
 }

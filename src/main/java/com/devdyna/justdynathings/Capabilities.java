@@ -13,7 +13,6 @@ import com.direwolf20.justdirethings.common.capabilities.EnergyStorageItemstack;
 import com.direwolf20.justdirethings.common.items.datacomponents.JustDireDataComponents;
 import com.direwolf20.justdirethings.common.items.interfaces.PoweredItem;
 import com.direwolf20.justdirethings.setup.Registration;
-
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.capabilities.Capabilities.EnergyStorage;
 import net.neoforged.neoforge.capabilities.Capabilities.FluidHandler;
@@ -27,18 +26,24 @@ public class Capabilities {
 
         public static void regCap(RegisterCapabilitiesEvent event) {
 
+                Block[] TimeFluidMachines = {
+                                zBlocks.STABILIZER.get()
+                };
+
                 Block[] EnergyMachineBase = {
 
                                 zBlocks.CELESTIGEM_ANVIL.get(),
                                 zBlocks.ECLIPSEALLOY_ANVIL.get(),
 
-                                zBlocks.REVITALIZER.get(),
+                                zBlocks.STABILIZER.get(),
 
                                 zBlocks.ENERGIZED_GOO.get(),
                                 zBlocks.T1_GOO.get(), zBlocks.T2_GOO.get(),
                                 zBlocks.T3_GOO.get(), zBlocks.T4_GOO.get(),
 
-                                zBlocks.BLACKHOLE.get()
+                                zBlocks.BLACKHOLE.get(),
+
+                                zBlocks.FLUID_TANK.get()
                 };
 
                 Block[] FluidMachineBase = {
@@ -46,8 +51,12 @@ public class Capabilities {
                                 zBlocks.BLACKHOLE.get(),
                                 zBlocks.THERMOGEN.get(),
 
+                                zBlocks.STABILIZER.get(),
+
                                 zBlocks.BLAZEGOLD_ANVIL.get(),
-                                zBlocks.ECLIPSEALLOY_ANVIL.get()
+                                zBlocks.ECLIPSEALLOY_ANVIL.get(),
+
+                                zBlocks.FLUID_TANK.get()
                 };
 
                 Block[] ItemStackMachineBase = {
@@ -65,7 +74,9 @@ public class Capabilities {
                                 zBlocks.FERRICORE_SOLARGEN.get(),
                                 zBlocks.BLAZEGOLD_SOLARGEN.get(),
                                 zBlocks.CELESTIGEM_SOLARGEN.get(),
-                                zBlocks.ECLIPSEALLOY_SOLARGEN.get()
+                                zBlocks.ECLIPSEALLOY_SOLARGEN.get(),
+
+                                zBlocks.FLUID_TANK.get()
 
                 };
 
@@ -149,6 +160,13 @@ public class Capabilities {
                 },
 
                                 zItems.ADVANCED_TIME_WAND.get());
+
+                event.registerBlock(FluidHandler.BLOCK,
+                                (level, pos, state, be,
+                                                side) -> (be instanceof FluidMachineBE || be instanceof FluidMachine)
+                                                                ? be.getData(Registration.PARADOX_FLUID_HANDLER)
+                                                                : null,
+                                TimeFluidMachines);
 
         }
 

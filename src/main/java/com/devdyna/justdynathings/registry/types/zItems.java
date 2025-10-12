@@ -5,12 +5,7 @@ import java.util.Arrays;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.Constants.ModAddonCheck;
-import com.devdyna.justdynathings.registry.builders.AdvancedTimeWand;
-import com.devdyna.justdynathings.registry.builders.DisabledItem;
-import com.devdyna.justdynathings.registry.builders.GooUpgrader;
-import com.devdyna.justdynathings.registry.builders.PickerWand;
-import com.devdyna.justdynathings.registry.builders.StabilizerWand;
-import com.devdyna.justdynathings.registry.builders.SwapperWand;
+import com.devdyna.justdynathings.registry.builders.*;
 import com.direwolf20.justdirethings.setup.Registration;
 
 import net.minecraft.world.item.Item;
@@ -108,8 +103,8 @@ public class zItems {
                         Constants.Wands.AdvancedTime,
                         () -> new AdvancedTimeWand());
 
-        public static final DeferredHolder<Item, ?> STABILIZER_WAND = zItemHanded.register(Constants.Wands.Stabilizer,
-                        () -> new StabilizerWand());
+        public static final DeferredHolder<Item, ?> STUPEFY_WAND = zItemHanded.register(Constants.Wands.Stupefy,
+                        () -> new StupefyWand());
 
         public static void registerLists() {
                 if (!ModAddonCheck.AppliedEnergistics2)

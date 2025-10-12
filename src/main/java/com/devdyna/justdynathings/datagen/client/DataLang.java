@@ -131,7 +131,7 @@ public class DataLang extends LanguageProvider {
                 add(ID + "." + Constants.Wands.AdvancedTime + ".mode.x4", "4x");
                 add(ID + "." + Constants.Wands.AdvancedTime + ".mode.max", "8x");
 
-                add(ID + "." + Constants.Wands.Stabilizer, "§7Remove TimeWand Entities and Stupefy ability");
+                add(ID + "." + Constants.Wands.Stupefy, "§7Remove TimeWand Entities and Stupefy ability");
 
         }
 

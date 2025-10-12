@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.Fluid;
 import net.neoforged.bus.api.IEventBus;
@@ -23,12 +24,16 @@ public class zProperties {
 
         public static void register(IEventBus bus) {
         }
+
         // ---------------------------------------------------------------------------------------//
-
+        @Deprecated
         public static final BlockBehaviour.Properties bProp = BlockBehaviour.Properties.of();
+        @Deprecated
         public static final Properties iProp = new Item.Properties();
-        // public static final Properties iPropBucket = iProp.craftRemainder(BUCKET).stacksTo(1);
 
+        // public static final Properties iPropBucket =
+        // iProp.craftRemainder(BUCKET).stacksTo(1);
+        @Deprecated
         public final static BaseFlowingFluid.Properties FProp(DeferredHolder<FluidType, ?> type,
                         DeferredHolder<Fluid, ?> source, DeferredHolder<Fluid, FlowingFluid> flowing,
                         DeferredHolder<Item, BucketItem> bucket,
@@ -36,6 +41,7 @@ public class zProperties {
                 return new BaseFlowingFluid.Properties(type, source, flowing).bucket(bucket).block(blockfluid);
         }
 
+        @Deprecated
         public static final BlockBehaviour.Properties MachineProp = BlockBehaviour.Properties.of()
                         .requiresCorrectToolForDrops()
                         .strength(2.0f)
@@ -44,25 +50,11 @@ public class zProperties {
         // ---------------------------------------------------------------------------------------//
 
         public static final BooleanProperty GOO_ALIVE = GooBlock_Base.ALIVE;
-
+        public static final IntegerProperty STABILIZERS = IntegerProperty.create("stabilizers", 0, 6);
         public static final BooleanProperty SOLID = BooleanProperty.create("solid");
         public static final BooleanProperty ACTIVE = BooleanProperty.create("active");
         public static final BooleanProperty COOLED = BooleanProperty.create("thermo_cooled");
         public static final BooleanProperty HEATED = BooleanProperty.create("thermo_heated");
         public static final BooleanProperty GOO_FOUND = BooleanProperty.create("goo_found");
-
-        // public static BaseFlowingFluid.Properties lapis = zProperties.FProp(
-        //                 zFluidTypes.LAPIS_LAZULI_JUICE_FLUID_TYPE,
-        //                 zFluids.LAPIS_LAZULI_JUICE_SOURCE,
-        //                 zFluids.LAPIS_LAZULI_JUICE_FLOWING,
-        //                 zItems.LAPIS_LAZULI_JUICE_BUCKET,
-        //                 zBlocks.LAPIS_LAZULI_JUICE_FLUID);
-
-        // public static BaseFlowingFluid.Properties redstone = zProperties.FProp(
-        //                 zFluidTypes.REDSTONE_JUICE_FLUID_TYPE,
-        //                 zFluids.REDSTONE_JUICE_SOURCE,
-        //                 zFluids.REDSTONE_JUICE_FLOWING,
-        //                 zItems.REDSTONE_JUICE_BUCKET,
-        //                 zBlocks.REDSTONE_JUICE_FLUID);
 
 }

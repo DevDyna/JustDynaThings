@@ -59,8 +59,8 @@ public class DataItemModel extends ItemModelProvider {
                 DataGenUtil.itemBlockwithParent(zBlocks.REFORGER.get(), this,
                                 ID + ":block/" + DataGenUtil.getName(zBlocks.REFORGER.get()) + "/off");
 
-                DataGenUtil.itemBlockwithParent(zBlocks.REVITALIZER.get(), this,
-                                ID + ":block/" + DataGenUtil.getName(zBlocks.REVITALIZER.get()) + "/x/off");
+                DataGenUtil.itemBlockwithParent(zBlocks.STABILIZER.get(), this,
+                                ID + ":block/" + DataGenUtil.getName(zBlocks.STABILIZER.get()) + "/x/off");
 
                 GooItemModel(zBlocks.ENERGIZED_GOO.get());
                 GooItemModel(zBlocks.CREATIVE_GOO.get());

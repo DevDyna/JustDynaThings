@@ -94,6 +94,12 @@ public class DataItemTag extends ItemTagsProvider {
                                 Registration.TimeCrystalBlock_ITEM.get(),
                                 Registration.TimeCrystalBuddingBlock_ITEM.get());
 
+                tag(zItemTags.INTERACTIVE)
+                                .add(
+                                                Registration.FerricoreWrench.get(),
+                                                Registration.MachineSettingsCopier.get())
+                                .addTag(Tags.Items.BUCKETS);
+
         }
 
 }

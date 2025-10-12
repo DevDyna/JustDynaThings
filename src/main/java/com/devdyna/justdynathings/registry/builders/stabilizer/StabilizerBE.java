@@ -1,12 +1,14 @@
-package com.devdyna.justdynathings.registry.builders.revitalizer;
+package com.devdyna.justdynathings.registry.builders.stabilizer;
 
 import com.devdyna.justdynathings.config.common;
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyMachine;
+import com.devdyna.justdynathings.registry.interfaces.be.FluidMachine;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
 import com.devdyna.justdynathings.registry.types.zBlockTags;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.LevelUtil;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
+import com.direwolf20.justdirethings.common.blockentities.basebe.FluidContainerData;
 import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineContainerData;
 import com.direwolf20.justdirethings.common.blocks.gooblocks.GooBlock_Base;
 import com.direwolf20.justdirethings.common.capabilities.MachineEnergyStorage;
@@ -19,16 +21,18 @@ import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
 
 @SuppressWarnings("null")
-public class RevitalizerBE extends BaseMachineBE implements EnergyMachine {
+public class StabilizerBE extends BaseMachineBE implements EnergyMachine, FluidMachine {
     public final PoweredMachineContainerData poweredMachineData = new PoweredMachineContainerData(this);
+    public final FluidContainerData fluidContainerData = new FluidContainerData(this);
 
-    public RevitalizerBE(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState) {
+    public StabilizerBE(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState) {
         super(pType, pPos, pBlockState);
     }
 
-    public RevitalizerBE(BlockPos pos, BlockState state) {
+    public StabilizerBE(BlockPos pos, BlockState state) {
         this(zBlockEntities.REVITALIZER.get(), pos, state);
     }
 
@@ -49,10 +53,10 @@ public class RevitalizerBE extends BaseMachineBE implements EnergyMachine {
 
         if (readyToConsume()) {
 
-            if (common.REVITALIZER_TOGGLE_SOUND.get())
+            if (common.STABILIZER_TOGGLE_SOUND.get())
                 applySound();
 
-            if (LevelUtil.chance(common.REVITALIZER_CHANCE_FE_COST.get(), level))
+            if (LevelUtil.chance(common.STABILIZER_CHANCE_FE_COST.get(), level))
                 extractFEWhenPossible();
 
             reviveGoo();
@@ -122,12 +126,32 @@ public class RevitalizerBE extends BaseMachineBE implements EnergyMachine {
 
     @Override
     public int getStandardEnergyCost() {
-        return common.REVITALIZER_FE_COST.get();
+        return common.STABILIZER_FE_COST.get();
     }
 
     @Override
     public int getMaxEnergy() {
-        return common.REVITALIZER_FE_CAPACITY.get();
+        return common.STABILIZER_FE_CAPACITY.get();
+    }
+
+    @Override
+    public ContainerData getFluidContainerData() {
+        return fluidContainerData;
+    }
+
+    @Override
+    public FluidTank getFluidTank() {
+        return getData(Registration.PARADOX_FLUID_HANDLER);
+    }
+
+    @Override
+    public int getStandardFluidCost() {
+        return 0;
+    }
+
+    @Override
+    public int getMaxMB() {
+        return 0;
     }
 
 }

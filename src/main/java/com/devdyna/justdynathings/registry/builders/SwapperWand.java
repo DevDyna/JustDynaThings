@@ -7,7 +7,6 @@ import java.util.List;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.config.common;
 import com.devdyna.justdynathings.registry.types.zBlockTags;
-import com.devdyna.justdynathings.registry.types.zProperties;
 import com.direwolf20.justdirethings.common.blockentities.BlockSwapperT1BE;
 import com.direwolf20.justdirethings.common.items.datacomponents.JustDireDataComponents;
 
@@ -33,7 +32,7 @@ import net.neoforged.neoforge.common.util.FakePlayer;
 public class SwapperWand extends Item {
 
     public SwapperWand() {
-        super(zProperties.iProp
+        super(new Item.Properties()
                 .component(JustDireDataComponents.BOUND_GLOBAL_POS, null)
                 .stacksTo(1).durability(256));
     }

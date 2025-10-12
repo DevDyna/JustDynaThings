@@ -8,6 +8,7 @@ import com.devdyna.justdynathings.client.builder.anvil.eclipsealloy.EclipseAlloy
 import com.devdyna.justdynathings.client.builder.anvil.ferricore.FerricoreAnvilGUI;
 import com.devdyna.justdynathings.client.builder.blackhole.BlackHoleGUI;
 import com.devdyna.justdynathings.client.builder.clock.ClockGUI;
+import com.devdyna.justdynathings.client.builder.fluidtank.FluidTankGUI;
 import com.devdyna.justdynathings.client.builder.reforger.ReforgerGUI;
 import com.devdyna.justdynathings.client.builder.solarGen.blazegold.BlazegoldSolarPanelGUI;
 import com.devdyna.justdynathings.client.builder.solarGen.celestigem.CelestigemSolarPanelGUI;
@@ -61,7 +62,6 @@ public class zContainers {
                         .register(Constants.Anvils.t4,
                                         () -> IMenuTypeExtension.create(EclipseAlloyAnvilGUI::new));
 
-        // maybe could be optimized but if work dont touch it!
         public static final DeferredHolder<MenuType<?>, MenuType<FerricoreSolarPanelGUI>> FERRICORE_SOLAR_PANEL = zCTNR
                         .register(Constants.SolarPanel.t1,
                                         () -> IMenuTypeExtension.create(FerricoreSolarPanelGUI::new));
@@ -77,5 +77,9 @@ public class zContainers {
         public static final DeferredHolder<MenuType<?>, MenuType<EclipseAlloySolarPanelGUI>> ECLIPSEALLOY_SOLAR_PANEL = zCTNR
                         .register(Constants.SolarPanel.t4,
                                         () -> IMenuTypeExtension.create(EclipseAlloySolarPanelGUI::new));
+
+        public static final DeferredHolder<MenuType<?>, MenuType<FluidTankGUI>> FLUID_TANK = zCTNR
+                        .register(Constants.Blocks.FluidTank,
+                                        () -> IMenuTypeExtension.create(FluidTankGUI::new));
 
 }

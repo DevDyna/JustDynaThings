@@ -4,8 +4,6 @@ import static com.devdyna.justdynathings.Main.ID;
 
 import java.util.List;
 
-import com.devdyna.justdynathings.registry.types.zProperties;
-
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -14,7 +12,7 @@ import net.minecraft.world.item.TooltipFlag;
 public class DisabledItem extends Item{
 
     public DisabledItem() {
-        super(zProperties.iProp);
+        super(new Item.Properties());
     }
     
     @Override

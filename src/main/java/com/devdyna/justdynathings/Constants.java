@@ -11,7 +11,7 @@ public class Constants {
     public class Wands {
         public static String Swapper = "swapper_wand";
         public static String Picker = "picker_wand";
-        public static String Stabilizer = "stabilizer_wand";
+        public static String Stupefy = "wand_of_temporal_stupefy";
         public static String AdvancedTime = "advanced_time_wand";
 
     }
@@ -28,10 +28,11 @@ public class Constants {
         public static String PhaseBox = "phase_box";
         public static String Reforger = "reforger";
         public static String FerricoreClock = Tiers.ferricore + "_clock";
-        public static String Revitalizer = "revitalizer";
+        public static String Stabilizer = "stabilizer";
         public static String Ticker = "ticker";
         public static String Sculk = "sculk";
         public static String ThermoGen = "thermo_generator";
+        public static String FluidTank = "fluid_tank";
         public static String BlackHole = "blackhole";
     }
 

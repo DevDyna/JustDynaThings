@@ -48,4 +48,9 @@ public class EclipseAlloyAnvilBlock extends CAnvilBlock {
         t.add(Component.translatable(Main.ID + "." + Constants.Anvils.t4 + ".tip"));
         t.add(Component.translatable(Main.ID + "." + Constants.Anvils.t4 + ".boost"));
     }
+
+    @Override
+    public boolean supportFluidContent() {
+        return true;
+    }
 }

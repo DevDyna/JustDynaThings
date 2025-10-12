@@ -7,6 +7,7 @@ import com.devdyna.justdynathings.registry.builders.black_hole.BlackHoleBE;
 import com.devdyna.justdynathings.registry.builders.budding.types.amethyst.AmethystBE;
 import com.devdyna.justdynathings.registry.builders.budding.types.time.TimeBE;
 import com.devdyna.justdynathings.registry.builders.ferricore_clock.ClockBE;
+import com.devdyna.justdynathings.registry.builders.fluid_tank.FluidTankBE;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.blazegold.BlazeGoldAnvilBE;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.celestigem.CelestiGemAnvilBE;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.eclipsealloy.EclipseAlloyAnvilBE;
@@ -15,11 +16,11 @@ import com.devdyna.justdynathings.registry.builders.goo.creative.CreativeGooBE;
 import com.devdyna.justdynathings.registry.builders.goo.energy.diregoo.*;
 import com.devdyna.justdynathings.registry.builders.goo.energy.energized.EnergyGooBE;
 import com.devdyna.justdynathings.registry.builders.reforger.ReforgerBE;
-import com.devdyna.justdynathings.registry.builders.revitalizer.RevitalizerBE;
 import com.devdyna.justdynathings.registry.builders.solar.blazegold.BlazeGoldSolarBE;
 import com.devdyna.justdynathings.registry.builders.solar.celestigem.CelestiGemSolarBE;
 import com.devdyna.justdynathings.registry.builders.solar.eclipsealloy.EclipseAlloySolarBE;
 import com.devdyna.justdynathings.registry.builders.solar.ferricore.FerricoreSolarBE;
+import com.devdyna.justdynathings.registry.builders.stabilizer.StabilizerBE;
 import com.devdyna.justdynathings.registry.builders.thermo.ThermoBE;
 
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -78,9 +79,9 @@ public class zBlockEntities {
                         .createBlockEntity(Constants.Blocks.FerricoreClock,
                                         ClockBE::new, zBlocks.FERRICORE_CLOCK);
 
-        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<RevitalizerBE>> REVITALIZER = Material
-                        .createBlockEntity(Constants.Blocks.Revitalizer,
-                                        RevitalizerBE::new, zBlocks.REVITALIZER);
+        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<StabilizerBE>> REVITALIZER = Material
+                        .createBlockEntity(Constants.Blocks.Stabilizer,
+                                        StabilizerBE::new, zBlocks.STABILIZER);
 
         public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ThermoBE>> THERMOGEN = Material
                         .createBlockEntity(Constants.Blocks.ThermoGen,
@@ -121,5 +122,10 @@ public class zBlockEntities {
         public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<EclipseAlloyAnvilBE>> ECLIPSEALLOY_ANVIL = Material
                         .createBlockEntity(Constants.Anvils.t4,
                                         EclipseAlloyAnvilBE::new, zBlocks.ECLIPSEALLOY_ANVIL);
+      
+      
+                                        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<FluidTankBE>> FLUID_TANK = Material
+                        .createBlockEntity(Constants.Blocks.FluidTank,
+                                        FluidTankBE::new, zBlocks.FLUID_TANK);
 
 }

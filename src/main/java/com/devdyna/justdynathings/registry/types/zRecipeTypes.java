@@ -52,5 +52,14 @@ public class zRecipeTypes {
                                 }
                         });
 
+        public static final zRecipe<FluidTankRecipe> FLUID_TANK_RECIPES = new zRecipe<FluidTankRecipe>(
+                        Constants.Blocks.FluidTank+"_recipes", FluidTankRecipeSerializer::new,
+                        () -> new RecipeType<FluidTankRecipe>() {
+                                @Override
+                                public String toString() {
+                                        return FLUID_TANK_RECIPES.getId();
+                                }
+                        });
+
         // ------------------------------------------------------------------------------------------------------------------------------------//
 }

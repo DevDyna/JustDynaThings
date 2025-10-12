@@ -19,10 +19,10 @@ public class common {
 
         public static BooleanValue FERRICORE_CLOCK_WRENCHABLE;
 
-        public static IntValue REVITALIZER_FE_CAPACITY;
-        public static IntValue REVITALIZER_FE_COST;
-        public static BooleanValue REVITALIZER_TOGGLE_SOUND;
-        public static IntValue REVITALIZER_CHANCE_FE_COST;
+        public static IntValue STABILIZER_FE_CAPACITY;
+        public static IntValue STABILIZER_FE_COST;
+        public static BooleanValue STABILIZER_TOGGLE_SOUND;
+        public static IntValue STABILIZER_CHANCE_FE_COST;
 
         public static IntValue THERMOGEN_FE_CAPACITY;
         public static IntValue THERMOGEN_MB_CAPACITY;
@@ -136,6 +136,10 @@ public class common {
 
         public static ConfigValue<Integer> ADVANCED_TIME_WAND_MAX_MULTIPLIER;
 
+        public static IntValue FLUID_TANK_FE_CAPACITY;
+        public static IntValue FLUID_TANK_FE_RATE;
+        public static IntValue FLUID_TANK_MB_CAPACITY;
+
         public static void register(ModContainer c) {
                 regCommon();
                 c.registerConfig(ModConfig.Type.COMMON, qCOMMON.build());
@@ -149,6 +153,7 @@ public class common {
                 solar_panel();
                 anvil();
                 wands();
+                mixer();
         }
 
         private static void general() {
@@ -176,20 +181,20 @@ public class common {
                                 .comment("Require any wrench to change Ferricore Clock face state intend of nothing")
                                 .define(Blocks.FerricoreClock + Config.WRENCH, false);
 
-                qCOMMON.comment(DataGenUtil.txtDecor(Blocks.Revitalizer));
+                qCOMMON.comment(DataGenUtil.txtDecor(Blocks.Stabilizer));
 
-                REVITALIZER_FE_CAPACITY = qCOMMON
+                STABILIZER_FE_CAPACITY = qCOMMON
                                 .comment("Total FE Capacity")
-                                .defineInRange(Blocks.Revitalizer + Config.FE_MAX, 10000, 1, Integer.MAX_VALUE);
-                REVITALIZER_FE_COST = qCOMMON
+                                .defineInRange(Blocks.Stabilizer + Config.FE_MAX, 10000, 1, Integer.MAX_VALUE);
+                STABILIZER_FE_COST = qCOMMON
                                 .comment("FE/t cost")
-                                .defineInRange(Blocks.Revitalizer + Config.FE_RATE, 1000, 1, Integer.MAX_VALUE);
-                REVITALIZER_TOGGLE_SOUND = qCOMMON
+                                .defineInRange(Blocks.Stabilizer + Config.FE_RATE, 1000, 1, Integer.MAX_VALUE);
+                STABILIZER_TOGGLE_SOUND = qCOMMON
                                 .comment("Enable/Disable sound when revitalized a goo")
-                                .define(Blocks.Revitalizer + Config.SOUND, true);
-                REVITALIZER_CHANCE_FE_COST = qCOMMON
+                                .define(Blocks.Stabilizer + Config.SOUND, true);
+                STABILIZER_CHANCE_FE_COST = qCOMMON
                                 .comment("Chance to apply FE cost when revitalized a goo")
-                                .defineInRange(Blocks.Revitalizer + "_cost_chance", 50, 1, 100);
+                                .defineInRange(Blocks.Stabilizer + "_cost_chance", 50, 1, 100);
 
                 qCOMMON.comment(DataGenUtil.txtDecor(Blocks.ThermoGen));
 
@@ -541,6 +546,25 @@ public class common {
                                 "Max speed applicable with Advanced Time Wand\n It can disable other wand-modes when below 256\n This value should be a power of two")
                                 .define(Wands.AdvancedTime + "_max_multiplier", 256,
                                                 (value) -> config.maxADW(value));
+
+                qCOMMON.pop();
+
+        }
+
+        private static void mixer() {
+                qCOMMON.comment(DataGenUtil.txtDecor("mixer")).push("8-mixer");
+
+                FLUID_TANK_FE_CAPACITY = qCOMMON
+                                .comment("Total FE Capacity")
+                                .defineInRange(Blocks.FluidTank + Config.FE_MAX, 1000, 1, Integer.MAX_VALUE);
+
+                FLUID_TANK_FE_RATE = qCOMMON
+                                .comment("FE/t cost")
+                                .defineInRange(Blocks.FluidTank + Config.FE_RATE, 100, 1, Integer.MAX_VALUE);
+
+                FLUID_TANK_MB_CAPACITY = qCOMMON
+                                .comment("Total Fluid Capacity")
+                                .defineInRange(Blocks.FluidTank + Config.MB_MAX, 1000, 1, Integer.MAX_VALUE);
 
                 qCOMMON.pop();
 

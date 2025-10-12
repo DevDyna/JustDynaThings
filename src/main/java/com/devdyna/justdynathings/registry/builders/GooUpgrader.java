@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.devdyna.justdynathings.Constants;
-import com.devdyna.justdynathings.registry.types.zProperties;
-
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.Item;
@@ -24,7 +22,7 @@ public class GooUpgrader extends Item {
     private boolean makeAllasOne;
 
     public GooUpgrader(ArrayList<Block> fromBlocks, ArrayList<Block> toBlocks, boolean makeAllasOne) {
-        super(zProperties.iProp);
+        super(new Item.Properties());
         this.fromBlocks = fromBlocks;
         this.toBlocks = toBlocks;
         this.makeAllasOne = makeAllasOne;

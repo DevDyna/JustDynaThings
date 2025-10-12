@@ -8,6 +8,7 @@ import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.client.builder.thermoGen.ThermoGUI;
 import com.devdyna.justdynathings.config.common;
+import com.devdyna.justdynathings.registry.builders._core.block.BaseFluidMachineBlock;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.Actions;
 import com.devdyna.justdynathings.utils.ShapeUtil;
@@ -22,7 +23,9 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -31,10 +34,14 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 @SuppressWarnings("null")
-public class ThermoBlock extends BaseMachineBlock {
+public class ThermoBlock extends BaseFluidMachineBlock {
 
     public ThermoBlock() {
-        super(zProperties.MachineProp);
+        super(BlockBehaviour.Properties.of()
+                .requiresCorrectToolForDrops()
+                .strength(2.0f).destroyTime(2.0f)
+                .sound(SoundType.METAL)
+                .isRedstoneConductor(BaseMachineBlock::never));
     }
 
     @Override

@@ -16,7 +16,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -29,7 +31,11 @@ import javax.annotation.Nullable;
 public class ReforgerBlock extends BaseMachineBlock {
 
     public ReforgerBlock() {
-        super(zProperties.MachineProp);
+        super(BlockBehaviour.Properties.of()
+                .requiresCorrectToolForDrops()
+                .strength(2.0f).destroyTime(2.0f)
+                .sound(SoundType.CHAIN)
+                .isRedstoneConductor(BaseMachineBlock::never));
     }
 
     @Nullable

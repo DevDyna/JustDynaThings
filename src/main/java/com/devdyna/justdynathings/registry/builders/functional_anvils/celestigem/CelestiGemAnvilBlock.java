@@ -48,4 +48,9 @@ public class CelestiGemAnvilBlock extends CAnvilBlock {
         t.add(Component.translatable(Main.ID + "." + Constants.Anvils.t3 + ".tip"));
     }
 
+    @Override
+    public boolean supportFluidContent() {
+        return false;
+    }
+
 }

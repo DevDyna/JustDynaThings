@@ -8,7 +8,6 @@ import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.config.common;
 import com.devdyna.justdynathings.registry.types.zBlockTags;
 import com.devdyna.justdynathings.registry.types.zComponents;
-import com.devdyna.justdynathings.registry.types.zProperties;
 import com.direwolf20.justdirethings.common.blockentities.BlockSwapperT1BE;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
@@ -32,7 +31,7 @@ import net.neoforged.neoforge.common.util.FakePlayer;
 public class PickerWand extends Item {
 
     public PickerWand() {
-        super(zProperties.iProp
+        super(new Item.Properties()
                 .component(zComponents.STATE, null)
                 .stacksTo(1).durability(256));
     }

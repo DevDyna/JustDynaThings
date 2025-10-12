@@ -6,6 +6,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -13,10 +14,9 @@ import javax.annotation.Nullable;
 
 @SuppressWarnings("null")
 public class TickerBlock extends BlockBaseBE {
-    
 
     public TickerBlock() {
-        super(zProperties.MachineProp);
+        super(BlockBehaviour.Properties.of());
     }
 
     @Nullable

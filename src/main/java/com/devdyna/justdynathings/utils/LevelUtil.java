@@ -1,10 +1,12 @@
 package com.devdyna.justdynathings.utils;
 
 import java.util.List;
+import java.util.function.Predicate;
 
 import com.direwolf20.justdirethings.client.particles.glitterparticle.GlitterParticleData;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -40,7 +42,7 @@ public class LevelUtil {
         return level.getBiome(pos).is(ResourceLocation.fromNamespaceAndPath(modid, biome));
     }
 
-        public static boolean isBiome(Level level, BlockPos pos, TagKey<Biome> biome) {
+    public static boolean isBiome(Level level, BlockPos pos, TagKey<Biome> biome) {
         return level.getBiome(pos).is(biome);
     }
 
@@ -214,6 +216,21 @@ public class LevelUtil {
 
     public static void popItemFromPos(Level level, BlockPos pos, ItemStack itemStack) {
         popItemFromPos(level, pos.getX(), pos.getY(), pos.getZ(), itemStack);
+    }
+
+    /**
+     * Check foreach side based on a predicate
+     * 
+     * @param predicate x -> x instanceof BlockToCheck
+     */
+    public static int predicateNeighborMatch(Level level, BlockPos pos, Predicate<Block> predicate) {
+        int counter = 0;
+        for (Direction dir : Direction.values()) {
+            Block block = level.getBlockState(pos.relative(dir)).getBlock();
+            if (predicate.test(block))
+                counter++;
+        }
+        return counter;
     }
 
 }

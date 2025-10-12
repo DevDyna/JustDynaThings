@@ -47,4 +47,9 @@ public class BlazeGoldAnvilBlock extends CAnvilBlock {
         super.appendHoverText(i, c, t, f);
         t.add(Component.translatable(Main.ID + "." + Constants.Anvils.t2 + ".tip"));
     }
+
+    @Override
+    public boolean supportFluidContent() {
+        return true;
+    }
 }

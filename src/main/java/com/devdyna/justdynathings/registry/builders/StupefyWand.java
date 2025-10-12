@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
 import org.jetbrains.annotations.NotNull;
 
 import com.devdyna.justdynathings.Constants;
-import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.DataGenUtil;
 import com.direwolf20.justdirethings.common.entities.TimeWandEntity;
 import com.direwolf20.justdirethings.common.items.datacomponents.JustDireDataComponents;
@@ -32,6 +31,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier.Operation;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
@@ -41,15 +41,14 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.HitResult.Type;
 
 @SuppressWarnings("null")
-public class StabilizerWand extends BaseToggleableTool implements LeftClickableTool {
+public class StupefyWand extends BaseToggleableTool implements LeftClickableTool {
 
     protected final EnumSet<Ability> abilities = EnumSet.noneOf(Ability.class);
     protected final Map<Ability, AbilityParams> abilityParams = new EnumMap<>(Ability.class);
 
-    public StabilizerWand() {
-        super(zProperties.iProp
+    public StupefyWand() {
+        super(new Item.Properties()
                 .attributes(
-
                         ItemAttributeModifiers.builder()
                                 .add(Attributes.ENTITY_INTERACTION_RANGE,
                                         new AttributeModifier(DataGenUtil.getResource("entity_interaction_range"), 4,
@@ -110,7 +109,7 @@ public class StabilizerWand extends BaseToggleableTool implements LeftClickableT
     public void appendHoverText(ItemStack i, TooltipContext c, List<Component> t,
             TooltipFlag f) {
 
-        t.add(Component.translatable(ID + "." + Constants.Wands.Stabilizer));
+        t.add(Component.translatable(ID + "." + Constants.Wands.Stupefy));
 
         super.appendHoverText(i, c, t, f);
 

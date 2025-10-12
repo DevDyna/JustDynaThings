@@ -8,6 +8,7 @@ import com.devdyna.justdynathings.registry.builders.black_hole.BlackHoleBlock;
 import com.devdyna.justdynathings.registry.builders.budding.types.amethyst.AmethystBlock;
 import com.devdyna.justdynathings.registry.builders.budding.types.time.TimeBlock;
 import com.devdyna.justdynathings.registry.builders.ferricore_clock.ClockBlock;
+import com.devdyna.justdynathings.registry.builders.fluid_tank.FluidTankBlock;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.blazegold.BlazeGoldAnvilBlock;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.celestigem.CelestiGemAnvilBlock;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.eclipsealloy.EclipseAlloyAnvilBlock;
@@ -16,11 +17,11 @@ import com.devdyna.justdynathings.registry.builders.goo.creative.CreativeGoo;
 import com.devdyna.justdynathings.registry.builders.goo.energy.diregoo.*;
 import com.devdyna.justdynathings.registry.builders.goo.energy.energized.EnergyGoo;
 import com.devdyna.justdynathings.registry.builders.reforger.ReforgerBlock;
-import com.devdyna.justdynathings.registry.builders.revitalizer.RevitalizerBlock;
 import com.devdyna.justdynathings.registry.builders.solar.blazegold.BlazeGoldSolarBlock;
 import com.devdyna.justdynathings.registry.builders.solar.celestigem.CelestiGemSolarBlock;
 import com.devdyna.justdynathings.registry.builders.solar.eclipsealloy.EclipseAlloySolarBlock;
 import com.devdyna.justdynathings.registry.builders.solar.ferricore.FerricoreSolarBlock;
+import com.devdyna.justdynathings.registry.builders.stabilizer.StabilizerBlock;
 import com.devdyna.justdynathings.registry.builders.thermo.ThermoBlock;
 
 import net.minecraft.world.level.block.Block;
@@ -85,8 +86,8 @@ public class zBlocks {
         public static final DeferredHolder<Block, ?> FERRICORE_CLOCK = Material
                         .registerItemAndBlock(Constants.Blocks.FerricoreClock, ClockBlock::new);
 
-        public static final DeferredHolder<Block, ?> REVITALIZER = Material
-                        .registerItemAndBlock(Constants.Blocks.Revitalizer, RevitalizerBlock::new);
+        public static final DeferredHolder<Block, ?> STABILIZER = Material
+                        .registerItemAndBlock(Constants.Blocks.Stabilizer, StabilizerBlock::new);
 
         public static final DeferredHolder<Block, ?> THERMOGEN = Material
                         .registerItemAndBlock(Constants.Blocks.ThermoGen, ThermoBlock::new);
@@ -117,6 +118,9 @@ public class zBlocks {
 
         public static final DeferredHolder<Block, ?> ECLIPSEALLOY_ANVIL = Material
                         .registerItemAndBlock(Constants.Anvils.t4, EclipseAlloyAnvilBlock::new);
+        
+                        public static final DeferredHolder<Block, ?> FLUID_TANK = Material
+                        .registerItemAndBlock(Constants.Blocks.FluidTank, FluidTankBlock::new);
 
         // ---------------------------------------------------------------------------------------//
 

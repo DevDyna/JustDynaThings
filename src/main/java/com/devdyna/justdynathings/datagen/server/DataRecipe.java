@@ -18,6 +18,7 @@ import com.direwolf20.justdirethings.common.items.datacomponents.JustDireDataCom
 import com.direwolf20.justdirethings.common.items.interfaces.Ability;
 import com.direwolf20.justdirethings.common.items.interfaces.ToolRecords.AbilityBinding;
 import com.direwolf20.justdirethings.datagen.recipes.AbilityRecipeBuilder;
+import com.direwolf20.justdirethings.datagen.recipes.FluidDropRecipe;
 import com.direwolf20.justdirethings.datagen.recipes.FluidDropRecipeBuilder;
 import com.direwolf20.justdirethings.datagen.recipes.GooSpreadRecipeBuilder;
 import com.direwolf20.justdirethings.datagen.recipes.GooSpreadRecipeTagBuilder;
@@ -45,11 +46,13 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.LiquidBlock;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.conditions.ICondition;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
 import net.neoforged.neoforge.common.crafting.BlockTagIngredient;
+import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import xyz.milosworks.phasoritenetworks.init.PNBlocks;
 
@@ -77,8 +80,7 @@ public class DataRecipe extends RecipeProvider {
                                 .define('A', Registration.FerricoreIngot.get())
                                 .define('B', Tags.Items.DUSTS_REDSTONE)
                                 .define('C', zItemTags.COPPER_BULBS)
-                                .unlockedBy(ID, InventoryChangeTrigger.TriggerInstance
-                                                .hasItems(Registration.FerricoreIngot.get()))
+                                .unlockedBy(ID, has(Registration.FerricoreIngot.get()))
                                 .group(Constants.Blocks.FerricoreClock).save(c);
 
                 ShapedRecipeBuilder.shaped(MISC, zBlocks.REFORGER.get(), 1)
@@ -90,11 +92,10 @@ public class DataRecipe extends RecipeProvider {
                                 .define('C', Tags.Items.DUSTS_REDSTONE)
                                 .define('D', Tags.Items.GEMS_AMETHYST)
                                 .define('E', Registration.Celestigem.get())
-                                .unlockedBy(ID, InventoryChangeTrigger.TriggerInstance
-                                                .hasItems(Registration.Celestigem.get()))
+                                .unlockedBy(ID, has(Registration.Celestigem.get()))
                                 .group(Constants.Blocks.Reforger).save(c);
 
-                ShapedRecipeBuilder.shaped(MISC, zBlocks.REVITALIZER.get(), 1)
+                ShapedRecipeBuilder.shaped(MISC, zBlocks.STABILIZER.get(), 1)
                                 .pattern("CDC")
                                 .pattern("BAB")
                                 .pattern("CBC")
@@ -102,17 +103,14 @@ public class DataRecipe extends RecipeProvider {
                                 .define('B', Tags.Items.DUSTS_REDSTONE)
                                 .define('C', Registration.EclipseAlloyIngot.get())
                                 .define('D', Registration.TimeCrystal.get())
-                                .unlockedBy(ID, InventoryChangeTrigger.TriggerInstance
-                                                .hasItems(Registration.TimeCrystal.get(),
-                                                                Registration.EclipseAlloyIngot.get()))
-                                .group(Constants.Blocks.Revitalizer).save(c);
+                                .unlockedBy(ID, has(Registration.TimeCrystal.get()))
+                                .group(Constants.Blocks.Stabilizer).save(c);
 
                 ShapelessRecipeBuilder.shapeless(MISC, zBlocks.PHASEBOX.get(), 4)
                                 .requires(Registration.Celestigem.get())
                                 .requires(Tags.Items.GLASS_BLOCKS_TINTED)
                                 .requires(Tags.Items.GEMS_LAPIS)
-                                .unlockedBy(ID, InventoryChangeTrigger.TriggerInstance
-                                                .hasItems(Registration.Celestigem.get()))
+                                .unlockedBy(ID, has(Registration.Celestigem.get()))
                                 .group(Constants.Blocks.PhaseBox).save(c);
 
                 GooSpreadRecipeBuilder.shapeless(DataGenUtil.getResource("dirt"),
@@ -422,18 +420,63 @@ public class DataRecipe extends RecipeProvider {
                                 .define('C', Registration.TimeCrystal.get())
                                 .define('E', Registration.EclipseAlloyIngot.get())
                                 .define('W', Registration.TimeWand.get())
-                                .unlockedBy(ID, InventoryChangeTrigger.TriggerInstance
-                                                .hasItems(Registration.TimeCrystal.get(),
+                                .unlockedBy(ID, 
+                                                has(
                                                                 Registration.EclipseAlloyIngot.get()))
                                 .group(Constants.Wands.AdvancedTime).save(c);
 
                 registerStabilizerStaff(c);
 
+                FluidTankBuilder.of()
+                                .input(new FluidStack(((LiquidBlock) Blocks.WATER).fluid, 1000))
+                                .catalyst(Ingredient.of(Registration.PolymorphicCatalyst.get()))
+                                .output(new FluidStack(Registration.POLYMORPHIC_FLUID_BLOCK.get().fluid, 1000))
+                                .group(ID)
+                                .unlockedBy(ID, has(Registration.PolymorphicCatalyst.get()))
+                                .save(c);
+
+                FluidTankBuilder.of()
+                                .input(new FluidStack(Registration.POLYMORPHIC_FLUID_BLOCK.get().fluid, 1000))
+                                .catalyst(Ingredient.of(Registration.PortalFluidCatalyst.get()))
+                                .output(new FluidStack(Registration.UNSTABLE_PORTAL_FLUID_BLOCK.get().fluid, 1000))
+                                .group(ID)
+                                .unlockedBy(ID, has(Registration.PortalFluidCatalyst.get()))
+                                .save(c);
+
+                FluidTankBuilder.of()
+                                .input(new FluidStack(Registration.POLYMORPHIC_FLUID_BLOCK.get().fluid, 1000))
+                                .catalyst(Ingredient.of(Registration.Coal_T2.get()))
+                                .output(new FluidStack(Registration.UNREFINED_T2_FLUID_BLOCK.get().fluid, 1000))
+                                .group(ID)
+                                .unlockedBy(ID, has(Registration.Coal_T2.get()))
+                                .save(c);
+
+                FluidTankBuilder.of()
+                                .input(new FluidStack(Registration.REFINED_T2_FLUID_BLOCK.get().fluid, 1000))
+                                .catalyst(Ingredient.of(Registration.Coal_T3.get()))
+                                .output(new FluidStack(Registration.UNREFINED_T3_FLUID_BLOCK.get().fluid, 1000))
+                                .group(ID)
+                                .unlockedBy(ID, has(Registration.Coal_T3.get()))
+                                .save(c);
+
+                FluidTankBuilder.of()
+                                .input(new FluidStack(Registration.REFINED_T3_FLUID_BLOCK.get().fluid, 1000))
+                                .catalyst(Ingredient.of(Registration.Coal_T4.get()))
+                                .output(new FluidStack(Registration.UNREFINED_T4_FLUID_BLOCK.get().fluid, 1000))
+                                .group(ID)
+                                .unlockedBy(ID, has(Registration.Coal_T4.get()))
+                                .save(c);
+
+                FluidTankBuilder.of().input(new FluidStack(Registration.POLYMORPHIC_FLUID_BLOCK.get().fluid, 1000))
+                                .catalyst(Ingredient.of(Registration.TimeCrystal.get()))
+                                .output(new FluidStack(Registration.TIME_FLUID_BLOCK.get().fluid, 1000))
+                                .unlockedBy().group(ID).save(c);
+
         }
 
         @SuppressWarnings("unchecked")
         private void registerStabilizerStaff(RecipeOutput c) {
-                var item = new ItemStack(zItems.STABILIZER_WAND.get());
+                var item = new ItemStack(zItems.STUPEFY_WAND.get());
 
                 item.set((DataComponentType<Boolean>) JustDireDataComponents.COMPONENTS.getEntries().stream()
                                 .filter(e -> e.getId()
@@ -451,7 +494,7 @@ public class DataRecipe extends RecipeProvider {
                                 .define('E', Items.QUARTZ)
                                 .unlockedBy(ID, itemInv(Items.ENDER_EYE, Items.REDSTONE,
                                                 Registration.BlazegoldIngot.get()))
-                                .group(Constants.Wands.Stabilizer).save(c);
+                                .group(Constants.Wands.Stupefy).save(c);
         }
 
         /**
@@ -539,15 +582,13 @@ public class DataRecipe extends RecipeProvider {
                                 .define('I', ingot)
                                 .define('B', block)
                                 .define('A', oldAnvil)
-                                .unlockedBy(ID, InventoryChangeTrigger.TriggerInstance
-                                                .hasItems(ingot))
+                                .unlockedBy(ID, has(ingot))
                                 .group(Constants.AnvilType).save(c);
 
                 SmithingTransformRecipeBuilder.smithing(Ingredient.of(template), Ingredient.of(oldAnvil.asItem()),
                                 Ingredient.of(ingot),
                                 MISC, b.asItem()).unlocks(ID,
-                                                InventoryChangeTrigger.TriggerInstance
-                                                                .hasItems(ingot))
+                                                has(ingot))
                                 .save(c, ID + ":" + DataGenUtil.getName(b) + "_smithing");
         }
 
@@ -560,15 +601,13 @@ public class DataRecipe extends RecipeProvider {
                                 .define('I', ingot)
                                 .define('B', block)
                                 .define('A', oldAnvil)
-                                .unlockedBy(ID, InventoryChangeTrigger.TriggerInstance
-                                                .hasItems(ingot))
+                                .unlockedBy(ID, has(ingot))
                                 .group(Constants.AnvilType).save(c);
 
                 SmithingTransformRecipeBuilder.smithing(Ingredient.of(template), Ingredient.of(oldAnvil),
                                 Ingredient.of(ingot),
                                 MISC, b.asItem()).unlocks(ID,
-                                                InventoryChangeTrigger.TriggerInstance
-                                                                .hasItems(ingot))
+                                                has(ingot))
                                 .save(c, ID + ":" + DataGenUtil.getName(b) + "_smithing");
         }
 

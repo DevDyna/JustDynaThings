@@ -9,6 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.material.Fluid;
 import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
@@ -38,6 +39,10 @@ public class DataGenUtil {
 
     public static String getPath(Block b) {
         return BuiltInRegistries.BLOCK.getKey(b).getPath();
+    }
+
+    public static String getPath(Fluid b) {
+        return BuiltInRegistries.FLUID.getKey(b).getPath();
     }
 
     public static String getPath(Item i) {

@@ -30,7 +30,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 @SuppressWarnings("unchecked")
 public class zBlockEntities {
-        public static void createBlockEntity(IEventBus bus) {
+        public static void register(IEventBus bus) {
                 zBE.register(bus);
         }
         // ---------------------------------------------------------------------------------------//

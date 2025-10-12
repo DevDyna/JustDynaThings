@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "justdynathings:advanced_time_wand"
+        "recipe": "justdynathings:fluidtank/unstable_portal_fluid_source_from_polymorphic_fluid_source_with_portal_fluid_catalyst"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": "justdirethings:eclipsealloy_ingot"
+            "items": "justdirethings:portal_fluid_catalyst"
           }
         ]
       },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "justdynathings:advanced_time_wand"
+      "justdynathings:fluidtank/unstable_portal_fluid_source_from_polymorphic_fluid_source_with_portal_fluid_catalyst"
     ]
   }
 }

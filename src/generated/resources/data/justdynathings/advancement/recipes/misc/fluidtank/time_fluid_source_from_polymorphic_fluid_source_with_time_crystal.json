@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "justdynathings:stabilizer_wand"
+        "recipe": "justdynathings:fluidtank/time_fluid_source_from_polymorphic_fluid_source_with_time_crystal"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -11,13 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": "minecraft:ender_eye"
-          },
-          {
-            "items": "minecraft:redstone"
-          },
-          {
-            "items": "justdirethings:blazegold_ingot"
+            "items": "justdirethings:time_crystal"
           }
         ]
       },
@@ -32,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "justdynathings:stabilizer_wand"
+      "justdynathings:fluidtank/time_fluid_source_from_polymorphic_fluid_source_with_time_crystal"
     ]
   }
 }

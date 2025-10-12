@@ -1,0 +1,14 @@
+{
+  "type": "justdynathings:fluid_tank_recipes",
+  "catalyst": {
+    "item": "justdirethings:coal_t4"
+  },
+  "input": {
+    "amount": 1000,
+    "id": "justdirethings:refined_t3_fluid_source"
+  },
+  "output": {
+    "amount": 1000,
+    "id": "justdirethings:unrefined_t4_fluid_source"
+  }
+}

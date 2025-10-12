@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "justdynathings:advanced_time_wand"
+        "recipe": "justdynathings:fluidtank/unrefined_t3_fluid_source_from_refined_t2_fluid_source_with_coal_t3"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": "justdirethings:eclipsealloy_ingot"
+            "items": "justdirethings:coal_t3"
           }
         ]
       },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "justdynathings:advanced_time_wand"
+      "justdynathings:fluidtank/unrefined_t3_fluid_source_from_refined_t2_fluid_source_with_coal_t3"
     ]
   }
 }

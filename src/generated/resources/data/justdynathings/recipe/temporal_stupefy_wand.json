@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "group": "stabilizer_wand",
+  "group": "temporal_stupefy_wand",
   "key": {
     "C": {
       "item": "minecraft:redstone"
@@ -23,6 +23,6 @@
       "justdirethings:stupefy_upgrade_installed": true
     },
     "count": 1,
-    "id": "justdynathings:stabilizer_wand"
+    "id": "justdynathings:temporal_stupefy_wand"
   }
 }

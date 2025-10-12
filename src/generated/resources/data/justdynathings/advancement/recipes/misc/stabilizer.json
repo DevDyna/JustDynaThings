@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "justdynathings:revitalizer"
+        "recipe": "justdynathings:stabilizer"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -12,9 +12,6 @@
         "items": [
           {
             "items": "justdirethings:time_crystal"
-          },
-          {
-            "items": "justdirethings:eclipsealloy_ingot"
           }
         ]
       },
@@ -29,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "justdynathings:revitalizer"
+      "justdynathings:stabilizer"
     ]
   }
 }

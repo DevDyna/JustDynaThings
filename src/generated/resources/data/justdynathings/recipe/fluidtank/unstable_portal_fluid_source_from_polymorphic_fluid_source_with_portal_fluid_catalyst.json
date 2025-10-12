@@ -1,0 +1,14 @@
+{
+  "type": "justdynathings:fluid_tank_recipes",
+  "catalyst": {
+    "item": "justdirethings:portal_fluid_catalyst"
+  },
+  "input": {
+    "amount": 1000,
+    "id": "justdirethings:polymorphic_fluid_source"
+  },
+  "output": {
+    "amount": 1000,
+    "id": "justdirethings:unstable_portal_fluid_source"
+  }
+}

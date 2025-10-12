@@ -1,0 +1,14 @@
+{
+  "type": "justdynathings:fluid_tank_recipes",
+  "catalyst": {
+    "item": "justdirethings:time_crystal"
+  },
+  "input": {
+    "amount": 1000,
+    "id": "justdirethings:polymorphic_fluid_source"
+  },
+  "output": {
+    "amount": 1000,
+    "id": "justdirethings:time_fluid_source"
+  }
+}

@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "justdynathings:advanced_time_wand"
+        "recipe": "justdynathings:stabilizer_clear_nbt"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": "justdirethings:eclipsealloy_ingot"
+            "items": "justdynathings:stabilizer"
           }
         ]
       },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "justdynathings:advanced_time_wand"
+      "justdynathings:stabilizer_clear_nbt"
     ]
   }
 }

@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "justdynathings:advanced_time_wand"
+        "recipe": "justdynathings:temporal_stupefy_wand"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -11,7 +11,13 @@
       "conditions": {
         "items": [
           {
-            "items": "justdirethings:eclipsealloy_ingot"
+            "items": "minecraft:ender_eye"
+          },
+          {
+            "items": "minecraft:redstone"
+          },
+          {
+            "items": "justdirethings:blazegold_ingot"
           }
         ]
       },
@@ -26,7 +32,7 @@
   ],
   "rewards": {
     "recipes": [
-      "justdynathings:advanced_time_wand"
+      "justdynathings:temporal_stupefy_wand"
     ]
   }
 }

@@ -4,11 +4,11 @@
   "group": "justdynathings",
   "ingredients": [
     {
-      "item": "justdynathings:revitalizer"
+      "item": "justdynathings:fluid_tank"
     }
   ],
   "result": {
     "count": 1,
-    "id": "justdynathings:revitalizer"
+    "id": "justdynathings:fluid_tank"
   }
 }

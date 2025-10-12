@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "justdynathings:revitalizer_clear_nbt"
+        "recipe": "justdynathings:fluidtank/unrefined_t4_fluid_source_from_refined_t3_fluid_source_with_coal_t4"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": "justdynathings:revitalizer"
+            "items": "justdirethings:coal_t4"
           }
         ]
       },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "justdynathings:revitalizer_clear_nbt"
+      "justdynathings:fluidtank/unrefined_t4_fluid_source_from_refined_t3_fluid_source_with_coal_t4"
     ]
   }
 }

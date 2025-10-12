@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "justdynathings:advanced_time_wand"
+        "recipe": "justdynathings:fluidtank/polymorphic_fluid_source_from_water_with_polymorphic_catalyst"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": "justdirethings:eclipsealloy_ingot"
+            "items": "justdirethings:polymorphic_catalyst"
           }
         ]
       },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "justdynathings:advanced_time_wand"
+      "justdynathings:fluidtank/polymorphic_fluid_source_from_water_with_polymorphic_catalyst"
     ]
   }
 }

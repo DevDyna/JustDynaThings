@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "justdynathings:item/stabilizer_wand"
+    "layer0": "justdynathings:item/temporal_stupefy_wand"
   }
 }

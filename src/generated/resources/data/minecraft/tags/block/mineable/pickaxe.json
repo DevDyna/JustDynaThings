@@ -13,7 +13,7 @@
       "required": false
     },
     {
-      "id": "justdynathings:revitalizer",
+      "id": "justdynathings:stabilizer",
       "required": false
     },
     {
@@ -54,6 +54,10 @@
     },
     {
       "id": "justdynathings:eclipse_alloy_anvil",
+      "required": false
+    },
+    {
+      "id": "justdynathings:fluid_tank",
       "required": false
     }
   ]

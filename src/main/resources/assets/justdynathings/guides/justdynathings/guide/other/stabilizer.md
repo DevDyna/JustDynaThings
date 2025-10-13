@@ -21,4 +21,11 @@ An example of Goo Stabilizer powered below a BlazeBloom Goo revitalized
   <Block y="1" id="justdirethings:gooblock_tier2" p:alive="true"/>
 </GameScene>
 
+Also it can be used to keep alive a Paradox Mixer when Energized (using Time Fluid)
+
+<GameScene zoom="4" interactive={true}>
+  <Block id="justdynathings:stabilizer" p:active="true" p:facing="down" p:goo_found="true" p:energized="true"/>
+  <Block y="1" id="justdynathings:paradox_mixer" p:alive="true"/>
+</GameScene>
+
 <Recipe id="justdynathings:stabilizer" />

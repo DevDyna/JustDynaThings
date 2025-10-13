@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "justdynathings:fluid_tank"
+          "name": "justdynathings:paradox_mixer"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "justdynathings:blocks/fluid_tank"
+  "random_sequence": "justdynathings:blocks/paradox_mixer"
 }

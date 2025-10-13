@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "alive=false": {
+      "model": "justdynathings:block/paradox_mixer/off"
+    },
+    "alive=true": {
+      "model": "justdynathings:block/paradox_mixer/on"
+    }
+  }
+}

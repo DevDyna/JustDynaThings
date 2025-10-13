@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "paradox_mixer",
+  "key": {
+    "E": {
+      "item": "justdirethings:portal_fluid_bucket"
+    },
+    "P": {
+      "item": "justdirethings:paradoxmachine"
+    },
+    "T": {
+      "item": "justdirethings:eclipsealloy_ingot"
+    }
+  },
+  "pattern": [
+    "ETE",
+    "TPT",
+    "ETE"
+  ],
+  "result": {
+    "count": 1,
+    "id": "justdynathings:paradox_mixer"
+  }
+}

@@ -4,11 +4,11 @@
   "group": "justdynathings",
   "ingredients": [
     {
-      "item": "justdynathings:fluid_tank"
+      "item": "justdynathings:paradox_mixer"
     }
   ],
   "result": {
     "count": 1,
-    "id": "justdynathings:fluid_tank"
+    "id": "justdynathings:paradox_mixer"
   }
 }

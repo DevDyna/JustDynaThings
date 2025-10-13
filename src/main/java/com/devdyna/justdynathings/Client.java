@@ -6,7 +6,8 @@ import com.devdyna.justdynathings.client.builder.anvil.eclipsealloy.EclipseAlloy
 import com.devdyna.justdynathings.client.builder.anvil.ferricore.FerricoreAnvilScreen;
 import com.devdyna.justdynathings.client.builder.blackhole.BlackHoleScreen;
 import com.devdyna.justdynathings.client.builder.clock.ClockScreen;
-import com.devdyna.justdynathings.client.builder.fluidtank.FluidTankScreen;
+import com.devdyna.justdynathings.client.builder.paradoxMixer.ParadoxMixerRender;
+import com.devdyna.justdynathings.client.builder.paradoxMixer.ParadoxMixerScreen;
 import com.devdyna.justdynathings.client.builder.reforger.ReforgerScreen;
 import com.devdyna.justdynathings.client.builder.solarGen.blazegold.BlazegoldSolarPanelScreen;
 import com.devdyna.justdynathings.client.builder.solarGen.celestigem.CelestigemSolarPanelScreen;
@@ -46,7 +47,7 @@ public class Client {
         event.register(zContainers.CELESTIGEM_SOLAR_PANEL.get(), CelestigemSolarPanelScreen::new);
         event.register(zContainers.ECLIPSEALLOY_SOLAR_PANEL.get(), EclipseAlloySolarPanelScreen::new);
       
-        event.register(zContainers.FLUID_TANK.get(), FluidTankScreen::new);
+        event.register(zContainers.PARADOX_MIXER.get(), ParadoxMixerScreen::new);
 
     }
 
@@ -59,6 +60,8 @@ public class Client {
         event.registerBlockEntityRenderer(zBlockEntities.T2_GOO.get(), EnergyGooRender::new);
         event.registerBlockEntityRenderer(zBlockEntities.T3_GOO.get(), EnergyGooRender::new);
         event.registerBlockEntityRenderer(zBlockEntities.T4_GOO.get(), EnergyGooRender::new);
+
+        event.registerBlockEntityRenderer(zBlockEntities.PARADOX_MIXER.get(), ParadoxMixerRender::new);
 
     }
 

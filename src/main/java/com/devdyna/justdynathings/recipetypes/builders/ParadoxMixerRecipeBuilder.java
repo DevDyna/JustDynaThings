@@ -7,7 +7,7 @@ import java.util.Map;
 
 import javax.annotation.Nullable;
 
-import com.devdyna.justdynathings.recipetypes.type.FluidTankRecipe;
+import com.devdyna.justdynathings.recipetypes.type.ParadoxMixerRecipe;
 import com.devdyna.justdynathings.utils.DataGenUtil;
 
 import net.minecraft.advancements.Advancement;
@@ -25,48 +25,48 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.neoforge.fluids.FluidStack;
 
 @SuppressWarnings("null")
-public class FluidTankBuilder implements RecipeBuilder {
+public class ParadoxMixerRecipeBuilder implements RecipeBuilder {
 
     private FluidStack input;
     private Ingredient catalyst;
     private FluidStack output;
     private final Map<String, Criterion<?>> criteria;
 
-    public FluidTankBuilder() {
+    public ParadoxMixerRecipeBuilder() {
         this.criteria = new LinkedHashMap<String, Criterion<?>>();
     }
 
-    public static FluidTankBuilder of() {
-        return new FluidTankBuilder();
+    public static ParadoxMixerRecipeBuilder of() {
+        return new ParadoxMixerRecipeBuilder();
     }
 
-    public FluidTankBuilder input(FluidStack i) {
+    public ParadoxMixerRecipeBuilder input(FluidStack i) {
         this.input = i;
         return this;
     }
 
-    public FluidTankBuilder catalyst(Ingredient i) {
+    public ParadoxMixerRecipeBuilder catalyst(Ingredient i) {
         this.catalyst = i;
         return this;
     }
 
 
-    public FluidTankBuilder output(FluidStack i) {
+    public ParadoxMixerRecipeBuilder output(FluidStack i) {
         this.output = i;
         return this;
     }
 
-    public FluidTankBuilder unlockedBy() {
+    public ParadoxMixerRecipeBuilder unlockedBy() {
         return unlockedBy(ID, InventoryChangeTrigger.TriggerInstance
                 .hasItems(this.catalyst.getItems()[0].getItem()));
     }
 
-    public FluidTankBuilder unlockedBy(String name, Criterion<?> criterion) {
+    public ParadoxMixerRecipeBuilder unlockedBy(String name, Criterion<?> criterion) {
         this.criteria.put(name, criterion);
         return this;
     }
 
-    public FluidTankBuilder group(@Nullable String groupName) {
+    public ParadoxMixerRecipeBuilder group(@Nullable String groupName) {
         return this;
     }
 
@@ -96,7 +96,7 @@ public class FluidTankBuilder implements RecipeBuilder {
                 .rewards(AdvancementRewards.Builder.recipe(pId))
                 .requirements(AdvancementRequirements.Strategy.OR);
         this.criteria.forEach(advancement$builder::addCriterion);
-        FluidTankRecipe shapelessrecipe = new FluidTankRecipe(input, catalyst, output);
+        ParadoxMixerRecipe shapelessrecipe = new ParadoxMixerRecipe(input, catalyst, output);
         pRecipeOutput.accept(pId, shapelessrecipe,
                 advancement$builder.build(pId.withPrefix("recipes/" + RecipeCategory.MISC.getFolderName() + "/")));
     }

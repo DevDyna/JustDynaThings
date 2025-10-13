@@ -83,6 +83,8 @@ public class PluginJei implements IModPlugin {
         r.addRecipeCatalyst(zBlocks.REFORGER.get(), OTM.TYPE);
         r.addRecipeCatalyst(zBlocks.REFORGER.get(), MTO.TYPE);
 
+        r.addRecipeCatalyst(zBlocks.PARADOX_MIXER.get(), ParadoxMixerCategory.TYPE);
+
     }
 
     @Override
@@ -100,6 +102,8 @@ public class PluginJei implements IModPlugin {
         r.addRecipeCategories(new OTO(h));
         r.addRecipeCategories(new OTM(h));
         r.addRecipeCategories(new MTO(h));
+
+        r.addRecipeCategories(new ParadoxMixerCategory<>(h));
 
     }
 
@@ -122,6 +126,9 @@ public class PluginJei implements IModPlugin {
                 .stream().map(RecipeHolder::value).toList());
 
         r.addRecipes(MTO.TYPE, recipes.getAllRecipesFor(zRecipeTypes.REFORGER_MTO.getType())
+                .stream().map(RecipeHolder::value).toList());
+
+        r.addRecipes(ParadoxMixerCategory.TYPE, recipes.getAllRecipesFor(zRecipeTypes.PARADOX_MIXER.getType())
                 .stream().map(RecipeHolder::value).toList());
 
     }

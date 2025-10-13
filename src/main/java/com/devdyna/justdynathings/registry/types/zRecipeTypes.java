@@ -52,12 +52,12 @@ public class zRecipeTypes {
                                 }
                         });
 
-        public static final zRecipe<FluidTankRecipe> FLUID_TANK_RECIPES = new zRecipe<FluidTankRecipe>(
-                        Constants.Blocks.FluidTank+"_recipes", FluidTankRecipeSerializer::new,
-                        () -> new RecipeType<FluidTankRecipe>() {
+        public static final zRecipe<ParadoxMixerRecipe> PARADOX_MIXER = new zRecipe<ParadoxMixerRecipe>(
+                        Constants.Blocks.ParadoxMixer, ParadoxMixerRecipeSerializer::new,
+                        () -> new RecipeType<ParadoxMixerRecipe>() {
                                 @Override
                                 public String toString() {
-                                        return FLUID_TANK_RECIPES.getId();
+                                        return PARADOX_MIXER.getId();
                                 }
                         });
 

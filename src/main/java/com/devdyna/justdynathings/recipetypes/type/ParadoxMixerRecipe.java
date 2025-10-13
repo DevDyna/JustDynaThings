@@ -17,13 +17,13 @@ import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.fluids.FluidStack;
 
 @SuppressWarnings("null")
-public class FluidTankRecipe implements Recipe<RecipeInput> {
+public class ParadoxMixerRecipe implements Recipe<RecipeInput> {
 
     private FluidStack input;
     private Ingredient catalyst;
     private FluidStack output;
 
-    public FluidTankRecipe(FluidStack input, Ingredient catalyst, FluidStack output) {
+    public ParadoxMixerRecipe(FluidStack input, Ingredient catalyst, FluidStack output) {
         this.input = input;
         this.catalyst = catalyst;
         this.output = output;
@@ -42,16 +42,16 @@ public class FluidTankRecipe implements Recipe<RecipeInput> {
     }
 
     public RecipeType<?> getType() {
-        return zRecipeTypes.FLUID_TANK_RECIPES.getType();
+        return zRecipeTypes.PARADOX_MIXER.getType();
     }
 
     public ItemStack getToastSymbol() {
-        return new ItemStack(zBlocks.FLUID_TANK.get());
+        return new ItemStack(zBlocks.PARADOX_MIXER.get());
     }
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return zRecipeTypes.FLUID_TANK_RECIPES.getSerializer();
+        return zRecipeTypes.PARADOX_MIXER.getSerializer();
     }
 
     public NonNullList<Ingredient> getIngredients() {

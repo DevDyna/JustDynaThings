@@ -7,7 +7,6 @@ import com.devdyna.justdynathings.registry.builders.black_hole.BlackHoleBE;
 import com.devdyna.justdynathings.registry.builders.budding.types.amethyst.AmethystBE;
 import com.devdyna.justdynathings.registry.builders.budding.types.time.TimeBE;
 import com.devdyna.justdynathings.registry.builders.ferricore_clock.ClockBE;
-import com.devdyna.justdynathings.registry.builders.fluid_tank.FluidTankBE;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.blazegold.BlazeGoldAnvilBE;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.celestigem.CelestiGemAnvilBE;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.eclipsealloy.EclipseAlloyAnvilBE;
@@ -15,6 +14,7 @@ import com.devdyna.justdynathings.registry.builders.functional_anvils.ferricore.
 import com.devdyna.justdynathings.registry.builders.goo.creative.CreativeGooBE;
 import com.devdyna.justdynathings.registry.builders.goo.energy.diregoo.*;
 import com.devdyna.justdynathings.registry.builders.goo.energy.energized.EnergyGooBE;
+import com.devdyna.justdynathings.registry.builders.paradox_mixer.ParadoxMixerBE;
 import com.devdyna.justdynathings.registry.builders.reforger.ReforgerBE;
 import com.devdyna.justdynathings.registry.builders.solar.blazegold.BlazeGoldSolarBE;
 import com.devdyna.justdynathings.registry.builders.solar.celestigem.CelestiGemSolarBE;
@@ -79,7 +79,7 @@ public class zBlockEntities {
                         .createBlockEntity(Constants.Blocks.FerricoreClock,
                                         ClockBE::new, zBlocks.FERRICORE_CLOCK);
 
-        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<StabilizerBE>> REVITALIZER = Material
+        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<StabilizerBE>> STABILIZER = Material
                         .createBlockEntity(Constants.Blocks.Stabilizer,
                                         StabilizerBE::new, zBlocks.STABILIZER);
 
@@ -124,8 +124,8 @@ public class zBlockEntities {
                                         EclipseAlloyAnvilBE::new, zBlocks.ECLIPSEALLOY_ANVIL);
       
       
-                                        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<FluidTankBE>> FLUID_TANK = Material
-                        .createBlockEntity(Constants.Blocks.FluidTank,
-                                        FluidTankBE::new, zBlocks.FLUID_TANK);
+                                        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ParadoxMixerBE>> PARADOX_MIXER = Material
+                        .createBlockEntity(Constants.Blocks.ParadoxMixer,
+                                        ParadoxMixerBE::new, zBlocks.PARADOX_MIXER);
 
 }

@@ -21,8 +21,9 @@ public class common {
 
         public static IntValue STABILIZER_FE_CAPACITY;
         public static IntValue STABILIZER_FE_COST;
+        public static IntValue STABILIZER_MB_CAPACITY;
+        public static IntValue STABILIZER_MB_COST;
         public static BooleanValue STABILIZER_TOGGLE_SOUND;
-        public static IntValue STABILIZER_CHANCE_FE_COST;
 
         public static IntValue THERMOGEN_FE_CAPACITY;
         public static IntValue THERMOGEN_MB_CAPACITY;
@@ -136,9 +137,8 @@ public class common {
 
         public static ConfigValue<Integer> ADVANCED_TIME_WAND_MAX_MULTIPLIER;
 
-        public static IntValue FLUID_TANK_FE_CAPACITY;
-        public static IntValue FLUID_TANK_FE_RATE;
-        public static IntValue FLUID_TANK_MB_CAPACITY;
+        public static IntValue PARADOX_MIXER_MB_CAPACITY;
+        public static BooleanValue PARADOX_MIXER_SOUND_EVENT;
 
         public static void register(ModContainer c) {
                 regCommon();
@@ -189,12 +189,17 @@ public class common {
                 STABILIZER_FE_COST = qCOMMON
                                 .comment("FE/t cost")
                                 .defineInRange(Blocks.Stabilizer + Config.FE_RATE, 1000, 1, Integer.MAX_VALUE);
+
+                STABILIZER_MB_CAPACITY = qCOMMON
+                                .comment("Total MB Capacity")
+                                .defineInRange(Blocks.Stabilizer + Config.MB_MAX, 1000, 1, Integer.MAX_VALUE);
+                STABILIZER_MB_COST = qCOMMON
+                                .comment("MB/t cost")
+                                .defineInRange(Blocks.Stabilizer + Config.MB_RATE, 100, 1, Integer.MAX_VALUE);
+
                 STABILIZER_TOGGLE_SOUND = qCOMMON
                                 .comment("Enable/Disable sound when revitalized a goo")
                                 .define(Blocks.Stabilizer + Config.SOUND, true);
-                STABILIZER_CHANCE_FE_COST = qCOMMON
-                                .comment("Chance to apply FE cost when revitalized a goo")
-                                .defineInRange(Blocks.Stabilizer + "_cost_chance", 50, 1, 100);
 
                 qCOMMON.comment(DataGenUtil.txtDecor(Blocks.ThermoGen));
 
@@ -552,19 +557,15 @@ public class common {
         }
 
         private static void mixer() {
-                qCOMMON.comment(DataGenUtil.txtDecor("mixer")).push("8-mixer");
-
-                FLUID_TANK_FE_CAPACITY = qCOMMON
-                                .comment("Total FE Capacity")
-                                .defineInRange(Blocks.FluidTank + Config.FE_MAX, 1000, 1, Integer.MAX_VALUE);
-
-                FLUID_TANK_FE_RATE = qCOMMON
-                                .comment("FE/t cost")
-                                .defineInRange(Blocks.FluidTank + Config.FE_RATE, 100, 1, Integer.MAX_VALUE);
-
-                FLUID_TANK_MB_CAPACITY = qCOMMON
+                qCOMMON.comment(DataGenUtil.txtDecor(Blocks.ParadoxMixer)).push("8-"+Blocks.ParadoxMixer);
+                
+                PARADOX_MIXER_MB_CAPACITY = qCOMMON
                                 .comment("Total Fluid Capacity")
-                                .defineInRange(Blocks.FluidTank + Config.MB_MAX, 1000, 1, Integer.MAX_VALUE);
+                                .defineInRange(Blocks.ParadoxMixer + Config.MB_MAX, 1000, 1, Integer.MAX_VALUE);
+
+                PARADOX_MIXER_SOUND_EVENT = qCOMMON
+                                .comment("Enable/Disable the entire sound event of paradox mixer")
+                                .define(Blocks.ParadoxMixer + Config.SOUND, true);
 
                 qCOMMON.pop();
 

@@ -25,18 +25,9 @@ public abstract class BaseReforgerCategory<T> implements IRecipeCategory<T> {
 
         private IGuiHelper helper;
 
-        // public static final RecipeType<ReforgerOTORecipe> TYPE = new RecipeType<>(
-        // DataGenUtil.getResource(Constants.DataMaps.Reforger.block_to_block),
-        // ReforgerOTORecipe.class);
-
         public BaseReforgerCategory(IGuiHelper helper) {
                 this.helper = helper;
         }
-
-        // @Override
-        // public RecipeType<T> getRecipeType() {
-        // return TYPE;
-        // }
 
         public abstract String setTitle();
 

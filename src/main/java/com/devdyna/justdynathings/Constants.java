@@ -32,7 +32,7 @@ public class Constants {
         public static String Ticker = "ticker";
         public static String Sculk = "sculk";
         public static String ThermoGen = "thermo_generator";
-        public static String FluidTank = "fluid_tank";
+        public static String ParadoxMixer = "paradox_mixer";
         public static String BlackHole = "blackhole";
     }
 

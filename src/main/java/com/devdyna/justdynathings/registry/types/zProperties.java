@@ -11,7 +11,6 @@ import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.Fluid;
 import net.neoforged.bus.api.IEventBus;
@@ -50,9 +49,9 @@ public class zProperties {
         // ---------------------------------------------------------------------------------------//
 
         public static final BooleanProperty GOO_ALIVE = GooBlock_Base.ALIVE;
-        public static final IntegerProperty STABILIZERS = IntegerProperty.create("stabilizers", 0, 6);
         public static final BooleanProperty SOLID = BooleanProperty.create("solid");
         public static final BooleanProperty ACTIVE = BooleanProperty.create("active");
+        public static final BooleanProperty ENERGIZED = BooleanProperty.create("energized");
         public static final BooleanProperty COOLED = BooleanProperty.create("thermo_cooled");
         public static final BooleanProperty HEATED = BooleanProperty.create("thermo_heated");
         public static final BooleanProperty GOO_FOUND = BooleanProperty.create("goo_found");

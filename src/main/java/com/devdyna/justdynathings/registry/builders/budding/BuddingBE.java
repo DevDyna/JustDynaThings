@@ -42,10 +42,6 @@ public class BuddingBE extends BaseMachineBE implements EnergyMachine, FluidMach
     }
 
     @Override
-    public void tickClient() {
-    }
-
-    @Override
     public void tickServer() {
 
         updateBlock();

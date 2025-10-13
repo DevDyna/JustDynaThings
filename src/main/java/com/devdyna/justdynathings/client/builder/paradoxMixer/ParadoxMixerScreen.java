@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.client.builder.fluidtank;
+package com.devdyna.justdynathings.client.builder.paradoxMixer;
 
 import com.devdyna.justdynathings.client.core.ExtraSlots;
 import com.direwolf20.justdirethings.client.screens.basescreens.BaseMachineScreen;
@@ -8,9 +8,9 @@ import com.direwolf20.justdirethings.util.MiscHelpers;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 
-public class FluidTankScreen extends BaseMachineScreen<FluidTankGUI> implements ExtraSlots {
+public class ParadoxMixerScreen extends BaseMachineScreen<ParadoxMixerGUI> implements ExtraSlots {
 
-    public FluidTankScreen(FluidTankGUI container, Inventory inv, Component name) {
+    public ParadoxMixerScreen(ParadoxMixerGUI container, Inventory inv, Component name) {
         super(container, inv, name);
     }
 

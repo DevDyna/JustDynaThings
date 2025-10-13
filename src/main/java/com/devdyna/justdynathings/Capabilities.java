@@ -41,9 +41,7 @@ public class Capabilities {
                                 zBlocks.T1_GOO.get(), zBlocks.T2_GOO.get(),
                                 zBlocks.T3_GOO.get(), zBlocks.T4_GOO.get(),
 
-                                zBlocks.BLACKHOLE.get(),
-
-                                zBlocks.FLUID_TANK.get()
+                                zBlocks.BLACKHOLE.get()
                 };
 
                 Block[] FluidMachineBase = {
@@ -56,7 +54,7 @@ public class Capabilities {
                                 zBlocks.BLAZEGOLD_ANVIL.get(),
                                 zBlocks.ECLIPSEALLOY_ANVIL.get(),
 
-                                zBlocks.FLUID_TANK.get()
+                                zBlocks.PARADOX_MIXER.get()
                 };
 
                 Block[] ItemStackMachineBase = {
@@ -76,7 +74,7 @@ public class Capabilities {
                                 zBlocks.CELESTIGEM_SOLARGEN.get(),
                                 zBlocks.ECLIPSEALLOY_SOLARGEN.get(),
 
-                                zBlocks.FLUID_TANK.get()
+                                zBlocks.PARADOX_MIXER.get()
 
                 };
 

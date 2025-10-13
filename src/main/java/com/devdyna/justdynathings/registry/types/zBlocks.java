@@ -8,7 +8,6 @@ import com.devdyna.justdynathings.registry.builders.black_hole.BlackHoleBlock;
 import com.devdyna.justdynathings.registry.builders.budding.types.amethyst.AmethystBlock;
 import com.devdyna.justdynathings.registry.builders.budding.types.time.TimeBlock;
 import com.devdyna.justdynathings.registry.builders.ferricore_clock.ClockBlock;
-import com.devdyna.justdynathings.registry.builders.fluid_tank.FluidTankBlock;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.blazegold.BlazeGoldAnvilBlock;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.celestigem.CelestiGemAnvilBlock;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.eclipsealloy.EclipseAlloyAnvilBlock;
@@ -16,6 +15,7 @@ import com.devdyna.justdynathings.registry.builders.functional_anvils.ferricore.
 import com.devdyna.justdynathings.registry.builders.goo.creative.CreativeGoo;
 import com.devdyna.justdynathings.registry.builders.goo.energy.diregoo.*;
 import com.devdyna.justdynathings.registry.builders.goo.energy.energized.EnergyGoo;
+import com.devdyna.justdynathings.registry.builders.paradox_mixer.ParadoxMixerBlock;
 import com.devdyna.justdynathings.registry.builders.reforger.ReforgerBlock;
 import com.devdyna.justdynathings.registry.builders.solar.blazegold.BlazeGoldSolarBlock;
 import com.devdyna.justdynathings.registry.builders.solar.celestigem.CelestiGemSolarBlock;
@@ -37,12 +37,13 @@ public class zBlocks {
                 zBlockItem.register(bus);
                 zGoo.register(bus);
                 zBuddings.register(bus);
-                // zBlockFluids.register(bus);
+                zHidden.register(bus);
                 zCoals.register(bus);
         }
 
         // ---------------------------------------------------------------------------------------//
         public static final DeferredRegister.Blocks zBlock = DeferredRegister.createBlocks(Main.ID);
+        public static final DeferredRegister.Blocks zHidden = DeferredRegister.createBlocks(Main.ID);
         public static final DeferredRegister.Blocks zOres = DeferredRegister.createBlocks(Main.ID);
         public static final DeferredRegister.Blocks zBlockItem = DeferredRegister.createBlocks(Main.ID);
         public static final DeferredRegister.Blocks zGoo = DeferredRegister.createBlocks(Main.ID);
@@ -118,15 +119,19 @@ public class zBlocks {
 
         public static final DeferredHolder<Block, ?> ECLIPSEALLOY_ANVIL = Material
                         .registerItemAndBlock(Constants.Anvils.t4, EclipseAlloyAnvilBlock::new);
-        
-                        public static final DeferredHolder<Block, ?> FLUID_TANK = Material
-                        .registerItemAndBlock(Constants.Blocks.FluidTank, FluidTankBlock::new);
+
+        public static final DeferredHolder<Block, ?> PARADOX_MIXER = Material
+                        .registerItemAndBlock(Constants.Blocks.ParadoxMixer, ParadoxMixerBlock::new);
+
+        public static final DeferredHolder<Block, ?> PARADOX_RENDER = zHidden
+                        .registerSimpleBlock(Constants.Blocks.ParadoxMixer+"_render");
 
         // ---------------------------------------------------------------------------------------//
 
         public static void registerLists() {
 
-                // startup.ITEMS.get().forEach(i -> Material.registerItemAndBlock(i+"_rawore", RawOre::new));
+                // startup.ITEMS.get().forEach(i -> Material.registerItemAndBlock(i+"_rawore",
+                // RawOre::new));
                 // List.of(...).forEach(p -> ??);
         }
 

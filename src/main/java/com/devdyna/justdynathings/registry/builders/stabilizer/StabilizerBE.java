@@ -1,6 +1,7 @@
 package com.devdyna.justdynathings.registry.builders.stabilizer;
 
 import com.devdyna.justdynathings.config.common;
+import com.devdyna.justdynathings.registry.builders.paradox_mixer.ParadoxMixerBlock;
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyMachine;
 import com.devdyna.justdynathings.registry.interfaces.be.FluidMachine;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
@@ -25,6 +26,7 @@ import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
 
 @SuppressWarnings("null")
 public class StabilizerBE extends BaseMachineBE implements EnergyMachine, FluidMachine {
+
     public final PoweredMachineContainerData poweredMachineData = new PoweredMachineContainerData(this);
     public final FluidContainerData fluidContainerData = new FluidContainerData(this);
 
@@ -33,7 +35,7 @@ public class StabilizerBE extends BaseMachineBE implements EnergyMachine, FluidM
     }
 
     public StabilizerBE(BlockPos pos, BlockState state) {
-        this(zBlockEntities.REVITALIZER.get(), pos, state);
+        this(zBlockEntities.STABILIZER.get(), pos, state);
     }
 
     @Override
@@ -51,17 +53,40 @@ public class StabilizerBE extends BaseMachineBE implements EnergyMachine, FluidM
 
         updateBlock();
 
-        if (readyToConsume()) {
+        var block = level.getBlockState(getGooPos()).getBlock();
 
-            if (common.STABILIZER_TOGGLE_SOUND.get())
-                applySound();
+        if ((block instanceof GooBlock_Base || block instanceof ParadoxMixerBlock) && canExtractFE()) {
 
-            if (LevelUtil.chance(common.STABILIZER_CHANCE_FE_COST.get(), level))
+            if (level.getBlockState(getGooPos()).getValue(zProperties.GOO_ALIVE))
+                return;
+
+            if (block instanceof GooBlock_Base) {
+
                 extractFEWhenPossible();
 
-            reviveGoo();
+                if (LevelUtil.chance(5, level)) {
+                    if (common.STABILIZER_TOGGLE_SOUND.get())
+                        applySound();
+                    setAlive();
+
+                }
+
+            }
+
+            if (block instanceof ParadoxMixerBlock && canExtractMB()) {
+                extractFEWhenPossible();
+                extractMBWhenPossible();
+                setAlive();
+            }
 
         }
+
+    }
+
+    public void setAlive() {
+        level.setBlockAndUpdate(getGooPos(),
+                level.getBlockState(getGooPos())
+                        .setValue(GooBlock_Base.ALIVE, true));
     }
 
     /**
@@ -70,9 +95,10 @@ public class StabilizerBE extends BaseMachineBE implements EnergyMachine, FluidM
     public void updateBlock() {
         level.setBlockAndUpdate(getBlockPos(),
                 getBlockState()
-                        .setValue(zProperties.ACTIVE,
-                                canExtractFE())
-                        .setValue(zProperties.GOO_FOUND, checkGooTop())
+                        .setValue(zProperties.ENERGIZED, canExtractMB())
+                        .setValue(zProperties.ACTIVE, canExtractFE())
+                        .setValue(zProperties.GOO_FOUND,
+                                level.getBlockState(getGooPos()).is(zBlockTags.REVITALIZER_GOO))
                         .setValue(BlockStateProperties.FACING,
                                 getBlockState()
                                         .getValue(BlockStateProperties.FACING)));
@@ -83,39 +109,10 @@ public class StabilizerBE extends BaseMachineBE implements EnergyMachine, FluidM
      * 
      */
     public void applySound() {
-        if (LevelUtil.chance(50, level))
+        if (LevelUtil.chance(5, level))
             level.playSound(null, getBlockPos(), SoundEvents.RESPAWN_ANCHOR_CHARGE,
-                    SoundSource.BLOCKS, level.random.nextInt(50) + 1 * 0.01F,
+                    SoundSource.BLOCKS, (level.random.nextInt(50) + 1) * 0.01F,
                     level.random.nextInt(50) + 1 * 0.01F);
-    }
-
-    /*
-     * check if on top there is a goo
-     */
-    public boolean checkGooTop() {
-        return level.getBlockState(getGooPos())
-                .is(zBlockTags.REVITALIZER_GOO);
-    }
-
-    public boolean checkGooStatus() {
-        return !level
-                .getBlockState(getGooPos())
-                .getValue(GooBlock_Base.ALIVE).booleanValue();
-    }
-
-    public void reviveGoo() {
-        if (LevelUtil.chance(25, level))
-            level.setBlockAndUpdate(getGooPos(),
-                    level.getBlockState(getGooPos())
-                            .setValue(GooBlock_Base.ALIVE, true));
-    }
-
-    /**
-     * has FE and has a Goo to revive
-     */
-    public boolean readyToConsume() {
-        return getBlockState().getValue(zProperties.ACTIVE).booleanValue()
-                && getBlockState().getValue(zProperties.GOO_FOUND).booleanValue() && checkGooStatus();
     }
 
     public BlockPos getGooPos() {
@@ -141,17 +138,17 @@ public class StabilizerBE extends BaseMachineBE implements EnergyMachine, FluidM
 
     @Override
     public FluidTank getFluidTank() {
-        return getData(Registration.PARADOX_FLUID_HANDLER);
+        return getData(Registration.MACHINE_FLUID_HANDLER);
     }
 
     @Override
     public int getStandardFluidCost() {
-        return 0;
+        return common.STABILIZER_MB_COST.get();
     }
 
     @Override
     public int getMaxMB() {
-        return 0;
+        return common.STABILIZER_MB_CAPACITY.get();
     }
 
 }

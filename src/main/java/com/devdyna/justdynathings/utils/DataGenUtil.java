@@ -155,14 +155,17 @@ public class DataGenUtil {
         return BuiltInRegistries.ITEM.getKey(item).getPath();
     }
 
-    public static void BiStateBlock(DataBlockModelState t, Block b, BooleanProperty p, ResourceLocation on,
+ 
+
+
+       public static void BiStateBlock(DataBlockModelState t,Block b, BooleanProperty p, ResourceLocation on,
             ResourceLocation off) {
-        t.getVariantBuilder(b).partialState().with(p, true).modelForState()
+                t.getVariantBuilder(b).partialState().with(p, true).modelForState()
                 .modelFile(t.models().getExistingFile(on))
                 .addModel().partialState().with(p, false).modelForState()
                 .modelFile(t.models().getExistingFile(off))
                 .addModel();
-    }
+            }
 
     public static void BiStateBlock(DataBlockModelState t, Block b, BooleanProperty p, ModelFile on,
             ModelFile off) {

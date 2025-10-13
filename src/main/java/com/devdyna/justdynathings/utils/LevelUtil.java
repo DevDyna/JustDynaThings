@@ -1,6 +1,7 @@
 package com.devdyna.justdynathings.utils;
 
 import java.util.List;
+import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 
 import com.direwolf20.justdirethings.client.particles.glitterparticle.GlitterParticleData;
@@ -228,6 +229,16 @@ public class LevelUtil {
         for (Direction dir : Direction.values()) {
             Block block = level.getBlockState(pos.relative(dir)).getBlock();
             if (predicate.test(block))
+                counter++;
+        }
+        return counter;
+    }
+
+    public static int directionedNeighborMatch(Level level, BlockPos pos, BiPredicate<Block, Direction> predicate) {
+        int counter = 0;
+        for (Direction dir : Direction.values()) {
+            Block block = level.getBlockState(pos.relative(dir)).getBlock();
+            if (predicate.test(block, dir))
                 counter++;
         }
         return counter;

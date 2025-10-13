@@ -81,6 +81,12 @@ public class DataBlockModelState extends BlockStateProvider {
                 AnvilStateModel(zBlocks.CELESTIGEM_ANVIL.get());
                 AnvilStateModel(zBlocks.ECLIPSEALLOY_ANVIL.get());
 
+                DataGenUtil.BiStateBlock(this, zBlocks.PARADOX_MIXER.get(),
+                                zProperties.GOO_ALIVE, DataGenUtil.getResource("block/paradox_mixer/on"),
+                                DataGenUtil.getResource("block/paradox_mixer/off"));
+
+                simpleBlock(zBlocks.PARADOX_RENDER.get(),models().getExistingFile(DataGenUtil.getResource("block/paradox_mixer/render")));
+
         }
 
         private void AnvilStateModel(Block b) {
@@ -161,7 +167,7 @@ public class DataBlockModelState extends BlockStateProvider {
                                                 "justdynathings:block/solar_panel/_template")
                                 .texture("side", "justdynathings:block/generator/" + blockname + "/side")
                                 .texture("bottom", "justdynathings:block/generator/" + blockname + "/bottom")
-                                .texture("solar_panel", "justdynathings:block/solar_panel/"+blockname));
+                                .texture("solar_panel", "justdynathings:block/solar_panel/" + blockname));
         }
 
         /**
@@ -169,7 +175,7 @@ public class DataBlockModelState extends BlockStateProvider {
          */
         private void BaseSolarPanel(Block b, ResourceLocation model) {
                 simpleBlock(b, models().getExistingFile(model));
-        
+
         }
 
         /**
@@ -178,7 +184,7 @@ public class DataBlockModelState extends BlockStateProvider {
          * NO T1 GENERATOR
          **/
         private void BaseGenerator(Block b) {
-                //TODO check if it work again
+                // TODO check if it work again
                 String tier = Constants.Tiers.materials
                                 .get(Integer.getInteger(DataGenUtil.getName(b).replace("generatort", "")));
                 simpleBlock(b,

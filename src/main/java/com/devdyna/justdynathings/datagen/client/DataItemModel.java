@@ -62,6 +62,9 @@ public class DataItemModel extends ItemModelProvider {
                 DataGenUtil.itemBlockwithParent(zBlocks.STABILIZER.get(), this,
                                 ID + ":block/" + DataGenUtil.getName(zBlocks.STABILIZER.get()) + "/x/off");
 
+                DataGenUtil.itemBlockwithParent(zBlocks.PARADOX_MIXER.get(), this,
+                                ID + ":block/" + DataGenUtil.getName(zBlocks.PARADOX_MIXER.get()) + "/off");
+
                 GooItemModel(zBlocks.ENERGIZED_GOO.get());
                 GooItemModel(zBlocks.CREATIVE_GOO.get());
                 GooItemModel(zBlocks.T1_GOO.get());

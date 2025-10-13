@@ -65,6 +65,11 @@ public class DataLang extends LanguageProvider {
                 add(ID + "." + Constants.Blocks.ThermoGen + ".tip",
                                 "§7Generate Energy from heat sources and coolants");
 
+                add(ID + "." + Constants.Blocks.Stabilizer + ".tip",
+                                "§7Feed Goo blocks and can be used to keep alive the paradox mixer");
+                add(ID + "." + Constants.Blocks.ParadoxMixer + ".tip",
+                                "§7Allow to mass-craft fluid drop recipes");
+
                 // registry keys
                 zBlocks.zBlock.getEntries().forEach(b -> addBlock(b, named(b.getRegisteredName())));
                 zBlocks.zGoo.getEntries().forEach(b -> addBlock(b, named(b.getRegisteredName())));
@@ -98,9 +103,10 @@ public class DataLang extends LanguageProvider {
                                 Constants.DataMaps.Thermo.thermo_heat_sources,
                                 Constants.DataMaps.Reforger.block_to_block,
                                 Constants.DataMaps.Reforger.block_to_tag,
-                                Constants.DataMaps.Reforger.tag_to_block
+                                Constants.DataMaps.Reforger.tag_to_block,
+                                Constants.Blocks.ParadoxMixer
 
-                ).forEach(j -> add(ID + ".jei.category." + j, named(j.replaceAll(
+                ).forEach(j -> add(ID + ".jei.category." + j, named(j.replace(
                                 Constants.DataMaps.Anvils.anvil, "")
                                 .replace(Constants.DataMaps.Reforger.reforger, "reforger_"))));
 

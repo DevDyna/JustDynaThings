@@ -54,7 +54,8 @@ public class DataBlockTag extends BlockTagsProvider {
                                 Registration.GooBlock_Tier1.get(),
                                 Registration.GooBlock_Tier2.get(),
                                 Registration.GooBlock_Tier3.get(),
-                                Registration.GooBlock_Tier4.get());
+                                Registration.GooBlock_Tier4.get(),
+                                zBlocks.PARADOX_MIXER.get());
 
 
                 tag(zBlockTags.T2_SPREAD).add(

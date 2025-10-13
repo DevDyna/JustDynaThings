@@ -420,14 +420,14 @@ public class DataRecipe extends RecipeProvider {
                                 .define('C', Registration.TimeCrystal.get())
                                 .define('E', Registration.EclipseAlloyIngot.get())
                                 .define('W', Registration.TimeWand.get())
-                                .unlockedBy(ID, 
+                                .unlockedBy(ID,
                                                 has(
                                                                 Registration.EclipseAlloyIngot.get()))
                                 .group(Constants.Wands.AdvancedTime).save(c);
 
                 registerStabilizerStaff(c);
 
-                FluidTankBuilder.of()
+                ParadoxMixerRecipeBuilder.of()
                                 .input(new FluidStack(((LiquidBlock) Blocks.WATER).fluid, 1000))
                                 .catalyst(Ingredient.of(Registration.PolymorphicCatalyst.get()))
                                 .output(new FluidStack(Registration.POLYMORPHIC_FLUID_BLOCK.get().fluid, 1000))
@@ -435,7 +435,7 @@ public class DataRecipe extends RecipeProvider {
                                 .unlockedBy(ID, has(Registration.PolymorphicCatalyst.get()))
                                 .save(c);
 
-                FluidTankBuilder.of()
+                ParadoxMixerRecipeBuilder.of()
                                 .input(new FluidStack(Registration.POLYMORPHIC_FLUID_BLOCK.get().fluid, 1000))
                                 .catalyst(Ingredient.of(Registration.PortalFluidCatalyst.get()))
                                 .output(new FluidStack(Registration.UNSTABLE_PORTAL_FLUID_BLOCK.get().fluid, 1000))
@@ -443,7 +443,7 @@ public class DataRecipe extends RecipeProvider {
                                 .unlockedBy(ID, has(Registration.PortalFluidCatalyst.get()))
                                 .save(c);
 
-                FluidTankBuilder.of()
+                ParadoxMixerRecipeBuilder.of()
                                 .input(new FluidStack(Registration.POLYMORPHIC_FLUID_BLOCK.get().fluid, 1000))
                                 .catalyst(Ingredient.of(Registration.Coal_T2.get()))
                                 .output(new FluidStack(Registration.UNREFINED_T2_FLUID_BLOCK.get().fluid, 1000))
@@ -451,7 +451,7 @@ public class DataRecipe extends RecipeProvider {
                                 .unlockedBy(ID, has(Registration.Coal_T2.get()))
                                 .save(c);
 
-                FluidTankBuilder.of()
+                ParadoxMixerRecipeBuilder.of()
                                 .input(new FluidStack(Registration.REFINED_T2_FLUID_BLOCK.get().fluid, 1000))
                                 .catalyst(Ingredient.of(Registration.Coal_T3.get()))
                                 .output(new FluidStack(Registration.UNREFINED_T3_FLUID_BLOCK.get().fluid, 1000))
@@ -459,7 +459,7 @@ public class DataRecipe extends RecipeProvider {
                                 .unlockedBy(ID, has(Registration.Coal_T3.get()))
                                 .save(c);
 
-                FluidTankBuilder.of()
+                ParadoxMixerRecipeBuilder.of()
                                 .input(new FluidStack(Registration.REFINED_T3_FLUID_BLOCK.get().fluid, 1000))
                                 .catalyst(Ingredient.of(Registration.Coal_T4.get()))
                                 .output(new FluidStack(Registration.UNREFINED_T4_FLUID_BLOCK.get().fluid, 1000))
@@ -467,10 +467,23 @@ public class DataRecipe extends RecipeProvider {
                                 .unlockedBy(ID, has(Registration.Coal_T4.get()))
                                 .save(c);
 
-                FluidTankBuilder.of().input(new FluidStack(Registration.POLYMORPHIC_FLUID_BLOCK.get().fluid, 1000))
+                ParadoxMixerRecipeBuilder.of()
+                                .input(new FluidStack(Registration.POLYMORPHIC_FLUID_BLOCK.get().fluid, 1000))
                                 .catalyst(Ingredient.of(Registration.TimeCrystal.get()))
                                 .output(new FluidStack(Registration.TIME_FLUID_BLOCK.get().fluid, 1000))
                                 .unlockedBy().group(ID).save(c);
+
+                ShapedRecipeBuilder.shaped(MISC, zBlocks.PARADOX_MIXER.get())
+                                .pattern("ETE")
+                                .pattern("TPT")
+                                .pattern("ETE")
+                                .define('P', Registration.ParadoxMachine.get())
+                                .define('T', Registration.EclipseAlloyIngot.get())
+                                .define('E', Registration.PORTAL_FLUID_BUCKET.get())
+                                .unlockedBy(ID,
+                                                has(
+                                                                Registration.EclipseAlloyIngot.get()))
+                                .group(Constants.Blocks.ParadoxMixer).save(c);
 
         }
 
@@ -495,6 +508,7 @@ public class DataRecipe extends RecipeProvider {
                                 .unlockedBy(ID, itemInv(Items.ENDER_EYE, Items.REDSTONE,
                                                 Registration.BlazegoldIngot.get()))
                                 .group(Constants.Wands.Stupefy).save(c);
+
         }
 
         /**

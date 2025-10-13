@@ -33,7 +33,7 @@ public class DirectionUtil {
             { 2 * span, 0 } // east
     };
 
-   public static Set<BlockPos> around(BlockPos p) {
+    public static Set<BlockPos> around(BlockPos p) {
         return Set.of(
                 p.north(),
                 p.south(),
@@ -80,4 +80,27 @@ public class DirectionUtil {
     public static int indexByStateFacing(BlockState s) {
         return s.getValue(BlockStateProperties.FACING).get3DDataValue();
     }
+
+    public static Direction directionFromTo(BlockPos from, BlockPos to) {
+        int dx = to.getX() - from.getX();
+        int dy = to.getY() - from.getY();
+        int dz = to.getZ() - from.getZ();
+
+        int adx = Math.abs(dx);
+        int ady = Math.abs(dy);
+        int adz = Math.abs(dz);
+
+        // If vertical difference is largest -> UP or DOWN
+        if (ady > adx && ady > adz) {
+            return dy > 0 ? Direction.UP : Direction.DOWN;
+        }
+
+        // Otherwise horizontal: X vs Z
+        if (adx > adz) {
+            return dx > 0 ? Direction.EAST : Direction.WEST;
+        } else {
+            return dz > 0 ? Direction.SOUTH : Direction.NORTH;
+        }
+    }
+
 }

@@ -17,7 +17,7 @@ public class TickerGUI extends BaseMachineContainer {
     }
 
     public TickerGUI(int windowId, Inventory playerInventory, BlockPos blockPos) {
-        super(zContainers.REFORGER.get(), windowId, playerInventory, blockPos);
+        super(zContainers.TICKER.get(), windowId, playerInventory, blockPos);
         addPlayerSlots(player.getInventory());
     }
 

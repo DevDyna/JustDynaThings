@@ -30,7 +30,7 @@ public class Constants {
         public static String FerricoreClock = Tiers.ferricore + "_clock";
         public static String Stabilizer = "stabilizer";
         public static String Ticker = "ticker";
-        public static String Sculk = "sculk";
+        // public static String Sculk = "sculk";
         public static String ThermoGen = "thermo_generator";
         public static String ParadoxMixer = "paradox_mixer";
         public static String BlackHole = "blackhole";
@@ -126,7 +126,11 @@ public class Constants {
 
     public class Config {
 
-        public static String G_FEGOO = "generic_energy_goo";
+        
+
+        public class Keys
+        {
+            public static String G_FEGOO = "generic_energy_goo";
 
         public static String WRENCH = "_require_wrench";
         public static String FE_RATE = "_energy_every_tick";
@@ -144,6 +148,26 @@ public class Constants {
         public static String SKY = "_require_to_see_sky";
         public static String DAY = "_require_dayTime";
         public static String BIOMES = "_biomeTag_list";
+        }
+
+        public class Display
+        {
+         
+
+        
+        public static String FE_RATE = "FE/t";
+        public static String FE_MAX = "FE Capacity";
+
+        public static String MB_RATE = "MB/t";
+        public static String MB_MAX = "MB Capacity";
+        // public static String SOUND = "Enable/Disable sound event";
+
+        public static String YLEVEL = "Enable/Disable Y-Level multiplier to reduce FE gen based on Y";
+        public static String SPAM = "Enable/Disable Solar-Spam multiplier to reduce FE gen based on cheap prices";
+        public static String SKY = "Enable/Disable condition to see the sky";
+        public static String DAY = "Enable/Disable condition of daytime only";
+        public static String BIOMES = "Change the logic of biometag | True == whitelist | False == blacklist";
+        }
 
     }
 

@@ -18,7 +18,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import javax.annotation.Nullable;
 
 @SuppressWarnings("null")
-public class TickerBlock extends BaseMachineBlock {
+public class TickerBlock extends BaseFluidMachineBlock {
 
     public TickerBlock() {
         super(BlockBehaviour.Properties.of()

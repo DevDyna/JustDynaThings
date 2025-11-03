@@ -40,7 +40,6 @@ public class zItems {
         public static final DeferredRegister.Items zCoals = DeferredRegister.createItems(Main.ID);
         // ---------------------------------------------------------------------------------------//
 
-        // TODO FUELS
         // public static final DeferredHolder<Item, ?> BIO_FUEL =
         // Material.DireStuff.FuelItemDW(Constants.Fuel.BIOFUEL,
         // 3);

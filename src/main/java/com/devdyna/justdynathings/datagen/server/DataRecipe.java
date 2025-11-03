@@ -102,8 +102,8 @@ public class DataRecipe extends RecipeProvider {
                                 .define('A', Registration.BlockSwapperT1.get())
                                 .define('B', Tags.Items.DUSTS_REDSTONE)
                                 .define('C', Registration.EclipseAlloyIngot.get())
-                                .define('D', Registration.TimeCrystal.get())
-                                .unlockedBy(ID, has(Registration.TimeCrystal.get()))
+                                .define('D', Registration.TimeCrystalBlock.get())
+                                .unlockedBy(ID, has(Registration.TimeCrystalBlock.get()))
                                 .group(Constants.Blocks.Stabilizer).save(c);
 
                 ShapelessRecipeBuilder.shapeless(MISC, zBlocks.PHASEBOX.get(), 4)
@@ -425,7 +425,7 @@ public class DataRecipe extends RecipeProvider {
                                                                 Registration.EclipseAlloyIngot.get()))
                                 .group(Constants.Wands.AdvancedTime).save(c);
 
-                registerStabilizerStaff(c);
+                stufepyWand(c);
 
                 ParadoxMixerRecipeBuilder.of()
                                 .input(new FluidStack(((LiquidBlock) Blocks.WATER).fluid, 1000))
@@ -500,7 +500,7 @@ public class DataRecipe extends RecipeProvider {
         }
 
         @SuppressWarnings("unchecked")
-        private void registerStabilizerStaff(RecipeOutput c) {
+        private void stufepyWand(RecipeOutput c) {
                 var item = new ItemStack(zItems.STUPEFY_WAND.get());
 
                 item.set((DataComponentType<Boolean>) JustDireDataComponents.COMPONENTS.getEntries().stream()

@@ -124,7 +124,7 @@ public class zBlocks {
                         .registerItemAndBlock(Constants.Blocks.ParadoxMixer, ParadoxMixerBlock::new);
 
         public static final DeferredHolder<Block, ?> PARADOX_RENDER = zHidden
-                        .registerSimpleBlock(Constants.Blocks.ParadoxMixer+"_render");
+                        .registerSimpleBlock(Constants.Blocks.ParadoxMixer + "_render");
 
         // ---------------------------------------------------------------------------------------//
 

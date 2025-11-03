@@ -8,7 +8,9 @@ import net.neoforged.bus.api.IEventBus;
 public class zBlockTags {
     public static void register(IEventBus bus) {
 
-    }
+    }   
+    
+    public static final TagKey<Block> TICKER_DENY = Material.tagBlock("ticker_deny");
 
 
     public static final TagKey<Block> STABILIZER_BELOW = Material.tagBlock("stabilizer_below");

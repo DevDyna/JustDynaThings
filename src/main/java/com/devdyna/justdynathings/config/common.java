@@ -138,6 +138,11 @@ public class common {
         public static IntValue PARADOX_MIXER_MB_CAPACITY;
         public static BooleanValue PARADOX_MIXER_SOUND_EVENT;
 
+        public static IntValue TICKER_MB_CAPACITY;
+        public static IntValue TICKER_MB_RATE;
+        public static IntValue TICKER_FE_CAPACITY;
+        public static IntValue TICKER_FE_RATE;
+
         public static void register(ModContainer c) {
                 regCommon();
                 c.registerConfig(ModConfig.Type.COMMON, qCOMMON.build());
@@ -152,6 +157,7 @@ public class common {
                 anvil();
                 wands();
                 mixer();
+                ticker();
         }
 
         private static void general() {
@@ -568,14 +574,29 @@ public class common {
 
         }
 
+        private static void ticker() {
+                qCOMMON.comment(DataGenUtil.txtDecor(Blocks.Ticker)).push("9-" + Blocks.Ticker);
+
+                TICKER_FE_CAPACITY = qCOMMON
+                                .comment(Config.Display.FE_MAX)
+                                .defineInRange(Blocks.Ticker + Config.Keys.FE_MAX, 10000, 1, Integer.MAX_VALUE);
+                TICKER_FE_RATE = qCOMMON
+                                .comment(Config.Display.FE_RATE)
+                                .defineInRange(Blocks.Ticker + Config.Keys.FE_RATE, 10, 1, Integer.MAX_VALUE);
+                TICKER_MB_CAPACITY = qCOMMON
+                                .comment(Config.Display.MB_MAX)
+                                .defineInRange(Blocks.Ticker + Config.Keys.MB_MAX, 1000, 1, Integer.MAX_VALUE);
+                TICKER_MB_RATE = qCOMMON
+                                .comment(Config.Display.MB_RATE)
+                                .defineInRange(Blocks.Ticker + Config.Keys.MB_RATE, 1, 1, Integer.MAX_VALUE);
 
                 qCOMMON.pop();
 
         }
 
-                qCOMMON.comment("If you're wondering that this config part");
         private static void superduperConfig() {
                 qCOMMON.comment("Hello player, DevDyna is here !");
+                qCOMMON.comment("If you're wondering that this config part");
                 qCOMMON.comment("is used as joke , you are right...");
                 qCOMMON.comment("Anyway , can I be of help to you ?")
                                 .define("answer", false);

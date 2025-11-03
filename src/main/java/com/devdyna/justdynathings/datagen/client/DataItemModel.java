@@ -60,6 +60,9 @@ public class DataItemModel extends ItemModelProvider {
 
                 DataGenUtil.itemBlockwithParent(zBlocks.REFORGER.get(), this,
                                 ID + ":block/" + DataGenUtil.getName(zBlocks.REFORGER.get()) + "/off");
+              
+                                DataGenUtil.itemBlockwithParent(zBlocks.TICKER.get(), this,
+                                ID + ":block/" + DataGenUtil.getName(zBlocks.TICKER.get()) + "/off");
 
                 DataGenUtil.itemBlockwithParent(zBlocks.STABILIZER.get(), this,
                                 ID + ":block/" + DataGenUtil.getName(zBlocks.STABILIZER.get()) + "/x/off");

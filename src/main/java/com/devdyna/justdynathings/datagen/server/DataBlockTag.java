@@ -104,6 +104,7 @@ public class DataBlockTag extends BlockTagsProvider {
 
                 tag(zBlockTags.ADVANCED_TIME_DENY).addOptional(JustDireBlockTags.TICK_SPEED_DENY.location());
 
+                tag(zBlockTags.TICKER_DENY).addOptional(JustDireBlockTags.TICK_SPEED_DENY.location());
         }
 
 }

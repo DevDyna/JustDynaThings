@@ -15,6 +15,7 @@ import com.devdyna.justdynathings.client.builder.solarGen.celestigem.CelestigemS
 import com.devdyna.justdynathings.client.builder.solarGen.eclipsealloy.EclipseAlloySolarPanelGUI;
 import com.devdyna.justdynathings.client.builder.solarGen.ferricore.FerricoreSolarPanelGUI;
 import com.devdyna.justdynathings.client.builder.thermoGen.ThermoGUI;
+import com.devdyna.justdynathings.client.builder.ticker.TickerGUI;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.inventory.MenuType;
@@ -33,6 +34,10 @@ public class zContainers {
         public static final DeferredHolder<MenuType<?>, MenuType<ReforgerGUI>> REFORGER = zCTNR
                         .register(Constants.Blocks.Reforger,
                                         () -> IMenuTypeExtension.create(ReforgerGUI::new));
+
+        public static final DeferredHolder<MenuType<?>, MenuType<TickerGUI>> TICKER = zCTNR
+                        .register(Constants.Blocks.Ticker,
+                                        () -> IMenuTypeExtension.create(TickerGUI::new));
 
         public static final DeferredHolder<MenuType<?>, MenuType<ClockGUI>> FERRICORE_CLOCK = zCTNR
                         .register(Constants.Blocks.FerricoreClock,

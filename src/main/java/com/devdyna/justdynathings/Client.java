@@ -14,6 +14,7 @@ import com.devdyna.justdynathings.client.builder.solarGen.celestigem.CelestigemS
 import com.devdyna.justdynathings.client.builder.solarGen.eclipsealloy.EclipseAlloySolarPanelScreen;
 import com.devdyna.justdynathings.client.builder.solarGen.ferricore.FerricoreSolarPanelScreen;
 import com.devdyna.justdynathings.client.builder.thermoGen.ThermoScreen;
+import com.devdyna.justdynathings.client.builder.ticker.TickerScreen;
 import com.devdyna.justdynathings.registry.builders.goo.creative.CreativeGooRender;
 import com.devdyna.justdynathings.registry.builders.goo.energy.EnergyGooRender;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
@@ -33,6 +34,7 @@ import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 public class Client {
     @SubscribeEvent
     public static void registerScreens(RegisterMenuScreensEvent event) {
+        event.register(zContainers.TICKER.get(), TickerScreen::new);
         event.register(zContainers.REFORGER.get(), ReforgerScreen::new);
         event.register(zContainers.FERRICORE_CLOCK.get(), ClockScreen::new);
         event.register(zContainers.THERMOGEN.get(), ThermoScreen::new);
@@ -46,7 +48,7 @@ public class Client {
         event.register(zContainers.BLAZEGOLD_SOLAR_PANEL.get(), BlazegoldSolarPanelScreen::new);
         event.register(zContainers.CELESTIGEM_SOLAR_PANEL.get(), CelestigemSolarPanelScreen::new);
         event.register(zContainers.ECLIPSEALLOY_SOLAR_PANEL.get(), EclipseAlloySolarPanelScreen::new);
-      
+
         event.register(zContainers.PARADOX_MIXER.get(), ParadoxMixerScreen::new);
 
     }

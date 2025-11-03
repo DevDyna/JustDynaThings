@@ -27,6 +27,7 @@ public class Capabilities {
         public static void regCap(RegisterCapabilitiesEvent event) {
 
                 Block[] TimeFluidMachines = {
+                                zBlocks.TICKER.get(),
                                 zBlocks.STABILIZER.get()
                 };
 
@@ -36,6 +37,8 @@ public class Capabilities {
                                 zBlocks.ECLIPSEALLOY_ANVIL.get(),
 
                                 zBlocks.STABILIZER.get(),
+
+                                zBlocks.TICKER.get(),
 
                                 zBlocks.ENERGIZED_GOO.get(),
                                 zBlocks.T1_GOO.get(), zBlocks.T2_GOO.get(),

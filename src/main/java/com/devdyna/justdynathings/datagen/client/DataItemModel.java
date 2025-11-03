@@ -49,6 +49,8 @@ public class DataItemModel extends ItemModelProvider {
                 SolarBlockItem(zBlocks.CELESTIGEM_SOLARGEN.get());
                 SolarBlockItem(zBlocks.ECLIPSEALLOY_SOLARGEN.get());
 
+                //TODO datagen
+
                 DataGenUtil.itemBlockwithParent(zBlocks.FERRICORE_CLOCK.get(), this,
                                 "block/cube_all", "all",
                                 ID + ":block/" + DataGenUtil.getName(zBlocks.FERRICORE_CLOCK.get()) + "/on");

@@ -60,7 +60,7 @@ public class ReforgerBlock extends BaseMachineBlock {
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         return defaultBlockState()
                 .setValue(BlockStateProperties.FACING, context.getNearestLookingDirection().getOpposite())
-                .setValue(zProperties.ACTIVE, true);
+                .setValue(zProperties.ACTIVE, false);
     }
 
     @Override

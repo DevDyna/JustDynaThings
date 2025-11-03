@@ -9,7 +9,6 @@ import net.neoforged.fml.ModContainer;
 
 public class config {
     public static void core(ModContainer chest) {
-        // startup.register(chest); //TODO need to define what to do with this
         common.register(chest);
     }
 

@@ -98,7 +98,7 @@ public class StabilizerBE extends BaseMachineBE implements EnergyMachine, FluidM
                         .setValue(zProperties.ENERGIZED, canExtractMB())
                         .setValue(zProperties.ACTIVE, canExtractFE())
                         .setValue(zProperties.GOO_FOUND,
-                                level.getBlockState(getGooPos()).is(zBlockTags.REVITALIZER_GOO))
+                                level.getBlockState(getGooPos()).is(zBlockTags.STABILIZER_BELOW))
                         .setValue(BlockStateProperties.FACING,
                                 getBlockState()
                                         .getValue(BlockStateProperties.FACING)));

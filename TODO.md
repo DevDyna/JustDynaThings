@@ -24,13 +24,16 @@
 - [ ] Paradox Box (Pandora's Box like)
 - ~~Crystallizer and Liquid Crystalline~~ out of topic
 - [ ] Rocket Boots
-- [ ] Raw magmasteel (iron + magma) -> thermogen (?)
+- ~~ Raw magmasteel (iron + magma) -> thermogen (?)~~ out of topic
 - [ ] Mushroom Tree Feller
 - [ ] Pocket generator T2-3-4 [(?)](https://github.com/Direwolf20-MC/JustDireThings/blob/main/src/main/resources/assets/justdirethings/textures/item/pocket_generator_t4.png)
-- [ ] Budding Revitalizer (like revitalizer but based to revitalize time and flawed buddings)
-- [ ] Budding Booster (like a sprinkler but based for buddings )
+- ~~ Budding Revitalizer (like revitalizer but based to revitalize time and flawed buddings)~~ out of topic
+- ~~ Budding Booster (like a sprinkler but based for buddings )~~ out of topic
 - [ ] Advanced Experience holder
 - [ ] Paradox Decreaser
+- [ ] Paradox Stabilizer (controllable paradox entity)
+- [ ] Paradox Generator (paradox -> FE)
+- [ ] Paradox Materializer (goo recipes in-gui)
 
 
 ### Implemented but not fully completed

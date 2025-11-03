@@ -143,6 +143,8 @@ public class common {
         public static IntValue TICKER_FE_CAPACITY;
         public static IntValue TICKER_FE_RATE;
 
+        public static IntValue TICKER_TICK_RATE;
+
         public static void register(ModContainer c) {
                 regCommon();
                 c.registerConfig(ModConfig.Type.COMMON, qCOMMON.build());
@@ -589,6 +591,10 @@ public class common {
                 TICKER_MB_RATE = qCOMMON
                                 .comment(Config.Display.MB_RATE)
                                 .defineInRange(Blocks.Ticker + Config.Keys.MB_RATE, 1, 1, Integer.MAX_VALUE);
+               
+                                TICKER_TICK_RATE = qCOMMON
+                                .comment("Tick speed applied")
+                                .defineInRange(Blocks.Ticker + "_tick_rate", 16, 1, Integer.MAX_VALUE);
 
                 qCOMMON.pop();
 

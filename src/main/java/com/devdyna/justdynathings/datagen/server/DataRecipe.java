@@ -485,6 +485,18 @@ public class DataRecipe extends RecipeProvider {
                                                                 Registration.EclipseAlloyIngot.get()))
                                 .group(Constants.Blocks.ParadoxMixer).save(c);
 
+                ShapedRecipeBuilder.shaped(MISC, zBlocks.TICKER.get())
+                                .pattern("ETE")
+                                .pattern("TPT")
+                                .pattern("ETE")
+                                .define('P', zItemTags.TIME_WANDS)
+                                .define('T', Tags.Items.DUSTS_REDSTONE)
+                                .define('E', Registration.EclipseAlloyIngot.get())
+                                .unlockedBy(ID,
+                                                has(
+                                                                Registration.EclipseAlloyIngot.get()))
+                                .group(Constants.Blocks.Ticker).save(c);
+
         }
 
         @SuppressWarnings("unchecked")

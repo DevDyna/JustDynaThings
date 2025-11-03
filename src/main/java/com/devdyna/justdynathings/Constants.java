@@ -30,7 +30,6 @@ public class Constants {
         public static String FerricoreClock = Tiers.ferricore + "_clock";
         public static String Stabilizer = "stabilizer";
         public static String Ticker = "ticker";
-        // public static String Sculk = "sculk";
         public static String ThermoGen = "thermo_generator";
         public static String ParadoxMixer = "paradox_mixer";
         public static String BlackHole = "blackhole";

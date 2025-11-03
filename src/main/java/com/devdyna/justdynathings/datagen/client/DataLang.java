@@ -26,25 +26,25 @@ public class DataLang extends LanguageProvider {
                 add(ID + ".wand.pos", "§7BlockPos : ");
                 add(ID + ".disabled", "§cItem Disabled");
 
-                add(ID + "." + Constants.Blocks.Reforger + ".tip",
+                add(ID + "." + Constants.Blocks.Reforger ,
                                 "§7Convert blocks using a catalyst to other blocks");
 
-                add(ID + "." + Constants.Anvils.t1 + ".tip",
+                add(ID + "." + Constants.Anvils.t1 ,
                                 "§7Repair items using metallic ingots");
 
-                add(ID + "." + Constants.Anvils.t2 + ".tip",
+                add(ID + "." + Constants.Anvils.t2 ,
                                 "§7Repair items using hot fluids");
 
-                add(ID + "." + Constants.Anvils.t3 + ".tip",
+                add(ID + "." + Constants.Anvils.t3 ,
                                 "§7Repair items using Forge Energy");
 
-                add(ID + "." + Constants.Anvils.t4 + ".tip",
+                add(ID + "." + Constants.Anvils.t4 ,
                                 "§7Repair items using Forge Energy");
 
                 add(ID + "." + Constants.Anvils.t4 + ".boost",
                                 "§7Can be boosted using Fluid Time");
 
-                add(ID + "." + Constants.BuddingType + ".tip",
+                add(ID + "." + Constants.BuddingType ,
                                 "§7Grow clusters using Fluid Time and Forge Energy");
 
                 // creative tab
@@ -57,18 +57,21 @@ public class DataLang extends LanguageProvider {
                 add(ID + ".doc.missing", "§aFor more info consider to install GuideMe or Patchouli");
 
                 // generic type tooltips
-                add(ID + "." + Constants.GooType + "." + Constants.Goo.Energized + ".tip",
+                add(ID + "." + Constants.GooType + "." + Constants.Goo.Energized ,
                                 "§cProvide energy to active it");
-                add(ID + "." + Constants.GooType + "." + Constants.Goo.Creative + ".tip",
+                add(ID + "." + Constants.GooType + "." + Constants.Goo.Creative ,
                                 "§cRight click with a wrench to toggle alive state");
-                add(ID + "." + Constants.SolarPanelType + ".tip", "§7Generate Energy from ambiental situations");
-                add(ID + "." + Constants.Blocks.ThermoGen + ".tip",
+                add(ID + "." + Constants.SolarPanelType , "§7Generate Energy from ambiental situations");
+                add(ID + "." + Constants.Blocks.ThermoGen ,
                                 "§7Generate Energy from heat sources and coolants");
 
-                add(ID + "." + Constants.Blocks.Stabilizer + ".tip",
+                add(ID + "." + Constants.Blocks.Stabilizer ,
                                 "§7Feed Goo blocks and can be used to keep alive the paradox mixer");
-                add(ID + "." + Constants.Blocks.ParadoxMixer + ".tip",
+                add(ID + "." + Constants.Blocks.ParadoxMixer ,
                                 "§7Allow to mass-craft fluid drop recipes");
+                                
+                add(ID + "." + Constants.Blocks.Ticker ,
+                                "§7A block that act at same of a time wand");
 
                 // registry keys
                 zBlocks.zBlock.getEntries().forEach(b -> addBlock(b, named(b.getRegisteredName())));

@@ -66,7 +66,7 @@ public class BuddingBlock extends BlockBaseBE implements BucketInteractive{
             TooltipFlag f) {
         if (Constants.ModAddonCheck.docCheck && !common.DOC_WARNING.getAsBoolean())
             t.add(Component.translatable(Main.ID + ".doc.missing"));
-        t.add(Component.translatable(Main.ID + "." + Constants.BuddingType + ".tip"));
+        t.add(Component.translatable(Main.ID + "." + Constants.BuddingType ));
     }
 
 }

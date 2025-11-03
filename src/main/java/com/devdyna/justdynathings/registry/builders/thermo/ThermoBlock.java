@@ -107,7 +107,7 @@ public class ThermoBlock extends BaseFluidMachineBlock {
             TooltipFlag tooltipFlag) {
         if (Constants.ModAddonCheck.docCheck && !common.DOC_WARNING.getAsBoolean())
             tooltipComponents.add(Component.translatable(Main.ID + ".doc.missing"));
-            tooltipComponents.add(Component.translatable(Main.ID + "." + Constants.Blocks.ThermoGen + ".tip"));
+            tooltipComponents.add(Component.translatable(Main.ID + "." + Constants.Blocks.ThermoGen));
     }
 
 }

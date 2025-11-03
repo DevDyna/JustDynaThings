@@ -102,7 +102,7 @@ public class StabilizerBlock extends BlockBaseBE implements BucketInteractive {
             TooltipFlag tooltipFlag) {
         if (Constants.ModAddonCheck.docCheck && !common.DOC_WARNING.getAsBoolean())
             tooltipComponents.add(Component.translatable(Main.ID + ".doc.missing"));
-        tooltipComponents.add(Component.translatable(Main.ID + "." + Constants.Blocks.Stabilizer + ".tip"));
+        tooltipComponents.add(Component.translatable(Main.ID + "." + Constants.Blocks.Stabilizer));
     }
 
 }

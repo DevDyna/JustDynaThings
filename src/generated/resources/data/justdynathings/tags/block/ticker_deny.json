@@ -1,0 +1,8 @@
+{
+  "values": [
+    {
+      "id": "justdirethings:tick_speed_deny",
+      "required": false
+    }
+  ]
+}

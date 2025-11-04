@@ -23,6 +23,7 @@ import com.devdyna.justdynathings.registry.builders.solar.eclipsealloy.EclipseAl
 import com.devdyna.justdynathings.registry.builders.solar.ferricore.FerricoreSolarBlock;
 import com.devdyna.justdynathings.registry.builders.stabilizer.StabilizerBlock;
 import com.devdyna.justdynathings.registry.builders.thermo.ThermoBlock;
+import com.devdyna.justdynathings.registry.builders.ticker.TickerBlock;
 
 import net.minecraft.world.level.block.Block;
 import net.neoforged.bus.api.IEventBus;
@@ -77,6 +78,9 @@ public class zBlocks {
         public static final DeferredHolder<Block, ?> REFORGER = Material
                         .registerItemAndBlock(Constants.Blocks.Reforger, ReforgerBlock::new);
 
+        public static final DeferredHolder<Block, ?> TICKER = Material
+                        .registerItemAndBlock(Constants.Blocks.Ticker, TickerBlock::new);
+
         public static final DeferredHolder<Block, ?> ECHOING_BUDDING_TIME = Material.DireStuff
                         .registerBudding(Constants.Budding.Time, () -> new TimeBlock());
 
@@ -124,7 +128,7 @@ public class zBlocks {
                         .registerItemAndBlock(Constants.Blocks.ParadoxMixer, ParadoxMixerBlock::new);
 
         public static final DeferredHolder<Block, ?> PARADOX_RENDER = zHidden
-                        .registerSimpleBlock(Constants.Blocks.ParadoxMixer+"_render");
+                        .registerSimpleBlock(Constants.Blocks.ParadoxMixer + "_render");
 
         // ---------------------------------------------------------------------------------------//
 

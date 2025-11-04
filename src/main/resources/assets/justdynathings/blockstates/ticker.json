@@ -1,0 +1,56 @@
+{
+  "variants": {
+    "active=false,facing=down": {
+      "model": "justdynathings:block/ticker/off",
+      "x": 180
+    },
+    "active=false,facing=east": {
+      "model": "justdynathings:block/ticker/off",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=north": {
+      "model": "justdynathings:block/ticker/off",
+      "x": 90
+    },
+    "active=false,facing=south": {
+      "model": "justdynathings:block/ticker/off",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=up": {
+      "model": "justdynathings:block/ticker/off"
+    },
+    "active=false,facing=west": {
+      "model": "justdynathings:block/ticker/off",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=down": {
+      "model": "justdynathings:block/ticker/on",
+      "x": 180
+    },
+    "active=true,facing=east": {
+      "model": "justdynathings:block/ticker/on",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=north": {
+      "model": "justdynathings:block/ticker/on",
+      "x": 90
+    },
+    "active=true,facing=south": {
+      "model": "justdynathings:block/ticker/on",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=up": {
+      "model": "justdynathings:block/ticker/on"
+    },
+    "active=true,facing=west": {
+      "model": "justdynathings:block/ticker/on",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

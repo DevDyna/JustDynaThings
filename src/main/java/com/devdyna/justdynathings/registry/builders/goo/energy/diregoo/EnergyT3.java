@@ -44,7 +44,7 @@ public class EnergyT3 extends GooBlock_Base implements EntityBlock {
 
    @SuppressWarnings("null")
    public void appendHoverText(ItemStack s, Item.TooltipContext c, List<Component> t, TooltipFlag f) {
-      t.add(Component.translatable(Main.ID + "." + Constants.GooType + "." + Constants.Goo.Energized + ".tip"));
+      t.add(Component.translatable(Main.ID + "." + Constants.GooType + "." + Constants.Goo.Energized ));
       if (Screen.hasShiftDown())
          t.add(Component.translatable(Main.ID + "." + Constants.GooType + ".tier")
                .append(Component.literal("" + common.GOO_T3_TIER.get())));

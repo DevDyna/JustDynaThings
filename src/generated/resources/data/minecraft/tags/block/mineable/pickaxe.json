@@ -9,6 +9,10 @@
       "required": false
     },
     {
+      "id": "justdynathings:ticker",
+      "required": false
+    },
+    {
       "id": "justdynathings:ferricore_clock",
       "required": false
     },

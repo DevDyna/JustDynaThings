@@ -182,7 +182,7 @@ public class AdvancedTimeWand extends TimeWand {
                 true);
     }
 
-    protected void playTimeWandSound(Level serverLevel, BlockPos pos, int setRate) {
+    public static void playTimeWandSound(Level serverLevel, BlockPos pos, int setRate) {
         float pitch = switch (setRate) {
             case 1 -> 0.707107F;
             case 2 -> 0.793701F;
@@ -219,7 +219,6 @@ public class AdvancedTimeWand extends TimeWand {
         FluidContainingItem.consumeFluid(item, mb);
         PoweredItem.consumeEnergy(item, fe);
         playTimeWandSound(level, pos, rate); // Play sound based on the click count
-
     }
 
     @Override

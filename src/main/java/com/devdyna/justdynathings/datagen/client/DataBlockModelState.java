@@ -40,6 +40,8 @@ public class DataBlockModelState extends BlockStateProvider {
 
         @Override
         protected void registerStatesAndModels() {
+                //TODO reforger , ticker and stabilizer blockstate datagen
+
 
                 BaseGooStateModel(zBlocks.CREATIVE_GOO.get());
                 BaseGooStateModel(zBlocks.ENERGIZED_GOO.get());

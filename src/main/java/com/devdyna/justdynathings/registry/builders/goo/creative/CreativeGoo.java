@@ -65,7 +65,7 @@ public class CreativeGoo extends GooBlock_Base {
 
    @SuppressWarnings("null")
    public void appendHoverText(ItemStack s, Item.TooltipContext c, List<Component> t, TooltipFlag f) {
-      t.add(Component.translatable(Main.ID + "." + Constants.GooType + "." + Constants.Goo.Creative + ".tip"));
+      t.add(Component.translatable(Main.ID + "." + Constants.GooType + "." + Constants.Goo.Creative));
       if (Screen.hasShiftDown())
          t.add(Component.translatable(Main.ID + "." + Constants.GooType + ".tier")
                .append(Component.literal("" + common.GOO_CREATIVE_TIER.get())));

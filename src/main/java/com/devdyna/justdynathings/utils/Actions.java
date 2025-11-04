@@ -70,6 +70,11 @@ public class Actions {
                 i.setDamageValue(i.getDamageValue() - damage);
         }
 
+        /**
+         * @deprecated
+         *             use MiscTools.doExtraTicks(ServerLevel, BlockPos, double)
+         */
+        @Deprecated
         public static void tickWhenRandom(BlockPos pos, Level level) {
                 if (level.getBlockState(pos).isRandomlyTicking())
                         level.getBlockState(pos).randomTick((ServerLevel) level, pos, level.random);
@@ -87,6 +92,11 @@ public class Actions {
 
         }
 
+        /**
+         * @deprecated
+         *             use MiscTools.doExtraTicks(ServerLevel, BlockPos, double)
+         */
+        @Deprecated
         @SuppressWarnings({ "unchecked" })
         public static void tickWhenBE(Level level, BlockPos pos) {
                 var be = level.getBlockEntity(pos);

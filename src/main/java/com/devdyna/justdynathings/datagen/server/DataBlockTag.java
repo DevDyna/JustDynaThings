@@ -50,13 +50,12 @@ public class DataBlockTag extends BlockTagsProvider {
                                 .forEach(b -> tag(BlockTags.MINEABLE_WITH_SHOVEL)
                                                 .add(b.get()));
 
-                tag(REVITALIZER_GOO).add(
+                tag(STABILIZER_BELOW).add(
                                 Registration.GooBlock_Tier1.get(),
                                 Registration.GooBlock_Tier2.get(),
                                 Registration.GooBlock_Tier3.get(),
                                 Registration.GooBlock_Tier4.get(),
                                 zBlocks.PARADOX_MIXER.get());
-
 
                 tag(zBlockTags.T2_SPREAD).add(
                                 Registration.GooBlock_Tier1.get());
@@ -105,6 +104,7 @@ public class DataBlockTag extends BlockTagsProvider {
 
                 tag(zBlockTags.ADVANCED_TIME_DENY).addOptional(JustDireBlockTags.TICK_SPEED_DENY.location());
 
+                tag(zBlockTags.TICKER_DENY).addOptional(JustDireBlockTags.TICK_SPEED_DENY.location());
         }
 
 }

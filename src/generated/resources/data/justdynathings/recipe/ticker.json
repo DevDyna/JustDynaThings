@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "ticker",
+  "key": {
+    "E": {
+      "item": "justdirethings:eclipsealloy_ingot"
+    },
+    "P": {
+      "tag": "justdynathings:time_wands"
+    },
+    "T": {
+      "tag": "c:dusts/redstone"
+    }
+  },
+  "pattern": [
+    "ETE",
+    "TPT",
+    "ETE"
+  ],
+  "result": {
+    "count": 1,
+    "id": "justdynathings:ticker"
+  }
+}

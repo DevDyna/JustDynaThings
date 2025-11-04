@@ -8,16 +8,17 @@ import net.neoforged.bus.api.IEventBus;
 public class zBlockTags {
     public static void register(IEventBus bus) {
 
-    }
+    }   
+    
+    public static final TagKey<Block> TICKER_DENY = Material.tagBlock("ticker_deny");
 
-    public static final TagKey<Block> REVITALIZER_GOO = Material.tagBlock("revitalizer_goo");
+
+    public static final TagKey<Block> STABILIZER_BELOW = Material.tagBlock("stabilizer_below");
 
     public static final TagKey<Block> PICKER_DENY = Material.tagBlock("picker_deny");
     public static final TagKey<Block> SWAPPER_DENY = Material.tagBlock("swapper_deny");
 
     public static final TagKey<Block> COAL_BLOCKS = Material.tagBlock("storage_blocks/unified_coals");
-
-    // public static final TagKey<Block> AMETHYST_BLOCKS = Material.tagBlock("minecraft", "amethyst_blocks");
 
     public static final TagKey<Block> T2_SPREAD = Material.tagBlock("t2_spread");
     public static final TagKey<Block> T3_SPREAD = Material.tagBlock("t3_spread");

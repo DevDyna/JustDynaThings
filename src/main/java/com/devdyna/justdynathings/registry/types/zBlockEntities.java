@@ -22,6 +22,7 @@ import com.devdyna.justdynathings.registry.builders.solar.eclipsealloy.EclipseAl
 import com.devdyna.justdynathings.registry.builders.solar.ferricore.FerricoreSolarBE;
 import com.devdyna.justdynathings.registry.builders.stabilizer.StabilizerBE;
 import com.devdyna.justdynathings.registry.builders.thermo.ThermoBE;
+import com.devdyna.justdynathings.registry.builders.ticker.TickerBE;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -66,6 +67,10 @@ public class zBlockEntities {
         public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ReforgerBE>> REFORGER = Material
                         .createBlockEntity(Constants.Blocks.Reforger,
                                         ReforgerBE::new, zBlocks.REFORGER);
+
+        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TickerBE>> TICKER = Material
+                        .createBlockEntity(Constants.Blocks.Ticker,
+                                        TickerBE::new, zBlocks.TICKER);
 
         public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TimeBE>> ECHOING_BUDDING_TIME = Material
                         .createBlockEntity(Constants.Budding.Time, TimeBE::new,

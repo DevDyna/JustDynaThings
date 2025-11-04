@@ -48,6 +48,8 @@ public class zItemTags {
         public static final TagKey<Item> T4_GOO_TYPE = Material.tagItem("t4_goo_type");
 
         public static final TagKey<Item> INTERACTIVE = Material.tagItem("interactive");
+        
+        public static final TagKey<Item> TIME_WANDS = Material.tagItem("time_wands");
 
 
 }

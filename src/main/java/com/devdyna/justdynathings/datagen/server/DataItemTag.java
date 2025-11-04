@@ -6,6 +6,7 @@ import java.util.concurrent.CompletableFuture;
 
 import com.devdyna.justdynathings.registry.types.zBlockTags;
 import com.devdyna.justdynathings.registry.types.zItemTags;
+import com.devdyna.justdynathings.registry.types.zItems;
 import com.direwolf20.justdirethings.datagen.JustDireItemTags;
 import com.direwolf20.justdirethings.setup.Registration;
 import com.glodblock.github.extendedae.common.EAESingletons;
@@ -99,6 +100,8 @@ public class DataItemTag extends ItemTagsProvider {
                                                 Registration.FerricoreWrench.get(),
                                                 Registration.MachineSettingsCopier.get())
                                 .addTag(Tags.Items.BUCKETS);
+
+                tag(zItemTags.TIME_WANDS).add(zItems.ADVANCED_TIME_WAND.get(), Registration.TimeWand.get());
 
         }
 

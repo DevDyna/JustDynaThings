@@ -1,6 +1,17 @@
 
 # TODO LIST
 
+
+### Tweaks
+
+- [ ] Ticker & Reforger datagen
+- [ ] Ticker guideme
+- [ ] Buddings datagen (?)
+- [ ] BlackHole rework and datagen (?)
+- [ ] Waterlogging many blocks
+- [ ] Budding JEI category
+
+
 ### Classic
 
 - ~~Energy/Fluid storage~~ out of topic
@@ -34,12 +45,3 @@
 - [ ] Paradox Stabilizer (controllable paradox entity)
 - [ ] Paradox Generator (paradox -> FE)
 - [ ] Paradox Materializer (goo recipes in-gui)
-
-
-### Implemented but not fully completed
-
-- [ ] Ticker rework and datagen
-- [ ] Buddings datagen (?)
-- [ ] BlackHole rework and datagen (?)
-- [ ] Waterlogging many blocks
-- [ ] Budding JEI category

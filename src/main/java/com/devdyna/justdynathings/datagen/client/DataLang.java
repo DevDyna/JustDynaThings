@@ -7,6 +7,7 @@ import java.util.List;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.registry.types.zBlocks;
 import com.devdyna.justdynathings.registry.types.zItems;
+import com.direwolf20.justdirethings.setup.Registration;
 
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
@@ -144,6 +145,7 @@ public class DataLang extends LanguageProvider {
 
                 add(ID + ".jei.warning", "Item form doesn't exist or doesn't respect the real block!");
 
+                add(ID + ".jei.category." + Registration.GeneratorT1_ITEM.getId().getPath(), "Solid Generator Fuels");
         }
 
         private String named(String text) {

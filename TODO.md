@@ -23,6 +23,7 @@
 
 ### Specialized
 
+- [ ] Generators fuel JEI category
 - [ ] Advanced Energy Transmitter/Item Collector (?)
 - ~~Plant Harvester~~ moved to [Synergy](https://github.com/DevDyna/Synergy)
 - [ ] Experience pedestal (clicking with items generate experience)

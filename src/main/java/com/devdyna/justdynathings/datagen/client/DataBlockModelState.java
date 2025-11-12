@@ -27,7 +27,6 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import static com.devdyna.justdynathings.compat.ae2.init.AE2_POWERED;
 import static com.devdyna.justdynathings.compat.extendedae.init.EXTENDED_POWERED;
-import static com.devdyna.justdynathings.compat.phasorite.init.PHASORITE_POWERED;
 
 import com.devdyna.justdynathings.Constants;
 
@@ -74,9 +73,9 @@ public class DataBlockModelState extends BlockStateProvider {
                                 modLoc("block/echoing_budding/entro/alive"),
                                 CubeAllCheap(ID + ":block/echoing_budding/entro", this));
 
-                BaseBuddings(PHASORITE_POWERED.get(),
-                                modLoc("block/echoing_budding/phasorite/alive"),
-                                CubeAllCheap(ID + ":block/echoing_budding/phasorite", this));
+                // BaseBuddings(PHASORITE_POWERED.get(),
+                //                 modLoc("block/echoing_budding/phasorite/alive"),
+                //                 CubeAllCheap(ID + ":block/echoing_budding/phasorite", this));
 
                 AnvilStateModel(zBlocks.FERRICORE_ANVIL.get());
                 AnvilStateModel(zBlocks.BLAZEGOLD_ANVIL.get());

@@ -109,8 +109,8 @@ public class Material {
                         a.add(com.devdyna.justdynathings.compat.ae2.init.AE2_POWERED.get());
                 if (Constants.ModAddonCheck.ExtendedAE)
                         a.add(com.devdyna.justdynathings.compat.extendedae.init.EXTENDED_POWERED.get());
-                if (Constants.ModAddonCheck.PhasoriteNetworks)
-                        a.add(com.devdyna.justdynathings.compat.phasorite.init.PHASORITE_POWERED.get());
+                // if (Constants.ModAddonCheck.PhasoriteNetworks)
+                        // a.add(com.devdyna.justdynathings.compat.phasorite.init.PHASORITE_POWERED.get());
                 Block[] b = new Block[a.size()];
                 for (int i = 0; i < a.size(); i++) {
                         b[i] = a.get(i);

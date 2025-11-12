@@ -54,11 +54,9 @@ import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
 import net.neoforged.neoforge.common.crafting.BlockTagIngredient;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.registries.DeferredHolder;
-import xyz.milosworks.phasoritenetworks.init.PNBlocks;
 
 import static com.devdyna.justdynathings.compat.ae2.init.AE2_POWERED;
 import static com.devdyna.justdynathings.compat.extendedae.init.EXTENDED_POWERED;
-import static com.devdyna.justdynathings.compat.phasorite.init.PHASORITE_POWERED;
 
 @SuppressWarnings({ "null", "unused" })
 public class DataRecipe extends RecipeProvider {
@@ -139,8 +137,8 @@ public class DataRecipe extends RecipeProvider {
                 Budding(EXTENDED_POWERED.get().asItem(), zItemTags.EXT_COMPAT, c
                                 .withConditions(DataGenUtil.isModLoaded("extendedae")));
 
-                Budding(PHASORITE_POWERED.get().asItem(), zItemTags.PHA_COMPAT, c
-                                .withConditions(DataGenUtil.isModLoaded("phasoritenetworks")));
+                // Budding(PHASORITE_POWERED.get().asItem(), zItemTags.PHA_COMPAT, c
+                //                 .withConditions(DataGenUtil.isModLoaded("phasoritenetworks")));
 
                 ShapedRecipeBuilder.shaped(MISC, zBlocks.BLACKHOLE.get(), 1)
                                 .pattern("FBF")

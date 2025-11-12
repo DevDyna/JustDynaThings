@@ -1,9 +1,9 @@
 package com.devdyna.justdynathings.compat.jei.categories.reforger;
 
 import com.devdyna.justdynathings.compat.jei.utils.BaseRecipeCategory;
-import com.devdyna.justdynathings.compat.jei.utils.Size;
 import com.devdyna.justdynathings.registry.types.zBlocks;
 import com.devdyna.justdynathings.utils.LogUtil;
+import com.devdyna.justdynathings.utils.Size;
 
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.builder.IRecipeSlotBuilder;

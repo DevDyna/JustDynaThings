@@ -1,5 +1,7 @@
 package com.devdyna.justdynathings.compat.jei.utils;
 
+import com.devdyna.justdynathings.utils.Size;
+
 import mezz.jei.api.helpers.IGuiHelper;
 
 public abstract class BaseLabelledCategory<T> extends BaseRecipeCategory<T> {

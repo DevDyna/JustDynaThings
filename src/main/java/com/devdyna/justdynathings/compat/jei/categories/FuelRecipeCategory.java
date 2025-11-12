@@ -10,7 +10,7 @@ import static com.devdyna.justdynathings.Main.ID;
 
 import com.devdyna.justdynathings.compat.jei.utils.BaseRecipeCategory;
 import com.devdyna.justdynathings.compat.jei.utils.FuelTierRecord;
-import com.devdyna.justdynathings.compat.jei.utils.Size;
+import com.devdyna.justdynathings.utils.Size;
 import com.direwolf20.justdirethings.common.blocks.resources.CoalBlock_T1;
 import com.direwolf20.justdirethings.common.items.resources.Coal_T1;
 import com.direwolf20.justdirethings.setup.Config;

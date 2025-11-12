@@ -4,6 +4,8 @@ import static com.devdyna.justdynathings.Main.ID;
 
 import org.jetbrains.annotations.Nullable;
 
+import com.devdyna.justdynathings.utils.Size;
+
 import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;

@@ -2,10 +2,11 @@ package com.devdyna.justdynathings.compat.jei.categories;
 
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.compat.jei.utils.BaseRecipeCategory;
-import com.devdyna.justdynathings.compat.jei.utils.Size;
 import com.devdyna.justdynathings.recipetypes.type.ParadoxMixerRecipe;
 import com.devdyna.justdynathings.registry.types.zBlocks;
 import com.devdyna.justdynathings.utils.DataGenUtil;
+import com.devdyna.justdynathings.utils.Size;
+
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;

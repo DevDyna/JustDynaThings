@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.compat.jei.utils;
+package com.devdyna.justdynathings.utils;
 
 public class Size {
 

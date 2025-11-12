@@ -6,7 +6,8 @@ import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.compat.jei.datamaps.records.ThermoBlockHeatSource;
 import com.devdyna.justdynathings.compat.jei.utils.BaseLabelledCategory;
 import com.devdyna.justdynathings.compat.jei.utils.Image;
-import com.devdyna.justdynathings.compat.jei.utils.Pos;
+import com.devdyna.justdynathings.utils.Pos;
+
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.builder.ITooltipBuilder;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;

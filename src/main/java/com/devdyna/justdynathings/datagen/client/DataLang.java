@@ -143,7 +143,7 @@ public class DataLang extends LanguageProvider {
 
                 add(ID + "." + Constants.Wands.Stupefy, "§7Remove TimeWand Entities and Stupefy ability");
 
-                add(ID + ".jei.warning", "Item form doesn't exist or doesn't respect the real block!");
+                add(ID + ".jei.warning", "Item form doesn't exist or doesn't respect the block placed!");
 
                 add(ID + ".jei.category." + Registration.GeneratorT1_ITEM.getId().getPath(), "Solid Generator Fuels");
         }

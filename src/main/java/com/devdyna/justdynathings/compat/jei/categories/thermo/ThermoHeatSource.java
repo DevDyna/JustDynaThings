@@ -99,7 +99,7 @@ public class ThermoHeatSource extends BaseLabelledCategory<ThermoBlockHeatSource
                                 || b instanceof SoulFireBlock)
                         Image.of().rl("minecraft",
                                         "textures/gui/sprites/icon/unseen_notification.png")
-                                        .size(10, 10).offset(130, 6)
+                                        .size(10, 10).offset(140, 7)
                                         .render(helper, guiGraphics);
 
         }
@@ -107,7 +107,7 @@ public class ThermoHeatSource extends BaseLabelledCategory<ThermoBlockHeatSource
         @Override
         public void getTooltip(ITooltipBuilder tooltip, ThermoBlockHeatSource map, IRecipeSlotsView recipeSlotsView,
                         double mouseX, double mouseY) {
-                if (Pos.of(130, 6).setSize(10, 10).test(mouseX, mouseY))
+                if (Pos.of(140, 7).setSize(10, 10).test(mouseX, mouseY))
                         tooltip.add(Component.translatable(ID + ".jei.warning"));
 
         }

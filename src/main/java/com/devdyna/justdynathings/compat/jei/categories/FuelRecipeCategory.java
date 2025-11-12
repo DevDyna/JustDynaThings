@@ -26,7 +26,7 @@ import net.minecraft.world.level.ItemLike;
 @SuppressWarnings("null")
 public class FuelRecipeCategory extends BaseRecipeCategory<FuelTierRecord> {
     public static final RecipeType<FuelTierRecord> TYPE = RecipeType.create(ID,
-            Registration.GeneratorT1_ITEM.getRegisteredName(), FuelTierRecord.class);
+            Registration.GeneratorT1_ITEM.getId().getPath(), FuelTierRecord.class);
 
     public FuelRecipeCategory(IGuiHelper guiHelper) {
         super(guiHelper);
@@ -84,7 +84,7 @@ public class FuelRecipeCategory extends BaseRecipeCategory<FuelTierRecord> {
 
     @Override
     public String getTitleKey() {
-        return Registration.GeneratorT1_ITEM.getRegisteredName();
+        return Registration.GeneratorT1_ITEM.getId().getPath();
     }
 
     @Override

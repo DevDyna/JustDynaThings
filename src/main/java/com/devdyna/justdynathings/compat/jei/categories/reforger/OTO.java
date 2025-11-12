@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.compat.jei.reforger;
+package com.devdyna.justdynathings.compat.jei.categories.reforger;
 
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.recipetypes.type.*;
@@ -25,7 +25,7 @@ public class OTO extends BaseReforgerCategory<ReforgerOTORecipe> {
     }
 
     @Override
-    public String setTitle() {
+    public String getTitleKey() {
         return Constants.DataMaps.Reforger.block_to_block;
     }
 

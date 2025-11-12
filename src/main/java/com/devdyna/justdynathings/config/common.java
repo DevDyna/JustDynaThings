@@ -12,6 +12,7 @@ public class common {
         private static final ModConfigSpec.Builder qCOMMON = new ModConfigSpec.Builder();
 
         public static BooleanValue DOC_WARNING;
+        public static BooleanValue ENABLE_ALL_JEI_FUELS;
 
         public static BooleanValue PHASE_BOX_WRENCHABLE;
 
@@ -168,6 +169,10 @@ public class common {
                 DOC_WARNING = qCOMMON
                                 .comment("Disable Documentation warning")
                                 .define("disable_doc_warning", false);
+
+                ENABLE_ALL_JEI_FUELS = qCOMMON
+                                .comment("Include any fuel item to Generator JEI category")
+                                .define("include_any_jei_fuels", false);
 
                 superduperConfig();
                 qCOMMON.pop();

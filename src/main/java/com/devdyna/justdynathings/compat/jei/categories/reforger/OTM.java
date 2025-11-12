@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.compat.jei.reforger;
+package com.devdyna.justdynathings.compat.jei.categories.reforger;
 
 import java.util.List;
 
@@ -31,7 +31,7 @@ public class OTM extends BaseReforgerCategory<ReforgerOTMRecipe> {
     }
 
     @Override
-    public String setTitle() {
+    public String getTitleKey() {
         return Constants.DataMaps.Reforger.block_to_tag;
     }
 

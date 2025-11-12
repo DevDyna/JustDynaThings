@@ -1,24 +1,20 @@
-package com.devdyna.justdynathings.compat.jei;
-
-import static com.devdyna.justdynathings.Main.ID;
-
-import javax.annotation.Nullable;
+package com.devdyna.justdynathings.compat.jei.categories;
 
 import com.devdyna.justdynathings.Constants;
+import com.devdyna.justdynathings.compat.jei.utils.BaseRecipeCategory;
+import com.devdyna.justdynathings.compat.jei.utils.Size;
 import com.devdyna.justdynathings.recipetypes.type.ParadoxMixerRecipe;
 import com.devdyna.justdynathings.registry.types.zBlocks;
 import com.devdyna.justdynathings.utils.DataGenUtil;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
-import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
-import mezz.jei.api.recipe.category.IRecipeCategory;
-import net.minecraft.network.chat.Component;
+import net.minecraft.world.level.ItemLike;
 
 @SuppressWarnings("null")
-public class ParadoxMixerCategory<T> implements IRecipeCategory<ParadoxMixerRecipe> {
+public class ParadoxMixerCategory<T> extends BaseRecipeCategory<ParadoxMixerRecipe> {
 
         public static final RecipeType<ParadoxMixerRecipe> TYPE = new RecipeType<>(
                         DataGenUtil.getResource(Constants.Blocks.ParadoxMixer),
@@ -29,26 +25,28 @@ public class ParadoxMixerCategory<T> implements IRecipeCategory<ParadoxMixerReci
                 return TYPE;
         }
 
-        private IGuiHelper helper;
-
         public ParadoxMixerCategory(IGuiHelper helper) {
-                this.helper = helper;
+                super(helper);
         }
 
         @Override
-        public Component getTitle() {
-                return Component.translatable(ID + ".jei.category.paradox_mixer");
+        public String getTitleKey() {
+                return Constants.Blocks.ParadoxMixer;
         }
 
         @Override
-        public @Nullable IDrawable getIcon() {
-                return helper.createDrawableItemLike(zBlocks.PARADOX_MIXER.get());
+        public ItemLike getIconItem() {
+                return zBlocks.PARADOX_MIXER.get();
         }
 
         @Override
-        public @Nullable IDrawable getBackground() {
-                return helper.createDrawable(DataGenUtil.getResource("textures/gui/paradox_mixer.png"), 0, 0, 127,
-                                24);
+        public Size setXY() {
+                return Size.of(127, 24);
+        }
+
+        @Override
+        public String setBackGround() {
+                return "textures/gui/paradox_mixer.png";
         }
 
         @Override

@@ -30,6 +30,7 @@ import net.neoforged.neoforge.client.event.RegisterItemDecorationsEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 
 //IT WORK , DONT TOUCH IT
+@SuppressWarnings({ "removal", "deprecation" })
 @EventBusSubscriber(modid = Main.ID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
 public class Client {
     @SubscribeEvent

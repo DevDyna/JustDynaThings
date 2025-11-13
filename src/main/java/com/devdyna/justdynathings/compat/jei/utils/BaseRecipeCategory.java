@@ -10,6 +10,8 @@ import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.category.IRecipeCategory;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.ItemLike;
@@ -17,6 +19,8 @@ import net.minecraft.world.level.ItemLike;
 public abstract class BaseRecipeCategory<T> implements IRecipeCategory<T> {
 
     protected IGuiHelper helper;
+
+    public final Font font = Minecraft.getInstance().font;
 
     public BaseRecipeCategory(IGuiHelper h) {
         this.helper = h;
@@ -50,14 +54,18 @@ public abstract class BaseRecipeCategory<T> implements IRecipeCategory<T> {
         return setXY().getY();
     }
 
+    public void background(GuiGraphics graphics) {
+        Image.of()
+                .rl(this.setBackGround())
+                .size(this.getWidth(), this.getHeight())
+                .render(helper, graphics);
+    }
+
     @SuppressWarnings("null")
     @Override
     public void draw(T recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX,
             double mouseY) {
-        Image.of()
-                .rl(this.setBackGround())
-                .size(this.getWidth(), this.getHeight())
-                .render(helper,guiGraphics);
+        background(guiGraphics);
     }
 
 }

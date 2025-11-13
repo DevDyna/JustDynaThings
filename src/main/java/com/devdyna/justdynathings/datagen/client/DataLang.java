@@ -146,6 +146,15 @@ public class DataLang extends LanguageProvider {
                 add(ID + ".jei.warning", "Item form doesn't exist or doesn't respect the block placed!");
 
                 add(ID + ".jei.category." + Registration.GeneratorT1_ITEM.getId().getPath(), "Solid Generator Fuels");
+        
+                add(ID + ".jei.time", "Duration");
+                add(ID + ".jei.rate", "FE production");
+                add(ID + ".jei.total", "Total FE produced");
+        
+        
+        
+        
+        
         }
 
         private String named(String text) {

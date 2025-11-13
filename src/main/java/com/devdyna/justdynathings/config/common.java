@@ -165,6 +165,7 @@ public class common {
 
         private static void general() {
                 qCOMMON.comment("General").push("1-general");
+                superduperConfig();
 
                 DOC_WARNING = qCOMMON
                                 .comment("Disable Documentation warning")
@@ -172,9 +173,8 @@ public class common {
 
                 ENABLE_ALL_JEI_FUELS = qCOMMON
                                 .comment("Include any fuel item to Generator JEI category")
-                                .define("include_any_jei_fuels", false);
+                                .define("include_any_jei_fuels", true);
 
-                superduperConfig();
                 qCOMMON.pop();
         }
 
@@ -280,10 +280,12 @@ public class common {
                                 .define(Goo.Creative + "_sound_on_change_state", true);
                 GOO_CREATIVE_TIER = qCOMMON
                                 .comment("Tier of goo")
-                                .defineInRange(Goo.Creative + Config.Keys.TIER, Integer.MAX_VALUE, 1, Integer.MAX_VALUE);
+                                .defineInRange(Goo.Creative + Config.Keys.TIER, Integer.MAX_VALUE, 1,
+                                                Integer.MAX_VALUE);
                 GOO_CREATIVE_COUNTER_REDUCER = qCOMMON
                                 .comment("Counter Reducer of goo")
-                                .defineInRange(Goo.Creative + Config.Keys.REDUCER, Integer.MAX_VALUE, 1, Integer.MAX_VALUE);
+                                .defineInRange(Goo.Creative + Config.Keys.REDUCER, Integer.MAX_VALUE, 1,
+                                                Integer.MAX_VALUE);
                 GOO_CREATIVE_SOUND_RECIPE = qCOMMON.comment("Enable/Disable sound on goo recipe execution")
                                 .define(Goo.Creative + "_sound_on_execution_recipe", true);
 
@@ -596,8 +598,8 @@ public class common {
                 TICKER_MB_RATE = qCOMMON
                                 .comment(Config.Display.MB_RATE)
                                 .defineInRange(Blocks.Ticker + Config.Keys.MB_RATE, 1, 1, Integer.MAX_VALUE);
-               
-                                TICKER_TICK_RATE = qCOMMON
+
+                TICKER_TICK_RATE = qCOMMON
                                 .comment("Tick speed applied")
                                 .defineInRange(Blocks.Ticker + "_tick_rate", 16, 1, Integer.MAX_VALUE);
 

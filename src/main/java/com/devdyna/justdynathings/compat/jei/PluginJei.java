@@ -2,10 +2,8 @@ package com.devdyna.justdynathings.compat.jei;
 
 import static com.devdyna.justdynathings.Main.ID;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
 import com.devdyna.justdynathings.compat.jei.categories.*;
 import com.devdyna.justdynathings.compat.jei.categories.anvils.*;
 import com.devdyna.justdynathings.compat.jei.categories.reforger.*;
@@ -148,35 +146,43 @@ public class PluginJei implements IModPlugin {
 
         Map<Integer, List<ItemStack>> fuels = new HashMap<>();
 
-        for (ItemStack i : BuiltInRegistries.ITEM.stream()
+        // Collect all fuels and sort
+        List<ItemStack> allFuels = BuiltInRegistries.ITEM.stream()
                 .map(ItemStack::new)
                 .filter(AbstractFurnaceBlockEntity::isFuel)
-                .toList()) {
+                .sorted(Comparator.comparingInt(stack -> {
+                    if (stack.getItem() instanceof Coal_T1)
+                        return 0;
+                    if (stack.getItem() instanceof BlockItem bi && bi.getBlock() instanceof CoalBlock_T1)
+                        return 1;
+                    return 2;
+                }))
+                .toList();
 
-            if (i.getItem() instanceof Coal_T1 ||
-                    (i.getItem() instanceof BlockItem bi && bi.getBlock() instanceof CoalBlock_T1)) {
+        // Process fuels
+        for (ItemStack stack : allFuels) {
+            int burnTime = stack.getBurnTime(net.minecraft.world.item.crafting.RecipeType.SMELTING);
 
-                int burnTime = i.getBurnTime(net.minecraft.world.item.crafting.RecipeType.SMELTING);
-
-                r.addRecipes(
-                        FuelRecipeCategory.TYPE,
-                        List.of(new FuelTierRecord(List.of(i), burnTime)));
-                continue; // skip
+            // Add JDT fuels before
+            if (stack.getItem() instanceof Coal_T1 ||
+                    (stack.getItem() instanceof BlockItem bi && bi.getBlock() instanceof CoalBlock_T1)) {
+                r.addRecipes(FuelRecipeCategory.TYPE,
+                        List.of(new FuelTierRecord(List.of(stack), burnTime)));
+                continue;
             }
 
-            // create group
-            int burnTime = i.getBurnTime(net.minecraft.world.item.crafting.RecipeType.SMELTING);
-            if (burnTime > 0) {
-                fuels.computeIfAbsent(burnTime, k -> new ArrayList<>()).add(i);
-            }
+            if (burnTime > 0)
+                fuels.computeIfAbsent(burnTime, k -> new ArrayList<>()).add(stack);
+
         }
 
-        if (common.ENABLE_ALL_JEI_FUELS.get())
-            for (Map.Entry<Integer, List<ItemStack>> entry : fuels.entrySet()) {
-                r.addRecipes(
-                        FuelRecipeCategory.TYPE,
-                        List.of(new FuelTierRecord(entry.getValue(), entry.getKey())));
-            }
+        // Add remaining fuels
+        if (common.ENABLE_ALL_JEI_FUELS.get()) {
+            fuels.entrySet().stream()
+            .sorted(Map.Entry.<Integer, List<ItemStack>>comparingByKey().reversed())
+            .forEach(entry -> r.addRecipes(FuelRecipeCategory.TYPE,
+                    List.of(new FuelTierRecord(entry.getValue(), entry.getKey()))));
+        }
 
     }
 

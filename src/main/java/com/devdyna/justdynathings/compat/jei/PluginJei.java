@@ -4,6 +4,7 @@ import static com.devdyna.justdynathings.Main.ID;
 
 import java.util.*;
 
+import com.devdyna.justdynathings.client.builder.paradoxMixer.ParadoxMixerScreen;
 import com.devdyna.justdynathings.compat.jei.categories.*;
 import com.devdyna.justdynathings.compat.jei.categories.anvils.*;
 import com.devdyna.justdynathings.compat.jei.categories.reforger.*;
@@ -26,6 +27,7 @@ import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.RecipeTypes;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.RecipeType;
+import mezz.jei.api.registration.IGuiHandlerRegistration;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
@@ -184,6 +186,14 @@ public class PluginJei implements IModPlugin {
                     List.of(new FuelTierRecord(entry.getValue(), entry.getKey()))));
         }
 
+        FuelUtils.getAllRefinedFuels().forEach(
+                f -> r.addRecipes(RefinedFuelRecipeCategory.TYPE, List.of(new FuelRecords.Fluids(f.getFluid()))));
+    }
+
+    @Override
+    public void registerGuiHandlers(IGuiHandlerRegistration r) {
+        r.addRecipeClickArea(ParadoxMixerScreen.class, 28, -8, 48, 48,
+                ParadoxMixerCategory.TYPE);
     }
 
 }

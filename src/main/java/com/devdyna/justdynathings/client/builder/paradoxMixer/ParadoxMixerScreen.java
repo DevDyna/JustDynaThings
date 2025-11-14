@@ -39,4 +39,6 @@ public class ParadoxMixerScreen extends BaseMachineScreen<ParadoxMixerGUI> imple
         // empty remove tick button
     }
 
+    //TODO add warning when stabilizer not found
+
 }

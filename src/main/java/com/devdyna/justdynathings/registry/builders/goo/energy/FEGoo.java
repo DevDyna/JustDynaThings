@@ -52,7 +52,7 @@ public class FEGoo extends GooBlockBE_Base implements EnergyMachine {
         updateSideCounter(direction, -1);
         sidedDurations.put(direction, -1);
         if (common.GOO_FEGOO_SOUND_RECIPE.get())
-            level.playSound(null, getBlockPos(), SoundEvents.SCULK_BLOCK_BREAK, SoundSource.BLOCKS, 1.0F, 1.0F);
+            level.playSound(null, getBlockPos(), SoundEvents.SCULK_BLOCK_BREAK, SoundSource.BLOCKS, 0.25F, 1.0F);
 
         if (level != null && !level.isClientSide) {
 
@@ -64,7 +64,7 @@ public class FEGoo extends GooBlockBE_Base implements EnergyMachine {
                     level.playSound(null, getBlockPos(),
                             canExtractFE() ? SoundEvents.RESPAWN_ANCHOR_DEPLETE.value()
                                     : SoundEvents.SCULK_BLOCK_SPREAD,
-                            SoundSource.BLOCKS, 1.0F, 0.25F);
+                            SoundSource.BLOCKS, 0.25F, 0.25F);
             }
         }
     }

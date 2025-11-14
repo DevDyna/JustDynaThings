@@ -30,6 +30,13 @@ public abstract class BaseRecipeCategory<T> implements IRecipeCategory<T> {
 
     public abstract ItemLike getIconItem();
 
+    /**
+     * Set Size of all category
+     * <br/>
+     * <br/>
+     * If the background image doesn't fit , you need to override
+     * <code>background(GuiGraphics)</code>
+     */
     public abstract Size setXY();
 
     public abstract String setBackGround();

@@ -9,6 +9,7 @@ import java.util.concurrent.CompletableFuture;
 
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.recipetypes.builders.*;
+import com.devdyna.justdynathings.registry.builders.AdvancedTimeWand;
 import com.devdyna.justdynathings.registry.types.*;
 import com.devdyna.justdynathings.utils.DataGenUtil;
 import com.devdyna.justdynathings.utils.LogUtil;
@@ -138,7 +139,7 @@ public class DataRecipe extends RecipeProvider {
                                 .withConditions(DataGenUtil.isModLoaded("extendedae")));
 
                 // Budding(PHASORITE_POWERED.get().asItem(), zItemTags.PHA_COMPAT, c
-                //                 .withConditions(DataGenUtil.isModLoaded("phasoritenetworks")));
+                // .withConditions(DataGenUtil.isModLoaded("phasoritenetworks")));
 
                 ShapedRecipeBuilder.shaped(MISC, zBlocks.BLACKHOLE.get(), 1)
                                 .pattern("FBF")
@@ -411,19 +412,7 @@ public class DataRecipe extends RecipeProvider {
                                 .output(Registration.RawCoal_T4.get().defaultBlockState())
                                 .unlockedBy().group(Constants.DataMaps.Reforger.block_to_block).save(c);
 
-                ShapedRecipeBuilder.shaped(MISC, zItems.ADVANCED_TIME_WAND.get())
-                                .pattern(" EC")
-                                .pattern(" WE")
-                                .pattern("E  ")
-                                .define('C', Registration.TimeCrystal.get())
-                                .define('E', Registration.EclipseAlloyIngot.get())
-                                .define('W', Registration.TimeWand.get())
-                                .unlockedBy(ID,
-                                                has(
-                                                                Registration.EclipseAlloyIngot.get()))
-                                .group(Constants.Wands.AdvancedTime).save(c);
-
-                stufepyWand(c);
+                wands(c);
 
                 ParadoxMixerRecipeBuilder.of()
                                 .input(new FluidStack(((LiquidBlock) Blocks.WATER).fluid, 1000))
@@ -498,17 +487,17 @@ public class DataRecipe extends RecipeProvider {
         }
 
         @SuppressWarnings("unchecked")
-        private void stufepyWand(RecipeOutput c) {
-                var item = new ItemStack(zItems.STUPEFY_WAND.get());
+        private void wands(RecipeOutput c) {
+                var stupefy = new ItemStack(zItems.STUPEFY_WAND.get());
 
-                item.set((DataComponentType<Boolean>) JustDireDataComponents.COMPONENTS.getEntries().stream()
+                stupefy.set((DataComponentType<Boolean>) JustDireDataComponents.COMPONENTS.getEntries().stream()
                                 .filter(e -> e.getId()
                                                 .equals(DataGenUtil.getResource("stupefy_upgrade_installed",
                                                                 JustDireThings.MODID)))
                                 .findFirst()
                                 .map(DeferredHolder::get)
                                 .orElse(null), true);
-                ShapedRecipeBuilder.shaped(MISC, item)
+                ShapedRecipeBuilder.shaped(MISC, stupefy)
                                 .pattern(" CE")
                                 .pattern(" IC")
                                 .pattern("I  ")
@@ -518,6 +507,20 @@ public class DataRecipe extends RecipeProvider {
                                 .unlockedBy(ID, itemInv(Items.ENDER_EYE, Items.REDSTONE,
                                                 Registration.BlazegoldIngot.get()))
                                 .group(Constants.Wands.Stupefy).save(c);
+
+                var time = new ItemStack(zItems.ADVANCED_TIME_WAND.get());
+                time.set(zComponents.MODE, "normal");
+                ShapedRecipeBuilder.shaped(MISC, time)
+                                .pattern(" EC")
+                                .pattern(" WE")
+                                .pattern("E  ")
+                                .define('C', Registration.TimeCrystal.get())
+                                .define('E', Registration.EclipseAlloyIngot.get())
+                                .define('W', Registration.TimeWand.get())
+                                .unlockedBy(ID,
+                                                has(
+                                                                Registration.EclipseAlloyIngot.get()))
+                                .group(Constants.Wands.AdvancedTime).save(c);
 
         }
 

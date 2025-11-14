@@ -19,6 +19,9 @@
     "E  "
   ],
   "result": {
+    "components": {
+      "justdynathings:mode": "normal"
+    },
     "count": 1,
     "id": "justdynathings:advanced_time_wand"
   }

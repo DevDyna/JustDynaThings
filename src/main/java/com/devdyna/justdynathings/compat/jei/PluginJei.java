@@ -3,14 +3,17 @@ package com.devdyna.justdynathings.compat.jei;
 import static com.devdyna.justdynathings.Main.ID;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
+import com.devdyna.justdynathings.client.builder.paradoxMixer.ParadoxMixerScreen;
 import com.devdyna.justdynathings.compat.jei.categories.*;
 import com.devdyna.justdynathings.compat.jei.categories.anvils.*;
 import com.devdyna.justdynathings.compat.jei.categories.reforger.*;
 import com.devdyna.justdynathings.compat.jei.categories.thermo.ThermoCoolant;
 import com.devdyna.justdynathings.compat.jei.categories.thermo.ThermoHeatSource;
 import com.devdyna.justdynathings.compat.jei.datamaps.records;
-import com.devdyna.justdynathings.compat.jei.utils.FuelTierRecord;
+import com.devdyna.justdynathings.compat.jei.utils.FuelRecords;
+import com.devdyna.justdynathings.compat.jei.utils.FuelUtils;
 import com.devdyna.justdynathings.config.common;
 import com.devdyna.justdynathings.datagen.server.DataRecipe;
 import com.devdyna.justdynathings.registry.types.zBlocks;
@@ -18,6 +21,7 @@ import com.devdyna.justdynathings.registry.types.zRecipeTypes;
 import com.direwolf20.justdirethings.client.jei.GooSpreadRecipeCategory;
 import com.direwolf20.justdirethings.client.jei.GooSpreadRecipeTagCategory;
 import com.direwolf20.justdirethings.common.blocks.resources.CoalBlock_T1;
+import com.direwolf20.justdirethings.common.fluids.basefluids.RefinedFuel;
 import com.direwolf20.justdirethings.common.items.resources.Coal_T1;
 import com.direwolf20.justdirethings.setup.Registration;
 
@@ -26,19 +30,18 @@ import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.RecipeTypes;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.RecipeType;
+import mezz.jei.api.registration.IGuiHandlerRegistration;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 import mezz.jei.api.runtime.IJeiRuntime;
 import net.minecraft.client.Minecraft;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.CraftingRecipe;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
 
 @SuppressWarnings("null")
 @JeiPlugin
@@ -96,6 +99,7 @@ public class PluginJei implements IModPlugin {
         r.addRecipeCatalyst(zBlocks.PARADOX_MIXER.get(), ParadoxMixerCategory.TYPE);
 
         r.addRecipeCatalyst(Registration.GeneratorT1_ITEM.get(), FuelRecipeCategory.TYPE);
+        r.addRecipeCatalyst(Registration.GeneratorFluidT1_ITEM.get(), RefinedFuelRecipeCategory.TYPE);
 
     }
 
@@ -118,6 +122,7 @@ public class PluginJei implements IModPlugin {
         r.addRecipeCategories(new ParadoxMixerCategory<>(h));
 
         r.addRecipeCategories(new FuelRecipeCategory(h));
+        r.addRecipeCategories(new RefinedFuelRecipeCategory(h));
     }
 
     @Override
@@ -146,28 +151,15 @@ public class PluginJei implements IModPlugin {
 
         Map<Integer, List<ItemStack>> fuels = new HashMap<>();
 
-        // Collect all fuels and sort
-        List<ItemStack> allFuels = BuiltInRegistries.ITEM.stream()
-                .map(ItemStack::new)
-                .filter(AbstractFurnaceBlockEntity::isFuel)
-                .sorted(Comparator.comparingInt(stack -> {
-                    if (stack.getItem() instanceof Coal_T1)
-                        return 0;
-                    if (stack.getItem() instanceof BlockItem bi && bi.getBlock() instanceof CoalBlock_T1)
-                        return 1;
-                    return 2;
-                }))
-                .toList();
-
         // Process fuels
-        for (ItemStack stack : allFuels) {
+        for (ItemStack stack : FuelUtils.getAllSolidFuels()) {
             int burnTime = stack.getBurnTime(net.minecraft.world.item.crafting.RecipeType.SMELTING);
 
             // Add JDT fuels before
             if (stack.getItem() instanceof Coal_T1 ||
                     (stack.getItem() instanceof BlockItem bi && bi.getBlock() instanceof CoalBlock_T1)) {
                 r.addRecipes(FuelRecipeCategory.TYPE,
-                        List.of(new FuelTierRecord(List.of(stack), burnTime)));
+                        List.of(new FuelRecords.Items(List.of(stack))));
                 continue;
             }
 
@@ -179,11 +171,26 @@ public class PluginJei implements IModPlugin {
         // Add remaining fuels
         if (common.ENABLE_ALL_JEI_FUELS.get()) {
             fuels.entrySet().stream()
-            .sorted(Map.Entry.<Integer, List<ItemStack>>comparingByKey().reversed())
-            .forEach(entry -> r.addRecipes(FuelRecipeCategory.TYPE,
-                    List.of(new FuelTierRecord(entry.getValue(), entry.getKey()))));
+                    .sorted(Map.Entry.<Integer, List<ItemStack>>comparingByKey().reversed())
+                    .forEach(entry -> r.addRecipes(FuelRecipeCategory.TYPE,
+                            List.of(new FuelRecords.Items(entry.getValue()))));
         }
 
+        FuelUtils.getAllRefinedFuels().stream()
+                .collect(Collectors.groupingBy(f ->
+                ((RefinedFuel) f.getFluid()).fePerMb()))
+                .entrySet().stream()
+                .sorted(Map.Entry.comparingByKey())
+                .forEach(f -> r.addRecipes(
+                        RefinedFuelRecipeCategory.TYPE,
+                        List.of(new FuelRecords.Fluids(f.getValue()))));
+
+    }
+
+    @Override
+    public void registerGuiHandlers(IGuiHandlerRegistration r) {
+        r.addRecipeClickArea(ParadoxMixerScreen.class, 28, -8, 48, 48,
+                ParadoxMixerCategory.TYPE);
     }
 
 }

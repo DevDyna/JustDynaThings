@@ -79,6 +79,7 @@
   "justdynathings.jei.total": "Total FE produced",
   "justdynathings.jei.warning": "Item form doesn't exist or doesn't respect the block placed!",
   "justdynathings.paradox_mixer": "§7Allow to mass-craft fluid drop recipes",
+  "justdynathings.paradox_mixer.unstable": "Energized Stabilizer not found",
   "justdynathings.picker_wand": "§7Allow to pickup simple blocks and place where you want",
   "justdynathings.reforger": "§7Convert blocks using a catalyst to other blocks",
   "justdynathings.solar_panel": "§7Generate Energy from ambiental situations",

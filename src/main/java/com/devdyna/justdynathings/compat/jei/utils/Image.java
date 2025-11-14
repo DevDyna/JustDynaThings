@@ -16,6 +16,9 @@ public class Image {
   private int xo = 0;
   private int yo = 0;
 
+  private int u = 0;
+  private int v = 0;
+
   public Image() {
 
   }
@@ -30,6 +33,12 @@ public class Image {
     return this;
   }
 
+  public Image uv(int u, int v) {
+    this.u = u;
+    this.v = v;
+    return this;
+  }
+
   public Image offset(int xo, int yo) {
     this.xo = xo;
     this.yo = yo;
@@ -41,16 +50,33 @@ public class Image {
     return this;
   }
 
-  public Image rl(String modid,String image) {
+  public Image rl(String modid, String image) {
     this.modid = modid;
     this.rl = image;
     return this;
   }
 
-
+  /**
+   * JEI usage
+   */
   public void render(IGuiHelper h, GuiGraphics g) {
-    h.drawableBuilder(DataGenUtil.getResource(rl,modid), 0, 0, x, y).setTextureSize(x, y).build()
+    h.drawableBuilder(DataGenUtil.getResource(rl, modid), u, v, x, y).setTextureSize(x, y).build()
         .draw(g, xo, yo);
+  }
+
+  /**
+   * not JEI usage!
+   */
+  public void render(GuiGraphics g) {
+
+    g.blit(
+        DataGenUtil.getResource("textures/gui/sprites/icon/unseen_notification.png", "minecraft"),
+        xo - 1,
+        yo - 1,
+        u, v,
+        x, y,
+        x, y);
+
   }
 
 }

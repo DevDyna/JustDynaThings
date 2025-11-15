@@ -153,6 +153,8 @@ public class DataLang extends LanguageProvider {
                 add(ID + ".jei.total", "Total FE produced");
                 
                 add(ID + ".jei.bucket", "Every Bucket");
+
+                add(ID + "."+Constants.Blocks.ParadoxMixer+".unstable", "Energized Stabilizer not found");
         
         
         

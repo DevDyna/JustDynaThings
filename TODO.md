@@ -13,7 +13,6 @@
 
 ### New entries
 
-- [x] Generators fuel JEI category
 - [ ] Advanced Energy Transmitter/Item Collector (?)
 - [ ] Experience pedestal (clicking with items generate experience)
 - [ ] Sculk Diffuser (Sculk Source without need to kill mobs)

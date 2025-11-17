@@ -34,7 +34,7 @@ public class DataItemTag extends ItemTagsProvider {
         protected void addTags(Provider p) {
 
                 tag(zItemTags.AMETHYST_BLOCKS)
-                .add(Items.AMETHYST_BLOCK, Items.BUDDING_AMETHYST);
+                                .add(Items.AMETHYST_BLOCK, Items.BUDDING_AMETHYST);
 
                 copy(zBlockTags.T1_GOO_TYPE, zItemTags.T1_GOO_TYPE);
                 copy(zBlockTags.T2_GOO_TYPE, zItemTags.T2_GOO_TYPE);
@@ -88,8 +88,8 @@ public class DataItemTag extends ItemTagsProvider {
                                 EAESingletons.FULLY_ENTROIZED_FLUIX_BUDDING.asItem());
 
                 // tag(zItemTags.PHA_COMPAT).add(
-                                // PNBlocks.INSTANCE.getBUDDING_PHASORITE_BLOCK().asItem(),
-                                // PNBlocks.INSTANCE.getPHASORITE_BLOCK().asItem());
+                // PNBlocks.INSTANCE.getBUDDING_PHASORITE_BLOCK().asItem(),
+                // PNBlocks.INSTANCE.getPHASORITE_BLOCK().asItem());
 
                 tag(zItemTags.TIME_BUDDING).add(
                                 Registration.TimeCrystalBlock_ITEM.get(),
@@ -102,7 +102,6 @@ public class DataItemTag extends ItemTagsProvider {
                                 .addTag(Tags.Items.BUCKETS);
 
                 tag(zItemTags.TIME_WANDS).add(zItems.ADVANCED_TIME_WAND.get(), Registration.TimeWand.get());
-
         }
 
 }

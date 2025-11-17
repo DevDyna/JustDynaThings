@@ -27,6 +27,7 @@ import com.direwolf20.justdirethings.setup.Registration;
 import com.glodblock.github.extendedae.common.EAESingletons;
 
 import appeng.core.definitions.AEBlocks;
+import appeng.datagen.providers.tags.DataComponentTypeTagProvider;
 
 import static com.devdyna.justdynathings.Main.ID;
 
@@ -35,11 +36,13 @@ import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponentType;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.util.datafix.fixes.ItemStackComponentRemainderFix;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -55,6 +58,7 @@ import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
 import net.neoforged.neoforge.common.crafting.BlockTagIngredient;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.server.command.NeoForgeCommand;
 
 import static com.devdyna.justdynathings.compat.ae2.init.AE2_POWERED;
 import static com.devdyna.justdynathings.compat.extendedae.init.EXTENDED_POWERED;
@@ -521,6 +525,29 @@ public class DataRecipe extends RecipeProvider {
                                                 has(
                                                                 Registration.EclipseAlloyIngot.get()))
                                 .group(Constants.Wands.AdvancedTime).save(c);
+
+                ShapedRecipeBuilder.shaped(MISC, zItems.LIGHT_WAND.get())
+                                .pattern("  G")
+                                .pattern(" F ")
+                                .pattern("F  ")
+                                .define('G', Items.GLOWSTONE)
+                                .define('F', Registration.FerricoreIngot.get())
+                                .unlockedBy(ID,
+                                                has(
+                                                                Registration.FerricoreIngot.get()))
+                                .group(Constants.Wands.Light).save(c);
+
+                ShapedRecipeBuilder.shaped(MISC, zItems.ADVANCED_LIGHT_WAND.get())
+                                .pattern("  C")
+                                .pattern(" L ")
+                                .pattern("B  ")
+                                .define('L', zItems.LIGHT_WAND.get())
+                                .define('C', Registration.Celestigem.get())
+                                .define('B', Registration.BlazegoldIngot.get())
+                                .unlockedBy(ID,
+                                                has(
+                                                                Registration.Celestigem.get()))
+                                .group(Constants.Wands.AdvancedLight).save(c);
 
         }
 

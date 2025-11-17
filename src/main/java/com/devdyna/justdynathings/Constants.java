@@ -14,6 +14,7 @@ public class Constants {
         public static String Stupefy = "temporal_stupefy_wand";
         public static String AdvancedTime = "advanced_time_wand";
         public static String Light = "light_wand";
+        public static String AdvancedLight = "advanced_light_wand";
 
     }
 

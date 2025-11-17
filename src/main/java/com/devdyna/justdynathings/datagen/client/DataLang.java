@@ -157,7 +157,7 @@ public class DataLang extends LanguageProvider {
                 add(ID + "."+Constants.Blocks.ParadoxMixer+".unstable", "Energized Stabilizer not found");
         
         
-        
+                addBlock(zBlocks.LIGHT_WAND_BLOCK, "Light Wand Block");
         
         
         }

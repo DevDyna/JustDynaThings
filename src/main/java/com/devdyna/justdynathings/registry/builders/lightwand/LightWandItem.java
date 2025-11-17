@@ -1,7 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.lightwand;
 
 import com.devdyna.justdynathings.registry.types.zBlocks;
-
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
@@ -13,18 +12,24 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.block.LightBlock;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.material.Fluids;
 
 @SuppressWarnings("null")
 public class LightWandItem extends Item {
 
     public LightWandItem() {
-        super(new Item.Properties().durability(128).stacksTo(1));
+        super(new Item.Properties()
+                .durability(512)
+                .stacksTo(1));
     }
 
     @Override
     public InteractionResult interactLivingEntity(ItemStack itemStack, Player player, LivingEntity entity,
             InteractionHand hand) {
-
+        // TODO config disable
+        // TODO config Fakeplayers
         if (!entity.hasEffect(MobEffects.GLOWING)) {
             entity.addEffect(new MobEffectInstance(MobEffects.GLOWING, 200));
 
@@ -47,17 +52,26 @@ public class LightWandItem extends Item {
         var player = c.getPlayer();
         var item = c.getItemInHand();
         var offset = pos.relative(dir);
-
-        if (level.getBlockState(offset).canBeReplaced()) {
+        var hand = c.getHand();
+        // TODO config disable
+        // TODO config Fakeplayers
+        if (player.isCrouching() && level.getBlockState(pos).is(zBlocks.LIGHT_WAND_BLOCK.get())) {
+            level.setBlock(pos,
+                    level.getBlockState(pos).setValue(LightBlock.LEVEL,
+                            level.getBlockState(pos).getValue(LightBlock.LEVEL) == 0 ? 15
+                                    : level.getBlockState(pos).getValue(LightBlock.LEVEL) - 1),
+                    2);
+            player.swing(hand);
+        } else if (level.getBlockState(offset).canBeReplaced()
+                && !level.getBlockState(offset).is(zBlocks.LIGHT_WAND_BLOCK.get())) {
             if (!player.isCreative()) {
-                if (item.getMaxDamage() - item.getDamageValue() == 1) {
-                    item.shrink(1);
-                    player.playSound(SoundEvents.ITEM_BREAK);
-                } else
-                    item.setDamageValue(item.getDamageValue() + 1);
+                item.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
             }
 
-            level.setBlockAndUpdate(offset, zBlocks.LIGHT_WAND_BLOCK.get().defaultBlockState());
+            var fluid = level.getFluidState(offset);
+            level.setBlockAndUpdate(offset, zBlocks.LIGHT_WAND_BLOCK.get().defaultBlockState()
+                    .setValue(BlockStateProperties.WATERLOGGED,
+                            !fluid.isEmpty() && fluid.isSource() && fluid.is(Fluids.WATER)));
 
             return InteractionResult.SUCCESS;
         }

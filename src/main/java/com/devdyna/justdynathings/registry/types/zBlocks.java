@@ -15,6 +15,7 @@ import com.devdyna.justdynathings.registry.builders.functional_anvils.ferricore.
 import com.devdyna.justdynathings.registry.builders.goo.creative.CreativeGoo;
 import com.devdyna.justdynathings.registry.builders.goo.energy.diregoo.*;
 import com.devdyna.justdynathings.registry.builders.goo.energy.energized.EnergyGoo;
+import com.devdyna.justdynathings.registry.builders.lightwand.LightWandBlock;
 import com.devdyna.justdynathings.registry.builders.paradox_mixer.ParadoxMixerBlock;
 import com.devdyna.justdynathings.registry.builders.reforger.ReforgerBlock;
 import com.devdyna.justdynathings.registry.builders.solar.blazegold.BlazeGoldSolarBlock;
@@ -130,11 +131,8 @@ public class zBlocks {
         public static final DeferredHolder<Block, ?> PARADOX_RENDER = zHidden
                         .registerSimpleBlock(Constants.Blocks.ParadoxMixer + "_render");
 
-
         public static final DeferredHolder<Block, ?> LIGHT_WAND_BLOCK = zHidden
-                        .registerSimpleBlock(Constants.Wands.Light+"_block");
-
-
+                        .register(Constants.Wands.Light + "_block",()-> new LightWandBlock());
 
         // ---------------------------------------------------------------------------------------//
 

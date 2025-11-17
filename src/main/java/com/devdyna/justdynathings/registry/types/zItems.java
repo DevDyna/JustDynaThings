@@ -6,6 +6,7 @@ import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.Constants.ModAddonCheck;
 import com.devdyna.justdynathings.registry.builders.*;
+import com.devdyna.justdynathings.registry.builders.lightwand.AdvancedLightWand;
 import com.devdyna.justdynathings.registry.builders.lightwand.LightWandItem;
 import com.direwolf20.justdirethings.setup.Registration;
 
@@ -106,9 +107,12 @@ public class zItems {
         public static final DeferredHolder<Item, ?> STUPEFY_WAND = zItemHanded.register(Constants.Wands.Stupefy,
                         () -> new StupefyWand());
 
-
         public static final DeferredHolder<Item, ?> LIGHT_WAND = zItemHanded.register(Constants.Wands.Light,
                         () -> new LightWandItem());
+
+        public static final DeferredHolder<Item, ?> ADVANCED_LIGHT_WAND = zItemHanded.register(
+                        Constants.Wands.AdvancedLight,
+                        () -> new AdvancedLightWand());
 
         public static void registerLists() {
                 if (!ModAddonCheck.AppliedEnergistics2)

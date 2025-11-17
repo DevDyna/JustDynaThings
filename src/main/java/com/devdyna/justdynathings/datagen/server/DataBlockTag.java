@@ -105,6 +105,12 @@ public class DataBlockTag extends BlockTagsProvider {
                 tag(zBlockTags.ADVANCED_TIME_DENY).addOptional(JustDireBlockTags.TICK_SPEED_DENY.location());
 
                 tag(zBlockTags.TICKER_DENY).addOptional(JustDireBlockTags.TICK_SPEED_DENY.location());
+
+                tag(BlockTags.REPLACEABLE).add(zBlocks.LIGHT_WAND_BLOCK.get());
+                tag(BlockTags.WITHER_IMMUNE).add(zBlocks.LIGHT_WAND_BLOCK.get());
+                tag(BlockTags.DRAGON_TRANSPARENT).add(zBlocks.LIGHT_WAND_BLOCK.get());
+                tag(BlockTags.ENCHANTMENT_POWER_TRANSMITTER).add(zBlocks.LIGHT_WAND_BLOCK.get());
+
         }
 
 }

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "advanced_light_wand",
+  "key": {
+    "B": {
+      "item": "justdirethings:blazegold_ingot"
+    },
+    "C": {
+      "item": "justdirethings:celestigem"
+    },
+    "L": {
+      "item": "justdynathings:light_wand"
+    }
+  },
+  "pattern": [
+    "  C",
+    " L ",
+    "B  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "justdynathings:advanced_light_wand"
+  }
+}

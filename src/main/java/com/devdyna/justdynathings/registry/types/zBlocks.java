@@ -130,6 +130,12 @@ public class zBlocks {
         public static final DeferredHolder<Block, ?> PARADOX_RENDER = zHidden
                         .registerSimpleBlock(Constants.Blocks.ParadoxMixer + "_render");
 
+
+        public static final DeferredHolder<Block, ?> LIGHT_WAND_BLOCK = zHidden
+                        .registerSimpleBlock(Constants.Wands.Light+"_block");
+
+
+
         // ---------------------------------------------------------------------------------------//
 
         public static void registerLists() {

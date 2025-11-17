@@ -658,22 +658,4 @@ public class DataRecipe extends RecipeProvider {
                                         .save(c, ID + ":" + DataGenUtil.getName(output) + "_smithing");
         }
 
-        /*
-         * //crafting
-         * ShapedRecipeBuilder.shaped(MISC, null, 0)
-         * ShapelessRecipeBuilder.shapeless(MISC, null, 0)
-         * //cooking
-         * SimpleCookingRecipeBuilder.smelting(null, null, null, 0, 0)
-         * SimpleCookingRecipeBuilder.campfireCooking(null, null, null, 0, 0)
-         * SimpleCookingRecipeBuilder.smoking(null, null, null, 0, 0)
-         * SimpleCookingRecipeBuilder.blasting(null, null, null, 0, 0)
-         * //stonecutting
-         * SingleItemRecipeBuilder.stonecutting(null, null, null);
-         * //smithing
-         * SmithingTransformRecipeBuilder.smithing(null, null, null, null, null)
-         * //JDT
-         * FluidDropRecipeBuilder.shapeless(null, null, null, null);
-         * GooSpreadRecipeBuilder.shapeless(null, null, null, 0, 0)
-         * GooSpreadRecipeTagBuilder.shapeless(null, null, null, 0, 0)
-         */
 }

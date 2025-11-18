@@ -10,6 +10,7 @@ import net.neoforged.fml.ModContainer;
 public class config {
     public static void core(ModContainer chest) {
         common.register(chest);
+        startup.register(chest);
     }
 
     private static List<Integer> validStages = List.of(1, 2, 4, 8);

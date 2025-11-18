@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.compat.ae2.builder;
 
-import com.devdyna.justdynathings.compat.ae2.init;
+import com.devdyna.justdynathings.compat.ae2.initApp;
 import com.devdyna.justdynathings.registry.builders.budding.BuddingBE;
 import appeng.core.definitions.AEBlocks;
 import net.minecraft.core.BlockPos;
@@ -19,7 +19,7 @@ public class CertusBE extends BuddingBE {
     }
 
     public CertusBE(BlockPos pos, BlockState state) {
-        this(init.AE2_POWERED_BE.get(), pos, state);
+        this(initApp.CERTUS.blockentity().get(), pos, state);
     }
 
 }

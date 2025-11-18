@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.compat.extendedae.builder;
 
-import com.devdyna.justdynathings.compat.extendedae.init;
+import com.devdyna.justdynathings.compat.extendedae.initExtend;
 import com.devdyna.justdynathings.registry.builders.budding.BuddingBE;
 import com.glodblock.github.extendedae.common.EAESingletons;
 
@@ -16,11 +16,10 @@ public class EntroBE extends BuddingBE {
         this.mediumCluster = EAESingletons.ENTRO_BUD_MEDIUM;
         this.largeCluster = EAESingletons.ENTRO_BUD_LARGE;
         this.finalCluster = EAESingletons.ENTRO_CLUSTER;
-
     }
 
     public EntroBE(BlockPos pos, BlockState state) {
-        this(init.EXTENDED_POWERED_BE.get(), pos, state);
+        this(initExtend.ENTRO.blockentity().get(), pos, state);
     }
 
 }

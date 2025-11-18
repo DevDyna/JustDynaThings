@@ -25,7 +25,7 @@ public class Main {
                 bus.addListener(Capabilities::regCap);
                 bus.addListener(zDataMaps::register);
 
-                compat.core(bus);
+                zCompat.core(bus);
 
         }
 

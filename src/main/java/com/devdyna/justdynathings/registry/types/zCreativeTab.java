@@ -1,7 +1,11 @@
 package com.devdyna.justdynathings.registry.types;
 
+import java.util.Arrays;
+
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
+import com.devdyna.justdynathings.registry.Material;
+
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -33,7 +37,8 @@ public class zCreativeTab {
                                                 zItems.zItem.getEntries().forEach(e -> output.accept((Item) e.get()));
 
                                                 // tools
-                                                zItems.zItemHanded.getEntries().forEach(e -> output.accept((Item) e.get()));
+                                                zItems.zItemHanded.getEntries()
+                                                                .forEach(e -> output.accept((Item) e.get()));
 
                                                 // fuels
                                                 zItems.zCoals.getEntries()
@@ -49,24 +54,10 @@ public class zCreativeTab {
                                                 zItems.zGooUpgraders.getEntries()
                                                                 .forEach(e -> output.accept((Item) e.get()));
 
-
-
                                                 // compat items
-                                                if (Constants.ModAddonCheck.AppliedEnergistics2)
-                                                        com.devdyna.justdynathings.compat.ae2.init.zAE_ITM.getEntries()
-                                                                        .forEach(e -> {
-                                                                                output.accept((Item) e.get());
-                                                                        });
-                                                if (Constants.ModAddonCheck.ExtendedAE)
-                                                        com.devdyna.justdynathings.compat.extendedae.init.zEXTAE_ITM
-                                                                        .getEntries().forEach(e -> {
-                                                                                output.accept((Item) e.get());
-                                                                        });
-                                                if (Constants.ModAddonCheck.PhasoriteNetworks)
-                                                        com.devdyna.justdynathings.compat.phasorite.init.zPHASO_ITM
-                                                                        .getEntries().forEach(e -> {
-                                                                                output.accept((Item) e.get());
-                                                                        });
+                                                Arrays.asList(Material.getBuddingAvailable())
+                                                                .stream()
+                                                                .forEach(e -> output.accept((Item) e.asItem()));
 
                                         }).build());
 

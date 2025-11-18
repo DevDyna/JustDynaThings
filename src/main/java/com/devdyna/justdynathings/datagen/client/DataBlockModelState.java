@@ -25,9 +25,6 @@ import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredHolder;
-import static com.devdyna.justdynathings.compat.ae2.init.AE2_POWERED;
-import static com.devdyna.justdynathings.compat.extendedae.init.EXTENDED_POWERED;
-
 import com.devdyna.justdynathings.Constants;
 
 @SuppressWarnings("unused")
@@ -57,20 +54,22 @@ public class DataBlockModelState extends BlockStateProvider {
 
                 inversDirectionalBlocks(zBlocks.THERMOGEN.get());
 
-                BaseBuddings(zBlocks.ECHOING_BUDDING_AMETHYST.get(), mcLoc("block/budding_amethyst"),
-                                CubeAllCheap(ID + ":block/echoing_budding/amethyst", this));
+                // simpleBlock(zBlocks.ECHOING_BUDDING_AMETHYST.get(),models().cubeAll(zBlocks.ECHOING_BUDDING_AMETHYST.getRegisteredName(), mcLoc("block/budding_amethyst")));
 
-                BaseBuddings(zBlocks.ECHOING_BUDDING_TIME.get(),
-                                modLoc("block/echoing_budding/time/alive"),
-                                modLoc("block/echoing_budding/time/dead"));
+                // BaseBuddings(zBlocks.ECHOING_BUDDING_AMETHYST.get(), mcLoc("block/budding_amethyst"),
+                //                 CubeAllCheap(ID + ":block/echoing_budding/amethyst", this));
 
-                BaseBuddings(AE2_POWERED.get(),
-                                modLoc("block/echoing_budding/certus/alive"),
-                                CubeAllCheap(ID + ":block/echoing_budding/certus", this));
+                // BaseBuddings(zBlocks.ECHOING_BUDDING_TIME.get(),
+                //                 modLoc("block/echoing_budding/time/alive"),
+                //                 modLoc("block/echoing_budding/time/dead"));
 
-                BaseBuddings(EXTENDED_POWERED.get(),
-                                modLoc("block/echoing_budding/entro/alive"),
-                                CubeAllCheap(ID + ":block/echoing_budding/entro", this));
+                // BaseBuddings(AE2_POWERED.get(),
+                //                 modLoc("block/echoing_budding/certus/alive"),
+                //                 CubeAllCheap(ID + ":block/echoing_budding/certus", this));
+
+                // BaseBuddings(EXTENDED_POWERED.get(),
+                //                 modLoc("block/echoing_budding/entro/alive"),
+                //                 CubeAllCheap(ID + ":block/echoing_budding/entro", this));
 
                 // BaseBuddings(PHASORITE_POWERED.get(),
                 // modLoc("block/echoing_budding/phasorite/alive"),

@@ -79,10 +79,15 @@ public class Constants {
     public static String BuddingType = "echoing_budding";
 
     public class Budding {
+        @Deprecated
         public static String Amethyst = BuddingType + "_amethyst";
+        @Deprecated
         public static String Time = BuddingType + "_time";
+        @Deprecated
         public static String Certus = BuddingType + "_certus";
+        @Deprecated
         public static String Entro = BuddingType + "_entro";
+        @Deprecated
         public static String Phasorite = BuddingType + "_phasorite";
     }
 
@@ -92,6 +97,7 @@ public class Constants {
         public static boolean PhasoriteNetworks = ModList.get().isLoaded("phasoritenetworks");
         public static boolean GuideMe = ModList.get().isLoaded("guideme");
         public static boolean Patchouli = ModList.get().isLoaded("patchouli");
+        public static boolean GeOre = ModList.get().isLoaded("geore");
 
         public static boolean docCheck = !(GuideMe || Patchouli);
     }
@@ -127,47 +133,41 @@ public class Constants {
 
     public class Config {
 
-        
-
-        public class Keys
-        {
+        public class Keys {
             public static String G_FEGOO = "generic_energy_goo";
 
-        public static String WRENCH = "_require_wrench";
-        public static String FE_RATE = "_energy_every_tick";
-        public static String FE_MAX = "_max_energy_storage";
+            public static String WRENCH = "_require_wrench";
+            public static String FE_RATE = "_energy_every_tick";
+            public static String FE_MAX = "_max_energy_storage";
 
-        public static String MB_RATE = "_fluid_every_tick";
-        public static String MB_MAX = "_max_fluid_storage";
-        public static String SOUND = "_emit_sound";
+            public static String MB_RATE = "_fluid_every_tick";
+            public static String MB_MAX = "_max_fluid_storage";
+            public static String SOUND = "_emit_sound";
 
-        public static String TIER = "_tier";
-        public static String REDUCER = "_counter_reducer";
+            public static String TIER = "_tier";
+            public static String REDUCER = "_counter_reducer";
 
-        public static String YLEVEL = "_reduce_production_at_y_level";
-        public static String SPAM = "_reduce_production_when_placed_alone";
-        public static String SKY = "_require_to_see_sky";
-        public static String DAY = "_require_dayTime";
-        public static String BIOMES = "_biomeTag_list";
+            public static String YLEVEL = "_reduce_production_at_y_level";
+            public static String SPAM = "_reduce_production_when_placed_alone";
+            public static String SKY = "_require_to_see_sky";
+            public static String DAY = "_require_dayTime";
+            public static String BIOMES = "_biomeTag_list";
         }
 
-        public class Display
-        {
-         
+        public class Display {
 
-        
-        public static String FE_RATE = "FE/t";
-        public static String FE_MAX = "FE Capacity";
+            public static String FE_RATE = "FE/t";
+            public static String FE_MAX = "FE Capacity";
 
-        public static String MB_RATE = "MB/t";
-        public static String MB_MAX = "MB Capacity";
-        // public static String SOUND = "Enable/Disable sound event";
+            public static String MB_RATE = "MB/t";
+            public static String MB_MAX = "MB Capacity";
+            // public static String SOUND = "Enable/Disable sound event";
 
-        public static String YLEVEL = "Enable/Disable Y-Level multiplier to reduce FE gen based on Y";
-        public static String SPAM = "Enable/Disable Solar-Spam multiplier to reduce FE gen based on cheap prices";
-        public static String SKY = "Enable/Disable condition to see the sky";
-        public static String DAY = "Enable/Disable condition of daytime only";
-        public static String BIOMES = "Change the logic of biometag | True == whitelist | False == blacklist";
+            public static String YLEVEL = "Enable/Disable Y-Level multiplier to reduce FE gen based on Y";
+            public static String SPAM = "Enable/Disable Solar-Spam multiplier to reduce FE gen based on cheap prices";
+            public static String SKY = "Enable/Disable condition to see the sky";
+            public static String DAY = "Enable/Disable condition of daytime only";
+            public static String BIOMES = "Change the logic of biometag | True == whitelist | False == blacklist";
         }
 
     }

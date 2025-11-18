@@ -6,6 +6,10 @@ import java.util.Arrays;
 import java.util.function.Supplier;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
+import com.devdyna.justdynathings.compat.ae2.initApp;
+import com.devdyna.justdynathings.compat.extendedae.initExtend;
+import com.devdyna.justdynathings.compat.geore.initGeOre;
+import com.devdyna.justdynathings.compat.phasorite.initPhaso;
 import com.devdyna.justdynathings.registry.builders.RawOre;
 import com.devdyna.justdynathings.registry.builders._core.item.ItemFuel;
 import com.devdyna.justdynathings.registry.builders._core.item.ItemBase;
@@ -121,12 +125,19 @@ public class Material {
                 ArrayList<Block> a = new ArrayList<>();
                 a.add(zBlocks.ECHOING_BUDDING_AMETHYST.get());
                 a.add(zBlocks.ECHOING_BUDDING_TIME.get());
+
                 if (Constants.ModAddonCheck.AppliedEnergistics2)
-                        a.add(com.devdyna.justdynathings.compat.ae2.init.AE2_POWERED.get());
+                        a.add(initApp.CERTUS.block().get());
+
                 if (Constants.ModAddonCheck.ExtendedAE)
-                        a.add(com.devdyna.justdynathings.compat.extendedae.init.EXTENDED_POWERED.get());
-                // if (Constants.ModAddonCheck.PhasoriteNetworks)
-                // a.add(com.devdyna.justdynathings.compat.phasorite.init.PHASORITE_POWERED.get());
+                        a.add(initExtend.ENTRO.block().get());
+
+                if (Constants.ModAddonCheck.PhasoriteNetworks)
+                        a.add(initPhaso.PHASORITE.block().get());
+
+                if (Constants.ModAddonCheck.GeOre)
+                        initGeOre.values().forEach(b -> a.add(b.block().get()));
+
                 Block[] b = new Block[a.size()];
                 for (int i = 0; i < a.size(); i++) {
                         b[i] = a.get(i);
@@ -138,17 +149,6 @@ public class Material {
                 return zItems.zItem.register(name,
                                 ItemBase::new);
         }
-
-        // public static DeferredHolder<Block, ?> createBlock(String name) {
-        // return zBlocks.zBlock.register(name, Block::new);
-        // }
-
-        // @Deprecated
-        // public static DeferredHolder<Block, ?> createBlockItem(String name) {
-        // zItems.zBlockItem.register(name, ItemBase::new);
-        // return zBlocks.zBlockItem.register(name,
-        // BlockBase::new);
-        // }
 
         public class DireStuff {
 

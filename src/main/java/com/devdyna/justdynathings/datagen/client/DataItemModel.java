@@ -1,9 +1,6 @@
 package com.devdyna.justdynathings.datagen.client;
 
 import static com.devdyna.justdynathings.Main.ID;
-import static com.devdyna.justdynathings.compat.ae2.init.AE2_POWERED;
-import static com.devdyna.justdynathings.compat.extendedae.init.EXTENDED_POWERED;
-
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.registry.types.zBlocks;
 import com.devdyna.justdynathings.registry.types.zItems;
@@ -78,8 +75,8 @@ public class DataItemModel extends ItemModelProvider {
 
                 BuddingItemModel(zBlocks.ECHOING_BUDDING_AMETHYST.get());
                 BuddingItemModel(zBlocks.ECHOING_BUDDING_TIME.get());
-                BuddingItemModel(AE2_POWERED.get());
-                BuddingItemModel(EXTENDED_POWERED.get());
+                // BuddingItemModel(AE2_POWERED.get());
+                // BuddingItemModel(EXTENDED_POWERED.get());
                 // BuddingItemModel(PHASORITE_POWERED.get());
 
                 zItems.zBucketItem.getEntries().forEach(b -> withExistingParent(b.getId().getPath(),

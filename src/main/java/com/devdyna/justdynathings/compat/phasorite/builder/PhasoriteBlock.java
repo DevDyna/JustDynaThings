@@ -1,23 +1,23 @@
-// package com.devdyna.justdynathings.compat.phasorite.builder;
+package com.devdyna.justdynathings.compat.phasorite.builder;
 
-// import javax.annotation.Nullable;
+import javax.annotation.Nullable;
 
-// import com.devdyna.justdynathings.registry.builders.budding.BuddingBlock;
+import com.devdyna.justdynathings.registry.builders.budding.BuddingBlock;
 
-// import net.minecraft.core.BlockPos;
-// import net.minecraft.world.level.block.entity.BlockEntity;
-// import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
 
-// public class PhasoriteBlock extends BuddingBlock {
+public class PhasoriteBlock extends BuddingBlock {
 
-//     public PhasoriteBlock() {
+    public PhasoriteBlock(Properties p) {
 
-//     }
+    }
 
-//     @Nullable
-//     @Override
-//     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-//         return new PhasoriteBE(pos, state);
-//     }
+    @Nullable
+    @Override
+    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+        return new PhasoriteBE(pos, state);
+    }
 
-// }
+}

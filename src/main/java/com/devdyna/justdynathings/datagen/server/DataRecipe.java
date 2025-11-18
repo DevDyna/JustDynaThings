@@ -60,8 +60,6 @@ import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.server.command.NeoForgeCommand;
 
-import static com.devdyna.justdynathings.compat.ae2.init.AE2_POWERED;
-import static com.devdyna.justdynathings.compat.extendedae.init.EXTENDED_POWERED;
 
 @SuppressWarnings({ "null", "unused" })
 public class DataRecipe extends RecipeProvider {
@@ -136,11 +134,11 @@ public class DataRecipe extends RecipeProvider {
 
                 Budding(zBlocks.ECHOING_BUDDING_TIME.get().asItem(), zItemTags.TIME_BUDDING, c);
 
-                Budding(AE2_POWERED.get().asItem(), zItemTags.AE2_COMPAT, c
-                                .withConditions(DataGenUtil.isModLoaded("ae2")));
+                // Budding(AE2_POWERED.get().asItem(), zItemTags.AE2_COMPAT, c
+                //                 .withConditions(DataGenUtil.isModLoaded("ae2")));
 
-                Budding(EXTENDED_POWERED.get().asItem(), zItemTags.EXT_COMPAT, c
-                                .withConditions(DataGenUtil.isModLoaded("extendedae")));
+                // Budding(EXTENDED_POWERED.get().asItem(), zItemTags.EXT_COMPAT, c
+                //                 .withConditions(DataGenUtil.isModLoaded("extendedae")));
 
                 // Budding(PHASORITE_POWERED.get().asItem(), zItemTags.PHA_COMPAT, c
                 // .withConditions(DataGenUtil.isModLoaded("phasoritenetworks")));

@@ -39,8 +39,7 @@ public class DataBlockModelState extends BlockStateProvider {
 
         @Override
         protected void registerStatesAndModels() {
-                //TODO reforger , ticker and stabilizer blockstate datagen
-
+                // TODO reforger , ticker and stabilizer blockstate datagen
 
                 BaseGooStateModel(zBlocks.CREATIVE_GOO.get());
                 BaseGooStateModel(zBlocks.ENERGIZED_GOO.get());
@@ -74,8 +73,8 @@ public class DataBlockModelState extends BlockStateProvider {
                                 CubeAllCheap(ID + ":block/echoing_budding/entro", this));
 
                 // BaseBuddings(PHASORITE_POWERED.get(),
-                //                 modLoc("block/echoing_budding/phasorite/alive"),
-                //                 CubeAllCheap(ID + ":block/echoing_budding/phasorite", this));
+                // modLoc("block/echoing_budding/phasorite/alive"),
+                // CubeAllCheap(ID + ":block/echoing_budding/phasorite", this));
 
                 AnvilStateModel(zBlocks.FERRICORE_ANVIL.get());
                 AnvilStateModel(zBlocks.BLAZEGOLD_ANVIL.get());
@@ -86,7 +85,18 @@ public class DataBlockModelState extends BlockStateProvider {
                                 zProperties.GOO_ALIVE, DataGenUtil.getResource("block/paradox_mixer/on"),
                                 DataGenUtil.getResource("block/paradox_mixer/off"));
 
-                simpleBlock(zBlocks.PARADOX_RENDER.get(),models().getExistingFile(DataGenUtil.getResource("block/paradox_mixer/render")));
+                simpleBlock(zBlocks.PARADOX_RENDER.get(),
+                                models().getExistingFile(DataGenUtil.getResource("block/paradox_mixer/render")));
+
+                getVariantBuilder(zBlocks.LIGHT_WAND_BLOCK.get())
+                                .partialState()
+                                .addModels(ConfiguredModel.builder()
+                                                .modelFile(models()
+                                                                .withExistingParent(
+                                                                                zBlocks.LIGHT_WAND_BLOCK
+                                                                                                .getRegisteredName(),
+                                                                                mcLoc("block/air")))
+                                                .build());
 
         }
 

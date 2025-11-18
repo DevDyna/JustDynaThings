@@ -31,7 +31,7 @@
     {
       "type": "patchouli:crafting",
       "title": "Light Wand",
-      "recipe": "justdynathings:light",
+      "recipe": "justdynathings:light_wand",
       "text": "A wand that allow to place and remove Light blocks , also it can apply Glowing at the facing entity"
     },
     {

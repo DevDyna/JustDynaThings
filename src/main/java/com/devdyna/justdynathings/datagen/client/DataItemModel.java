@@ -73,8 +73,8 @@ public class DataItemModel extends ItemModelProvider {
                 GooItemModel(zBlocks.T3_GOO.get());
                 GooItemModel(zBlocks.T4_GOO.get());
 
-                BuddingItemModel(zBlocks.ECHOING_BUDDING_AMETHYST.get());
-                BuddingItemModel(zBlocks.ECHOING_BUDDING_TIME.get());
+                // BuddingItemModel(zBlocks.ECHOING_BUDDING_AMETHYST.get());
+                // BuddingItemModel(zBlocks.ECHOING_BUDDING_TIME.get());
                 // BuddingItemModel(AE2_POWERED.get());
                 // BuddingItemModel(EXTENDED_POWERED.get());
                 // BuddingItemModel(PHASORITE_POWERED.get());

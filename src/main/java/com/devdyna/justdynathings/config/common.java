@@ -158,8 +158,7 @@ public class common {
         public static IntValue LIGHT_WAND_GLOWING_DURATION;
         public static IntValue ADVANCED_LIGHT_WAND_GLOWING_DURATION;
 
-                public static BooleanValue LIGHT_BLOCK_PARTICLES;
-
+        public static BooleanValue LIGHT_BLOCK_PARTICLES;
 
         public static void register(ModContainer c) {
                 regCommon();
@@ -614,7 +613,6 @@ public class common {
                 LIGHT_BLOCK_PARTICLES = qCOMMON
                                 .comment("Light Wand Blocks emit particles")
                                 .define(Wands.Light + "_block_particles", true);
-
 
                 qCOMMON.pop();
 

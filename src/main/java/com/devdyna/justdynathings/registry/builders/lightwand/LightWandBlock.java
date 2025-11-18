@@ -1,5 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.lightwand;
 
+import com.devdyna.justdynathings.config.common;
 import com.devdyna.justdynathings.registry.types.zItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionResult;
@@ -35,15 +36,17 @@ public class LightWandBlock extends LightBlock {
 
     @Override
     protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        return context.isHoldingItem(zItems.LIGHT_WAND.get()) || context.isHoldingItem(zItems.ADVANCED_LIGHT_WAND.get())
-                ? Shapes.block()
-                : Shapes.empty();
+        return context.isHoldingItem(zItems.LIGHT_WAND.get())
+                        || context.isHoldingItem(zItems.ADVANCED_LIGHT_WAND.get())
+                                ? Shapes.block()
+                                : Shapes.empty()
+                ;
     }
 
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player,
             BlockHitResult hitResult) {
-        if (!level.isClientSide) {
+        if (!level.isClientSide && common.LIGHT_WAND_CHANGE.get()) {
             level.setBlock(pos, state.cycle(LEVEL), 2);
             return InteractionResult.SUCCESS;
         } else {

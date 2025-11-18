@@ -1,6 +1,4 @@
-
 # TODO LIST
-
 
 ### Tweaks
 
@@ -32,7 +30,6 @@
 - [ ] Paradox Generator (paradox -> FE)
 - [ ] Paradox Materializer (goo recipes in-gui)
 - [ ] Machine GPS (AOE configurable like rftools builder cards)
-
 
 ### Things that doesn't work on actual codebase (require mixin)
 

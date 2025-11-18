@@ -15,6 +15,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
@@ -42,6 +43,7 @@ public class Material {
                 zComponents.register(bus);
                 zBiomeTags.register(bus);
                 zRecipeTypes.register(bus);
+                zEntityTags.register(bus);
         }
 
         /**
@@ -64,6 +66,13 @@ public class Material {
         }
 
         /**
+         * create an itemtag
+         */
+        public static TagKey<EntityType<?>> tagEntity(String name) {
+                return tagEntity(ID, name);
+        }
+
+        /**
          * create an fluidtag
          */
         public static TagKey<Fluid> tagFluid(String name) {
@@ -76,6 +85,13 @@ public class Material {
          */
         public static TagKey<Biome> tagBiome(String name) {
                 return TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(Main.ID, name));
+        }
+
+        /**
+         * create an entity tag
+         */
+        public static TagKey<EntityType<?>> tagEntity(String modname, String name) {
+                return TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(modname, name));
         }
 
         /**
@@ -110,7 +126,7 @@ public class Material {
                 if (Constants.ModAddonCheck.ExtendedAE)
                         a.add(com.devdyna.justdynathings.compat.extendedae.init.EXTENDED_POWERED.get());
                 // if (Constants.ModAddonCheck.PhasoriteNetworks)
-                        // a.add(com.devdyna.justdynathings.compat.phasorite.init.PHASORITE_POWERED.get());
+                // a.add(com.devdyna.justdynathings.compat.phasorite.init.PHASORITE_POWERED.get());
                 Block[] b = new Block[a.size()];
                 for (int i = 0; i < a.size(); i++) {
                         b[i] = a.get(i);
@@ -124,14 +140,14 @@ public class Material {
         }
 
         // public static DeferredHolder<Block, ?> createBlock(String name) {
-        //         return zBlocks.zBlock.register(name, Block::new);
+        // return zBlocks.zBlock.register(name, Block::new);
         // }
 
         // @Deprecated
         // public static DeferredHolder<Block, ?> createBlockItem(String name) {
-        //         zItems.zBlockItem.register(name, ItemBase::new);
-        //         return zBlocks.zBlockItem.register(name,
-        //                         BlockBase::new);
+        // zItems.zBlockItem.register(name, ItemBase::new);
+        // return zBlocks.zBlockItem.register(name,
+        // BlockBase::new);
         // }
 
         public class DireStuff {

@@ -44,6 +44,7 @@ public class Controller {
         providerGen(e, g, new DataRecipe(po, pr));
         providerGen(e, g, new DataMaps(po, pr));
         providerGen(e, g, new DataFluidTag(po, pr, f));
+        providerGen(e, g, new DataEntityTag(po, pr, blocktag.contentsGetter(), f));
 
     }
 

@@ -4,7 +4,7 @@
 
 ### Tweaks
 
-- [ ] Ticker , Light Wand , Advanced Light Wand documentation
+- [x] Ticker , Light Wand , Advanced Light Wand documentation
 
 - [ ] Ticker & Reforger datagen
 

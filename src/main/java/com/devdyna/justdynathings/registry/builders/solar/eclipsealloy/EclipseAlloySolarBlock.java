@@ -6,7 +6,7 @@ import javax.annotation.Nullable;
 
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
-import com.devdyna.justdynathings.client.builder.solarGen.eclipsealloy.EclipseAlloySolarPanelGUI;
+import com.devdyna.justdynathings.client.type.solarGen.eclipsealloy.EclipseAlloySolarPanelGUI;
 import com.devdyna.justdynathings.config.common;
 import com.devdyna.justdynathings.registry.builders.solar.SolarBlockBase;
 import com.devdyna.justdynathings.utils.Actions;

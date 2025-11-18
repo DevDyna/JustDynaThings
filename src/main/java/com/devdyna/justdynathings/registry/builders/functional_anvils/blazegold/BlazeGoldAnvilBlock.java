@@ -2,7 +2,7 @@ package com.devdyna.justdynathings.registry.builders.functional_anvils.blazegold
 
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
-import com.devdyna.justdynathings.client.builder.anvil.blazegold.BlazeGoldAnvilGUI;
+import com.devdyna.justdynathings.client.type.anvil.blazegold.BlazeGoldAnvilGUI;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.CAnvilBlock;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
 import com.devdyna.justdynathings.utils.Actions;

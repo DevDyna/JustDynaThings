@@ -158,6 +158,9 @@ public class common {
         public static IntValue LIGHT_WAND_GLOWING_DURATION;
         public static IntValue ADVANCED_LIGHT_WAND_GLOWING_DURATION;
 
+                public static BooleanValue LIGHT_BLOCK_PARTICLES;
+
+
         public static void register(ModContainer c) {
                 regCommon();
                 c.registerConfig(ModConfig.Type.COMMON, qCOMMON.build());
@@ -607,6 +610,11 @@ public class common {
                 ADVANCED_LIGHT_WAND_GLOWING_DURATION = qCOMMON
                                 .comment("Glowing duration \n 20 -> 1 second")
                                 .defineInRange(Wands.AdvancedLight + "_glowing_duration", 800, 1, Integer.MAX_VALUE);
+
+                LIGHT_BLOCK_PARTICLES = qCOMMON
+                                .comment("Light Wand Blocks emit particles")
+                                .define(Wands.Light + "_block_particles", true);
+
 
                 qCOMMON.pop();
 

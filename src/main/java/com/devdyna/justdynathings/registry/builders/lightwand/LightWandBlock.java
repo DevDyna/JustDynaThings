@@ -2,7 +2,11 @@ package com.devdyna.justdynathings.registry.builders.lightwand;
 
 import com.devdyna.justdynathings.config.common;
 import com.devdyna.justdynathings.registry.types.zItems;
+import com.devdyna.justdynathings.utils.LevelUtil;
+
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
@@ -37,10 +41,9 @@ public class LightWandBlock extends LightBlock {
     @Override
     protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return context.isHoldingItem(zItems.LIGHT_WAND.get())
-                        || context.isHoldingItem(zItems.ADVANCED_LIGHT_WAND.get())
-                                ? Shapes.block()
-                                : Shapes.empty()
-                ;
+                || context.isHoldingItem(zItems.ADVANCED_LIGHT_WAND.get())
+                        ? Shapes.block()
+                        : Shapes.empty();
     }
 
     @Override
@@ -52,6 +55,18 @@ public class LightWandBlock extends LightBlock {
         } else {
             return InteractionResult.CONSUME;
         }
+    }
+
+    @Override
+    public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
+
+        if (LevelUtil.chance(25, level) && common.LIGHT_BLOCK_PARTICLES.get())
+            level.addParticle(ParticleTypes.GLOW,
+                    pos.getX() + 0.5 + 0.1 * random.nextInt(5) * (LevelUtil.rnd50(level) ? 1 : -1),
+                    pos.getY() + 0.5 + 0.1 * random.nextInt(5) * (LevelUtil.rnd50(level) ? 1 : -1),
+                    pos.getZ() + 0.5 + 0.1 * random.nextInt(5) * (LevelUtil.rnd50(level) ? 1 : -1),
+                    0, 0, 0);
+
     }
 
 }

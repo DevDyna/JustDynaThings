@@ -146,6 +146,18 @@ public class common {
 
         public static IntValue TICKER_TICK_RATE;
 
+        public static BooleanValue LIGHT_WAND_ENTITY_GLOWING;
+        public static BooleanValue LIGHT_WAND_PLACING;
+        public static BooleanValue LIGHT_WAND_SOUND;
+        public static BooleanValue LIGHT_WAND_CHANGE;
+        public static BooleanValue FAKEPLAYER_LIGHT_WAND;
+
+        public static IntValue ADVANCED_LIGHT_WAND_FE_CAPACITY;
+        public static IntValue ADVANCED_LIGHT_WAND_FE_COST;
+
+        public static IntValue LIGHT_WAND_GLOWING_DURATION;
+        public static IntValue ADVANCED_LIGHT_WAND_GLOWING_DURATION;
+
         public static void register(ModContainer c) {
                 regCommon();
                 c.registerConfig(ModConfig.Type.COMMON, qCOMMON.build());
@@ -563,6 +575,38 @@ public class common {
                                 "Max speed applicable with Advanced Time Wand\n It can disable other wand-modes when below 256\n This value should be a power of two")
                                 .define(Wands.AdvancedTime + "_max_multiplier", 256,
                                                 (value) -> config.maxADW(value));
+
+                LIGHT_WAND_ENTITY_GLOWING = qCOMMON
+                                .comment("Light Wands can be used to apply Glowing effect")
+                                .define(Wands.Light + "_glowing", true);
+                LIGHT_WAND_PLACING = qCOMMON
+                                .comment("Light Wands can place Light Blocks")
+                                .define(Wands.Light + "_placing", true);
+                LIGHT_WAND_SOUND = qCOMMON
+                                .comment("Enable/Disable sound event")
+                                .define(Wands.Light + "_sound", true);
+                LIGHT_WAND_CHANGE = qCOMMON
+                                .comment("Light wands can modify light level")
+                                .define(Wands.Light + "_light_level_change", true);
+                FAKEPLAYER_LIGHT_WAND = qCOMMON
+                                .comment("Light Wands support Fake Players")
+                                .define(Wands.Light + "_allow_fakeplayer", true);
+
+                ADVANCED_LIGHT_WAND_FE_CAPACITY = qCOMMON
+                                .comment(Config.Display.FE_MAX)
+                                .defineInRange(Wands.Light + Config.Keys.FE_MAX, 10000, 1, Integer.MAX_VALUE);
+
+                ADVANCED_LIGHT_WAND_FE_COST = qCOMMON
+                                .comment(Config.Display.FE_RATE)
+                                .defineInRange(Wands.Light + Config.Keys.FE_RATE, 100, 1, Integer.MAX_VALUE);
+
+                LIGHT_WAND_GLOWING_DURATION = qCOMMON
+                                .comment("Glowing duration \n 20 -> 1 second")
+                                .defineInRange(Wands.Light + "_glowing_duration", 200, 1, Integer.MAX_VALUE);
+
+                ADVANCED_LIGHT_WAND_GLOWING_DURATION = qCOMMON
+                                .comment("Glowing duration \n 20 -> 1 second")
+                                .defineInRange(Wands.AdvancedLight + "_glowing_duration", 800, 1, Integer.MAX_VALUE);
 
                 qCOMMON.pop();
 

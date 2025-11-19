@@ -119,8 +119,9 @@ public class zItems {
 
         public static void registerGuideMeDummyItems() {
                 // required to render disabled items
-                if (!zCompat.getMissingItems().isEmpty())
-                        zCompat.getMissingItems().forEach(i -> zDisabled.register(i, () -> new DisabledItem()));
+                var items = zCompat.getMissingItems();
+                if (items != null && !items.isEmpty())
+                        items.forEach(i -> zDisabled.register(i, () -> new DisabledItem()));
         }
 
 }

@@ -1,5 +1,6 @@
 package com.devdyna.justdynathings.compat;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.devdyna.justdynathings.Constants;
@@ -64,6 +65,15 @@ public class zCompat {
         public static final DeferredRegister<BlockEntityType<?>> extraBE = DeferredRegister
                         .create(BuiltInRegistries.BLOCK_ENTITY_TYPE, Main.ID);
 
+        /**
+         * IMMUTABLE LIST!
+         * <br/>
+         * <br/>
+         * If you want change it you need to use <br/>
+         * <br/>
+         * <code>new ArrayList<>(getEchoingBuddingTypes)<code/>
+         * 
+         */
         public final static List<String> getEchoingBuddingTypes = List.of(
                         "echoing_budding_certus",
                         "echoing_budding_entro",
@@ -99,7 +109,7 @@ public class zCompat {
                         "echoing_budding_zinc");
 
         public static List<String> getMissingItems() {
-                List<String> list = getEchoingBuddingTypes;
+                List<String> list = new ArrayList<>(getEchoingBuddingTypes);
 
                 if (Constants.ModAddonCheck.AppliedEnergistics2)
                         list.remove("echoing_budding_certus");

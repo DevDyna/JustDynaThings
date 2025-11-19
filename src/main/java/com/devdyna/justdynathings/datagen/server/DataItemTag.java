@@ -20,6 +20,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import xyz.milosworks.phasoritenetworks.init.PNBlocks;
 
 @SuppressWarnings("null")
 
@@ -87,9 +88,9 @@ public class DataItemTag extends ItemTagsProvider {
                                 EAESingletons.MOSTLY_ENTROIZED_FLUIX_BUDDING.asItem(),
                                 EAESingletons.FULLY_ENTROIZED_FLUIX_BUDDING.asItem());
 
-                // tag(zItemTags.PHA_COMPAT).add(
-                // PNBlocks.INSTANCE.getBUDDING_PHASORITE_BLOCK().asItem(),
-                // PNBlocks.INSTANCE.getPHASORITE_BLOCK().asItem());
+                tag(zItemTags.PHA_COMPAT).add(
+                PNBlocks.INSTANCE.getBUDDING_PHASORITE_BLOCK().asItem(),
+                PNBlocks.INSTANCE.getPHASORITE_BLOCK().asItem());
 
                 tag(zItemTags.TIME_BUDDING).add(
                                 Registration.TimeCrystalBlock_ITEM.get(),

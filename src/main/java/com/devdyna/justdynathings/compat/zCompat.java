@@ -61,4 +61,86 @@ public class zCompat {
         public static final DeferredRegister.Items extraItems = DeferredRegister.createItems(Main.ID);
         public static final DeferredRegister<BlockEntityType<?>> extraBE = DeferredRegister
                         .create(BuiltInRegistries.BLOCK_ENTITY_TYPE, Main.ID);
+
+        public static List<String> getMissingItems() {
+                List<String> list = new ArrayList<>();
+
+                if (!Constants.ModAddonCheck.AppliedEnergistics2)
+                        list.add("echoing_budding_certus");
+
+                if (!Constants.ModAddonCheck.ExtendedAE)
+                        list.add("echoing_budding_entro");
+
+                if (!Constants.ModAddonCheck.PhasoriteNetworks)
+                        list.add("echoing_budding_phasorite");
+
+                if (!Constants.ModAddonCheck.GeOre)
+                        list.addAll(List.of(
+                                        "echoing_budding_allthemodium",
+                                        "echoing_budding_aluminum",
+                                        "echoing_budding_ancient_debris",
+                                        "echoing_budding_black_quartz",
+                                        "echoing_budding_coal",
+                                        "echoing_budding_copper",
+                                        "echoing_budding_diamond",
+                                        "echoing_budding_emerald",
+                                        "echoing_budding_gold",
+                                        "echoing_budding_iron",
+                                        "echoing_budding_lapis",
+                                        "echoing_budding_lead",
+                                        "echoing_budding_monazite",
+                                        "echoing_budding_nickel",
+                                        "echoing_budding_osmium",
+                                        "echoing_budding_platinum",
+                                        "echoing_budding_quartz",
+                                        "echoing_budding_redstone",
+                                        "echoing_budding_ruby",
+                                        "echoing_budding_sapphire",
+                                        "echoing_budding_silver",
+                                        "echoing_budding_tin",
+                                        "echoing_budding_topaz",
+                                        "echoing_budding_tungsten",
+                                        "echoing_budding_unobtainium",
+                                        "echoing_budding_uraninite",
+                                        "echoing_budding_uranium",
+                                        "echoing_budding_vibranium",
+                                        "echoing_budding_zinc"));
+                return list;
+        }
+
+        public final static List<String> getEchoingBuddingTypes = List.of(
+                        "echoing_budding_certus",
+                        "echoing_budding_entro",
+                        "echoing_budding_phasorite",
+                        "echoing_budding_allthemodium",
+                        "echoing_budding_aluminum",
+                        "echoing_budding_ancient_debris",
+                        "echoing_budding_black_quartz",
+                        "echoing_budding_coal",
+                        "echoing_budding_copper",
+                        "echoing_budding_diamond",
+                        "echoing_budding_emerald",
+                        "echoing_budding_gold",
+                        "echoing_budding_iron",
+                        "echoing_budding_lapis",
+                        "echoing_budding_lead",
+                        "echoing_budding_monazite",
+                        "echoing_budding_nickel",
+                        "echoing_budding_osmium",
+                        "echoing_budding_platinum",
+                        "echoing_budding_quartz",
+                        "echoing_budding_redstone",
+                        "echoing_budding_ruby",
+                        "echoing_budding_sapphire",
+                        "echoing_budding_silver",
+                        "echoing_budding_tin",
+                        "echoing_budding_topaz",
+                        "echoing_budding_tungsten",
+                        "echoing_budding_unobtainium",
+                        "echoing_budding_uraninite",
+                        "echoing_budding_uranium",
+                        "echoing_budding_vibranium",
+                        "echoing_budding_zinc"
+        );
+
 }

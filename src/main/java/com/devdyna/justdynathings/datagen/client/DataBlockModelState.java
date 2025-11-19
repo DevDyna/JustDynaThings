@@ -72,19 +72,19 @@ public class DataBlockModelState extends BlockStateProvider {
                 //                 CubeAllCheap(ID + ":block/echoing_budding/amethyst", this));
 
                 // BaseBuddings(zBlocks.ECHOING_BUDDING_TIME.get(),
-                //                 modLoc("block/echoing_budding/time/alive"),
+                //                 mcLoc("block/stone"),
                 //                 modLoc("block/echoing_budding/time/dead"));
 
                 // BaseBuddings(initApp.CERTUS.block().get(),
-                //                 modLoc("block/echoing_budding/certus/alive"),
+                //                 mcLoc("block/stone"),
                 //                 CubeAllCheap(ID + ":block/echoing_budding/certus", this));
 
                 // BaseBuddings(initExtend.ENTRO.block().get(),
-                //                 modLoc("block/echoing_budding/entro/alive"),
+                //                 mcLoc("block/stone"),
                 //                 CubeAllCheap(ID + ":block/echoing_budding/entro", this));
 
                 // BaseBuddings(initPhaso.PHASORITE.block().get(),
-                //                 modLoc("block/echoing_budding/phasorite/alive"),
+                //                 mcLoc("block/stone"),
                 //                 CubeAllCheap(ID + ":block/echoing_budding/phasorite", this));
 
                 AnvilStateModel(zBlocks.FERRICORE_ANVIL.get());

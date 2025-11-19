@@ -3,6 +3,10 @@ package com.devdyna.justdynathings.datagen.client;
 import static com.devdyna.justdynathings.Main.ID;
 
 import com.devdyna.justdynathings.Main;
+import com.devdyna.justdynathings.compat.ae2.initApp;
+import com.devdyna.justdynathings.compat.extendedae.initExtend;
+import com.devdyna.justdynathings.compat.geore.initGeOre;
+import com.devdyna.justdynathings.compat.phasorite.initPhaso;
 import com.devdyna.justdynathings.registry.types.zBlocks;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.DataGenUtil;
@@ -10,6 +14,8 @@ import com.direwolf20.justdirethings.JustDireThings;
 import com.direwolf20.justdirethings.common.blocks.gooblocks.GooBlock_Base;
 import com.direwolf20.justdirethings.setup.Registration;
 
+import net.minecraft.client.color.block.BlockColor;
+import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
@@ -54,26 +60,32 @@ public class DataBlockModelState extends BlockStateProvider {
 
                 inversDirectionalBlocks(zBlocks.THERMOGEN.get());
 
-                // simpleBlock(zBlocks.ECHOING_BUDDING_AMETHYST.get(),models().cubeAll(zBlocks.ECHOING_BUDDING_AMETHYST.getRegisteredName(), mcLoc("block/budding_amethyst")));
+                // initGeOre.values().forEach(b -> BaseBuddings(b.block().get(),
+                //                DataGenUtil.getResource(b.id().replace(Constants.BuddingType + "_", "block/budding_"),"geore"),
+                // // modLoc(b.id().replace(Constants.BuddingType + "_", "block/echoing_budding/")+ "/alive"),
+                //                 CubeAllCheap(ID + ":"
+                //                                 + b.id().replace(Constants.BuddingType + "_", "block/echoing_budding/"),
+                //                                 this)));
 
-                // BaseBuddings(zBlocks.ECHOING_BUDDING_AMETHYST.get(), mcLoc("block/budding_amethyst"),
+                // BaseBuddings(zBlocks.ECHOING_BUDDING_AMETHYST.get(),
+                //                 mcLoc("block/budding_amethyst"),
                 //                 CubeAllCheap(ID + ":block/echoing_budding/amethyst", this));
 
                 // BaseBuddings(zBlocks.ECHOING_BUDDING_TIME.get(),
                 //                 modLoc("block/echoing_budding/time/alive"),
                 //                 modLoc("block/echoing_budding/time/dead"));
 
-                // BaseBuddings(AE2_POWERED.get(),
+                // BaseBuddings(initApp.CERTUS.block().get(),
                 //                 modLoc("block/echoing_budding/certus/alive"),
                 //                 CubeAllCheap(ID + ":block/echoing_budding/certus", this));
 
-                // BaseBuddings(EXTENDED_POWERED.get(),
+                // BaseBuddings(initExtend.ENTRO.block().get(),
                 //                 modLoc("block/echoing_budding/entro/alive"),
                 //                 CubeAllCheap(ID + ":block/echoing_budding/entro", this));
 
-                // BaseBuddings(PHASORITE_POWERED.get(),
-                // modLoc("block/echoing_budding/phasorite/alive"),
-                // CubeAllCheap(ID + ":block/echoing_budding/phasorite", this));
+                // BaseBuddings(initPhaso.PHASORITE.block().get(),
+                //                 modLoc("block/echoing_budding/phasorite/alive"),
+                //                 CubeAllCheap(ID + ":block/echoing_budding/phasorite", this));
 
                 AnvilStateModel(zBlocks.FERRICORE_ANVIL.get());
                 AnvilStateModel(zBlocks.BLAZEGOLD_ANVIL.get());

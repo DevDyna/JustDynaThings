@@ -1,7 +1,7 @@
 package com.devdyna.justdynathings.compat.extendedae.builder;
 
 import com.devdyna.justdynathings.compat.extendedae.initExtend;
-import com.devdyna.justdynathings.registry.builders.budding.BuddingBE;
+import com.devdyna.justdynathings.registry.builders.echoing_buddings.BuddingBE;
 import com.glodblock.github.extendedae.common.EAESingletons;
 
 import net.minecraft.core.BlockPos;

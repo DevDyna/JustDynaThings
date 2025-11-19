@@ -2,10 +2,9 @@ package com.devdyna.justdynathings.registry.types;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
+import com.devdyna.justdynathings.compat.zCompat;
 import com.devdyna.justdynathings.registry.builders.*;
 import com.devdyna.justdynathings.registry.builders.lightwand.AdvancedLightWand;
 import com.devdyna.justdynathings.registry.builders.lightwand.LightWandItem;

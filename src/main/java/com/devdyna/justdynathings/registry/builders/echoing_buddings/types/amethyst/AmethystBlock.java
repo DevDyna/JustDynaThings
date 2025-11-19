@@ -1,8 +1,8 @@
-package com.devdyna.justdynathings.registry.builders.budding.types.amethyst;
+package com.devdyna.justdynathings.registry.builders.echoing_buddings.types.amethyst;
 
 import javax.annotation.Nullable;
 
-import com.devdyna.justdynathings.registry.builders.budding.BuddingBlock;
+import com.devdyna.justdynathings.registry.builders.echoing_buddings.BuddingBlock;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntity;

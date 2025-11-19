@@ -2,7 +2,7 @@ package com.devdyna.justdynathings.compat.ae2;
 
 import com.devdyna.justdynathings.compat.ae2.builder.CertusBE;
 import com.devdyna.justdynathings.compat.ae2.builder.CertusBlock;
-import com.devdyna.justdynathings.registry.builders.budding.EchoingBuddingType;
+import com.devdyna.justdynathings.registry.builders.echoing_buddings.EchoingBuddingType;
 
 import net.neoforged.bus.api.IEventBus;
 

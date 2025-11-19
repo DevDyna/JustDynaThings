@@ -1,14 +1,15 @@
-package com.devdyna.justdynathings.config;
+package com.devdyna.justdynathings.Config;
 
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Constants.*;
+import com.devdyna.justdynathings.utils.ConfigUtils;
 import com.devdyna.justdynathings.utils.DataGenUtil;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.neoforge.common.ModConfigSpec;
 import net.neoforged.neoforge.common.ModConfigSpec.*;
 
-public class common {
+public class CommonConfig {
         private static final ModConfigSpec.Builder qCOMMON = new ModConfigSpec.Builder();
 
         public static BooleanValue DOC_WARNING;
@@ -559,24 +560,24 @@ public class common {
                 ADVANCED_TIME_WAND_NORMAL_MODE = qCOMMON.comment(
                                 "Mode NORMAL [1|2|4|8]")
                                 .define(Wands.AdvancedTime + "_mode_normal", 1,
-                                                (value) -> config.validateADW("_mode_normal", value));
+                                                (value) -> ConfigUtils.validateADW("_mode_normal", value));
 
                 ADVANCED_TIME_WAND_X2_MODE = qCOMMON.comment(
                                 "Mode X2 [1|2|4|8]").define(Wands.AdvancedTime + "_mode_x2", 2,
-                                                (value) -> config.validateADW("_mode_x2", value));
+                                                (value) -> ConfigUtils.validateADW("_mode_x2", value));
 
                 ADVANCED_TIME_WAND_X4_MODE = qCOMMON.comment(
                                 "Mode X4 [1|2|4|8]").define(Wands.AdvancedTime + "_mode_x4", 4,
-                                                (value) -> config.validateADW("_mode_x4", value));
+                                                (value) -> ConfigUtils.validateADW("_mode_x4", value));
 
                 ADVANCED_TIME_WAND_MAX_MODE = qCOMMON.comment(
                                 "Mode MAX [1|2|4|8]").define(Wands.AdvancedTime + "_mode_max", 8,
-                                                (value) -> config.validateADW("_mode_max", value));
+                                                (value) -> ConfigUtils.validateADW("_mode_max", value));
 
                 ADVANCED_TIME_WAND_MAX_MULTIPLIER = qCOMMON.comment(
                                 "Max speed applicable with Advanced Time Wand\n It can disable other wand-modes when below 256\n This value should be a power of two")
                                 .define(Wands.AdvancedTime + "_max_multiplier", 256,
-                                                (value) -> config.maxADW(value));
+                                                (value) -> ConfigUtils.maxADW(value));
 
                 LIGHT_WAND_ENTITY_GLOWING = qCOMMON
                                 .comment("Light Wands can be used to apply Glowing effect")

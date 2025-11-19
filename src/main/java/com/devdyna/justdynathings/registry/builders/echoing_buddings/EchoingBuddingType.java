@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.registry.builders.budding;
+package com.devdyna.justdynathings.registry.builders.echoing_buddings;
 
 import java.util.function.Function;
 

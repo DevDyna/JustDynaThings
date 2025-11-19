@@ -1,16 +1,10 @@
-package com.devdyna.justdynathings.config;
+package com.devdyna.justdynathings.utils;
 
 import java.util.List;
 
 import com.devdyna.justdynathings.Constants.Wands;
-import com.devdyna.justdynathings.utils.LogUtil;
 
-import net.neoforged.fml.ModContainer;
-
-public class config {
-    public static void core(ModContainer chest) {
-        common.register(chest);
-    }
+public class ConfigUtils {
 
     private static List<Integer> validStages = List.of(1, 2, 4, 8);
 

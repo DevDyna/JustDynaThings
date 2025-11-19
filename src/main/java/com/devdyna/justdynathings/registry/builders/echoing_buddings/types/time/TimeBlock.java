@@ -1,8 +1,9 @@
-package com.devdyna.justdynathings.registry.builders.budding.types.time;
+package com.devdyna.justdynathings.registry.builders.echoing_buddings.types.time;
 
 import javax.annotation.Nullable;
 
-import com.devdyna.justdynathings.registry.builders.budding.BuddingBlock;
+import com.devdyna.justdynathings.registry.builders.echoing_buddings.BuddingBlock;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;

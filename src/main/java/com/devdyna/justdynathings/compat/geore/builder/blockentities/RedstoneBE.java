@@ -1,7 +1,7 @@
 package com.devdyna.justdynathings.compat.geore.builder.blockentities;
 
 import com.devdyna.justdynathings.compat.geore.initGeOre;
-import com.devdyna.justdynathings.registry.builders.budding.BuddingBE;
+import com.devdyna.justdynathings.registry.builders.echoing_buddings.BuddingBE;
 import com.shynieke.geore.registry.GeOreRegistry;
 
 import net.minecraft.core.BlockPos;

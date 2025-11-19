@@ -6,8 +6,8 @@ import javax.annotation.Nullable;
 
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
+import com.devdyna.justdynathings.Config.CommonConfig;
 import com.devdyna.justdynathings.client.type.thermoGen.ThermoGUI;
-import com.devdyna.justdynathings.config.common;
 import com.devdyna.justdynathings.registry.builders._core.block.BaseFluidMachineBlock;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.Actions;
@@ -105,7 +105,7 @@ public class ThermoBlock extends BaseFluidMachineBlock {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents,
             TooltipFlag tooltipFlag) {
-        if (Constants.ModAddonCheck.docCheck && !common.DOC_WARNING.getAsBoolean())
+        if (Constants.ModAddonCheck.docCheck && !CommonConfig.DOC_WARNING.getAsBoolean())
             tooltipComponents.add(Component.translatable(Main.ID + ".doc.missing"));
             tooltipComponents.add(Component.translatable(Main.ID + "." + Constants.Blocks.ThermoGen));
     }

@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.registry.builders.budding;
+package com.devdyna.justdynathings.registry.builders.echoing_buddings;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import javax.annotation.Nullable;
 
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
-import com.devdyna.justdynathings.config.common;
+import com.devdyna.justdynathings.Config.CommonConfig;
 import com.devdyna.justdynathings.registry.builders._core.block.BlockBaseBE;
 import com.devdyna.justdynathings.registry.interfaces.block.BucketInteractive;
 import com.devdyna.justdynathings.registry.types.zProperties;
@@ -64,7 +64,7 @@ public class BuddingBlock extends BlockBaseBE implements BucketInteractive{
     @Override
     public void appendHoverText(ItemStack i, TooltipContext c, List<Component> t,
             TooltipFlag f) {
-        if (Constants.ModAddonCheck.docCheck && !common.DOC_WARNING.getAsBoolean())
+        if (Constants.ModAddonCheck.docCheck && !CommonConfig.DOC_WARNING.getAsBoolean())
             t.add(Component.translatable(Main.ID + ".doc.missing"));
         t.add(Component.translatable(Main.ID + "." + Constants.BuddingType ));
         t.add(Component.translatable(Main.ID + "." + Constants.BuddingType +".break"));

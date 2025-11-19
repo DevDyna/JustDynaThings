@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.solar.blazegold;
 
-import com.devdyna.justdynathings.config.common;
+import com.devdyna.justdynathings.Config.CommonConfig;
 import com.devdyna.justdynathings.registry.builders.solar.SolarBaseBE;
 import com.devdyna.justdynathings.registry.types.zBiomeTags;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
@@ -22,32 +22,32 @@ public class BlazeGoldSolarBE extends SolarBaseBE {
 
     @Override
     public int getMaxEnergy() {
-        return common.SOLARPANEL_BLAZEGOLD_FE_CAPACITY.get();
+        return CommonConfig.SOLARPANEL_BLAZEGOLD_FE_CAPACITY.get();
     }
 
     @Override
     public int FErate() {
-        return common.SOLARPANEL_BLAZEGOLD_FE_RATE.get();
+        return CommonConfig.SOLARPANEL_BLAZEGOLD_FE_RATE.get();
     }
 
     @Override
     public boolean enableMultiPopulator() {
-        return common.SOLARPANEL_BLAZEGOLD_ENABLE_SPAM.get();
+        return CommonConfig.SOLARPANEL_BLAZEGOLD_ENABLE_SPAM.get();
     }
 
     @Override
     public boolean enableMultiYLevel() {
-        return common.SOLARPANEL_BLAZEGOLD_ENABLE_YLEVEL.get();
+        return CommonConfig.SOLARPANEL_BLAZEGOLD_ENABLE_YLEVEL.get();
     }
 
     @Override
     public boolean enableCleanSky() {
-        return common.SOLARPANEL_BLAZEGOLD_ENABLE_SKY.get();
+        return CommonConfig.SOLARPANEL_BLAZEGOLD_ENABLE_SKY.get();
     }
 
     @Override
     public boolean enableDayTimeOnly() {
-        return common.SOLARPANEL_BLAZEGOLD_ENABLE_DAYTIME.get();
+        return CommonConfig.SOLARPANEL_BLAZEGOLD_ENABLE_DAYTIME.get();
     }
 
     @Override
@@ -57,7 +57,7 @@ public class BlazeGoldSolarBE extends SolarBaseBE {
 
     @Override
     public boolean isAllowBiome() {
-        return common.SOLARPANEL_BLAZEGOLD_BIOMES.get();
+        return CommonConfig.SOLARPANEL_BLAZEGOLD_BIOMES.get();
     }
 
 }

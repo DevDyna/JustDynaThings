@@ -1,7 +1,8 @@
 package com.devdyna.justdynathings.compat.phasorite.builder;
 
 import com.devdyna.justdynathings.compat.phasorite.initPhaso;
-import com.devdyna.justdynathings.registry.builders.budding.BuddingBE;
+import com.devdyna.justdynathings.registry.builders.echoing_buddings.BuddingBE;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;

@@ -2,8 +2,8 @@ package com.devdyna.justdynathings.registry.builders.ticker;
 
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
+import com.devdyna.justdynathings.Config.CommonConfig;
 import com.devdyna.justdynathings.client.type.ticker.TickerGUI;
-import com.devdyna.justdynathings.config.common;
 import com.devdyna.justdynathings.registry.builders._core.block.BaseFluidMachineBlock;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.Actions;
@@ -74,7 +74,7 @@ public class TickerBlock extends BaseFluidMachineBlock {
         @Override
     public void appendHoverText(ItemStack i, TooltipContext c, List<Component> t,
             TooltipFlag f) {
-        if (Constants.ModAddonCheck.docCheck && !common.DOC_WARNING.getAsBoolean())
+        if (Constants.ModAddonCheck.docCheck && !CommonConfig.DOC_WARNING.getAsBoolean())
             t.add(Component.translatable(Main.ID + ".doc.missing"));
         t.add(Component.translatable(Main.ID + "." + Constants.Blocks.Ticker));
     }

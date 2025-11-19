@@ -1,7 +1,8 @@
 package com.devdyna.justdynathings.compat.ae2.builder;
 
 import com.devdyna.justdynathings.compat.ae2.initApp;
-import com.devdyna.justdynathings.registry.builders.budding.BuddingBE;
+import com.devdyna.justdynathings.registry.builders.echoing_buddings.BuddingBE;
+
 import appeng.core.definitions.AEBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntityType;

@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.lightwand;
 
-import com.devdyna.justdynathings.config.common;
+import com.devdyna.justdynathings.Config.CommonConfig;
 
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -32,7 +32,7 @@ public class LightWandItem extends Item implements ILightWand{
 
     @Override
     public int glowingDuration() {
-        return common.LIGHT_WAND_GLOWING_DURATION.get();
+        return CommonConfig.LIGHT_WAND_GLOWING_DURATION.get();
     }
 
       @Override

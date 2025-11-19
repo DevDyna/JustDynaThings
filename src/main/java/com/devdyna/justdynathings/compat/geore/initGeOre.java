@@ -6,7 +6,7 @@ import java.util.List;
 
 import com.devdyna.justdynathings.compat.geore.builder.blockentities.*;
 import com.devdyna.justdynathings.compat.geore.builder.blocks.*;
-import com.devdyna.justdynathings.registry.builders.budding.EchoingBuddingType;
+import com.devdyna.justdynathings.registry.builders.echoing_buddings.EchoingBuddingType;
 import com.shynieke.geore.registry.GeOreRegistry;
 
 import net.neoforged.bus.api.IEventBus;

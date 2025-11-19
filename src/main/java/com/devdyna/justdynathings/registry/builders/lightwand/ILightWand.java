@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.lightwand;
 
-import com.devdyna.justdynathings.config.common;
+import com.devdyna.justdynathings.Config.CommonConfig;
 import com.devdyna.justdynathings.registry.types.zBlocks;
 import com.devdyna.justdynathings.registry.types.zEntityTags;
 
@@ -35,11 +35,11 @@ public interface ILightWand {
             InteractionHand hand) {
 
         if (checkFakePlayers(player))
-            if (condToRun(itemStack) && common.LIGHT_WAND_ENTITY_GLOWING.get())
+            if (condToRun(itemStack) && CommonConfig.LIGHT_WAND_ENTITY_GLOWING.get())
                 if (checkEntity(entity)) {
                     entity.addEffect(new MobEffectInstance(MobEffects.GLOWING, glowingDuration()));
 
-                    if (common.LIGHT_WAND_SOUND.get())
+                    if (CommonConfig.LIGHT_WAND_SOUND.get())
                         player.level().playSound(player, player.getOnPos(), SoundEvents.ALLAY_ITEM_GIVEN,
                                 SoundSource.PLAYERS,
                                 0.25F, 1F);
@@ -72,11 +72,11 @@ public interface ILightWand {
 
         if (checkFakePlayers(player)) {
             if (player.isCrouching() && state.is(zBlocks.LIGHT_WAND_BLOCK.get())
-                    && common.LIGHT_WAND_CHANGE.get())
+                    && CommonConfig.LIGHT_WAND_CHANGE.get())
                 return changeLight(level, pos, hand, player, state);
 
             if (ofstate.canBeReplaced() && !ofstate.is(zBlocks.LIGHT_WAND_BLOCK.get())
-                    && common.LIGHT_WAND_PLACING.get())
+                    && CommonConfig.LIGHT_WAND_PLACING.get())
                 return createLight(player, item, hand, level, offset);
         }
 
@@ -97,7 +97,7 @@ public interface ILightWand {
                 .setValue(BlockStateProperties.WATERLOGGED,
                         !fluid.isEmpty() && fluid.isSource() && fluid.is(Fluids.WATER)));
 
-        if (common.LIGHT_WAND_SOUND.get())
+        if (CommonConfig.LIGHT_WAND_SOUND.get())
             player.level().playSound(player, player.getOnPos(), SoundEvents.ALLAY_ITEM_GIVEN,
                     SoundSource.PLAYERS,
                     0.25F, 1F);
@@ -117,7 +117,7 @@ public interface ILightWand {
                 2);
         player.swing(hand);
 
-        if (common.LIGHT_WAND_SOUND.get())
+        if (CommonConfig.LIGHT_WAND_SOUND.get())
             player.level().playSound(player, player.getOnPos(), SoundEvents.ALLAY_ITEM_GIVEN,
                     SoundSource.PLAYERS,
                     0.25F, 1F);
@@ -126,7 +126,7 @@ public interface ILightWand {
     }
 
     private boolean checkFakePlayers(Player player){
-        return common.FAKEPLAYER_LIGHT_WAND.get() ?  true : player instanceof FakePlayer;
+        return CommonConfig.FAKEPLAYER_LIGHT_WAND.get() ?  true : player instanceof FakePlayer;
     }
 
 }

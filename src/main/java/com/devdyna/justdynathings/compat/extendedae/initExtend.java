@@ -2,7 +2,7 @@ package com.devdyna.justdynathings.compat.extendedae;
 
 import com.devdyna.justdynathings.compat.extendedae.builder.EntroBE;
 import com.devdyna.justdynathings.compat.extendedae.builder.EntroBlock;
-import com.devdyna.justdynathings.registry.builders.budding.EchoingBuddingType;
+import com.devdyna.justdynathings.registry.builders.echoing_buddings.EchoingBuddingType;
 
 import net.neoforged.bus.api.IEventBus;
 

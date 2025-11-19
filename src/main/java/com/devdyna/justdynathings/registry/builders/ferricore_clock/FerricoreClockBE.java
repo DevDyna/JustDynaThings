@@ -10,13 +10,13 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
 @SuppressWarnings("null")
-public class ClockBE extends BaseMachineBE {
+public class FerricoreClockBE extends BaseMachineBE {
 
-    public ClockBE(BlockEntityType<?> type, BlockPos pos, BlockState blockState) {
+    public FerricoreClockBE(BlockEntityType<?> type, BlockPos pos, BlockState blockState) {
         super(type, pos, blockState);
     }
 
-    public ClockBE(BlockPos pos, BlockState blockState) {
+    public FerricoreClockBE(BlockPos pos, BlockState blockState) {
         this(zBlockEntities.FERRICORE_CLOCK.get(), pos, blockState);
     }
 

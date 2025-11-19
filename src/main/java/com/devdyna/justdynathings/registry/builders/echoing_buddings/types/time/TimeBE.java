@@ -1,6 +1,6 @@
-package com.devdyna.justdynathings.registry.builders.budding.types.time;
+package com.devdyna.justdynathings.registry.builders.echoing_buddings.types.time;
 
-import com.devdyna.justdynathings.registry.builders.budding.BuddingBE;
+import com.devdyna.justdynathings.registry.builders.echoing_buddings.BuddingBE;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
 import com.direwolf20.justdirethings.setup.Registration;
 

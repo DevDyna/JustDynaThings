@@ -160,6 +160,9 @@ public class DataLang extends LanguageProvider {
 
                 add(ID + "." + Constants.BuddingType + ".break", "§cDoesn't drop when broken!");
 
+                //required to render disabled items
+                zCompat.getEchoingBuddingTypes.forEach(k->add("item."+ID+"."+k, named(k)));
+
         }
 
         private String named(String text) {

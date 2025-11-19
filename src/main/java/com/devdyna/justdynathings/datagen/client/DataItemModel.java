@@ -2,6 +2,10 @@ package com.devdyna.justdynathings.datagen.client;
 
 import static com.devdyna.justdynathings.Main.ID;
 import com.devdyna.justdynathings.Main;
+import com.devdyna.justdynathings.compat.ae2.initApp;
+import com.devdyna.justdynathings.compat.extendedae.initExtend;
+import com.devdyna.justdynathings.compat.geore.initGeOre;
+import com.devdyna.justdynathings.compat.phasorite.initPhaso;
 import com.devdyna.justdynathings.registry.types.zBlocks;
 import com.devdyna.justdynathings.registry.types.zItems;
 import com.devdyna.justdynathings.utils.DataGenUtil;
@@ -45,7 +49,7 @@ public class DataItemModel extends ItemModelProvider {
                 SolarBlockItem(zBlocks.CELESTIGEM_SOLARGEN.get());
                 SolarBlockItem(zBlocks.ECLIPSEALLOY_SOLARGEN.get());
 
-                //TODO datagen
+                // TODO datagen
 
                 DataGenUtil.itemBlockwithParent(zBlocks.FERRICORE_CLOCK.get(), this,
                                 "block/cube_all", "all",
@@ -56,8 +60,8 @@ public class DataItemModel extends ItemModelProvider {
 
                 DataGenUtil.itemBlockwithParent(zBlocks.REFORGER.get(), this,
                                 ID + ":block/" + DataGenUtil.getName(zBlocks.REFORGER.get()) + "/off");
-              
-                                DataGenUtil.itemBlockwithParent(zBlocks.TICKER.get(), this,
+
+                DataGenUtil.itemBlockwithParent(zBlocks.TICKER.get(), this,
                                 ID + ":block/" + DataGenUtil.getName(zBlocks.TICKER.get()) + "/off");
 
                 DataGenUtil.itemBlockwithParent(zBlocks.STABILIZER.get(), this,
@@ -75,9 +79,11 @@ public class DataItemModel extends ItemModelProvider {
 
                 // BuddingItemModel(zBlocks.ECHOING_BUDDING_AMETHYST.get());
                 // BuddingItemModel(zBlocks.ECHOING_BUDDING_TIME.get());
-                // BuddingItemModel(AE2_POWERED.get());
-                // BuddingItemModel(EXTENDED_POWERED.get());
-                // BuddingItemModel(PHASORITE_POWERED.get());
+                // BuddingItemModel(initApp.CERTUS.block().get());
+                // BuddingItemModel(initExtend.ENTRO.block().get());
+                // BuddingItemModel(initPhaso.PHASORITE.block().get());
+
+                // initGeOre.values().forEach(b -> BuddingItemModel(b.block().get()));
 
                 zItems.zBucketItem.getEntries().forEach(b -> withExistingParent(b.getId().getPath(),
                                 ResourceLocation.fromNamespaceAndPath(NeoForgeVersion.MOD_ID, "item/bucket"))
@@ -87,9 +93,9 @@ public class DataItemModel extends ItemModelProvider {
         }
 
         private void BuddingItemModel(Block b) {
-                DataGenUtil.itemBlockwithParent(b, this,
-                                ID + ":block/echoing_budding/" + DataGenUtil.getName(b).replace("echoing_budding_", "")
-                                                + "/dead");
+                cubeAll(DataGenUtil.getName(b), modLoc("block/echoing_budding/"
+                                + DataGenUtil.getName(b).replace("echoing_budding_", "")));
+
         }
 
         private void GooItemModel(Block b) {

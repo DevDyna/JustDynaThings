@@ -156,6 +156,8 @@ public class DataLang extends LanguageProvider {
 
                 addBlock(zBlocks.LIGHT_WAND_BLOCK, "Light Wand Block");
 
+                add(ID + "." + Constants.BuddingType +".break", "§cDoesn't drop when broken!");
+
         }
 
         private String named(String text) {

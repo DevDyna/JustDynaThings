@@ -8,6 +8,10 @@ import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
 import com.devdyna.justdynathings.Constants;
+import com.devdyna.justdynathings.compat.ae2.initApp;
+import com.devdyna.justdynathings.compat.extendedae.initExtend;
+import com.devdyna.justdynathings.compat.geore.initGeOre;
+import com.devdyna.justdynathings.compat.phasorite.initPhaso;
 import com.devdyna.justdynathings.recipetypes.builders.*;
 import com.devdyna.justdynathings.registry.builders.AdvancedTimeWand;
 import com.devdyna.justdynathings.registry.types.*;
@@ -25,6 +29,7 @@ import com.direwolf20.justdirethings.datagen.recipes.GooSpreadRecipeBuilder;
 import com.direwolf20.justdirethings.datagen.recipes.GooSpreadRecipeTagBuilder;
 import com.direwolf20.justdirethings.setup.Registration;
 import com.glodblock.github.extendedae.common.EAESingletons;
+import com.shynieke.geore.registry.GeOreRegistry;
 
 import appeng.core.definitions.AEBlocks;
 import appeng.datagen.providers.tags.DataComponentTypeTagProvider;
@@ -59,7 +64,6 @@ import net.neoforged.neoforge.common.crafting.BlockTagIngredient;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.server.command.NeoForgeCommand;
-
 
 @SuppressWarnings({ "null", "unused" })
 public class DataRecipe extends RecipeProvider {
@@ -134,14 +138,22 @@ public class DataRecipe extends RecipeProvider {
 
                 Budding(zBlocks.ECHOING_BUDDING_TIME.get().asItem(), zItemTags.TIME_BUDDING, c);
 
-                // Budding(AE2_POWERED.get().asItem(), zItemTags.AE2_COMPAT, c
-                //                 .withConditions(DataGenUtil.isModLoaded("ae2")));
+                Budding(initApp.CERTUS.block().get().asItem(), zItemTags.AE2_COMPAT, c
+                                .withConditions(DataGenUtil.isModLoaded("ae2")));
 
-                // Budding(EXTENDED_POWERED.get().asItem(), zItemTags.EXT_COMPAT, c
-                //                 .withConditions(DataGenUtil.isModLoaded("extendedae")));
+                Budding(initExtend.ENTRO.block().get().asItem(), zItemTags.EXT_COMPAT, c
+                                .withConditions(DataGenUtil.isModLoaded("extendedae")));
 
-                // Budding(PHASORITE_POWERED.get().asItem(), zItemTags.PHA_COMPAT, c
-                // .withConditions(DataGenUtil.isModLoaded("phasoritenetworks")));
+                Budding(initPhaso.PHASORITE.block().get().asItem(), zItemTags.PHA_COMPAT, c
+                                .withConditions(DataGenUtil.isModLoaded("phasoritenetworks")));
+
+                initGeOre.values().forEach(b -> Budding(b.block().get().asItem(), GeOreRegistry.getGeOres().stream()
+                                .filter(g -> g.getName()
+                                                .equalsIgnoreCase(b.id().replace(Constants.BuddingType + "_", "")))
+                                .findFirst()
+                                .orElse(null).getBlock().get().asItem(),
+                                c
+                                                .withConditions(DataGenUtil.isModLoaded("geore"))));
 
                 ShapedRecipeBuilder.shaped(MISC, zBlocks.BLACKHOLE.get(), 1)
                                 .pattern("FBF")

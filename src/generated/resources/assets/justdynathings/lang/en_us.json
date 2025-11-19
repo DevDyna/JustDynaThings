@@ -85,6 +85,7 @@
   "justdynathings.disabled": "§cItem Disabled",
   "justdynathings.doc.missing": "§aFor more info consider to install GuideMe or Patchouli",
   "justdynathings.echoing_budding": "§7Grow clusters using Fluid Time and Forge Energy",
+  "justdynathings.echoing_budding.break": "§cDoesn't drop when broken!",
   "justdynathings.eclipse_alloy_anvil": "§7Repair items using Forge Energy",
   "justdynathings.eclipse_alloy_anvil.boost": "§7Can be boosted using Fluid Time",
   "justdynathings.ferricore_anvil": "§7Repair items using metallic ingots",

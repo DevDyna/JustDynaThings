@@ -72,6 +72,7 @@ public class DataBlockTag extends BlockTagsProvider {
                                 .addTags(BlockTags.BEDS,
                                                 BlockTags.PORTALS, BlockTags.DOORS,
                                                 Tags.Blocks.RELOCATION_NOT_SUPPORTED)
+                                .remove(Tags.Blocks.BUDDING_BLOCKS)
                                 .addOptionalTag(JustDireBlockTags.SWAPPERDENY.location());
 
                 tag(zBlockTags.SWAPPER_DENY)
@@ -80,6 +81,7 @@ public class DataBlockTag extends BlockTagsProvider {
                                 .addTags(BlockTags.BEDS,
                                                 BlockTags.PORTALS, BlockTags.DOORS,
                                                 Tags.Blocks.RELOCATION_NOT_SUPPORTED)
+                                .remove(Tags.Blocks.BUDDING_BLOCKS)
                                 .addOptionalTag(JustDireBlockTags.SWAPPERDENY.location());
 
                 tag(zBlockTags.COAL_BLOCKS)

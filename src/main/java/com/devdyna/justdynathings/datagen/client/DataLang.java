@@ -76,21 +76,23 @@ public class DataLang extends LanguageProvider {
                                 "§7A block that act at same of a time wand");
 
                 // registry keys
-                zBlocks.zBlock.getEntries().forEach(b -> addBlock(b, named(b.getRegisteredName())));
-                zBlocks.zGoo.getEntries().forEach(b -> addBlock(b, named(b.getRegisteredName())));
-                zBlocks.zOres.getEntries().forEach(b -> addBlock(b, named(b.getRegisteredName())));
-                zBlocks.zBuddings.getEntries().forEach(b -> addBlock(b, named(b.getRegisteredName())));
-                zBlocks.zBlockItem.getEntries().forEach(b -> addBlock(b, named(b.getRegisteredName())));
-                // zBlocks.zBlockFluids.getEntries().forEach(b -> addBlock(b,
-                // named(b.getRegisteredName())));
-                zItems.zItem.getEntries().forEach(b -> addItem(b, named(b.getRegisteredName())));
-                zItems.zBucketItem.getEntries().forEach(b -> addItem(b, named(b.getRegisteredName())));
-                zItems.zItemTinted.getEntries().forEach(b -> addItem(b, named(b.getRegisteredName())));
-                zItems.zCoals.getEntries().forEach(b -> addItem(b, named(b.getRegisteredName())));
-                zItems.zItemHanded.getEntries().forEach(b -> addItem(b, named(b.getRegisteredName())));
 
-                zItems.zGooUpgraders.getEntries().forEach(b -> addItem(b, named(
-                                b.getRegisteredName())));
+                List.of(
+                                zBlocks.zBlock,
+                                zBlocks.zGoo,
+                                zBlocks.zOres,
+                                zBlocks.zBuddings,
+                                zBlocks.zBlockItem)
+                                .forEach(c -> c.getEntries().forEach(b -> addBlock(b, named(b.getRegisteredName()))));
+
+                List.of(
+                                zItems.zItemHanded,
+                                zItems.zCoals,
+                                zItems.zItemTinted,
+                                zItems.zBucketItem,
+                                zItems.zGooUpgraders,
+                                zItems.zItem)
+                                .forEach(c -> c.getEntries().forEach(b -> addItem(b, named(b.getRegisteredName()))));
 
                 // compats
                 zCompat.extraItems.getEntries().forEach(i -> addItem(i, named(i.getRegisteredName())));
@@ -156,7 +158,7 @@ public class DataLang extends LanguageProvider {
 
                 addBlock(zBlocks.LIGHT_WAND_BLOCK, "Light Wand Block");
 
-                add(ID + "." + Constants.BuddingType +".break", "§cDoesn't drop when broken!");
+                add(ID + "." + Constants.BuddingType + ".break", "§cDoesn't drop when broken!");
 
         }
 

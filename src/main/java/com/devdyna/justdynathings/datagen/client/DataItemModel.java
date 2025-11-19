@@ -2,10 +2,6 @@ package com.devdyna.justdynathings.datagen.client;
 
 import static com.devdyna.justdynathings.Main.ID;
 import com.devdyna.justdynathings.Main;
-import com.devdyna.justdynathings.compat.ae2.initApp;
-import com.devdyna.justdynathings.compat.extendedae.initExtend;
-import com.devdyna.justdynathings.compat.geore.initGeOre;
-import com.devdyna.justdynathings.compat.phasorite.initPhaso;
 import com.devdyna.justdynathings.registry.types.zBlocks;
 import com.devdyna.justdynathings.registry.types.zItems;
 import com.devdyna.justdynathings.utils.DataGenUtil;

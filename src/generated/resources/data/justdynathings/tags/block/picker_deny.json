@@ -1,4 +1,7 @@
 {
+  "remove": [
+    "#c:budding_blocks"
+  ],
   "values": [
     "minecraft:piston_head",
     "minecraft:moving_piston",

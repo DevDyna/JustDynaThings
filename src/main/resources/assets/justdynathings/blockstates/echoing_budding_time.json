@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "alive=false": {
+      "model": "justdirethings:block/time_crystal_budding_block_state_0"
+    },
+    "alive=true": {
+      "model": "justdirethings:block/time_crystal_budding_block"
+    }
+  }
+}

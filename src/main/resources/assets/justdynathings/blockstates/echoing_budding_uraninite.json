@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "alive=false": {
+      "model": "justdynathings:block/echoing_budding/uraninite/dead"
+    },
+    "alive=true": {
+      "model": "geore:block/budding_uraninite"
+    }
+  }
+}

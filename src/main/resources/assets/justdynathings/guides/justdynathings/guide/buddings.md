@@ -2,7 +2,7 @@
 navigation:
   title: Echoing Buddings
   icon: "justdynathings:echoing_budding_amethyst"
-  position: 2
+  position: 1
 item_ids:
  - justdynathings:echoing_budding_allthemodium
  - justdynathings:echoing_budding_aluminum

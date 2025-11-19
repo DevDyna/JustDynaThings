@@ -600,11 +600,9 @@ public class DataRecipe extends RecipeProvider {
                                 .save(c);
         }
 
-        /**
-         * @unused not used
-         */
+       
         private void Budding(Item output, Item input, RecipeOutput c) {
-                ShapelessRecipeBuilder.shapeless(MISC, output, 2)
+                ShapelessRecipeBuilder.shapeless(MISC, output, 1)
                                 .requires(input)
                                 .requires(Items.ECHO_SHARD)
                                 .requires(Registration.PolymorphicCatalyst.get())

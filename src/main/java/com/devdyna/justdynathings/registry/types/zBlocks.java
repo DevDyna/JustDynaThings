@@ -83,11 +83,11 @@ public class zBlocks {
                         .registerItemAndBlock(Constants.Blocks.Ticker, TickerBlock::new);
 
         public static final DeferredHolder<Block, ?> ECHOING_BUDDING_TIME = Material.DireStuff
-                        .registerBudding(Constants.Budding.Time, () -> new TimeBlock());
+                        .registerBudding(Constants.BuddingType+"_time", () -> new TimeBlock());
 
         public static final DeferredHolder<Block, ?> ECHOING_BUDDING_AMETHYST = Material.DireStuff
 
-                        .registerBudding(Constants.Budding.Amethyst, () -> new AmethystBlock());
+                        .registerBudding(Constants.BuddingType+"_amethyst", () -> new AmethystBlock());
 
         public static final DeferredHolder<Block, ?> FERRICORE_CLOCK = Material
                         .registerItemAndBlock(Constants.Blocks.FerricoreClock, ClockBlock::new);

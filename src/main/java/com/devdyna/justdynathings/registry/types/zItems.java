@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
-import com.devdyna.justdynathings.Constants.ModAddonCheck;
 import com.devdyna.justdynathings.registry.builders.*;
 import com.devdyna.justdynathings.registry.builders.lightwand.AdvancedLightWand;
 import com.devdyna.justdynathings.registry.builders.lightwand.LightWandItem;
@@ -17,7 +16,6 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class zItems {
         public static void register(IEventBus bus) {
-                registerLists();
                 zItem.register(bus);
                 zItemTinted.register(bus);
                 zBucketItem.register(bus);
@@ -114,20 +112,8 @@ public class zItems {
                         Constants.Wands.AdvancedLight,
                         () -> new AdvancedLightWand());
 
-        public static void registerLists() {
-                if (!ModAddonCheck.AppliedEnergistics2)
-                        createMissingItem(Constants.Budding.Certus);
+     
 
-                if (!ModAddonCheck.ExtendedAE)
-                        createMissingItem(Constants.Budding.Entro);
-
-                if (!ModAddonCheck.PhasoriteNetworks)
-                        createMissingItem(Constants.Budding.Phasorite);
-
-        }
-
-        private static void createMissingItem(String name) {
-                zDisabled.register(name, () -> new DisabledItem());
-        }
+       
 
 }

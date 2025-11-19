@@ -73,11 +73,11 @@ public class zBlockEntities {
                                         TickerBE::new, zBlocks.TICKER);
 
         public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TimeBE>> ECHOING_BUDDING_TIME = Material
-                        .createBlockEntity(Constants.Budding.Time, TimeBE::new,
+                        .createBlockEntity(Constants.BuddingType+"_time", TimeBE::new,
                                         zBlocks.ECHOING_BUDDING_TIME);
 
         public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<AmethystBE>> ECHOING_BUDDING_AMETHYST = Material
-                        .createBlockEntity(Constants.Budding.Amethyst, AmethystBE::new,
+                        .createBlockEntity(Constants.BuddingType+"_amethyst", AmethystBE::new,
                                         zBlocks.ECHOING_BUDDING_AMETHYST);
 
         public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ClockBE>> FERRICORE_CLOCK = Material

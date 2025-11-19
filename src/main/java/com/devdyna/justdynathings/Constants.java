@@ -78,19 +78,6 @@ public class Constants {
 
     public static String BuddingType = "echoing_budding";
 
-    public class Budding {
-        @Deprecated
-        public static String Amethyst = BuddingType + "_amethyst";
-        @Deprecated
-        public static String Time = BuddingType + "_time";
-        @Deprecated
-        public static String Certus = BuddingType + "_certus";
-        @Deprecated
-        public static String Entro = BuddingType + "_entro";
-        @Deprecated
-        public static String Phasorite = BuddingType + "_phasorite";
-    }
-
     public class ModAddonCheck {
         public static boolean AppliedEnergistics2 = ModList.get().isLoaded("ae2");
         public static boolean ExtendedAE = ModList.get().isLoaded("extendedae");

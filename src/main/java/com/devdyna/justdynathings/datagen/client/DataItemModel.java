@@ -88,11 +88,11 @@ public class DataItemModel extends ItemModelProvider {
 
         }
 
-        private void BuddingItemModel(Block b) {
-                cubeAll(DataGenUtil.getName(b), modLoc("block/echoing_budding/"
-                                + DataGenUtil.getName(b).replace("echoing_budding_", "")));
+        // private void BuddingItemModel(Block b) {
+        //         cubeAll(DataGenUtil.getName(b), modLoc("block/echoing_budding/"
+        //                         + DataGenUtil.getName(b).replace("echoing_budding_", "")));
 
-        }
+        // }
 
         private void GooItemModel(Block b) {
                 DataGenUtil.itemBlockwithParent(b, this,

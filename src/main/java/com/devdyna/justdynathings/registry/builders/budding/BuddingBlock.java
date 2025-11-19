@@ -67,6 +67,7 @@ public class BuddingBlock extends BlockBaseBE implements BucketInteractive{
         if (Constants.ModAddonCheck.docCheck && !common.DOC_WARNING.getAsBoolean())
             t.add(Component.translatable(Main.ID + ".doc.missing"));
         t.add(Component.translatable(Main.ID + "." + Constants.BuddingType ));
+        t.add(Component.translatable(Main.ID + "." + Constants.BuddingType +".break"));
     }
 
 }

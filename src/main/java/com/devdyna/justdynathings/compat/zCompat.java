@@ -1,5 +1,7 @@
 package com.devdyna.justdynathings.compat;
 
+import java.util.List;
+
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.compat.ae2.initApp;
@@ -62,52 +64,6 @@ public class zCompat {
         public static final DeferredRegister<BlockEntityType<?>> extraBE = DeferredRegister
                         .create(BuiltInRegistries.BLOCK_ENTITY_TYPE, Main.ID);
 
-        public static List<String> getMissingItems() {
-                List<String> list = new ArrayList<>();
-
-                if (!Constants.ModAddonCheck.AppliedEnergistics2)
-                        list.add("echoing_budding_certus");
-
-                if (!Constants.ModAddonCheck.ExtendedAE)
-                        list.add("echoing_budding_entro");
-
-                if (!Constants.ModAddonCheck.PhasoriteNetworks)
-                        list.add("echoing_budding_phasorite");
-
-                if (!Constants.ModAddonCheck.GeOre)
-                        list.addAll(List.of(
-                                        "echoing_budding_allthemodium",
-                                        "echoing_budding_aluminum",
-                                        "echoing_budding_ancient_debris",
-                                        "echoing_budding_black_quartz",
-                                        "echoing_budding_coal",
-                                        "echoing_budding_copper",
-                                        "echoing_budding_diamond",
-                                        "echoing_budding_emerald",
-                                        "echoing_budding_gold",
-                                        "echoing_budding_iron",
-                                        "echoing_budding_lapis",
-                                        "echoing_budding_lead",
-                                        "echoing_budding_monazite",
-                                        "echoing_budding_nickel",
-                                        "echoing_budding_osmium",
-                                        "echoing_budding_platinum",
-                                        "echoing_budding_quartz",
-                                        "echoing_budding_redstone",
-                                        "echoing_budding_ruby",
-                                        "echoing_budding_sapphire",
-                                        "echoing_budding_silver",
-                                        "echoing_budding_tin",
-                                        "echoing_budding_topaz",
-                                        "echoing_budding_tungsten",
-                                        "echoing_budding_unobtainium",
-                                        "echoing_budding_uraninite",
-                                        "echoing_budding_uranium",
-                                        "echoing_budding_vibranium",
-                                        "echoing_budding_zinc"));
-                return list;
-        }
-
         public final static List<String> getEchoingBuddingTypes = List.of(
                         "echoing_budding_certus",
                         "echoing_budding_entro",
@@ -140,7 +96,53 @@ public class zCompat {
                         "echoing_budding_uraninite",
                         "echoing_budding_uranium",
                         "echoing_budding_vibranium",
-                        "echoing_budding_zinc"
-        );
+                        "echoing_budding_zinc");
+
+        public static List<String> getMissingItems() {
+                List<String> list = getEchoingBuddingTypes;
+
+                if (Constants.ModAddonCheck.AppliedEnergistics2)
+                        list.remove("echoing_budding_certus");
+
+                if (Constants.ModAddonCheck.ExtendedAE)
+                        list.remove("echoing_budding_entro");
+
+                if (Constants.ModAddonCheck.PhasoriteNetworks)
+                        list.remove("echoing_budding_phasorite");
+
+                if (Constants.ModAddonCheck.GeOre)
+                        list.removeAll(List.of(
+                                        "echoing_budding_allthemodium",
+                                        "echoing_budding_aluminum",
+                                        "echoing_budding_ancient_debris",
+                                        "echoing_budding_black_quartz",
+                                        "echoing_budding_coal",
+                                        "echoing_budding_copper",
+                                        "echoing_budding_diamond",
+                                        "echoing_budding_emerald",
+                                        "echoing_budding_gold",
+                                        "echoing_budding_iron",
+                                        "echoing_budding_lapis",
+                                        "echoing_budding_lead",
+                                        "echoing_budding_monazite",
+                                        "echoing_budding_nickel",
+                                        "echoing_budding_osmium",
+                                        "echoing_budding_platinum",
+                                        "echoing_budding_quartz",
+                                        "echoing_budding_redstone",
+                                        "echoing_budding_ruby",
+                                        "echoing_budding_sapphire",
+                                        "echoing_budding_silver",
+                                        "echoing_budding_tin",
+                                        "echoing_budding_topaz",
+                                        "echoing_budding_tungsten",
+                                        "echoing_budding_unobtainium",
+                                        "echoing_budding_uraninite",
+                                        "echoing_budding_uranium",
+                                        "echoing_budding_vibranium",
+                                        "echoing_budding_zinc"));
+
+                return list;
+        }
 
 }

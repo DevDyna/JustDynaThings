@@ -5,6 +5,7 @@ import static com.devdyna.justdynathings.Main.ID;
 import java.util.List;
 
 import com.devdyna.justdynathings.Constants;
+import com.devdyna.justdynathings.compat.zCompat;
 import com.devdyna.justdynathings.registry.types.zBlocks;
 import com.devdyna.justdynathings.registry.types.zItems;
 import com.direwolf20.justdirethings.setup.Registration;
@@ -92,11 +93,7 @@ public class DataLang extends LanguageProvider {
                                 b.getRegisteredName())));
 
                 // compats
-                List.of(
-                                Constants.Budding.Certus,
-                                Constants.Budding.Entro,
-                                Constants.Budding.Phasorite)
-                                .forEach(e -> add("block." + ID + "." + e, named(e)));
+                zCompat.extraItems.getEntries().forEach(i -> addItem(i, named(i.getRegisteredName())));
 
                 List.of(
                                 Constants.DataMaps.Anvils.ferricore_repair,
@@ -146,20 +143,19 @@ public class DataLang extends LanguageProvider {
                 add(ID + ".jei.warning", "Item form doesn't exist or doesn't respect the block placed!");
 
                 add(ID + ".jei.category." + Registration.GeneratorT1_ITEM.getId().getPath(), "Solid Generator Fuels");
-                add(ID + ".jei.category." + Registration.GeneratorFluidT1_ITEM.getId().getPath(), "Fluid Generator Fuels");
-        
+                add(ID + ".jei.category." + Registration.GeneratorFluidT1_ITEM.getId().getPath(),
+                                "Fluid Generator Fuels");
+
                 add(ID + ".jei.time", "Duration");
                 add(ID + ".jei.rate", "FE production");
                 add(ID + ".jei.total", "Total FE produced");
-                
+
                 add(ID + ".jei.bucket", "Every Bucket");
 
-                add(ID + "."+Constants.Blocks.ParadoxMixer+".unstable", "Energized Stabilizer not found");
-        
-        
+                add(ID + "." + Constants.Blocks.ParadoxMixer + ".unstable", "Energized Stabilizer not found");
+
                 addBlock(zBlocks.LIGHT_WAND_BLOCK, "Light Wand Block");
-        
-        
+
         }
 
         private String named(String text) {

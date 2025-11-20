@@ -6,8 +6,8 @@ import javax.annotation.Nullable;
 
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
-import com.devdyna.justdynathings.client.builder.solarGen.ferricore.FerricoreSolarPanelGUI;
-import com.devdyna.justdynathings.config.common;
+import com.devdyna.justdynathings.Config.CommonConfig;
+import com.devdyna.justdynathings.client.type.solarGen.ferricore.FerricoreSolarPanelGUI;
 import com.devdyna.justdynathings.registry.builders.solar.SolarBlockBase;
 import com.devdyna.justdynathings.utils.Actions;
 
@@ -50,7 +50,7 @@ public class FerricoreSolarBlock extends SolarBlockBase {
                 super.appendHoverText(s, c, t, f);
                 if (Screen.hasShiftDown()) {
                         t.add(Component.translatable(Main.ID + "." + Constants.SolarPanelType + ".ferate")
-                                        .append(Component.literal("" + common.SOLARPANEL_FERRICORE_FE_RATE.get())));
+                                        .append(Component.literal("" + CommonConfig.SOLARPANEL_FERRICORE_FE_RATE.get())));
                 } else
                         t.add(Component.translatable("justdirethings.shiftmoreinfo").withStyle(ChatFormatting.GRAY));
         }

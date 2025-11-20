@@ -72,6 +72,7 @@ public class DataBlockTag extends BlockTagsProvider {
                                 .addTags(BlockTags.BEDS,
                                                 BlockTags.PORTALS, BlockTags.DOORS,
                                                 Tags.Blocks.RELOCATION_NOT_SUPPORTED)
+                                .remove(Tags.Blocks.BUDDING_BLOCKS)
                                 .addOptionalTag(JustDireBlockTags.SWAPPERDENY.location());
 
                 tag(zBlockTags.SWAPPER_DENY)
@@ -80,6 +81,7 @@ public class DataBlockTag extends BlockTagsProvider {
                                 .addTags(BlockTags.BEDS,
                                                 BlockTags.PORTALS, BlockTags.DOORS,
                                                 Tags.Blocks.RELOCATION_NOT_SUPPORTED)
+                                .remove(Tags.Blocks.BUDDING_BLOCKS)
                                 .addOptionalTag(JustDireBlockTags.SWAPPERDENY.location());
 
                 tag(zBlockTags.COAL_BLOCKS)
@@ -105,6 +107,12 @@ public class DataBlockTag extends BlockTagsProvider {
                 tag(zBlockTags.ADVANCED_TIME_DENY).addOptional(JustDireBlockTags.TICK_SPEED_DENY.location());
 
                 tag(zBlockTags.TICKER_DENY).addOptional(JustDireBlockTags.TICK_SPEED_DENY.location());
+
+                tag(BlockTags.REPLACEABLE).add(zBlocks.LIGHT_WAND_BLOCK.get());
+                tag(BlockTags.WITHER_IMMUNE).add(zBlocks.LIGHT_WAND_BLOCK.get());
+                tag(BlockTags.DRAGON_TRANSPARENT).add(zBlocks.LIGHT_WAND_BLOCK.get());
+                tag(BlockTags.ENCHANTMENT_POWER_TRANSMITTER).add(zBlocks.LIGHT_WAND_BLOCK.get());
+
         }
 
 }

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "alive=false": {
+      "model": "justdynathings:block/echoing_budding/entro/dead"
+    },
+    "alive=true": {
+      "model": "extendedae:block/entro_budding_fully"
+    }
+  }
+}

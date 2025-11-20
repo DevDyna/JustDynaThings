@@ -136,13 +136,14 @@ dependencies {
     //compats
     implementation "curse.maven:ae2-223794:6140781"
     implementation "curse.maven:extendedae-892005:6164133"
-    // implementation "curse.maven:phasorite-1140963:6091868"
+    implementation "curse.maven:phasorite-1140963:6091868"
     implementation "curse.maven:guideme-1173950:6688687"
+    implementation "curse.maven:geore-530544:7075069"
 
     //datagen libs
     implementation "curse.maven:glodium-957920:5821676"
-    // implementation "curse.maven:kotlin-351264:5978393"
-    // implementation "curse.maven:owo-532610:6314117"
+    implementation "curse.maven:kotlin-351264:6994056"
+    implementation "curse.maven:owo-532610:6785734"
 
     //jei integration
     compileOnly "mezz.jei:jei-1.21.1-common-api:19.18.10.218"

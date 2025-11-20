@@ -4,9 +4,9 @@ import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.registry.Material;
 import com.devdyna.justdynathings.registry.builders.black_hole.BlackHoleBE;
-import com.devdyna.justdynathings.registry.builders.budding.types.amethyst.AmethystBE;
-import com.devdyna.justdynathings.registry.builders.budding.types.time.TimeBE;
-import com.devdyna.justdynathings.registry.builders.ferricore_clock.ClockBE;
+import com.devdyna.justdynathings.registry.builders.echoing_buddings.types.amethyst.AmethystBE;
+import com.devdyna.justdynathings.registry.builders.echoing_buddings.types.time.TimeBE;
+import com.devdyna.justdynathings.registry.builders.ferricore_clock.FerricoreClockBE;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.blazegold.BlazeGoldAnvilBE;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.celestigem.CelestiGemAnvilBE;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.eclipsealloy.EclipseAlloyAnvilBE;
@@ -73,16 +73,16 @@ public class zBlockEntities {
                                         TickerBE::new, zBlocks.TICKER);
 
         public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TimeBE>> ECHOING_BUDDING_TIME = Material
-                        .createBlockEntity(Constants.Budding.Time, TimeBE::new,
+                        .createBlockEntity(Constants.BuddingType+"_time", TimeBE::new,
                                         zBlocks.ECHOING_BUDDING_TIME);
 
         public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<AmethystBE>> ECHOING_BUDDING_AMETHYST = Material
-                        .createBlockEntity(Constants.Budding.Amethyst, AmethystBE::new,
+                        .createBlockEntity(Constants.BuddingType+"_amethyst", AmethystBE::new,
                                         zBlocks.ECHOING_BUDDING_AMETHYST);
 
-        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ClockBE>> FERRICORE_CLOCK = Material
+        public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<FerricoreClockBE>> FERRICORE_CLOCK = Material
                         .createBlockEntity(Constants.Blocks.FerricoreClock,
-                                        ClockBE::new, zBlocks.FERRICORE_CLOCK);
+                                        FerricoreClockBE::new, zBlocks.FERRICORE_CLOCK);
 
         public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<StabilizerBE>> STABILIZER = Material
                         .createBlockEntity(Constants.Blocks.Stabilizer,

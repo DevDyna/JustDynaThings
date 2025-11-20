@@ -8,6 +8,10 @@ import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
 import com.devdyna.justdynathings.Constants;
+import com.devdyna.justdynathings.compat.ae2.initApp;
+import com.devdyna.justdynathings.compat.extendedae.initExtend;
+import com.devdyna.justdynathings.compat.geore.initGeOre;
+import com.devdyna.justdynathings.compat.phasorite.initPhaso;
 import com.devdyna.justdynathings.recipetypes.builders.*;
 import com.devdyna.justdynathings.registry.builders.AdvancedTimeWand;
 import com.devdyna.justdynathings.registry.types.*;
@@ -25,8 +29,10 @@ import com.direwolf20.justdirethings.datagen.recipes.GooSpreadRecipeBuilder;
 import com.direwolf20.justdirethings.datagen.recipes.GooSpreadRecipeTagBuilder;
 import com.direwolf20.justdirethings.setup.Registration;
 import com.glodblock.github.extendedae.common.EAESingletons;
+import com.shynieke.geore.registry.GeOreRegistry;
 
 import appeng.core.definitions.AEBlocks;
+import appeng.datagen.providers.tags.DataComponentTypeTagProvider;
 
 import static com.devdyna.justdynathings.Main.ID;
 
@@ -35,11 +41,13 @@ import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponentType;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.util.datafix.fixes.ItemStackComponentRemainderFix;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -55,9 +63,7 @@ import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
 import net.neoforged.neoforge.common.crafting.BlockTagIngredient;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.registries.DeferredHolder;
-
-import static com.devdyna.justdynathings.compat.ae2.init.AE2_POWERED;
-import static com.devdyna.justdynathings.compat.extendedae.init.EXTENDED_POWERED;
+import net.neoforged.neoforge.server.command.NeoForgeCommand;
 
 @SuppressWarnings({ "null", "unused" })
 public class DataRecipe extends RecipeProvider {
@@ -132,14 +138,22 @@ public class DataRecipe extends RecipeProvider {
 
                 Budding(zBlocks.ECHOING_BUDDING_TIME.get().asItem(), zItemTags.TIME_BUDDING, c);
 
-                Budding(AE2_POWERED.get().asItem(), zItemTags.AE2_COMPAT, c
+                Budding(initApp.CERTUS.block().get().asItem(), zItemTags.AE2_COMPAT, c
                                 .withConditions(DataGenUtil.isModLoaded("ae2")));
 
-                Budding(EXTENDED_POWERED.get().asItem(), zItemTags.EXT_COMPAT, c
+                Budding(initExtend.ENTRO.block().get().asItem(), zItemTags.EXT_COMPAT, c
                                 .withConditions(DataGenUtil.isModLoaded("extendedae")));
 
-                // Budding(PHASORITE_POWERED.get().asItem(), zItemTags.PHA_COMPAT, c
-                // .withConditions(DataGenUtil.isModLoaded("phasoritenetworks")));
+                Budding(initPhaso.PHASORITE.block().get().asItem(), zItemTags.PHA_COMPAT, c
+                                .withConditions(DataGenUtil.isModLoaded("phasoritenetworks")));
+
+                initGeOre.values().forEach(b -> Budding(b.block().get().asItem(), GeOreRegistry.getGeOres().stream()
+                                .filter(g -> g.getName()
+                                                .equalsIgnoreCase(b.id().replace(Constants.BuddingType + "_", "")))
+                                .findFirst()
+                                .orElse(null).getBlock().get().asItem(),
+                                c
+                                                .withConditions(DataGenUtil.isModLoaded("geore"))));
 
                 ShapedRecipeBuilder.shaped(MISC, zBlocks.BLACKHOLE.get(), 1)
                                 .pattern("FBF")
@@ -522,6 +536,29 @@ public class DataRecipe extends RecipeProvider {
                                                                 Registration.EclipseAlloyIngot.get()))
                                 .group(Constants.Wands.AdvancedTime).save(c);
 
+                ShapedRecipeBuilder.shaped(MISC, zItems.LIGHT_WAND.get())
+                                .pattern("  G")
+                                .pattern(" F ")
+                                .pattern("F  ")
+                                .define('G', Items.GLOWSTONE)
+                                .define('F', Registration.FerricoreIngot.get())
+                                .unlockedBy(ID,
+                                                has(
+                                                                Registration.FerricoreIngot.get()))
+                                .group(Constants.Wands.Light).save(c);
+
+                ShapedRecipeBuilder.shaped(MISC, zItems.ADVANCED_LIGHT_WAND.get())
+                                .pattern("  C")
+                                .pattern(" L ")
+                                .pattern("B  ")
+                                .define('L', zItems.LIGHT_WAND.get())
+                                .define('C', Registration.Celestigem.get())
+                                .define('B', Registration.BlazegoldIngot.get())
+                                .unlockedBy(ID,
+                                                has(
+                                                                Registration.Celestigem.get()))
+                                .group(Constants.Wands.AdvancedLight).save(c);
+
         }
 
         /**
@@ -563,11 +600,9 @@ public class DataRecipe extends RecipeProvider {
                                 .save(c);
         }
 
-        /**
-         * @unused not used
-         */
+       
         private void Budding(Item output, Item input, RecipeOutput c) {
-                ShapelessRecipeBuilder.shapeless(MISC, output, 2)
+                ShapelessRecipeBuilder.shapeless(MISC, output, 1)
                                 .requires(input)
                                 .requires(Items.ECHO_SHARD)
                                 .requires(Registration.PolymorphicCatalyst.get())
@@ -658,22 +693,4 @@ public class DataRecipe extends RecipeProvider {
                                         .save(c, ID + ":" + DataGenUtil.getName(output) + "_smithing");
         }
 
-        /*
-         * //crafting
-         * ShapedRecipeBuilder.shaped(MISC, null, 0)
-         * ShapelessRecipeBuilder.shapeless(MISC, null, 0)
-         * //cooking
-         * SimpleCookingRecipeBuilder.smelting(null, null, null, 0, 0)
-         * SimpleCookingRecipeBuilder.campfireCooking(null, null, null, 0, 0)
-         * SimpleCookingRecipeBuilder.smoking(null, null, null, 0, 0)
-         * SimpleCookingRecipeBuilder.blasting(null, null, null, 0, 0)
-         * //stonecutting
-         * SingleItemRecipeBuilder.stonecutting(null, null, null);
-         * //smithing
-         * SmithingTransformRecipeBuilder.smithing(null, null, null, null, null)
-         * //JDT
-         * FluidDropRecipeBuilder.shapeless(null, null, null, null);
-         * GooSpreadRecipeBuilder.shapeless(null, null, null, 0, 0)
-         * GooSpreadRecipeTagBuilder.shapeless(null, null, null, 0, 0)
-         */
 }

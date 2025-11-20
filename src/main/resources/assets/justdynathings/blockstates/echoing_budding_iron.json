@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "alive=false": {
+      "model": "justdynathings:block/echoing_budding/iron/dead"
+    },
+    "alive=true": {
+      "model": "geore:block/budding_iron"
+    }
+  }
+}

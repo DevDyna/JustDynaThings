@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "alive=false": {
+      "model": "justdynathings:block/echoing_budding/phasorite/dead"
+    },
+    "alive=true": {
+      "model": "phasoritenetworks:block/budding_phasorite"
+    }
+  }
+}

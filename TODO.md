@@ -1,11 +1,11 @@
-
 # TODO LIST
-
 
 ### Tweaks
 
+- [x] Ticker , Light Wand , Advanced Light Wand documentation
+
 - [ ] Ticker & Reforger datagen
-- [ ] Ticker guideme
+
 - [ ] Buddings datagen (?)
 - [ ] BlackHole rework and datagen (?)
 - [ ] Waterlogging many blocks
@@ -22,8 +22,7 @@
 - [ ] Bacteria Catalyst (Eclipse staff like but descructive)
 - [ ] Generator T2-3-4
 - [ ] Paradox Box (Pandora's Box like)
-- [ ] Rocket Boots
-- [ ] Mushroom Tree Feller
+
 - [ ] Pocket generator T2-3-4 [(?)](https://github.com/Direwolf20-MC/JustDireThings/blob/main/src/main/resources/assets/justdirethings/textures/item/pocket_generator_t4.png)
 - [ ] Advanced Experience holder
 - [ ] Paradox Decreaser
@@ -31,3 +30,8 @@
 - [ ] Paradox Generator (paradox -> FE)
 - [ ] Paradox Materializer (goo recipes in-gui)
 - [ ] Machine GPS (AOE configurable like rftools builder cards)
+
+### Things that doesn't work on actual codebase (require mixin)
+
+- Rocket Boots -> enum Abilities
+- Mushroom Tree Feller -> enum Abilities

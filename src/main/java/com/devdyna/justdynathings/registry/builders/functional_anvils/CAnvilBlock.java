@@ -2,7 +2,7 @@ package com.devdyna.justdynathings.registry.builders.functional_anvils;
 
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
-import com.devdyna.justdynathings.config.common;
+import com.devdyna.justdynathings.Config.CommonConfig;
 import com.devdyna.justdynathings.registry.interfaces.block.BucketInteractive;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
 
@@ -92,7 +92,7 @@ public abstract class CAnvilBlock extends BaseMachineBlock implements BucketInte
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents,
             TooltipFlag tooltipFlag) {
-        if (Constants.ModAddonCheck.docCheck && !common.DOC_WARNING.getAsBoolean())
+        if (Constants.ModAddonCheck.docCheck && !CommonConfig.DOC_WARNING.getAsBoolean())
             tooltipComponents.add(Component.translatable(Main.ID + ".doc.missing"));
     }
 

@@ -70,7 +70,7 @@ public class Image {
   public void render(GuiGraphics g) {
 
     g.blit(
-        DataGenUtil.getResource("textures/gui/sprites/icon/unseen_notification.png", "minecraft"),
+        DataGenUtil.getResource(rl, modid),
         xo - 1,
         yo - 1,
         u, v,

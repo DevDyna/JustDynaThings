@@ -1,7 +1,7 @@
 package com.devdyna.justdynathings;
 
+import com.devdyna.justdynathings.Config.*;
 import com.devdyna.justdynathings.compat.*;
-import com.devdyna.justdynathings.config.*;
 import com.devdyna.justdynathings.datamaps.zDataMaps;
 import com.devdyna.justdynathings.registry.Material;
 
@@ -18,14 +18,14 @@ public class Main {
 
         public Main(IEventBus bus, ModContainer chest) {
 
-                config.core(chest);
+                CommonConfig.register(chest);
 
                 Material.register(bus);
 
                 bus.addListener(Capabilities::regCap);
                 bus.addListener(zDataMaps::register);
 
-                compat.core(bus);
+                zCompat.core(bus);
 
         }
 

@@ -5,9 +5,9 @@ import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.registry.Material;
 import com.devdyna.justdynathings.registry.builders.PhaseBox;
 import com.devdyna.justdynathings.registry.builders.black_hole.BlackHoleBlock;
-import com.devdyna.justdynathings.registry.builders.budding.types.amethyst.AmethystBlock;
-import com.devdyna.justdynathings.registry.builders.budding.types.time.TimeBlock;
-import com.devdyna.justdynathings.registry.builders.ferricore_clock.ClockBlock;
+import com.devdyna.justdynathings.registry.builders.echoing_buddings.types.amethyst.AmethystBlock;
+import com.devdyna.justdynathings.registry.builders.echoing_buddings.types.time.TimeBlock;
+import com.devdyna.justdynathings.registry.builders.ferricore_clock.FerricoreClockBlock;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.blazegold.BlazeGoldAnvilBlock;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.celestigem.CelestiGemAnvilBlock;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.eclipsealloy.EclipseAlloyAnvilBlock;
@@ -15,6 +15,7 @@ import com.devdyna.justdynathings.registry.builders.functional_anvils.ferricore.
 import com.devdyna.justdynathings.registry.builders.goo.creative.CreativeGoo;
 import com.devdyna.justdynathings.registry.builders.goo.energy.diregoo.*;
 import com.devdyna.justdynathings.registry.builders.goo.energy.energized.EnergyGoo;
+import com.devdyna.justdynathings.registry.builders.lightwand.LightWandBlock;
 import com.devdyna.justdynathings.registry.builders.paradox_mixer.ParadoxMixerBlock;
 import com.devdyna.justdynathings.registry.builders.reforger.ReforgerBlock;
 import com.devdyna.justdynathings.registry.builders.solar.blazegold.BlazeGoldSolarBlock;
@@ -82,14 +83,14 @@ public class zBlocks {
                         .registerItemAndBlock(Constants.Blocks.Ticker, TickerBlock::new);
 
         public static final DeferredHolder<Block, ?> ECHOING_BUDDING_TIME = Material.DireStuff
-                        .registerBudding(Constants.Budding.Time, () -> new TimeBlock());
+                        .registerBudding(Constants.BuddingType+"_time", () -> new TimeBlock());
 
         public static final DeferredHolder<Block, ?> ECHOING_BUDDING_AMETHYST = Material.DireStuff
 
-                        .registerBudding(Constants.Budding.Amethyst, () -> new AmethystBlock());
+                        .registerBudding(Constants.BuddingType+"_amethyst", () -> new AmethystBlock());
 
         public static final DeferredHolder<Block, ?> FERRICORE_CLOCK = Material
-                        .registerItemAndBlock(Constants.Blocks.FerricoreClock, ClockBlock::new);
+                        .registerItemAndBlock(Constants.Blocks.FerricoreClock, FerricoreClockBlock::new);
 
         public static final DeferredHolder<Block, ?> STABILIZER = Material
                         .registerItemAndBlock(Constants.Blocks.Stabilizer, StabilizerBlock::new);
@@ -129,6 +130,9 @@ public class zBlocks {
 
         public static final DeferredHolder<Block, ?> PARADOX_RENDER = zHidden
                         .registerSimpleBlock(Constants.Blocks.ParadoxMixer + "_render");
+
+        public static final DeferredHolder<Block, ?> LIGHT_WAND_BLOCK = zHidden
+                        .register(Constants.Wands.Light + "_block",()-> new LightWandBlock());
 
         // ---------------------------------------------------------------------------------------//
 

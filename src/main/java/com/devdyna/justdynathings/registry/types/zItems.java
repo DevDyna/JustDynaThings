@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
-import com.devdyna.justdynathings.Constants.ModAddonCheck;
+import com.devdyna.justdynathings.compat.zCompat;
 import com.devdyna.justdynathings.registry.builders.*;
+import com.devdyna.justdynathings.registry.builders.lightwand.AdvancedLightWand;
+import com.devdyna.justdynathings.registry.builders.lightwand.LightWandItem;
 import com.direwolf20.justdirethings.setup.Registration;
 
 import net.minecraft.world.item.Item;
@@ -15,7 +17,6 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class zItems {
         public static void register(IEventBus bus) {
-                registerLists();
                 zItem.register(bus);
                 zItemTinted.register(bus);
                 zBucketItem.register(bus);
@@ -24,6 +25,7 @@ public class zItems {
                 zItemHanded.register(bus);
                 zDisabled.register(bus);
                 zGooUpgraders.register(bus);
+                registerGuideMeDummyItems();
         }
 
         // TODO clean up some unused stuff
@@ -34,6 +36,9 @@ public class zItems {
         public static final DeferredRegister.Items zGooUpgraders = DeferredRegister.createItems(Main.ID);
 
         // DONT USE IT , ONLY FUNCTIONAL
+        /**
+         * Dont use on datagen to register stuff, it only work outside!
+         */
         public static final DeferredRegister.Items zDisabled = DeferredRegister.createItems(Main.ID);
         public static final DeferredRegister.Items zBucketItem = DeferredRegister.createItems(Main.ID);
         public static final DeferredRegister.Items zBlockItem = DeferredRegister.createItems(Main.ID);
@@ -105,20 +110,18 @@ public class zItems {
         public static final DeferredHolder<Item, ?> STUPEFY_WAND = zItemHanded.register(Constants.Wands.Stupefy,
                         () -> new StupefyWand());
 
-        public static void registerLists() {
-                if (!ModAddonCheck.AppliedEnergistics2)
-                        createMissingItem(Constants.Budding.Certus);
+        public static final DeferredHolder<Item, ?> LIGHT_WAND = zItemHanded.register(Constants.Wands.Light,
+                        () -> new LightWandItem());
 
-                if (!ModAddonCheck.ExtendedAE)
-                        createMissingItem(Constants.Budding.Entro);
+        public static final DeferredHolder<Item, ?> ADVANCED_LIGHT_WAND = zItemHanded.register(
+                        Constants.Wands.AdvancedLight,
+                        () -> new AdvancedLightWand());
 
-                if (!ModAddonCheck.PhasoriteNetworks)
-                        createMissingItem(Constants.Budding.Phasorite);
-
-        }
-
-        private static void createMissingItem(String name) {
-                zDisabled.register(name, () -> new DisabledItem());
+        public static void registerGuideMeDummyItems() {
+                // required to render disabled items
+                var items = zCompat.getMissingItems();
+                if (items != null && !items.isEmpty())
+                        items.forEach(i -> zDisabled.register(i, () -> new DisabledItem()));
         }
 
 }

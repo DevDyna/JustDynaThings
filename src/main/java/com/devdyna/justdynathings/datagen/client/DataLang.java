@@ -5,6 +5,7 @@ import static com.devdyna.justdynathings.Main.ID;
 import java.util.List;
 
 import com.devdyna.justdynathings.Constants;
+import com.devdyna.justdynathings.compat.zCompat;
 import com.devdyna.justdynathings.registry.types.zBlocks;
 import com.devdyna.justdynathings.registry.types.zItems;
 import com.direwolf20.justdirethings.setup.Registration;
@@ -75,28 +76,26 @@ public class DataLang extends LanguageProvider {
                                 "§7A block that act at same of a time wand");
 
                 // registry keys
-                zBlocks.zBlock.getEntries().forEach(b -> addBlock(b, named(b.getRegisteredName())));
-                zBlocks.zGoo.getEntries().forEach(b -> addBlock(b, named(b.getRegisteredName())));
-                zBlocks.zOres.getEntries().forEach(b -> addBlock(b, named(b.getRegisteredName())));
-                zBlocks.zBuddings.getEntries().forEach(b -> addBlock(b, named(b.getRegisteredName())));
-                zBlocks.zBlockItem.getEntries().forEach(b -> addBlock(b, named(b.getRegisteredName())));
-                // zBlocks.zBlockFluids.getEntries().forEach(b -> addBlock(b,
-                // named(b.getRegisteredName())));
-                zItems.zItem.getEntries().forEach(b -> addItem(b, named(b.getRegisteredName())));
-                zItems.zBucketItem.getEntries().forEach(b -> addItem(b, named(b.getRegisteredName())));
-                zItems.zItemTinted.getEntries().forEach(b -> addItem(b, named(b.getRegisteredName())));
-                zItems.zCoals.getEntries().forEach(b -> addItem(b, named(b.getRegisteredName())));
-                zItems.zItemHanded.getEntries().forEach(b -> addItem(b, named(b.getRegisteredName())));
 
-                zItems.zGooUpgraders.getEntries().forEach(b -> addItem(b, named(
-                                b.getRegisteredName())));
+                List.of(
+                                zBlocks.zBlock,
+                                zBlocks.zGoo,
+                                zBlocks.zOres,
+                                zBlocks.zBuddings,
+                                zBlocks.zBlockItem)
+                                .forEach(c -> c.getEntries().forEach(b -> addBlock(b, named(b.getRegisteredName()))));
+
+                List.of(
+                                zItems.zItemHanded,
+                                zItems.zCoals,
+                                zItems.zItemTinted,
+                                zItems.zBucketItem,
+                                zItems.zGooUpgraders,
+                                zItems.zItem)
+                                .forEach(c -> c.getEntries().forEach(b -> addItem(b, named(b.getRegisteredName()))));
 
                 // compats
-                List.of(
-                                Constants.Budding.Certus,
-                                Constants.Budding.Entro,
-                                Constants.Budding.Phasorite)
-                                .forEach(e -> add("block." + ID + "." + e, named(e)));
+                zCompat.extraItems.getEntries().forEach(i -> addItem(i, named(i.getRegisteredName())));
 
                 List.of(
                                 Constants.DataMaps.Anvils.ferricore_repair,
@@ -146,20 +145,24 @@ public class DataLang extends LanguageProvider {
                 add(ID + ".jei.warning", "Item form doesn't exist or doesn't respect the block placed!");
 
                 add(ID + ".jei.category." + Registration.GeneratorT1_ITEM.getId().getPath(), "Solid Generator Fuels");
-                add(ID + ".jei.category." + Registration.GeneratorFluidT1_ITEM.getId().getPath(), "Fluid Generator Fuels");
-        
+                add(ID + ".jei.category." + Registration.GeneratorFluidT1_ITEM.getId().getPath(),
+                                "Fluid Generator Fuels");
+
                 add(ID + ".jei.time", "Duration");
                 add(ID + ".jei.rate", "FE production");
                 add(ID + ".jei.total", "Total FE produced");
-                
+
                 add(ID + ".jei.bucket", "Every Bucket");
 
-                add(ID + "."+Constants.Blocks.ParadoxMixer+".unstable", "Energized Stabilizer not found");
-        
-        
-        
-        
-        
+                add(ID + "." + Constants.Blocks.ParadoxMixer + ".unstable", "Energized Stabilizer not found");
+
+                addBlock(zBlocks.LIGHT_WAND_BLOCK, "Light Wand Block");
+
+                add(ID + "." + Constants.BuddingType + ".break", "§cDoesn't drop when broken!");
+
+                //required to render disabled items
+                zCompat.getEchoingBuddingTypes.forEach(k->add("item."+ID+"."+k, named(k)));
+
         }
 
         private String named(String text) {

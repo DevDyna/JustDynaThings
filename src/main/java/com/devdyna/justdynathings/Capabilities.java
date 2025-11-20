@@ -138,7 +138,7 @@ public class Capabilities {
                                         else
                                                 return null;
 
-                                }, zItems.ADVANCED_TIME_WAND.get());
+                                }, zItems.ADVANCED_TIME_WAND.get(),zItems.ADVANCED_LIGHT_WAND.get());
 
                 event.registerItem(FluidHandler.ITEM, (i, c) -> {
 

@@ -2,7 +2,7 @@ package com.devdyna.justdynathings.registry.builders.functional_anvils.eclipseal
 
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
-import com.devdyna.justdynathings.client.builder.anvil.eclipsealloy.EclipseAlloyAnvilGUI;
+import com.devdyna.justdynathings.client.type.anvil.eclipsealloy.EclipseAlloyAnvilGUI;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.CAnvilBlock;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
 import com.devdyna.justdynathings.utils.Actions;

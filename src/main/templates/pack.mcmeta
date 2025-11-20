@@ -1,10 +1,9 @@
 {
-    "pack": {
-        "description": "§b${mod_name} §f- ${mod_description}",
-        "pack_format": 48
-    },
-    "fusion": {
-        "overrides_folder": "fusion-ctm"
-    }
+  "pack": {
+    "description": "§b${mod_name} §f- ${mod_description}",
+    "pack_format": 48
+  },
+  "fusion": {
+    "overrides_folder": "fusion-ctm"
+  }
 }
-

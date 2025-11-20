@@ -1,20 +1,20 @@
 package com.devdyna.justdynathings;
 
-import com.devdyna.justdynathings.client.builder.anvil.blazegold.BlazeGoldAnvilScreen;
-import com.devdyna.justdynathings.client.builder.anvil.celestigem.CelestiGemAnvilScreen;
-import com.devdyna.justdynathings.client.builder.anvil.eclipsealloy.EclipseAlloyAnvilScreen;
-import com.devdyna.justdynathings.client.builder.anvil.ferricore.FerricoreAnvilScreen;
-import com.devdyna.justdynathings.client.builder.blackhole.BlackHoleScreen;
-import com.devdyna.justdynathings.client.builder.clock.ClockScreen;
-import com.devdyna.justdynathings.client.builder.paradoxMixer.ParadoxMixerRender;
-import com.devdyna.justdynathings.client.builder.paradoxMixer.ParadoxMixerScreen;
-import com.devdyna.justdynathings.client.builder.reforger.ReforgerScreen;
-import com.devdyna.justdynathings.client.builder.solarGen.blazegold.BlazegoldSolarPanelScreen;
-import com.devdyna.justdynathings.client.builder.solarGen.celestigem.CelestigemSolarPanelScreen;
-import com.devdyna.justdynathings.client.builder.solarGen.eclipsealloy.EclipseAlloySolarPanelScreen;
-import com.devdyna.justdynathings.client.builder.solarGen.ferricore.FerricoreSolarPanelScreen;
-import com.devdyna.justdynathings.client.builder.thermoGen.ThermoScreen;
-import com.devdyna.justdynathings.client.builder.ticker.TickerScreen;
+import com.devdyna.justdynathings.client.type.anvil.blazegold.BlazeGoldAnvilScreen;
+import com.devdyna.justdynathings.client.type.anvil.celestigem.CelestiGemAnvilScreen;
+import com.devdyna.justdynathings.client.type.anvil.eclipsealloy.EclipseAlloyAnvilScreen;
+import com.devdyna.justdynathings.client.type.anvil.ferricore.FerricoreAnvilScreen;
+import com.devdyna.justdynathings.client.type.blackhole.BlackHoleScreen;
+import com.devdyna.justdynathings.client.type.clock.ClockScreen;
+import com.devdyna.justdynathings.client.type.paradoxMixer.ParadoxMixerRender;
+import com.devdyna.justdynathings.client.type.paradoxMixer.ParadoxMixerScreen;
+import com.devdyna.justdynathings.client.type.reforger.ReforgerScreen;
+import com.devdyna.justdynathings.client.type.solarGen.blazegold.BlazegoldSolarPanelScreen;
+import com.devdyna.justdynathings.client.type.solarGen.celestigem.CelestigemSolarPanelScreen;
+import com.devdyna.justdynathings.client.type.solarGen.eclipsealloy.EclipseAlloySolarPanelScreen;
+import com.devdyna.justdynathings.client.type.solarGen.ferricore.FerricoreSolarPanelScreen;
+import com.devdyna.justdynathings.client.type.thermoGen.ThermoScreen;
+import com.devdyna.justdynathings.client.type.ticker.TickerScreen;
 import com.devdyna.justdynathings.registry.builders.goo.creative.CreativeGooRender;
 import com.devdyna.justdynathings.registry.builders.goo.energy.EnergyGooRender;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
@@ -73,4 +73,6 @@ public class Client {
         event.register(zItems.ADVANCED_TIME_WAND.get(), new FluidbarDecorator());
     }
 
+
+    //TODO maybe change echoing buddings to use a tintindex
 }

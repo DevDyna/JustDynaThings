@@ -10,4 +10,9 @@ public class BlazeGoldChisel extends BaseAbilityChisel {
         registerAbility(Ability.LAVAREPAIR);
     }
 
+    @Override
+    protected boolean enableToolAbilityTip() {
+        return true;
+    }
+
 }

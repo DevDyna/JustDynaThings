@@ -8,4 +8,9 @@ public class FerricoreChisel extends BaseAbilityChisel {
         super(ChiselType.IRON, p, 0);
     }
 
+    @Override
+    protected boolean enableToolAbilityTip() {
+        return true;
+    }
+
 }

@@ -22,7 +22,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 
 @SuppressWarnings({ "unchecked", "rawtypes" })
-public class BaseAbilityChisel extends ItemChisel implements ToggleableTool {
+public abstract class BaseAbilityChisel extends ItemChisel implements ToggleableTool {
 
     protected int index;
     protected final EnumSet<Ability> abilities = EnumSet.noneOf(Ability.class);
@@ -63,8 +63,15 @@ public class BaseAbilityChisel extends ItemChisel implements ToggleableTool {
         return this.abilityParams;
     }
 
+    protected abstract boolean enableToolAbilityTip();
+
     public void appendHoverText(ItemStack s, TooltipContext c, List<Component> t, TooltipFlag f) {
         super.appendHoverText(s, c, t, f);
+        if (enableToolAbilityTip())
+            toolAbilityTips(s, c, t);
+    }
+
+    public void toolAbilityTips(ItemStack s, TooltipContext c, List<Component> t) {
         if (c.level() != null) {
             TooltipHelpers.appendToolEnabled(s, t);
             if (Screen.hasShiftDown())

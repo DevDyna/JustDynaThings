@@ -1,6 +1,5 @@
-package com.devdyna.justdynathings.Config;
+package com.devdyna.justdynathings;
 
-import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Constants.*;
 import com.devdyna.justdynathings.utils.ConfigUtils;
 import com.devdyna.justdynathings.utils.DataGenUtil;

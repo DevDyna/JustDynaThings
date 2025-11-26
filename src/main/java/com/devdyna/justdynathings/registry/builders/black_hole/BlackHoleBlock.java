@@ -4,9 +4,9 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.devdyna.justdynathings.CommonConfig;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
-import com.devdyna.justdynathings.Config.CommonConfig;
 import com.devdyna.justdynathings.client.type.blackhole.BlackHoleGUI;
 import com.devdyna.justdynathings.registry.builders._core.block.BaseFluidMachineBlock;
 import com.devdyna.justdynathings.utils.Actions;

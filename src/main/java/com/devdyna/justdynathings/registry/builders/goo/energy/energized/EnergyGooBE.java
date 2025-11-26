@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.goo.energy.energized;
 
-import com.devdyna.justdynathings.Config.CommonConfig;
+import com.devdyna.justdynathings.CommonConfig;
 import com.devdyna.justdynathings.registry.builders.goo.energy.FEGoo;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
 

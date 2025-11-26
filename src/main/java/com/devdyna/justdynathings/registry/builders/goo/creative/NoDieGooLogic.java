@@ -2,7 +2,7 @@ package com.devdyna.justdynathings.registry.builders.goo.creative;
 
 import java.util.Random;
 
-import com.devdyna.justdynathings.Config.CommonConfig;
+import com.devdyna.justdynathings.CommonConfig;
 import com.direwolf20.justdirethings.client.particles.gooexplodeparticle.GooExplodeParticleData;
 
 // import static com.direwolf20.justdirethings.common.blocks.gooblocks.GooBlock_Base.ALIVE;

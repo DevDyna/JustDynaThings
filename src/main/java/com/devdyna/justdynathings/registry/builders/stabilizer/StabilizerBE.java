@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.stabilizer;
 
-import com.devdyna.justdynathings.Config.CommonConfig;
+import com.devdyna.justdynathings.CommonConfig;
 import com.devdyna.justdynathings.registry.builders.paradox_mixer.ParadoxMixerBlock;
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyMachine;
 import com.devdyna.justdynathings.registry.interfaces.be.FluidMachine;

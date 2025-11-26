@@ -5,7 +5,7 @@ import static com.devdyna.justdynathings.Main.ID;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import com.devdyna.justdynathings.Config.CommonConfig;
+import com.devdyna.justdynathings.CommonConfig;
 import com.devdyna.justdynathings.client.type.paradoxMixer.ParadoxMixerScreen;
 import com.devdyna.justdynathings.compat.jei.categories.*;
 import com.devdyna.justdynathings.compat.jei.categories.anvils.*;

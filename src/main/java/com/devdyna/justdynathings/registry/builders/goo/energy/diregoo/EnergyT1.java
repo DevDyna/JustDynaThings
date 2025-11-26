@@ -4,9 +4,9 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.devdyna.justdynathings.CommonConfig;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
-import com.devdyna.justdynathings.Config.CommonConfig;
 import com.devdyna.justdynathings.registry.Material;
 import com.direwolf20.justdirethings.common.blockentities.gooblocks.GooBlockBE_Tier4;
 import com.direwolf20.justdirethings.common.blocks.gooblocks.GooBlock_Base;

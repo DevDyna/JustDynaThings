@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.lightwand;
 
-import com.devdyna.justdynathings.Config.CommonConfig;
+import com.devdyna.justdynathings.CommonConfig;
 import com.direwolf20.justdirethings.common.items.interfaces.BasePoweredItem;
 import com.direwolf20.justdirethings.common.items.interfaces.PoweredItem;
 

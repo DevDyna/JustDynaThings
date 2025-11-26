@@ -2,9 +2,9 @@ package com.devdyna.justdynathings.registry.builders;
 
 import java.util.List;
 
+import com.devdyna.justdynathings.CommonConfig;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
-import com.devdyna.justdynathings.Config.CommonConfig;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.LevelUtil;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;

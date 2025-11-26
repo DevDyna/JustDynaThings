@@ -2,7 +2,7 @@ package com.devdyna.justdynathings.registry.builders.paradox_mixer;
 
 import java.util.List;
 
-import com.devdyna.justdynathings.Config.CommonConfig;
+import com.devdyna.justdynathings.CommonConfig;
 import com.devdyna.justdynathings.recipetypes.type.ParadoxMixerRecipe;
 import com.devdyna.justdynathings.registry.builders.stabilizer.StabilizerBlock;
 import com.devdyna.justdynathings.registry.interfaces.be.FluidMachine;

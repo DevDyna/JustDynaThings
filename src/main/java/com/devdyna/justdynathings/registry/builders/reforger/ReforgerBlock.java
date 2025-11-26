@@ -1,8 +1,8 @@
 package com.devdyna.justdynathings.registry.builders.reforger;
 
+import com.devdyna.justdynathings.CommonConfig;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
-import com.devdyna.justdynathings.Config.CommonConfig;
 import com.devdyna.justdynathings.client.type.reforger.ReforgerGUI;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.Actions;

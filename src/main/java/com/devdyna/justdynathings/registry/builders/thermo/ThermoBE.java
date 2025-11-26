@@ -3,7 +3,7 @@ package com.devdyna.justdynathings.registry.builders.thermo;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.devdyna.justdynathings.Config.CommonConfig;
+import com.devdyna.justdynathings.CommonConfig;
 import com.devdyna.justdynathings.datamaps.zDataMaps;
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyCharger;
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyGenerator;

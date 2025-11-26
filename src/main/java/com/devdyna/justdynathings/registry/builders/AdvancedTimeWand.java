@@ -5,9 +5,9 @@ import static com.devdyna.justdynathings.Main.ID;
 import java.util.List;
 import java.util.Optional;
 
+import com.devdyna.justdynathings.CommonConfig;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
-import com.devdyna.justdynathings.Config.CommonConfig;
 import com.devdyna.justdynathings.registry.types.zComponents;
 import com.direwolf20.justdirethings.common.entities.TimeWandEntity;
 import com.direwolf20.justdirethings.common.items.TimeWand;

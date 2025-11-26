@@ -4,8 +4,8 @@ import static com.devdyna.justdynathings.Main.ID;
 
 import java.util.List;
 
+import com.devdyna.justdynathings.CommonConfig;
 import com.devdyna.justdynathings.Constants;
-import com.devdyna.justdynathings.Config.CommonConfig;
 import com.devdyna.justdynathings.registry.types.zBlockTags;
 import com.devdyna.justdynathings.registry.types.zComponents;
 import com.direwolf20.justdirethings.common.blockentities.BlockSwapperT1BE;

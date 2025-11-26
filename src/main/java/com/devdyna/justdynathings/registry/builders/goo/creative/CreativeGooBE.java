@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.goo.creative;
 
-import com.devdyna.justdynathings.Config.CommonConfig;
+import com.devdyna.justdynathings.CommonConfig;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
 
 import net.minecraft.core.BlockPos;

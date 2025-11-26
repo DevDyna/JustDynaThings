@@ -1,8 +1,8 @@
 package com.devdyna.justdynathings.registry.builders.functional_anvils;
 
+import com.devdyna.justdynathings.CommonConfig;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
-import com.devdyna.justdynathings.Config.CommonConfig;
 import com.devdyna.justdynathings.registry.interfaces.block.BucketInteractive;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
 

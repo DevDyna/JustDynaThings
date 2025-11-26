@@ -1,0 +1,22 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "chisel"
+    }
+  ],
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "justdirethings:ferricore_ingot"
+  },
+  "base": {
+    "item": "chisel:iron_chisel"
+  },
+  "result": {
+    "count": 1,
+    "id": "justdynathings:ferricore_chisel"
+  },
+  "template": {
+    "item": "justdirethings:template_ferricore"
+  }
+}

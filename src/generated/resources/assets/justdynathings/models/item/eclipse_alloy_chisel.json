@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "justdynathings:item/eclipse_alloy_chisel"
+  }
+}

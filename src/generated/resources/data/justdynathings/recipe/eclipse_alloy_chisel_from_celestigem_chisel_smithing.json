@@ -1,0 +1,22 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "chisel"
+    }
+  ],
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "justdirethings:eclipsealloy_ingot"
+  },
+  "base": {
+    "item": "justdynathings:celestigem_chisel"
+  },
+  "result": {
+    "count": 1,
+    "id": "justdynathings:eclipse_alloy_chisel"
+  },
+  "template": {
+    "item": "justdirethings:template_eclipsealloy"
+  }
+}

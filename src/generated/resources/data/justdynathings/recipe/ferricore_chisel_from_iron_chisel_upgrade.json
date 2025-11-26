@@ -1,0 +1,31 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "chisel"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "chisels",
+  "key": {
+    "M": {
+      "item": "justdirethings:ferricore_ingot"
+    },
+    "O": {
+      "item": "chisel:iron_chisel"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "  M",
+    " O ",
+    "S  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "justdynathings:ferricore_chisel"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "chisel"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "chisels",
+  "key": {
+    "M": {
+      "item": "justdirethings:celestigem"
+    },
+    "O": {
+      "item": "chisel:diamond_chisel"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "  M",
+    " O ",
+    "S  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "justdynathings:celestigem_chisel"
+  }
+}

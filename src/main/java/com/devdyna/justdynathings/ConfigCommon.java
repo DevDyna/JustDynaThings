@@ -676,7 +676,7 @@ public class ConfigCommon {
 
                 CELESTIGEM_CHISEL_FE_COST = qCOMMON
                                 .comment(Config.Display.FE_RATE)
-                                .defineInRange(Tiers.celestigem + "_chisel" + Config.Keys.FE_RATE, 25, 1,
+                                .defineInRange(Tiers.celestigem + "_chisel" + Config.Keys.FE_RATE, 1, 1,
                                                 Integer.MAX_VALUE);
 
                 ECLIPSE_ALLOY_CHISEL_FE_CAPACITY = qCOMMON
@@ -686,7 +686,7 @@ public class ConfigCommon {
 
                 ECLIPSE_ALLOY_CHISEL_FE_COST = qCOMMON
                                 .comment(Config.Display.FE_RATE)
-                                .defineInRange(Tiers.eclipsealloy + "_chisel" + Config.Keys.FE_RATE, 50, 1,
+                                .defineInRange(Tiers.eclipsealloy + "_chisel" + Config.Keys.FE_RATE, 10, 1,
                                                 Integer.MAX_VALUE);
 
         }

@@ -163,6 +163,9 @@ public class DataLang extends LanguageProvider {
                 // required to render disabled items
                 zCompat.getEchoingBuddingTypes.forEach(k -> add("item." + ID + "." + k, named(k)));
                 // zCompat.getChiselItems.forEach(k -> add("item." + ID + "." + k, named(k)));
+                
+                add(ID+".hold_control", "§7Hold Control for Chisel detailts");
+        
         }
 
         private String named(String text) {

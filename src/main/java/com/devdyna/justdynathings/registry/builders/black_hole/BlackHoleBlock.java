@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import com.devdyna.justdynathings.CommonConfig;
+import com.devdyna.justdynathings.ConfigCommon;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.client.type.blackhole.BlackHoleGUI;
@@ -100,7 +100,7 @@ public class BlackHoleBlock extends BaseFluidMachineBlock {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents,
             TooltipFlag tooltipFlag) {
-        if (Constants.ModAddonCheck.docCheck && !CommonConfig.DOC_WARNING.getAsBoolean())
+        if (Constants.ModAddonCheck.docCheck && !ConfigCommon.DOC_WARNING.getAsBoolean())
             tooltipComponents.add(Component.translatable(Main.ID + ".doc.missing"));
     }
 

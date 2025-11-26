@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import com.devdyna.justdynathings.CommonConfig;
+import com.devdyna.justdynathings.ConfigCommon;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.registry.types.zItemTags;
@@ -39,7 +39,7 @@ public class CreativeGoo extends GooBlock_Base {
 
       if ((i.is(zItemTags.CREATIVE_GOO_WRENCHES))) {
 
-         if (CommonConfig.GOO_CREATIVE_SOUND_TOGGLE_STATE.get())
+         if (ConfigCommon.GOO_CREATIVE_SOUND_TOGGLE_STATE.get())
             l.playLocalSound(p.getX(), p.getY(),
                   p.getZ(),
                   SoundEvents.LODESTONE_COMPASS_LOCK,
@@ -68,7 +68,7 @@ public class CreativeGoo extends GooBlock_Base {
       t.add(Component.translatable(Main.ID + "." + Constants.GooType + "." + Constants.Goo.Creative));
       if (Screen.hasShiftDown())
          t.add(Component.translatable(Main.ID + "." + Constants.GooType + ".tier")
-               .append(Component.literal("" + CommonConfig.GOO_CREATIVE_TIER.get())));
+               .append(Component.literal("" + ConfigCommon.GOO_CREATIVE_TIER.get())));
       else
          t.add(Component.translatable("justdirethings.shiftmoreinfo").withStyle(ChatFormatting.GRAY));
    }

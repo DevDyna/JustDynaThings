@@ -18,7 +18,7 @@ public class Main {
 
         public Main(IEventBus bus, ModContainer chest) {
 
-                CommonConfig.register(chest);
+                ConfigCommon.register(chest);
 
                 Material.register(bus);
 

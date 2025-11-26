@@ -2,7 +2,7 @@ package com.devdyna.justdynathings.registry.builders;
 
 import java.util.List;
 
-import com.devdyna.justdynathings.CommonConfig;
+import com.devdyna.justdynathings.ConfigCommon;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.registry.types.zProperties;
@@ -91,7 +91,7 @@ public class PhaseBox extends TransparentBlock {
 
     private ItemInteractionResult success(ItemStack i, BlockState s, Level l, BlockPos pos) {
 
-        if (CommonConfig.PHASE_BOX_WRENCHABLE.get()
+        if (ConfigCommon.PHASE_BOX_WRENCHABLE.get()
                 ? i.is(JustDireItemTags.WRENCHES) || i.is(JustDireItemTags.TOOLS_WRENCH)
                 : true) {
 
@@ -110,7 +110,7 @@ public class PhaseBox extends TransparentBlock {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents,
             TooltipFlag tooltipFlag) {
-        if (Constants.ModAddonCheck.docCheck && !CommonConfig.DOC_WARNING.getAsBoolean())
+        if (Constants.ModAddonCheck.docCheck && !ConfigCommon.DOC_WARNING.getAsBoolean())
             tooltipComponents.add(Component.translatable(Main.ID + ".doc.missing"));
     }
 }

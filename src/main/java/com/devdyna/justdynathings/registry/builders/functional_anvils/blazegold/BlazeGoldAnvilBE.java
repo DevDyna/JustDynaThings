@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.functional_anvils.blazegold;
 
-import com.devdyna.justdynathings.CommonConfig;
+import com.devdyna.justdynathings.ConfigCommon;
 import com.devdyna.justdynathings.datamaps.zDataMaps;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.CAnvilBE;
 import com.devdyna.justdynathings.registry.interfaces.be.FluidMachine;
@@ -40,7 +40,7 @@ public class BlazeGoldAnvilBE extends CAnvilBE implements FluidMachine {
                     && tool.isDamaged() && !tool.is(zItemTags.BLAZEGOLD_ANVIL_DENY)) {
                 extractMBWhenPossible((int) (20/fluid.efficiency()));
                 Actions.repairItem(tool,(int) fluid.efficiency());
-                if (CommonConfig.ANVIL_BLAZEGOLD_SOUND_EVENT.get())
+                if (ConfigCommon.ANVIL_BLAZEGOLD_SOUND_EVENT.get())
                     applySound();
             }
         }
@@ -58,11 +58,11 @@ public class BlazeGoldAnvilBE extends CAnvilBE implements FluidMachine {
 
     @Override
     public int getMaxMB() {
-        return CommonConfig.ANVILS_BLAZEGOLD_MB_CAPACITY.get();
+        return ConfigCommon.ANVILS_BLAZEGOLD_MB_CAPACITY.get();
     }
 
     @Override
     public int getStandardFluidCost() {
-        return CommonConfig.ANVILS_BLAZEGOLD_MB_RATE.get();
+        return ConfigCommon.ANVILS_BLAZEGOLD_MB_RATE.get();
     }
 }

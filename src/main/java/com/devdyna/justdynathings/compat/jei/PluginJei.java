@@ -5,7 +5,7 @@ import static com.devdyna.justdynathings.Main.ID;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import com.devdyna.justdynathings.CommonConfig;
+import com.devdyna.justdynathings.ConfigCommon;
 import com.devdyna.justdynathings.client.type.paradoxMixer.ParadoxMixerScreen;
 import com.devdyna.justdynathings.compat.jei.categories.*;
 import com.devdyna.justdynathings.compat.jei.categories.anvils.*;
@@ -169,7 +169,7 @@ public class PluginJei implements IModPlugin {
         }
 
         // Add remaining fuels
-        if (CommonConfig.ENABLE_ALL_JEI_FUELS.get()) {
+        if (ConfigCommon.ENABLE_ALL_JEI_FUELS.get()) {
             fuels.entrySet().stream()
                     .sorted(Map.Entry.<Integer, List<ItemStack>>comparingByKey().reversed())
                     .forEach(entry -> r.addRecipes(FuelRecipeCategory.TYPE,

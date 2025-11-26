@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.reforger;
 
-import com.devdyna.justdynathings.CommonConfig;
+import com.devdyna.justdynathings.ConfigCommon;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.client.type.reforger.ReforgerGUI;
@@ -73,7 +73,7 @@ public class ReforgerBlock extends BaseMachineBlock {
     @Override
     public void appendHoverText(ItemStack i, TooltipContext c, List<Component> t,
             TooltipFlag f) {
-        if (Constants.ModAddonCheck.docCheck && !CommonConfig.DOC_WARNING.getAsBoolean())
+        if (Constants.ModAddonCheck.docCheck && !ConfigCommon.DOC_WARNING.getAsBoolean())
             t.add(Component.translatable(Main.ID + ".doc.missing"));
         t.add(Component.translatable(Main.ID + "." + Constants.Blocks.Reforger));
     }

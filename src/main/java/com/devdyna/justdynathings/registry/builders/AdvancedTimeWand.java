@@ -5,7 +5,7 @@ import static com.devdyna.justdynathings.Main.ID;
 import java.util.List;
 import java.util.Optional;
 
-import com.devdyna.justdynathings.CommonConfig;
+import com.devdyna.justdynathings.ConfigCommon;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.registry.types.zComponents;
@@ -41,12 +41,12 @@ public class AdvancedTimeWand extends TimeWand {
 
     @Override
     public int getMaxEnergy() {
-        return CommonConfig.ADVANCED_TIME_WAND_FE_CAPACITY.get();
+        return ConfigCommon.ADVANCED_TIME_WAND_FE_CAPACITY.get();
     }
 
     @Override
     public int getMaxMB() {
-        return CommonConfig.ADVANCED_TIME_WAND_MB_CAPACITY.get();
+        return ConfigCommon.ADVANCED_TIME_WAND_MB_CAPACITY.get();
     }
 
     class MODES {
@@ -56,10 +56,10 @@ public class AdvancedTimeWand extends TimeWand {
         public static String MAX = "max";// 256
         public static List<String> list = List.of(NORMAL, X2, X4, MAX);
         public static List<Integer> values = List.of(
-                CommonConfig.ADVANCED_TIME_WAND_NORMAL_MODE.get(),
-                CommonConfig.ADVANCED_TIME_WAND_X2_MODE.get(),
-                CommonConfig.ADVANCED_TIME_WAND_X4_MODE.get(),
-                CommonConfig.ADVANCED_TIME_WAND_MAX_MODE.get());
+                ConfigCommon.ADVANCED_TIME_WAND_NORMAL_MODE.get(),
+                ConfigCommon.ADVANCED_TIME_WAND_X2_MODE.get(),
+                ConfigCommon.ADVANCED_TIME_WAND_X4_MODE.get(),
+                ConfigCommon.ADVANCED_TIME_WAND_MAX_MODE.get());
     }
 
     @Override
@@ -67,7 +67,7 @@ public class AdvancedTimeWand extends TimeWand {
         var item = player.getItemInHand(hand);
         var hitResult = getPlayerPOVHitResult(level, player, Fluid.NONE);
 
-        if (!CommonConfig.ADVANCED_TIME_WAND_FAKE_PLAYER_ALLOWED.get() && player instanceof FakePlayer)
+        if (!ConfigCommon.ADVANCED_TIME_WAND_FAKE_PLAYER_ALLOWED.get() && player instanceof FakePlayer)
             return InteractionResultHolder.fail(item);
 
         if (!item.has(zComponents.MODE))
@@ -123,7 +123,7 @@ public class AdvancedTimeWand extends TimeWand {
                 level.getBlockEntity(pos)))
             return false;
 
-        var max = Config.logBase2(CommonConfig.ADVANCED_TIME_WAND_MAX_MULTIPLIER.get());
+        var max = Config.logBase2(ConfigCommon.ADVANCED_TIME_WAND_MAX_MULTIPLIER.get());
 
         int power = MODES.values.get(MODES.list.indexOf(item.get(zComponents.MODE)));
 
@@ -157,7 +157,7 @@ public class AdvancedTimeWand extends TimeWand {
         } else {
             int accelRate = (int) TimeWandEntity.calculateAccelRate(setRate);
 
-            if (accelRate > CommonConfig.ADVANCED_TIME_WAND_MAX_MULTIPLIER.get()) {
+            if (accelRate > ConfigCommon.ADVANCED_TIME_WAND_MAX_MULTIPLIER.get()) {
                 message(player, "mode.disabled");
                 return false;
             }

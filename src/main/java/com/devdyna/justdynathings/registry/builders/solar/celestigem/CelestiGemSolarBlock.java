@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import com.devdyna.justdynathings.CommonConfig;
+import com.devdyna.justdynathings.ConfigCommon;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.client.type.solarGen.celestigem.CelestigemSolarPanelGUI;
@@ -50,7 +50,7 @@ public class CelestiGemSolarBlock extends SolarBlockBase {
                 super.appendHoverText(s, c, t, f);
                 if (Screen.hasShiftDown()) {
                         t.add(Component.translatable(Main.ID + "." + Constants.SolarPanelType + ".ferate")
-                                        .append(Component.literal("" + CommonConfig.SOLARPANEL_CELESTIGEM_FE_RATE.get())));
+                                        .append(Component.literal("" + ConfigCommon.SOLARPANEL_CELESTIGEM_FE_RATE.get())));
                 } else
                         t.add(Component.translatable("justdirethings.shiftmoreinfo").withStyle(ChatFormatting.GRAY));
         }

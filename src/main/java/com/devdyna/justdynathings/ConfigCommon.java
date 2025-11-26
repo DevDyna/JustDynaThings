@@ -8,7 +8,7 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.neoforge.common.ModConfigSpec;
 import net.neoforged.neoforge.common.ModConfigSpec.*;
 
-public class CommonConfig {
+public class ConfigCommon {
         private static final ModConfigSpec.Builder qCOMMON = new ModConfigSpec.Builder();
 
         public static BooleanValue DOC_WARNING;

@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.lightwand;
 
-import com.devdyna.justdynathings.CommonConfig;
+import com.devdyna.justdynathings.ConfigCommon;
 import com.devdyna.justdynathings.registry.types.zItems;
 import com.devdyna.justdynathings.utils.LevelUtil;
 
@@ -49,7 +49,7 @@ public class LightWandBlock extends LightBlock {
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player,
             BlockHitResult hitResult) {
-        if (!level.isClientSide && CommonConfig.LIGHT_WAND_CHANGE.get()) {
+        if (!level.isClientSide && ConfigCommon.LIGHT_WAND_CHANGE.get()) {
             level.setBlock(pos, state.cycle(LEVEL), 2);
             return InteractionResult.SUCCESS;
         } else {
@@ -60,7 +60,7 @@ public class LightWandBlock extends LightBlock {
     @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
 
-        if (LevelUtil.chance(25, level) && CommonConfig.LIGHT_BLOCK_PARTICLES.get())
+        if (LevelUtil.chance(25, level) && ConfigCommon.LIGHT_BLOCK_PARTICLES.get())
             level.addParticle(ParticleTypes.ELECTRIC_SPARK,
                     pos.getX() + 0.5 + 0.1 * random.nextInt(5) * (LevelUtil.rnd50(level) ? 1 : -1),
                     pos.getY() + 0.5 + 0.1 * random.nextInt(5) * (LevelUtil.rnd50(level) ? 1 : -1),

@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.functional_anvils.eclipsealloy;
 
-import com.devdyna.justdynathings.CommonConfig;
+import com.devdyna.justdynathings.ConfigCommon;
 import com.devdyna.justdynathings.datamaps.zDataMaps;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.CAnvilBE;
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyMachine;
@@ -40,7 +40,7 @@ public class EclipseAlloyAnvilBE extends CAnvilBE implements EnergyMachine, Flui
         if (isActiveRedstone() && fluid != null) // getMachineHandler() only work inside tick event!
             if (canExtractFE() && tool.isDamageableItem() && !tool.is(zItemTags.ECLIPSE_ALLOY_ANVIL_DENY)
                     && tool.isDamaged()) {
-                if (CommonConfig.ANVIL_ECLIPSEALLOY_SOUND_EVENT.get())
+                if (ConfigCommon.ANVIL_ECLIPSEALLOY_SOUND_EVENT.get())
                     applySound();
 
                 if (canExtractMB() && getEnergyStored() >= getDamageLimit()) {
@@ -84,25 +84,25 @@ public class EclipseAlloyAnvilBE extends CAnvilBE implements EnergyMachine, Flui
 
     @Override
     public int getStandardEnergyCost() {
-        return CommonConfig.ANVILS_ECLIPSEALLOY_FE_RATE.get();
+        return ConfigCommon.ANVILS_ECLIPSEALLOY_FE_RATE.get();
     }
 
     @Override
     public int getMaxEnergy() {
-        return CommonConfig.ANVILS_ECLIPSEALLOY_FE_CAPACITY.get();
+        return ConfigCommon.ANVILS_ECLIPSEALLOY_FE_CAPACITY.get();
     }
 
     @Override
     public int getMaxMB() {
-        return CommonConfig.ANVILS_ECLIPSEALLOY_MB_CAPACITY.get();
+        return ConfigCommon.ANVILS_ECLIPSEALLOY_MB_CAPACITY.get();
     }
 
     @Override
     public int getStandardFluidCost() {
-        return CommonConfig.ANVILS_ECLIPSEALLOY_MB_RATE.get();
+        return ConfigCommon.ANVILS_ECLIPSEALLOY_MB_RATE.get();
     }
 
     public int getDamageLimit() {
-        return CommonConfig.ANVILS_ECLIPSEALLOY_DAMAGE_LIMIT.get();
+        return ConfigCommon.ANVILS_ECLIPSEALLOY_DAMAGE_LIMIT.get();
     }
 }

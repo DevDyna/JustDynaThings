@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import com.devdyna.justdynathings.CommonConfig;
+import com.devdyna.justdynathings.ConfigCommon;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.registry.Material;
@@ -47,7 +47,7 @@ public class EnergyT4 extends GooBlock_Base implements EntityBlock {
       t.add(Component.translatable(Main.ID + "." + Constants.GooType + "." + Constants.Goo.Energized ));
       if (Screen.hasShiftDown())
          t.add(Component.translatable(Main.ID + "." + Constants.GooType + ".tier")
-               .append(Component.literal("" + CommonConfig.GOO_T4_TIER.get())));
+               .append(Component.literal("" + ConfigCommon.GOO_T4_TIER.get())));
       else
          t.add(Component.translatable("justdirethings.shiftmoreinfo").withStyle(ChatFormatting.GRAY));
    }

@@ -4,7 +4,7 @@ import static com.devdyna.justdynathings.Main.ID;
 
 import java.util.List;
 
-import com.devdyna.justdynathings.CommonConfig;
+import com.devdyna.justdynathings.ConfigCommon;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.registry.types.zBlockTags;
 import com.direwolf20.justdirethings.common.blockentities.BlockSwapperT1BE;
@@ -59,7 +59,7 @@ public class SwapperWand extends Item {
         var player = c.getPlayer();
         var state = level.getBlockState(pos);
 
-        if (!(!CommonConfig.SWAPPER_FAKE_PLAYER_ALLOWED.get() && player instanceof FakePlayer))
+        if (!(!ConfigCommon.SWAPPER_FAKE_PLAYER_ALLOWED.get() && player instanceof FakePlayer))
             if (c.getHand() != InteractionHand.OFF_HAND) {
 
                 var globalPos = item.get(JustDireDataComponents.BOUND_GLOBAL_POS);

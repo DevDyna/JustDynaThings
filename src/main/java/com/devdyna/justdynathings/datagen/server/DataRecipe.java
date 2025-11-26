@@ -719,7 +719,8 @@ public class DataRecipe extends RecipeProvider {
                                         .define('S', Items.STICK)
                                         .unlockedBy(ID, itemInv(material))
                                         .group("chisels").save(c.withConditions(DataGenUtil.isModLoaded("chisel")),
-                                                        ID + ":" + DataGenUtil.getName(newChisel) + "_upgrade");
+                                                        ID + ":" + DataGenUtil.getName(newChisel) + "_from_"
+                                                                        + DataGenUtil.getName(oldchisel) + "_upgrade");
                 }
 
                 if (!disableRecipe)

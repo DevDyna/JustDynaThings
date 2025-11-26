@@ -510,13 +510,13 @@ public class DataRecipe extends RecipeProvider {
                                 initChisel.FERRICORE_CHISEL.get(), Registration.FerricoreIngot.get(), c, true);
 
                 chiselRecipes(initChisel.FERRICORE_CHISEL.get(), Registration.TEMPLATE_BLAZEGOLD.get(),
-                                initChisel.BLAZEGOLD_CHISEL.get(), Registration.BlazegoldIngot.get(), c, false);
+                                initChisel.BLAZEGOLD_CHISEL.get(), Registration.BlazegoldIngot.get(), c, true);
 
                 chiselRecipes(initChisel.BLAZEGOLD_CHISEL.get(), Registration.TEMPLATE_CELESTIGEM.get(),
-                                initChisel.CELESTIGEM_CHISEL.get(), Registration.Celestigem.get(), c, false);
+                                initChisel.CELESTIGEM_CHISEL.get(), Registration.Celestigem.get(), c, true);
 
                 chiselRecipes(initChisel.CELESTIGEM_CHISEL.get(), Registration.TEMPLATE_ECLIPSEALLOY.get(),
-                                initChisel.ECLIPSE_ALLOY_CHISEL.get(), Registration.EclipseAlloyIngot.get(), c, false);
+                                initChisel.ECLIPSE_ALLOY_CHISEL.get(), Registration.EclipseAlloyIngot.get(), c, true);
 
                 chiselRecipes(ChiselItems.DIAMOND_CHISEL.get(), Registration.TEMPLATE_CELESTIGEM.get(),
                                 initChisel.CELESTIGEM_CHISEL.get(), Registration.Celestigem.get(), c, true);

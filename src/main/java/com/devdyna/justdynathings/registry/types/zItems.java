@@ -119,7 +119,7 @@ public class zItems {
 
         public static void registerGuideMeDummyItems() {
                 // required to render disabled items
-                var items = zCompat.getMissingItems();
+                var items = zCompat.getMissingEchoItems();
                 if (items != null && !items.isEmpty())
                         items.forEach(i -> zDisabled.register(i, () -> new DisabledItem()));
         }

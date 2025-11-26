@@ -1,6 +1,8 @@
 package com.devdyna.justdynathings.registry.builders.lightwand;
 
 import com.devdyna.justdynathings.ConfigCommon;
+import com.direwolf20.justdirethings.common.items.interfaces.BaseToggleableTool;
+import com.direwolf20.justdirethings.common.items.interfaces.LeftClickableTool;
 
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -11,7 +13,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 
 @SuppressWarnings("null")
-public class LightWandItem extends Item implements ILightWand{
+public class LightWandItem extends BaseToggleableTool implements LeftClickableTool , ILightWand{
 
     public LightWandItem() {
         super(new Item.Properties()

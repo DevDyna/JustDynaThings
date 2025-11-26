@@ -2,6 +2,7 @@ package com.devdyna.justdynathings.datagen.client;
 
 import static com.devdyna.justdynathings.Main.ID;
 import com.devdyna.justdynathings.Main;
+import com.devdyna.justdynathings.compat.zCompat;
 import com.devdyna.justdynathings.registry.types.zBlocks;
 import com.devdyna.justdynathings.registry.types.zItems;
 import com.devdyna.justdynathings.utils.DataGenUtil;
@@ -86,11 +87,13 @@ public class DataItemModel extends ItemModelProvider {
                                 .customLoader(DynamicFluidContainerModelBuilder::begin)
                                 .fluid(((BucketItem) b.get()).content));
 
+                zCompat.getChiselItems.forEach(i -> handheldItem(modLoc(i)));
+
         }
 
         // private void BuddingItemModel(Block b) {
-        //         cubeAll(DataGenUtil.getName(b), modLoc("block/echoing_budding/"
-        //                         + DataGenUtil.getName(b).replace("echoing_budding_", "")));
+        // cubeAll(DataGenUtil.getName(b), modLoc("block/echoing_budding/"
+        // + DataGenUtil.getName(b).replace("echoing_budding_", "")));
 
         // }
 

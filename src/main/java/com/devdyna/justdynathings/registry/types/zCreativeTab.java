@@ -15,6 +15,8 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
+import com.devdyna.justdynathings.compat.chisel.initChisel;
+
 public class zCreativeTab {
         public static void register(IEventBus bus) {
                 zCreative.register(bus);
@@ -58,6 +60,14 @@ public class zCreativeTab {
                                                 Arrays.asList(Material.getBuddingAvailable())
                                                                 .stream()
                                                                 .forEach(e -> output.accept((Item) e.asItem()));
+
+                                                // compat chisel
+                                                if (Constants.ModAddonCheck.Chisel){
+                                                        output.accept(initChisel.FERRICORE_CHISEL.get());
+                                                        output.accept(initChisel.BLAZEGOLD_CHISEL.get());
+                                                        output.accept(initChisel.CELESTIGEM_CHISEL.get());
+                                                        output.accept(initChisel.ECLIPSE_ALLOY_CHISEL.get());
+                                                }
 
                                         }).build());
 

@@ -85,6 +85,7 @@ public class Constants {
         public static boolean GuideMe = ModList.get().isLoaded("guideme");
         public static boolean Patchouli = ModList.get().isLoaded("patchouli");
         public static boolean GeOre = ModList.get().isLoaded("geore");
+        public static boolean Chisel = ModList.get().isLoaded("chisel");
 
         public static boolean docCheck = !(GuideMe || Patchouli);
     }

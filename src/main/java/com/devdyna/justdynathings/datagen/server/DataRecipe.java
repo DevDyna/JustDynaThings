@@ -7,8 +7,12 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
+import javax.annotation.Nullable;
+
 import com.devdyna.justdynathings.Constants;
+import com.devdyna.justdynathings.compat.zCompat;
 import com.devdyna.justdynathings.compat.ae2.initApp;
+import com.devdyna.justdynathings.compat.chisel.initChisel;
 import com.devdyna.justdynathings.compat.extendedae.initExtend;
 import com.devdyna.justdynathings.compat.geore.initGeOre;
 import com.devdyna.justdynathings.compat.phasorite.initPhaso;
@@ -29,6 +33,7 @@ import com.direwolf20.justdirethings.datagen.recipes.GooSpreadRecipeBuilder;
 import com.direwolf20.justdirethings.datagen.recipes.GooSpreadRecipeTagBuilder;
 import com.direwolf20.justdirethings.setup.Registration;
 import com.glodblock.github.extendedae.common.EAESingletons;
+import com.leclowndu93150.chisel.init.ChiselItems;
 import com.shynieke.geore.registry.GeOreRegistry;
 
 import appeng.core.definitions.AEBlocks;
@@ -498,6 +503,27 @@ public class DataRecipe extends RecipeProvider {
                                                                 Registration.EclipseAlloyIngot.get()))
                                 .group(Constants.Blocks.Ticker).save(c);
 
+                chiselRecipes(null, null, initChisel.FERRICORE_CHISEL.get(), Registration.FerricoreIngot.get(), c,
+                                false);
+
+                chiselRecipes(ChiselItems.IRON_CHISEL.get(), Registration.TEMPLATE_FERRICORE.get(),
+                                initChisel.FERRICORE_CHISEL.get(), Registration.FerricoreIngot.get(), c, true);
+
+                chiselRecipes(initChisel.FERRICORE_CHISEL.get(), Registration.TEMPLATE_BLAZEGOLD.get(),
+                                initChisel.BLAZEGOLD_CHISEL.get(), Registration.BlazegoldIngot.get(), c, false);
+
+                chiselRecipes(initChisel.BLAZEGOLD_CHISEL.get(), Registration.TEMPLATE_CELESTIGEM.get(),
+                                initChisel.CELESTIGEM_CHISEL.get(), Registration.Celestigem.get(), c, false);
+
+                chiselRecipes(initChisel.CELESTIGEM_CHISEL.get(), Registration.TEMPLATE_ECLIPSEALLOY.get(),
+                                initChisel.ECLIPSE_ALLOY_CHISEL.get(), Registration.EclipseAlloyIngot.get(), c, false);
+
+                chiselRecipes(ChiselItems.DIAMOND_CHISEL.get(), Registration.TEMPLATE_CELESTIGEM.get(),
+                                initChisel.CELESTIGEM_CHISEL.get(), Registration.Celestigem.get(), c, true);
+
+                chiselRecipes(ChiselItems.HITECH_CHISEL.get(), Registration.TEMPLATE_ECLIPSEALLOY.get(),
+                                initChisel.ECLIPSE_ALLOY_CHISEL.get(), Registration.EclipseAlloyIngot.get(), c, true);
+
         }
 
         @SuppressWarnings("unchecked")
@@ -600,7 +626,6 @@ public class DataRecipe extends RecipeProvider {
                                 .save(c);
         }
 
-       
         private void Budding(Item output, Item input, RecipeOutput c) {
                 ShapelessRecipeBuilder.shapeless(MISC, output, 1)
                                 .requires(input)
@@ -671,6 +696,40 @@ public class DataRecipe extends RecipeProvider {
                                 MISC, b.asItem()).unlocks(ID,
                                                 has(ingot))
                                 .save(c, ID + ":" + DataGenUtil.getName(b) + "_smithing");
+        }
+
+        public void chiselRecipes(@Nullable Item oldchisel, @Nullable Item template, Item newChisel, Item material,
+                        RecipeOutput c, boolean disableRecipe) {
+
+                if (oldchisel != null || template != null) {
+                        SmithingTransformRecipeBuilder.smithing(Ingredient.of(template), Ingredient.of(oldchisel),
+                                        Ingredient.of(material),
+                                        MISC, newChisel).unlocks(ID,
+                                                        has(material))
+                                        .save(c.withConditions(DataGenUtil.isModLoaded("chisel")),
+                                                        ID + ":" + DataGenUtil.getName(newChisel) + "_smithing");
+
+                        ShapedRecipeBuilder.shaped(MISC, newChisel, 1)
+                                        .pattern("  M")
+                                        .pattern(" O ")
+                                        .pattern("S  ")
+                                        .define('O', oldchisel)
+                                        .define('M', material)
+                                        .define('S', Items.STICK)
+                                        .unlockedBy(ID, itemInv(material))
+                                        .group("chisels").save(c.withConditions(DataGenUtil.isModLoaded("chisel")),
+                                                        ID + ":" + DataGenUtil.getName(newChisel) + "_upgrade");
+                }
+
+                if (!disableRecipe)
+                        ShapedRecipeBuilder.shaped(MISC, newChisel, 1)
+                                        .pattern("  M")
+                                        .pattern(" M ")
+                                        .pattern("S  ")
+                                        .define('M', material)
+                                        .define('S', Items.STICK)
+                                        .unlockedBy(ID, itemInv(material))
+                                        .group("chisels").save(c.withConditions(DataGenUtil.isModLoaded("chisel")));
         }
 
         private void SolarRecipe(Block output, Item catalyst, Item coal, Item ingot, Item template, Item oldSolar,

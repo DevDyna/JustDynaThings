@@ -160,6 +160,12 @@ public class ConfigCommon {
 
         public static BooleanValue LIGHT_BLOCK_PARTICLES;
 
+        public static IntValue CELESTIGEM_CHISEL_FE_CAPACITY;
+        public static IntValue CELESTIGEM_CHISEL_FE_COST;
+
+        public static IntValue ECLIPSE_ALLOY_CHISEL_FE_CAPACITY;
+        public static IntValue ECLIPSE_ALLOY_CHISEL_FE_COST;
+
         public static void register(ModContainer c) {
                 regCommon();
                 c.registerConfig(ModConfig.Type.COMMON, qCOMMON.build());
@@ -175,6 +181,7 @@ public class ConfigCommon {
                 wands();
                 mixer();
                 ticker();
+                compats();
         }
 
         private static void general() {
@@ -654,6 +661,33 @@ public class ConfigCommon {
                                 .defineInRange(Blocks.Ticker + "_tick_rate", 16, 1, Integer.MAX_VALUE);
 
                 qCOMMON.pop();
+
+        }
+
+        private static void compats() {
+                qCOMMON.comment(DataGenUtil.txtDecor("compats")).push("10-compats");
+
+                qCOMMON.comment("Chisel Modern");
+
+                CELESTIGEM_CHISEL_FE_CAPACITY = qCOMMON
+                                .comment(Config.Display.FE_MAX)
+                                .defineInRange(Tiers.celestigem + "_chisel" + Config.Keys.FE_MAX, 1000, 1,
+                                                Integer.MAX_VALUE);
+
+                CELESTIGEM_CHISEL_FE_COST = qCOMMON
+                                .comment(Config.Display.FE_RATE)
+                                .defineInRange(Tiers.celestigem + "_chisel" + Config.Keys.FE_RATE, 25, 1,
+                                                Integer.MAX_VALUE);
+
+                ECLIPSE_ALLOY_CHISEL_FE_CAPACITY = qCOMMON
+                                .comment(Config.Display.FE_MAX)
+                                .defineInRange(Tiers.eclipsealloy + "_chisel" + Config.Keys.FE_MAX, 10000, 1,
+                                                Integer.MAX_VALUE);
+
+                ECLIPSE_ALLOY_CHISEL_FE_COST = qCOMMON
+                                .comment(Config.Display.FE_RATE)
+                                .defineInRange(Tiers.eclipsealloy + "_chisel" + Config.Keys.FE_RATE, 50, 1,
+                                                Integer.MAX_VALUE);
 
         }
 

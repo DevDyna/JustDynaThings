@@ -6,6 +6,7 @@ import java.util.List;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.compat.ae2.initApp;
+import com.devdyna.justdynathings.compat.chisel.initChisel;
 import com.devdyna.justdynathings.compat.extendedae.initExtend;
 import com.devdyna.justdynathings.compat.geore.initGeOre;
 import com.devdyna.justdynathings.compat.phasorite.initPhaso;
@@ -33,6 +34,8 @@ public class zCompat {
                                 + (Constants.ModAddonCheck.PhasoriteNetworks ? " found " : " not found "));
                 LogUtil.info("GeOre"
                                 + (Constants.ModAddonCheck.GeOre ? " found " : " not found "));
+                LogUtil.info("Chisel-Modern"
+                                + (Constants.ModAddonCheck.Chisel ? " found " : " not found "));
                 createGuide();
                 LogUtil.decor(20);
         }
@@ -58,6 +61,8 @@ public class zCompat {
                         initGeOre.register(bus);
                 if (Constants.ModAddonCheck.PhasoriteNetworks)
                         initPhaso.register(bus);
+                if (Constants.ModAddonCheck.Chisel)
+                        initChisel.register(bus);
         }
 
         public static final DeferredRegister.Blocks extraBlocks = DeferredRegister.createBlocks(Main.ID);
@@ -108,8 +113,17 @@ public class zCompat {
                         "echoing_budding_vibranium",
                         "echoing_budding_zinc");
 
-        public static List<String> getMissingItems() {
+        public final static List<String> getChiselItems = List.of(
+                        Constants.Tiers.ferricore + "_chisel",
+                        Constants.Tiers.blazegold + "_chisel",
+                        Constants.Tiers.celestigem + "_chisel",
+                        Constants.Tiers.eclipsealloy + "_chisel");
+
+        public static List<String> getMissingEchoItems() {
                 List<String> list = new ArrayList<>(getEchoingBuddingTypes);
+
+                if (!Constants.ModAddonCheck.Chisel)
+                        list.addAll(getChiselItems);
 
                 if (Constants.ModAddonCheck.AppliedEnergistics2)
                         list.remove("echoing_budding_certus");

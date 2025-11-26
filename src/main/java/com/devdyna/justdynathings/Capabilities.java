@@ -1,5 +1,9 @@
 package com.devdyna.justdynathings;
 
+import java.util.*;
+import java.util.stream.Stream;
+
+import com.devdyna.justdynathings.compat.chisel.initChisel;
 import com.devdyna.justdynathings.registry.Material;
 import com.devdyna.justdynathings.registry.builders.AdvancedTimeWand;
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyMachine;
@@ -13,6 +17,8 @@ import com.direwolf20.justdirethings.common.capabilities.EnergyStorageItemstack;
 import com.direwolf20.justdirethings.common.items.datacomponents.JustDireDataComponents;
 import com.direwolf20.justdirethings.common.items.interfaces.PoweredItem;
 import com.direwolf20.justdirethings.setup.Registration;
+
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.capabilities.Capabilities.EnergyStorage;
 import net.neoforged.neoforge.capabilities.Capabilities.FluidHandler;
@@ -81,6 +87,19 @@ public class Capabilities {
 
                 };
 
+                Item[] PoweredItems = {
+                                zItems.ADVANCED_TIME_WAND.get(), zItems.ADVANCED_LIGHT_WAND.get()
+                };
+
+                if (Constants.ModAddonCheck.Chisel) 
+                        PoweredItems = Stream.concat(
+                                        Arrays.stream(PoweredItems),
+                                        Stream.of(initChisel.CELESTIGEM_CHISEL.get(),
+                                                        initChisel.ECLIPSE_ALLOY_CHISEL.get()))
+                                        .toArray(Item[]::new);
+
+                
+
                 // ---------------------------------------------------------------------------------------//
                 // generic itemhandler
                 event.registerBlock(
@@ -138,7 +157,7 @@ public class Capabilities {
                                         else
                                                 return null;
 
-                                }, zItems.ADVANCED_TIME_WAND.get(),zItems.ADVANCED_LIGHT_WAND.get());
+                                }, PoweredItems);
 
                 event.registerItem(FluidHandler.ITEM, (i, c) -> {
 

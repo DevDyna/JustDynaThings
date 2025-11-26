@@ -707,7 +707,8 @@ public class DataRecipe extends RecipeProvider {
                                         MISC, newChisel).unlocks(ID,
                                                         has(material))
                                         .save(c.withConditions(DataGenUtil.isModLoaded("chisel")),
-                                                        ID + ":" + DataGenUtil.getName(newChisel) + "_smithing");
+                                                        ID + ":" + DataGenUtil.getName(newChisel) + "_from_"
+                                                                        + DataGenUtil.getName(oldchisel) + "_smithing");
 
                         ShapedRecipeBuilder.shaped(MISC, newChisel, 1)
                                         .pattern("  M")

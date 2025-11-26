@@ -1,6 +1,5 @@
 package com.devdyna.justdynathings;
 
-import com.devdyna.justdynathings.Config.*;
 import com.devdyna.justdynathings.compat.*;
 import com.devdyna.justdynathings.datamaps.zDataMaps;
 import com.devdyna.justdynathings.registry.Material;

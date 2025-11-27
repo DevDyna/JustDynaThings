@@ -2,7 +2,7 @@ package com.devdyna.justdynathings.registry.builders.goo.creative;
 
 import java.util.Random;
 
-import com.devdyna.justdynathings.ConfigCommon;
+import com.devdyna.justdynathings.config.CommonConfig;
 import com.direwolf20.justdirethings.client.particles.gooexplodeparticle.GooExplodeParticleData;
 
 // import static com.direwolf20.justdirethings.common.blocks.gooblocks.GooBlock_Base.ALIVE;
@@ -41,7 +41,7 @@ public class NoDieGooLogic extends GooBlockBE_Base {
 
         updateSideCounter(direction, -1);
         sidedDurations.put(direction, -1);
-        if (ConfigCommon.GOO_CREATIVE_SOUND_RECIPE.get())
+        if (CommonConfig.GOO_CREATIVE_SOUND_RECIPE.get())
             level.playSound(null, getBlockPos(), SoundEvents.SCULK_BLOCK_BREAK, SoundSource.BLOCKS, 0.25F, 1.0F);
     }
 

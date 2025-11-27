@@ -4,10 +4,10 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import com.devdyna.justdynathings.ConfigCommon;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.client.type.solarGen.eclipsealloy.EclipseAlloySolarPanelGUI;
+import com.devdyna.justdynathings.config.CommonConfig;
 import com.devdyna.justdynathings.registry.builders.solar.SolarBlockBase;
 import com.devdyna.justdynathings.utils.Actions;
 
@@ -50,7 +50,7 @@ public class EclipseAlloySolarBlock extends SolarBlockBase {
                 super.appendHoverText(s, c, t, f);
                 if (Screen.hasShiftDown()) {
                         t.add(Component.translatable(Main.ID + "." + Constants.SolarPanelType + ".ferate")
-                                        .append(Component.literal("" + ConfigCommon.SOLARPANEL_ECLIPSEALLOY_FE_RATE.get())));
+                                        .append(Component.literal("" + CommonConfig.SOLARPANEL_ECLIPSEALLOY_FE_RATE.get())));
                 } else
                         t.add(Component.translatable("justdirethings.shiftmoreinfo").withStyle(ChatFormatting.GRAY));
         }

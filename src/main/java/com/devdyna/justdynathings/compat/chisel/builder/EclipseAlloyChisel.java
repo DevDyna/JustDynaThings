@@ -1,7 +1,7 @@
 package com.devdyna.justdynathings.compat.chisel.builder;
 
-import com.devdyna.justdynathings.ConfigCommon;
 import com.devdyna.justdynathings.compat.chisel.builder.base.BasePoweredChisel;
+import com.devdyna.justdynathings.config.CommonConfig;
 
 public class EclipseAlloyChisel extends BasePoweredChisel {
 
@@ -11,11 +11,11 @@ public class EclipseAlloyChisel extends BasePoweredChisel {
 
     @Override
     public int getMaxEnergy() {
-        return ConfigCommon.ECLIPSE_ALLOY_CHISEL_FE_CAPACITY.get();
+        return CommonConfig.ECLIPSE_ALLOY_CHISEL_FE_CAPACITY.get();
     }
 
     public int getFECostAtUse() {
-        return ConfigCommon.ECLIPSE_ALLOY_CHISEL_FE_COST.get();
+        return CommonConfig.ECLIPSE_ALLOY_CHISEL_FE_COST.get();
     }
 
 }

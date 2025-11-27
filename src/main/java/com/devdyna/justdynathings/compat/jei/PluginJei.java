@@ -5,7 +5,6 @@ import static com.devdyna.justdynathings.Main.ID;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import com.devdyna.justdynathings.ConfigCommon;
 import com.devdyna.justdynathings.client.type.paradoxMixer.ParadoxMixerScreen;
 import com.devdyna.justdynathings.compat.jei.categories.*;
 import com.devdyna.justdynathings.compat.jei.categories.anvils.*;
@@ -15,6 +14,7 @@ import com.devdyna.justdynathings.compat.jei.categories.thermo.ThermoHeatSource;
 import com.devdyna.justdynathings.compat.jei.datamaps.records;
 import com.devdyna.justdynathings.compat.jei.utils.FuelRecords;
 import com.devdyna.justdynathings.compat.jei.utils.FuelUtils;
+import com.devdyna.justdynathings.config.CommonConfig;
 import com.devdyna.justdynathings.datagen.server.DataRecipe;
 import com.devdyna.justdynathings.registry.types.zBlocks;
 import com.devdyna.justdynathings.registry.types.zRecipeTypes;
@@ -169,7 +169,7 @@ public class PluginJei implements IModPlugin {
         }
 
         // Add remaining fuels
-        if (ConfigCommon.ENABLE_ALL_JEI_FUELS.get()) {
+        if (CommonConfig.ENABLE_ALL_JEI_FUELS.get()) {
             fuels.entrySet().stream()
                     .sorted(Map.Entry.<Integer, List<ItemStack>>comparingByKey().reversed())
                     .forEach(entry -> r.addRecipes(FuelRecipeCategory.TYPE,

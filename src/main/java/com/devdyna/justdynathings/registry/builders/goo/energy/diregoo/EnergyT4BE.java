@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.goo.energy.diregoo;
 
-import com.devdyna.justdynathings.ConfigCommon;
+import com.devdyna.justdynathings.config.CommonConfig;
 import com.devdyna.justdynathings.registry.builders.goo.energy.FEGoo;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
 
@@ -15,11 +15,11 @@ public class EnergyT4BE extends FEGoo {
     }
 
     public int getTier() {
-        return ConfigCommon.GOO_T4_TIER.get();
+        return CommonConfig.GOO_T4_TIER.get();
     }
 
     public int counterReducer() {
-        return ConfigCommon.GOO_T4_COUNTER_REDUCER.get();
+        return CommonConfig.GOO_T4_COUNTER_REDUCER.get();
     }
 
 }

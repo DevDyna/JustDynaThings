@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.lightwand;
 
-import com.devdyna.justdynathings.ConfigCommon;
+import com.devdyna.justdynathings.config.CommonConfig;
 import com.direwolf20.justdirethings.common.items.interfaces.BaseToggleableTool;
 import com.direwolf20.justdirethings.common.items.interfaces.LeftClickableTool;
 
@@ -34,7 +34,7 @@ public class LightWandItem extends BaseToggleableTool implements LeftClickableTo
 
     @Override
     public int glowingDuration() {
-        return ConfigCommon.LIGHT_WAND_GLOWING_DURATION.get();
+        return CommonConfig.LIGHT_WAND_GLOWING_DURATION.get();
     }
 
       @Override

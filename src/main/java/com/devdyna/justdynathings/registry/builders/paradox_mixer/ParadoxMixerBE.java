@@ -2,7 +2,7 @@ package com.devdyna.justdynathings.registry.builders.paradox_mixer;
 
 import java.util.List;
 
-import com.devdyna.justdynathings.ConfigCommon;
+import com.devdyna.justdynathings.config.CommonConfig;
 import com.devdyna.justdynathings.recipetypes.type.ParadoxMixerRecipe;
 import com.devdyna.justdynathings.registry.builders.stabilizer.StabilizerBlock;
 import com.devdyna.justdynathings.registry.interfaces.be.FluidMachine;
@@ -60,7 +60,7 @@ public class ParadoxMixerBE extends BaseMachineBE
                 setFluidStack(fluid.getFluid(), fluid.getAmount());
                 catalyst.shrink(1);
 
-                if (ConfigCommon.PARADOX_MIXER_SOUND_EVENT.get())
+                if (CommonConfig.PARADOX_MIXER_SOUND_EVENT.get())
                     level.playSound(null, getBlockPos(),
                             SoundEvents.BREWING_STAND_BREW,
                             SoundSource.BLOCKS, (level.random.nextInt(10) + 1) * 0.01F,
@@ -99,7 +99,7 @@ public class ParadoxMixerBE extends BaseMachineBE
 
     @Override
     public int getMaxMB() {
-        return ConfigCommon.PARADOX_MIXER_MB_CAPACITY.get();
+        return CommonConfig.PARADOX_MIXER_MB_CAPACITY.get();
     }
 
     @Override

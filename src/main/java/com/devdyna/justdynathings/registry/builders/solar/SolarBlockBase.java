@@ -4,9 +4,9 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import com.devdyna.justdynathings.ConfigCommon;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
+import com.devdyna.justdynathings.config.CommonConfig;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
 import net.minecraft.core.BlockPos;
@@ -88,7 +88,7 @@ public class SolarBlockBase extends BaseMachineBlock{
     @Override
     public void appendHoverText(ItemStack s, TooltipContext c, List<Component> t,
             TooltipFlag f) {
-        if (Constants.ModAddonCheck.docCheck && !ConfigCommon.DOC_WARNING.getAsBoolean())
+        if (Constants.ModAddonCheck.docCheck && !CommonConfig.DOC_WARNING.getAsBoolean())
             t.add(Component.translatable(Main.ID + ".doc.missing"));
         t.add(Component.translatable(Main.ID + "." + Constants.SolarPanelType ));
     }

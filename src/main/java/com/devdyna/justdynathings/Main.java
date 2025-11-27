@@ -2,6 +2,7 @@ package com.devdyna.justdynathings;
 
 import com.devdyna.justdynathings.compat.*;
 import com.devdyna.justdynathings.config.CommonConfig;
+import com.devdyna.justdynathings.config.StartupConfig;
 import com.devdyna.justdynathings.datamaps.zDataMaps;
 import com.devdyna.justdynathings.registry.Material;
 
@@ -18,8 +19,8 @@ public class Main {
 
         public Main(IEventBus bus, ModContainer chest) {
 
-                ConfigCommon.register(chest);
                 CommonConfig.register(chest);
+                StartupConfig.register(chest);
 
                 Material.register(bus);
 

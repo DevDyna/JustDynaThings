@@ -2,6 +2,7 @@ package com.devdyna.justdynathings;
 
 import java.util.List;
 
+import com.devdyna.justdynathings.config.StartupConfig;
 import net.neoforged.fml.ModList;
 
 public class Constants {
@@ -79,15 +80,34 @@ public class Constants {
     public static String BuddingType = "echoing_budding";
 
     public class ModAddonCheck {
-        public static boolean AppliedEnergistics2 = ModList.get().isLoaded("ae2");
-        public static boolean ExtendedAE = ModList.get().isLoaded("extendedae");
-        public static boolean PhasoriteNetworks = ModList.get().isLoaded("phasoritenetworks");
+        public static boolean AppliedEnergistics2 = !StartupConfig.APPLIEDENERGISTICS2.get()
+                && isClassLoaded("appeng.core.AppEng") && ModList.get().isLoaded("ae2");
+        public static boolean ExtendedAE = !StartupConfig.EXTENDEDAE.get()
+                && isClassLoaded("com.glodblock.github.extendedae.ExtendedAE")
+                && ModList.get().isLoaded("extendedae");
+        public static boolean PhasoriteNetworks = !StartupConfig.PHASORITENETWORKS.get()
+                && isClassLoaded("xyz.milosworks.phasoritenetworks.PhasoriteNetworks")
+                && ModList.get().isLoaded("phasoritenetworks");
         public static boolean GuideMe = ModList.get().isLoaded("guideme");
         public static boolean Patchouli = ModList.get().isLoaded("patchouli");
-        public static boolean GeOre = ModList.get().isLoaded("geore");
-        public static boolean Chisel = ModList.get().isLoaded("chisel");
+        public static boolean GeOre = !StartupConfig.GEORE.get() && isClassLoaded("com.shynieke.geore.GeOre")
+                && ModList.get().isLoaded("geore");
+        public static boolean Chisel = !StartupConfig.CHISEL.get() && isClassLoaded("com.leclowndu93150.chisel.Chisel")
+                && ModList.get().isLoaded("chisel");
 
         public static boolean docCheck = !(GuideMe || Patchouli);
+
+        public static boolean isClassLoaded(String dir) {
+            try {
+                @SuppressWarnings("unused") // if work dont touch it!
+                Class<?> cls = Class.forName(dir);
+                return true;
+            } catch (ClassNotFoundException e) {
+                return false;
+            }
+
+        }
+
     }
 
     public class DataMaps {

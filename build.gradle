@@ -139,7 +139,7 @@ dependencies {
     implementation "curse.maven:phasorite-1140963:6091868"
     implementation "curse.maven:guideme-1173950:6688687"
     implementation "curse.maven:geore-530544:7075069"
-    implementation "curse.maven:chisel-1392308:7264092"
+    implementation "curse.maven:chisel-1392308:7266225"
 
     //datagen libs
     implementation "curse.maven:glodium-957920:5821676"

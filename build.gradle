@@ -188,7 +188,10 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
             guideme_version                 : guideme_version,
             guideme_version_range           : guideme_version_range,
 
-            jei_version                     : jei_version
+            jei_version                     : jei_version,
+
+            geore_version                   : geore_version,
+            chisel_version                  : chisel_version
     ]
     inputs.properties replaceProperties
     expand replaceProperties

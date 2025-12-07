@@ -159,4 +159,12 @@ public class BuddingBE extends BaseMachineBE implements EnergyMachine, FluidMach
         return CommonConfig.BUDDING_GENERAL_FE_CAPACITY.get();
     }
 
+    public boolean requireFE() {
+        return !canExtractFE();
+    }
+
+    public boolean requireTime() {
+        return !canExtractMB();
+    }
+
 }

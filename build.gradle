@@ -140,6 +140,7 @@ dependencies {
     implementation "curse.maven:guideme-1173950:6688687"
     implementation "curse.maven:geore-530544:7075069"
     implementation "curse.maven:chisel-1392308:7295762"
+    implementation "curse.maven:jade-324717:6853386"
 
     //datagen libs
     implementation "curse.maven:glodium-957920:5821676"
@@ -152,7 +153,6 @@ dependencies {
     compileOnly "mezz.jei:jei-1.21.1-common-api:19.18.10.218"
     compileOnly "mezz.jei:jei-1.21.1-neoforge-api:19.18.10.218"
     runtimeOnly "mezz.jei:jei-1.21.1-neoforge:19.18.10.218"
-
 
 }
 

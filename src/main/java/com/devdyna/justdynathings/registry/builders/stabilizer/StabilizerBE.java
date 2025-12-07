@@ -151,4 +151,13 @@ public class StabilizerBE extends BaseMachineBE implements EnergyMachine, FluidM
         return CommonConfig.STABILIZER_MB_CAPACITY.get();
     }
 
+
+    public boolean canReviveGoo(){
+        return canExtractFE();
+    }
+
+    public boolean isEnergized(){
+        return canExtractMB() && canReviveGoo();
+    }
+
 }

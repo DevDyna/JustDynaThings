@@ -107,4 +107,8 @@ public class ParadoxMixerBE extends BaseMachineBE
         return 0;
     }
 
+    public boolean canProcess(){
+        return getBlockState().getValue(zProperties.GOO_ALIVE);
+    }
+
 }

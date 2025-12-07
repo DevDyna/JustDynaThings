@@ -29,7 +29,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.phys.BlockHitResult;
 
 @SuppressWarnings("null")
-public class BuddingBlock extends BlockBaseBE implements BucketInteractive{
+public class BuddingBlock extends BlockBaseBE implements BucketInteractive {
 
     public BuddingBlock() {
         super(BlockBehaviour.Properties.of()
@@ -66,8 +66,8 @@ public class BuddingBlock extends BlockBaseBE implements BucketInteractive{
             TooltipFlag f) {
         if (Constants.ModAddonCheck.docCheck && !CommonConfig.DOC_WARNING.getAsBoolean())
             t.add(Component.translatable(Main.ID + ".doc.missing"));
-        t.add(Component.translatable(Main.ID + "." + Constants.BuddingType ));
-        t.add(Component.translatable(Main.ID + "." + Constants.BuddingType +".break"));
+        t.add(Component.translatable(Main.ID + "." + Constants.BuddingType));
+        t.add(Component.translatable(Main.ID + "." + Constants.BuddingType + ".break"));
     }
 
 }

@@ -5,6 +5,7 @@ import static com.devdyna.justdynathings.Main.ID;
 import java.util.List;
 
 import com.devdyna.justdynathings.Constants;
+import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.compat.zCompat;
 import com.devdyna.justdynathings.registry.types.zBlocks;
 import com.devdyna.justdynathings.registry.types.zItems;
@@ -163,9 +164,14 @@ public class DataLang extends LanguageProvider {
                 // required to render disabled items
                 zCompat.getEchoingBuddingTypes.forEach(k -> add("item." + ID + "." + k, named(k)));
                 // zCompat.getChiselItems.forEach(k -> add("item." + ID + "." + k, named(k)));
-                
-                add(ID+".hold_control", "§7Hold Control for Chisel detailts");
-        
+
+                add(ID + ".hold_control", "§7Hold Control for Chisel detailts");
+
+                add(Main.ID + "." + Constants.BuddingType + ".jade.fe", "§cRequire ForgeEnergy");
+                add(Main.ID + "." + Constants.BuddingType + ".jade.time", "§cRequire Time Fluid");
+
+                add("config.jade.plugin_" + ID + "." + Constants.BuddingType, "Echoing Buddings Requirements");
+
         }
 
         private String named(String text) {

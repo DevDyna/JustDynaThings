@@ -154,7 +154,7 @@
   "justdynathings.jei.total": "FE生产总量",
   "justdynathings.jei.warning": "不存在物品形态，或不完全对应所放置的方块！",
   "justdynathings.paradox_mixer": "§7可用于批量执行投入流体配方",
-  "justdynathings.paradox_mixer.jade.dead": "§c需要激活的稳定器！",
+  "justdynathings.paradox_mixer.jade.dead": "§c需要已激活的稳定器！",
   "justdynathings.paradox_mixer.unstable": "未找到激活的稳定器",
   "justdynathings.picker_wand": "§7可拾起简单方块并放到你想放的位置",
   "justdynathings.reforger": "§7使用催化剂将方块转化成其他方块",

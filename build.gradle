@@ -131,7 +131,7 @@ dependencies {
     localRuntime "mezz.jei:jei-${jei_minecraft}-neoforge:${jei_version}"
 
     //main
-    implementation "curse.maven:justdirethings-1002348:6369120"
+    implementation "curse.maven:justdirethings-1002348:7463040"
     
     //compats
     implementation "curse.maven:ae2-223794:6140781"

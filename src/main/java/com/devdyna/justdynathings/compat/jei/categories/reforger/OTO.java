@@ -2,25 +2,24 @@ package com.devdyna.justdynathings.compat.jei.categories.reforger;
 
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.recipetypes.type.*;
-import com.devdyna.justdynathings.utils.DataGenUtil;
-
+import com.devdyna.justdynathings.registry.types.zRecipeTypes;
 import mezz.jei.api.gui.builder.IRecipeSlotBuilder;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.RecipeType;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.RecipeHolder;
 
 public class OTO extends BaseReforgerCategory<ReforgerOTORecipe> {
 
-    public static final RecipeType<ReforgerOTORecipe> TYPE = new RecipeType<>(
-            DataGenUtil.getResource(Constants.DataMaps.Reforger.block_to_block),
-            ReforgerOTORecipe.class);
+    public static final RecipeType<RecipeHolder<ReforgerOTORecipe>> TYPE = 
+    RecipeType.createFromVanilla(zRecipeTypes.REFORGER_OTO.getType());
 
     public OTO(IGuiHelper helper) {
         super(helper);
     }
 
     @Override
-    public RecipeType<ReforgerOTORecipe> getRecipeType() {
+    public RecipeType<RecipeHolder<ReforgerOTORecipe>> getRecipeType() {
         return TYPE;
     }
 

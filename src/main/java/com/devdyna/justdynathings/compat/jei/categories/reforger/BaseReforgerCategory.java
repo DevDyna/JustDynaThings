@@ -13,10 +13,12 @@ import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.ItemLike;
 
 @SuppressWarnings("null")
-public abstract class BaseReforgerCategory<T> extends BaseRecipeCategory<T> {
+public abstract class BaseReforgerCategory<T extends Recipe<?>> extends BaseRecipeCategory<RecipeHolder<T>> {
 
         public BaseReforgerCategory(IGuiHelper helper) {
                 super(helper);
@@ -48,6 +50,10 @@ public abstract class BaseReforgerCategory<T> extends BaseRecipeCategory<T> {
         public abstract int setChance(T recipe);
 
         @Override
+        public void setRecipe(IRecipeLayoutBuilder builder, RecipeHolder<T> recipe, IFocusGroup focuses) {
+                setRecipe(builder, recipe.value(), focuses);
+        }
+
         public void setRecipe(IRecipeLayoutBuilder b, T recipe, IFocusGroup focuses) {
                 try {
                         setInput(b.addSlot(RecipeIngredientRole.INPUT, 4, 4), recipe);
@@ -68,11 +74,16 @@ public abstract class BaseReforgerCategory<T> extends BaseRecipeCategory<T> {
         }
 
         @Override
+        public void draw(RecipeHolder<T> recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX,
+            double mouseY) {
+                super.draw(recipe, recipeSlotsView, guiGraphics, mouseX, mouseY);
+        draw(recipe.value(), recipeSlotsView, guiGraphics, mouseX, mouseY);
+        }
+
         public void draw(T recipe, IRecipeSlotsView recipeSlotsView,
                         GuiGraphics guiGraphics,
                         double mouseX,
                         double mouseY) {
-                super.draw(recipe, recipeSlotsView, guiGraphics, mouseX, mouseY);
                 guiGraphics.drawString(Minecraft.getInstance().font,
                                 (setChance(recipe) < 10 ? " " : "")
                                                 + (setChance(recipe) < 100 ? " " : "")

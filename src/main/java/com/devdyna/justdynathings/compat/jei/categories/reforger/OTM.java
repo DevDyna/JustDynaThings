@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.recipetypes.type.*;
-import com.devdyna.justdynathings.utils.DataGenUtil;
+import com.devdyna.justdynathings.registry.types.zRecipeTypes;
 import mezz.jei.api.gui.builder.IRecipeSlotBuilder;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.RecipeType;
@@ -14,19 +14,19 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.component.ItemLore;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.RecipeHolder;
 
 public class OTM extends BaseReforgerCategory<ReforgerOTMRecipe> {
 
-    public static final RecipeType<ReforgerOTMRecipe> TYPE = new RecipeType<>(
-            DataGenUtil.getResource(Constants.DataMaps.Reforger.block_to_tag),
-            ReforgerOTMRecipe.class);
+    public static final RecipeType<RecipeHolder<ReforgerOTMRecipe>> TYPE = 
+    RecipeType.createFromVanilla(zRecipeTypes.REFORGER_OTM.getType());
 
     public OTM(IGuiHelper helper) {
         super(helper);
     }
 
     @Override
-    public RecipeType<ReforgerOTMRecipe> getRecipeType() {
+    public RecipeType<RecipeHolder<ReforgerOTMRecipe>> getRecipeType() {
         return TYPE;
     }
 

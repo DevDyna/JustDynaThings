@@ -45,10 +45,10 @@ public class DataLang extends LanguageProvider {
                                 "§7Repair items using Forge Energy");
 
                 add(ID + "." + Constants.Anvils.t4 + ".boost",
-                                "§7Can be boosted using Fluid Time");
+                                "§7Can be boosted using Time Fluid");
 
                 add(ID + "." + Constants.BuddingType,
-                                "§7Grow clusters using Fluid Time and Forge Energy");
+                                "§7Grow clusters using Time Fluid and Forge Energy");
 
                 // creative tab
                 add(ID + "." + Constants.CreativeTab, "Just Dyna Things");

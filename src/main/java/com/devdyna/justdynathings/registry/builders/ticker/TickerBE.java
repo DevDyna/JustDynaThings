@@ -44,12 +44,10 @@ public class TickerBE extends BaseMachineBE implements EnergyMachine, FluidMachi
     }
 
     @Override
-    public void tickClient() {
-    }
-
-    @Override
     public void tickServer() {
-        if (isActiveRedstone()) {
+        super.tickServer();
+
+
             BlockPos pos = getBlockPos()
                     .relative(getBlockState()
                             .getValue(BlockStateProperties.FACING));
@@ -69,12 +67,12 @@ public class TickerBE extends BaseMachineBE implements EnergyMachine, FluidMachi
                     MiscTools.doExtraTicks(serverLevel, pos, CommonConfig.TICKER_TICK_RATE.get());
 
             }
-        }
+        
     }
 
     public void checkState(BlockPos pos) {
         level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(zProperties.ACTIVE,
-                canExtractFE() && canExtractMB()));
+                canExtractFE() && canExtractMB()&& isActiveRedstone()));
     }
 
     public boolean blockValid(BlockPos pos) {

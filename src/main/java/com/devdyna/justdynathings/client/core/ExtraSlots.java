@@ -29,6 +29,7 @@ public interface ExtraSlots {
         Image.of().rl("minecraft",
                 "textures/gui/sprites/icon/unseen_notification.png")
                 .size(10, 10).offset( xOffset,  yOffset)
+                .sizeTexture(10, 10)
                 .render(guiGraphics);
     }
 

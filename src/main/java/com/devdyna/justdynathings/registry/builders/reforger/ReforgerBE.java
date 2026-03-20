@@ -64,7 +64,7 @@ public class ReforgerBE extends BaseMachineBE implements RedstoneControlledBE {
         if (item != null)
             updateBlock(item);
 
-        if (level.getGameTime() % tickSpeed == 0 && isActiveRedstone()
+        if (level.getGameTime() % tickSpeed == 0
                 && getBlockState().getValue(zProperties.ACTIVE).booleanValue()) {
 
             Optional<RecipeHolder<ReforgerOTORecipe>> oto = level.getRecipeManager()
@@ -104,41 +104,6 @@ public class ReforgerBE extends BaseMachineBE implements RedstoneControlledBE {
 
             }
 
-            // if (holder.getData(zDataMaps.REFORGER_oneToOne) != null) {
-            // if
-            // (stateRelated.is(holder.getData(zDataMaps.REFORGER_oneToOne).input().getBlock()))
-            // {
-            // success(holder.getData(zDataMaps.REFORGER_oneToOne).output(), posRel, item,
-            // level,
-            // holder.getData(zDataMaps.REFORGER_oneToOne).chanceToUse());
-            // return;
-            // }
-            // }
-
-            // if (holder.getData(zDataMaps.REFORGER_oneToMany) != null) {
-            // if
-            // (stateRelated.is(holder.getData(zDataMaps.REFORGER_oneToMany).input().getBlock()))
-            // {
-            // success(LevelUtil.ResourceByTag(
-            // holder.getData(zDataMaps.REFORGER_oneToMany).output(),
-            // LevelUtil.getRandomValue(
-            // LevelUtil.getSizeTag(holder.getData(zDataMaps.REFORGER_oneToMany).output()),
-            // level))
-            // .defaultBlockState(), posRel, item, level,
-            // holder.getData(zDataMaps.REFORGER_oneToMany).chanceToUse());
-            // return;
-            // }
-            // }
-
-            // if (holder.getData(zDataMaps.REFORGER_manyToOne) != null) {
-            // if (stateRelated.is(holder.getData(zDataMaps.REFORGER_manyToOne).input())) {
-            // success(holder.getData(zDataMaps.REFORGER_manyToOne).output(), posRel, item,
-            // level,
-            // holder.getData(zDataMaps.REFORGER_manyToOne).chanceToUse());
-            // return;
-            // }
-            // }
-
         }
     }
 
@@ -149,7 +114,7 @@ public class ReforgerBE extends BaseMachineBE implements RedstoneControlledBE {
         level.setBlockAndUpdate(getBlockPos(),
                 getBlockState()
                         .setValue(zProperties.ACTIVE,
-                                !item.isEmpty()));
+                                !item.isEmpty() && isActiveRedstone()));
     }
 
     public void success(BlockState b, BlockPos pos, ItemStack item, Level level, int cosChance) {

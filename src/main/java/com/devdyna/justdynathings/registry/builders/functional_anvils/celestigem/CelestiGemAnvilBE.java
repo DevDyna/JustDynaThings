@@ -29,6 +29,7 @@ public class CelestiGemAnvilBE extends CAnvilBE implements EnergyMachine {
 
     @Override
     public void tickServer() {
+        super.tickServer();
         var tool = getMachineHandler().getStackInSlot(0);
         if (isActiveRedstone()) {
             // getMachineHandler() only work inside tick event!

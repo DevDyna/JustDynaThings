@@ -35,6 +35,7 @@ public class EclipseAlloyAnvilBE extends CAnvilBE implements EnergyMachine, Flui
 
     @Override
     public void tickServer() {
+        super.tickServer();
         var fluid = getFluidStack().getFluidHolder().getData(zDataMaps.ECLIPSEALLOY_FLUID);
         var tool = getMachineHandler().getStackInSlot(0);
         if (isActiveRedstone() && fluid != null) // getMachineHandler() only work inside tick event!

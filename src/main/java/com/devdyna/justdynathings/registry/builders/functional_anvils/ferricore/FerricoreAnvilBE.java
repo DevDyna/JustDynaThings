@@ -31,6 +31,7 @@ public class FerricoreAnvilBE extends CAnvilBE {
 
     @Override
     public void tickServer() {
+        super.tickServer();
         var tool = getMachineHandler().getStackInSlot(0);
         var catalyst = getMachineHandler().getStackInSlot(1);
         if (isActiveRedstone()) {

@@ -13,6 +13,8 @@
 
 ### New entries
 
+- [ ] Wand Interface (clicker like but that allow to use a internal tank intend of item tank storage)
+
 - [ ] Advanced Energy Transmitter/Item Collector (?)
 - [ ] Experience pedestal (clicking with items generate experience)
 - [ ] Sculk Diffuser (Sculk Source without need to kill mobs)

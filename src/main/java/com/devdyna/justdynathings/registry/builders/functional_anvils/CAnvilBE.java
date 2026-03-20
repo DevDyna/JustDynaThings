@@ -36,14 +36,6 @@ public class CAnvilBE extends BaseMachineBE implements RedstoneControlledBE {
         return this;
     }
 
-    @Override
-    public void tickClient() {
-    }
-
-    @Override
-    public void tickServer() {
-    }
-
     public void applySound() {
         if (LevelUtil.chance(5, level) && CommonConfig.ANVILS_SOUND_EVENT.get())
             level.playSound(null, getBlockPos(),

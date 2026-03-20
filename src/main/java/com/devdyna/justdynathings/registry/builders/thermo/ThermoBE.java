@@ -50,28 +50,28 @@ public class ThermoBE extends BaseMachineBE
 
     @Override
     public void tickServer() {
-
+        super.tickServer();
         var heat = getHeatBlock().getBlock().builtInRegistryHolder()
                 .getData(zDataMaps.THERMO_HEAT_SOURCE);
 
         var coolant = getFluidStack().getFluidHolder().getData(zDataMaps.THERMO_COOLANT);
 
-        updateBlock(heat != null && coolant != null);
+        updateBlock(heat != null && coolant != null && isActiveRedstone());
 
-        if (heat != null && coolant != null)
-            if (isActiveRedstone() && canExtractMB() && canRecieveFE()) {
-                if (getBlockState().getValue(zProperties.ACTIVE).booleanValue()) {
+        if (getBlockState().getValue(zProperties.ACTIVE)) {
+            if (canExtractMB() && canRecieveFE()) {
 
-                    extractMBWhenPossible((int) ((125 / coolant.coolantEfficiency())));
+                extractMBWhenPossible((int) ((125 / coolant.coolantEfficiency())));
+                increaseFEWhenPossible((int) (125 * coolant.coolantEfficiency() * heat.heatEfficiency()));
 
-                    increaseFEWhenPossible((int) (125 * coolant.coolantEfficiency() * heat.heatEfficiency()));
-                }
-                if (canExtractFE())
-                    Actions.providePowerAdjacent(level,getBlockPos(),cache,getEnergyStored());
             }
+            if (canExtractFE())
+                chargeFEtoItemStack(level, getBlockPos(), getMachineHandler(), getEnergyStorage());
+        }
 
-        if (isActiveRedstone() && canExtractFE())
-            chargeFEtoItemStack(level, getBlockPos(), getMachineHandler(), getEnergyStorage());
+        if (canExtractFE())
+            Actions.providePowerAdjacent(level, getBlockPos(), cache, getEnergyStored());
+
     }
 
     public void updateBlock(boolean state) {

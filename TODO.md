@@ -11,7 +11,7 @@
 - [ ] Waterlogging many blocks
 - [ ] Budding JEI category
 
-### New entries
+### New entries (maybe 2.0?)
 
 - [ ] Wand Interface (clicker like but that allow to use a internal tank intend of item tank storage)
 

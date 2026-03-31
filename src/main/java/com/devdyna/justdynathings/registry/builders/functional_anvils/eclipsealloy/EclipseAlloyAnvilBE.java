@@ -38,13 +38,13 @@ public class EclipseAlloyAnvilBE extends CAnvilBE implements EnergyMachine, Flui
         super.tickServer();
         var fluid = getFluidStack().getFluidHolder().getData(zDataMaps.ECLIPSEALLOY_FLUID);
         var tool = getMachineHandler().getStackInSlot(0);
-        if (isActiveRedstone() && fluid != null) // getMachineHandler() only work inside tick event!
+        if (isActiveRedstone()) // getMachineHandler() only work inside tick event!
             if (canExtractFE() && tool.isDamageableItem() && !tool.is(zItemTags.ECLIPSE_ALLOY_ANVIL_DENY)
                     && tool.isDamaged()) {
                 if (CommonConfig.ANVIL_ECLIPSEALLOY_SOUND_EVENT.get())
                     applySound();
 
-                if (canExtractMB() && getEnergyStored() >= getDamageLimit()) {
+                if (fluid != null && canExtractMB() && getEnergyStored() >= getDamageLimit()) {
                     if (tool.getMaxDamage() >= getDamageLimit()
                             && tool.getDamageValue() >= tool.getMaxDamage() / fluid.percentuage())
                         Actions.repairItem(tool,

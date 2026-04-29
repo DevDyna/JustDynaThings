@@ -1,0 +1,63 @@
+repositories {
+
+mavenLocal()
+    
+    maven { url = "https://maven.ithundxr.dev/snapshots" } // Registrate
+    maven { url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/" }
+    maven { url = "https://maven.createmod.net" }
+
+
+    //required for jei
+        maven {
+        url = "https://maven.blamejared.com"
+    }
+
+    maven {
+        url "https://cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
+}
+
+
+dependencies {
+
+ 
+
+    //compat
+    compileOnly "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"
+    compileOnly "mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}"
+    runtimeOnly "mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}"
+    implementation "curse.maven:jade-324717:7886513"
+
+ 
+  
+
+    //main
+    //implementation "curse.maven:justdirethings-1002348:7463040"
+    
+    //compats
+    //implementation "curse.maven:ae2-223794:6140781"
+    //implementation "curse.maven:extendedae-892005:6164133"
+
+    //implementation "curse.maven:guideme-1173950:6688687"
+    //implementation "curse.maven:geore-530544:7075069"
+    //implementation "curse.maven:chisel-1392308:7307989"
+
+    //datagen libs
+    //implementation "curse.maven:glodium-957920:5821676"
+    //implementation "curse.maven:kotlin-351264:6994056"
+    //implementation "curse.maven:owo-532610:6785734"
+    //implementation "curse.maven:ctm-267602:5587515"
+    //implementation "curse.maven:baguete-1264423:7287507"
+
+    
+
+
+   
+   
+   
+   
+  
+}

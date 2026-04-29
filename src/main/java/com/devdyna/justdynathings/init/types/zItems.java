@@ -87,4 +87,6 @@ public class zItems {
 
         public static final DeferredHolder<Item, ?> ABSTRACT_PARADOX = zWands.registerSimpleItem("abstract_paradox");
 
+        public static final DeferredHolder<Item, ?> DESTRUCTION_WAND = zWands.registerSimpleItem("destruction_wand");
+
 }

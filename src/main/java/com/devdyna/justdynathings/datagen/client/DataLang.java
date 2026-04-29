@@ -19,7 +19,6 @@ public class DataLang extends LanguageProvider {
         @Override
         protected void addTranslations() {
 
-                // addBlock(zBlocks.QUERN, "Quern");
 
                 zItems.zItem.getEntries().forEach(i -> addItem(i, named(i, MODULE_ID)));
 

@@ -23,13 +23,13 @@ description='''${mod_description}'''
 [[dependencies.${mod_id}]]
     modId="justdirethings"
     type="required"
-    versionRange="${justdirethings_range}"
+    versionRange="${justdirethings_version}"
     ordering="BEFORE"
     side="BOTH"
 
 [[dependencies.${mod_id}]]
     modId="cakesticklib"
     type="required"
-    versionRange="${cakesticklib_range}"
+    versionRange="${cakesticklib_version}"
     ordering="BEFORE"
     side="BOTH"

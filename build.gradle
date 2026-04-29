@@ -58,6 +58,10 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
             mod_license            : mod_license,
             mod_version            : mod_version,
             mod_description        : mod_description,
+            cakesticklib_version   : cakesticklib_version,
+            cakesticklib           : cakesticklib,
+            justdirethings_version : justdirethings_version,
+            justdirethings         : justdirethings,
     ]
     inputs.properties replaceProperties
     expand replaceProperties

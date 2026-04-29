@@ -1,0 +1,48 @@
+package com.devdyna.justdynathings.init.builder.black_hole;
+
+import com.direwolf20.justdirethings.client.screens.basescreens.BaseMachineScreen;
+import com.direwolf20.justdirethings.client.screens.standardbuttons.ToggleButtonFactory;
+import com.direwolf20.justdirethings.client.screens.widgets.ToggleButton;
+import com.direwolf20.justdirethings.util.MiscHelpers;
+
+import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.Slot;
+
+public class BlackHoleScreen extends BaseMachineScreen<BlackHoleGUI> {
+    public BlackHoleScreen(BlackHoleGUI container, Inventory inv, Component name) {
+        super(container, inv, name);
+    }
+
+    @Override
+    public void init() {
+        super.init();
+    }
+
+    @Override
+    public void setTopSection() {
+        extraWidth = 0;
+        extraHeight = 0;
+    }
+
+    @Override
+    public void addRedstoneButtons() {
+        addRenderableWidget(ToggleButtonFactory.REDSTONEBUTTON(getLeftPos() + 104, topSectionTop + 38,
+                redstoneMode.ordinal(), b -> {
+                    redstoneMode = MiscHelpers.RedstoneMode.values()[((ToggleButton) b).getTexturePosition()];
+                    saveSettings();
+                }));
+    }
+
+    @Override
+    public void addTickSpeedButton() {
+        // empty remove tick button
+    }
+
+    @Override
+    protected void drawMachineSlot(GuiGraphicsExtractor guiGraphics, Slot slot) {
+        super.drawMachineSlot(guiGraphics, slot);
+    }
+
+}

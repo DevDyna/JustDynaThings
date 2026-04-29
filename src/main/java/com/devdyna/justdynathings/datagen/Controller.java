@@ -1,55 +1,54 @@
 package com.devdyna.justdynathings.datagen;
 
+import static com.devdyna.justdynathings.JustDynaThings.MODULE_ID;
+
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
-import com.devdyna.justdynathings.Main;
+import com.devdyna.cakesticklib.CakeStickLib;
 import com.devdyna.justdynathings.datagen.client.*;
 import com.devdyna.justdynathings.datagen.server.*;
+import com.devdyna.justdynathings.datagen.server.DataAdvancement.DataAdvancementGenerator;
 
 import net.minecraft.core.HolderLookup;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.data.DataProvider;
-import net.minecraft.data.PackOutput;
+import net.minecraft.core.RegistrySetBuilder;
+import net.minecraft.data.*;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
-@SuppressWarnings({ "removal", "deprecation" })
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, modid = Main.ID)
+@EventBusSubscriber(modid = MODULE_ID)
 public class Controller {
     @SubscribeEvent
-    public static void gatherData(GatherDataEvent e) {
-        DataGenerator g = e.getGenerator();
-        PackOutput po = g.getPackOutput();
-        ExistingFileHelper f = e.getExistingFileHelper();
-        CompletableFuture<HolderLookup.Provider> pr = e.getLookupProvider();
+    public static void gatherData(GatherDataEvent.Client e) {
+        DataGenerator gen = e.getGenerator();
+        CompletableFuture<HolderLookup.Provider> provider = e.getLookupProvider();
+        // PackGenerator v = gen.getVanillaPack(true);
+        var output = gen.getPackOutput();
+
+        e.createDatapackRegistryObjects(new RegistrySetBuilder(),
+                Set.of("minecraft", MODULE_ID, CakeStickLib.MODULE_ID));
 
         // client
 
-        providerGen(e, g, new DataBlockModelState(po, f));
-        providerGen(e, g, new DataItemModel(po, f));
-        providerGen(e, g, new DataLang(po));
+        e.addProvider(new DataLang(output));
 
         // server
-        DataBlockTag blocktag = new DataBlockTag(po, pr, f);
-        providerGen(e, g, blocktag);
-        providerGen(e, g, new DataItemTag(po, pr, blocktag.contentsGetter(),f));
-        providerGen(e, g, new DataBiomeTag(po, pr, f));
-        providerGen(e, g, new LootTableProvider(po, Set.of(), List.of(new LootTableProvider.SubProviderEntry(DataLoot::new, LootContextParamSets.BLOCK)), pr));
-        providerGen(e, g, new DataRecipe(po, pr));
-        providerGen(e, g, new DataMaps(po, pr));
-        providerGen(e, g, new DataFluidTag(po, pr, f));
-        providerGen(e, g, new DataEntityTag(po, pr, blocktag.contentsGetter(), f));
 
-    }
+        e.addProvider(new DataAdvancement(output, provider, List.of(new DataAdvancementGenerator())));
 
-    private static <T extends DataProvider> void providerGen(GatherDataEvent e, DataGenerator g, T f) {
-        g.addProvider(e.includeClient(), f);
+        e.addProvider(new DataBlockTag(output, provider));
+
+        e.addProvider(new LootTableProvider(output, Set.of(),
+                List.of(
+                        new LootTableProvider.SubProviderEntry(DataLootBlock::new, LootContextParamSets.BLOCK)),
+                provider));
+
+        e.createProvider(DataRecipe.RecipeRunner::new);
+
     }
 
 }

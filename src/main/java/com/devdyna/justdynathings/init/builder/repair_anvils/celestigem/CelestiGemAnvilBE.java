@@ -1,0 +1,64 @@
+package com.devdyna.justdynathings.init.builder.repair_anvils.celestigem;
+
+import com.devdyna.justdynathings.Config;
+import com.devdyna.justdynathings.api.repair_anvils.CAnvilBE;
+import com.devdyna.justdynathings.init.types.zBlockEntities;
+import com.devdyna.justdynathings.interfaces.be.EnergyMachine;
+import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineContainerData;
+import com.direwolf20.justdirethings.common.capabilities.MachineEnergyStorage;
+import com.direwolf20.justdirethings.setup.JDTRegistration;
+
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockState;
+
+public class CelestiGemAnvilBE extends CAnvilBE implements EnergyMachine {
+
+    public final PoweredMachineContainerData poweredMachineData = new PoweredMachineContainerData(this);
+
+    public CelestiGemAnvilBE(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState) {
+        super(pType, pPos, pBlockState);
+        this.MACHINE_SLOTS = 1;
+    }
+
+    public CelestiGemAnvilBE(BlockPos pos, BlockState state) {
+        this(zBlockEntities.CELESTIGEM_ANVIL.get(), pos, state);
+    }
+
+    @Override
+    public void tickServer() {
+        super.tickServer();// TODO
+        // var tool = getMachineHandler().getStackInSlot(0);
+        // if (isActiveRedstone()) {
+        // // getMachineHandler() only work inside tick event!
+        // if (canExtractFE() && tool.isDamageableItem()
+        // && tool.isDamaged() && !tool.is(zItemTags.CELESTIGEM_DENY)) {
+        // extractFEWhenPossible();
+        // Actions.repairItem(tool);
+        // if (CommonConfig.ANVIL_CELESTIGEM_SOUND_EVENT.get())
+        // applySound();
+        // }
+        // }
+    }
+
+    @Override
+    public PoweredMachineContainerData getContainerData() {
+        return poweredMachineData;
+    }
+
+    @Override
+    public MachineEnergyStorage getEnergyStorage() {
+        return getData(JDTRegistration.ENERGYSTORAGE_MACHINES);
+    }
+
+    @Override
+    public int getStandardEnergyCost() {
+        return Config.ANVILS_CELESTIGEM_FE_RATE.get();
+    }
+
+    @Override
+    public int getMaxEnergy() {
+        return Config.ANVILS_CELESTIGEM_FE_CAPACITY.get();
+    }
+
+}

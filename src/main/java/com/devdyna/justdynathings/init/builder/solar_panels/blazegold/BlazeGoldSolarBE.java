@@ -1,0 +1,65 @@
+package com.devdyna.justdynathings.init.builder.solar_panels.blazegold;
+
+
+import com.devdyna.justdynathings.Config;
+import com.devdyna.justdynathings.api.solar_panels.SolarBaseBE;
+import com.devdyna.justdynathings.init.types.zBiomeTags;
+import com.devdyna.justdynathings.init.types.zBlockEntities;
+
+import net.minecraft.core.BlockPos;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockState;
+
+public class BlazeGoldSolarBE extends SolarBaseBE {
+
+    public BlazeGoldSolarBE(BlockEntityType<?> type, BlockPos pos, BlockState blockState) {
+        super(type, pos, blockState);
+    }
+
+    public BlazeGoldSolarBE(BlockPos pos, BlockState blockState) {
+        this(zBlockEntities.BLAZEGOLD_SOLARGEN.get(), pos, blockState);
+    }
+
+    @Override
+    public int getMaxEnergy() {
+        return Config.SOLARPANEL_BLAZEGOLD_FE_CAPACITY.get();
+    }
+
+    @Override
+    public int FErate() {
+        return Config.SOLARPANEL_BLAZEGOLD_FE_RATE.get();
+    }
+
+    @Override
+    public boolean enableMultiPopulator() {
+        return Config.SOLARPANEL_BLAZEGOLD_ENABLE_SPAM.get();
+    }
+
+    @Override
+    public boolean enableMultiYLevel() {
+        return Config.SOLARPANEL_BLAZEGOLD_ENABLE_YLEVEL.get();
+    }
+
+    @Override
+    public boolean enableCleanSky() {
+        return Config.SOLARPANEL_BLAZEGOLD_ENABLE_SKY.get();
+    }
+
+    @Override
+    public boolean enableDayTimeOnly() {
+        return Config.SOLARPANEL_BLAZEGOLD_ENABLE_DAYTIME.get();
+    }
+
+    @Override
+    public TagKey<Biome> getBiomeTag() {
+        return zBiomeTags.BLAZEGOLD_SOLAR_PANEL_BIOME_LIST;
+    }
+
+    @Override
+    public boolean isAllowBiome() {
+        return Config.SOLARPANEL_BLAZEGOLD_BIOMES.get();
+    }
+
+}

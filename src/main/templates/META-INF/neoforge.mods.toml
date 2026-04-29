@@ -20,11 +20,16 @@ description='''${mod_description}'''
     ordering="NONE"
     side="BOTH"
 
-
-
 [[dependencies.${mod_id}]]
     modId="justdirethings"
     type="required"
-    versionRange="[1.6.8,)"
-    ordering="AFTER"
+    versionRange="${justdirethings_range}"
+    ordering="BEFORE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="cakesticklib"
+    type="required"
+    versionRange="${cakesticklib_range}"
+    ordering="BEFORE"
     side="BOTH"

@@ -29,11 +29,12 @@ dependencies {
     runtimeOnly "mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}"
     implementation "curse.maven:jade-324717:7886513"
 
- 
+    //lib
+    implementation "curse.maven:cakesticklib-1516173:${cakesticklib}"
   
 
     //main
-    implementation "curse.maven:justdirethings-1002348:8001981"
+    implementation "curse.maven:justdirethings-1002348:${justdirethings}"
     
     //compats
     //implementation "curse.maven:ae2-223794:6140781"

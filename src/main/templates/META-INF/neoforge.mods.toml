@@ -1,18 +1,15 @@
-modLoader="javafml"
-loaderVersion="${loader_version_range}"
 license="${mod_license}"
-
 [[mods]]
 modId="${mod_id}"
 version="${mod_version}"
 displayName="${mod_name}"
-authors="${mod_authors}"
 description='''${mod_description}'''
+
 
 [[dependencies.${mod_id}]]
     modId="neoforge"
     type="required"
-    versionRange="${neo_version_range}"
+    versionRange="[${neo_version},)"
     ordering="NONE"
     side="BOTH"
 
@@ -23,59 +20,11 @@ description='''${mod_description}'''
     ordering="NONE"
     side="BOTH"
 
+
+
 [[dependencies.${mod_id}]]
     modId="justdirethings"
     type="required"
-    versionRange="${dire_version_range}"
-    ordering="AFTER"
-    side="BOTH"
-
-[[dependencies.${mod_id}]]
-    modId="ae2"
-    type="optional"
-    versionRange="${ae_version_range}"
-    ordering="AFTER"
-    side="BOTH"
-
-[[dependencies.${mod_id}]]
-    modId="extendedae"
-    type="optional"
-    versionRange="${extendedae_version_range}"
-    ordering="AFTER"
-    side="BOTH"
-
-[[dependencies.${mod_id}]]
-    modId="phasoritenetworks"
-    type="optional"
-    versionRange="${phasorite_version_range}"
-    ordering="AFTER"
-    side="BOTH"
-
-[[dependencies.${mod_id}]]
-    modId="guideme"
-    type="optional"
-    versionRange="${guideme_version_range}"
-    ordering="AFTER"
-    side="BOTH"
-
-[[dependencies.${mod_id}]]
-    modId="jei"
-    type="optional"
-    versionRange="[${jei_version},)"
-    ordering="AFTER"
-    side="BOTH"
-
-[[dependencies.${mod_id}]]
-    modId="geore"
-    type="optional"
-    versionRange="[${geore_version},)"
-    ordering="AFTER"
-    side="BOTH"
-
-
-[[dependencies.${mod_id}]]
-    modId="chisel"
-    type="optional"
-    versionRange="${chisel_version}"
+    versionRange="[1.6.8,)"
     ordering="AFTER"
     side="BOTH"

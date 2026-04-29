@@ -2,6 +2,26 @@
 
 ### Porting changes
 
+- [ ] goo upgraders
+
+- [ ] swapper_wand
+- [ ] picker_wand
+- [ ] temporal_stupefy_wand
+- [ ] advanced_time_wand
+- [ ] light_wand
+- [ ] advanced_light_wand
+- [ ] phase_box
+- [ ] reforger
+- [ ] FerricoreClock
+- [ ] Stabilizer
+- [ ] Ticker
+- [ ] thermo_generator
+- [ ] paradox_mixer
+- [ ] blackhole
+- [ ] Anvils
+
+- [ ] SolarPanels;
+
 - [ ] Datamaps to recipe types
 - [ ] Ticker speed rate GUI [#28](https://github.com/DevDyna/JustDynaThings/issues/28)
 - [ ] Generator T2-3-4

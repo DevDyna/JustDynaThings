@@ -1,39 +1,30 @@
 # TODO LIST
 
-### Tweaks
+### Porting changes
 
-- [x] Ticker , Light Wand , Advanced Light Wand documentation
-
-- [ ] Ticker & Reforger datagen
-
-- [ ] Buddings datagen (?)
-- [ ] BlackHole rework and datagen (?)
-- [ ] Waterlogging many blocks
-- [ ] Budding JEI category
-
-### New entries (maybe 2.0?)
-
-- [ ] Wand Interface (clicker like but that allow to use a internal tank intend of item tank storage)
-
-- [ ] Advanced Energy Transmitter/Item Collector (?)
-- [ ] Experience pedestal (clicking with items generate experience)
-- [ ] Sculk Diffuser (Sculk Source without need to kill mobs)
-- [ ] Buffed Fuels (fuel with high multiplier)
-- [ ] Reforger T2 (?)
-- [ ] Experience Reactor (farmable xp mob-less)
-- [ ] Bacteria Catalyst (Eclipse staff like but descructive)
+- [ ] Datamaps to recipe types
+- [ ] Ticker speed rate GUI [#28](https://github.com/DevDyna/JustDynaThings/issues/28)
 - [ ] Generator T2-3-4
-- [ ] Paradox Box (Pandora's Box like)
 
-- [ ] Pocket generator T2-3-4 [(?)](https://github.com/Direwolf20-MC/JustDireThings/blob/main/src/main/resources/assets/justdirethings/textures/item/pocket_generator_t4.png)
-- [ ] Advanced Experience holder
+- [ ] Standardize echoing buddings
+
+## Secondary stuff
+
+- [ ] Rework paradox mixer -> simple mixer
+
 - [ ] Paradox Decreaser
 - [ ] Paradox Stabilizer (controllable paradox entity)
 - [ ] Paradox Generator (paradox -> FE)
 - [ ] Paradox Materializer (goo recipes in-gui)
+
+## Undefined
+
+- [ ] Bacteria Catalyst (Eclipse staff like but descructive)
+
+- [ ] Advanced Energy Transmitter/Item Collector (?)
+
+- [ ] Pocket generator T2-3-4 [(?)](https://github.com/Direwolf20-MC/JustDireThings/blob/main/src/main/resources/assets/justdirethings/textures/item/pocket_generator_t4.png)
+
+- [ ] Advanced Experience holder
+
 - [ ] Machine GPS (AOE configurable like rftools builder cards)
-
-### Things that doesn't work on actual codebase (require mixin)
-
-- Rocket Boots -> enum Abilities
-- Mushroom Tree Feller -> enum Abilities

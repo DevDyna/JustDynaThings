@@ -1,5 +1,6 @@
 package com.devdyna.justdynathings;
 
+import com.devdyna.justdynathings.api.solar_panels.SolarPanelScreen;
 import com.devdyna.justdynathings.init.builder.black_hole.BlackHoleScreen;
 import com.devdyna.justdynathings.init.builder.ferricore_clock.FerricoreClockScreen;
 import com.devdyna.justdynathings.init.builder.goo.creative.CreativeGooRender;
@@ -9,10 +10,11 @@ import com.devdyna.justdynathings.init.builder.repair_anvils.blazegold.BlazeGold
 import com.devdyna.justdynathings.init.builder.repair_anvils.celestigem.CelestiGemAnvilScreen;
 import com.devdyna.justdynathings.init.builder.repair_anvils.eclipsealloy.EclipseAlloyAnvilScreen;
 import com.devdyna.justdynathings.init.builder.repair_anvils.ferricore.FerricoreAnvilScreen;
-import com.devdyna.justdynathings.init.builder.solar_panels.blazegold.BlazegoldSolarPanelScreen;
-import com.devdyna.justdynathings.init.builder.solar_panels.celestigem.CelestigemSolarPanelScreen;
-import com.devdyna.justdynathings.init.builder.solar_panels.eclipsealloy.EclipseAlloySolarPanelScreen;
-import com.devdyna.justdynathings.init.builder.solar_panels.ferricore.FerricoreSolarPanelScreen;
+import com.devdyna.justdynathings.init.builder.solar_panels.blazegold.BlazeGoldSolarBE;
+import com.devdyna.justdynathings.init.builder.solar_panels.blazegold.BlazegoldSolarPanelGUI;
+import com.devdyna.justdynathings.init.builder.solar_panels.celestigem.CelestigemSolarPanelGUI;
+import com.devdyna.justdynathings.init.builder.solar_panels.eclipsealloy.EclipseAlloySolarPanelGUI;
+import com.devdyna.justdynathings.init.builder.solar_panels.ferricore.FerricoreSolarPanelGUI;
 import com.devdyna.justdynathings.init.builder.ticker.TickerScreen;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
 import com.devdyna.justdynathings.init.types.zContainers;
@@ -59,10 +61,10 @@ public class Client {
         event.register(zContainers.CELESTIGEM_ANVIL.get(), CelestiGemAnvilScreen::new);
         event.register(zContainers.ECLIPSEALLOY_ANVIL.get(), EclipseAlloyAnvilScreen::new);
 
-        event.register(zContainers.FERRICORE_SOLAR_PANEL.get(), FerricoreSolarPanelScreen::new);
-        event.register(zContainers.BLAZEGOLD_SOLAR_PANEL.get(), BlazegoldSolarPanelScreen::new);
-        event.register(zContainers.CELESTIGEM_SOLAR_PANEL.get(), CelestigemSolarPanelScreen::new);
-        event.register(zContainers.ECLIPSEALLOY_SOLAR_PANEL.get(), EclipseAlloySolarPanelScreen::new);
+        event.register(zContainers.FERRICORE_SOLAR_PANEL.get(), SolarPanelScreen<FerricoreSolarPanelGUI>::new);
+        event.register(zContainers.BLAZEGOLD_SOLAR_PANEL.get(), SolarPanelScreen<BlazegoldSolarPanelGUI>::new);
+        event.register(zContainers.CELESTIGEM_SOLAR_PANEL.get(), SolarPanelScreen<CelestigemSolarPanelGUI>::new);
+        event.register(zContainers.ECLIPSEALLOY_SOLAR_PANEL.get(), SolarPanelScreen<EclipseAlloySolarPanelGUI>::new);
 
         event.register(zContainers.PARADOX_MIXER.get(), ParadoxMixerScreen::new);
     }

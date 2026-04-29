@@ -1,10 +1,10 @@
 package com.devdyna.justdynathings.init.builder.paradox_mixer;
 
 import com.devdyna.justdynathings.Config;
+import com.devdyna.justdynathings.api.be.FluidMachine;
 import com.devdyna.justdynathings.init.builder.stabilizer.StabilizerBlock;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
 import com.devdyna.justdynathings.init.types.zProperties;
-import com.devdyna.justdynathings.interfaces.be.FluidMachine;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.FluidContainerData;
 import com.direwolf20.justdirethings.common.capabilities.JustDireFluidTank;

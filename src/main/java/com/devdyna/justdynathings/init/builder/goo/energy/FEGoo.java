@@ -2,8 +2,8 @@ package com.devdyna.justdynathings.init.builder.goo.energy;
 
 import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.api.RandomUtil;
+import com.devdyna.justdynathings.api.be.EnergyMachine;
 import com.devdyna.justdynathings.init.types.zProperties;
-import com.devdyna.justdynathings.interfaces.be.EnergyMachine;
 import com.direwolf20.justdirethings.common.blockentities.basebe.GooBlockBE_Base;
 import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineContainerData;
 import com.direwolf20.justdirethings.common.capabilities.MachineEnergyStorage;

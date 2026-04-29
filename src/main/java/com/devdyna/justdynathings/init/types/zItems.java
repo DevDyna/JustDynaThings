@@ -22,10 +22,12 @@ public class zItems {
                 zBlockItem.register(bus);
                 zWands.register(bus);
                 zGooUpgraders.register(bus);
+                zSpecial.register(bus);
         }
 
         //
         public static final DeferredRegister.Items zItem = DeferredRegister.createItems(MODULE_ID);
+        public static final DeferredRegister.Items zSpecial = DeferredRegister.createItems(MODULE_ID);
         public static final DeferredRegister.Items zWands = DeferredRegister.createItems(MODULE_ID);
         public static final DeferredRegister.Items zGooUpgraders = DeferredRegister.createItems(MODULE_ID);
         public static final DeferredRegister.Items zBlockItem = DeferredRegister.createItems(MODULE_ID);
@@ -82,5 +84,7 @@ public class zItems {
         public static final DeferredHolder<Item, ?> ADVANCED_LIGHT_WAND = zWands.registerItem(
                         Constants.Wands.AdvancedLight,
                         p -> new AdvancedLightWand(p));
+
+        public static final DeferredHolder<Item, ?> ABSTRACT_PARADOX = zWands.registerSimpleItem("abstract_paradox");
 
 }

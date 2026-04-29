@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.interfaces.be;
+package com.devdyna.justdynathings.api.be;
 
 import com.direwolf20.justdirethings.common.blockentities.basebe.FluidMachineBE;
 

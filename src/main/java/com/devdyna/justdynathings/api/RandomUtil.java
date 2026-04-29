@@ -2,6 +2,7 @@ package com.devdyna.justdynathings.api;
 
 import net.minecraft.world.level.Level;
 
+//TODO move to api
 public class RandomUtil {
     public static boolean chance(Level level, int chance) {
         return level.getRandom().nextInt(100) < chance;

@@ -1,9 +1,9 @@
 package com.devdyna.justdynathings.init.builder.repair_anvils.celestigem;
 
 import com.devdyna.justdynathings.Config;
+import com.devdyna.justdynathings.api.be.EnergyMachine;
 import com.devdyna.justdynathings.api.repair_anvils.CAnvilBE;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
-import com.devdyna.justdynathings.interfaces.be.EnergyMachine;
 import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineContainerData;
 import com.direwolf20.justdirethings.common.capabilities.MachineEnergyStorage;
 import com.direwolf20.justdirethings.setup.JDTRegistration;

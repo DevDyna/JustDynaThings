@@ -3,9 +3,9 @@ package com.devdyna.justdynathings.init.builder.repair_anvils.blazegold;
 
 
 import com.devdyna.justdynathings.Config;
+import com.devdyna.justdynathings.api.be.FluidMachine;
 import com.devdyna.justdynathings.api.repair_anvils.CAnvilBE;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
-import com.devdyna.justdynathings.interfaces.be.FluidMachine;
 import com.direwolf20.justdirethings.common.blockentities.basebe.FluidContainerData;
 import com.direwolf20.justdirethings.common.capabilities.JustDireFluidTank;
 import com.direwolf20.justdirethings.setup.JDTRegistration;

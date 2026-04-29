@@ -1,6 +1,5 @@
 package com.devdyna.justdynathings.init.builder;
 
-
 import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.EnumSet;
@@ -11,6 +10,8 @@ import java.util.stream.Collectors;
 import org.jspecify.annotations.Nullable;
 
 import com.devdyna.cakesticklib.api.utils.x;
+import com.devdyna.justdynathings.init.types.zItems;
+import com.direwolf20.justdirethings.common.entities.ParadoxEntity;
 import com.direwolf20.justdirethings.common.entities.TimeWandEntity;
 import com.direwolf20.justdirethings.common.items.datacomponents.JustDireDataComponents;
 import com.direwolf20.justdirethings.common.items.interfaces.Ability;
@@ -19,15 +20,19 @@ import com.direwolf20.justdirethings.common.items.interfaces.AbilityParams;
 import com.direwolf20.justdirethings.common.items.interfaces.BaseToggleableTool;
 import com.direwolf20.justdirethings.common.items.interfaces.LeftClickableTool;
 import com.direwolf20.justdirethings.setup.Config;
+import com.direwolf20.justdirethings.util.MiscTools;
+
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.EquipmentSlotGroup;
+import net.minecraft.world.entity.Entity.RemovalReason;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier.Operation;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
@@ -54,7 +59,7 @@ public class StupefyWand extends BaseToggleableTool implements LeftClickableTool
                 .component(JustDireDataComponents.STUPEFY_TARGETS, new ArrayList<>())
                 .stacksTo(1).durability(2048));
 
-        registerAbility(Ability.STUPEFY, new AbilityParams(1, 1, 1, 1, 200, 50));
+        registerAbility(Ability.STUPEFY, new AbilityParams(1, 1, 1, 1, 20, 10));
     }
 
     @Override
@@ -64,8 +69,6 @@ public class StupefyWand extends BaseToggleableTool implements LeftClickableTool
             armorTick(level, player, itemStack);
         }
     }
-
-  
 
     @Override
     public InteractionResult use(Level level, Player player, InteractionHand hand) {
@@ -80,7 +83,22 @@ public class StupefyWand extends BaseToggleableTool implements LeftClickableTool
 
         if (hitResult.getType() == Type.MISS) {
 
-            if (!level.isClientSide() && AbilityMethods.stupefy(level, player, item))
+            if (MiscTools.getEntityLookedAt(player, 32.0) instanceof ParadoxEntity paradox) {
+
+                paradox.remove(RemovalReason.DISCARDED);
+
+                var itemEntity = new ItemEntity(level,
+                        paradox.getX(), paradox.getY(), paradox.getZ(),
+                        x.item(zItems.ABSTRACT_PARADOX.get()));
+
+                itemEntity.setNoGravity(true);
+                itemEntity.setGlowingTag(true);
+
+                level.addFreshEntity(itemEntity);
+
+                return InteractionResult.SUCCESS;
+            }
+            if (AbilityMethods.stupefy(level, player, item))
                 return InteractionResult.SUCCESS;
         }
 
@@ -102,15 +120,13 @@ public class StupefyWand extends BaseToggleableTool implements LeftClickableTool
         return super.use(level, player, hand);
     }
 
-   
-
     // @Override
     // public void appendHoverText(ItemStack i, TooltipContext c, List<Component> t,
-    //         TooltipFlag f) {
+    // TooltipFlag f) {
 
-    //     t.add(Component.translatable(ID + "." + Constants.Wands.Stupefy));
+    // t.add(Component.translatable(ID + "." + Constants.Wands.Stupefy));
 
-    //     super.appendHoverText(i, c, t, f);
+    // super.appendHoverText(i, c, t, f);
 
     // }
 

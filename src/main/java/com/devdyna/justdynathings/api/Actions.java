@@ -2,7 +2,7 @@ package com.devdyna.justdynathings.api;
 
 import java.util.Map;
 
-import com.devdyna.justdynathings.interfaces.be.EnergyMachine;
+import com.devdyna.justdynathings.api.be.EnergyMachine;
 import com.mojang.logging.LogUtils;
 
 import net.minecraft.core.BlockPos;

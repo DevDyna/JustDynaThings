@@ -2,21 +2,20 @@
 
 ### Porting changes
 
-- [ ] goo upgraders
+- [x] goo upgraders
 
-- [ ] swapper_wand
-- [ ] picker_wand
-- [ ] temporal_stupefy_wand
-- [ ] advanced_time_wand
-- [ ] light_wand
-- [ ] advanced_light_wand
-- [ ] phase_box
-- [ ] reforger
-- [ ] FerricoreClock
-- [ ] Stabilizer
+- [x] swapper_wand
+- [x] picker_wand
+- [x] temporal_stupefy_wand
+- [x] advanced_time_wand
+- [x] light_wand
+- [x] advanced_light_wand
+- [x] phase_box
+- [x] reforger
+- [x] FerricoreClock
+- [x] Stabilizer
 - [ ] Ticker
-- [ ] thermo_generator
-- [ ] paradox_mixer
+- [ ] paradox_mixer rework
 - [ ] blackhole
 - [ ] Anvils
 

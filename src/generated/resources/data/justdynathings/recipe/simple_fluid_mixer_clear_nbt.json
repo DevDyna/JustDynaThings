@@ -2,9 +2,9 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    "justdynathings:paradox_mixer"
+    "justdynathings:simple_fluid_mixer"
   ],
   "result": {
-    "id": "justdynathings:paradox_mixer"
+    "id": "justdynathings:simple_fluid_mixer"
   }
 }

@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_paradox_mixer": {
+    "has_simple_fluid_mixer": {
       "conditions": {
         "items": [
           {
-            "items": "justdynathings:paradox_mixer"
+            "items": "justdynathings:simple_fluid_mixer"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "justdynathings:paradox_mixer_clear_nbt"
+        "recipe": "justdynathings:simple_fluid_mixer_clear_nbt"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_paradox_mixer"
+      "has_simple_fluid_mixer"
     ]
   ],
   "rewards": {
     "recipes": [
-      "justdynathings:paradox_mixer_clear_nbt"
+      "justdynathings:simple_fluid_mixer_clear_nbt"
     ]
   }
 }

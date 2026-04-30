@@ -8,18 +8,13 @@ import com.devdyna.cakesticklib.api.utils.x;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.init.types.zBlockTags;
 import com.devdyna.justdynathings.init.types.zBlocks;
-import com.devdyna.justdynathings.init.types.zComponents;
 import com.devdyna.justdynathings.init.types.zItemTags;
 import com.devdyna.justdynathings.init.types.zItems;
-import com.direwolf20.justdirethings.JustDireThings;
-import com.direwolf20.justdirethings.common.items.datacomponents.JustDireDataComponents;
 import com.direwolf20.justdirethings.datagen.recipes.GooSpreadRecipeBuilder;
 import com.direwolf20.justdirethings.setup.JDTRegistration;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderLookup.Provider;
-import net.minecraft.core.component.DataComponentPatch;
-import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
@@ -28,11 +23,9 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.Tags;
-import net.neoforged.neoforge.registries.DeferredHolder;
 
 public class DataRecipe extends RecipeProvider {
 
@@ -269,82 +262,6 @@ public class DataRecipe extends RecipeProvider {
                                 .group(Constants.GooUpgraders.base)
                                 .save(output);
 
-                // ---------------------------------------------------------------------------------------//
-
-                // wands(output);
-
-                shaped(RecipeCategory.MISC, zBlocks.TICKER.get())
-                                .pattern("ETE")
-                                .pattern("TPT")
-                                .pattern("ETE")
-                                .define('P', JDTRegistration.TimeWand.get())
-                                .define('T', Tags.Items.DUSTS_REDSTONE)
-                                .define('E', JDTRegistration.EclipseAlloyIngot.get())
-                                .unlockedBy(getHasName(JDTRegistration.EclipseAlloyIngot.get()),
-                                                has(
-                                                                JDTRegistration.EclipseAlloyIngot.get()))
-                                .group(Constants.Blocks.Ticker).save(output);
-
-        }
-
-        public static final class RecipeRunner extends RecipeProvider.Runner {
-                public RecipeRunner(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
-                        super(output, lookupProvider);
-                }
-
-                @Override
-                protected RecipeProvider createRecipeProvider(
-                                HolderLookup.Provider lookupProvider,
-                                RecipeOutput output) {
-                        return new DataRecipe(lookupProvider, output);
-                }
-
-                @Override
-                public String getName() {
-                        return "JustDynaThings";
-                }
-        }
-
-        @SuppressWarnings("unchecked")
-        private void wands(RecipeOutput c) {
-                var stupefy = new ItemStackTemplate(zItems.STUPEFY_WAND.get(), DataComponentPatch.builder()
-                                .set((DataComponentType<Boolean>) JustDireDataComponents.COMPONENTS.getEntries()
-                                                .stream()
-                                                .filter(e -> e.getId()
-                                                                .equals(x.rl("stupefy_upgrade_installed",
-                                                                                JustDireThings.MODID)))
-                                                .findFirst()
-                                                .map(DeferredHolder::get)
-                                                .orElse(null), true)
-                                .build());
-
-                shaped(RecipeCategory.MISC, stupefy)
-                                .pattern(" CE")
-                                .pattern(" IC")
-                                .pattern("I  ")
-                                .define('I', JDTRegistration.BlazegoldIngot.get())
-                                .define('C', Items.REDSTONE)
-                                .define('E', Items.QUARTZ)
-                                .unlockedBy(getHasName(JDTRegistration.BlazegoldIngot.get()), has(
-                                                JDTRegistration.BlazegoldIngot.get()))
-                                .group(Constants.Wands.Stupefy).save(output);
-
-                var time = new ItemStackTemplate(zItems.ADVANCED_TIME_WAND.get(),
-                                DataComponentPatch.builder()
-                                                .set(zComponents.MODE.get(), "normal")
-                                                .build());
-
-                shaped(RecipeCategory.MISC, time)
-                                .pattern(" EC")
-                                .pattern(" WE")
-                                .pattern("E  ")
-                                .define('C', JDTRegistration.TimeCrystal.get())
-                                .define('E', JDTRegistration.EclipseAlloyIngot.get())
-                                .define('W', JDTRegistration.TimeWand.get())
-                                .unlockedBy(getHasName(JDTRegistration.EclipseAlloyIngot.get()),
-                                                has(
-                                                                JDTRegistration.EclipseAlloyIngot.get()))
-                                .group(Constants.Wands.AdvancedTime).save(output);
 
                 shaped(RecipeCategory.MISC, zItems.LIGHT_WAND.get())
                                 .pattern("  G")
@@ -369,7 +286,86 @@ public class DataRecipe extends RecipeProvider {
                                                                 JDTRegistration.Celestigem.get()))
                                 .save(output);
 
+                shaped(RecipeCategory.MISC, zBlocks.TICKER.get())
+                                .pattern("ETE")
+                                .pattern("TPT")
+                                .pattern("ETE")
+                                .define('P', JDTRegistration.TimeWand.get())
+                                .define('T', Tags.Items.DUSTS_REDSTONE)
+                                .define('E', JDTRegistration.EclipseAlloyIngot.get())
+                                .unlockedBy(getHasName(JDTRegistration.EclipseAlloyIngot.get()),
+                                                has(
+                                                                JDTRegistration.EclipseAlloyIngot.get()))
+                                .group(Constants.Blocks.Ticker).save(output);
+
+
+
+
+
+   // var stupefy = new ItemStackTemplate(zItems.STUPEFY_WAND.get(), DataComponentPatch.builder()
+                //                 .set((DataComponentType<Boolean>) JustDireDataComponents.COMPONENTS.getEntries()
+                //                                 .stream()
+                //                                 .filter(e -> e.getId()
+                //                                                 .equals(x.rl("stupefy_upgrade_installed",
+                //                                                                 JustDireThings.MODID)))
+                //                                 .findFirst()
+                //                                 .map(DeferredHolder::get)
+                //                                 .orElse(null), true)
+                //                 .build());
+
+                // shaped(RecipeCategory.MISC, stupefy)
+                //                 .pattern(" CE")
+                //                 .pattern(" IC")
+                //                 .pattern("I  ")
+                //                 .define('I', JDTRegistration.BlazegoldIngot.get())
+                //                 .define('C', Items.REDSTONE)
+                //                 .define('E', Items.QUARTZ)
+                //                 .unlockedBy(getHasName(JDTRegistration.BlazegoldIngot.get()), has(
+                //                                 JDTRegistration.BlazegoldIngot.get()))
+                //                 .group(Constants.Wands.Stupefy).save(output);
+
+                // var time = new ItemStackTemplate(zItems.ADVANCED_TIME_WAND.get(),
+                //                 DataComponentPatch.builder()
+                //                                 .set(zComponents.MODE.get(), "normal")
+                //                                 .build());
+
+                // shaped(RecipeCategory.MISC, time)
+                //                 .pattern(" EC")
+                //                 .pattern(" WE")
+                //                 .pattern("E  ")
+                //                 .define('C', JDTRegistration.TimeCrystal.get())
+                //                 .define('E', JDTRegistration.EclipseAlloyIngot.get())
+                //                 .define('W', JDTRegistration.TimeWand.get())
+                //                 .unlockedBy(getHasName(JDTRegistration.EclipseAlloyIngot.get()),
+                //                                 has(
+                //                                                 JDTRegistration.EclipseAlloyIngot.get()))
+                //                 .group(Constants.Wands.AdvancedTime).save(output);
+
+                
+
+
+
         }
+
+        public static final class RecipeRunner extends RecipeProvider.Runner {
+                public RecipeRunner(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+                        super(output, lookupProvider);
+                }
+
+                @Override
+                protected RecipeProvider createRecipeProvider(
+                                HolderLookup.Provider lookupProvider,
+                                RecipeOutput output) {
+                        return new DataRecipe(lookupProvider, output);
+                }
+
+                @Override
+                public String getName() {
+                        return "JustDynaThings";
+                }
+        }
+
+       
 
         private void GooConversion(TagKey<Block> input, Block goo, RecipeOutput c) {
                 int tier = Integer.parseInt(x.path(goo).replace("gooblock_tier", ""));

@@ -54,7 +54,9 @@ public class StabilizerBE extends BaseMachineBE implements EnergyMachine, FluidM
 
         var block = level.getBlockState(getGooPos()).getBlock();
 
-        if (block instanceof GooBlock_Base && canExtractFE()) {
+        if(!canExtractFE()) return;
+
+        if (block instanceof GooBlock_Base) {
 
             if (level.getBlockState(getGooPos()).getValue(zProperties.GOO_ALIVE))
                 return;
@@ -70,7 +72,7 @@ public class StabilizerBE extends BaseMachineBE implements EnergyMachine, FluidM
 
         }
 
-        if (block instanceof TimeCrystalBuddingBlock time) {
+        if (block instanceof TimeCrystalBuddingBlock time && canExtractMB()) {
 
             var stage = level.getBlockState(getGooPos()).getValue(TimeCrystalBuddingBlock.STAGE);
 

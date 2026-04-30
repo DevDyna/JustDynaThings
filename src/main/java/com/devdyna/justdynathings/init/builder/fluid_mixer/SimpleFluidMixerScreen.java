@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.init.builder.paradox_mixer;
+package com.devdyna.justdynathings.init.builder.fluid_mixer;
 
 import com.devdyna.justdynathings.api.ExtraSlots;
 import com.direwolf20.justdirethings.client.screens.basescreens.BaseMachineScreen;

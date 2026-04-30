@@ -4,7 +4,7 @@ import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.JustDynaThings;
 import com.devdyna.justdynathings.init.builder.black_hole.BlackHoleGUI;
 import com.devdyna.justdynathings.init.builder.ferricore_clock.FerricoreClockGUI;
-import com.devdyna.justdynathings.init.builder.paradox_mixer.SimpleFluidMixerGUI;
+import com.devdyna.justdynathings.init.builder.fluid_mixer.SimpleFluidMixerGUI;
 import com.devdyna.justdynathings.init.builder.repair_anvils.blazegold.BlazeGoldAnvilGUI;
 import com.devdyna.justdynathings.init.builder.repair_anvils.celestigem.CelestiGemAnvilGUI;
 import com.devdyna.justdynathings.init.builder.repair_anvils.eclipsealloy.EclipseAlloyAnvilGUI;

@@ -7,7 +7,7 @@ import com.devdyna.justdynathings.init.builder.black_hole.BlackHoleBE;
 import com.devdyna.justdynathings.init.builder.ferricore_clock.FerricoreClockBE;
 import com.devdyna.justdynathings.init.builder.goo.creative.CreativeGooBE;
 import com.devdyna.justdynathings.init.builder.goo.energy.diregoo.*;
-import com.devdyna.justdynathings.init.builder.paradox_mixer.ParadoxMixerBE;
+import com.devdyna.justdynathings.init.builder.paradox_mixer.SimpleFluidMixerBE;
 import com.devdyna.justdynathings.init.builder.repair_anvils.blazegold.BlazeGoldAnvilBE;
 import com.devdyna.justdynathings.init.builder.repair_anvils.celestigem.CelestiGemAnvilBE;
 import com.devdyna.justdynathings.init.builder.repair_anvils.eclipsealloy.EclipseAlloyAnvilBE;
@@ -119,8 +119,8 @@ public class zBlockEntities {
             .createBlockEntity(Constants.Anvils.t4,zTiles,
                     EclipseAlloyAnvilBE::new, zBlocks.ECLIPSEALLOY_ANVIL);
 
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ParadoxMixerBE>> PARADOX_MIXER = RegistryUtils
-            .createBlockEntity(Constants.Blocks.ParadoxMixer,zTiles,
-                    ParadoxMixerBE::new, zBlocks.PARADOX_MIXER);
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SimpleFluidMixerBE>> SIMPLE_FLUID_MIXER = RegistryUtils
+            .createBlockEntity(Constants.Blocks.simple_fluid_mixer,zTiles,
+                    SimpleFluidMixerBE::new, zBlocks.SIMPLE_FLUID_MIXER);
 
 }

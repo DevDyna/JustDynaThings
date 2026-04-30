@@ -12,7 +12,7 @@ import com.devdyna.justdynathings.init.builder.ferricore_clock.FerricoreClockBlo
 import com.devdyna.justdynathings.init.builder.goo.creative.CreativeGoo;
 import com.devdyna.justdynathings.init.builder.goo.energy.diregoo.*;
 import com.devdyna.justdynathings.init.builder.light_wands.LightWandBlock;
-import com.devdyna.justdynathings.init.builder.paradox_mixer.ParadoxMixerBlock;
+import com.devdyna.justdynathings.init.builder.paradox_mixer.SimpleFluidMixerBlock;
 import com.devdyna.justdynathings.init.builder.repair_anvils.blazegold.BlazeGoldAnvilBlock;
 import com.devdyna.justdynathings.init.builder.repair_anvils.celestigem.CelestiGemAnvilBlock;
 import com.devdyna.justdynathings.init.builder.repair_anvils.eclipsealloy.EclipseAlloyAnvilBlock;
@@ -113,11 +113,8 @@ public class zBlocks {
         public static final DeferredHolder<Block, ?> ECLIPSEALLOY_ANVIL = 
                         registerItemBlock(Constants.Anvils.t4, EclipseAlloyAnvilBlock::new);
 
-        public static final DeferredHolder<Block, ?> PARADOX_MIXER = 
-                        registerItemBlock(Constants.Blocks.ParadoxMixer,  ParadoxMixerBlock::new);
-
-        public static final DeferredHolder<Block, ?> PARADOX_RENDER = zHidden
-                        .registerSimpleBlock(Constants.Blocks.ParadoxMixer + "_render");
+        public static final DeferredHolder<Block, ?> SIMPLE_FLUID_MIXER = 
+                        registerItemBlock(Constants.Blocks.simple_fluid_mixer,  SimpleFluidMixerBlock::new);
 
         public static final DeferredHolder<Block, ?> LIGHT_WAND_BLOCK = zHidden
                         .registerBlock(Constants.Wands.Light + "_block", LightWandBlock::new);

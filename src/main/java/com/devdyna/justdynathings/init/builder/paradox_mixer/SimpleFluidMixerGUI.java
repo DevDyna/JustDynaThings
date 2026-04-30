@@ -12,14 +12,14 @@ import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.item.ItemStack;
 
 @SuppressWarnings("null")
-public class ParadoxMixerGUI extends BaseMachineContainer {
+public class SimpleFluidMixerGUI extends BaseMachineContainer {
 
-    public ParadoxMixerGUI(int windowId, Inventory playerInventory, FriendlyByteBuf extraData) {
+    public SimpleFluidMixerGUI(int windowId, Inventory playerInventory, FriendlyByteBuf extraData) {
         this(windowId, playerInventory, extraData.readBlockPos());
     }
 
-    public ParadoxMixerGUI(int windowId, Inventory playerInventory, BlockPos blockPos) {
-        super(zContainers.PARADOX_MIXER.get(), windowId, playerInventory, blockPos);
+    public SimpleFluidMixerGUI(int windowId, Inventory playerInventory, BlockPos blockPos) {
+        super(zContainers.SIMPLE_FLUID_MIXER.get(), windowId, playerInventory, blockPos);
         addPlayerSlots(player.getInventory());
     }
 
@@ -32,7 +32,7 @@ public class ParadoxMixerGUI extends BaseMachineContainer {
 
     @Override
     public boolean stillValid(Player playerIn) {
-        return stillValid(ContainerLevelAccess.create(player.level(), pos), player, zBlocks.PARADOX_MIXER.get());
+        return stillValid(ContainerLevelAccess.create(player.level(), pos), player, zBlocks.SIMPLE_FLUID_MIXER.get());
     }
 
     @Override

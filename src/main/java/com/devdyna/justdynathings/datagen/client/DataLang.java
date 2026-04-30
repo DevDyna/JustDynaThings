@@ -78,7 +78,7 @@ public class DataLang extends LanguageProvider {
 
                 add(MODULE_ID + "." + Constants.Blocks.Stabilizer,
                                 "§7Feed Goo blocks and can be used to keep alive the paradox mixer");
-                add(MODULE_ID + "." + Constants.Blocks.ParadoxMixer,
+                add(MODULE_ID + "." + Constants.Blocks.simple_fluid_mixer,
                                 "§7Allow to mass-craft fluid drop recipes");
 
                 add(MODULE_ID + "." + Constants.Blocks.Ticker,
@@ -126,7 +126,7 @@ public class DataLang extends LanguageProvider {
 
                 add(MODULE_ID + ".jei.bucket", "Every Bucket");
 
-                add(MODULE_ID + "." + Constants.Blocks.ParadoxMixer + ".unstable", "Energized Stabilizer not found");
+                // add(MODULE_ID + "." + Constants.Blocks.simple_fluid_mixer + ".unstable", "Energized Stabilizer not found");
 
                 addBlock(zBlocks.LIGHT_WAND_BLOCK, "Light Wand Block");
 

@@ -141,8 +141,8 @@ public class Config {
 
         public static ConfigValue<Integer> ADVANCED_TIME_WAND_MAX_MULTIPLIER;
 
-        public static IntValue PARADOX_MIXER_MB_CAPACITY;
-        public static BooleanValue PARADOX_MIXER_SOUND_EVENT;
+        public static IntValue SIMPLE_FLUID_MIXER_MB_CAPACITY;
+        public static BooleanValue SIMPLE_FLUID_MIXER_SOUND_EVENT;
 
         public static IntValue TICKER_MB_CAPACITY;
         public static IntValue TICKER_MB_RATE;
@@ -645,16 +645,16 @@ public class Config {
         }
 
         private static void mixer() {
-                qCOMMON.comment(StringUtil.nameCapitalized(Blocks.ParadoxMixer)).push("8-" + Blocks.ParadoxMixer);
+                qCOMMON.comment(StringUtil.nameCapitalized(Blocks.simple_fluid_mixer)).push("8-" + Blocks.simple_fluid_mixer);
 
-                PARADOX_MIXER_MB_CAPACITY = qCOMMON
+                SIMPLE_FLUID_MIXER_MB_CAPACITY = qCOMMON
                                 .comment(ConfigKeys.Display.MB_MAX)
-                                .defineInRange(Blocks.ParadoxMixer + ConfigKeys.Values.MB_MAX, 1000, 1,
+                                .defineInRange(Blocks.simple_fluid_mixer + ConfigKeys.Values.MB_MAX, 1000, 1,
                                                 Integer.MAX_VALUE);
 
-                PARADOX_MIXER_SOUND_EVENT = qCOMMON
-                                .comment("Enable/Disable the entire sound event of paradox mixer")
-                                .define(Blocks.ParadoxMixer + ConfigKeys.Values.SOUND, true);
+                SIMPLE_FLUID_MIXER_SOUND_EVENT = qCOMMON
+                                .comment("Enable/Disable the entire sound event of simple fluid mixer")
+                                .define(Blocks.simple_fluid_mixer + ConfigKeys.Values.SOUND, true);
 
                 qCOMMON.pop();
 

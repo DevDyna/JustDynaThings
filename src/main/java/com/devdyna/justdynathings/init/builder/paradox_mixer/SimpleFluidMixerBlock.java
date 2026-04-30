@@ -21,9 +21,9 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 @SuppressWarnings("null")
-public class ParadoxMixerBlock extends BaseFluidMachineBlock {
+public class SimpleFluidMixerBlock extends BaseFluidMachineBlock {
 
-    public ParadoxMixerBlock(Properties p) {
+    public SimpleFluidMixerBlock(Properties p) {
         super(p
                 .requiresCorrectToolForDrops()
                 .strength(2.0f).destroyTime(2.0f)
@@ -50,17 +50,17 @@ public class ParadoxMixerBlock extends BaseFluidMachineBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos p, BlockState s) {
-        return new ParadoxMixerBE(p, s);
+        return new SimpleFluidMixerBE(p, s);
     }
 
     @Override
     public void openMenu(Player p, BlockPos b) {
-        Actions.openMenu(p, (w, i, e) -> new ParadoxMixerGUI(w, i, b), b);
+        Actions.openMenu(p, (w, i, e) -> new SimpleFluidMixerGUI(w, i, b), b);
     }
 
     @Override
     public boolean isValidBE(BlockEntity b) {
-        return b instanceof ParadoxMixerBE;
+        return b instanceof SimpleFluidMixerBE;
     }
 
     // brute-force fix for invalid rotation

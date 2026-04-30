@@ -17,17 +17,17 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 @SuppressWarnings({ "null" })
-public class ParadoxMixerBE extends BaseMachineBE implements FluidMachine {
+public class SimpleFluidMixerBE extends BaseMachineBE implements FluidMachine {
 
     public final FluidContainerData fluidContainerData = new FluidContainerData(this);
 
-    public ParadoxMixerBE(BlockEntityType<?> type, BlockPos pos, BlockState b) {
+    public SimpleFluidMixerBE(BlockEntityType<?> type, BlockPos pos, BlockState b) {
         super(type, pos, b);
         MACHINE_SLOTS = 4;
     }
 
-    public ParadoxMixerBE(BlockPos pos, BlockState b) {
-        this(zBlockEntities.PARADOX_MIXER.get(), pos, b);
+    public SimpleFluidMixerBE(BlockPos pos, BlockState b) {
+        this(zBlockEntities.SIMPLE_FLUID_MIXER.get(), pos, b);
     }
 
     @Override
@@ -91,7 +91,7 @@ public class ParadoxMixerBE extends BaseMachineBE implements FluidMachine {
 
     @Override
     public int getMaxMB() {
-        return Config.PARADOX_MIXER_MB_CAPACITY.get();
+        return Config.SIMPLE_FLUID_MIXER_MB_CAPACITY.get();
     }
 
     @Override

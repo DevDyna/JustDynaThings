@@ -58,7 +58,7 @@ public class Capability {
                 zBlocks.BLAZEGOLD_ANVIL.get(),
                 zBlocks.ECLIPSEALLOY_ANVIL.get(),
 
-                zBlocks.PARADOX_MIXER.get()
+                zBlocks.SIMPLE_FLUID_MIXER.get()
         };
 
         Block[] ItemStackMachineBase = {
@@ -75,7 +75,7 @@ public class Capability {
                 zBlocks.CELESTIGEM_SOLARGEN.get(),
                 zBlocks.ECLIPSEALLOY_SOLARGEN.get(),
 
-                zBlocks.PARADOX_MIXER.get()
+                zBlocks.SIMPLE_FLUID_MIXER.get()
 
         };
 

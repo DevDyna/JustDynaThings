@@ -9,9 +9,9 @@ import com.direwolf20.justdirethings.util.MiscHelpers;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 
-public class ParadoxMixerScreen extends BaseMachineScreen<ParadoxMixerGUI> implements ExtraSlots {
+public class SimpleFluidMixerScreen extends BaseMachineScreen<SimpleFluidMixerGUI> implements ExtraSlots {
 
-    public ParadoxMixerScreen(ParadoxMixerGUI container, Inventory inv, Component name) {
+    public SimpleFluidMixerScreen(SimpleFluidMixerGUI container, Inventory inv, Component name) {
         super(container, inv, name);
     }
 

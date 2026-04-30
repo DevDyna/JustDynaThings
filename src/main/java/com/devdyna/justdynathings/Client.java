@@ -5,7 +5,7 @@ import com.devdyna.justdynathings.init.builder.black_hole.BlackHoleScreen;
 import com.devdyna.justdynathings.init.builder.ferricore_clock.FerricoreClockScreen;
 import com.devdyna.justdynathings.init.builder.goo.creative.CreativeGooRender;
 import com.devdyna.justdynathings.init.builder.goo.energy.EnergyGooRender;
-import com.devdyna.justdynathings.init.builder.paradox_mixer.ParadoxMixerScreen;
+import com.devdyna.justdynathings.init.builder.paradox_mixer.SimpleFluidMixerScreen;
 import com.devdyna.justdynathings.init.builder.repair_anvils.blazegold.BlazeGoldAnvilScreen;
 import com.devdyna.justdynathings.init.builder.repair_anvils.celestigem.CelestiGemAnvilScreen;
 import com.devdyna.justdynathings.init.builder.repair_anvils.eclipsealloy.EclipseAlloyAnvilScreen;
@@ -59,7 +59,7 @@ public class Client {
         event.register(zContainers.CELESTIGEM_SOLAR_PANEL.get(), SolarPanelScreen<CelestigemSolarPanelGUI>::new);
         event.register(zContainers.ECLIPSEALLOY_SOLAR_PANEL.get(), SolarPanelScreen<EclipseAlloySolarPanelGUI>::new);
 
-        event.register(zContainers.PARADOX_MIXER.get(), ParadoxMixerScreen::new);
+        event.register(zContainers.SIMPLE_FLUID_MIXER.get(), SimpleFluidMixerScreen::new);
     }
 
     @SubscribeEvent

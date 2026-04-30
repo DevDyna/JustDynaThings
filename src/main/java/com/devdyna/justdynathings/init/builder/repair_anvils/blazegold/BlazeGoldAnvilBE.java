@@ -4,7 +4,7 @@ package com.devdyna.justdynathings.init.builder.repair_anvils.blazegold;
 
 import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.api.be.FluidMachine;
-import com.devdyna.justdynathings.api.repair_anvils.CAnvilBE;
+import com.devdyna.justdynathings.api.repair_anvils.FunctionalAnvilBE;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
 import com.direwolf20.justdirethings.common.blockentities.basebe.FluidContainerData;
 import com.direwolf20.justdirethings.common.capabilities.JustDireFluidTank;
@@ -15,7 +15,7 @@ import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class BlazeGoldAnvilBE extends CAnvilBE implements FluidMachine {
+public class BlazeGoldAnvilBE extends FunctionalAnvilBE implements FluidMachine {
 
     public final FluidContainerData fluidContainerData = new FluidContainerData(this);
 

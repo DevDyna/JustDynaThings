@@ -2,8 +2,7 @@ package com.devdyna.justdynathings.init.builder.repair_anvils.eclipsealloy;
 
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.api.Actions;
-import com.devdyna.justdynathings.api.repair_anvils.CAnvilBlock;
-import com.devdyna.justdynathings.init.builder.repair_anvils.FunctionalAnvils;
+import com.devdyna.justdynathings.api.repair_anvils.FunctionalAnvilBlock;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
 
 import net.minecraft.core.BlockPos;
@@ -13,7 +12,7 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import javax.annotation.Nullable;
 
-public class EclipseAlloyAnvilBlock extends CAnvilBlock implements FunctionalAnvils {
+public class EclipseAlloyAnvilBlock extends FunctionalAnvilBlock   {
 
     public EclipseAlloyAnvilBlock(Properties p) {
         super(p);

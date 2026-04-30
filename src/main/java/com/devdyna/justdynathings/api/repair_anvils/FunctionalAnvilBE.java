@@ -14,17 +14,17 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
 @SuppressWarnings("null")
-public class CAnvilBE extends BaseMachineBE implements RedstoneControlledBE {
+public class FunctionalAnvilBE extends BaseMachineBE implements RedstoneControlledBE {
 
     public final RedstoneControlData redstoneControlData = new RedstoneControlData();
 
-    public CAnvilBE(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState) {
+    public FunctionalAnvilBE(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState) {
         super(pType, pPos, pBlockState);
         MACHINE_SLOTS = 1;
     }
 
     @Deprecated
-    public CAnvilBE(BlockPos pos, BlockState state) {
+    public FunctionalAnvilBE(BlockPos pos, BlockState state) {
         this(null, pos, state);
     }
 

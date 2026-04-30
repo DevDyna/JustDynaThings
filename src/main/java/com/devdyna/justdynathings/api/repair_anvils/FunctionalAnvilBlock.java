@@ -27,7 +27,7 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import javax.annotation.Nullable;
 
-public abstract class CAnvilBlock extends BaseMachineBlock implements BucketInteraction{
+public abstract class FunctionalAnvilBlock extends BaseMachineBlock implements BucketInteraction {
 
     private static final VoxelShape BASE = Block.box(2.0, 0.0, 2.0, 14.0, 4.0, 14.0);
     private static final VoxelShape X_LEG1 = Block.box(3.0, 4.0, 4.0, 13.0, 5.0, 12.0);
@@ -39,7 +39,7 @@ public abstract class CAnvilBlock extends BaseMachineBlock implements BucketInte
     private static final VoxelShape X_AXIS_AABB = Shapes.or(BASE, X_LEG1, X_LEG2, X_TOP);
     private static final VoxelShape Z_AXIS_AABB = Shapes.or(BASE, Z_LEG1, Z_LEG2, Z_TOP);
 
-    public CAnvilBlock(Properties p) {
+    public FunctionalAnvilBlock(Properties p) {
         super(p
                 .requiresCorrectToolForDrops()
                 .strength(4.0f).destroyTime(4.0f)
@@ -47,12 +47,12 @@ public abstract class CAnvilBlock extends BaseMachineBlock implements BucketInte
                 .sound(SoundType.ANVIL)
                 .pushReaction(PushReaction.BLOCK));
     }
-    
-@Deprecated
+
+    @Deprecated
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos p, BlockState s) {
-        return new CAnvilBE(p, s);
+        return new FunctionalAnvilBE(p, s);
     }
 
     @Override
@@ -61,7 +61,7 @@ public abstract class CAnvilBlock extends BaseMachineBlock implements BucketInte
 
     @Override
     public boolean isValidBE(BlockEntity b) {
-        return b instanceof CAnvilBE;
+        return b instanceof FunctionalAnvilBE;
     }
 
     @Override
@@ -100,11 +100,13 @@ public abstract class CAnvilBlock extends BaseMachineBlock implements BucketInte
      */
     public abstract boolean supportFluidContent();
 
-      @Override
+    @Override
     protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
             Player player, InteractionHand hand, BlockHitResult hitResult) {
-                if(supportFluidContent())
-              return  bucketAction(stack, state, level, pos, player, hand, hitResult);
+        if (supportFluidContent())
+            return bucketAction(stack, state, level, pos, player, hand, hitResult);
         return super.useItemOn(stack, state, level, pos, player, hand, hitResult);
     }
+
+    public abstract String getTier();
 }

@@ -2,7 +2,7 @@ package com.devdyna.justdynathings.init.builder.repair_anvils.celestigem;
 
 import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.api.be.EnergyMachine;
-import com.devdyna.justdynathings.api.repair_anvils.CAnvilBE;
+import com.devdyna.justdynathings.api.repair_anvils.FunctionalAnvilBE;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
 import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineContainerData;
 import com.direwolf20.justdirethings.common.capabilities.MachineEnergyStorage;
@@ -12,7 +12,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class CelestiGemAnvilBE extends CAnvilBE implements EnergyMachine {
+public class CelestiGemAnvilBE extends FunctionalAnvilBE implements EnergyMachine {
 
     public final PoweredMachineContainerData poweredMachineData = new PoweredMachineContainerData(this);
 

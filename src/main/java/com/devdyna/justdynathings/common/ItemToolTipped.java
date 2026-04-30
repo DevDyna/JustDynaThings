@@ -3,6 +3,7 @@ package com.devdyna.justdynathings.common;
 import static com.devdyna.justdynathings.JustDynaThings.MODULE_ID;
 
 import com.devdyna.justdynathings.Constants;
+import com.devdyna.justdynathings.api.repair_anvils.FunctionalAnvilBlock;
 import com.devdyna.justdynathings.api.solar_panels.SolarBlockBase;
 import com.devdyna.justdynathings.init.builder.AdvancedTimeWand;
 import com.devdyna.justdynathings.init.builder.GooUpgrader;
@@ -10,7 +11,6 @@ import com.devdyna.justdynathings.init.builder.PickerWand;
 import com.devdyna.justdynathings.init.builder.StupefyWand;
 import com.devdyna.justdynathings.init.builder.SwapperWand;
 import com.devdyna.justdynathings.init.builder.goo.energy.EnergyGoo;
-import com.devdyna.justdynathings.init.builder.repair_anvils.FunctionalAnvils;
 import com.devdyna.justdynathings.init.builder.stabilizer.StabilizerBlock;
 import com.devdyna.justdynathings.init.builder.ticker.TickerBlock;
 import com.devdyna.justdynathings.init.types.zComponents;
@@ -146,7 +146,7 @@ public class ItemToolTipped {
                                                 .withStyle(ChatFormatting.GRAY));
                 }
 
-                if (isBlock && block instanceof FunctionalAnvils anvil) {
+                if (isBlock && block instanceof FunctionalAnvilBlock anvil) {
                         tip.add(OVER_THE_REGISTRY_ID,Component.translatable(MODULE_ID + "." + anvil.getTier()));
                         if (anvil.getTier() == Constants.Anvils.t4)
                                 tip.add(OVER_THE_REGISTRY_ID,Component.translatable(MODULE_ID + "." + Constants.Anvils.t4 + ".boost"));

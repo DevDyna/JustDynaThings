@@ -9,11 +9,10 @@ import javax.annotation.Nullable;
 
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.api.Actions;
-import com.devdyna.justdynathings.api.repair_anvils.CAnvilBlock;
-import com.devdyna.justdynathings.init.builder.repair_anvils.FunctionalAnvils;
+import com.devdyna.justdynathings.api.repair_anvils.FunctionalAnvilBlock;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
 
-public class CelestiGemAnvilBlock extends CAnvilBlock implements FunctionalAnvils {
+public class CelestiGemAnvilBlock extends FunctionalAnvilBlock {
 
     public CelestiGemAnvilBlock(Properties p) {
         super(p);

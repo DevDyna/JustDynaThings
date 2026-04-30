@@ -1,14 +1,14 @@
 package com.devdyna.justdynathings.init.builder.repair_anvils.ferricore;
 
 
-import com.devdyna.justdynathings.api.repair_anvils.CAnvilBE;
+import com.devdyna.justdynathings.api.repair_anvils.FunctionalAnvilBE;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class FerricoreAnvilBE extends CAnvilBE {
+public class FerricoreAnvilBE extends FunctionalAnvilBE {
 
     public FerricoreAnvilBE(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState) {
         super(pType, pPos, pBlockState);

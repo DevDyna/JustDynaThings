@@ -35,7 +35,11 @@ public class Controller {
 
                 e.addProvider(new DataAdvancement(output, provider, List.of(new DataAdvancementGenerator())));
 
-                e.addProvider(new DataBlockTag(output, provider));
+
+                e.addProvider(new DataBiomeTag(output, provider));
+        e.addProvider(new DataEntityTag(output, provider));
+
+                e.createBlockAndItemTags(DataBlockTag::new, DataItemTag::new);
 
                 e.addProvider(new LootTableProvider(output, Set.of(),
                                 List.of(

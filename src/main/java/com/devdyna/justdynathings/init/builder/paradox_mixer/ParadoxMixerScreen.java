@@ -39,7 +39,7 @@ public class ParadoxMixerScreen extends BaseMachineScreen<ParadoxMixerGUI> imple
     public void addTickSpeedButton() {
         // empty remove tick button
     }
-    // TODO
+    // TODO rework
     // @Override
     // public void render(GuiGraphicsExtractor guiGraphics, int mouseX, int mouseY,
     // float partialTicks) {

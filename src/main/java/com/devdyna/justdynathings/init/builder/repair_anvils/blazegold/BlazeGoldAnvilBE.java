@@ -30,7 +30,7 @@ public class BlazeGoldAnvilBE extends FunctionalAnvilBE implements FluidMachine 
 
     @Override
     public void tickServer() {
-        super.tickServer();//TODO
+        super.tickServer();//TODO logic
         // var fluid = getFluidStack().getFluidHolder().getData(zDataMaps.BLAZEGOLD_FLUID);
         // var tool = getMachineHandler().getStackInSlot(0);
         // if (isActiveRedstone() && fluid != null) {

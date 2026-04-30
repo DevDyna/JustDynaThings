@@ -27,7 +27,7 @@ public class CelestiGemAnvilBE extends FunctionalAnvilBE implements EnergyMachin
 
     @Override
     public void tickServer() {
-        super.tickServer();// TODO
+        super.tickServer();// TODO logic
         // var tool = getMachineHandler().getStackInSlot(0);
         // if (isActiveRedstone()) {
         // // getMachineHandler() only work inside tick event!

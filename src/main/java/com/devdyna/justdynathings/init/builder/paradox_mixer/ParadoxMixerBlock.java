@@ -78,7 +78,7 @@ public class ParadoxMixerBlock extends BaseFluidMachineBlock {
     public BlockState rotate(BlockState s, Rotation r) {
         return s;
     }
-    // TODO tip
+    // TODO rework
     // @Override
     // public void appendHoverText(ItemStack stack, TooltipContext context,
     // List<Component> tooltipComponents,

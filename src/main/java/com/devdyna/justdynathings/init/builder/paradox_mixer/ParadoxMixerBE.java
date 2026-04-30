@@ -34,7 +34,7 @@ public class ParadoxMixerBE extends BaseMachineBE implements FluidMachine {
     public void tickServer() {
 
         updateBlock();
-//TODO
+//TODO logic
         // for (int i = 0; i < getMachineHandler().getSlots(); i++) {
 
         //     var catalyst = getMachineHandler().getStackInSlot(i);

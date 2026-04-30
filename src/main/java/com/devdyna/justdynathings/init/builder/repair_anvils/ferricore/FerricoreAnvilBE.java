@@ -30,7 +30,7 @@ public class FerricoreAnvilBE extends FunctionalAnvilBE {
     @Override
     public void tickServer() {
         // super.tickServer();
-        //TODO
+        //TODO logic
         // var tool = getMachineHandler().getStackInSlot(0);
         // var catalyst = getMachineHandler().getStackInSlot(1);
         // if (isActiveRedstone()) {

@@ -1,17 +1,10 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "group": "ferricore_clock",
   "key": {
-    "A": {
-      "item": "justdirethings:ferricore_ingot"
-    },
-    "B": {
-      "tag": "c:dusts/redstone"
-    },
-    "C": {
-      "tag": "minecraft:copper_bulbs"
-    }
+    "A": "justdirethings:ferricore_ingot",
+    "B": "#c:dusts/redstone",
+    "C": "#minecraft:copper_bulbs"
   },
   "pattern": [
     "ABA",
@@ -19,7 +12,6 @@
     "ABA"
   ],
   "result": {
-    "count": 1,
     "id": "justdynathings:ferricore_clock"
   }
 }

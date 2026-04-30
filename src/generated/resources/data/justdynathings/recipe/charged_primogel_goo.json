@@ -1,23 +1,13 @@
 {
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "group": "justdynathings",
   "ingredients": [
-    {
-      "item": "justdirethings:gooblock_tier1"
-    },
-    {
-      "item": "justdirethings:coal_t1"
-    },
-    {
-      "item": "justdirethings:raw_ferricore"
-    },
-    {
-      "item": "justdirethings:totem_of_death_recall"
-    }
+    "justdirethings:gooblock_tier1",
+    "justdirethings:coal_t1",
+    "justdirethings:raw_ferricore",
+    "justdirethings:totem_of_death_recall"
   ],
   "result": {
-    "count": 1,
     "id": "justdynathings:charged_primogel_goo"
   }
 }

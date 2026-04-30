@@ -3,15 +3,9 @@
   "category": "misc",
   "group": "solar_panel",
   "key": {
-    "C": {
-      "item": "justdirethings:coal_t4"
-    },
-    "F": {
-      "item": "justdirethings:eclipsealloy_ingot"
-    },
-    "L": {
-      "item": "minecraft:sculk_vein"
-    }
+    "C": "justdirethings:coal_t4",
+    "F": "justdirethings:eclipsealloy_ingot",
+    "L": "minecraft:sculk_vein"
   },
   "pattern": [
     "LLL",

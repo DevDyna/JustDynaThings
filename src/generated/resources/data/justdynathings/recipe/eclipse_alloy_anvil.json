@@ -3,15 +3,9 @@
   "category": "misc",
   "group": "anvil",
   "key": {
-    "A": {
-      "item": "justdynathings:celestigem_anvil"
-    },
-    "B": {
-      "item": "justdirethings:eclipsealloy_block"
-    },
-    "I": {
-      "item": "justdirethings:eclipsealloy_ingot"
-    }
+    "A": "justdynathings:celestigem_anvil",
+    "B": "justdirethings:eclipsealloy_block",
+    "I": "justdirethings:eclipsealloy_ingot"
   },
   "pattern": [
     " I ",
@@ -19,7 +13,6 @@
     " B "
   ],
   "result": {
-    "count": 1,
     "id": "justdynathings:eclipse_alloy_anvil"
   }
 }

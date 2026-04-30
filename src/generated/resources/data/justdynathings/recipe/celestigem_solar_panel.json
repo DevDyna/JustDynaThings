@@ -3,15 +3,9 @@
   "category": "misc",
   "group": "solar_panel",
   "key": {
-    "C": {
-      "item": "justdirethings:coal_t3"
-    },
-    "F": {
-      "item": "justdirethings:celestigem"
-    },
-    "L": {
-      "item": "minecraft:ender_pearl"
-    }
+    "C": "justdirethings:coal_t3",
+    "F": "justdirethings:celestigem",
+    "L": "minecraft:ender_pearl"
   },
   "pattern": [
     "LLL",

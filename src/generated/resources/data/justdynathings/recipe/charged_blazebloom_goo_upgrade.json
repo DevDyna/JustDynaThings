@@ -3,18 +3,10 @@
   "category": "misc",
   "group": "goo_upgrade",
   "key": {
-    "B": {
-      "item": "minecraft:ender_pearl"
-    },
-    "G": {
-      "item": "justdynathings:charged_blazebloom_goo"
-    },
-    "N": {
-      "item": "minecraft:dragon_breath"
-    },
-    "R": {
-      "item": "minecraft:end_stone"
-    }
+    "B": "minecraft:ender_pearl",
+    "G": "justdynathings:charged_blazebloom_goo",
+    "N": "minecraft:dragon_breath",
+    "R": "minecraft:end_stone"
   },
   "pattern": [
     "BRB",
@@ -22,7 +14,6 @@
     "BRB"
   ],
   "result": {
-    "count": 1,
     "id": "justdynathings:charged_voidshimmer_goo"
   }
 }

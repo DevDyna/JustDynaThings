@@ -3,18 +3,10 @@
   "category": "misc",
   "group": "goo_upgrader",
   "key": {
-    "B": {
-      "item": "minecraft:blaze_powder"
-    },
-    "G": {
-      "item": "justdirethings:upgrade_blank"
-    },
-    "N": {
-      "item": "minecraft:nether_wart"
-    },
-    "R": {
-      "tag": "c:dusts/redstone"
-    }
+    "B": "minecraft:blaze_powder",
+    "G": "justdirethings:upgrade_blank",
+    "N": "minecraft:nether_wart",
+    "R": "#c:dusts/redstone"
   },
   "pattern": [
     "BRB",
@@ -22,7 +14,6 @@
     "BRB"
   ],
   "result": {
-    "count": 1,
     "id": "justdynathings:goo_upgrader_t1"
   }
 }

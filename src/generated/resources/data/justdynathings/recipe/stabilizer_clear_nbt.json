@@ -1,14 +1,10 @@
 {
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "group": "justdynathings",
   "ingredients": [
-    {
-      "item": "justdynathings:stabilizer"
-    }
+    "justdynathings:stabilizer"
   ],
   "result": {
-    "count": 1,
     "id": "justdynathings:stabilizer"
   }
 }

@@ -1,20 +1,11 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "group": "blackhole",
   "key": {
-    "B": {
-      "item": "minecraft:bucket"
-    },
-    "F": {
-      "item": "justdirethings:ferricore_ingot"
-    },
-    "K": {
-      "item": "justdirethings:celestigem_block"
-    },
-    "R": {
-      "item": "minecraft:redstone"
-    }
+    "B": "minecraft:bucket",
+    "F": "justdirethings:ferricore_ingot",
+    "K": "justdirethings:celestigem_block",
+    "R": "minecraft:redstone"
   },
   "pattern": [
     "FBF",
@@ -22,7 +13,6 @@
     "FBF"
   ],
   "result": {
-    "count": 1,
     "id": "justdynathings:blackhole"
   }
 }

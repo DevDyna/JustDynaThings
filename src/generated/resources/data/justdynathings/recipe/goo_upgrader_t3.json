@@ -3,18 +3,10 @@
   "category": "misc",
   "group": "goo_upgrader",
   "key": {
-    "B": {
-      "item": "minecraft:sculk"
-    },
-    "G": {
-      "item": "justdirethings:upgrade_blank"
-    },
-    "N": {
-      "item": "minecraft:echo_shard"
-    },
-    "R": {
-      "item": "minecraft:sculk_shrieker"
-    }
+    "B": "minecraft:sculk",
+    "G": "justdirethings:upgrade_blank",
+    "N": "minecraft:echo_shard",
+    "R": "minecraft:sculk_shrieker"
   },
   "pattern": [
     "BRB",
@@ -22,7 +14,6 @@
     "BRB"
   ],
   "result": {
-    "count": 1,
     "id": "justdynathings:goo_upgrader_t3"
   }
 }

@@ -3,15 +3,9 @@
   "category": "misc",
   "group": "solar_panel",
   "key": {
-    "C": {
-      "item": "justdirethings:coal_t1"
-    },
-    "F": {
-      "item": "justdirethings:ferricore_ingot"
-    },
-    "L": {
-      "item": "minecraft:lapis_lazuli"
-    }
+    "C": "justdirethings:coal_t1",
+    "F": "justdirethings:ferricore_ingot",
+    "L": "minecraft:lapis_lazuli"
   },
   "pattern": [
     "LLL",

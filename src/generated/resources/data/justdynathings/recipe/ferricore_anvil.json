@@ -3,15 +3,9 @@
   "category": "misc",
   "group": "anvil",
   "key": {
-    "A": {
-      "tag": "minecraft:anvil"
-    },
-    "B": {
-      "item": "justdirethings:ferricore_block"
-    },
-    "I": {
-      "item": "justdirethings:ferricore_ingot"
-    }
+    "A": "#minecraft:anvil",
+    "B": "justdirethings:ferricore_block",
+    "I": "justdirethings:ferricore_ingot"
   },
   "pattern": [
     " I ",
@@ -19,7 +13,6 @@
     " B "
   ],
   "result": {
-    "count": 1,
     "id": "justdynathings:ferricore_anvil"
   }
 }

@@ -3,15 +3,9 @@
   "category": "misc",
   "group": "anvil",
   "key": {
-    "A": {
-      "item": "justdynathings:blazegold_anvil"
-    },
-    "B": {
-      "item": "justdirethings:celestigem_block"
-    },
-    "I": {
-      "item": "justdirethings:celestigem"
-    }
+    "A": "justdynathings:blazegold_anvil",
+    "B": "justdirethings:celestigem_block",
+    "I": "justdirethings:celestigem"
   },
   "pattern": [
     " I ",
@@ -19,7 +13,6 @@
     " B "
   ],
   "result": {
-    "count": 1,
     "id": "justdynathings:celestigem_anvil"
   }
 }

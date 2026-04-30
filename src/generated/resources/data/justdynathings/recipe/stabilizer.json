@@ -1,20 +1,11 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "group": "stabilizer",
   "key": {
-    "A": {
-      "item": "justdirethings:blockswappert1"
-    },
-    "B": {
-      "tag": "c:dusts/redstone"
-    },
-    "C": {
-      "item": "justdirethings:eclipsealloy_ingot"
-    },
-    "D": {
-      "item": "justdirethings:time_crystal_block"
-    }
+    "A": "justdirethings:blockswappert1",
+    "B": "#c:dusts/redstone",
+    "C": "justdirethings:eclipsealloy_ingot",
+    "D": "justdirethings:time_crystal_block"
   },
   "pattern": [
     "CDC",
@@ -22,7 +13,6 @@
     "CBC"
   ],
   "result": {
-    "count": 1,
     "id": "justdynathings:stabilizer"
   }
 }

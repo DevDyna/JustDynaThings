@@ -3,15 +3,9 @@
   "category": "misc",
   "group": "ticker",
   "key": {
-    "E": {
-      "item": "justdirethings:eclipsealloy_ingot"
-    },
-    "P": {
-      "tag": "justdynathings:time_wands"
-    },
-    "T": {
-      "tag": "c:dusts/redstone"
-    }
+    "E": "justdirethings:eclipsealloy_ingot",
+    "P": "justdirethings:time_wand",
+    "T": "#c:dusts/redstone"
   },
   "pattern": [
     "ETE",
@@ -19,7 +13,6 @@
     "ETE"
   ],
   "result": {
-    "count": 1,
     "id": "justdynathings:ticker"
   }
 }

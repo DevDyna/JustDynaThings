@@ -3,15 +3,9 @@
   "category": "misc",
   "group": "solar_panel",
   "key": {
-    "C": {
-      "item": "justdirethings:coal_t2"
-    },
-    "F": {
-      "item": "justdirethings:blazegold_ingot"
-    },
-    "L": {
-      "item": "minecraft:magma_cream"
-    }
+    "C": "justdirethings:coal_t2",
+    "F": "justdirethings:blazegold_ingot",
+    "L": "minecraft:magma_cream"
   },
   "pattern": [
     "LLL",

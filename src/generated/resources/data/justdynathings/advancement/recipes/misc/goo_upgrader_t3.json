@@ -7,20 +7,11 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "justdynathings": {
+    "has_upgrade_blank": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:sculk"
-          },
-          {
-            "items": "minecraft:sculk_shrieker"
-          },
-          {
             "items": "justdirethings:upgrade_blank"
-          },
-          {
-            "items": "minecraft:echo_shard"
           }
         ]
       },
@@ -30,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "justdynathings"
+      "has_upgrade_blank"
     ]
   ],
   "rewards": {

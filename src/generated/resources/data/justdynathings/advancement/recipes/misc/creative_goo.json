@@ -1,33 +1,27 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "justdynathings:creative_goo"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "justdynathings": {
+    "has_eclipsealloy_ingot": {
       "conditions": {
         "items": [
-          {
-            "items": "minecraft:nether_star"
-          },
-          {
-            "items": "justdirethings:time_crystal"
-          },
           {
             "items": "justdirethings:eclipsealloy_ingot"
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "justdynathings:creative_goo"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
       "has_the_recipe",
-      "justdynathings"
+      "has_eclipsealloy_ingot"
     ]
   ],
   "rewards": {

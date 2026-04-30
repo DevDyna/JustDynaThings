@@ -1,11 +1,27 @@
 {
   "values": [
     {
-      "id": "justdynathings:phase_box",
+      "id": "justdynathings:creative_goo",
       "required": false
     },
     {
-      "id": "justdynathings:reforger",
+      "id": "justdynathings:charged_primogel_goo",
+      "required": false
+    },
+    {
+      "id": "justdynathings:charged_blazebloom_goo",
+      "required": false
+    },
+    {
+      "id": "justdynathings:charged_voidshimmer_goo",
+      "required": false
+    },
+    {
+      "id": "justdynathings:charged_shadowpulse_goo",
+      "required": false
+    },
+    {
+      "id": "justdynathings:phase_box",
       "required": false
     },
     {
@@ -18,10 +34,6 @@
     },
     {
       "id": "justdynathings:stabilizer",
-      "required": false
-    },
-    {
-      "id": "justdynathings:thermo_generator",
       "required": false
     },
     {

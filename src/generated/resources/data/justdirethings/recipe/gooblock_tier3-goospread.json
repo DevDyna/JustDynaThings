@@ -1,0 +1,14 @@
+{
+  "type": "justdirethings:goospread",
+  "craftingDuration": 100,
+  "input": {
+    "tag": "justdynathings:t3_spread"
+  },
+  "output": {
+    "id": "justdirethings:gooblock_tier3",
+    "properties": {
+      "alive": "false"
+    }
+  },
+  "tierRequirement": 3
+}

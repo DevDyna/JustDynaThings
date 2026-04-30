@@ -3,15 +3,9 @@
   "category": "misc",
   "group": "creative_goo",
   "key": {
-    "A": {
-      "item": "justdirethings:time_crystal"
-    },
-    "B": {
-      "item": "justdirethings:eclipsealloy_ingot"
-    },
-    "C": {
-      "item": "minecraft:nether_star"
-    }
+    "A": "justdirethings:time_crystal",
+    "B": "justdirethings:eclipsealloy_ingot",
+    "C": "minecraft:nether_star"
   },
   "pattern": [
     "ABA",

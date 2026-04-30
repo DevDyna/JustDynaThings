@@ -3,18 +3,10 @@
   "category": "misc",
   "group": "goo_upgrade",
   "key": {
-    "B": {
-      "item": "minecraft:sculk"
-    },
-    "G": {
-      "item": "justdynathings:charged_voidshimmer_goo"
-    },
-    "N": {
-      "item": "minecraft:echo_shard"
-    },
-    "R": {
-      "item": "minecraft:sculk_shrieker"
-    }
+    "B": "minecraft:sculk",
+    "G": "justdynathings:charged_voidshimmer_goo",
+    "N": "minecraft:echo_shard",
+    "R": "minecraft:sculk_shrieker"
   },
   "pattern": [
     "BRB",
@@ -22,7 +14,6 @@
     "BRB"
   ],
   "result": {
-    "count": 1,
     "id": "justdynathings:charged_shadowpulse_goo"
   }
 }

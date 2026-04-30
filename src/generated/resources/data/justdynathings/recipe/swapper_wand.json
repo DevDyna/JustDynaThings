@@ -3,15 +3,9 @@
   "category": "misc",
   "group": "swapper_wand",
   "key": {
-    "C": {
-      "item": "minecraft:redstone"
-    },
-    "E": {
-      "item": "minecraft:ender_eye"
-    },
-    "I": {
-      "item": "justdirethings:blazegold_ingot"
-    }
+    "C": "minecraft:redstone",
+    "E": "minecraft:ender_eye",
+    "I": "justdirethings:blazegold_ingot"
   },
   "pattern": [
     " CE",
@@ -19,7 +13,6 @@
     "I  "
   ],
   "result": {
-    "count": 1,
     "id": "justdynathings:swapper_wand"
   }
 }

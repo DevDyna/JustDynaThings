@@ -1,23 +1,13 @@
 {
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "group": "justdynathings",
   "ingredients": [
-    {
-      "item": "justdirethings:gooblock_tier3"
-    },
-    {
-      "item": "justdirethings:coal_t3"
-    },
-    {
-      "item": "justdirethings:celestigem"
-    },
-    {
-      "item": "justdirethings:totem_of_death_recall"
-    }
+    "justdirethings:gooblock_tier3",
+    "justdirethings:coal_t3",
+    "justdirethings:celestigem",
+    "justdirethings:totem_of_death_recall"
   ],
   "result": {
-    "count": 1,
     "id": "justdynathings:charged_voidshimmer_goo"
   }
 }

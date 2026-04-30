@@ -3,15 +3,9 @@
   "category": "misc",
   "group": "picker_wand",
   "key": {
-    "C": {
-      "item": "minecraft:lapis_lazuli"
-    },
-    "E": {
-      "item": "minecraft:ender_eye"
-    },
-    "I": {
-      "item": "justdirethings:blazegold_ingot"
-    }
+    "C": "minecraft:lapis_lazuli",
+    "E": "minecraft:ender_eye",
+    "I": "justdirethings:blazegold_ingot"
   },
   "pattern": [
     " CE",
@@ -19,7 +13,6 @@
     "I  "
   ],
   "result": {
-    "count": 1,
     "id": "justdynathings:picker_wand"
   }
 }

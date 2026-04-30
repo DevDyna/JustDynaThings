@@ -3,15 +3,9 @@
   "category": "misc",
   "group": "anvil",
   "key": {
-    "A": {
-      "item": "justdynathings:ferricore_anvil"
-    },
-    "B": {
-      "item": "justdirethings:blazegold_block"
-    },
-    "I": {
-      "item": "justdirethings:blazegold_ingot"
-    }
+    "A": "justdynathings:ferricore_anvil",
+    "B": "justdirethings:blazegold_block",
+    "I": "justdirethings:blazegold_ingot"
   },
   "pattern": [
     " I ",
@@ -19,7 +13,6 @@
     " B "
   ],
   "result": {
-    "count": 1,
     "id": "justdynathings:blazegold_anvil"
   }
 }

@@ -1,36 +1,27 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
+    "has_gooblock_tier4": {
+      "conditions": {
+        "items": [
+          {
+            "items": "justdirethings:gooblock_tier4"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_the_recipe": {
       "conditions": {
         "recipe": "justdynathings:charged_shadowpulse_goo"
       },
       "trigger": "minecraft:recipe_unlocked"
-    },
-    "justdynathings": {
-      "conditions": {
-        "items": [
-          {
-            "items": "justdirethings:gooblock_tier4"
-          },
-          {
-            "items": "justdirethings:coal_t4"
-          },
-          {
-            "items": "justdirethings:raw_eclipsealloy"
-          },
-          {
-            "items": "justdirethings:totem_of_death_recall"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
       "has_the_recipe",
-      "justdynathings"
+      "has_gooblock_tier4"
     ]
   ],
   "rewards": {

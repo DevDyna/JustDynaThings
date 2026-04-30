@@ -7,18 +7,9 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "justdynathings": {
+    "has_upgrade_blank": {
       "conditions": {
         "items": [
-          {
-            "items": "minecraft:redstone"
-          },
-          {
-            "items": "minecraft:nether_wart"
-          },
-          {
-            "items": "minecraft:blaze_powder"
-          },
           {
             "items": "justdirethings:upgrade_blank"
           }
@@ -30,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "justdynathings"
+      "has_upgrade_blank"
     ]
   ],
   "rewards": {

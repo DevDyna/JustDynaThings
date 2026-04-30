@@ -14,18 +14,19 @@
 - [x] reforger
 - [x] FerricoreClock
 - [x] Stabilizer
+- [x] SolarPanels
 - [ ] Ticker
 - [ ] paradox_mixer rework
 - [ ] blackhole
 - [ ] Anvils
 
-- [ ] SolarPanels;
+
 
 - [ ] Datamaps to recipe types
 - [ ] Ticker speed rate GUI [#28](https://github.com/DevDyna/JustDynaThings/issues/28)
 - [ ] Generator T2-3-4
 
-- [ ] Standardize echoing buddings
+- [ ] Standardize echoing buddings (new mod)
 
 ## Secondary stuff
 

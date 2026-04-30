@@ -59,9 +59,9 @@ public class FEGoo extends GooBlockBE_Base implements EnergyMachine {
 
                 extractFEWhenPossible();
 
-                if (RandomUtil.chance(level, 25) && Config.GOO_FEGOO_SOUND_EXTRA.get())
+                if (RandomUtil.chance(level, 15) && Config.GOO_FEGOO_SOUND_EXTRA.get())
                     level.playSound(null, getBlockPos(),
-                            canExtractFE() ? SoundEvents.RESPAWN_ANCHOR_DEPLETE.value()
+                            canExtractFE() ? SoundEvents.SCULK_SHRIEKER_SHRIEK
                                     : SoundEvents.SCULK_BLOCK_SPREAD,
                             SoundSource.BLOCKS, 0.25F, 0.25F);
             }

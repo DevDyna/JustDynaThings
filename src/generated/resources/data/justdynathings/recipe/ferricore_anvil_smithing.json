@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smithing_transform",
-  "addition": "justdirethings:ferricore_ingot",
-  "base": "#minecraft:anvil",
-  "result": {
-    "id": "justdynathings:ferricore_anvil"
-  },
-  "template": "justdirethings:template_ferricore"
-}

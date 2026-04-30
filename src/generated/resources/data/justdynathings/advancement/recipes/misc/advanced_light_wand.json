@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_ferricore_ingot": {
+    "has_celestigem": {
       "conditions": {
         "items": [
           {
-            "items": "justdirethings:ferricore_ingot"
+            "items": "justdirethings:celestigem"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "justdynathings:ferricore_anvil_smithing"
+        "recipe": "justdynathings:advanced_light_wand"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_ferricore_ingot"
+      "has_celestigem"
     ]
   ],
   "rewards": {
     "recipes": [
-      "justdynathings:ferricore_anvil_smithing"
+      "justdynathings:advanced_light_wand"
     ]
   }
 }

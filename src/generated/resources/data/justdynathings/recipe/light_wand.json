@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "light_wand",
+  "key": {
+    "F": "justdirethings:ferricore_ingot",
+    "G": "minecraft:glowstone"
+  },
+  "pattern": [
+    "  G",
+    " F ",
+    "F  "
+  ],
+  "result": {
+    "id": "justdynathings:light_wand"
+  }
+}

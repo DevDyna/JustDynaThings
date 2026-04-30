@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": "justdirethings:blazegold_ingot",
+    "C": "justdirethings:celestigem",
+    "L": "justdynathings:light_wand"
+  },
+  "pattern": [
+    "  C",
+    " L ",
+    "B  "
+  ],
+  "result": {
+    "id": "justdynathings:advanced_light_wand"
+  }
+}

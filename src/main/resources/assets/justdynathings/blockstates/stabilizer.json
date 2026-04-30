@@ -120,7 +120,7 @@
 
     {
       "when": {
-        "goo_found": "true",
+        "valid_facing": "true",
         "facing": "down"
       },
       "apply": {
@@ -129,7 +129,7 @@
     },
     {
       "when": {
-        "goo_found": "true",
+        "valid_facing": "true",
         "facing": "up"
       },
       "apply": {
@@ -139,7 +139,7 @@
     },
     {
       "when": {
-        "goo_found": "true",
+        "valid_facing": "true",
         "facing": "north"
       },
       "apply": {
@@ -149,7 +149,7 @@
     },
     {
       "when": {
-        "goo_found": "true",
+        "valid_facing": "true",
         "facing": "south"
       },
       "apply": {
@@ -159,7 +159,7 @@
     },
     {
       "when": {
-        "goo_found": "true",
+        "valid_facing": "true",
         "facing": "east"
       },
       "apply": {
@@ -169,7 +169,7 @@
     },
     {
       "when": {
-        "goo_found": "true",
+        "valid_facing": "true",
         "facing": "west"
       },
       "apply": {

@@ -79,13 +79,6 @@ public abstract class CAnvilBlock extends BaseMachineBlock implements BucketInte
     protected VoxelShape getShape(BlockState s, BlockGetter l, BlockPos p, CollisionContext c) {
         return s.getValue(AnvilBlock.FACING).getAxis() == Direction.Axis.X ? X_AXIS_AABB : Z_AXIS_AABB;
     }
-//TODO tip
-    // @Override
-    // public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents,
-    //         TooltipFlag tooltipFlag) {
-    //     if (Constants.ModAddonCheck.docCheck && !CommonConfig.DOC_WARNING.getAsBoolean())
-    //         tooltipComponents.add(Component.translatable(Main.ID + ".doc.missing"));
-    // }
 
     @Override
     public BlockState direRotate(BlockState s, Rotation r) {

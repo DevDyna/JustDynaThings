@@ -1,7 +1,9 @@
 package com.devdyna.justdynathings.init.builder.repair_anvils.eclipsealloy;
 
+import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.api.Actions;
 import com.devdyna.justdynathings.api.repair_anvils.CAnvilBlock;
+import com.devdyna.justdynathings.init.builder.repair_anvils.FunctionalAnvils;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
 
 import net.minecraft.core.BlockPos;
@@ -11,7 +13,7 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import javax.annotation.Nullable;
 
-public class EclipseAlloyAnvilBlock extends CAnvilBlock {
+public class EclipseAlloyAnvilBlock extends CAnvilBlock implements FunctionalAnvils {
 
     public EclipseAlloyAnvilBlock(Properties p) {
         super(p);
@@ -33,17 +35,14 @@ public class EclipseAlloyAnvilBlock extends CAnvilBlock {
         return b instanceof EclipseAlloyAnvilBE;
     }
 
-    //TODO tip
-    // @Override
-    // public void appendHoverText(ItemStack i, TooltipContext c, List<Component> t,
-    //         TooltipFlag f) {
-    //     super.appendHoverText(i, c, t, f);
-    //     t.add(Component.translatable(Main.ID + "." + Constants.Anvils.t4 ));
-    //     t.add(Component.translatable(Main.ID + "." + Constants.Anvils.t4 + ".boost"));
-    // }
-
     @Override
     public boolean supportFluidContent() {
         return true;
     }
+
+    @Override
+    public String getTier() {
+        return Constants.Anvils.t4;
+    }
+
 }

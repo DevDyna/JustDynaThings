@@ -1,7 +1,5 @@
 package com.devdyna.justdynathings.init.builder.repair_anvils.celestigem;
 
-
-
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -9,11 +7,13 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import javax.annotation.Nullable;
 
+import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.api.Actions;
 import com.devdyna.justdynathings.api.repair_anvils.CAnvilBlock;
+import com.devdyna.justdynathings.init.builder.repair_anvils.FunctionalAnvils;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
 
-public class CelestiGemAnvilBlock extends CAnvilBlock {
+public class CelestiGemAnvilBlock extends CAnvilBlock implements FunctionalAnvils {
 
     public CelestiGemAnvilBlock(Properties p) {
         super(p);
@@ -35,16 +35,14 @@ public class CelestiGemAnvilBlock extends CAnvilBlock {
         return b instanceof CelestiGemAnvilBE;
     }
 
-    // @Override
-    // public void appendHoverText(ItemStack i, TooltipContext c, List<Component> t,
-    //         TooltipFlag f) {
-    //     super.appendHoverText(i, c, t, f);
-    //     t.add(Component.translatable(Main.ID + "." + Constants.Anvils.t3 ));
-    // }
-
     @Override
     public boolean supportFluidContent() {
         return false;
+    }
+
+    @Override
+    public String getTier() {
+        return Constants.Anvils.t3;
     }
 
 }

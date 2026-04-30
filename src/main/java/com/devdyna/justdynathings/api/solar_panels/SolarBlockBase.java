@@ -67,13 +67,6 @@ public abstract class SolarBlockBase extends BaseMachineBlock{
     public BlockState rotate(BlockState s, Rotation r) {
         return s;
     }
-//TODO tip
-    // @Override
-    // public void appendHoverText(ItemStack s, TooltipContext c, List<Component> t,
-    //         TooltipFlag f) {
-    //     if (Constants.ModAddonCheck.docCheck && !CommonConfig.DOC_WARNING.getAsBoolean())
-    //         t.add(Component.translatable(Main.ID + ".doc.missing"));
-    //     t.add(Component.translatable(Main.ID + "." + Constants.SolarPanelType ));
-    // }
+
 
 }

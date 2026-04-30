@@ -100,11 +100,5 @@ public class PhaseBox extends TransparentBlock {
         }
         return InteractionResult.SUCCESS;
     }
-//TODO tip
-    // @Override
-    // public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents,
-    //         TooltipFlag tooltipFlag) {
-    //     if (Constants.ModAddonCheck.docCheck && !CommonConfig.DOC_WARNING.getAsBoolean())
-    //         tooltipComponents.add(Component.translatable(Main.ID + ".doc.missing"));
-    // }
+
 }

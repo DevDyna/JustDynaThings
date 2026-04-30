@@ -3,6 +3,7 @@ package com.devdyna.justdynathings;
 
 import com.devdyna.justdynathings.common.Capability;
 import com.devdyna.justdynathings.common.CreativeTabs;
+import com.devdyna.justdynathings.common.ItemToolTipped;
 import com.devdyna.justdynathings.common.RecipeSender;
 
 import net.neoforged.bus.api.IEventBus;
@@ -15,6 +16,7 @@ public class GameEvents {
 
         bus.addListener(Capability::register);
         bus.register(CreativeTabs.class);
+        NeoForge.EVENT_BUS.register(ItemToolTipped.class);
         NeoForge.EVENT_BUS.register(RecipeSender.class);
 
     }

@@ -77,7 +77,7 @@ public class DataLang extends LanguageProvider {
                                 "§7Generate Energy from heat sources and coolants");
 
                 add(MODULE_ID + "." + Constants.Blocks.Stabilizer,
-                                "§7Feed Goo blocks and can be used to keep alive the paradox mixer");
+                                "§7Feed Goo blocks and Time Crystal Buddings");
                 add(MODULE_ID + "." + Constants.Blocks.simple_fluid_mixer,
                                 "§7Allow to mass-craft fluid drop recipes");
 

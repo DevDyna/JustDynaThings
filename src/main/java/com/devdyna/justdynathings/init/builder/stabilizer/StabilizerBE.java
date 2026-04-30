@@ -80,7 +80,7 @@ public class StabilizerBE extends BaseMachineBE implements EnergyMachine, FluidM
                         applySound();
                     extractFEWhenPossible();
                     extractMBWhenPossible();
-                    time.advance(level, getBlockState(), worldPosition, stage + 1);
+                    time.advance(level, level.getBlockState(getGooPos()), getGooPos(), stage + 1);
 
                 }
 

@@ -10,7 +10,6 @@ import com.devdyna.justdynathings.init.builder.repair_anvils.blazegold.BlazeGold
 import com.devdyna.justdynathings.init.builder.repair_anvils.celestigem.CelestiGemAnvilScreen;
 import com.devdyna.justdynathings.init.builder.repair_anvils.eclipsealloy.EclipseAlloyAnvilScreen;
 import com.devdyna.justdynathings.init.builder.repair_anvils.ferricore.FerricoreAnvilScreen;
-import com.devdyna.justdynathings.init.builder.solar_panels.blazegold.BlazeGoldSolarBE;
 import com.devdyna.justdynathings.init.builder.solar_panels.blazegold.BlazegoldSolarPanelGUI;
 import com.devdyna.justdynathings.init.builder.solar_panels.celestigem.CelestigemSolarPanelGUI;
 import com.devdyna.justdynathings.init.builder.solar_panels.eclipsealloy.EclipseAlloySolarPanelGUI;
@@ -42,12 +41,6 @@ public class Client {
 
     public Client(ModContainer container) {
         container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
-    }
-
-    @SubscribeEvent
-    public static void render(EntityRenderersEvent.RegisterRenderers event) {
-        // event.registerBlockEntityRenderer(zBlockEntities.QUERN.get(),
-        // QuernRendering::new);
     }
 
     @SubscribeEvent

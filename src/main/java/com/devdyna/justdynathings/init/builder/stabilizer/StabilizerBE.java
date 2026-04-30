@@ -1,18 +1,16 @@
 package com.devdyna.justdynathings.init.builder.stabilizer;
 
-
 import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.api.RandomUtil;
 import com.devdyna.justdynathings.api.be.EnergyMachine;
 import com.devdyna.justdynathings.api.be.FluidMachine;
-import com.devdyna.justdynathings.init.builder.paradox_mixer.ParadoxMixerBlock;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
-import com.devdyna.justdynathings.init.types.zBlockTags;
 import com.devdyna.justdynathings.init.types.zProperties;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.FluidContainerData;
 import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineContainerData;
 import com.direwolf20.justdirethings.common.blocks.gooblocks.GooBlock_Base;
+import com.direwolf20.justdirethings.common.blocks.resources.TimeCrystalBuddingBlock;
 import com.direwolf20.justdirethings.common.capabilities.JustDireFluidTank;
 import com.direwolf20.justdirethings.common.capabilities.MachineEnergyStorage;
 import com.direwolf20.justdirethings.setup.JDTRegistration;
@@ -56,29 +54,35 @@ public class StabilizerBE extends BaseMachineBE implements EnergyMachine, FluidM
 
         var block = level.getBlockState(getGooPos()).getBlock();
 
-        if ((block instanceof GooBlock_Base || block instanceof ParadoxMixerBlock) && canExtractFE()) {
+        if (block instanceof GooBlock_Base && canExtractFE()) {
 
             if (level.getBlockState(getGooPos()).getValue(zProperties.GOO_ALIVE))
                 return;
 
-            if (block instanceof GooBlock_Base) {
+            extractFEWhenPossible();
 
-                extractFEWhenPossible();
+            if (RandomUtil.chance(level, 5)) {
+                if (Config.STABILIZER_TOGGLE_SOUND.get())
+                    applySound();
+                setAlive();
 
-                if (RandomUtil.chance( level,5)) {
+            }
+
+        }
+
+        if (block instanceof TimeCrystalBuddingBlock time) {
+
+            var stage = level.getBlockState(getGooPos()).getValue(TimeCrystalBuddingBlock.STAGE);
+
+            if (stage < 3)
+                if (RandomUtil.chance(level, 5)) {
                     if (Config.STABILIZER_TOGGLE_SOUND.get())
                         applySound();
-                    setAlive();
+                    extractFEWhenPossible();
+                    extractMBWhenPossible();
+                    time.advance(level, getBlockState(), worldPosition, stage + 1);
 
                 }
-
-            }
-
-            if (block instanceof ParadoxMixerBlock && canExtractMB()) {
-                extractFEWhenPossible();
-                extractMBWhenPossible();
-                setAlive();
-            }
 
         }
 
@@ -98,11 +102,15 @@ public class StabilizerBE extends BaseMachineBE implements EnergyMachine, FluidM
                 getBlockState()
                         .setValue(zProperties.ENERGIZED, canExtractMB())
                         .setValue(zProperties.ACTIVE, canExtractFE())
-                        .setValue(zProperties.GOO_FOUND,
-                                level.getBlockState(getGooPos()).is(zBlockTags.STABILIZER_BELOW))
+                        .setValue(zProperties.VALID_FACING, whenActive())
                         .setValue(BlockStateProperties.FACING,
                                 getBlockState()
                                         .getValue(BlockStateProperties.FACING)));
+    }
+
+    public boolean whenActive() {
+        return level.getBlockState(getGooPos()).getBlock() instanceof TimeCrystalBuddingBlock
+                || level.getBlockState(getGooPos()).getBlock() instanceof GooBlock_Base;
     }
 
     /**
@@ -110,7 +118,7 @@ public class StabilizerBE extends BaseMachineBE implements EnergyMachine, FluidM
      * 
      */
     public void applySound() {
-        if (RandomUtil.chance( level,5))
+        if (RandomUtil.chance(level, 5))
             level.playSound(null, getBlockPos(), SoundEvents.RESPAWN_ANCHOR_CHARGE,
                     SoundSource.BLOCKS, (level.getRandom().nextInt(50) + 1) * 0.01F,
                     level.getRandom().nextInt(50) + 1 * 0.01F);
@@ -152,12 +160,11 @@ public class StabilizerBE extends BaseMachineBE implements EnergyMachine, FluidM
         return Config.STABILIZER_MB_CAPACITY.get();
     }
 
-
-    public boolean canReviveGoo(){
+    public boolean canReviveGoo() {
         return canExtractFE();
     }
 
-    public boolean isEnergized(){
+    public boolean isEnergized() {
         return canExtractMB() && canReviveGoo();
     }
 

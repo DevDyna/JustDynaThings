@@ -72,14 +72,14 @@ public class StabilizerBlock extends BlockBaseBE implements BucketInteraction {
         return defaultBlockState()
                 .setValue(zProperties.ENERGIZED, false)
                 .setValue(zProperties.ACTIVE, false)
-                .setValue(zProperties.GOO_FOUND, false)
+                .setValue(zProperties.VALID_FACING, false)
                 .setValue(BlockStateProperties.FACING,
                         c.getPlayer().isShiftKeyDown() ? c.getClickedFace() : c.getClickedFace().getOpposite());
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> b) {
-        b.add(zProperties.ENERGIZED, zProperties.ACTIVE, zProperties.GOO_FOUND, BlockStateProperties.FACING);
+        b.add(zProperties.ENERGIZED, zProperties.ACTIVE, zProperties.VALID_FACING, BlockStateProperties.FACING);
     }
 
     @Override
@@ -87,13 +87,5 @@ public class StabilizerBlock extends BlockBaseBE implements BucketInteraction {
             Player player, InteractionHand hand, BlockHitResult hitResult) {
         return bucketAction(stack, state, level, pos, player, hand, hitResult);
     }
-//TODO tip
-    // @Override
-    // public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents,
-    //         TooltipFlag tooltipFlag) {
-    //     if (Constants.ModAddonCheck.docCheck && !CommonConfig.DOC_WARNING.getAsBoolean())
-    //         tooltipComponents.add(Component.translatable(Main.ID + ".doc.missing"));
-    //     tooltipComponents.add(Component.translatable(Main.ID + "." + Constants.Blocks.Stabilizer));
-    // }
 
 }

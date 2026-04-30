@@ -18,6 +18,6 @@ public class zProperties {
         public static final BooleanProperty ENERGIZED = BooleanProperty.create("energized");
         public static final BooleanProperty COOLED = BooleanProperty.create("thermo_cooled");
         public static final BooleanProperty HEATED = BooleanProperty.create("thermo_heated");
-        public static final BooleanProperty GOO_FOUND = BooleanProperty.create("goo_found");
+        public static final BooleanProperty VALID_FACING = BooleanProperty.create("valid_facing");
 
 }

@@ -142,8 +142,8 @@ public class DataLang extends LanguageProvider {
                 add(MODULE_ID + "." + Constants.BuddingType + ".jade.time", "§cRequire Time Fluid");
 
                 add(MODULE_ID + "." + Constants.Blocks.Stabilizer + ".jade.goo", "Revive Goo");
-                add(MODULE_ID + "." + Constants.Blocks.Stabilizer + ".jade.energized", "Stabilize paradox mixer");
-                add(MODULE_ID + "." + Constants.Blocks.ParadoxMixer + ".jade.dead", "§cRequire a Stabilizer energized!");
+                add(MODULE_ID + "." + Constants.Blocks.Stabilizer + ".jade.energized", "Revive Time Budding");
+                // add(MODULE_ID + "." + Constants.Blocks.ParadoxMixer + ".jade.dead", "§cRequire a Stabilizer energized!");
 
                 // add("config.jade.plugin_" + MODULE_ID + "." + Constants.BuddingType, "Echoing Buddings Requirements");
                 // add("config.jade.plugin_" + MODULE_ID + "." + Constants.Blocks.Stabilizer, "Stabilizer Abilities");

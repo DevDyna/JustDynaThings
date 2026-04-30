@@ -21,7 +21,6 @@ public class DataBlockTag extends BlockTagsProvider {
                 super(output, lookupProvider, JustDynaThings.MODULE_ID);
         }
 
-        
         @Override
         protected void addTags(Provider p) {
 
@@ -32,17 +31,9 @@ public class DataBlockTag extends BlockTagsProvider {
                                 .forEach(b -> tag(BlockTags.MINEABLE_WITH_PICKAXE)
                                                 .addOptional(b.get()));
 
-                
-
                 tag(BlockTags.MINEABLE_WITH_SHOVEL)
-                .add(zBlocks.T1_GOO.get(),zBlocks.T2_GOO.get(),zBlocks.T3_GOO.get(),zBlocks.T4_GOO.get());
-
-                tag(zBlockTags.STABILIZER_BELOW).add(
-                                JDTRegistration.GooBlock_Tier1.get(),
-                                JDTRegistration.GooBlock_Tier2.get(),
-                                JDTRegistration.GooBlock_Tier3.get(),
-                                JDTRegistration.GooBlock_Tier4.get(),
-                                zBlocks.PARADOX_MIXER.get());
+                                .add(zBlocks.T1_GOO.get(), zBlocks.T2_GOO.get(), zBlocks.T3_GOO.get(),
+                                                zBlocks.T4_GOO.get());
 
                 tag(zBlockTags.T2_SPREAD).add(
                                 JDTRegistration.GooBlock_Tier1.get());

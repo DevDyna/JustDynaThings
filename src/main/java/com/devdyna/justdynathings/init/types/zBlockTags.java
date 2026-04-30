@@ -16,7 +16,7 @@ public class zBlockTags {
     
     public static final TagKey<Block> TICKER_DENY = RegistryUtils.tagBlock(MODULE_ID,"ticker_deny");
 
-
+    @Deprecated
     public static final TagKey<Block> STABILIZER_BELOW = RegistryUtils.tagBlock(MODULE_ID,"stabilizer_below");
 
     public static final TagKey<Block> PICKER_DENY = RegistryUtils.tagBlock(MODULE_ID,"picker_deny");

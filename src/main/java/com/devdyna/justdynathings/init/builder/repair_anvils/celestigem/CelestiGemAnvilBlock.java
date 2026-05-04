@@ -10,7 +10,6 @@ import javax.annotation.Nullable;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.api.Actions;
 import com.devdyna.justdynathings.api.repair_anvils.FunctionalAnvilBlock;
-import com.devdyna.justdynathings.init.types.zBlockEntities;
 
 public class CelestiGemAnvilBlock extends FunctionalAnvilBlock {
 
@@ -21,7 +20,7 @@ public class CelestiGemAnvilBlock extends FunctionalAnvilBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos p, BlockState s) {
-        return new CelestiGemAnvilBE(zBlockEntities.CELESTIGEM_ANVIL.get(), p, s);
+        return new CelestiGemAnvilBE( p, s);
     }
 
     @Override

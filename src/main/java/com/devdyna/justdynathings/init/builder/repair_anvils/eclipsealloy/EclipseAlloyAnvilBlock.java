@@ -3,7 +3,6 @@ package com.devdyna.justdynathings.init.builder.repair_anvils.eclipsealloy;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.api.Actions;
 import com.devdyna.justdynathings.api.repair_anvils.FunctionalAnvilBlock;
-import com.devdyna.justdynathings.init.types.zBlockEntities;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Player;
@@ -21,7 +20,7 @@ public class EclipseAlloyAnvilBlock extends FunctionalAnvilBlock   {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos p, BlockState s) {
-        return new EclipseAlloyAnvilBE(zBlockEntities.ECLIPSEALLOY_ANVIL.get(), p, s);
+        return new EclipseAlloyAnvilBE( p, s);
     }
 
     @Override

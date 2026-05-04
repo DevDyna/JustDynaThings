@@ -1,0 +1,8 @@
+{
+  "type": "justdynathings:eclipsealloy_anvil_fuels",
+  "durability": 16384,
+  "fluid_ingredient": {
+    "amount": 1,
+    "ingredient": "justdirethings:time_fluid_source"
+  }
+}

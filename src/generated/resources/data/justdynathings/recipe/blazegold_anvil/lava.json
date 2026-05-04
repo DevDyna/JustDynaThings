@@ -1,0 +1,8 @@
+{
+  "type": "justdynathings:blazegold_anvil_fuels",
+  "durability": 1,
+  "fluid_ingredient": {
+    "amount": 1,
+    "ingredient": "minecraft:lava"
+  }
+}

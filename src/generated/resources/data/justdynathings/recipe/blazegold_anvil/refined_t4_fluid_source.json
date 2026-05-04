@@ -1,0 +1,8 @@
+{
+  "type": "justdynathings:blazegold_anvil_fuels",
+  "durability": 16,
+  "fluid_ingredient": {
+    "amount": 1,
+    "ingredient": "justdirethings:refined_t4_fluid_source"
+  }
+}

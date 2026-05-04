@@ -171,7 +171,7 @@ public class Config {
         }
 
         private static void misc() {
-                qCOMMON.comment("Misc").push("misc");
+                qCOMMON.comment("Misc").push("entry_misc");
 
                 qCOMMON.comment("Hello player, DevDyna is here !");
                 qCOMMON.comment("If you're wondering that this ConfigKeys part");
@@ -187,7 +187,7 @@ public class Config {
         }
 
         private static void blocks() {
-                qCOMMON.comment("Blocks").push("blocks");
+                qCOMMON.comment("Blocks").push("entry_blocks");
                 qCOMMON.comment(StringUtil.nameCapitalized(Blocks.PhaseBox));
 
                 PHASE_BOX_WRENCHABLE = qCOMMON
@@ -268,7 +268,7 @@ public class Config {
         }
 
         private static void goo() {
-                qCOMMON.comment(StringUtil.nameCapitalized(Constants.GooType)).push("more-goo");
+                qCOMMON.comment(StringUtil.nameCapitalized(Constants.GooType)).push("entry_goo");
                 qCOMMON.comment(StringUtil.nameCapitalized(Goo.Creative));
 
                 GOO_CREATIVE_SOUND_TOGGLE_STATE = qCOMMON.comment("Enable/Disable sound on goo state change")
@@ -344,7 +344,7 @@ public class Config {
 
         private static void solar_panel() {
                 qCOMMON.comment(StringUtil.nameCapitalized(Constants.SolarPanelType))
-                                .push("solar_panels");
+                                .push("entry_solar_panels");
                 qCOMMON.comment(StringUtil.nameCapitalized(SolarPanel.t1));
 
                 SOLARPANEL_FERRICORE_FE_CAPACITY = qCOMMON
@@ -445,7 +445,7 @@ public class Config {
         }
 
         private static void anvil() {
-                qCOMMON.comment(StringUtil.nameCapitalized(Constants.AnvilType)).push("anvils");
+                qCOMMON.comment(StringUtil.nameCapitalized(Constants.AnvilType)).push("entry_anvils");
 
                 ANVILS_SOUND_EVENT = qCOMMON
                                 .comment("Enable/Disable the entire sound event of all anvils on item repair")
@@ -508,7 +508,7 @@ public class Config {
         }
 
         private static void wands() {
-                qCOMMON.comment(StringUtil.nameCapitalized("wands")).push("7-wands");
+                qCOMMON.comment(StringUtil.nameCapitalized("wands")).push("entry_wands");
 
                 PICKER_WAND_FAKE_PLAYER_ALLOWED = qCOMMON
                                 .comment("Picker Wand support Fake Players")
@@ -593,53 +593,6 @@ public class Config {
                 qCOMMON.pop();
 
         }
-
-        // private static void mixer() {
-        // qCOMMON.comment(StringUtil.nameCapitalized(Blocks.simple_fluid_mixer))
-        // .push("8-" + Blocks.simple_fluid_mixer);
-
-        // qCOMMON.pop();
-
-        // }
-
-        // private static void ticker() {
-        // qCOMMON.comment(StringUtil.nameCapitalized(Blocks.Ticker)).push("9-" +
-        // Blocks.Ticker);
-
-        // qCOMMON.pop();
-
-        // }
-
-        // private static void compats() {
-        // qCOMMON.comment("Compats").push("10-compats");
-
-        // qCOMMON.comment("Chisel Modern");
-
-        // CELESTIGEM_CHISEL_FE_CAPACITY = qCOMMON
-        // .comment(ConfigKeys.Display.FE_MAX)
-        // .defineInRange(Tiers.celestigem + "_chisel" + ConfigKeys.Values.FE_MAX, 1000,
-        // 1,
-        // Integer.MAX_VALUE);
-
-        // CELESTIGEM_CHISEL_FE_COST = qCOMMON
-        // .comment(ConfigKeys.Display.FE_RATE)
-        // .defineInRange(Tiers.celestigem + "_chisel" + ConfigKeys.Values.FE_RATE, 1,
-        // 1,
-        // Integer.MAX_VALUE);
-
-        // ECLIPSE_ALLOY_CHISEL_FE_CAPACITY = qCOMMON
-        // .comment(ConfigKeys.Display.FE_MAX)
-        // .defineInRange(Tiers.eclipsealloy + "_chisel" + ConfigKeys.Values.FE_MAX,
-        // 10000, 1,
-        // Integer.MAX_VALUE);
-
-        // ECLIPSE_ALLOY_CHISEL_FE_COST = qCOMMON
-        // .comment(ConfigKeys.Display.FE_RATE)
-        // .defineInRange(Tiers.eclipsealloy + "_chisel" + ConfigKeys.Values.FE_RATE,
-        // 10, 1,
-        // Integer.MAX_VALUE);
-
-        // }
 
         private static BooleanValue bool(String c, String k, boolean b) {
                 return qCOMMON

@@ -120,20 +120,20 @@ public class DataRecipe extends RecipeProvider {
                                 JDTRegistration.TotemOfDeathRecall.get());
 
                 AnvilRecipe(zBlocks.FERRICORE_ANVIL.get(), JDTRegistration.FerricoreIngot.get(),
-                                JDTRegistration.FerricoreBlock_ITEM.get(), 
+                                JDTRegistration.FerricoreBlock_ITEM.get(),
                                 ItemTags.ANVIL, output);
 
                 AnvilRecipe(zBlocks.BLAZEGOLD_ANVIL.get(), JDTRegistration.BlazegoldIngot.get(),
-                                JDTRegistration.BlazeGoldBlock_ITEM.get(), 
+                                JDTRegistration.BlazeGoldBlock_ITEM.get(),
                                 zBlocks.FERRICORE_ANVIL.get(), output);
 
                 AnvilRecipe(zBlocks.CELESTIGEM_ANVIL.get(), JDTRegistration.Celestigem.get(),
-                                JDTRegistration.CelestigemBlock_ITEM.get(), 
+                                JDTRegistration.CelestigemBlock_ITEM.get(),
                                 zBlocks.BLAZEGOLD_ANVIL.get(), output);
 
                 AnvilRecipe(zBlocks.ECLIPSEALLOY_ANVIL.get(), JDTRegistration.EclipseAlloyIngot.get(),
                                 JDTRegistration.EclipseAlloyBlock_ITEM.get(),
-                               
+
                                 zBlocks.CELESTIGEM_ANVIL.get(), output);
 
                 SolarRecipe(zBlocks.FERRICORE_SOLARGEN.get(), Items.LAPIS_LAZULI,
@@ -262,7 +262,6 @@ public class DataRecipe extends RecipeProvider {
                                 .group(Constants.GooUpgraders.base)
                                 .save(output);
 
-
                 shaped(RecipeCategory.MISC, zItems.LIGHT_WAND.get())
                                 .pattern("  G")
                                 .pattern(" F ")
@@ -302,48 +301,49 @@ public class DataRecipe extends RecipeProvider {
 
 
 
-   // var stupefy = new ItemStackTemplate(zItems.STUPEFY_WAND.get(), DataComponentPatch.builder()
-                //                 .set((DataComponentType<Boolean>) JustDireDataComponents.COMPONENTS.getEntries()
-                //                                 .stream()
-                //                                 .filter(e -> e.getId()
-                //                                                 .equals(x.rl("stupefy_upgrade_installed",
-                //                                                                 JustDireThings.MODID)))
-                //                                 .findFirst()
-                //                                 .map(DeferredHolder::get)
-                //                                 .orElse(null), true)
-                //                 .build());
+
+
+
+                // var stupefy = new ItemStackTemplate(zItems.STUPEFY_WAND.get(),
+                // DataComponentPatch.builder()
+                // .set((DataComponentType<Boolean>)
+                // JustDireDataComponents.COMPONENTS.getEntries()
+                // .stream()
+                // .filter(e -> e.getId()
+                // .equals(x.rl("stupefy_upgrade_installed",
+                // JustDireThings.MODID)))
+                // .findFirst()
+                // .map(DeferredHolder::get)
+                // .orElse(null), true)
+                // .build());
 
                 // shaped(RecipeCategory.MISC, stupefy)
-                //                 .pattern(" CE")
-                //                 .pattern(" IC")
-                //                 .pattern("I  ")
-                //                 .define('I', JDTRegistration.BlazegoldIngot.get())
-                //                 .define('C', Items.REDSTONE)
-                //                 .define('E', Items.QUARTZ)
-                //                 .unlockedBy(getHasName(JDTRegistration.BlazegoldIngot.get()), has(
-                //                                 JDTRegistration.BlazegoldIngot.get()))
-                //                 .group(Constants.Wands.Stupefy).save(output);
+                // .pattern(" CE")
+                // .pattern(" IC")
+                // .pattern("I ")
+                // .define('I', JDTRegistration.BlazegoldIngot.get())
+                // .define('C', Items.REDSTONE)
+                // .define('E', Items.QUARTZ)
+                // .unlockedBy(getHasName(JDTRegistration.BlazegoldIngot.get()), has(
+                // JDTRegistration.BlazegoldIngot.get()))
+                // .group(Constants.Wands.Stupefy).save(output);
 
                 // var time = new ItemStackTemplate(zItems.ADVANCED_TIME_WAND.get(),
-                //                 DataComponentPatch.builder()
-                //                                 .set(zComponents.MODE.get(), "normal")
-                //                                 .build());
+                // DataComponentPatch.builder()
+                // .set(zComponents.MODE.get(), "normal")
+                // .build());
 
                 // shaped(RecipeCategory.MISC, time)
-                //                 .pattern(" EC")
-                //                 .pattern(" WE")
-                //                 .pattern("E  ")
-                //                 .define('C', JDTRegistration.TimeCrystal.get())
-                //                 .define('E', JDTRegistration.EclipseAlloyIngot.get())
-                //                 .define('W', JDTRegistration.TimeWand.get())
-                //                 .unlockedBy(getHasName(JDTRegistration.EclipseAlloyIngot.get()),
-                //                                 has(
-                //                                                 JDTRegistration.EclipseAlloyIngot.get()))
-                //                 .group(Constants.Wands.AdvancedTime).save(output);
-
-                
-
-
+                // .pattern(" EC")
+                // .pattern(" WE")
+                // .pattern("E ")
+                // .define('C', JDTRegistration.TimeCrystal.get())
+                // .define('E', JDTRegistration.EclipseAlloyIngot.get())
+                // .define('W', JDTRegistration.TimeWand.get())
+                // .unlockedBy(getHasName(JDTRegistration.EclipseAlloyIngot.get()),
+                // has(
+                // JDTRegistration.EclipseAlloyIngot.get()))
+                // .group(Constants.Wands.AdvancedTime).save(output);
 
         }
 
@@ -364,8 +364,6 @@ public class DataRecipe extends RecipeProvider {
                         return "JustDynaThings";
                 }
         }
-
-       
 
         private void GooConversion(TagKey<Block> input, Block goo, RecipeOutput c) {
                 int tier = Integer.parseInt(x.path(goo).replace("gooblock_tier", ""));
@@ -419,7 +417,6 @@ public class DataRecipe extends RecipeProvider {
                                 .unlockedBy(getHasName(ingot), has(ingot))
                                 .group(Constants.AnvilType).save(output);
 
-                
         }
 
         private void SolarRecipe(Block output, Item catalyst, Item coal, Item ingot, Item template, Item oldSolar,

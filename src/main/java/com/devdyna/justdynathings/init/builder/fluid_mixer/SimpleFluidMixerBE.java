@@ -91,7 +91,7 @@ public class SimpleFluidMixerBE extends BaseMachineBE implements FluidMachine {
 
     @Override
     public int getMaxMB() {
-        return Config.SIMPLE_FLUID_MIXER_MB_CAPACITY.get();
+        return 1000;//Config.SIMPLE_FLUID_MIXER_MB_CAPACITY.get();
     }
 
     @Override

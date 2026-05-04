@@ -29,8 +29,8 @@ public class Config {
         public static IntValue STABILIZER_MB_COST;
         public static BooleanValue STABILIZER_TOGGLE_SOUND;
 
-        public static IntValue THERMOGEN_FE_CAPACITY;
-        public static IntValue THERMOGEN_MB_CAPACITY;
+        // public static IntValue THERMOGEN_FE_CAPACITY;
+        // public static IntValue THERMOGEN_MB_CAPACITY;
 
         public static BooleanValue BLACKHOLE_KEEP_STORAGE;
         public static IntValue BLACKHOLE_FE_CAPACITY;
@@ -38,13 +38,13 @@ public class Config {
         public static IntValue BLACKHOLE_MB_CAPACITY;
         public static IntValue BLACKHOLE_MB_COST;
 
-        public static IntValue BUDDING_GENERAL_MB_CAPACITY;
-        public static IntValue BUDDING_GENERAL_MB_COST;
-        public static IntValue BUDDING_GENERAL_FE_CAPACITY;
-        public static IntValue BUDDING_GENERAL_FE_COST;
-        public static BooleanValue BUDDING_GENERAL_FE_CHANCE;
-        public static BooleanValue BUDDING_GENERAL_MB_CHANCE;
-        public static BooleanValue BUDDING_GENERAL_SOUND;
+        // public static IntValue BUDDING_GENERAL_MB_CAPACITY;
+        // public static IntValue BUDDING_GENERAL_MB_COST;
+        // public static IntValue BUDDING_GENERAL_FE_CAPACITY;
+        // public static IntValue BUDDING_GENERAL_FE_COST;
+        // public static BooleanValue BUDDING_GENERAL_FE_CHANCE;
+        // public static BooleanValue BUDDING_GENERAL_MB_CHANCE;
+        // public static BooleanValue BUDDING_GENERAL_SOUND;
 
         public static BooleanValue GOO_CREATIVE_SOUND_TOGGLE_STATE;
         public static IntValue GOO_CREATIVE_TIER;
@@ -58,8 +58,8 @@ public class Config {
         public static BooleanValue GOO_FEGOO_SOUND_RECIPE;
         public static BooleanValue GOO_FEGOO_SOUND_EXTRA;
 
-        public static IntValue GOO_ENERGY_TIER;
-        public static IntValue GOO_ENERGY_COUNTER_REDUCER;
+        // public static IntValue GOO_ENERGY_TIER;
+        // public static IntValue GOO_ENERGY_COUNTER_REDUCER;
 
         public static IntValue GOO_T1_TIER;
         public static IntValue GOO_T1_COUNTER_REDUCER;
@@ -141,7 +141,7 @@ public class Config {
 
         public static ConfigValue<Integer> ADVANCED_TIME_WAND_MAX_MULTIPLIER;
 
-        public static IntValue SIMPLE_FLUID_MIXER_MB_CAPACITY;
+        // public static IntValue SIMPLE_FLUID_MIXER_MB_CAPACITY;
         public static BooleanValue SIMPLE_FLUID_MIXER_SOUND_EVENT;
 
         public static IntValue TICKER_MB_CAPACITY;
@@ -179,7 +179,6 @@ public class Config {
         private static void regCommon() {
                 general();
                 blocks();
-                budding();
                 goo();
                 solar_panel();
                 anvil();
@@ -235,23 +234,23 @@ public class Config {
                                                 Integer.MAX_VALUE);
                 STABILIZER_MB_COST = qCOMMON
                                 .comment(ConfigKeys.Display.MB_RATE)
-                                .defineInRange(Blocks.Stabilizer + ConfigKeys.Values.MB_RATE, 100, 1,
+                                .defineInRange(Blocks.Stabilizer + ConfigKeys.Values.MB_RATE, 10, 1,
                                                 Integer.MAX_VALUE);
 
                 STABILIZER_TOGGLE_SOUND = qCOMMON
                                 .comment("Enable/Disable sound when revitalized a goo")
                                 .define(Blocks.Stabilizer + ConfigKeys.Values.SOUND, true);
 
-                qCOMMON.comment(StringUtil.nameCapitalized(Blocks.ThermoGen));
+                // qCOMMON.comment(StringUtil.nameCapitalized(Blocks.ThermoGen));
 
-                THERMOGEN_FE_CAPACITY = qCOMMON
-                                .comment(ConfigKeys.Display.FE_MAX)
-                                .defineInRange(Blocks.ThermoGen + ConfigKeys.Values.FE_MAX, 1000000, 1,
-                                                Integer.MAX_VALUE);
-                THERMOGEN_MB_CAPACITY = qCOMMON
-                                .comment("Total Coolant Capacity")
-                                .defineInRange(Blocks.ThermoGen + ConfigKeys.Values.FE_RATE, 100000, 1,
-                                                Integer.MAX_VALUE);
+                // THERMOGEN_FE_CAPACITY = qCOMMON
+                //                 .comment(ConfigKeys.Display.FE_MAX)
+                //                 .defineInRange(Blocks.ThermoGen + ConfigKeys.Values.FE_MAX, 1000000, 1,
+                //                                 Integer.MAX_VALUE);
+                // THERMOGEN_MB_CAPACITY = qCOMMON
+                //                 .comment("Total Coolant Capacity")
+                //                 .defineInRange(Blocks.ThermoGen + ConfigKeys.Values.FE_RATE, 100000, 1,
+                //                                 Integer.MAX_VALUE);
 
                 qCOMMON.comment(StringUtil.nameCapitalized(Blocks.BlackHole));
 
@@ -277,36 +276,36 @@ public class Config {
                 qCOMMON.pop();
         }
 
-        private static void budding() {
-                qCOMMON.comment(StringUtil.nameCapitalized(Constants.BuddingType)).push("3-" + Constants.BuddingType);
-                qCOMMON.comment("general_" + Constants.BuddingType);
+        // private static void budding() {
+        //         qCOMMON.comment(StringUtil.nameCapitalized(Constants.BuddingType)).push("3-" + Constants.BuddingType);
+        //         qCOMMON.comment("general_" + Constants.BuddingType);
 
-                BUDDING_GENERAL_MB_CAPACITY = qCOMMON
-                                .comment(ConfigKeys.Display.MB_MAX)
-                                .defineInRange(Constants.BuddingType + ConfigKeys.Values.MB_MAX, 10000, 1,
-                                                Integer.MAX_VALUE);
-                BUDDING_GENERAL_MB_COST = qCOMMON
-                                .comment(ConfigKeys.Display.MB_RATE)
-                                .defineInRange(Constants.BuddingType + ConfigKeys.Values.MB_RATE, 100, 1,
-                                                Integer.MAX_VALUE);
-                BUDDING_GENERAL_FE_CAPACITY = qCOMMON
-                                .comment(ConfigKeys.Display.FE_MAX)
-                                .defineInRange(Constants.BuddingType + ConfigKeys.Values.FE_MAX, 10000, 1,
-                                                Integer.MAX_VALUE);
-                BUDDING_GENERAL_FE_COST = qCOMMON
-                                .comment(ConfigKeys.Display.FE_RATE)
-                                .defineInRange(Constants.BuddingType + ConfigKeys.Values.FE_RATE, 100, 1,
-                                                Integer.MAX_VALUE);
+        //         BUDDING_GENERAL_MB_CAPACITY = qCOMMON
+        //                         .comment(ConfigKeys.Display.MB_MAX)
+        //                         .defineInRange(Constants.BuddingType + ConfigKeys.Values.MB_MAX, 10000, 1,
+        //                                         Integer.MAX_VALUE);
+        //         BUDDING_GENERAL_MB_COST = qCOMMON
+        //                         .comment(ConfigKeys.Display.MB_RATE)
+        //                         .defineInRange(Constants.BuddingType + ConfigKeys.Values.MB_RATE, 100, 1,
+        //                                         Integer.MAX_VALUE);
+        //         BUDDING_GENERAL_FE_CAPACITY = qCOMMON
+        //                         .comment(ConfigKeys.Display.FE_MAX)
+        //                         .defineInRange(Constants.BuddingType + ConfigKeys.Values.FE_MAX, 10000, 1,
+        //                                         Integer.MAX_VALUE);
+        //         BUDDING_GENERAL_FE_COST = qCOMMON
+        //                         .comment(ConfigKeys.Display.FE_RATE)
+        //                         .defineInRange(Constants.BuddingType + ConfigKeys.Values.FE_RATE, 100, 1,
+        //                                         Integer.MAX_VALUE);
 
-                BUDDING_GENERAL_FE_CHANCE = qCOMMON.comment("Chance to apply FE cost when a cluster will grow")
-                                .define(Constants.BuddingType + "_random_energy_cost", true);
-                BUDDING_GENERAL_MB_CHANCE = qCOMMON.comment("Chance to apply MB cost when a cluster will grow")
-                                .define(Constants.BuddingType + "_random_fluid_cost", true);
+        //         BUDDING_GENERAL_FE_CHANCE = qCOMMON.comment("Chance to apply FE cost when a cluster will grow")
+        //                         .define(Constants.BuddingType + "_random_energy_cost", true);
+        //         BUDDING_GENERAL_MB_CHANCE = qCOMMON.comment("Chance to apply MB cost when a cluster will grow")
+        //                         .define(Constants.BuddingType + "_random_fluid_cost", true);
 
-                BUDDING_GENERAL_SOUND = qCOMMON.comment("Enable/Disable sound of buddings when grow")
-                                .define(Constants.BuddingType + ConfigKeys.Values.SOUND, true);
-                qCOMMON.pop();
-        }
+        //         BUDDING_GENERAL_SOUND = qCOMMON.comment("Enable/Disable sound of buddings when grow")
+        //                         .define(Constants.BuddingType + ConfigKeys.Values.SOUND, true);
+        //         qCOMMON.pop();
+        // }
 
         private static void goo() {
                 qCOMMON.comment(StringUtil.nameCapitalized(Constants.GooType)).push("4-" + Constants.GooType);
@@ -344,14 +343,14 @@ public class Config {
                 GOO_FEGOO_SOUND_EXTRA = qCOMMON.comment("Enable/Disable sound on goo recipe execution randomly")
                                 .define(ConfigKeys.Values.G_FEGOO + "_extra_sound_on_execution", true);
 
-                qCOMMON.comment(StringUtil.nameCapitalized(Goo.Energized));
+                // qCOMMON.comment(StringUtil.nameCapitalized(Goo.Energized));
 
-                GOO_ENERGY_TIER = qCOMMON
-                                .comment("Tier of goo")
-                                .defineInRange(Goo.Energized + ConfigKeys.Values.TIER, 5, 1, Integer.MAX_VALUE);
-                GOO_ENERGY_COUNTER_REDUCER = qCOMMON
-                                .comment("Counter Reducer of goo")
-                                .defineInRange(Goo.Energized + ConfigKeys.Values.REDUCER, 15, 1, Integer.MAX_VALUE);
+                // GOO_ENERGY_TIER = qCOMMON
+                //                 .comment("Tier of goo")
+                //                 .defineInRange(Goo.Energized + ConfigKeys.Values.TIER, 5, 1, Integer.MAX_VALUE);
+                // GOO_ENERGY_COUNTER_REDUCER = qCOMMON
+                //                 .comment("Counter Reducer of goo")
+                //                 .defineInRange(Goo.Energized + ConfigKeys.Values.REDUCER, 15, 1, Integer.MAX_VALUE);
 
                 qCOMMON.comment(StringUtil.nameCapitalized(Goo.T1));
 
@@ -647,10 +646,10 @@ public class Config {
         private static void mixer() {
                 qCOMMON.comment(StringUtil.nameCapitalized(Blocks.simple_fluid_mixer)).push("8-" + Blocks.simple_fluid_mixer);
 
-                SIMPLE_FLUID_MIXER_MB_CAPACITY = qCOMMON
-                                .comment(ConfigKeys.Display.MB_MAX)
-                                .defineInRange(Blocks.simple_fluid_mixer + ConfigKeys.Values.MB_MAX, 1000, 1,
-                                                Integer.MAX_VALUE);
+                // SIMPLE_FLUID_MIXER_MB_CAPACITY = qCOMMON
+                //                 .comment(ConfigKeys.Display.MB_MAX)
+                //                 .defineInRange(Blocks.simple_fluid_mixer + ConfigKeys.Values.MB_MAX, 1000, 1,
+                //                                 Integer.MAX_VALUE);
 
                 SIMPLE_FLUID_MIXER_SOUND_EVENT = qCOMMON
                                 .comment("Enable/Disable the entire sound event of simple fluid mixer")

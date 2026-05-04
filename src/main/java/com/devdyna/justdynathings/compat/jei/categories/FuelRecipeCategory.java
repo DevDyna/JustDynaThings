@@ -2,19 +2,18 @@ package com.devdyna.justdynathings.compat.jei.categories;
 
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.builder.ITooltipBuilder;
-import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
-import mezz.jei.api.recipe.category.IRecipeCategory;
 import mezz.jei.api.recipe.types.IRecipeType;
 
 import static com.devdyna.justdynathings.JustDynaThings.MODULE_ID;
 
-import com.devdyna.cakesticklib.api.compat.jei.ImageJei;
+import com.devdyna.cakesticklib.api.compat.jei.BaseCategory;
 import com.devdyna.cakesticklib.api.primitive.Pos;
 import com.devdyna.cakesticklib.api.primitive.Size;
+import com.devdyna.cakesticklib.api.utils.x;
 import com.devdyna.justdynathings.api.ClientRender;
 import com.devdyna.justdynathings.compat.jei.utils.FuelRecords;
 import com.direwolf20.justdirethings.common.blocks.resources.CoalBlock_T1;
@@ -23,51 +22,19 @@ import com.direwolf20.justdirethings.setup.Config;
 import com.direwolf20.justdirethings.setup.JDTRegistration;
 import com.direwolf20.justdirethings.util.MagicHelpers;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.ItemLike;
 
 @SuppressWarnings("null")
-public class FuelRecipeCategory implements IRecipeCategory<FuelRecords.Items>, ClientRender {
+public class FuelRecipeCategory extends BaseCategory<FuelRecords.Items> implements ClientRender {
     public static final IRecipeType<FuelRecords.Items> TYPE = IRecipeType.create(MODULE_ID,
             JDTRegistration.GeneratorT1_ITEM.getId().getPath(), FuelRecords.Items.class);
 
-    protected IGuiHelper helper;
-
-    public final Font font = Minecraft.getInstance().font;
-
-    public FuelRecipeCategory(IGuiHelper h) {
-        this.helper = h;
-    }
-
-    @Override
-    public Component getTitle() {
-        return Component.translatable(MODULE_ID + ".jei.category." + getTitleKey());
-    }
-
-    @Override
-    public IDrawable getIcon() {
-        return helper.createDrawableItemLike(getIconItem());
-    }
-
-    @Override
-    public int getWidth() {
-        return setXY().getX();
-    }
-
-    @Override
-    public int getHeight() {
-        return setXY().getY();
-    }
-
-    public void background(GuiGraphicsExtractor graphics) {
-        ImageJei.of()
-                .rl(MODULE_ID, this.setBackGround())
-                .size(this.getWidth(), this.getHeight())
-                .render(helper, graphics);
+    public FuelRecipeCategory(IGuiHelper guiHelper) {
+        super(guiHelper);
     }
 
     @Override
@@ -81,28 +48,31 @@ public class FuelRecipeCategory implements IRecipeCategory<FuelRecords.Items>, C
                 .addItemStacks(recipe.getFuels());
     }
 
-    public String getTitleKey() {
-        return JDTRegistration.GeneratorT1_ITEM.getId().getPath();
-    }
-
+    @Override
     public ItemLike getIconItem() {
         return JDTRegistration.GeneratorT1_ITEM.get();
     }
 
+    @Override
     public Size setXY() {
         return Size.of(96, 32);
     }
 
-    public String setBackGround() {
-        return "textures/gui/fuel_icons.png";
+    @Override
+    public String getTraslationKey() {
+        return JDTRegistration.GeneratorT1_ITEM.getId().getPath();
+    }
+
+    @Override
+    public Identifier setBackGround() {
+        return x.rl(MODULE_ID, "textures/gui/fuel_icons.png");
     }
 
     @Override
     public void draw(FuelRecords.Items recipe, IRecipeSlotsView recipeSlotsView, GuiGraphicsExtractor guiGraphics,
             double mouseX,
             double mouseY) {
-
-        background(guiGraphics);
+        super.draw(recipe, recipeSlotsView, guiGraphics, mouseX, mouseY);
 
         int multiplier = 1;
 
@@ -119,20 +89,21 @@ public class FuelRecipeCategory implements IRecipeCategory<FuelRecords.Items>, C
 
         var maxburn = total / rate;
 
-        // PoseStack stack = guiGraphics.pose();
-        // stack.pushPose();
-        // stack.scale(0.75F, 0.75F, 8000F);
+        var stack = guiGraphics.pose();
+        stack.pushMatrix();
+        stack.scale(0.75F, 0.75F);
         guiGraphics.text(font,
-                (hasShiftDown()
+                Component.literal(hasShiftDown()
                         ? MagicHelpers.ticksInSeconds(maxburn).replaceAll("\\.0$", "")
                                 + " sec"
                         : maxburn + " ticks"),
                 46, 4,
                 0xFFFFFF);
-        guiGraphics.text(font, rate + " FE/tick", 46, 18, 0xFFFFFF);
-        guiGraphics.text(font, (hasShiftDown() ? MagicHelpers.withSuffix(total) : total) + " FE", 46, 32,
+        guiGraphics.text(font, Component.literal(rate + " FE/tick"), 46, 18, 0xFFFFFF);
+        guiGraphics.text(font, Component.literal((hasShiftDown() ? MagicHelpers.withSuffix(total) : total) + " FE"), 46,
+                32,
                 0xFFFFFF);
-        // stack.popPose();
+        stack.popMatrix();
 
     }
 

@@ -6,8 +6,11 @@ import com.direwolf20.justdirethings.client.screens.standardbuttons.ToggleButton
 import com.direwolf20.justdirethings.client.screens.widgets.ToggleButton;
 import com.direwolf20.justdirethings.util.MiscHelpers;
 
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.ItemStack;
 
 public class SimpleFluidMixerScreen extends BaseMachineScreen<SimpleFluidMixerGUI> implements ExtraSlots {
 
@@ -39,27 +42,18 @@ public class SimpleFluidMixerScreen extends BaseMachineScreen<SimpleFluidMixerGU
     public void addTickSpeedButton() {
         // empty remove tick button
     }
-    // TODO rework
-    // @Override
-    // public void render(GuiGraphicsExtractor guiGraphics, int mouseX, int mouseY,
-    // float partialTicks) {
-    // super.render(guiGraphics, mouseX, mouseY, partialTicks);
 
-    // if (baseMachineBE instanceof ParadoxMixerBE paradox)
-    // if (!paradox.getBlockState().getValue(zProperties.GOO_ALIVE))
-    // addWarningPopUp(guiGraphics, getGuiLeft()+110, getGuiTop());
+    @Override
+    protected void drawMachineSlot(GuiGraphicsExtractor guiGraphics, Slot slot) {
+        ItemStack itemStack = slot.getItem();
+        if (itemStack.isEmpty()) {
+            if (slot.getSlotIndex() == 0)
+                addSlotPolymorphicCatalyst(guiGraphics, slot);
+            else if (slot.getSlotIndex() == 1)
+                addSlotTimeCrystal(guiGraphics, slot);
+        } else
+            super.drawMachineSlot(guiGraphics, slot);
 
-    // }
-
-    // @Override
-    // protected void renderTooltip(GuiGraphicsExtractor guiGraphics, int x, int y)
-    // {
-    // super.renderTooltip(guiGraphics, x, y);
-    // if (Pos.of(getGuiLeft()+110, getGuiTop()).setSize(10, 10).test(x, y))
-    // guiGraphics.renderTooltip(font,
-    // Component.translatable(
-    // ID + "." + Constants.Blocks.ParadoxMixer + ".unstable"),
-    // x, y);
-    // }
+    }
 
 }

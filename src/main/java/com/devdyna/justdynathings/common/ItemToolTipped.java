@@ -134,8 +134,6 @@ public class ItemToolTipped {
                 }
 
                 if (isBlock && block instanceof SolarBlockBase sp) {
-                        tip.add(OVER_THE_REGISTRY_ID,
-                                        Component.translatable(MODULE_ID + "." + Constants.SolarPanelType));
 
                         if (Minecraft.getInstance().hasShiftDown()) {
                                 tip.add(OVER_THE_REGISTRY_ID,
@@ -143,8 +141,11 @@ public class ItemToolTipped {
                                                                 MODULE_ID + "." + Constants.SolarPanelType + ".ferate")
                                                                 .append(Component.literal("" + sp.getFERate())));
                         } else
-                                tip.add(Component.translatable("justdirethings.shiftmoreinfo")
+                                tip.add(OVER_THE_REGISTRY_ID, Component.translatable("justdirethings.shiftmoreinfo")
                                                 .withStyle(ChatFormatting.GRAY));
+
+                        tip.add(OVER_THE_REGISTRY_ID,
+                                        Component.translatable(MODULE_ID + "." + Constants.SolarPanelType));
 
                 }
 

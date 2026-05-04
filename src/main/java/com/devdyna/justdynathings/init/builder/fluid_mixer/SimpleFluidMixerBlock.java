@@ -4,20 +4,19 @@ import javax.annotation.Nullable;
 
 import com.devdyna.justdynathings.api.Actions;
 import com.devdyna.justdynathings.api.BaseFluidMachineBlock;
-import com.devdyna.justdynathings.init.types.zProperties;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 @SuppressWarnings("null")
@@ -33,19 +32,25 @@ public class SimpleFluidMixerBlock extends BaseFluidMachineBlock {
 
     @Override
     protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        return state.getValue(zProperties.GOO_ALIVE) ? Block.box(4, 4, 4, 12, 12, 12) : Block.box(6, 6, 6, 10, 10, 10);
+        VoxelShape shape = Shapes.empty();
+        shape = Shapes.join(shape, Shapes.box(0.0625, 0.875, 0.0625, 0.9375, 1, 0.9375), BooleanOp.OR);
+        shape = Shapes.join(shape, Shapes.box(0.0625, 0, 0.0625, 0.9375, 0.375, 0.9375), BooleanOp.OR);
+        shape = Shapes.join(shape, Shapes.box(0, 0.375, 0, 1, 0.5625, 1), BooleanOp.OR);
+        shape = Shapes.join(shape, Shapes.box(0, 0.6875, 0, 1, 0.875, 1), BooleanOp.OR);
+        shape = Shapes.join(shape, Shapes.box(0.0625, 0.5625, 0.0625, 0.9375, 0.6875, 0.9375), BooleanOp.OR);
+        return shape;
     }
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext c) {
-        return defaultBlockState()
-                .setValue(zProperties.GOO_ALIVE, false);
+        return defaultBlockState();
     }
 
-    @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> b) {
-        b.add(zProperties.GOO_ALIVE);
-    }
+    // @Override
+    // protected void createBlockStateDefinition(StateDefinition.Builder<Block,
+    // BlockState> b) {
+    // b.add(zProperties.GOO_ALIVE);
+    // }
 
     @Nullable
     @Override

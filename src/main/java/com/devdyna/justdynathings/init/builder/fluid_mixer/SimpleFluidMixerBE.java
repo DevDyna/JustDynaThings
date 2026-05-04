@@ -1,20 +1,15 @@
 package com.devdyna.justdynathings.init.builder.fluid_mixer;
 
-import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.api.be.FluidMachine;
-import com.devdyna.justdynathings.init.builder.stabilizer.StabilizerBlock;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
-import com.devdyna.justdynathings.init.types.zProperties;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.FluidContainerData;
 import com.direwolf20.justdirethings.common.capabilities.JustDireFluidTank;
 import com.direwolf20.justdirethings.setup.JDTRegistration;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 @SuppressWarnings({ "null" })
 public class SimpleFluidMixerBE extends BaseMachineBE implements FluidMachine {
@@ -33,50 +28,38 @@ public class SimpleFluidMixerBE extends BaseMachineBE implements FluidMachine {
     @Override
     public void tickServer() {
 
-        updateBlock();
-//TODO logic
+        // TODO logic
         // for (int i = 0; i < getMachineHandler().getSlots(); i++) {
 
-        //     var catalyst = getMachineHandler().getStackInSlot(i);
+        // var catalyst = getMachineHandler().getStackInSlot(i);
 
-        //     List<RecipeHolder<ParadoxMixerRecipe>> recipes = level.getRecipeManager()
-        //             .getAllRecipesFor(zRecipeTypes.PARADOX_MIXER.getType());
+        // List<RecipeHolder<ParadoxMixerRecipe>> recipes = level.getRecipeManager()
+        // .getAllRecipesFor(zRecipeTypes.PARADOX_MIXER.getType());
 
-        //     var recipe = recipes.stream().filter(r -> r.value().getCatalyst().test(catalyst)
-        //             && getFluidStack().is(r.value().getInput().getFluidType())
-        //             && getFluidStack().getAmount() == r.value().getInput().getAmount()).findFirst();
+        // var recipe = recipes.stream().filter(r ->
+        // r.value().getCatalyst().test(catalyst)
+        // && getFluidStack().is(r.value().getInput().getFluidType())
+        // && getFluidStack().getAmount() ==
+        // r.value().getInput().getAmount()).findFirst();
 
-        //     if (recipe.isPresent() && getBlockState().getValue(zProperties.GOO_ALIVE)) {
+        // if (recipe.isPresent() && getBlockState().getValue(zProperties.GOO_ALIVE)) {
 
-        //         var fluid = recipe.get().value().getOutput();
-        //         setFluidStack(fluid.getFluid(), fluid.getAmount());
-        //         catalyst.shrink(1);
+        // var fluid = recipe.get().value().getOutput();
+        // setFluidStack(fluid.getFluid(), fluid.getAmount());
+        // catalyst.shrink(1);
 
-        //         if (CommonConfig.PARADOX_MIXER_SOUND_EVENT.get())
-        //             level.playSound(null, getBlockPos(),
-        //                     SoundEvents.BREWING_STAND_BREW,
-        //                     SoundSource.BLOCKS, (level.random.nextInt(10) + 1) * 0.01F,
-        //                     level.random.nextInt(50) + 1 * 0.01F);
+        // if (CommonConfig.PARADOX_MIXER_SOUND_EVENT.get())
+        // level.playSound(null, getBlockPos(),
+        // SoundEvents.BREWING_STAND_BREW,
+        // SoundSource.BLOCKS, (level.random.nextInt(10) + 1) * 0.01F,
+        // level.random.nextInt(50) + 1 * 0.01F);
 
-        //         level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(zProperties.GOO_ALIVE, false));
+        // level.setBlockAndUpdate(getBlockPos(),
+        // getBlockState().setValue(zProperties.GOO_ALIVE, false));
 
-        //         break;
-        //     }
+        // break;
         // }
-    }
-
-    public void updateBlock() {
-        int i = 0;
-        for (Direction dir : Direction.values()) {
-            var relative = level.getBlockState(getBlockPos().relative(dir));
-            if (relative.getBlock() instanceof StabilizerBlock)
-                if (relative.getValue(BlockStateProperties.FACING).equals(dir)
-                        && relative.getValue(zProperties.ENERGIZED))
-                    i++;
-        }
-        if (i <= 0)
-            level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(zProperties.GOO_ALIVE, false));
-
+        // }
     }
 
     @Override
@@ -91,16 +74,12 @@ public class SimpleFluidMixerBE extends BaseMachineBE implements FluidMachine {
 
     @Override
     public int getMaxMB() {
-        return 1000;//Config.SIMPLE_FLUID_MIXER_MB_CAPACITY.get();
+        return 1000;// Config.SIMPLE_FLUID_MIXER_MB_CAPACITY.get();
     }
 
     @Override
     public int getStandardFluidCost() {
         return 0;
-    }
-
-    public boolean canProcess() {
-        return getBlockState().getValue(zProperties.GOO_ALIVE);
     }
 
 }

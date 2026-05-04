@@ -26,9 +26,6 @@ public class DataLang extends LanguageProvider {
                 zItems.zGooUpgraders.getEntries().forEach(i -> addItem(i, named(i, MODULE_ID)));
                 zItems.zWands.getEntries().forEach(i -> addItem(i, named(i, MODULE_ID)));
                 zBlocks.zBlockItem.getEntries().forEach(i -> addBlock(i, named(i, MODULE_ID)));
-                // zBlocks.zHidden.getEntries().forEach(i -> addBlock(i, named(i, MODULE_ID)));
-
-                // TODO check unused tk
 
                 add(MODULE_ID + ".invalid_block", "§cInvalid Block");
                 add(MODULE_ID + ".wand.blockstate", "§7BlockState : ");
@@ -36,6 +33,7 @@ public class DataLang extends LanguageProvider {
                 add(MODULE_ID + ".wand.pos", "§7BlockPos : ");
                 add(MODULE_ID + ".disabled", "§cItem Disabled");
 
+                // TODO reforger 2.0 and with AOE
                 add(MODULE_ID + "." + Constants.Blocks.Reforger,
                                 "§7Convert blocks using a catalyst to other blocks");
 
@@ -51,30 +49,12 @@ public class DataLang extends LanguageProvider {
                 add(MODULE_ID + "." + Constants.Anvils.t4,
                                 "§7Repair items using Time Fluid");
 
-                // add(MODULE_ID + "." + Constants.Anvils.t4 + ".boost",
-                // "§7Can be boosted using Time Fluid");
-
-                // add(MODULE_ID + "." + Constants.BuddingType,
-                // "§7Grow clusters using Time Fluid and Forge Energy");
-
-                // creative tab
-                // add(MODULE_ID + "." + Constants.CreativeTab, "Just Dyna Things");
-
-                // wip
-                // add(MODULE_ID + ".clock.wip", "N.Y.I. -> shift-click the block to toggle");
-
-                // missing guideme
-                // add(MODULE_ID + ".doc.missing", "§aFor more info consider to install GuideMe
-                // or Patchouli");
-
                 // generic type tooltips
                 add(MODULE_ID + "." + Constants.GooType + "." + Constants.Goo.Energized,
                                 "§cProvide energy to active it");
                 add(MODULE_ID + "." + Constants.GooType + "." + Constants.Goo.Creative,
                                 "§cRight click with a wrench to toggle alive state");
                 add(MODULE_ID + "." + Constants.SolarPanelType, "§7Generate Energy from ambiental situations");
-                // add(MODULE_ID + "." + Constants.Blocks.ThermoGen,
-                // "§7Generate Energy from heat sources and coolants");
 
                 add(MODULE_ID + "." + Constants.Blocks.Stabilizer,
                                 "§7Feed Goo blocks and Buddings blocks");
@@ -128,17 +108,9 @@ public class DataLang extends LanguageProvider {
 
                 add(MODULE_ID + ".jei.bucket", "Every Bucket");
 
-                // add(MODULE_ID + "." + Constants.Blocks.simple_fluid_mixer + ".unstable",
-                // "Energized Stabilizer not found");
-
                 addBlock(zBlocks.LIGHT_WAND_BLOCK, "Light Wand Block");
 
                 add(MODULE_ID + "." + Constants.BuddingType + ".break", "§cDoesn't drop when broken!");
-
-                // required to render disabled items
-                // zCompat.getEchoingBuddingTypes.forEach(k -> add("item." + ID + "." + k,
-                // named(k)));
-                // zCompat.getChiselItems.forEach(k -> add("item." + ID + "." + k, named(k)));
 
                 add(MODULE_ID + ".hold_control", "§7Hold Control for Chisel detailts");
 
@@ -147,15 +119,6 @@ public class DataLang extends LanguageProvider {
 
                 add(MODULE_ID + "." + Constants.Blocks.Stabilizer + ".jade.goo", "Revive Goo");
                 add(MODULE_ID + "." + Constants.Blocks.Stabilizer + ".jade.energized", "Revive Time Budding");
-                // add(MODULE_ID + "." + Constants.Blocks.ParadoxMixer + ".jade.dead",
-                // "§cRequire a Stabilizer energized!");
-
-                // add("config.jade.plugin_" + MODULE_ID + "." + Constants.BuddingType, "Echoing
-                // Buddings Requirements");
-                // add("config.jade.plugin_" + MODULE_ID + "." + Constants.Blocks.Stabilizer,
-                // "Stabilizer Abilities");
-                // add("config.jade.plugin_" + MODULE_ID + "." + Constants.Blocks.ParadoxMixer,
-                // "Paradox Mixer Requirements");
 
                 add(MODULE_ID + ".configuration.entry_anvils", "Functional Anvils");
                 add(MODULE_ID + ".configuration.entry_blocks", "Misc Blocks");
@@ -340,8 +303,6 @@ public class DataLang extends LanguageProvider {
 
                 add(MODULE_ID + ".configuration.ferricore_clock_require_wrench",
                                 "Ferricore Clock require wrench to change face");
-
-                // add(MODULE_ID + ".configuration.include_any_jei_fuels", "##DESC##");
 
                 add(MODULE_ID + ".configuration.phase_box_require_wrench", "PhaseBox require wrench to change state");
 

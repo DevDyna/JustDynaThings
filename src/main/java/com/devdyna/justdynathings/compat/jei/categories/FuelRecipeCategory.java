@@ -10,10 +10,8 @@ import mezz.jei.api.recipe.types.IRecipeType;
 
 import static com.devdyna.justdynathings.JustDynaThings.MODULE_ID;
 
-import com.devdyna.cakesticklib.api.compat.jei.BaseCategory;
 import com.devdyna.cakesticklib.api.primitive.Pos;
 import com.devdyna.cakesticklib.api.primitive.Size;
-import com.devdyna.cakesticklib.api.utils.x;
 import com.devdyna.justdynathings.api.ClientRender;
 import com.devdyna.justdynathings.compat.jei.utils.FuelRecords;
 import com.direwolf20.justdirethings.common.blocks.resources.CoalBlock_T1;
@@ -21,15 +19,13 @@ import com.direwolf20.justdirethings.common.items.resources.Coal_T1;
 import com.direwolf20.justdirethings.setup.Config;
 import com.direwolf20.justdirethings.setup.JDTRegistration;
 import com.direwolf20.justdirethings.util.MagicHelpers;
-
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.ItemLike;
 
 @SuppressWarnings("null")
-public class FuelRecipeCategory extends BaseCategory<FuelRecords.Items> implements ClientRender {
+public class FuelRecipeCategory extends BaseRecipeCategory<FuelRecords.Items> implements ClientRender{
     public static final IRecipeType<FuelRecords.Items> TYPE = IRecipeType.create(MODULE_ID,
             JDTRegistration.GeneratorT1_ITEM.getId().getPath(), FuelRecords.Items.class);
 
@@ -49,6 +45,11 @@ public class FuelRecipeCategory extends BaseCategory<FuelRecords.Items> implemen
     }
 
     @Override
+    public String getTitleKey() {
+        return JDTRegistration.GeneratorT1_ITEM.getId().getPath();
+    }
+
+    @Override
     public ItemLike getIconItem() {
         return JDTRegistration.GeneratorT1_ITEM.get();
     }
@@ -59,18 +60,12 @@ public class FuelRecipeCategory extends BaseCategory<FuelRecords.Items> implemen
     }
 
     @Override
-    public String getTraslationKey() {
-        return JDTRegistration.GeneratorT1_ITEM.getId().getPath();
+    public String setBackGround() {
+        return "textures/gui/fuel_icons.png";
     }
 
     @Override
-    public Identifier setBackGround() {
-        return x.rl(MODULE_ID, "textures/gui/fuel_icons.png");
-    }
-
-    @Override
-    public void draw(FuelRecords.Items recipe, IRecipeSlotsView recipeSlotsView, GuiGraphicsExtractor guiGraphics,
-            double mouseX,
+    public void draw(FuelRecords.Items recipe, IRecipeSlotsView recipeSlotsView, GuiGraphicsExtractor guiGraphics, double mouseX,
             double mouseY) {
         super.draw(recipe, recipeSlotsView, guiGraphics, mouseX, mouseY);
 
@@ -89,21 +84,20 @@ public class FuelRecipeCategory extends BaseCategory<FuelRecords.Items> implemen
 
         var maxburn = total / rate;
 
-        var stack = guiGraphics.pose();
-        stack.pushMatrix();
-        stack.scale(0.75F, 0.75F);
+        // PoseStack stack = guiGraphics.pose();
+        // stack.pushPose();
+        // stack.scale(0.75F, 0.75F, 8000F);
         guiGraphics.text(font,
-                Component.literal(hasShiftDown()
+                (hasShiftDown()
                         ? MagicHelpers.ticksInSeconds(maxburn).replaceAll("\\.0$", "")
                                 + " sec"
                         : maxburn + " ticks"),
                 46, 4,
                 0xFFFFFF);
-        guiGraphics.text(font, Component.literal(rate + " FE/tick"), 46, 18, 0xFFFFFF);
-        guiGraphics.text(font, Component.literal((hasShiftDown() ? MagicHelpers.withSuffix(total) : total) + " FE"), 46,
-                32,
+        guiGraphics.text(font, rate + " FE/tick", 46, 18, 0xFFFFFF);
+        guiGraphics.text(font, (hasShiftDown() ? MagicHelpers.withSuffix(total) : total) + " FE", 46, 32,
                 0xFFFFFF);
-        stack.popMatrix();
+        // stack.popPose();
 
     }
 

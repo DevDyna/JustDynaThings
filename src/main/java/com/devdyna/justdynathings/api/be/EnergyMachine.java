@@ -28,6 +28,15 @@ public interface EnergyMachine extends PoweredMachineBE {
     }
 
     /**
+     * FE--
+     * when not empty
+     */
+    default void extractFEWhenPossible(int v) {
+        if (canExtractFE())
+            extractEnergy(Math.min(v, getMaxEnergy()), false);
+    }
+
+    /**
      * FE <- Machine | Consume
      * when not empty
      */

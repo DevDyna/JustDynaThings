@@ -2,30 +2,11 @@
 
 ### Porting changes
 
-- [x] goo upgraders
-
-- [x] swapper_wand
-- [x] picker_wand
-- [x] temporal_stupefy_wand
-- [x] advanced_time_wand
-- [x] light_wand
-- [x] advanced_light_wand
-- [x] phase_box
-- [x] reforger
-- [x] FerricoreClock
-- [x] Stabilizer
-- [x] SolarPanels
-
-
-- [ ] blackhole
-
-- [ ] Anvils
-
-
-
-- [ ] Datamaps to recipe types
-- [ ] Ticker speed rate GUI [#28](https://github.com/DevDyna/JustDynaThings/issues/28)
+- [x] Datamaps to recipe types
+- [x] Ticker speed rate GUI [#28](https://github.com/DevDyna/JustDynaThings/issues/28)
 - [ ] Generator T2-3-4
+
+- [ ] reforger 2.0 + AOE version
 
 - [ ] Standardize echoing buddings (new mod)
 

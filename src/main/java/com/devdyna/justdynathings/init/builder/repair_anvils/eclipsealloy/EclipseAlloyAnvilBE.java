@@ -22,7 +22,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.transfer.fluid.FluidResource;
 
 public class EclipseAlloyAnvilBE extends FunctionalAnvilBE
         implements FluidMachine, AnvilRecipeHandler<RepairEclipseAlloyAnvilRecipe> {
@@ -73,13 +72,11 @@ public class EclipseAlloyAnvilBE extends FunctionalAnvilBE
         return Config.ANVIL_ECLIPSEALLOY_SOUND_EVENT.get();
     }
 
-    private FluidResource tank = getFluidTank().getResource(0);
-
     @Override
     public Optional<RecipeHolder<RepairEclipseAlloyAnvilRecipe>> getRecipe() {
         return level.getServer().getRecipeManager().getRecipeFor(
                 zRecipeTypes.ECLIPSEALLOY_ANVIL.getType(),
-                new FluidFuelInput(tank.toStack(getAmountStored())),
+                new FluidFuelInput(getFluidTank().getResource(0).toStack(getAmountStored())),
                 level);
     }
 

@@ -130,9 +130,20 @@ public class ItemToolTipped {
                         }
                 }
 
-                if (isBlock && block instanceof SolarBlockBase) 
-                        tip.add(OVER_THE_REGISTRY_ID,Component.translatable(MODULE_ID + "." + Constants.SolarPanelType));
-                
+                if (isBlock && block instanceof SolarBlockBase sp) {
+                        tip.add(OVER_THE_REGISTRY_ID,
+                                        Component.translatable(MODULE_ID + "." + Constants.SolarPanelType));
+
+                        if (Minecraft.getInstance().hasShiftDown()) {
+                                tip.add(OVER_THE_REGISTRY_ID,
+                                                Component.translatable(
+                                                                MODULE_ID + "." + Constants.SolarPanelType + ".ferate")
+                                                                .append(Component.literal("" + sp.getFERate())));
+                        } else
+                                tip.add(Component.translatable("justdirethings.shiftmoreinfo")
+                                                .withStyle(ChatFormatting.GRAY));
+
+                }
 
                 if (isBlock && block instanceof EnergyGoo goo) {
 

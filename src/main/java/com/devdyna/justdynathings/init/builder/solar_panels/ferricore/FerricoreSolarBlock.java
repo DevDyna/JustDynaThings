@@ -2,6 +2,7 @@ package com.devdyna.justdynathings.init.builder.solar_panels.ferricore;
 
 import javax.annotation.Nullable;
 
+import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.api.Actions;
 import com.devdyna.justdynathings.api.solar_panels.SolarBlockBase;
 
@@ -32,14 +33,8 @@ public class FerricoreSolarBlock extends SolarBlockBase {
                 Actions.openMenu(p, (w, i, e) -> new FerricoreSolarPanelGUI(w, i, b), b);
         }
 
-        // @Override
-        // public void appendHoverText(ItemStack s, TooltipContext c, List<Component> t,
-        //                 TooltipFlag f) {
-        //         super.appendHoverText(s, c, t, f);
-        //         if (Screen.hasShiftDown()) {
-        //                 t.add(Component.translatable(Main.ID + "." + Constants.SolarPanelType + ".ferate")
-        //                                 .append(Component.literal("" + CommonConfig.SOLARPANEL_FERRICORE_FE_RATE.get())));
-        //         } else
-        //                 t.add(Component.translatable("justdirethings.shiftmoreinfo").withStyle(ChatFormatting.GRAY));
-        // }
+        @Override
+        public int getFERate() {
+                return Config.SOLARPANEL_FERRICORE_FE_RATE.get();
+        }
 }

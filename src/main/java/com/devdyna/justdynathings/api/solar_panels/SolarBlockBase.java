@@ -68,5 +68,6 @@ public abstract class SolarBlockBase extends BaseMachineBlock{
         return s;
     }
 
+    public abstract int getFERate();
 
 }

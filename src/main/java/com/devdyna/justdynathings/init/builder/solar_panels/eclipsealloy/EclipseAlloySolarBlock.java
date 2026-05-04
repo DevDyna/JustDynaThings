@@ -2,6 +2,7 @@ package com.devdyna.justdynathings.init.builder.solar_panels.eclipsealloy;
 
 import javax.annotation.Nullable;
 
+import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.api.Actions;
 import com.devdyna.justdynathings.api.solar_panels.SolarBlockBase;
 
@@ -32,5 +33,9 @@ public class EclipseAlloySolarBlock extends SolarBlockBase {
                 Actions.openMenu(p, (w, i, e) -> new EclipseAlloySolarPanelGUI(w, i, b), b);
         }
 
-       
+        @Override
+        public int getFERate() {
+                return Config.SOLARPANEL_ECLIPSEALLOY_FE_RATE.get();
+        }
+
 }

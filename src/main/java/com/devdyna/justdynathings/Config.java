@@ -159,7 +159,7 @@ public class Config {
         }
 
         private static void regCommon() {
-                general();
+                misc();
                 blocks();
                 goo();
                 solar_panel();
@@ -170,9 +170,14 @@ public class Config {
                 // compats();
         }
 
-        private static void general() {
-                qCOMMON.comment("General").push("1-general");
-                superduperConfigKeys();
+        private static void misc() {
+                qCOMMON.comment("Misc").push("misc");
+
+                qCOMMON.comment("Hello player, DevDyna is here !");
+                qCOMMON.comment("If you're wondering that this ConfigKeys part");
+                qCOMMON.comment("is used as joke , you are right...");
+                qCOMMON.comment("Anyway , can I be of help to you ?")
+                                .define("answer", false);
 
                 ENABLE_ALL_JEI_FUELS = qCOMMON
                                 .comment("Include any fuel item to Generator JEI category")
@@ -182,7 +187,7 @@ public class Config {
         }
 
         private static void blocks() {
-                qCOMMON.comment("Blocks").push("2-blocks");
+                qCOMMON.comment("Blocks").push("blocks");
                 qCOMMON.comment(StringUtil.nameCapitalized(Blocks.PhaseBox));
 
                 PHASE_BOX_WRENCHABLE = qCOMMON
@@ -216,7 +221,7 @@ public class Config {
                                                 Integer.MAX_VALUE);
 
                 STABILIZER_TOGGLE_SOUND = qCOMMON
-                                .comment("Enable/Disable sound when revitalized a goo")
+                                .comment("Enable/Disable sound")
                                 .define(Blocks.Stabilizer + ConfigKeys.Values.SOUND, true);
 
                 qCOMMON.comment(StringUtil.nameCapitalized(Blocks.Ticker));
@@ -263,7 +268,7 @@ public class Config {
         }
 
         private static void goo() {
-                qCOMMON.comment(StringUtil.nameCapitalized(Constants.GooType)).push("4-" + Constants.GooType);
+                qCOMMON.comment(StringUtil.nameCapitalized(Constants.GooType)).push("more-goo");
                 qCOMMON.comment(StringUtil.nameCapitalized(Goo.Creative));
 
                 GOO_CREATIVE_SOUND_TOGGLE_STATE = qCOMMON.comment("Enable/Disable sound on goo state change")
@@ -339,7 +344,7 @@ public class Config {
 
         private static void solar_panel() {
                 qCOMMON.comment(StringUtil.nameCapitalized(Constants.SolarPanelType))
-                                .push("5-" + Constants.SolarPanelType);
+                                .push("solar_panels");
                 qCOMMON.comment(StringUtil.nameCapitalized(SolarPanel.t1));
 
                 SOLARPANEL_FERRICORE_FE_CAPACITY = qCOMMON
@@ -440,7 +445,7 @@ public class Config {
         }
 
         private static void anvil() {
-                qCOMMON.comment(StringUtil.nameCapitalized(Constants.AnvilType)).push("6-" + Constants.AnvilType);
+                qCOMMON.comment(StringUtil.nameCapitalized(Constants.AnvilType)).push("anvils");
 
                 ANVILS_SOUND_EVENT = qCOMMON
                                 .comment("Enable/Disable the entire sound event of all anvils on item repair")
@@ -635,14 +640,6 @@ public class Config {
         // Integer.MAX_VALUE);
 
         // }
-
-        private static void superduperConfigKeys() {
-                qCOMMON.comment("Hello player, DevDyna is here !");
-                qCOMMON.comment("If you're wondering that this ConfigKeys part");
-                qCOMMON.comment("is used as joke , you are right...");
-                qCOMMON.comment("Anyway , can I be of help to you ?")
-                                .define("answer", false);
-        }
 
         private static BooleanValue bool(String c, String k, boolean b) {
                 return qCOMMON

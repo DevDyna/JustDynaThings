@@ -25,4 +25,18 @@ public abstract class BaseFluidMachineBlock extends BaseMachineBlock implements 
         return bucketAction(stack, state, level, pos, player, hand, hitResult);
     }
 
+    @Override
+    public InteractionResult executeWhenEmpty(ItemStack stack, BlockState state, Level level, BlockPos pos,
+            Player player, InteractionHand hand, BlockHitResult hitResult) {
+        openMenu(player, pos);
+        return InteractionResult.SUCCESS;
+    }
+
+    @Override
+    public InteractionResult executeWhenNotBucket(ItemStack stack, BlockState state, Level level, BlockPos pos,
+            Player player, InteractionHand hand, BlockHitResult hitResult) {
+        openMenu(player, pos);
+        return InteractionResult.SUCCESS;
+    }
+
 }

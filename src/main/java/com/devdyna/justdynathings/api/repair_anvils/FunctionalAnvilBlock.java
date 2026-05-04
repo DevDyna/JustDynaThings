@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.api.repair_anvils;
 
-import com.devdyna.cakesticklib.api.aspect.logic.BucketInteraction;
+import com.devdyna.justdynathings.api.BaseFluidMachineBlock;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
 
 import net.minecraft.core.BlockPos;
@@ -25,9 +25,8 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import javax.annotation.Nullable;
 
-public abstract class FunctionalAnvilBlock extends BaseMachineBlock implements BucketInteraction {
+public abstract class FunctionalAnvilBlock extends BaseFluidMachineBlock {
 
     private static final VoxelShape BASE = Block.box(2.0, 0.0, 2.0, 14.0, 4.0, 14.0);
     private static final VoxelShape X_LEG1 = Block.box(3.0, 4.0, 4.0, 13.0, 5.0, 12.0);
@@ -48,29 +47,8 @@ public abstract class FunctionalAnvilBlock extends BaseMachineBlock implements B
                 .pushReaction(PushReaction.BLOCK));
     }
 
-    @Deprecated
-    @Nullable
-    @Override
-    public BlockEntity newBlockEntity(BlockPos p, BlockState s) {
-        return new FunctionalAnvilBE(p, s);
-    }
-
     @Override
     public void openMenu(Player p, BlockPos b) {
-    }
-
-    @Override
-    public InteractionResult executeWhenEmpty(ItemStack stack, BlockState state, Level level, BlockPos pos,
-            Player player, InteractionHand hand, BlockHitResult hitResult) {
-        openMenu(player, pos);
-        return InteractionResult.SUCCESS;
-    }
-
-    @Override
-    public InteractionResult executeWhenNotBucket(ItemStack stack, BlockState state, Level level, BlockPos pos,
-            Player player, InteractionHand hand, BlockHitResult hitResult) {
-        openMenu(player, pos);
-        return InteractionResult.SUCCESS;
     }
 
     @Override

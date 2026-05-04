@@ -35,7 +35,7 @@ public class Capability {
         Block[] EnergyMachineBase = {
 
                 zBlocks.CELESTIGEM_ANVIL.get(),
-                zBlocks.ECLIPSEALLOY_ANVIL.get(),
+                // zBlocks.ECLIPSEALLOY_ANVIL.get(),
 
                 zBlocks.STABILIZER.get(),
 

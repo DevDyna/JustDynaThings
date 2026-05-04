@@ -15,9 +15,10 @@
 - [x] FerricoreClock
 - [x] Stabilizer
 - [x] SolarPanels
-- [ ] Ticker
-- [ ] paradox_mixer rework
+
+
 - [ ] blackhole
+
 - [ ] Anvils
 
 
@@ -27,8 +28,6 @@
 - [ ] Generator T2-3-4
 
 - [ ] Standardize echoing buddings (new mod)
-
-## Secondary stuff
 
 - [ ] Rework paradox mixer -> simple mixer
 

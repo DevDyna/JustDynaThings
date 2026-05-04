@@ -4,11 +4,14 @@ import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.api.be.EnergyMachine;
 import com.devdyna.justdynathings.api.repair_anvils.FunctionalAnvilBE;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
+import com.devdyna.justdynathings.init.types.zItemTags;
 import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineContainerData;
 import com.direwolf20.justdirethings.common.capabilities.MachineEnergyStorage;
 import com.direwolf20.justdirethings.setup.JDTRegistration;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -23,22 +26,6 @@ public class CelestiGemAnvilBE extends FunctionalAnvilBE implements EnergyMachin
 
     public CelestiGemAnvilBE(BlockPos pos, BlockState state) {
         this(zBlockEntities.CELESTIGEM_ANVIL.get(), pos, state);
-    }
-
-    @Override
-    public void tickServer() {
-        super.tickServer();// TODO logic
-        // var tool = getMachineHandler().getStackInSlot(0);
-        // if (isActiveRedstone()) {
-        // // getMachineHandler() only work inside tick event!
-        // if (canExtractFE() && tool.isDamageableItem()
-        // && tool.isDamaged() && !tool.is(zItemTags.CELESTIGEM_DENY)) {
-        // extractFEWhenPossible();
-        // Actions.repairItem(tool);
-        // if (CommonConfig.ANVIL_CELESTIGEM_SOUND_EVENT.get())
-        // applySound();
-        // }
-        // }
     }
 
     @Override
@@ -59,6 +46,33 @@ public class CelestiGemAnvilBE extends FunctionalAnvilBE implements EnergyMachin
     @Override
     public int getMaxEnergy() {
         return Config.ANVILS_CELESTIGEM_FE_CAPACITY.get();
+    }
+
+    @Override
+    public void whenToolValid() {
+
+        if (!getEnergyStorage().canExtract())
+            return;
+
+        extractFEWhenPossible();
+
+        setDurabilityBatch(1);
+
+    }
+
+    @Override
+    public TagKey<Item> getDenyTag() {
+        return zItemTags.CELESTIGEM_DENY;
+    }
+
+    @Override
+    public Boolean getSoundConfig() {
+        return Config.ANVIL_CELESTIGEM_SOUND_EVENT.get();
+    }
+
+    @Override
+    public Boolean ignoreDelay() {
+        return Config.ANVIL_CELESTIGEM_IGNORE_DELAY.get();
     }
 
 }

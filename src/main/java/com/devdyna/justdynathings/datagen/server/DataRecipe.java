@@ -6,6 +6,9 @@ import java.util.concurrent.CompletableFuture;
 
 import com.devdyna.cakesticklib.api.utils.x;
 import com.devdyna.justdynathings.Constants;
+import com.devdyna.justdynathings.common.recipes.anvils.blazegold.RepairBlazegoldAnvilBuilder;
+import com.devdyna.justdynathings.common.recipes.anvils.eclipsealloy.RepairEclipseAlloyAnvilBuilder;
+import com.devdyna.justdynathings.common.recipes.anvils.ferricore.RepairFerricoreAnvilBuilder;
 import com.devdyna.justdynathings.init.types.zBlockTags;
 import com.devdyna.justdynathings.init.types.zBlocks;
 import com.devdyna.justdynathings.init.types.zItemTags;
@@ -25,6 +28,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.material.Fluids;
 import net.neoforged.neoforge.common.Tags;
 
 public class DataRecipe extends RecipeProvider {
@@ -297,12 +301,47 @@ public class DataRecipe extends RecipeProvider {
                                                                 JDTRegistration.EclipseAlloyIngot.get()))
                                 .group(Constants.Blocks.Ticker).save(output);
 
+                RepairFerricoreAnvilBuilder.of()
+                                .input(Items.IRON_INGOT)
+                                .durability(64)
+                                .unlockedBy()
+                                .save(output);
 
+                RepairFerricoreAnvilBuilder.of()
+                                .input(JDTRegistration.FerricoreIngot.get())
+                                .durability(256)
+                                .unlockedBy()
+                                .save(output);
 
+                RepairBlazegoldAnvilBuilder.of()
+                                .fluid(Fluids.LAVA, 1)
+                                .durability(1)
+                                .unlockedBy()
+                                .save(output);
 
+                RepairBlazegoldAnvilBuilder.of()
+                                .fluid(JDTRegistration.REFINED_T2_FLUID_SOURCE.get(), 1)
+                                .durability(4)
+                                .unlockedBy()
+                                .save(output);
 
+                RepairBlazegoldAnvilBuilder.of()
+                                .fluid(JDTRegistration.REFINED_T3_FLUID_SOURCE.get(), 1)
+                                .durability(8)
+                                .unlockedBy()
+                                .save(output);
 
+                RepairBlazegoldAnvilBuilder.of()
+                                .fluid(JDTRegistration.REFINED_T4_FLUID_SOURCE.get(), 1)
+                                .durability(16)
+                                .unlockedBy()
+                                .save(output);
 
+                RepairEclipseAlloyAnvilBuilder.of()
+                                .fluid(JDTRegistration.TIME_FLUID_SOURCE.get(), 1)
+                                .durability(16_384)
+                                .unlockedBy()
+                                .save(output);
 
                 // var stupefy = new ItemStackTemplate(zItems.STUPEFY_WAND.get(),
                 // DataComponentPatch.builder()

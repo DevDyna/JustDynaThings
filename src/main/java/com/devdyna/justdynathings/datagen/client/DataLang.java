@@ -73,8 +73,8 @@ public class DataLang extends LanguageProvider {
                 add(MODULE_ID + "." + Constants.GooType + "." + Constants.Goo.Creative,
                                 "§cRight click with a wrench to toggle alive state");
                 add(MODULE_ID + "." + Constants.SolarPanelType, "§7Generate Energy from ambiental situations");
-                add(MODULE_ID + "." + Constants.Blocks.ThermoGen,
-                                "§7Generate Energy from heat sources and coolants");
+                // add(MODULE_ID + "." + Constants.Blocks.ThermoGen,
+                //                 "§7Generate Energy from heat sources and coolants");
 
                 add(MODULE_ID + "." + Constants.Blocks.Stabilizer,
                                 "§7Feed Goo blocks and Buddings blocks");

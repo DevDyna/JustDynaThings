@@ -60,6 +60,20 @@ public abstract class FunctionalAnvilBlock extends BaseMachineBlock implements B
     }
 
     @Override
+    public InteractionResult executeWhenEmpty(ItemStack stack, BlockState state, Level level, BlockPos pos,
+            Player player, InteractionHand hand, BlockHitResult hitResult) {
+        openMenu(player, pos);
+        return InteractionResult.SUCCESS;
+    }
+
+    @Override
+    public InteractionResult executeWhenNotBucket(ItemStack stack, BlockState state, Level level, BlockPos pos,
+            Player player, InteractionHand hand, BlockHitResult hitResult) {
+        openMenu(player, pos);
+        return InteractionResult.SUCCESS;
+    }
+
+    @Override
     public boolean isValidBE(BlockEntity b) {
         return b instanceof FunctionalAnvilBE;
     }

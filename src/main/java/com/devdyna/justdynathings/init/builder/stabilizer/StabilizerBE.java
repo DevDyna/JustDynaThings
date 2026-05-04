@@ -12,21 +12,22 @@ import com.direwolf20.justdirethings.common.blockentities.basebe.FluidContainerD
 import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineContainerData;
 import com.direwolf20.justdirethings.common.blocks.gooblocks.GooBlock_Base;
 import com.direwolf20.justdirethings.common.blocks.resources.TimeCrystalBuddingBlock;
-import com.direwolf20.justdirethings.common.blocks.resources.TimeCrystalCluster;
 import com.direwolf20.justdirethings.common.capabilities.JustDireFluidTank;
 import com.direwolf20.justdirethings.common.capabilities.MachineEnergyStorage;
 import com.direwolf20.justdirethings.setup.JDTRegistration;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.level.block.AmethystClusterBlock;
-import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.BuddingAmethystBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.material.Fluids;
+import net.neoforged.neoforge.common.Tags;
 
 @SuppressWarnings("null")
 public class StabilizerBE extends BaseMachineBE implements EnergyMachine, FluidMachine {
@@ -57,14 +58,16 @@ public class StabilizerBE extends BaseMachineBE implements EnergyMachine, FluidM
 
         updateBlock();
 
-        var related = level.getBlockState(getGooPos()).getBlock();
+        var state = level.getBlockState(getGooPos());
+
+        var related = state.getBlock();
 
         if (!canExtractFE())
             return;
 
         if (related instanceof GooBlock_Base) {
 
-            if (level.getBlockState(getGooPos()).getValue(zProperties.GOO_ALIVE))
+            if (state.getValue(zProperties.GOO_ALIVE))
                 return;
 
             extractFEWhenPossible();
@@ -72,74 +75,53 @@ public class StabilizerBE extends BaseMachineBE implements EnergyMachine, FluidM
             if (RandomUtil.chance(level, 5)) {
                 if (Config.STABILIZER_TOGGLE_SOUND.get())
                     applySound();
-                setAlive();
+                level.setBlockAndUpdate(getGooPos(),
+                        level.getBlockState(getGooPos())
+                                .setValue(GooBlock_Base.ALIVE, true));
 
             }
 
         }
 
-        if (related instanceof TimeCrystalBuddingBlock time) {
+        if (related instanceof BuddingAmethystBlock) {
 
-            var stage = level.getBlockState(getGooPos()).getValue(TimeCrystalBuddingBlock.STAGE);
-            if (canExtractMB()) {
-                if (stage < 3)
-                    if (RandomUtil.chance(level, 1)) {
+            extractFEWhenPossible();
+
+            if (!canExtractMB())
+                return;
+
+            if (related instanceof TimeCrystalBuddingBlock time) {
+
+                var stage = state.getValue(TimeCrystalBuddingBlock.STAGE);
+
+                if (stage < 3) {
+                    if (RandomUtil.chance(level, 5)) {
                         if (Config.STABILIZER_TOGGLE_SOUND.get())
                             applySound();
-                        extractFEWhenPossible();
+
                         extractMBWhenPossible();
-                        time.advance(level, level.getBlockState(getGooPos()), getGooPos(), stage + 1);
+                        time.advance(level, state, getGooPos(), stage + 1);
 
                     }
-
-                if (stage == 3) {
-                    if (RandomUtil.chance(level, 5))
-                        tryToGrowCluster(getGooPos());
+                    return;
                 }
-            } else {
-                if (RandomUtil.chance(level, 5))
-                    level.setBlockAndUpdate(getGooPos(),
-                            level.getBlockState(getGooPos()).setValue(TimeCrystalBuddingBlock.STAGE, 0));
-                level.playSound(null, getGooPos(), SoundEvents.RESPAWN_ANCHOR_DEPLETE.value(),
-                        SoundSource.BLOCKS, 1.0F, 0.25F);
+
             }
 
+            if (whenConsumeMB())
+                extractMBWhenPossible();
+
+            if (state.isRandomlyTicking())
+                for (int i = 0; i < 16; i++) {
+                    state.randomTick((ServerLevel) level, getGooPos(), level.getRandom());
+                    if (RandomUtil.chance(level, 1))
+                        if (Config.STABILIZER_TOGGLE_SOUND.get())
+                            applySound();
+
+                }
+
         }
 
-    }
-
-    public void tryToGrowCluster(BlockPos budPos) {
-
-        var dir = DirectionUtil.randomDirection(level, DirectionUtil.ALL);
-
-        var clusterPos = budPos.relative(dir);
-        var blockstate = level.getBlockState(clusterPos);
-        Block block = null;
-
-        if (TimeCrystalBuddingBlock.canClusterGrowAtState(blockstate)) {
-            block = JDTRegistration.TimeCrystalCluster_Small.get();
-        } else if (blockstate.is(JDTRegistration.TimeCrystalCluster_Small.get())
-                && blockstate.getValue(AmethystClusterBlock.FACING) == dir) {
-            block = JDTRegistration.TimeCrystalCluster_Medium.get();
-        } else if (blockstate.is(JDTRegistration.TimeCrystalCluster_Medium.get())
-                && blockstate.getValue(AmethystClusterBlock.FACING) == dir) {
-            block = JDTRegistration.TimeCrystalCluster_Large.get();
-        } else if (blockstate.is(JDTRegistration.TimeCrystalCluster_Large.get())
-                && blockstate.getValue(AmethystClusterBlock.FACING) == dir) {
-            block = JDTRegistration.TimeCrystalCluster.get();
-        }
-
-        if (block != null)
-            level.setBlockAndUpdate(clusterPos, block.defaultBlockState()
-                    .setValue(TimeCrystalCluster.FACING, dir)
-                    .setValue(TimeCrystalCluster.WATERLOGGED, blockstate.getFluidState().getType() == Fluids.WATER));
-
-    }
-
-    public void setAlive() {
-        level.setBlockAndUpdate(getGooPos(),
-                level.getBlockState(getGooPos())
-                        .setValue(GooBlock_Base.ALIVE, true));
     }
 
     /**
@@ -157,8 +139,19 @@ public class StabilizerBE extends BaseMachineBE implements EnergyMachine, FluidM
     }
 
     public boolean whenActive() {
-        return level.getBlockState(getGooPos()).getBlock() instanceof TimeCrystalBuddingBlock
-                || level.getBlockState(getGooPos()).getBlock() instanceof GooBlock_Base;
+       return level.getBlockState(getGooPos()).getBlock() instanceof GooBlock_Base  || level.getBlockState(getGooPos()).getBlock() instanceof BuddingAmethystBlock;
+    }
+
+    public boolean whenConsumeMB() {
+        for (Direction d : DirectionUtil.ALL) {
+            if (BuddingAmethystBlock.canClusterGrowAtState(level.getBlockState(getGooPos().relative(d)))
+                    || (level.getBlockState(getGooPos().relative(d)).is(Tags.Blocks.BUDS)
+                            && level.getBlockState(getGooPos().relative(d)).getValue(AmethystClusterBlock.FACING)
+                                    .equals(d))) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -206,14 +199,6 @@ public class StabilizerBE extends BaseMachineBE implements EnergyMachine, FluidM
     @Override
     public int getMaxMB() {
         return Config.STABILIZER_MB_CAPACITY.get();
-    }
-
-    public boolean canReviveGoo() {
-        return canExtractFE();
-    }
-
-    public boolean isEnergized() {
-        return canExtractMB() && canReviveGoo();
     }
 
 }

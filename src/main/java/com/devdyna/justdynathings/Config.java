@@ -16,7 +16,6 @@ import net.neoforged.neoforge.common.ModConfigSpec.*;
 public class Config {
         private static final ModConfigSpec.Builder qCOMMON = new ModConfigSpec.Builder();
 
-        // public static BooleanValue DOC_WARNING;
         public static BooleanValue ENABLE_ALL_JEI_FUELS;
 
         public static BooleanValue PHASE_BOX_WRENCHABLE;
@@ -29,22 +28,11 @@ public class Config {
         public static IntValue STABILIZER_MB_COST;
         public static BooleanValue STABILIZER_TOGGLE_SOUND;
 
-        // public static IntValue THERMOGEN_FE_CAPACITY;
-        // public static IntValue THERMOGEN_MB_CAPACITY;
-
         public static BooleanValue BLACKHOLE_KEEP_STORAGE;
         public static IntValue BLACKHOLE_FE_CAPACITY;
         public static IntValue BLACKHOLE_FE_COST;
         public static IntValue BLACKHOLE_MB_CAPACITY;
         public static IntValue BLACKHOLE_MB_COST;
-
-        // public static IntValue BUDDING_GENERAL_MB_CAPACITY;
-        // public static IntValue BUDDING_GENERAL_MB_COST;
-        // public static IntValue BUDDING_GENERAL_FE_CAPACITY;
-        // public static IntValue BUDDING_GENERAL_FE_COST;
-        // public static BooleanValue BUDDING_GENERAL_FE_CHANCE;
-        // public static BooleanValue BUDDING_GENERAL_MB_CHANCE;
-        // public static BooleanValue BUDDING_GENERAL_SOUND;
 
         public static BooleanValue GOO_CREATIVE_SOUND_TOGGLE_STATE;
         public static IntValue GOO_CREATIVE_TIER;
@@ -57,9 +45,6 @@ public class Config {
         public static BooleanValue GOO_FEGOO_FE_RATE_MULTIPLY;
         public static BooleanValue GOO_FEGOO_SOUND_RECIPE;
         public static BooleanValue GOO_FEGOO_SOUND_EXTRA;
-
-        // public static IntValue GOO_ENERGY_TIER;
-        // public static IntValue GOO_ENERGY_COUNTER_REDUCER;
 
         public static IntValue GOO_T1_TIER;
         public static IntValue GOO_T1_COUNTER_REDUCER;
@@ -109,7 +94,6 @@ public class Config {
 
         public static BooleanValue ANVIL_FERRICORE_SOUND_EVENT;
 
-        public static IntValue ANVILS_BLAZEGOLD_MB_RATE;
         public static IntValue ANVILS_BLAZEGOLD_MB_CAPACITY;
         public static BooleanValue ANVIL_BLAZEGOLD_SOUND_EVENT;
 
@@ -117,13 +101,14 @@ public class Config {
         public static IntValue ANVILS_CELESTIGEM_FE_CAPACITY;
         public static BooleanValue ANVIL_CELESTIGEM_SOUND_EVENT;
 
-        public static IntValue ANVILS_ECLIPSEALLOY_MB_RATE;
         public static IntValue ANVILS_ECLIPSEALLOY_MB_CAPACITY;
-        public static IntValue ANVILS_ECLIPSEALLOY_FE_RATE;
-        public static IntValue ANVILS_ECLIPSEALLOY_FE_CAPACITY;
-        public static IntValue ANVILS_ECLIPSEALLOY_DAMAGE_LIMIT;
 
         public static BooleanValue ANVIL_ECLIPSEALLOY_SOUND_EVENT;
+
+        public static BooleanValue ANVIL_FERRICORE_IGNORE_DELAY;
+        public static BooleanValue ANVIL_BLAZEGOLD_IGNORE_DELAY;
+        public static BooleanValue ANVIL_CELESTIGEM_IGNORE_DELAY;
+        public static BooleanValue ANVIL_ECLIPSEALLOY_IGNORE_DELAY;
 
         public static BooleanValue ADVANCED_TIME_WAND_FAKE_PLAYER_ALLOWED;
         public static BooleanValue PICKER_WAND_FAKE_PLAYER_ALLOWED;
@@ -140,9 +125,6 @@ public class Config {
         public static ConfigValue<Integer> ADVANCED_TIME_WAND_MAX_MODE;
 
         public static ConfigValue<Integer> ADVANCED_TIME_WAND_MAX_MULTIPLIER;
-
-        // public static IntValue SIMPLE_FLUID_MIXER_MB_CAPACITY;
-        public static BooleanValue SIMPLE_FLUID_MIXER_SOUND_EVENT;
 
         public static IntValue TICKER_MB_CAPACITY;
         public static IntValue TICKER_MB_RATE;
@@ -183,7 +165,7 @@ public class Config {
                 solar_panel();
                 anvil();
                 wands();
-                mixer();
+                // mixer();
                 ticker();
                 compats();
         }
@@ -191,10 +173,6 @@ public class Config {
         private static void general() {
                 qCOMMON.comment("General").push("1-general");
                 superduperConfigKeys();
-
-                // DOC_WARNING = qCOMMON
-                //                 .comment("Disable Documentation warning")
-                //                 .define("disable_doc_warning", false);
 
                 ENABLE_ALL_JEI_FUELS = qCOMMON
                                 .comment("Include any fuel item to Generator JEI category")
@@ -241,17 +219,6 @@ public class Config {
                                 .comment("Enable/Disable sound when revitalized a goo")
                                 .define(Blocks.Stabilizer + ConfigKeys.Values.SOUND, true);
 
-                // qCOMMON.comment(StringUtil.nameCapitalized(Blocks.ThermoGen));
-
-                // THERMOGEN_FE_CAPACITY = qCOMMON
-                //                 .comment(ConfigKeys.Display.FE_MAX)
-                //                 .defineInRange(Blocks.ThermoGen + ConfigKeys.Values.FE_MAX, 1000000, 1,
-                //                                 Integer.MAX_VALUE);
-                // THERMOGEN_MB_CAPACITY = qCOMMON
-                //                 .comment("Total Coolant Capacity")
-                //                 .defineInRange(Blocks.ThermoGen + ConfigKeys.Values.FE_RATE, 100000, 1,
-                //                                 Integer.MAX_VALUE);
-
                 qCOMMON.comment(StringUtil.nameCapitalized(Blocks.BlackHole));
 
                 BLACKHOLE_KEEP_STORAGE = qCOMMON.comment("Keep stored stuff when redstone disable it")
@@ -275,37 +242,6 @@ public class Config {
 
                 qCOMMON.pop();
         }
-
-        // private static void budding() {
-        //         qCOMMON.comment(StringUtil.nameCapitalized(Constants.BuddingType)).push("3-" + Constants.BuddingType);
-        //         qCOMMON.comment("general_" + Constants.BuddingType);
-
-        //         BUDDING_GENERAL_MB_CAPACITY = qCOMMON
-        //                         .comment(ConfigKeys.Display.MB_MAX)
-        //                         .defineInRange(Constants.BuddingType + ConfigKeys.Values.MB_MAX, 10000, 1,
-        //                                         Integer.MAX_VALUE);
-        //         BUDDING_GENERAL_MB_COST = qCOMMON
-        //                         .comment(ConfigKeys.Display.MB_RATE)
-        //                         .defineInRange(Constants.BuddingType + ConfigKeys.Values.MB_RATE, 100, 1,
-        //                                         Integer.MAX_VALUE);
-        //         BUDDING_GENERAL_FE_CAPACITY = qCOMMON
-        //                         .comment(ConfigKeys.Display.FE_MAX)
-        //                         .defineInRange(Constants.BuddingType + ConfigKeys.Values.FE_MAX, 10000, 1,
-        //                                         Integer.MAX_VALUE);
-        //         BUDDING_GENERAL_FE_COST = qCOMMON
-        //                         .comment(ConfigKeys.Display.FE_RATE)
-        //                         .defineInRange(Constants.BuddingType + ConfigKeys.Values.FE_RATE, 100, 1,
-        //                                         Integer.MAX_VALUE);
-
-        //         BUDDING_GENERAL_FE_CHANCE = qCOMMON.comment("Chance to apply FE cost when a cluster will grow")
-        //                         .define(Constants.BuddingType + "_random_energy_cost", true);
-        //         BUDDING_GENERAL_MB_CHANCE = qCOMMON.comment("Chance to apply MB cost when a cluster will grow")
-        //                         .define(Constants.BuddingType + "_random_fluid_cost", true);
-
-        //         BUDDING_GENERAL_SOUND = qCOMMON.comment("Enable/Disable sound of buddings when grow")
-        //                         .define(Constants.BuddingType + ConfigKeys.Values.SOUND, true);
-        //         qCOMMON.pop();
-        // }
 
         private static void goo() {
                 qCOMMON.comment(StringUtil.nameCapitalized(Constants.GooType)).push("4-" + Constants.GooType);
@@ -342,15 +278,6 @@ public class Config {
                                 .define(ConfigKeys.Values.G_FEGOO + "_sound_on_execution_recipe", true);
                 GOO_FEGOO_SOUND_EXTRA = qCOMMON.comment("Enable/Disable sound on goo recipe execution randomly")
                                 .define(ConfigKeys.Values.G_FEGOO + "_extra_sound_on_execution", true);
-
-                // qCOMMON.comment(StringUtil.nameCapitalized(Goo.Energized));
-
-                // GOO_ENERGY_TIER = qCOMMON
-                //                 .comment("Tier of goo")
-                //                 .defineInRange(Goo.Energized + ConfigKeys.Values.TIER, 5, 1, Integer.MAX_VALUE);
-                // GOO_ENERGY_COUNTER_REDUCER = qCOMMON
-                //                 .comment("Counter Reducer of goo")
-                //                 .defineInRange(Goo.Energized + ConfigKeys.Values.REDUCER, 15, 1, Integer.MAX_VALUE);
 
                 qCOMMON.comment(StringUtil.nameCapitalized(Goo.T1));
 
@@ -506,23 +433,31 @@ public class Config {
                                 .comment("Enable/Disable sound event on item repair")
                                 .define(Anvils.t1 + ConfigKeys.Values.SOUND, true);
 
+                ANVIL_FERRICORE_IGNORE_DELAY = bool("Enable/Disable no tick delay between item durability application",
+                                Anvils.t1 + "_ignore_delay");
+
                 qCOMMON.comment(StringUtil.nameCapitalized(Anvils.t2));
 
                 ANVILS_BLAZEGOLD_MB_CAPACITY = qCOMMON
                                 .comment(ConfigKeys.Display.MB_MAX)
                                 .defineInRange(Anvils.t2 + ConfigKeys.Values.MB_MAX, 10000, 1, Integer.MAX_VALUE);
-                ANVILS_BLAZEGOLD_MB_RATE = qCOMMON
-                                .comment(ConfigKeys.Display.MB_RATE)
-                                .defineInRange(Anvils.t2 + ConfigKeys.Values.MB_RATE, 10, 1, Integer.MAX_VALUE);
+
+                ANVIL_BLAZEGOLD_IGNORE_DELAY = bool("Enable/Disable no tick delay between item durability application",
+                                Anvils.t2 + "_ignore_delay");
+
                 ANVIL_BLAZEGOLD_SOUND_EVENT = qCOMMON
                                 .comment("Enable/Disable sound event on item repair")
                                 .define(Anvils.t2 + ConfigKeys.Values.SOUND, true);
 
                 qCOMMON.comment(StringUtil.nameCapitalized(Anvils.t3));
 
+                ANVIL_CELESTIGEM_IGNORE_DELAY = bool("Enable/Disable no tick delay between item durability application",
+                                Anvils.t3 + "_ignore_delay");
+
                 ANVILS_CELESTIGEM_FE_CAPACITY = qCOMMON
                                 .comment(ConfigKeys.Display.FE_MAX)
                                 .defineInRange(Anvils.t3 + ConfigKeys.Values.FE_MAX, 10000, 1, Integer.MAX_VALUE);
+
                 ANVILS_CELESTIGEM_FE_RATE = qCOMMON
                                 .comment(ConfigKeys.Display.FE_RATE)
                                 .defineInRange(Anvils.t3 + ConfigKeys.Values.FE_RATE, 100, 1, Integer.MAX_VALUE);
@@ -536,22 +471,14 @@ public class Config {
                 ANVILS_ECLIPSEALLOY_MB_CAPACITY = qCOMMON
                                 .comment(ConfigKeys.Display.MB_MAX)
                                 .defineInRange(Anvils.t4 + ConfigKeys.Values.MB_MAX, 10000, 1, Integer.MAX_VALUE);
-                ANVILS_ECLIPSEALLOY_MB_RATE = qCOMMON
-                                .comment(ConfigKeys.Display.MB_RATE)
-                                .defineInRange(Anvils.t4 + ConfigKeys.Values.MB_RATE, 100, 1, Integer.MAX_VALUE);
-                ANVILS_ECLIPSEALLOY_FE_CAPACITY = qCOMMON
-                                .comment(ConfigKeys.Display.FE_MAX)
-                                .defineInRange(Anvils.t4 + ConfigKeys.Values.FE_MAX, 10000, 1, Integer.MAX_VALUE);
-                ANVILS_ECLIPSEALLOY_FE_RATE = qCOMMON
-                                .comment(ConfigKeys.Display.FE_RATE)
-                                .defineInRange(Anvils.t4 + ConfigKeys.Values.FE_RATE, 100, 1, Integer.MAX_VALUE);
-                ANVILS_ECLIPSEALLOY_DAMAGE_LIMIT = qCOMMON
-                                .comment("Minimal damage until it was counted as insta-repaireable")
-                                .defineInRange(Anvils.t4 + "_damage_limit", 1000, 1, Integer.MAX_VALUE);
 
                 ANVIL_ECLIPSEALLOY_SOUND_EVENT = qCOMMON
                                 .comment("Enable/Disable sound event on item repair")
                                 .define(Anvils.t4 + ConfigKeys.Values.SOUND, true);
+
+                ANVIL_ECLIPSEALLOY_IGNORE_DELAY = bool(
+                                "Enable/Disable no tick delay between item durability application",
+                                Anvils.t4 + "_ignore_delay");
 
                 qCOMMON.pop();
         }
@@ -643,21 +570,13 @@ public class Config {
 
         }
 
-        private static void mixer() {
-                qCOMMON.comment(StringUtil.nameCapitalized(Blocks.simple_fluid_mixer)).push("8-" + Blocks.simple_fluid_mixer);
+        // private static void mixer() {
+        // qCOMMON.comment(StringUtil.nameCapitalized(Blocks.simple_fluid_mixer))
+        // .push("8-" + Blocks.simple_fluid_mixer);
 
-                // SIMPLE_FLUID_MIXER_MB_CAPACITY = qCOMMON
-                //                 .comment(ConfigKeys.Display.MB_MAX)
-                //                 .defineInRange(Blocks.simple_fluid_mixer + ConfigKeys.Values.MB_MAX, 1000, 1,
-                //                                 Integer.MAX_VALUE);
+        // qCOMMON.pop();
 
-                SIMPLE_FLUID_MIXER_SOUND_EVENT = qCOMMON
-                                .comment("Enable/Disable the entire sound event of simple fluid mixer")
-                                .define(Blocks.simple_fluid_mixer + ConfigKeys.Values.SOUND, true);
-
-                qCOMMON.pop();
-
-        }
+        // }
 
         private static void ticker() {
                 qCOMMON.comment(StringUtil.nameCapitalized(Blocks.Ticker)).push("9-" + Blocks.Ticker);

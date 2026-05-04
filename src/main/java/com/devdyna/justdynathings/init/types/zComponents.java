@@ -2,7 +2,6 @@ package com.devdyna.justdynathings.init.types;
 
 import static com.devdyna.justdynathings.JustDynaThings.MODULE_ID;
 
-import com.devdyna.justdynathings.api.BetterThanBlockStates;
 import com.mojang.serialization.Codec;
 
 import net.minecraft.core.component.DataComponentType;
@@ -26,7 +25,7 @@ public class zComponents {
             .register("state",
                     () -> DataComponentType.<BlockState>builder()
                             .persistent(BlockState.CODEC)
-                            .networkSynchronized(BetterThanBlockStates.STREAM_CODEC)
+                            .networkSynchronized(ByteBufCodecs.fromCodec(BlockState.CODEC))
                             .build());
 
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<String>> MODE = zComponents

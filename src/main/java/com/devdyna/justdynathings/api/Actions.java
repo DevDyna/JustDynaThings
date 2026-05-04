@@ -7,9 +7,11 @@ import com.mojang.logging.LogUtils;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.TagKey;
+import net.minecraft.util.Mth;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.MenuConstructor;
@@ -23,6 +25,8 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.neoforge.capabilities.BlockCapabilityCache;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.transfer.energy.EnergyHandler;
+import net.neoforged.neoforge.transfer.item.ItemResource;
+import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
 import net.neoforged.neoforge.transfer.transaction.Transaction;
 
 public class Actions {
@@ -62,12 +66,14 @@ public class Actions {
                                 && item.is(i) == itemInvert;
         }
 
-        public static void repairItem(ItemStack i) {
-                repairItem(i, 1);
-        }
+        public static void repairItem(ItemStacksResourceHandler h, int slot, ItemResource i, int damage) {
+                var stored = Mth.clamp(i.getOrDefault(DataComponents.DAMAGE, 0), 0,
+                                i.getOrDefault(DataComponents.MAX_DAMAGE, 0));
+                var item = new ItemStack(i.typeHolder(), h.getAmountAsInt(slot), i.getComponentsPatch());
 
-        public static void repairItem(ItemStack i, int damage) {
-                i.setDamageValue(i.getDamageValue() - damage);
+                item.setDamageValue(stored - 1);
+
+                h.set(slot, ItemResource.of(item), h.getAmountAsInt(slot));
         }
 
         /**

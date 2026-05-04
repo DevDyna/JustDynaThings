@@ -44,10 +44,11 @@ public class ItemToolTipped {
 
                 if (item.getItem() instanceof SwapperWand) {
 
-                        tip.add(OVER_THE_REGISTRY_ID,Component.translatable(MODULE_ID + "." + Constants.Wands.Swapper));
+                        tip.add(OVER_THE_REGISTRY_ID,
+                                        Component.translatable(MODULE_ID + "." + Constants.Wands.Swapper));
 
                         if (item.get(JustDireDataComponents.BOUND_GLOBAL_POS) != null) {
-                                tip.add(OVER_THE_REGISTRY_ID,Component.translatable(MODULE_ID + ".wand.dimension")
+                                tip.add(OVER_THE_REGISTRY_ID, Component.translatable(MODULE_ID + ".wand.dimension")
                                                 .append(Component
                                                                 .translatable(
                                                                                 item.get(JustDireDataComponents.BOUND_GLOBAL_POS)
@@ -55,7 +56,7 @@ public class ItemToolTipped {
                                                                                                 .identifier()
                                                                                                 .getPath())
                                                                 .withStyle(ChatFormatting.GREEN)));
-                                tip.add(OVER_THE_REGISTRY_ID,Component.translatable(MODULE_ID + ".wand.pos")
+                                tip.add(OVER_THE_REGISTRY_ID, Component.translatable(MODULE_ID + ".wand.pos")
 
                                                 .append(Component
                                                                 .literal("" + item.get(
@@ -78,10 +79,12 @@ public class ItemToolTipped {
                 }
 
                 if (isBlock && block instanceof TickerBlock)
-                        tip.add(OVER_THE_REGISTRY_ID,Component.translatable(MODULE_ID + "." + Constants.Blocks.Ticker));
+                        tip.add(OVER_THE_REGISTRY_ID,
+                                        Component.translatable(MODULE_ID + "." + Constants.Blocks.Ticker));
 
                 if (item.getItem() instanceof AdvancedTimeWand) {
-                        tip.add(OVER_THE_REGISTRY_ID,Component.translatable(MODULE_ID + "." + Constants.Wands.AdvancedTime));
+                        tip.add(OVER_THE_REGISTRY_ID,
+                                        Component.translatable(MODULE_ID + "." + Constants.Wands.AdvancedTime));
                         if (item.get(zComponents.MODE) != null) {
                                 var value = AdvancedTimeWand.MODES.list.indexOf(item.get(zComponents.MODE));
 
@@ -109,7 +112,7 @@ public class ItemToolTipped {
                                 var mid = Component.literal(" | ").withStyle(ChatFormatting.GRAY);
                                 var end = Component.literal(" ]").withStyle(ChatFormatting.GRAY);
 
-                                tip.add(OVER_THE_REGISTRY_ID,start
+                                tip.add(OVER_THE_REGISTRY_ID, start
                                                 .append(normal).append(mid)
                                                 .append(x2).append(mid)
                                                 .append(x4).append(mid)
@@ -119,10 +122,10 @@ public class ItemToolTipped {
                 }
 
                 if (item.getItem() instanceof PickerWand) {
-                        tip.add(OVER_THE_REGISTRY_ID,Component.translatable(MODULE_ID + "." + Constants.Wands.Picker));
+                        tip.add(OVER_THE_REGISTRY_ID, Component.translatable(MODULE_ID + "." + Constants.Wands.Picker));
 
                         if (item.get(zComponents.STATE) != null) {
-                                tip.add(OVER_THE_REGISTRY_ID,Component.translatable(MODULE_ID + ".wand.blockstate")
+                                tip.add(OVER_THE_REGISTRY_ID, Component.translatable(MODULE_ID + ".wand.blockstate")
                                                 .append(Component
                                                                 .literal(item.get(zComponents.STATE).getBlock()
                                                                                 .getName().getString())
@@ -147,24 +150,24 @@ public class ItemToolTipped {
 
                 if (isBlock && block instanceof EnergyGoo goo) {
 
-                        tip.add(OVER_THE_REGISTRY_ID,Component.translatable(
+                        tip.add(OVER_THE_REGISTRY_ID, Component.translatable(
                                         MODULE_ID + "." + Constants.GooType + "." + Constants.Goo.Energized));
                         if (Minecraft.getInstance().hasShiftDown())
-                                tip.add(OVER_THE_REGISTRY_ID,Component.translatable(MODULE_ID + "." + Constants.GooType + ".tier")
-                                                .append(Component.literal("" + goo.getConfigTier())));
+                                tip.add(OVER_THE_REGISTRY_ID,
+                                                Component.translatable(MODULE_ID + "." + Constants.GooType + ".tier")
+                                                                .append(Component.literal("" + goo.getConfigTier())));
                         else
-                                tip.add(OVER_THE_REGISTRY_ID,Component.translatable("justdirethings.shiftmoreinfo")
+                                tip.add(OVER_THE_REGISTRY_ID, Component.translatable("justdirethings.shiftmoreinfo")
                                                 .withStyle(ChatFormatting.GRAY));
                 }
 
                 if (isBlock && block instanceof FunctionalAnvilBlock anvil) {
-                        tip.add(OVER_THE_REGISTRY_ID,Component.translatable(MODULE_ID + "." + anvil.getTier()));
-                        if (anvil.getTier() == Constants.Anvils.t4)
-                                tip.add(OVER_THE_REGISTRY_ID,Component.translatable(MODULE_ID + "." + Constants.Anvils.t4 + ".boost"));
+                        tip.add(OVER_THE_REGISTRY_ID, Component.translatable(MODULE_ID + "." + anvil.getTier()));
                 }
 
                 if (isBlock && block instanceof StabilizerBlock)
-                        tip.add(OVER_THE_REGISTRY_ID,Component.translatable(MODULE_ID + "." + Constants.Blocks.Stabilizer));
+                        tip.add(OVER_THE_REGISTRY_ID,
+                                        Component.translatable(MODULE_ID + "." + Constants.Blocks.Stabilizer));
 
         }
 }

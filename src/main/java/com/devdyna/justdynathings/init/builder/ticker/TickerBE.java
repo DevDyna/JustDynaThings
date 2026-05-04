@@ -60,7 +60,7 @@ public class TickerBE extends BaseMachineBE implements EnergyMachine, FluidMachi
             if (level instanceof ServerLevel serverLevel &&
                     MiscTools.isValidTickAccelBlock(serverLevel, level.getBlockState(pos),
                             level.getBlockEntity(pos)))
-                MiscTools.doExtraTicks(serverLevel, pos, getTickSpeed());
+                MiscTools.doExtraTicks(serverLevel, pos, Math.min(getTickSpeed(), Config.TICKER_TICK_RATE.get()));
 
         }
 

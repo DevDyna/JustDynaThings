@@ -166,8 +166,8 @@ public class Config {
                 anvil();
                 wands();
                 // mixer();
-                ticker();
-                compats();
+                // ticker();
+                // compats();
         }
 
         private static void general() {
@@ -218,6 +218,25 @@ public class Config {
                 STABILIZER_TOGGLE_SOUND = qCOMMON
                                 .comment("Enable/Disable sound when revitalized a goo")
                                 .define(Blocks.Stabilizer + ConfigKeys.Values.SOUND, true);
+
+                qCOMMON.comment(StringUtil.nameCapitalized(Blocks.Ticker));
+
+                TICKER_FE_CAPACITY = qCOMMON
+                                .comment(Blocks.Ticker + ConfigKeys.Display.FE_MAX)
+                                .defineInRange(Blocks.Ticker + ConfigKeys.Values.FE_MAX, 10000, 1, Integer.MAX_VALUE);
+                TICKER_FE_RATE = qCOMMON
+                                .comment(Blocks.Ticker + ConfigKeys.Display.FE_RATE)
+                                .defineInRange(Blocks.Ticker + ConfigKeys.Values.FE_RATE, 10, 1, Integer.MAX_VALUE);
+                TICKER_MB_CAPACITY = qCOMMON
+                                .comment(Blocks.Ticker + ConfigKeys.Display.MB_MAX)
+                                .defineInRange(Blocks.Ticker + ConfigKeys.Values.MB_MAX, 1000, 1, Integer.MAX_VALUE);
+                TICKER_MB_RATE = qCOMMON
+                                .comment(Blocks.Ticker + ConfigKeys.Display.MB_RATE)
+                                .defineInRange(Blocks.Ticker + ConfigKeys.Values.MB_RATE, 1, 1, Integer.MAX_VALUE);
+
+                TICKER_TICK_RATE = qCOMMON
+                                .comment(Blocks.Ticker + " tick limit")
+                                .defineInRange(Blocks.Ticker + "_tick_limit", 1024, 1, Integer.MAX_VALUE);
 
                 qCOMMON.comment(StringUtil.nameCapitalized(Blocks.BlackHole));
 
@@ -578,56 +597,44 @@ public class Config {
 
         // }
 
-        private static void ticker() {
-                qCOMMON.comment(StringUtil.nameCapitalized(Blocks.Ticker)).push("9-" + Blocks.Ticker);
+        // private static void ticker() {
+        // qCOMMON.comment(StringUtil.nameCapitalized(Blocks.Ticker)).push("9-" +
+        // Blocks.Ticker);
 
-                TICKER_FE_CAPACITY = qCOMMON
-                                .comment(ConfigKeys.Display.FE_MAX)
-                                .defineInRange(Blocks.Ticker + ConfigKeys.Values.FE_MAX, 10000, 1, Integer.MAX_VALUE);
-                TICKER_FE_RATE = qCOMMON
-                                .comment(ConfigKeys.Display.FE_RATE)
-                                .defineInRange(Blocks.Ticker + ConfigKeys.Values.FE_RATE, 10, 1, Integer.MAX_VALUE);
-                TICKER_MB_CAPACITY = qCOMMON
-                                .comment(ConfigKeys.Display.MB_MAX)
-                                .defineInRange(Blocks.Ticker + ConfigKeys.Values.MB_MAX, 1000, 1, Integer.MAX_VALUE);
-                TICKER_MB_RATE = qCOMMON
-                                .comment(ConfigKeys.Display.MB_RATE)
-                                .defineInRange(Blocks.Ticker + ConfigKeys.Values.MB_RATE, 1, 1, Integer.MAX_VALUE);
+        // qCOMMON.pop();
 
-                TICKER_TICK_RATE = qCOMMON
-                                .comment("Tick speed applied")
-                                .defineInRange(Blocks.Ticker + "_tick_rate", 16, 1, Integer.MAX_VALUE);
+        // }
 
-                qCOMMON.pop();
+        // private static void compats() {
+        // qCOMMON.comment("Compats").push("10-compats");
 
-        }
+        // qCOMMON.comment("Chisel Modern");
 
-        private static void compats() {
-                qCOMMON.comment("Compats").push("10-compats");
+        // CELESTIGEM_CHISEL_FE_CAPACITY = qCOMMON
+        // .comment(ConfigKeys.Display.FE_MAX)
+        // .defineInRange(Tiers.celestigem + "_chisel" + ConfigKeys.Values.FE_MAX, 1000,
+        // 1,
+        // Integer.MAX_VALUE);
 
-                qCOMMON.comment("Chisel Modern");
+        // CELESTIGEM_CHISEL_FE_COST = qCOMMON
+        // .comment(ConfigKeys.Display.FE_RATE)
+        // .defineInRange(Tiers.celestigem + "_chisel" + ConfigKeys.Values.FE_RATE, 1,
+        // 1,
+        // Integer.MAX_VALUE);
 
-                CELESTIGEM_CHISEL_FE_CAPACITY = qCOMMON
-                                .comment(ConfigKeys.Display.FE_MAX)
-                                .defineInRange(Tiers.celestigem + "_chisel" + ConfigKeys.Values.FE_MAX, 1000, 1,
-                                                Integer.MAX_VALUE);
+        // ECLIPSE_ALLOY_CHISEL_FE_CAPACITY = qCOMMON
+        // .comment(ConfigKeys.Display.FE_MAX)
+        // .defineInRange(Tiers.eclipsealloy + "_chisel" + ConfigKeys.Values.FE_MAX,
+        // 10000, 1,
+        // Integer.MAX_VALUE);
 
-                CELESTIGEM_CHISEL_FE_COST = qCOMMON
-                                .comment(ConfigKeys.Display.FE_RATE)
-                                .defineInRange(Tiers.celestigem + "_chisel" + ConfigKeys.Values.FE_RATE, 1, 1,
-                                                Integer.MAX_VALUE);
+        // ECLIPSE_ALLOY_CHISEL_FE_COST = qCOMMON
+        // .comment(ConfigKeys.Display.FE_RATE)
+        // .defineInRange(Tiers.eclipsealloy + "_chisel" + ConfigKeys.Values.FE_RATE,
+        // 10, 1,
+        // Integer.MAX_VALUE);
 
-                ECLIPSE_ALLOY_CHISEL_FE_CAPACITY = qCOMMON
-                                .comment(ConfigKeys.Display.FE_MAX)
-                                .defineInRange(Tiers.eclipsealloy + "_chisel" + ConfigKeys.Values.FE_MAX, 10000, 1,
-                                                Integer.MAX_VALUE);
-
-                ECLIPSE_ALLOY_CHISEL_FE_COST = qCOMMON
-                                .comment(ConfigKeys.Display.FE_RATE)
-                                .defineInRange(Tiers.eclipsealloy + "_chisel" + ConfigKeys.Values.FE_RATE, 10, 1,
-                                                Integer.MAX_VALUE);
-
-        }
+        // }
 
         private static void superduperConfigKeys() {
                 qCOMMON.comment("Hello player, DevDyna is here !");

@@ -31,11 +31,10 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.ItemLike;
 
 @SuppressWarnings("null")
-public class FuelRecipeCategory implements IRecipeCategory<FuelRecords.Items> , ClientRender{
+public class FuelRecipeCategory implements IRecipeCategory<FuelRecords.Items>, ClientRender {
     public static final IRecipeType<FuelRecords.Items> TYPE = IRecipeType.create(MODULE_ID,
             JDTRegistration.GeneratorT1_ITEM.getId().getPath(), FuelRecords.Items.class);
 
-    
     protected IGuiHelper helper;
 
     public final Font font = Minecraft.getInstance().font;
@@ -44,30 +43,13 @@ public class FuelRecipeCategory implements IRecipeCategory<FuelRecords.Items> , 
         this.helper = h;
     }
 
-    // public abstract String getTitleKey();
-
-    // public abstract ItemLike getIconItem();
-
-    /**
-     * Set Size of all category
-     * <br/>
-     * <br/>
-     * If the background image doesn't fit , you need to override
-     * <code>background(GuiGraphics)</code>
-     */
-
-
-    // public abstract Size setXY();
-
-    // public abstract String setBackGround();
-
     @Override
     public Component getTitle() {
         return Component.translatable(MODULE_ID + ".jei.category." + getTitleKey());
     }
 
     @Override
-    public  IDrawable getIcon() {
+    public IDrawable getIcon() {
         return helper.createDrawableItemLike(getIconItem());
     }
 
@@ -83,17 +65,10 @@ public class FuelRecipeCategory implements IRecipeCategory<FuelRecords.Items> , 
 
     public void background(GuiGraphicsExtractor graphics) {
         ImageJei.of()
-                .rl(MODULE_ID,this.setBackGround())
+                .rl(MODULE_ID, this.setBackGround())
                 .size(this.getWidth(), this.getHeight())
                 .render(helper, graphics);
     }
-
-    // @SuppressWarnings("null")
-    // @Override
-    // public void draw(FuelRecords.Items recipe, IRecipeSlotsView recipeSlotsView, GuiGraphicsExtractor guiGraphics, double mouseX,
-    //         double mouseY) {
-    //     background(guiGraphics);
-    // }
 
     @Override
     public IRecipeType<FuelRecords.Items> getRecipeType() {
@@ -106,30 +81,26 @@ public class FuelRecipeCategory implements IRecipeCategory<FuelRecords.Items> , 
                 .addItemStacks(recipe.getFuels());
     }
 
-    // @Override
     public String getTitleKey() {
         return JDTRegistration.GeneratorT1_ITEM.getId().getPath();
     }
 
-    // @Override
     public ItemLike getIconItem() {
         return JDTRegistration.GeneratorT1_ITEM.get();
     }
 
-    // @Override
     public Size setXY() {
         return Size.of(96, 32);
     }
 
-    // @Override
     public String setBackGround() {
         return "textures/gui/fuel_icons.png";
     }
 
     @Override
-    public void draw(FuelRecords.Items recipe, IRecipeSlotsView recipeSlotsView, GuiGraphicsExtractor guiGraphics, double mouseX,
+    public void draw(FuelRecords.Items recipe, IRecipeSlotsView recipeSlotsView, GuiGraphicsExtractor guiGraphics,
+            double mouseX,
             double mouseY) {
-        // super.draw(recipe, recipeSlotsView, guiGraphics, mouseX, mouseY);
 
         background(guiGraphics);
 

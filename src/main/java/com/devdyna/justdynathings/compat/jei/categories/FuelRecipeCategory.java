@@ -2,14 +2,17 @@ package com.devdyna.justdynathings.compat.jei.categories;
 
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.builder.ITooltipBuilder;
+import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
+import mezz.jei.api.recipe.category.IRecipeCategory;
 import mezz.jei.api.recipe.types.IRecipeType;
 
 import static com.devdyna.justdynathings.JustDynaThings.MODULE_ID;
 
+import com.devdyna.cakesticklib.api.compat.jei.ImageJei;
 import com.devdyna.cakesticklib.api.primitive.Pos;
 import com.devdyna.cakesticklib.api.primitive.Size;
 import com.devdyna.justdynathings.api.ClientRender;
@@ -19,19 +22,78 @@ import com.direwolf20.justdirethings.common.items.resources.Coal_T1;
 import com.direwolf20.justdirethings.setup.Config;
 import com.direwolf20.justdirethings.setup.JDTRegistration;
 import com.direwolf20.justdirethings.util.MagicHelpers;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.ItemLike;
 
 @SuppressWarnings("null")
-public class FuelRecipeCategory extends BaseRecipeCategory<FuelRecords.Items> implements ClientRender{
+public class FuelRecipeCategory implements IRecipeCategory<FuelRecords.Items> , ClientRender{
     public static final IRecipeType<FuelRecords.Items> TYPE = IRecipeType.create(MODULE_ID,
             JDTRegistration.GeneratorT1_ITEM.getId().getPath(), FuelRecords.Items.class);
 
-    public FuelRecipeCategory(IGuiHelper guiHelper) {
-        super(guiHelper);
+    
+    protected IGuiHelper helper;
+
+    public final Font font = Minecraft.getInstance().font;
+
+    public FuelRecipeCategory(IGuiHelper h) {
+        this.helper = h;
     }
+
+    // public abstract String getTitleKey();
+
+    // public abstract ItemLike getIconItem();
+
+    /**
+     * Set Size of all category
+     * <br/>
+     * <br/>
+     * If the background image doesn't fit , you need to override
+     * <code>background(GuiGraphics)</code>
+     */
+
+
+    // public abstract Size setXY();
+
+    // public abstract String setBackGround();
+
+    @Override
+    public Component getTitle() {
+        return Component.translatable(MODULE_ID + ".jei.category." + getTitleKey());
+    }
+
+    @Override
+    public  IDrawable getIcon() {
+        return helper.createDrawableItemLike(getIconItem());
+    }
+
+    @Override
+    public int getWidth() {
+        return setXY().getX();
+    }
+
+    @Override
+    public int getHeight() {
+        return setXY().getY();
+    }
+
+    public void background(GuiGraphicsExtractor graphics) {
+        ImageJei.of()
+                .rl(MODULE_ID,this.setBackGround())
+                .size(this.getWidth(), this.getHeight())
+                .render(helper, graphics);
+    }
+
+    // @SuppressWarnings("null")
+    // @Override
+    // public void draw(FuelRecords.Items recipe, IRecipeSlotsView recipeSlotsView, GuiGraphicsExtractor guiGraphics, double mouseX,
+    //         double mouseY) {
+    //     background(guiGraphics);
+    // }
 
     @Override
     public IRecipeType<FuelRecords.Items> getRecipeType() {
@@ -44,22 +106,22 @@ public class FuelRecipeCategory extends BaseRecipeCategory<FuelRecords.Items> im
                 .addItemStacks(recipe.getFuels());
     }
 
-    @Override
+    // @Override
     public String getTitleKey() {
         return JDTRegistration.GeneratorT1_ITEM.getId().getPath();
     }
 
-    @Override
+    // @Override
     public ItemLike getIconItem() {
         return JDTRegistration.GeneratorT1_ITEM.get();
     }
 
-    @Override
+    // @Override
     public Size setXY() {
         return Size.of(96, 32);
     }
 
-    @Override
+    // @Override
     public String setBackGround() {
         return "textures/gui/fuel_icons.png";
     }
@@ -67,7 +129,9 @@ public class FuelRecipeCategory extends BaseRecipeCategory<FuelRecords.Items> im
     @Override
     public void draw(FuelRecords.Items recipe, IRecipeSlotsView recipeSlotsView, GuiGraphicsExtractor guiGraphics, double mouseX,
             double mouseY) {
-        super.draw(recipe, recipeSlotsView, guiGraphics, mouseX, mouseY);
+        // super.draw(recipe, recipeSlotsView, guiGraphics, mouseX, mouseY);
+
+        background(guiGraphics);
 
         int multiplier = 1;
 

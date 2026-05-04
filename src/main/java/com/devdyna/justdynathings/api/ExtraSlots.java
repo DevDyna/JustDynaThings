@@ -27,6 +27,20 @@ public interface ExtraSlots {
 
     }
 
+    default void addSlotPolymorphicCatalyst(GuiGraphicsExtractor guiGraphics, Slot slot) {
+        Image.of().rl(MODULE_ID, "textures/gui/slots/catalyst.png")
+                .size(18, 18).offset(getGuiLeft() + slot.x, getGuiTop() + slot.y)
+                .sizeTexture(18, 18)
+                .render(guiGraphics);
+    }
+
+    default void addSlotTimeCrystal(GuiGraphicsExtractor guiGraphics, Slot slot) {
+        Image.of().rl(MODULE_ID, "textures/gui/slots/shard.png")
+                .size(18, 18).offset(getGuiLeft() + slot.x, getGuiTop() + slot.y)
+                .sizeTexture(18, 18)
+                .render(guiGraphics);
+    }
+
     default void addSlotCharge(GuiGraphicsExtractor guiGraphics, Slot slot) {
         Image.of().rl(MODULE_ID, "textures/gui/slots/charge.png")
                 .size(18, 18).offset(getGuiLeft() + slot.x, getGuiTop() + slot.y)
@@ -41,6 +55,5 @@ public interface ExtraSlots {
                 .sizeTexture(10, 10)
                 .render(guiGraphics);
     }
-
 
 }

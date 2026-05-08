@@ -157,6 +157,7 @@
   "justdynathings.goo.creative_goo": "§cRight click with a wrench to toggle alive state",
   "justdynathings.goo.energized_goo": "§cProvide energy to active it",
   "justdynathings.goo.tier": "§7Goo Tier: ",
+  "justdynathings.goo_tier.infinite": "Infinite",
   "justdynathings.goo_upgrader": "§7Right click on a goo to upgrade it to the next tier",
   "justdynathings.hold_control": "§7Hold Control for Chisel detailts",
   "justdynathings.init_invalid": "§cInitial Block isn't anymore valid",

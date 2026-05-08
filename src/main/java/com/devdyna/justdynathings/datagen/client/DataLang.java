@@ -306,6 +306,10 @@ public class DataLang extends LanguageProvider {
 
                 add(MODULE_ID + ".configuration.phase_box_require_wrench", "PhaseBox require wrench to change state");
 
+                add(MODULE_ID+".goo_tier.infinite", "Infinite");
+
+
+
         }
 
 }

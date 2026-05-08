@@ -156,7 +156,18 @@ public class ItemToolTipped {
                         if (Minecraft.getInstance().hasShiftDown())
                                 tip.add(OVER_THE_REGISTRY_ID,
                                                 Component.translatable(MODULE_ID + "." + Constants.GooType + ".tier")
-                                                                .append(Component.literal("" + goo.getConfigTier())));
+                                                                .append(
+                                                                                goo.getConfigTier() > 1024 ? Component
+                                                                                                .translatable(MODULE_ID
+                                                                                                                + ".goo_tier.infinite")
+                                                                                                .withColor(ColorUtil
+                                                                                                                .rgbColor())
+                                                                                                :
+
+                                                                                                Component.literal(""
+                                                                                                                + goo.getConfigTier()))
+
+                                );
                         else
                                 tip.add(OVER_THE_REGISTRY_ID, Component.translatable("justdirethings.shiftmoreinfo")
                                                 .withStyle(ChatFormatting.GRAY));

@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.init.builder.goo.energy;
+package com.devdyna.justdynathings.api.goo.energy_goo;
 
 import com.direwolf20.justdirethings.client.blockentityrenders.baseber.GooBlockRender_Base;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -9,7 +9,7 @@ import net.minecraft.client.renderer.feature.ModelFeatureRenderer.CrumblingOverl
 import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.world.phys.Vec3;
 
-public class EnergyGooRender extends GooBlockRender_Base<FEGoo> {
+public class EnergyGooRender extends GooBlockRender_Base<BaseFEGooBE> {
    public EnergyGooRender(BlockEntityRendererProvider.Context context) {
       super(context);
    }
@@ -20,7 +20,7 @@ public class EnergyGooRender extends GooBlockRender_Base<FEGoo> {
 
    // brute force to disable item revive render
    @Override
-   public void extractRenderState(FEGoo be, GooBlockRenderState render,
+   public void extractRenderState(BaseFEGooBE be, GooBlockRenderState render,
          float ticks, Vec3 cam, CrumblingOverlay breakprogress) {
       super.extractRenderState(be, render, ticks, cam, breakprogress);
       render.showFloatingItem = false;

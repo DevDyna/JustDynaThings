@@ -1,11 +1,11 @@
 package com.devdyna.justdynathings;
 
+import com.devdyna.justdynathings.api.goo.energy_goo.EnergyGooRender;
 import com.devdyna.justdynathings.api.solar_panels.SolarPanelScreen;
 import com.devdyna.justdynathings.init.builder.black_hole.BlackHoleScreen;
 import com.devdyna.justdynathings.init.builder.ferricore_clock.FerricoreClockScreen;
 import com.devdyna.justdynathings.init.builder.fluid_mixer.SimpleFluidMixerScreen;
 import com.devdyna.justdynathings.init.builder.goo.creative.CreativeGooRender;
-import com.devdyna.justdynathings.init.builder.goo.energy.EnergyGooRender;
 import com.devdyna.justdynathings.init.builder.repair_anvils.blazegold.BlazeGoldAnvilScreen;
 import com.devdyna.justdynathings.init.builder.repair_anvils.celestigem.CelestiGemAnvilScreen;
 import com.devdyna.justdynathings.init.builder.repair_anvils.eclipsealloy.EclipseAlloyAnvilScreen;

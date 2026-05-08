@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.init.builder.goo.energy;
+package com.devdyna.justdynathings.api.goo.energy_goo;
 
 import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.api.RandomUtil;
@@ -17,11 +17,11 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
-public class FEGoo extends GooBlockBE_Base implements EnergyMachine {
+public class BaseFEGooBE extends GooBlockBE_Base implements EnergyMachine {
 
     public final PoweredMachineContainerData poweredMachineData = new PoweredMachineContainerData(this);
 
-    public FEGoo(BlockEntityType<?> type, BlockPos pos, BlockState state) {
+    public BaseFEGooBE(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
     }
 

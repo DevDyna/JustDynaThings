@@ -1,17 +1,17 @@
-package com.devdyna.justdynathings.init.builder.goo.energy.diregoo;
+package com.devdyna.justdynathings.init.builder.goo.energy.voidshimmer;
 
 
 import com.devdyna.justdynathings.Config;
-import com.devdyna.justdynathings.init.builder.goo.energy.FEGoo;
+import com.devdyna.justdynathings.api.goo.energy_goo.BaseFEGooBE;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class EnergyT3BE extends FEGoo {
+public class VoidshimmerEnergyGooBE extends BaseFEGooBE {
 
 
-    public EnergyT3BE(BlockPos pos, BlockState state) {
+    public VoidshimmerEnergyGooBE(BlockPos pos, BlockState state) {
         super(zBlockEntities.T3_GOO.get(), pos,state);
     }
 

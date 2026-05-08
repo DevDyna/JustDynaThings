@@ -3,10 +3,10 @@ package com.devdyna.justdynathings.init.builder.stabilizer;
 import com.devdyna.cakesticklib.api.utils.DirectionUtil;
 import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.api.RandomUtil;
+import com.devdyna.justdynathings.api.TippedGooBlock;
 import com.devdyna.justdynathings.api.be.EnergyMachine;
 import com.devdyna.justdynathings.api.be.FluidMachine;
 import com.devdyna.justdynathings.init.builder.goo.creative.CreativeGoo;
-import com.devdyna.justdynathings.init.builder.goo.energy.EnergyGoo;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
 import com.devdyna.justdynathings.init.types.zProperties;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
@@ -142,7 +142,7 @@ public class StabilizerBE extends BaseMachineBE implements EnergyMachine, FluidM
 
     public boolean whenActive() {
         return (level.getBlockState(getGooPos()).getBlock() instanceof GooBlock_Base goo
-                && !(goo instanceof EnergyGoo || goo instanceof CreativeGoo))
+                && !(goo instanceof TippedGooBlock || goo instanceof CreativeGoo))
                 || level.getBlockState(getGooPos()).getBlock() instanceof BuddingAmethystBlock;
     }
 

@@ -2,7 +2,9 @@ package com.devdyna.justdynathings.common;
 
 import static com.devdyna.justdynathings.JustDynaThings.MODULE_ID;
 
+import com.devdyna.cakesticklib.api.utils.ColorUtil;
 import com.devdyna.justdynathings.Constants;
+import com.devdyna.justdynathings.api.TippedGooBlock;
 import com.devdyna.justdynathings.api.repair_anvils.FunctionalAnvilBlock;
 import com.devdyna.justdynathings.api.solar_panels.SolarBlockBase;
 import com.devdyna.justdynathings.init.builder.AdvancedTimeWand;
@@ -10,7 +12,7 @@ import com.devdyna.justdynathings.init.builder.GooUpgrader;
 import com.devdyna.justdynathings.init.builder.PickerWand;
 import com.devdyna.justdynathings.init.builder.StupefyWand;
 import com.devdyna.justdynathings.init.builder.SwapperWand;
-import com.devdyna.justdynathings.init.builder.goo.energy.EnergyGoo;
+import com.devdyna.justdynathings.init.builder.goo.creative.CreativeGoo;
 import com.devdyna.justdynathings.init.builder.stabilizer.StabilizerBlock;
 import com.devdyna.justdynathings.init.builder.ticker.TickerBlock;
 import com.devdyna.justdynathings.init.types.zComponents;
@@ -149,10 +151,8 @@ public class ItemToolTipped {
 
                 }
 
-                if (isBlock && block instanceof EnergyGoo goo) {
+                if (isBlock && block instanceof TippedGooBlock goo) {
 
-                        tip.add(OVER_THE_REGISTRY_ID, Component.translatable(
-                                        MODULE_ID + "." + Constants.GooType + "." + Constants.Goo.Energized));
                         if (Minecraft.getInstance().hasShiftDown())
                                 tip.add(OVER_THE_REGISTRY_ID,
                                                 Component.translatable(MODULE_ID + "." + Constants.GooType + ".tier")
@@ -160,6 +160,18 @@ public class ItemToolTipped {
                         else
                                 tip.add(OVER_THE_REGISTRY_ID, Component.translatable("justdirethings.shiftmoreinfo")
                                                 .withStyle(ChatFormatting.GRAY));
+
+                        if (goo.extra() != null)
+                                tip.add(OVER_THE_REGISTRY_ID, goo.extra());
+                }
+
+                if (isBlock && block instanceof CreativeGoo) {
+
+                        tip.add(OVER_THE_REGISTRY_ID,
+                                        Component.translatable(MODULE_ID + "." + Constants.GooType + "."
+                                                        + Constants.Goo.Creative)
+                                                        .withStyle(ChatFormatting.GRAY));
+
                 }
 
                 if (isBlock && block instanceof FunctionalAnvilBlock anvil) {

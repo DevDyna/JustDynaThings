@@ -3,6 +3,7 @@ package com.devdyna.justdynathings.init.builder.goo.creative;
 import javax.annotation.Nullable;
 
 import com.devdyna.justdynathings.Config;
+import com.devdyna.justdynathings.api.TippedGooBlock;
 import com.devdyna.justdynathings.init.types.zItemTags;
 import com.direwolf20.justdirethings.common.blocks.gooblocks.GooBlock_Base;
 
@@ -18,7 +19,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 
-public class CreativeGoo extends GooBlock_Base {
+public class CreativeGoo extends GooBlock_Base implements TippedGooBlock {
 
    public CreativeGoo(Properties p) {
       super(p);
@@ -35,7 +36,7 @@ public class CreativeGoo extends GooBlock_Base {
                   p.getZ(),
                   SoundEvents.LODESTONE_COMPASS_LOCK,
                   SoundSource.BLOCKS, 100,
-                  l.getRandom().nextInt(9)* 0.1f, true);
+                  l.getRandom().nextInt(9) * 0.1f, true);
 
          l.setBlockAndUpdate(p, s.setValue(ALIVE, !s.getValue(ALIVE)));
 
@@ -54,13 +55,9 @@ public class CreativeGoo extends GooBlock_Base {
       return false;
    }
 
-   // @SuppressWarnings("null")
-   // public void appendHoverText(ItemStack s, Item.TooltipContext c, List<Component> t, TooltipFlag f) {
-   //    t.add(Component.translatable(Main.ID + "." + Constants.GooType + "." + Constants.Goo.Creative));
-   //    if (Screen.hasShiftDown())
-   //       t.add(Component.translatable(Main.ID + "." + Constants.GooType + ".tier")
-   //             .append(Component.literal("" + CommonConfig.GOO_CREATIVE_TIER.get())));
-   //    else
-   //       t.add(Component.translatable("justdirethings.shiftmoreinfo").withStyle(ChatFormatting.GRAY));
-   // }
+   @Override
+   public int getConfigTier() {
+      return Config.GOO_CREATIVE_TIER.get();
+   }
+
 }

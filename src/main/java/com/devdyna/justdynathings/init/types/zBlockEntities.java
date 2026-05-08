@@ -7,7 +7,10 @@ import com.devdyna.justdynathings.init.builder.black_hole.BlackHoleBE;
 import com.devdyna.justdynathings.init.builder.ferricore_clock.FerricoreClockBE;
 import com.devdyna.justdynathings.init.builder.fluid_mixer.SimpleFluidMixerBE;
 import com.devdyna.justdynathings.init.builder.goo.creative.CreativeGooBE;
-import com.devdyna.justdynathings.init.builder.goo.energy.diregoo.*;
+import com.devdyna.justdynathings.init.builder.goo.energy.blazebloom.BlazebloomEnergyGooBE;
+import com.devdyna.justdynathings.init.builder.goo.energy.primogel.PrimogelEnergyGooBE;
+import com.devdyna.justdynathings.init.builder.goo.energy.shadowpulse.ShadowpulseEnergyGooBE;
+import com.devdyna.justdynathings.init.builder.goo.energy.voidshimmer.VoidshimmerEnergyGooBE;
 import com.devdyna.justdynathings.init.builder.repair_anvils.blazegold.BlazeGoldAnvilBE;
 import com.devdyna.justdynathings.init.builder.repair_anvils.celestigem.CelestiGemAnvilBE;
 import com.devdyna.justdynathings.init.builder.repair_anvils.eclipsealloy.EclipseAlloyAnvilBE;
@@ -39,21 +42,21 @@ public class zBlockEntities {
             .createBlockEntity(Constants.Goo.Creative,zTiles,
                     CreativeGooBE::new, zBlocks.CREATIVE_GOO);
 
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<EnergyT1BE>> T1_GOO = RegistryUtils
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<PrimogelEnergyGooBE>> T1_GOO = RegistryUtils
             .createBlockEntity(Constants.Goo.T1,zTiles,
-                    EnergyT1BE::new, zBlocks.T1_GOO);
+                    PrimogelEnergyGooBE::new, zBlocks.T1_GOO);
 
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<EnergyT2BE>> T2_GOO = RegistryUtils
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BlazebloomEnergyGooBE>> T2_GOO = RegistryUtils
             .createBlockEntity(Constants.Goo.T2,zTiles,
-                    EnergyT2BE::new, zBlocks.T2_GOO);
+                    BlazebloomEnergyGooBE::new, zBlocks.T2_GOO);
 
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<EnergyT3BE>> T3_GOO = RegistryUtils
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<VoidshimmerEnergyGooBE>> T3_GOO = RegistryUtils
             .createBlockEntity(Constants.Goo.T3,zTiles,
-                    EnergyT3BE::new, zBlocks.T3_GOO);
+                    VoidshimmerEnergyGooBE::new, zBlocks.T3_GOO);
 
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<EnergyT4BE>> T4_GOO = RegistryUtils
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ShadowpulseEnergyGooBE>> T4_GOO = RegistryUtils
             .createBlockEntity(Constants.Goo.T4,zTiles,
-                    EnergyT4BE::new, zBlocks.T4_GOO);
+                    ShadowpulseEnergyGooBE::new, zBlocks.T4_GOO);
 
 //     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ReforgerBE>> REFORGER = RegistryUtils
 //             .createBlockEntity(Constants.Blocks.Reforger,zTiles,

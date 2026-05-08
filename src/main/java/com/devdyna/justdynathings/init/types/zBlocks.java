@@ -11,7 +11,10 @@ import com.devdyna.justdynathings.init.builder.black_hole.BlackHoleBlock;
 import com.devdyna.justdynathings.init.builder.ferricore_clock.FerricoreClockBlock;
 import com.devdyna.justdynathings.init.builder.fluid_mixer.SimpleFluidMixerBlock;
 import com.devdyna.justdynathings.init.builder.goo.creative.CreativeGoo;
-import com.devdyna.justdynathings.init.builder.goo.energy.diregoo.*;
+import com.devdyna.justdynathings.init.builder.goo.energy.blazebloom.BlazebloomEnergyGooBlock;
+import com.devdyna.justdynathings.init.builder.goo.energy.primogel.PrimogelEnergyGooBlock;
+import com.devdyna.justdynathings.init.builder.goo.energy.shadowpulse.ShadowpulseEnergyGooBlock;
+import com.devdyna.justdynathings.init.builder.goo.energy.voidshimmer.VoidshimmerEnergyGooBlock;
 import com.devdyna.justdynathings.init.builder.light_wands.LightWandBlock;
 import com.devdyna.justdynathings.init.builder.repair_anvils.blazegold.BlazeGoldAnvilBlock;
 import com.devdyna.justdynathings.init.builder.repair_anvils.celestigem.CelestiGemAnvilBlock;
@@ -52,13 +55,13 @@ public class zBlocks {
                         registerItemBlock(Constants.Goo.Creative, CreativeGoo::new);
 
         public static final DeferredHolder<Block, ?> T1_GOO = 
-                        registerItemBlock(Constants.Goo.T1, EnergyT1::new);
+                        registerItemBlock(Constants.Goo.T1, PrimogelEnergyGooBlock::new);
         public static final DeferredHolder<Block, ?> T2_GOO = 
-                        registerItemBlock(Constants.Goo.T2, EnergyT2::new);
+                        registerItemBlock(Constants.Goo.T2, BlazebloomEnergyGooBlock::new);
         public static final DeferredHolder<Block, ?> T3_GOO = 
-                        registerItemBlock(Constants.Goo.T3, EnergyT3::new);
+                        registerItemBlock(Constants.Goo.T3, VoidshimmerEnergyGooBlock::new);
         public static final DeferredHolder<Block, ?> T4_GOO = 
-                        registerItemBlock(Constants.Goo.T4, EnergyT4::new);
+                        registerItemBlock(Constants.Goo.T4, ShadowpulseEnergyGooBlock::new);
 
         public static final DeferredHolder<Block, ?> PHASEBOX = 
                         registerItemBlock(Constants.Blocks.PhaseBox, PhaseBox::new);

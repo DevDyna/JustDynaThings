@@ -6,11 +6,13 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import com.devdyna.cakesticklib.api.utils.x;
+import com.devdyna.justdynathings.Client;
 import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.compat.jei.categories.*;
 import com.devdyna.justdynathings.compat.jei.utils.FuelRecords;
 import com.devdyna.justdynathings.compat.jei.utils.FuelUtils;
 import com.devdyna.justdynathings.init.types.zBlocks;
+import com.devdyna.justdynathings.init.types.zRecipeTypes;
 import com.direwolf20.justdirethings.client.jei.GooSpreadRecipeCategory;
 import com.direwolf20.justdirethings.common.blocks.resources.CoalBlock_T1;
 import com.direwolf20.justdirethings.common.fluids.basefluids.RefinedFuel;
@@ -28,6 +30,10 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.item.crafting.RecipeInput;
+import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.block.Block;
 
 @SuppressWarnings("null")
@@ -54,14 +60,26 @@ public class JEIPlugin implements IModPlugin {
                 r.addCraftingStation(FuelRecipeCategory.TYPE, JDTRegistration.GeneratorT1_ITEM.get());
                 r.addCraftingStation(RefinedFuelRecipeCategory.TYPE, JDTRegistration.GeneratorFluidT1_ITEM.get());
 
+                r.addCraftingStation(FerricoreAnvilCategory.TYPE, zBlocks.FERRICORE_ANVIL.get());
+                r.addCraftingStation(BlazeGoldAnvilCategory.TYPE, zBlocks.BLAZEGOLD_ANVIL.get());
+                r.addCraftingStation(EclipseAlloyAnvilCategory.TYPE, zBlocks.ECLIPSEALLOY_ANVIL.get());
+
         }
 
         @Override
         public void registerCategories(IRecipeCategoryRegistration r) {
                 IGuiHelper h = r.getJeiHelpers().getGuiHelper();
 
-                r.addRecipeCategories(new FuelRecipeCategory(h));
-                r.addRecipeCategories(new RefinedFuelRecipeCategory(h));
+                r.addRecipeCategories(
+
+                                new FuelRecipeCategory(h),
+                                new RefinedFuelRecipeCategory(h),
+                                new FerricoreAnvilCategory(h),
+                                new BlazeGoldAnvilCategory(h),
+                                new EclipseAlloyAnvilCategory(h)
+
+                );
+
         }
 
         @Override
@@ -103,16 +121,19 @@ public class JEIPlugin implements IModPlugin {
                                                 RefinedFuelRecipeCategory.TYPE,
                                                 List.of(new FuelRecords.Fluids(f.getValue()))));
 
+                r.addRecipes(FerricoreAnvilCategory.TYPE, getRecipes(zRecipeTypes.FERRICORE_ANVIL.getType()));
+                r.addRecipes(BlazeGoldAnvilCategory.TYPE, getRecipes(zRecipeTypes.BLAZEGOLD_ANVIL.getType()));
+                r.addRecipes(EclipseAlloyAnvilCategory.TYPE, getRecipes(zRecipeTypes.ECLIPSEALLOY_ANVIL.getType()));
+
         }
 
         @Override
         public void registerGuiHandlers(IGuiHandlerRegistration r) {
-                // r.addRecipeClickArea(ParadoxMixerScreen.class, 28, -8, 48, 48,
-                // ParadoxMixerCategory.TYPE);
+
         }
 
-        // private <C extends RecipeInput, T extends Recipe<C>> List<RecipeHolder<T>> getRecipes(RecipeType<T> type) {
-        //         return List.copyOf(Client.getRecipeCollector().byType(type));
-        // }
+        private <C extends RecipeInput, T extends Recipe<C>> List<RecipeHolder<T>> getRecipes(RecipeType<T> type) {
+                return List.copyOf(Client.getRecipeCollector().byType(type));
+        }
 
 }

@@ -124,7 +124,6 @@ public class StupefyWand extends BaseToggleableTool implements LeftClickableTool
 
                 itemEntity.setNoGravity(true);
                 itemEntity.setGlowingTag(true);
-                itemEntity.setCustomNameVisible(true);
                 itemEntity.setDeltaMovement(0,0,0);
 
                 level.addFreshEntity(itemEntity);

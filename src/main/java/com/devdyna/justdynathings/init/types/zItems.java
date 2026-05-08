@@ -85,7 +85,7 @@ public class zItems {
                         Constants.Wands.AdvancedLight,
                         p -> new AdvancedLightWand(p));
 
-        public static final DeferredHolder<Item, ?> ABSTRACT_PARADOX = zWands.registerSimpleItem("abstract_paradox");
+        public static final DeferredHolder<Item, ?> ABSTRACT_PARADOX = zItem.registerItem("abstract_paradox", p-> new AbstractParadox(p));
 
         public static final DeferredHolder<Item, ?> DESTRUCTION_WAND = zWands.registerSimpleItem("destruction_wand");
 

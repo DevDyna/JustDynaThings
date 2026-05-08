@@ -72,7 +72,7 @@ public class DataLang extends LanguageProvider {
 
                 add(MODULE_ID + "." + Constants.GooType + ".tier", "§7Goo Tier: ");
 
-                add(MODULE_ID + "." + Constants.SolarPanelType + ".ferate", "§7Max FE rate : ");
+                add(MODULE_ID + "." + Constants.SolarPanelType + ".ferate", "§aMax FE rate : §f");
 
                 add(MODULE_ID + ".init_invalid", "§cInitial Block isn't anymore valid");
                 add(MODULE_ID + ".clear_pos", "Position Cleared");

@@ -13,7 +13,6 @@ public class RecipeSender {
             event.sendRecipes(zRecipeTypes.FERRICORE_ANVIL.getType());
             event.sendRecipes(zRecipeTypes.BLAZEGOLD_ANVIL.getType());
             event.sendRecipes(zRecipeTypes.ECLIPSEALLOY_ANVIL.getType());
-
         }
 
     }

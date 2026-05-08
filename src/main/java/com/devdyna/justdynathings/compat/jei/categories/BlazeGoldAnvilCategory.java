@@ -2,6 +2,7 @@ package com.devdyna.justdynathings.compat.jei.categories;
 
 import com.devdyna.cakesticklib.api.compat.jei.JEIFluidTankHelper;
 import com.devdyna.justdynathings.Constants;
+import com.devdyna.justdynathings.JustDynaThings;
 import com.devdyna.justdynathings.common.recipes.anvils.blazegold.RepairBlazegoldAnvilRecipe;
 import com.devdyna.justdynathings.compat.jei.utils.BaseLabelledCategory;
 import com.devdyna.justdynathings.init.types.zBlocks;
@@ -33,9 +34,10 @@ public class BlazeGoldAnvilCategory extends BaseLabelledCategory<RepairBlazegold
 
         @Override
         public void setRecipe(IRecipeLayoutBuilder b, RepairBlazegoldAnvilRecipe recipe, IFocusGroup focuses) {
+                // TODO API fix +16 y offset
                 JEIFluidTankHelper.of()
                                 .fluid(recipe.getInput())
-                                .offset(4, 4)
+                                .offset(4, 4 + 16)
                                 .build((x, y) -> b.addInputSlot(x, y));
         }
 
@@ -51,7 +53,7 @@ public class BlazeGoldAnvilCategory extends BaseLabelledCategory<RepairBlazegold
 
         @Override
         public String getTraslationKey() {
-                return Constants.DataMaps.Anvils.blazegold_repair;
+                return JustDynaThings.MODULE_ID + ".jei.category." + Constants.DataMaps.Anvils.blazegold_repair;
         }
 
         @Override

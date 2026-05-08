@@ -34,8 +34,8 @@ public class DataLang extends LanguageProvider {
                 add(MODULE_ID + ".disabled", "§cItem Disabled");
 
                 // TODO reforger 2.0 and with AOE
-                add(MODULE_ID + "." + Constants.Blocks.Reforger,
-                                "§7Convert blocks using a catalyst to other blocks");
+                // add(MODULE_ID + "." + Constants.Blocks.Reforger,
+                // "§7Convert blocks using a catalyst to other blocks");
 
                 add(MODULE_ID + "." + Constants.Anvils.t1,
                                 "§7Repair items using metallic ingots");
@@ -99,8 +99,18 @@ public class DataLang extends LanguageProvider {
 
                 add(MODULE_ID + ".jei.category." + JDTRegistration.GeneratorT1_ITEM.getId().getPath(),
                                 "Solid Generator Fuels");
+
                 add(MODULE_ID + ".jei.category." + JDTRegistration.GeneratorFluidT1_ITEM.getId().getPath(),
                                 "Fluid Generator Fuels");
+
+                add(MODULE_ID + ".jei.category." + Constants.DataMaps.Anvils.ferricore_repair,
+                                "Ferricore Anvil Repair Catalysts");
+
+                add(MODULE_ID + ".jei.category." + Constants.DataMaps.Anvils.blazegold_repair,
+                                "BlazeGold Anvil Repair Fluids");
+
+                add(MODULE_ID + ".jei.category." + Constants.DataMaps.Anvils.eclipsealloy_repair,
+                                "Eclipse Alloy Anvil Repair Fluids");
 
                 add(MODULE_ID + ".jei.time", "Duration");
                 add(MODULE_ID + ".jei.rate", "FE production");
@@ -306,9 +316,7 @@ public class DataLang extends LanguageProvider {
 
                 add(MODULE_ID + ".configuration.phase_box_require_wrench", "PhaseBox require wrench to change state");
 
-                add(MODULE_ID+".goo_tier.infinite", "Infinite");
-
-
+                add(MODULE_ID + ".goo_tier.infinite", "Infinite");
 
         }
 

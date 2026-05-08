@@ -14,6 +14,7 @@ import com.devdyna.cakesticklib.api.compat.jei.BaseCategory;
 import com.devdyna.cakesticklib.api.primitive.Pos;
 import com.devdyna.cakesticklib.api.primitive.Size;
 import com.devdyna.cakesticklib.api.utils.x;
+import com.devdyna.justdynathings.JustDynaThings;
 import com.devdyna.justdynathings.api.ClientRender;
 import com.devdyna.justdynathings.compat.jei.utils.FuelRecords;
 import com.direwolf20.justdirethings.common.blocks.resources.CoalBlock_T1;
@@ -60,7 +61,7 @@ public class FuelRecipeCategory extends BaseCategory<FuelRecords.Items> implemen
 
     @Override
     public String getTraslationKey() {
-        return JDTRegistration.GeneratorT1_ITEM.getId().getPath();
+        return JustDynaThings.MODULE_ID + ".jei.category." + JDTRegistration.GeneratorT1_ITEM.getId().getPath();
     }
 
     @Override

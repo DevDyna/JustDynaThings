@@ -16,6 +16,7 @@ import com.devdyna.cakesticklib.api.compat.jei.ImageJei;
 import com.devdyna.cakesticklib.api.primitive.Pos;
 import com.devdyna.cakesticklib.api.primitive.Size;
 import com.devdyna.cakesticklib.api.utils.x;
+import com.devdyna.justdynathings.JustDynaThings;
 import com.devdyna.justdynathings.api.ClientRender;
 import com.devdyna.justdynathings.compat.jei.utils.FuelRecords;
 import com.direwolf20.justdirethings.setup.JDTRegistration;
@@ -87,9 +88,10 @@ public class RefinedFuelRecipeCategory extends BaseCategory<FuelRecords.Fluids> 
                 46, 4,
                 0xFFFFFF);
         guiGraphics.text(font, Component.literal(rate + " FE/tick"), 46, 18, 0xFFFFFF);
-        guiGraphics.text(font, Component.literal((hasShiftDown() ? MagicHelpers.withSuffix(total) : total) + " FE"), 46, 32,
+        guiGraphics.text(font, Component.literal((hasShiftDown() ? MagicHelpers.withSuffix(total) : total) + " FE"), 46,
+                32,
                 0xFFFFFF);
-                
+
         stack.popMatrix();
 
         ImageJei.of().rl("minecraft",
@@ -98,8 +100,6 @@ public class RefinedFuelRecipeCategory extends BaseCategory<FuelRecords.Fluids> 
                 .render(helper, guiGraphics);
 
     }
-
-   
 
     @Override
     public void getTooltip(ITooltipBuilder tooltip, FuelRecords.Fluids recipe, IRecipeSlotsView recipeSlotsView,
@@ -121,7 +121,7 @@ public class RefinedFuelRecipeCategory extends BaseCategory<FuelRecords.Fluids> 
 
     @Override
     public String getTraslationKey() {
-        return JDTRegistration.GeneratorFluidT1_ITEM.getId().getPath();
+        return JustDynaThings.MODULE_ID + ".jei.category." + JDTRegistration.GeneratorFluidT1_ITEM.getId().getPath();
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.devdyna.justdynathings.compat.jei.categories;
 
 import com.devdyna.justdynathings.Constants;
+import com.devdyna.justdynathings.JustDynaThings;
 import com.devdyna.justdynathings.common.recipes.anvils.ferricore.RepairFerricoreAnvilRecipe;
 import com.devdyna.justdynathings.compat.jei.utils.BaseLabelledCategory;
 import com.devdyna.justdynathings.init.types.zBlocks;
@@ -49,7 +50,7 @@ public class FerricoreAnvilCategory extends BaseLabelledCategory<RepairFerricore
 
     @Override
     public String getTraslationKey() {
-        return Constants.DataMaps.Anvils.ferricore_repair;
+        return JustDynaThings.MODULE_ID + ".jei.category." + Constants.DataMaps.Anvils.ferricore_repair;
     }
 
     @Override

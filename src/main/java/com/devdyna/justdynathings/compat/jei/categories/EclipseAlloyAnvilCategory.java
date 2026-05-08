@@ -2,6 +2,7 @@ package com.devdyna.justdynathings.compat.jei.categories;
 
 import com.devdyna.cakesticklib.api.compat.jei.JEIFluidTankHelper;
 import com.devdyna.justdynathings.Constants;
+import com.devdyna.justdynathings.JustDynaThings;
 import com.devdyna.justdynathings.common.recipes.anvils.eclipsealloy.RepairEclipseAlloyAnvilRecipe;
 import com.devdyna.justdynathings.compat.jei.utils.BaseLabelledCategory;
 import com.devdyna.justdynathings.init.types.zBlocks;
@@ -33,12 +34,11 @@ public class EclipseAlloyAnvilCategory extends BaseLabelledCategory<RepairEclips
 
         @Override
         public void setRecipe(IRecipeLayoutBuilder b, RepairEclipseAlloyAnvilRecipe recipe, IFocusGroup focuses) {
-
+                // TODO API replace getFluids -> x.fluid(f) to x.fluid(f,a)
                 JEIFluidTankHelper.of()
                                 .fluid(recipe.getInput())
-                                .offset(4, 4)
+                                .offset(4, 4 + 16)
                                 .build((x, y) -> b.addInputSlot(x, y));
-
         }
 
         @Override
@@ -53,7 +53,7 @@ public class EclipseAlloyAnvilCategory extends BaseLabelledCategory<RepairEclips
 
         @Override
         public String getTraslationKey() {
-                return Constants.DataMaps.Anvils.eclipsealloy_repair;
+                return JustDynaThings.MODULE_ID + ".jei.category." + Constants.DataMaps.Anvils.eclipsealloy_repair;
         }
 
         @Override

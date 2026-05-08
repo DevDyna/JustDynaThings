@@ -57,7 +57,7 @@ public class DataLang extends LanguageProvider {
                 add(MODULE_ID + "." + Constants.SolarPanelType, "§7Generate Energy from ambiental situations");
 
                 add(MODULE_ID + "." + Constants.Blocks.Stabilizer,
-                                "§7Feed Goo blocks and Buddings blocks");
+                                "§7Feed Goo blocks using Energy and Boost Buddings blocks");
                 add(MODULE_ID + "." + Constants.Blocks.simple_fluid_mixer,
                                 "§7Allow to mass-craft fluid drop recipes");
 
@@ -93,7 +93,7 @@ public class DataLang extends LanguageProvider {
                 add(MODULE_ID + "." + Constants.Wands.AdvancedTime + ".mode.x4", "4x");
                 add(MODULE_ID + "." + Constants.Wands.AdvancedTime + ".mode.max", "8x");
 
-                add(MODULE_ID + "." + Constants.Wands.Stupefy, "§7Remove TimeWand Entities and Stupefy ability");
+                add(MODULE_ID + "." + Constants.Wands.Stupefy, "§7Remove TimeWand Entities , can apply Stupefy effect at the looking entity and stabilize Paradox entities");
 
                 add(MODULE_ID + ".jei.warning", "Item form doesn't exist or doesn't respect the block placed!");
 

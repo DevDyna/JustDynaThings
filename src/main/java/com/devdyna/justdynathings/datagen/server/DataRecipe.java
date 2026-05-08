@@ -321,19 +321,19 @@ public class DataRecipe extends RecipeProvider {
 
                 RepairBlazegoldAnvilBuilder.of()
                                 .fluid(JDTRegistration.REFINED_T2_FLUID_SOURCE.get(), 1)
-                                .durability(4)
+                                .durability(2)
                                 .unlockedBy()
                                 .save(output);
 
                 RepairBlazegoldAnvilBuilder.of()
                                 .fluid(JDTRegistration.REFINED_T3_FLUID_SOURCE.get(), 1)
-                                .durability(8)
+                                .durability(4)
                                 .unlockedBy()
                                 .save(output);
 
                 RepairBlazegoldAnvilBuilder.of()
                                 .fluid(JDTRegistration.REFINED_T4_FLUID_SOURCE.get(), 1)
-                                .durability(16)
+                                .durability(8)
                                 .unlockedBy()
                                 .save(output);
 

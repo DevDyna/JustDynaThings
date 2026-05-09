@@ -28,6 +28,7 @@ public class DataLang extends LanguageProvider {
                 zItems.zGooUpgraders.getEntries().forEach(i -> addItem(i, named(i, MODULE_ID)));
                 zItems.zWands.getEntries().forEach(i -> addItem(i, named(i, MODULE_ID)));
                 zBlocks.zBlockItem.getEntries().forEach(i -> addBlock(i, named(i, MODULE_ID)));
+                zBlocks.zBlockFluids.getEntries().forEach(i -> addBlock(i, named(i, MODULE_ID)));
                 zFluids.zFluidTypes.getEntries().forEach(
                                 f -> add(f.get().getDescriptionId(), named(f, MODULE_ID).replace(" Type", "")));
 

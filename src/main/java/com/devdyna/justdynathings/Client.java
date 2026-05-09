@@ -106,7 +106,7 @@ public class Client {
                 FluidRenderUtils.createModel(
                         FluidRenderUtils.instability((int) (TimeUtil.ONE_SECOND * 2),
                                 Color.RED.getRGB(),
-                                Color.YELLOW.brighter().getRGB())),
+                                Color.YELLOW.getRGB())),
                 zFluids.INSTABILITY_FLUID.getSource(), zFluids.INSTABILITY_FLUID.getFlowing());
 
     }

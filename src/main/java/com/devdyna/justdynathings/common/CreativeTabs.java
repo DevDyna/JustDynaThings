@@ -13,7 +13,7 @@ public class CreativeTabs {
     public static void register(BuildCreativeModeTabContentsEvent event) {
 
         if (event.getTabKey() == ModSetup.TAB_JUSTDIRETHINGS.getKey())
-            CreativeTabUtils.accept(event, zItems.zWands, zItems.zBlockItem, zItems.zGooUpgraders, zItems.zItem);
+            CreativeTabUtils.accept(event, zItems.zWands, zItems.zBlockItem, zItems.zGooUpgraders, zItems.zItem,zItems.zBucketItems);
 
     }
 }

@@ -1,5 +1,9 @@
 package com.devdyna.justdynathings;
 
+import java.awt.Color;
+import com.devdyna.cakesticklib.api.utils.TimeUtil;
+import com.devdyna.cakesticklib.api.utils.x;
+import com.devdyna.justdynathings.api.FluidRenderUtils;
 import com.devdyna.justdynathings.api.goo.energy_goo.EnergyGooRender;
 import com.devdyna.justdynathings.api.solar_panels.SolarPanelScreen;
 import com.devdyna.justdynathings.init.builder.black_hole.BlackHoleScreen;
@@ -17,9 +21,11 @@ import com.devdyna.justdynathings.init.builder.solar_panels.ferricore.FerricoreS
 import com.devdyna.justdynathings.init.builder.ticker.TickerScreen;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
 import com.devdyna.justdynathings.init.types.zContainers;
+import com.devdyna.justdynathings.init.types.zFluids;
 import com.devdyna.justdynathings.init.types.zItems;
 import com.direwolf20.justdirethings.client.itemcustomrenders.FluidbarDecorator;
-
+import net.minecraft.client.Minecraft;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.crafting.RecipeMap;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -30,8 +36,11 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RecipesReceivedEvent;
+import net.neoforged.neoforge.client.event.RegisterFluidModelsEvent;
 import net.neoforged.neoforge.client.event.RegisterItemDecorationsEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
+import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions;
+import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 
@@ -74,8 +83,32 @@ public class Client {
     }
 
     @SubscribeEvent
+    public static void onRegisterClientExtensions(RegisterClientExtensionsEvent event) {
+
+        event.registerFluidType(new IClientFluidTypeExtensions() {
+            @Override
+            public Identifier getRenderOverlayTexture(Minecraft mc) {
+                return x.parse("textures/misc/underwater.png");
+            }
+        }, zFluids.INSTABILITY_FLUID.getType());
+
+    }
+
+    @SubscribeEvent
     public static void renderDecorators(RegisterItemDecorationsEvent event) {
         event.register(zItems.ADVANCED_TIME_WAND.get(), new FluidbarDecorator());
+    }
+
+    @SubscribeEvent
+    public static void onRegisterFluidModels(RegisterFluidModelsEvent event) {
+
+        event.register(
+                FluidRenderUtils.createModel(
+                        FluidRenderUtils.instability((int) (TimeUtil.ONE_SECOND * 2),
+                                Color.RED.getRGB(),
+                                Color.YELLOW.brighter().getRGB())),
+                zFluids.INSTABILITY_FLUID.getSource(), zFluids.INSTABILITY_FLUID.getFlowing());
+
     }
 
     // Recipe collector client-side

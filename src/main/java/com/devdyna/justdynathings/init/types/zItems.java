@@ -23,6 +23,7 @@ public class zItems {
                 zWands.register(bus);
                 zGooUpgraders.register(bus);
                 zSpecial.register(bus);
+                zBucketItems.register(bus);
         }
 
         //
@@ -31,6 +32,7 @@ public class zItems {
         public static final DeferredRegister.Items zWands = DeferredRegister.createItems(MODULE_ID);
         public static final DeferredRegister.Items zGooUpgraders = DeferredRegister.createItems(MODULE_ID);
         public static final DeferredRegister.Items zBlockItem = DeferredRegister.createItems(MODULE_ID);
+        public static final DeferredRegister.Items zBucketItems = DeferredRegister.createItems(MODULE_ID);
 
         // ---------------------------------------------------------------------------------------//
 

@@ -39,11 +39,13 @@ public class zBlocks {
         zBlock.register(bus);
         zBlockItem.register(bus);
         zHidden.register(bus);
+        zBlockFluids.register(bus);
     }
 
     public static final DeferredRegister.Blocks zBlock = DeferredRegister.createBlocks(JustDynaThings.MODULE_ID);
     public static final DeferredRegister.Blocks zBlockItem = DeferredRegister.createBlocks(JustDynaThings.MODULE_ID);
     public static final DeferredRegister.Blocks zHidden = DeferredRegister.createBlocks(JustDynaThings.MODULE_ID);
+    public static final DeferredRegister.Blocks zBlockFluids = DeferredRegister.createBlocks(JustDynaThings.MODULE_ID);
 
  
 

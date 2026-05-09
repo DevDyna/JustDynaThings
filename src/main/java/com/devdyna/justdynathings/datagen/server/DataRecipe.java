@@ -9,10 +9,13 @@ import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.common.recipes.anvils.blazegold.RepairBlazegoldAnvilBuilder;
 import com.devdyna.justdynathings.common.recipes.anvils.eclipsealloy.RepairEclipseAlloyAnvilBuilder;
 import com.devdyna.justdynathings.common.recipes.anvils.ferricore.RepairFerricoreAnvilBuilder;
+import com.devdyna.justdynathings.common.recipes.paradox.ParadoxInfusionBuilder;
 import com.devdyna.justdynathings.init.types.zBlockTags;
 import com.devdyna.justdynathings.init.types.zBlocks;
+import com.devdyna.justdynathings.init.types.zFluids;
 import com.devdyna.justdynathings.init.types.zItemTags;
 import com.devdyna.justdynathings.init.types.zItems;
+import com.direwolf20.justdirethings.datagen.recipes.FluidDropRecipeBuilder;
 import com.direwolf20.justdirethings.datagen.recipes.GooSpreadRecipeBuilder;
 import com.direwolf20.justdirethings.setup.JDTRegistration;
 
@@ -351,6 +354,24 @@ public class DataRecipe extends RecipeProvider {
                                 .unlocks(getHasName(JDTRegistration.EclipseAlloyIngot.get()),
                                                 has(JDTRegistration.EclipseAlloyIngot.get()))
                                 .save(output, MODULE_ID + ":advanced_time_wand");
+
+                FluidDropRecipeBuilder
+                                .shapeless(x.block(JDTRegistration.PORTAL_FLUID_BLOCK).defaultBlockState(),
+                                                x.block(zFluids.INSTABILITY_FLUID.getBlock()).defaultBlockState(),
+                                                JDTRegistration.TimeCrystal.get())
+                                .unlockedBy(getHasName(JDTRegistration.TimeCrystal.get()),
+                                                has(JDTRegistration.TimeCrystal.get()))
+                                .save(output);
+
+                // TODO
+                // GooSpreadRecipeBuilder.shapeless(x.block(zFluids.INSTABILITY_FLUID.getBlock()).defaultBlockState(),
+                // null, 4, 100);
+
+                ParadoxInfusionBuilder.of()
+                                .input(zItems.VOID_CRYSTAL.get())
+                                .output(zItems.ABSTRACT_PARADOX.get())
+                                .unlockedBy()
+                                .save(output);
 
         }
 

@@ -172,6 +172,9 @@ public class DataLang extends LanguageProvider {
                 add(MODULE_ID + ".configuration.answer", "A questionable question");
                 add(MODULE_ID + ".configuration.include_any_jei_fuels", "Include Any Fuel to JEI fuel category");
 
+                add(MODULE_ID + ".configuration.void_crystal_tooltips",
+                                "All possible strings rendered below Void Crystal");
+
                 // stabilizer
                 add(MODULE_ID + ".configuration.stabilizer_emit_sound", "Stabilizer emit sound");
                 add(MODULE_ID + ".configuration.stabilizer_energy_every_tick", "Stabilizer energy every tick");

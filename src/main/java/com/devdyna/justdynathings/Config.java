@@ -194,7 +194,14 @@ public class Config {
                                                 "The paradox must grow",
                                                 "Is the time a lie?",
                                                 "There is a paradox on your timeline",
-                                                "Time to collapse"
+                                                "Time to collapse",
+                                                "Time is relative",
+                                                "It's time to collapse",
+                                                "You collapse me round",
+                                                "Press T to collapse",
+                                                "Paradox mentioned",
+                                                "Never gone collapse up",
+                                                "Better than Time"
                                                 ));
 
                 qCOMMON.pop();

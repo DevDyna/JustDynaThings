@@ -53,6 +53,8 @@ public class zItemTags {
         public static final TagKey<Item> INTERACTIVE = RegistryUtils.tagItem(MODULE_ID,"interactive");
         
         public static final TagKey<Item> TIME_WANDS = RegistryUtils.tagItem(MODULE_ID,"time_wands");
+       
+        public static final TagKey<Item> ABSTRACT_PARADOX = RegistryUtils.tagItem(MODULE_ID,"abstract_paradox");
 
 
 }

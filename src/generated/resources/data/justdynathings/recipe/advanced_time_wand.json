@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "justdirethings:time_crystal",
+  "base": "justdirethings:time_wand",
+  "result": {
+    "id": "justdynathings:advanced_time_wand"
+  },
+  "template": "justdirethings:eclipsealloy_ingot"
+}

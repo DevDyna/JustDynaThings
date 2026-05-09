@@ -1,0 +1,8 @@
+{
+  "type": "justdynathings:paradox_infusion",
+  "ingredient": "justdynathings:void_crystal",
+  "output": {
+    "id": "justdynathings:abstract_paradox"
+  },
+  "radius": 1
+}

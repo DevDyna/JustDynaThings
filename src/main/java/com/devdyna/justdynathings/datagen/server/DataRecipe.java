@@ -383,6 +383,14 @@ public class DataRecipe extends RecipeProvider {
                 // has(
                 // JDTRegistration.EclipseAlloyIngot.get()))
                 // .group(Constants.Wands.AdvancedTime).save(output);
+                SmithingTransformRecipeBuilder
+                                .smithing(x.itemIngredient(JDTRegistration.EclipseAlloyIngot.get()),
+                                                x.itemIngredient(JDTRegistration.TimeWand.get()),
+                                                x.itemIngredient(JDTRegistration.TimeCrystal.get()),
+                                                RecipeCategory.TOOLS, zItems.ADVANCED_TIME_WAND.get())
+                                .unlocks(getHasName(JDTRegistration.EclipseAlloyIngot.get()),
+                                                has(JDTRegistration.EclipseAlloyIngot.get()))
+                                .save(output, MODULE_ID + ":advanced_time_wand");
 
         }
 

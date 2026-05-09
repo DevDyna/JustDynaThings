@@ -31,7 +31,7 @@ import net.minecraft.world.level.Level;
 public class AdvancedTimeWand extends TimeWand {
 
     public AdvancedTimeWand(Properties p) {
-        super(p);
+        super(p.stacksTo(1));
     }
 
     @Override

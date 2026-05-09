@@ -5,6 +5,7 @@ import com.devdyna.justdynathings.api.RecipeRegister;
 import com.devdyna.justdynathings.common.recipes.anvils.blazegold.RepairBlazegoldAnvilRecipe;
 import com.devdyna.justdynathings.common.recipes.anvils.eclipsealloy.RepairEclipseAlloyAnvilRecipe;
 import com.devdyna.justdynathings.common.recipes.anvils.ferricore.RepairFerricoreAnvilRecipe;
+import com.devdyna.justdynathings.common.recipes.paradox.ParadoxInfusionRecipe;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -27,5 +28,8 @@ public class zRecipeTypes {
     public static final RecipeRegister<RepairFerricoreAnvilRecipe> FERRICORE_ANVIL = RecipeRegister.of("ferricore_anvil_fuels",()-> RepairFerricoreAnvilRecipe.serializer());
     public static final RecipeRegister<RepairBlazegoldAnvilRecipe> BLAZEGOLD_ANVIL = RecipeRegister.of("blazegold_anvil_fuels",()-> RepairBlazegoldAnvilRecipe.serializer());
     public static final RecipeRegister<RepairEclipseAlloyAnvilRecipe> ECLIPSEALLOY_ANVIL = RecipeRegister.of("eclipsealloy_anvil_fuels",()-> RepairEclipseAlloyAnvilRecipe.serializer());
+   
+    public static final RecipeRegister<ParadoxInfusionRecipe> PARADOX_INFUSION = RecipeRegister.of("paradox_infusion",()-> ParadoxInfusionRecipe.serializer());
+  
 
 }

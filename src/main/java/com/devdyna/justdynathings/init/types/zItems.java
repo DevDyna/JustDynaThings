@@ -84,6 +84,7 @@ public class zItems {
                         Constants.Wands.AdvancedLight,
                         p -> new AdvancedLightWand(p));
 
+        public static final DeferredHolder<Item, ?> VOID_CRYSTAL = zItem.registerItem("void_crystal", p-> new VoidCrystal(p));
         public static final DeferredHolder<Item, ?> ABSTRACT_PARADOX = zItem.registerItem("abstract_paradox", p-> new AbstractParadox(p));
 
         //TODO wand

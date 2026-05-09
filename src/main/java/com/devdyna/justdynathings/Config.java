@@ -18,6 +18,8 @@ public class Config {
 
         public static BooleanValue ENABLE_ALL_JEI_FUELS;
 
+        public static ConfigValue<List<String>> UNSTABLE_TIME_CRYSTAL_TOOLTIPS;
+
         public static BooleanValue PHASE_BOX_WRENCHABLE;
 
         public static BooleanValue FERRICORE_CLOCK_WRENCHABLE;
@@ -182,6 +184,18 @@ public class Config {
                 ENABLE_ALL_JEI_FUELS = qCOMMON
                                 .comment("Include any fuel item to Generator JEI category")
                                 .define("include_any_jei_fuels", true);
+
+                UNSTABLE_TIME_CRYSTAL_TOOLTIPS = qCOMMON
+                                .comment("Define the pool of strings that will show as tooltip below Void Crystal")
+                                .define("void_crystal_tooltips", List.of(
+                                                "Unstable Stability",
+                                                "This is fine",
+                                                "Fragment of reality",
+                                                "The paradox must grow",
+                                                "Is the time a lie?",
+                                                "There is a paradox on your timeline",
+                                                "Time to collapse"
+                                                ));
 
                 qCOMMON.pop();
         }

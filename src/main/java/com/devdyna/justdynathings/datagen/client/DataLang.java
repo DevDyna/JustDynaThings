@@ -7,6 +7,7 @@ import com.devdyna.justdynathings.Constants;
 import static com.devdyna.cakesticklib.api.datagen.LangUtils.*;
 
 import com.devdyna.justdynathings.init.types.zBlocks;
+import com.devdyna.justdynathings.init.types.zFluids;
 import com.devdyna.justdynathings.init.types.zItems;
 import com.direwolf20.justdirethings.setup.JDTRegistration;
 
@@ -23,9 +24,12 @@ public class DataLang extends LanguageProvider {
         protected void addTranslations() {
 
                 zItems.zItem.getEntries().forEach(i -> addItem(i, named(i, MODULE_ID)));
+                zItems.zBucketItems.getEntries().forEach(i -> addItem(i, named(i, MODULE_ID)));
                 zItems.zGooUpgraders.getEntries().forEach(i -> addItem(i, named(i, MODULE_ID)));
                 zItems.zWands.getEntries().forEach(i -> addItem(i, named(i, MODULE_ID)));
                 zBlocks.zBlockItem.getEntries().forEach(i -> addBlock(i, named(i, MODULE_ID)));
+                zFluids.zFluidTypes.getEntries().forEach(
+                                f -> add(f.get().getDescriptionId(), named(f, MODULE_ID).replace(" Type", "")));
 
                 add(MODULE_ID + ".invalid_block", "§cInvalid Block");
                 add(MODULE_ID + ".wand.blockstate", "§7BlockState : ");
@@ -92,8 +96,6 @@ public class DataLang extends LanguageProvider {
                 add(MODULE_ID + "." + Constants.Wands.AdvancedTime + ".mode.x2", "2x");
                 add(MODULE_ID + "." + Constants.Wands.AdvancedTime + ".mode.x4", "4x");
                 add(MODULE_ID + "." + Constants.Wands.AdvancedTime + ".mode.max", "8x");
-
-                add(MODULE_ID + "." + Constants.Wands.Stupefy, "§7Remove TimeWand Entities , can apply Stupefy effect at the looking entity and stabilize Paradox entities");
 
                 add(MODULE_ID + ".jei.warning", "Item form doesn't exist or doesn't respect the block placed!");
 

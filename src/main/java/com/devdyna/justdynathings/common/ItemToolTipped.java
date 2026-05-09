@@ -7,6 +7,7 @@ import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.api.TippedGooBlock;
 import com.devdyna.justdynathings.api.repair_anvils.FunctionalAnvilBlock;
 import com.devdyna.justdynathings.api.solar_panels.SolarBlockBase;
+import com.devdyna.justdynathings.init.builder.AbstractParadox;
 import com.devdyna.justdynathings.init.builder.AdvancedTimeWand;
 import com.devdyna.justdynathings.init.builder.GooUpgrader;
 import com.devdyna.justdynathings.init.builder.PickerWand;
@@ -188,6 +189,10 @@ public class ItemToolTipped {
                 if (isBlock && block instanceof StabilizerBlock)
                         tip.add(OVER_THE_REGISTRY_ID,
                                         Component.translatable(MODULE_ID + "." + Constants.Blocks.Stabilizer));
+
+                if (stack instanceof AbstractParadox)
+                        tip.add(OVER_THE_REGISTRY_ID,
+                                        Component.translatable(MODULE_ID + ".abstract_paradox"));
 
         }
 }

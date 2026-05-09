@@ -10,7 +10,6 @@ import com.devdyna.justdynathings.api.solar_panels.SolarBlockBase;
 import com.devdyna.justdynathings.init.builder.AdvancedTimeWand;
 import com.devdyna.justdynathings.init.builder.GooUpgrader;
 import com.devdyna.justdynathings.init.builder.PickerWand;
-import com.devdyna.justdynathings.init.builder.StupefyWand;
 import com.devdyna.justdynathings.init.builder.SwapperWand;
 import com.devdyna.justdynathings.init.builder.goo.creative.CreativeGoo;
 import com.devdyna.justdynathings.init.builder.stabilizer.StabilizerBlock;
@@ -32,19 +31,16 @@ public class ItemToolTipped {
         public static void main(ItemTooltipEvent event) {
 
                 var item = event.getItemStack();
+                var stack = item.getItem();
                 var tip = event.getToolTip();
-                var isBlock = item.getItem() instanceof BlockItem;
-                var block = ((item.getItem() instanceof BlockItem bi) ? bi.getBlock() : null);
+                var isBlock = stack instanceof BlockItem;
+                var block = ((stack instanceof BlockItem bi) ? bi.getBlock() : null);
 
-                if (item.getItem() instanceof GooUpgrader)
+                if (stack instanceof GooUpgrader)
                         tip.add(OVER_THE_REGISTRY_ID,
                                         Component.translatable(MODULE_ID + "." + Constants.GooUpgraders.base));
 
-                if (item.getItem() instanceof StupefyWand)
-                        tip.add(OVER_THE_REGISTRY_ID,
-                                        Component.translatable(MODULE_ID + "." + Constants.Wands.Stupefy));
-
-                if (item.getItem() instanceof SwapperWand) {
+                if (stack instanceof SwapperWand) {
 
                         tip.add(OVER_THE_REGISTRY_ID,
                                         Component.translatable(MODULE_ID + "." + Constants.Wands.Swapper));
@@ -84,7 +80,7 @@ public class ItemToolTipped {
                         tip.add(OVER_THE_REGISTRY_ID,
                                         Component.translatable(MODULE_ID + "." + Constants.Blocks.Ticker));
 
-                if (item.getItem() instanceof AdvancedTimeWand) {
+                if (stack instanceof AdvancedTimeWand) {
                         tip.add(OVER_THE_REGISTRY_ID,
                                         Component.translatable(MODULE_ID + "." + Constants.Wands.AdvancedTime));
                         if (item.get(zComponents.MODE) != null) {
@@ -123,7 +119,7 @@ public class ItemToolTipped {
                         }
                 }
 
-                if (item.getItem() instanceof PickerWand) {
+                if (stack instanceof PickerWand) {
                         tip.add(OVER_THE_REGISTRY_ID, Component.translatable(MODULE_ID + "." + Constants.Wands.Picker));
 
                         if (item.get(zComponents.STATE) != null) {

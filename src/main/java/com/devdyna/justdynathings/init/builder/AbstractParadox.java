@@ -1,42 +1,54 @@
 package com.devdyna.justdynathings.init.builder;
 
 import java.awt.Color;
+import java.util.function.Consumer;
 
+import com.devdyna.cakesticklib.api.RandomUtil;
 import com.devdyna.cakesticklib.api.utils.TimeUtil;
+import com.devdyna.justdynathings.api.ColorAddon;
+import com.direwolf20.justdirethings.common.items.resources.TimeCrystal;
 
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.item.Item;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipDisplay;
 
-public class AbstractParadox extends Item {
+public class AbstractParadox extends TimeCrystal {
 
     public AbstractParadox(Properties p) {
-        super(p.stacksTo(1));
+        super(p.stacksTo(1).fireResistant());
+    }
+
+    @Override
+    public void inventoryTick(ItemStack itemStack, ServerLevel level, Entity entity, EquipmentSlot slot) {
+        //apply different effects?
+        if (entity instanceof LivingEntity)
+            if (RandomUtil.chance(level, 5))
+                level.playSound(entity, entity.getOnPos(),
+                        SoundEvents.SCULK_SHRIEKER_SHRIEK, SoundSource.PLAYERS,
+                        0.5f, 1.75f);
+        super.inventoryTick(itemStack, level, entity, slot);
     }
 
     @Override
     public Component getName(ItemStack stack) {
         return Component.translatable(getDescriptionId())
-                .withColor(pulseColor(Color.BLUE.getRGB(), Color.MAGENTA.getRGB()));
+                .withColor(ColorAddon.pulseColor((int) (TimeUtil.ONE_SECOND * 4), Color.BLUE.getRGB(), Color.MAGENTA.getRGB()));
     }
 
-    //TODO move to api
-    private int pulseColor(int delay, int startColor, int endColor) {
-        var t = (Math.sin((System.currentTimeMillis() % delay) * (Math.PI * 2D / delay)) + 1.0D) / 2.0D;
-
-        int r1 = (startColor >> 16) & 255;
-        int g1 = (startColor >> 8) & 255;
-        int b1 = startColor & 255;
-
-        int r = (int) (r1 + (((endColor >> 16) & 255) - r1) * t);
-        int g = (int) (g1 + (((endColor >> 8) & 255) - g1) * t);
-        int b = (int) (b1 + ((endColor & 255) - b1) * t);
-
-        return (r << 16) | (g << 8) | b;
+    @Override
+    public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display,
+            Consumer<Component> tooltip, TooltipFlag flagIn) {
     }
 
-    private int pulseColor(int startColor, int endColor) {
-        return pulseColor((int)TimeUtil.ONE_SECOND, startColor, endColor);
-    }
+    
+
+  
 
 }

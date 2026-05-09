@@ -2,6 +2,7 @@ package com.devdyna.justdynathings.api;
 
 import java.util.Map;
 
+import com.devdyna.cakesticklib.api.RandomUtil;
 import com.devdyna.justdynathings.api.be.EnergyMachine;
 import com.mojang.logging.LogUtils;
 

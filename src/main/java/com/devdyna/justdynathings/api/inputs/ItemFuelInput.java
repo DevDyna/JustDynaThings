@@ -2,7 +2,7 @@ package com.devdyna.justdynathings.api.inputs;
 
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeInput;
-
+//TODO move to api and standardize
 public record ItemFuelInput(ItemStack input) implements RecipeInput{
 
     @Override

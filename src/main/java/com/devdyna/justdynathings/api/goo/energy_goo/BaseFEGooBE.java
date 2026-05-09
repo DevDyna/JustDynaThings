@@ -1,7 +1,7 @@
 package com.devdyna.justdynathings.api.goo.energy_goo;
 
+import com.devdyna.cakesticklib.api.RandomUtil;
 import com.devdyna.justdynathings.Config;
-import com.devdyna.justdynathings.api.RandomUtil;
 import com.devdyna.justdynathings.api.be.EnergyMachine;
 import com.devdyna.justdynathings.init.types.zProperties;
 import com.direwolf20.justdirethings.common.blockentities.basebe.GooBlockBE_Base;

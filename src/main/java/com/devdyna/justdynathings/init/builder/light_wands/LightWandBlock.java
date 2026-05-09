@@ -1,7 +1,7 @@
 package com.devdyna.justdynathings.init.builder.light_wands;
 
+import com.devdyna.cakesticklib.api.RandomUtil;
 import com.devdyna.justdynathings.Config;
-import com.devdyna.justdynathings.api.RandomUtil;
 import com.devdyna.justdynathings.init.types.zItems;
 
 import net.minecraft.core.BlockPos;

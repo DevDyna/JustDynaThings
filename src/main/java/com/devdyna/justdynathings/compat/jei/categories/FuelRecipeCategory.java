@@ -13,9 +13,9 @@ import static com.devdyna.justdynathings.JustDynaThings.MODULE_ID;
 import com.devdyna.cakesticklib.api.compat.jei.BaseCategory;
 import com.devdyna.cakesticklib.api.primitive.Pos;
 import com.devdyna.cakesticklib.api.primitive.Size;
+import com.devdyna.cakesticklib.api.utils.ClientUtils;
 import com.devdyna.cakesticklib.api.utils.x;
 import com.devdyna.justdynathings.JustDynaThings;
-import com.devdyna.justdynathings.api.ClientRender;
 import com.devdyna.justdynathings.compat.jei.utils.FuelRecords;
 import com.direwolf20.justdirethings.common.blocks.resources.CoalBlock_T1;
 import com.direwolf20.justdirethings.common.items.resources.Coal_T1;
@@ -30,7 +30,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.ItemLike;
 
 @SuppressWarnings("null")
-public class FuelRecipeCategory extends BaseCategory<FuelRecords.Items> implements ClientRender {
+public class FuelRecipeCategory extends BaseCategory<FuelRecords.Items> implements ClientUtils {
     public static final IRecipeType<FuelRecords.Items> TYPE = IRecipeType.create(MODULE_ID,
             JDTRegistration.GeneratorT1_ITEM.getId().getPath(), FuelRecords.Items.class);
 

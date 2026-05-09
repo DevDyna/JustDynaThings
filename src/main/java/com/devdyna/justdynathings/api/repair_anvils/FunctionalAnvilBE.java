@@ -1,8 +1,8 @@
 package com.devdyna.justdynathings.api.repair_anvils;
 
+import com.devdyna.cakesticklib.api.RandomUtil;
 import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.api.Actions;
-import com.devdyna.justdynathings.api.RandomUtil;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.RedstoneControlledBE;
 import com.direwolf20.justdirethings.util.interfacehelpers.RedstoneControlData;

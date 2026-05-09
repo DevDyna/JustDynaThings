@@ -15,9 +15,9 @@ import com.devdyna.cakesticklib.api.compat.jei.BaseCategory;
 import com.devdyna.cakesticklib.api.compat.jei.ImageJei;
 import com.devdyna.cakesticklib.api.primitive.Pos;
 import com.devdyna.cakesticklib.api.primitive.Size;
+import com.devdyna.cakesticklib.api.utils.ClientUtils;
 import com.devdyna.cakesticklib.api.utils.x;
 import com.devdyna.justdynathings.JustDynaThings;
-import com.devdyna.justdynathings.api.ClientRender;
 import com.devdyna.justdynathings.compat.jei.utils.FuelRecords;
 import com.direwolf20.justdirethings.setup.JDTRegistration;
 import com.direwolf20.justdirethings.util.MagicHelpers;
@@ -28,7 +28,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.ItemLike;
 
 @SuppressWarnings("null")
-public class RefinedFuelRecipeCategory extends BaseCategory<FuelRecords.Fluids> implements ClientRender {
+public class RefinedFuelRecipeCategory extends BaseCategory<FuelRecords.Fluids> implements ClientUtils {
     public static final IRecipeType<FuelRecords.Fluids> TYPE = IRecipeType.create(MODULE_ID,
             JDTRegistration.GeneratorFluidT1_ITEM.getId().getPath(), FuelRecords.Fluids.class);
 

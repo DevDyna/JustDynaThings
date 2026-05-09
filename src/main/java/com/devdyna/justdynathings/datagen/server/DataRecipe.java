@@ -343,46 +343,6 @@ public class DataRecipe extends RecipeProvider {
                                 .unlockedBy()
                                 .save(output);
 
-                // var stupefy = new ItemStackTemplate(zItems.STUPEFY_WAND.get(),
-                // DataComponentPatch.builder()
-                // .set((DataComponentType<Boolean>)
-                // JustDireDataComponents.COMPONENTS.getEntries()
-                // .stream()
-                // .filter(e -> e.getId()
-                // .equals(x.rl("stupefy_upgrade_installed",
-                // JustDireThings.MODID)))
-                // .findFirst()
-                // .map(DeferredHolder::get)
-                // .orElse(null), true)
-                // .build());
-
-                // shaped(RecipeCategory.MISC, stupefy)
-                // .pattern(" CE")
-                // .pattern(" IC")
-                // .pattern("I ")
-                // .define('I', JDTRegistration.BlazegoldIngot.get())
-                // .define('C', Items.REDSTONE)
-                // .define('E', Items.QUARTZ)
-                // .unlockedBy(getHasName(JDTRegistration.BlazegoldIngot.get()), has(
-                // JDTRegistration.BlazegoldIngot.get()))
-                // .group(Constants.Wands.Stupefy).save(output);
-
-                // var time = new ItemStackTemplate(zItems.ADVANCED_TIME_WAND.get(),
-                // DataComponentPatch.builder()
-                // .set(zComponents.MODE.get(), "normal")
-                // .build());
-
-                // shaped(RecipeCategory.MISC, time)
-                // .pattern(" EC")
-                // .pattern(" WE")
-                // .pattern("E ")
-                // .define('C', JDTRegistration.TimeCrystal.get())
-                // .define('E', JDTRegistration.EclipseAlloyIngot.get())
-                // .define('W', JDTRegistration.TimeWand.get())
-                // .unlockedBy(getHasName(JDTRegistration.EclipseAlloyIngot.get()),
-                // has(
-                // JDTRegistration.EclipseAlloyIngot.get()))
-                // .group(Constants.Wands.AdvancedTime).save(output);
                 SmithingTransformRecipeBuilder
                                 .smithing(x.itemIngredient(JDTRegistration.EclipseAlloyIngot.get()),
                                                 x.itemIngredient(JDTRegistration.TimeWand.get()),

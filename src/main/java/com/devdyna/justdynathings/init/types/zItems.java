@@ -75,9 +75,6 @@ public class zItems {
                         Constants.Wands.AdvancedTime,
                         p -> new AdvancedTimeWand(p));
 
-        public static final DeferredHolder<Item, ?> STUPEFY_WAND = zWands.registerItem(Constants.Wands.Stupefy,
-                        p -> new StupefyWand(p));
-
         public static final DeferredHolder<Item, ?> LIGHT_WAND = zWands.registerItem(Constants.Wands.Light,
                         p -> new LightWandItem(p));
 
@@ -87,6 +84,7 @@ public class zItems {
 
         public static final DeferredHolder<Item, ?> ABSTRACT_PARADOX = zItem.registerItem("abstract_paradox", p-> new AbstractParadox(p));
 
+        //TODO wand
         public static final DeferredHolder<Item, ?> DESTRUCTION_WAND = zWands.registerSimpleItem("destruction_wand");
 
 }

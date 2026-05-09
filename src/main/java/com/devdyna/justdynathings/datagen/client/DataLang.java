@@ -320,6 +320,8 @@ public class DataLang extends LanguageProvider {
 
                 add(MODULE_ID + ".goo_tier.infinite", "Infinite");
 
+                add(MODULE_ID + ".abstract_paradox", TIP_COLOR + "Obtained by throwing a void crystal over a Paradox");
+
         }
 
 }

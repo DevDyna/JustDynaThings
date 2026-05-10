@@ -189,7 +189,7 @@ public class Config {
                                 .comment("Define the pool of strings that will show as tooltip below Void Crystal")
                                 .define("void_crystal_tooltips", List.of(
                                                 "Unstable Stability",
-                                                "This is fine",
+                                                "This is time",
                                                 "Fragment of reality",
                                                 "The paradox must grow",
                                                 "Is the time a lie?",

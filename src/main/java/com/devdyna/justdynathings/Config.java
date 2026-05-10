@@ -201,7 +201,7 @@ public class Config {
                                                 "Press T to collapse",
                                                 "Paradox mentioned",
                                                 "Never gone collapse up",
-                                                "Better than Time"
+                                                "Better with Time"
                                                 ));
 
                 qCOMMON.pop();

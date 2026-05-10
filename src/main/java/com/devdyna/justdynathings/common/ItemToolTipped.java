@@ -2,7 +2,7 @@ package com.devdyna.justdynathings.common;
 
 import static com.devdyna.justdynathings.JustDynaThings.MODULE_ID;
 
-import com.devdyna.cakesticklib.api.utils.ColorUtil;
+import com.devdyna.cakesticklib.api.utils.ColorUtils;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.api.TippedGooBlock;
 import com.devdyna.justdynathings.api.repair_anvils.FunctionalAnvilBlock;
@@ -157,8 +157,7 @@ public class ItemToolTipped {
                                                                                 goo.getConfigTier() > 1024 ? Component
                                                                                                 .translatable(MODULE_ID
                                                                                                                 + ".goo_tier.infinite")
-                                                                                                .withColor(ColorUtil
-                                                                                                                .rgbColor())
+                                                                                                .withColor(ColorUtils.rainbow().getRGB())
                                                                                                 :
 
                                                                                                 Component.literal(""

@@ -1,5 +1,6 @@
 package com.devdyna.justdynathings.api;
 
+@Deprecated
 public class ColorAddon {
     // TODO move to api
     // TODO change from int to long and separate seconds to milliseconds

@@ -3,7 +3,7 @@ package com.devdyna.justdynathings.api.inputs;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeInput;
 import net.neoforged.neoforge.fluids.FluidStack;
-//TODO move to api and standardize
+@Deprecated
 public record FluidFuelInput(FluidStack input) implements RecipeInput{
 
     @Override

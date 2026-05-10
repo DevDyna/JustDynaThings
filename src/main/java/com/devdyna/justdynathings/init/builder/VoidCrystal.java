@@ -50,11 +50,11 @@ public class VoidCrystal extends TimeCrystal {
         return Component.translatable(getDescriptionId())
                 .withStyle(ChatFormatting.DARK_PURPLE);
     }
-private static final AnimatedText TOOLTIP = AnimatedText.of(Config.UNSTABLE_TIME_CRYSTAL_TOOLTIPS.get());
+    
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display,
             Consumer<Component> tooltip, TooltipFlag flagIn) {
-        tooltip.accept(TOOLTIP.process());
+        tooltip.accept(AnimatedText.create("id", Config.UNSTABLE_TIME_CRYSTAL_TOOLTIPS.get()));
     }
 
 }

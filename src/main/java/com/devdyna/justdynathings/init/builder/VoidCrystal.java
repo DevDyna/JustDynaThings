@@ -5,6 +5,7 @@ import java.util.function.Consumer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.api.AnimatedText;
 import com.direwolf20.justdirethings.common.items.resources.TimeCrystal;
 
@@ -49,11 +50,11 @@ public class VoidCrystal extends TimeCrystal {
         return Component.translatable(getDescriptionId())
                 .withStyle(ChatFormatting.DARK_PURPLE);
     }
-
+private static final AnimatedText TOOLTIP = AnimatedText.of(Config.UNSTABLE_TIME_CRYSTAL_TOOLTIPS.get());
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display,
             Consumer<Component> tooltip, TooltipFlag flagIn) {
-        tooltip.accept(AnimatedText.build());
+        tooltip.accept(TOOLTIP.process());
     }
 
 }

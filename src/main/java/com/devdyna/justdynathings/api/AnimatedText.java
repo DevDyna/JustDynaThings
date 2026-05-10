@@ -3,7 +3,6 @@ package com.devdyna.justdynathings.api;
 import java.util.*;
 
 import com.devdyna.cakesticklib.api.utils.TimeUtil;
-import com.devdyna.justdynathings.Config;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -24,12 +23,11 @@ public class AnimatedText {
     private long lastTick = 0L;
     private static final Random RANDOM = new Random();
 
-    // IT WORK , DONT TOUCH IT
-    // SERIOUSLY DONT TOUCH IT!
-    private static AnimatedText TOOLTIP = new AnimatedText(Config.UNSTABLE_TIME_CRYSTAL_TOOLTIPS.get());
-
-    public static Component build() {
-        return TOOLTIP.tick();
+    /**
+     * IT REQUIRE TO STAY FINAL AND A STATIC VARIABLE
+     */
+    public static AnimatedText of(List<String> entries) {
+        return new AnimatedText(entries);
     }
 
     public AnimatedText(List<String> entries) {
@@ -38,7 +36,7 @@ public class AnimatedText {
         pickNext();
     }
 
-    public Component tick() {
+    public Component process() {
 
         long now = System.currentTimeMillis();
 

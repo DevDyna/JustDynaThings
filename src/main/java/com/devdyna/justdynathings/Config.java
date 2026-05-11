@@ -18,7 +18,7 @@ public class Config {
 
         public static BooleanValue ENABLE_ALL_JEI_FUELS;
 
-        public static ConfigValue<List<String>> UNSTABLE_TIME_CRYSTAL_TOOLTIPS;
+        public static ConfigValue<List<? extends String>> UNSTABLE_TIME_CRYSTAL_TOOLTIPS;
 
         public static BooleanValue PHASE_BOX_WRENCHABLE;
 
@@ -185,24 +185,29 @@ public class Config {
                                 .comment("Include any fuel item to Generator JEI category")
                                 .define("include_any_jei_fuels", true);
 
-                UNSTABLE_TIME_CRYSTAL_TOOLTIPS = qCOMMON
-                                .comment("Define the pool of strings that will show as tooltip below Void Crystal")
-                                .define("void_crystal_tooltips", List.of(
-                                                "Unstable Stability",
-                                                "This is time",
-                                                "Fragment of reality",
-                                                "The paradox must grow",
-                                                "Is the time a lie?",
-                                                "There is a paradox on your timeline",
-                                                "Time to collapse",
-                                                "Time is relative",
-                                                "It's time to collapse",
-                                                "You collapse me round",
-                                                "Press T to collapse",
-                                                "Paradox mentioned",
-                                                "Never gone collapse up",
-                                                "Better with Time"
-                                                ));
+             UNSTABLE_TIME_CRYSTAL_TOOLTIPS = qCOMMON
+    .comment("Define the pool of strings that will show as tooltip below Void Crystal")
+    .defineList(
+        List.of("void_crystal_tooltips"),
+        () -> List.of(
+            "Unstable Stability",
+            "This is time",
+            "Fragment of reality",
+            "The paradox must grow",
+            "Is the time a lie?",
+            "There is a paradox on your timeline",
+            "Time to collapse",
+            "Time is relative",
+            "Its time to collapse",
+            "You collapse me round",
+            "Press T to collapse",
+            "Paradox mentioned",
+            "Never gone collapse up",
+            "Better with Time"
+        ),
+        () -> "",
+        o -> o instanceof String
+    );
 
                 qCOMMON.pop();
         }

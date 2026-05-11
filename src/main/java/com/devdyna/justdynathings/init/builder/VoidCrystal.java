@@ -1,5 +1,6 @@
 package com.devdyna.justdynathings.init.builder;
 
+import java.util.List;
 import java.util.function.Consumer;
 
 import org.jetbrains.annotations.NotNull;
@@ -30,7 +31,7 @@ public class VoidCrystal extends TimeCrystal {
     @Override
     public void inventoryTick(@NotNull ItemStack item, @NotNull ServerLevel level, @NotNull Entity entity,
             @Nullable EquipmentSlot slot) {
-                //apply different effects?
+        // apply different effects?
         if (entity instanceof LivingEntity) {
             if (level.getRandom().nextFloat() < 0.005F) {
                 level.playSound(entity, entity.getOnPos(),
@@ -50,11 +51,11 @@ public class VoidCrystal extends TimeCrystal {
         return Component.translatable(getDescriptionId())
                 .withStyle(ChatFormatting.DARK_PURPLE);
     }
-    
+
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display,
             Consumer<Component> tooltip, TooltipFlag flagIn) {
-        tooltip.accept(AnimatedText.create("id", Config.UNSTABLE_TIME_CRYSTAL_TOOLTIPS.get()));
+        tooltip.accept(AnimatedText.create(this.descriptionId, (List<String>) Config.UNSTABLE_TIME_CRYSTAL_TOOLTIPS.get()));
     }
 
 }

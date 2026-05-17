@@ -21,10 +21,9 @@ public interface ExtraSlots {
     }
 
     default void addToolSlot(GuiGraphicsExtractor guiGraphics, Slot slot) {
-        ImageGui.of().rl("justdirethings", "textures/sprites/container/slot/justslot.png")
+        ImageGui.of().rl(MODULE_ID, "textures/gui/slots/tool.png")
                 .size(18, 18).offset(getGuiLeft() + slot.x, getGuiTop() + slot.y)
-                .uv(18, 0)
-                .sizeTexture(256, 256)
+                .sizeTexture(18, 18)
                 .render(guiGraphics);
 
     }

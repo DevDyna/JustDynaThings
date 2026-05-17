@@ -6,7 +6,7 @@ import java.util.function.Consumer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import com.devdyna.cakesticklib.api.AnimatedText;
+import com.devdyna.cakesticklib.api.animations.AnimatedText;
 import com.devdyna.justdynathings.Config;
 import com.direwolf20.justdirethings.common.items.resources.TimeCrystal;
 

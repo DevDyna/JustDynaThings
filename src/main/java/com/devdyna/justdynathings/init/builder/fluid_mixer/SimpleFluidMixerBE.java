@@ -31,7 +31,7 @@ public class SimpleFluidMixerBE extends BaseMachineBE implements RedstoneControl
     }
 
     public SimpleFluidMixerBE(BlockPos pos, BlockState b) {
-        this(zBlockEntities.SIMPLE_FLUID_MIXER.get(), pos, b);
+        this(zBlockEntities.FLUID_MIXER.get(), pos, b);
     }
 
     @Override

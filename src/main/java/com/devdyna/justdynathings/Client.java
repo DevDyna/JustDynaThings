@@ -68,7 +68,7 @@ public class Client {
         event.register(zContainers.CELESTIGEM_SOLAR_PANEL.get(), SolarPanelScreen<CelestigemSolarPanelGUI>::new);
         event.register(zContainers.ECLIPSEALLOY_SOLAR_PANEL.get(), SolarPanelScreen<EclipseAlloySolarPanelGUI>::new);
 
-        event.register(zContainers.SIMPLE_FLUID_MIXER.get(), SimpleFluidMixerScreen::new);
+        event.register(zContainers.FLUID_MIXER.get(), SimpleFluidMixerScreen::new);
     }
 
     @SubscribeEvent

@@ -19,7 +19,7 @@ public class SimpleFluidMixerGUI extends BaseMachineContainer {
     }
 
     public SimpleFluidMixerGUI(int windowId, Inventory playerInventory, BlockPos blockPos) {
-        super(zContainers.SIMPLE_FLUID_MIXER.get(), windowId, playerInventory, blockPos);
+        super(zContainers.FLUID_MIXER.get(), windowId, playerInventory, blockPos);
         addPlayerSlots(player.getInventory());
     }
 
@@ -31,7 +31,7 @@ public class SimpleFluidMixerGUI extends BaseMachineContainer {
 
     @Override
     public boolean stillValid(Player playerIn) {
-        return stillValid(ContainerLevelAccess.create(player.level(), pos), player, zBlocks.SIMPLE_FLUID_MIXER.get());
+        return stillValid(ContainerLevelAccess.create(player.level(), pos), player, zBlocks.FLUID_MIXER.get());
     }
 
     @Override

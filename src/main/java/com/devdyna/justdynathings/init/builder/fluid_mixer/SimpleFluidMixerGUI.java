@@ -26,8 +26,7 @@ public class SimpleFluidMixerGUI extends BaseMachineContainer {
     @Override
     public void addMachineSlots() {
         machineHandler = baseMachineBE.getMachineHandler();
-        for (int i = 0; i < 4; i++)
-        addSlotRange(machineHandler,machineHandler::set, 0, 80, 13, 4, 18);
+        addSlotRange(machineHandler,machineHandler::set, 0, 80, 13, 1, 18);
     }
 
     @Override

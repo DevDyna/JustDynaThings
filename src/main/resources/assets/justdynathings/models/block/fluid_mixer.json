@@ -6,8 +6,8 @@
   "textures": {
     "2": "justdirethings:block/clickert1_side",
     "3": "justdirethings:block/fluidcollectort1_side",
-    "4": "justdynathings:block/simple_fluid_mixer/top",
-    "5": "justdynathings:block/simple_fluid_mixer/ring_below",
+    "4": "justdynathings:block/fluid_mixer/top",
+    "5": "justdynathings:block/fluid_mixer/ring_below",
     "6": "justdirethings:block/generatort1_side",
     "8": "justdirethings:block/generatort1_bottom"
   },

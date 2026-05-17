@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": "justdirethings:celestigem",
+    "F": "justdirethings:ferricore_ingot",
+    "L": "#c:gems/lapis",
+    "P": "justdirethings:polymorphic_fluid_bucket",
+    "R": "#c:dusts/redstone"
+  },
+  "pattern": [
+    "RLR",
+    "RCR",
+    "FPF"
+  ],
+  "result": {
+    "id": "justdynathings:fluid_mixer"
+  }
+}

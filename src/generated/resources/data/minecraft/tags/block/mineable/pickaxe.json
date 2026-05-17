@@ -73,7 +73,7 @@
       "required": false
     },
     {
-      "id": "justdynathings:simple_fluid_mixer",
+      "id": "justdynathings:fluid_mixer",
       "required": false
     }
   ]

@@ -9,7 +9,8 @@
     "4": "justdynathings:block/fluid_mixer/top",
     "5": "justdynathings:block/fluid_mixer/ring_below",
     "6": "justdirethings:block/generatort1_side",
-    "8": "justdirethings:block/generatort1_bottom"
+    "8": "justdirethings:block/generatort1_bottom",
+    "particle": "#6"
   },
   "elements": [
     {

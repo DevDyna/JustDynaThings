@@ -85,11 +85,11 @@ public class RefinedFuelRecipeCategory extends BaseCategory<FuelRecords.Fluids> 
                                 + " sec"
                         : maxburn + " ticks"),
                 46, 4,
-                0xFFFFFF);
-        guiGraphics.text(font, Component.literal(rate + " FE/tick"), 46, 18, 0xFFFFFF);
+                0xFFFFFFFF);
+        guiGraphics.text(font, Component.literal(rate + " FE/tick"), 46, 18, 0xFFFFFFFF);
         guiGraphics.text(font, Component.literal((hasShiftDown() ? MagicHelpers.withSuffix(total) : total) + " FE"), 46,
                 32,
-                0xFFFFFF);
+                0xFFFFFFFF);
 
         stack.popMatrix();
 

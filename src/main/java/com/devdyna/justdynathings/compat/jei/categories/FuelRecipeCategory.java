@@ -22,6 +22,7 @@ import com.direwolf20.justdirethings.setup.Config;
 import com.direwolf20.justdirethings.setup.JDTRegistration;
 import com.direwolf20.justdirethings.util.MagicHelpers;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
@@ -92,17 +93,18 @@ public class FuelRecipeCategory extends BaseCategory<FuelRecords.Items> {
         var stack = guiGraphics.pose();
         stack.pushMatrix();
         stack.scale(0.75F, 0.75F);
-        guiGraphics.text(font,
-                Component.literal(hasShiftDown()
+        guiGraphics.text(Minecraft.getInstance().font,
+                hasShiftDown()
                         ? MagicHelpers.ticksInSeconds(maxburn).replaceAll("\\.0$", "")
                                 + " sec"
-                        : maxburn + " ticks"),
+                        : maxburn + " ticks",
                 46, 4,
-                0xFFFFFF);
-        guiGraphics.text(font, Component.literal(rate + " FE/tick"), 46, 18, 0xFFFFFF);
-        guiGraphics.text(font, Component.literal((hasShiftDown() ? MagicHelpers.withSuffix(total) : total) + " FE"), 46,
+                0xFFFFFFFF);
+        guiGraphics.text(Minecraft.getInstance().font, rate + " FE/tick", 46, 18, 0xFFFFFFFF);
+        guiGraphics.text(Minecraft.getInstance().font,
+                (hasShiftDown() ? MagicHelpers.withSuffix(total) : total + " FE"), 46,
                 32,
-                0xFFFFFF);
+                0xFFFFFFFF);
         stack.popMatrix();
 
     }

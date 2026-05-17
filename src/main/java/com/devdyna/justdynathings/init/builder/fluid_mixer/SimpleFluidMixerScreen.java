@@ -4,8 +4,8 @@ import static com.devdyna.justdynathings.JustDynaThings.MODULE_ID;
 
 import java.util.List;
 
+import com.devdyna.cakesticklib.api.animations.CyclicImageGui;
 import com.devdyna.cakesticklib.api.utils.x;
-import com.devdyna.justdynathings.api.CyclicImageGUI;
 import com.devdyna.justdynathings.api.ExtraSlots;
 import com.direwolf20.justdirethings.client.screens.basescreens.BaseMachineScreen;
 import com.direwolf20.justdirethings.client.screens.standardbuttons.ToggleButtonFactory;
@@ -56,7 +56,7 @@ public class SimpleFluidMixerScreen extends BaseMachineScreen<SimpleFluidMixerGU
             super.drawMachineSlot(guiGraphics, slot);
     }
 
-    private final CyclicImageGUI templateIcon = new CyclicImageGUI(0, 30);
+    private final CyclicImageGui templateIcon = new CyclicImageGui(0, 30);
 
     private final static List<Identifier> images = List.of(
             x.rl(MODULE_ID, "textures/gui/slots/catalyst.png"),
@@ -66,13 +66,13 @@ public class SimpleFluidMixerScreen extends BaseMachineScreen<SimpleFluidMixerGU
     @Override
     protected void containerTick() {
         super.containerTick();
-        templateIcon.tick(preview_slots);
+        templateIcon.tick(images);
     }
 
     @Override
     public void extractBackground(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTicks) {
         super.extractBackground(graphics, mouseX, mouseY, partialTicks);
-        templateIcon.extractRenderState(menu, graphics, partialTicks, this.leftPos, this.topPos);
+        templateIcon.render(menu, graphics, partialTicks,this.topPos,this.leftPos,18,18,0,0,18,18);
     }
 
 }

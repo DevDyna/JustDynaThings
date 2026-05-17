@@ -55,7 +55,7 @@ public class DataLang extends LanguageProvider {
                                 "§7Repair items using Time Fluid");
 
                 // generic type tooltips
-                add(MODULE_ID + "." + Constants.GooType + "." + Constants.Goo.Energized,
+                add(MODULE_ID + "." + Constants.GooType + ".energy",
                                 "§cProvide energy to active it");
                 add(MODULE_ID + "." + Constants.GooType + "." + Constants.Goo.Creative,
                                 "§cRight click with a wrench to toggle alive state");
@@ -106,14 +106,14 @@ public class DataLang extends LanguageProvider {
                 add(MODULE_ID + ".jei.category." + JDTRegistration.GeneratorFluidT1_ITEM.getId().getPath(),
                                 "Fluid Generator Fuels");
 
-                add(MODULE_ID + ".jei.category." + Constants.DataMaps.Anvils.ferricore_repair,
-                                "Ferricore Anvil Repair Catalysts");
+                add(MODULE_ID + ".jei.category." + Constants.Anvils.t1,
+                                "Ferricore Anvil Catalysts");
 
-                add(MODULE_ID + ".jei.category." + Constants.DataMaps.Anvils.blazegold_repair,
-                                "BlazeGold Anvil Repair Fluids");
+                add(MODULE_ID + ".jei.category." + Constants.Anvils.t2,
+                                "BlazeGold Anvil Catalysts");
 
-                add(MODULE_ID + ".jei.category." + Constants.DataMaps.Anvils.eclipsealloy_repair,
-                                "Eclipse Alloy Anvil Repair Fluids");
+                add(MODULE_ID + ".jei.category." + Constants.Anvils.t4,
+                                "Eclipse Alloy Anvil Catalysts");
 
                 add(MODULE_ID + ".jei.time", "Duration");
                 add(MODULE_ID + ".jei.rate", "FE production");

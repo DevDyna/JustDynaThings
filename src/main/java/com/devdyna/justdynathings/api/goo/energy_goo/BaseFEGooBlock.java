@@ -21,7 +21,7 @@ public abstract class BaseFEGooBlock extends GooBlock_Base implements TippedGooB
 
     @Override
     public Component extra() {
-        return Component.translatable(MODULE_ID + "." + Constants.GooType + "." + Constants.Goo.Energized);
+        return Component.translatable(MODULE_ID + "." + Constants.GooType + ".energy");
     }
 
 }

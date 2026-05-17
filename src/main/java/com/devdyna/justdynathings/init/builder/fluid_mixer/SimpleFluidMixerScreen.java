@@ -72,7 +72,9 @@ public class SimpleFluidMixerScreen extends BaseMachineScreen<SimpleFluidMixerGU
     @Override
     public void extractBackground(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTicks) {
         super.extractBackground(graphics, mouseX, mouseY, partialTicks);
-        templateIcon.render(menu, graphics, partialTicks,this.topPos,this.leftPos,18,18,0,0,18,18);
+        templateIcon.render(menu, graphics, partialTicks, this.topPos, this.leftPos, 18, 18, 0, 0, 18, 18);
+
+        addRecipeButton(graphics, 158, -22);
     }
 
 }

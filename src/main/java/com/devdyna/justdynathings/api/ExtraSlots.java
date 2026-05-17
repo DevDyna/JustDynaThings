@@ -3,7 +3,6 @@ package com.devdyna.justdynathings.api;
 import static com.devdyna.justdynathings.JustDynaThings.MODULE_ID;
 
 import com.devdyna.cakesticklib.api.gui.ImageGui;
-
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.world.inventory.Slot;
 
@@ -53,6 +52,13 @@ public interface ExtraSlots {
         ImageGui.of().rl(MODULE_ID, "textures/gui/slots/charge.png")
                 .size(18, 18).offset(getGuiLeft() + slot.x, getGuiTop() + slot.y)
                 .sizeTexture(18, 18)
+                .render(guiGraphics);
+    }
+
+    default void addRecipeButton(GuiGraphicsExtractor guiGraphics, int x , int y) {
+        ImageGui.of().rl(MODULE_ID, "textures/gui/slots/recipe.png")
+                .size(16, 16).offset(getGuiLeft() + x, getGuiTop() + y)
+                .sizeTexture(16, 16)
                 .render(guiGraphics);
     }
 

@@ -11,6 +11,10 @@ import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.compat.jei.categories.*;
 import com.devdyna.justdynathings.compat.jei.utils.FuelRecords;
 import com.devdyna.justdynathings.compat.jei.utils.FuelUtils;
+import com.devdyna.justdynathings.init.builder.fluid_mixer.SimpleFluidMixerScreen;
+import com.devdyna.justdynathings.init.builder.repair_anvils.blazegold.BlazeGoldAnvilScreen;
+import com.devdyna.justdynathings.init.builder.repair_anvils.eclipsealloy.EclipseAlloyAnvilScreen;
+import com.devdyna.justdynathings.init.builder.repair_anvils.ferricore.FerricoreAnvilScreen;
 import com.devdyna.justdynathings.init.types.zBlocks;
 import com.devdyna.justdynathings.init.types.zRecipeTypes;
 import com.direwolf20.justdirethings.client.jei.FluidDropRecipeCategory;
@@ -132,6 +136,17 @@ public class JEIPlugin implements IModPlugin {
 
         @Override
         public void registerGuiHandlers(IGuiHandlerRegistration r) {
+                r.addRecipeClickArea(SimpleFluidMixerScreen.class, 158, -22, 16, 16,
+                                FluidDropRecipeCategory.TYPE);
+
+                r.addRecipeClickArea(FerricoreAnvilScreen.class, 158, -22, 16, 16,
+                                FerricoreAnvilCategory.TYPE);
+
+                r.addRecipeClickArea(BlazeGoldAnvilScreen.class, 158, -22, 16, 16,
+                                BlazeGoldAnvilCategory.TYPE);
+
+                r.addRecipeClickArea(EclipseAlloyAnvilScreen.class, 158, -22, 16, 16,
+                                EclipseAlloyAnvilCategory.TYPE);
 
         }
 

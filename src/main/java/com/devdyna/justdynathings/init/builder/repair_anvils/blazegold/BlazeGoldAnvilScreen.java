@@ -20,4 +20,9 @@ public class BlazeGoldAnvilScreen extends BaseAnvilScreen<BlazeGoldAnvilGUI> {
         else
             super.drawMachineSlot(guiGraphics, slot);
     }
+
+    @Override
+    public boolean enableRecipeButton() {
+        return true;
+    }
 }

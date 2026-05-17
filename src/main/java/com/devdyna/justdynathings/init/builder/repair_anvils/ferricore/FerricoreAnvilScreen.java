@@ -25,4 +25,9 @@ public class FerricoreAnvilScreen extends BaseAnvilScreen<FerricoreAnvilGUI> {
             super.drawMachineSlot(guiGraphics, slot);
 
     }
+
+    @Override
+    public boolean enableRecipeButton() {
+        return true;
+    }
 }

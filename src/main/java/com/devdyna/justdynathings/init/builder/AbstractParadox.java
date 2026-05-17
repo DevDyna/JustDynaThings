@@ -4,8 +4,7 @@ import java.awt.Color;
 import java.util.function.Consumer;
 
 import com.devdyna.cakesticklib.api.RandomUtil;
-import com.devdyna.cakesticklib.api.utils.TimeUtil;
-import com.devdyna.justdynathings.api.ColorAddon;
+import com.devdyna.cakesticklib.api.utils.ColorUtils;
 import com.direwolf20.justdirethings.common.items.resources.TimeCrystal;
 
 import net.minecraft.network.chat.Component;
@@ -38,8 +37,9 @@ public class AbstractParadox extends TimeCrystal {
 
     @Override
     public Component getName(ItemStack stack) {
+        //TODO ColorUtils.pulse milli -> seconds
         return Component.translatable(getDescriptionId())
-                .withColor(ColorAddon.pulseColor((int) (TimeUtil.ONE_SECOND * 4), Color.BLUE.getRGB(), Color.MAGENTA.getRGB()));
+                .withColor(ColorUtils.pulse(Color.BLUE, Color.MAGENTA, 4).getRGB());
     }
 
     @Override

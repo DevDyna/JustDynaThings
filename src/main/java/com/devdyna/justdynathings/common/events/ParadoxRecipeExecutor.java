@@ -2,7 +2,7 @@ package com.devdyna.justdynathings.common.events;
 
 import java.util.Optional;
 
-import com.devdyna.justdynathings.api.inputs.ParadoxInput;
+import com.devdyna.cakesticklib.api.recipe.recipeInput.ItemInput;
 import com.devdyna.justdynathings.common.recipes.paradox.ParadoxInfusionRecipe;
 import com.devdyna.justdynathings.init.types.zRecipeTypes;
 import com.direwolf20.justdirethings.common.entities.ParadoxEntity;
@@ -34,7 +34,7 @@ public class ParadoxRecipeExecutor {
 
                 Optional<RecipeHolder<ParadoxInfusionRecipe>> r = level.getServer().getRecipeManager()
                         .getRecipeFor(zRecipeTypes.PARADOX_INFUSION.getType(),
-                                new ParadoxInput(inputItem, collidedParadox.getFirst().getRadius()), level);
+                                ItemInput.withNumber.of(inputItem, collidedParadox.getFirst().getRadius()), level);
 
                 if (r.isEmpty())
                     return;

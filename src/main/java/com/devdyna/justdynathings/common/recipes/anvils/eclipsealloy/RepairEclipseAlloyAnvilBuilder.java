@@ -12,6 +12,7 @@ import com.devdyna.justdynathings.Constants;
 import net.minecraft.advancements.Criterion;
 import net.minecraft.advancements.criterion.InventoryChangeTrigger;
 import net.minecraft.core.Holder;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
@@ -25,12 +26,13 @@ public class RepairEclipseAlloyAnvilBuilder extends BaseRecipeBuilder
     private SizedFluidIngredient input;
     private int durability;
 
-    private RepairEclipseAlloyAnvilBuilder() {
+    private RepairEclipseAlloyAnvilBuilder(HolderLookup.Provider p) {
+        super(p);
         this.criteria = new LinkedHashMap<String, Criterion<?>>();
     }
 
-    public static RepairEclipseAlloyAnvilBuilder of() {
-        return new RepairEclipseAlloyAnvilBuilder();
+    public static RepairEclipseAlloyAnvilBuilder of(HolderLookup.Provider p) {
+        return new RepairEclipseAlloyAnvilBuilder(p);
     }
 
     @Override

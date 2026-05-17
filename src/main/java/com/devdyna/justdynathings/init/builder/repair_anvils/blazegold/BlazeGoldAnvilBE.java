@@ -2,9 +2,9 @@ package com.devdyna.justdynathings.init.builder.repair_anvils.blazegold;
 
 import java.util.Optional;
 
+import com.devdyna.cakesticklib.api.recipe.recipeInput.FluidInput;
 import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.api.be.FluidMachine;
-import com.devdyna.justdynathings.api.inputs.FluidFuelInput;
 import com.devdyna.justdynathings.api.repair_anvils.AnvilRecipeHandler;
 import com.devdyna.justdynathings.api.repair_anvils.FunctionalAnvilBE;
 import com.devdyna.justdynathings.common.recipes.anvils.blazegold.RepairBlazegoldAnvilRecipe;
@@ -79,7 +79,7 @@ public class BlazeGoldAnvilBE extends FunctionalAnvilBE
     public Optional<RecipeHolder<RepairBlazegoldAnvilRecipe>> getRecipe() {
         return level.getServer().getRecipeManager().getRecipeFor(
                 zRecipeTypes.BLAZEGOLD_ANVIL.getType(),
-                new FluidFuelInput(tank.toStack(getAmountStored())),
+                FluidInput.simple.of(tank.toStack(getAmountStored())),
                 level);
     }
 

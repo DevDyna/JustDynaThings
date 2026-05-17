@@ -12,6 +12,7 @@ import com.devdyna.justdynathings.init.builder.AdvancedTimeWand;
 import com.devdyna.justdynathings.init.builder.GooUpgrader;
 import com.devdyna.justdynathings.init.builder.PickerWand;
 import com.devdyna.justdynathings.init.builder.SwapperWand;
+import com.devdyna.justdynathings.init.builder.fluid_mixer.SimpleFluidMixerBlock;
 import com.devdyna.justdynathings.init.builder.goo.creative.CreativeGoo;
 import com.devdyna.justdynathings.init.builder.stabilizer.StabilizerBlock;
 import com.devdyna.justdynathings.init.builder.ticker.TickerBlock;
@@ -179,6 +180,10 @@ public class ItemToolTipped {
                                                         + Constants.Goo.Creative)
                                                         .withStyle(ChatFormatting.GRAY));
 
+                }
+
+                if (isBlock && block instanceof SimpleFluidMixerBlock) {
+                        tip.add(OVER_THE_REGISTRY_ID, Component.translatable(MODULE_ID + "." +Constants.Blocks.FluidMixer));
                 }
 
                 if (isBlock && block instanceof FunctionalAnvilBlock anvil) {

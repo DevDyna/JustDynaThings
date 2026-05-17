@@ -54,6 +54,8 @@ public class DataLang extends LanguageProvider {
                 add(MODULE_ID + "." + Constants.Anvils.t4,
                                 TIP_COLOR + "Repair items using Time Fluid");
 
+                add(MODULE_ID + "." + Constants.Blocks.FluidMixer,
+                                TIP_COLOR + "Convert fluids to others based on Fluid Drop recipes");
 
                 // generic type tooltips
                 add(MODULE_ID + "." + Constants.GooType + ".energy",

@@ -14,14 +14,14 @@ public interface ExtraSlots {
     int getGuiTop();
 
     default void addSlotFlame(GuiGraphicsExtractor guiGraphics, Slot slot) {
-        ImageGui.of().rl(MODULE_ID, "textures/gui/slots/burn.png")
+        ImageGui.of().rl(MODULE_ID, "textures/gui/sprites/container/slot/burn.png")
                 .size(18, 18).offset(getGuiLeft() + slot.x, getGuiTop() + slot.y)
                 .sizeTexture(18, 18)
                 .render(guiGraphics);
     }
 
     default void addToolSlot(GuiGraphicsExtractor guiGraphics, Slot slot) {
-        ImageGui.of().rl("justdirethings", "textures/gui/justslot.png")
+        ImageGui.of().rl("justdirethings", "textures/sprites/container/slot/justslot.png")
                 .size(18, 18).offset(getGuiLeft() + slot.x, getGuiTop() + slot.y)
                 .uv(18, 0)
                 .sizeTexture(256, 256)
@@ -29,22 +29,29 @@ public interface ExtraSlots {
 
     }
 
-    default void addSlotPolymorphicCatalyst(GuiGraphicsExtractor guiGraphics, Slot slot) {
-        ImageGui.of().rl(MODULE_ID, "textures/gui/slots/catalyst.png")
+    default void addSlotCatalyst(GuiGraphicsExtractor guiGraphics, Slot slot) {
+        ImageGui.of().rl(MODULE_ID, "textures/gui/sprites/container/slot/catalyst.png")
                 .size(18, 18).offset(getGuiLeft() + slot.x, getGuiTop() + slot.y)
                 .sizeTexture(18, 18)
                 .render(guiGraphics);
     }
 
     default void addSlotTimeCrystal(GuiGraphicsExtractor guiGraphics, Slot slot) {
-        ImageGui.of().rl(MODULE_ID, "textures/gui/slots/shard.png")
+        ImageGui.of().rl(MODULE_ID, "textures/gui/sprites/container/slot/shard.png")
+                .size(18, 18).offset(getGuiLeft() + slot.x, getGuiTop() + slot.y)
+                .sizeTexture(18, 18)
+                .render(guiGraphics);
+    }
+
+    default void addSlotDireCoal(GuiGraphicsExtractor guiGraphics, Slot slot) {
+        ImageGui.of().rl(MODULE_ID, "textures/gui/sprites/container/slot/coal.png")
                 .size(18, 18).offset(getGuiLeft() + slot.x, getGuiTop() + slot.y)
                 .sizeTexture(18, 18)
                 .render(guiGraphics);
     }
 
     default void addSlotCharge(GuiGraphicsExtractor guiGraphics, Slot slot) {
-        ImageGui.of().rl(MODULE_ID, "textures/gui/slots/charge.png")
+        ImageGui.of().rl(MODULE_ID, "textures/gui/sprites/container/slot/charge.png")
                 .size(18, 18).offset(getGuiLeft() + slot.x, getGuiTop() + slot.y)
                 .sizeTexture(18, 18)
                 .render(guiGraphics);

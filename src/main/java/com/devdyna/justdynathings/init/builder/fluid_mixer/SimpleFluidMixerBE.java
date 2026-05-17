@@ -1,24 +1,33 @@
 package com.devdyna.justdynathings.init.builder.fluid_mixer;
 
+import com.devdyna.cakesticklib.api.utils.x;
 import com.devdyna.justdynathings.api.be.FluidMachine;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.FluidContainerData;
+import com.direwolf20.justdirethings.common.blockentities.basebe.RedstoneControlledBE;
 import com.direwolf20.justdirethings.common.capabilities.JustDireFluidTank;
+import com.direwolf20.justdirethings.datagen.recipes.FluidDropRecipe;
 import com.direwolf20.justdirethings.setup.JDTRegistration;
+import com.direwolf20.justdirethings.util.interfacehelpers.RedstoneControlData;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.level.block.LiquidBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
 @SuppressWarnings({ "null" })
-public class SimpleFluidMixerBE extends BaseMachineBE implements FluidMachine {
+public class SimpleFluidMixerBE extends BaseMachineBE implements RedstoneControlledBE, FluidMachine {
 
     public final FluidContainerData fluidContainerData = new FluidContainerData(this);
+    public final RedstoneControlData redstoneControlData = new RedstoneControlData();
 
     public SimpleFluidMixerBE(BlockEntityType<?> type, BlockPos pos, BlockState b) {
         super(type, pos, b);
-        MACHINE_SLOTS = 4;
+        MACHINE_SLOTS = 1;
     }
 
     public SimpleFluidMixerBE(BlockPos pos, BlockState b) {
@@ -27,44 +36,46 @@ public class SimpleFluidMixerBE extends BaseMachineBE implements FluidMachine {
 
     @Override
     public void tickServer() {
+        super.tickServer();
 
-        // TODO logic
-        // for (int i = 0; i < getMachineHandler().getSlots(); i++) {
+        if (!isActiveRedstone())
+            return;
 
-        // var catalyst = getMachineHandler().getStackInSlot(i);
+        var item = getMachineHandler().getResource(0);
 
-        // List<RecipeHolder<ParadoxMixerRecipe>> recipes = level.getRecipeManager()
-        // .getAllRecipesFor(zRecipeTypes.PARADOX_MIXER.getType());
+        if (canExtractMB())
+            for (RecipeHolder<FluidDropRecipe> r : level.getServer().getRecipeManager().recipeMap()
+                    .byType(JDTRegistration.FLUID_DROP_RECIPE_TYPE.get())) {
 
-        // var recipe = recipes.stream().filter(r ->
-        // r.value().getCatalyst().test(catalyst)
-        // && getFluidStack().is(r.value().getInput().getFluidType())
-        // && getFluidStack().getAmount() ==
-        // r.value().getInput().getAmount()).findFirst();
+                var recipe = r.value();
 
-        // if (recipe.isPresent() && getBlockState().getValue(zProperties.GOO_ALIVE)) {
+                if (recipe.matches(getFluidStack().getFluid().defaultFluidState().createLegacyBlock(),
+                        x.item(item.getItem()))) {
+                    if (recipe.getOutput().getBlock() instanceof LiquidBlock liquid) {
+                        setFluidStack(liquid.fluid, 1000);
+                        getMachineHandler().set(0, item,
+                                getMachineHandler().getAmountAsInt(0) - 1);
+                        break;
+                    }
+                }
 
-        // var fluid = recipe.get().value().getOutput();
-        // setFluidStack(fluid.getFluid(), fluid.getAmount());
-        // catalyst.shrink(1);
+            }
 
-        // if (CommonConfig.PARADOX_MIXER_SOUND_EVENT.get())
-        // level.playSound(null, getBlockPos(),
-        // SoundEvents.BREWING_STAND_BREW,
-        // SoundSource.BLOCKS, (level.random.nextInt(10) + 1) * 0.01F,
-        // level.random.nextInt(50) + 1 * 0.01F);
-
-        // level.setBlockAndUpdate(getBlockPos(),
-        // getBlockState().setValue(zProperties.GOO_ALIVE, false));
-
-        // break;
-        // }
-        // }
     }
 
     @Override
     public ContainerData getFluidContainerData() {
         return fluidContainerData;
+    }
+
+    @Override
+    public RedstoneControlData getRedstoneControlData() {
+        return redstoneControlData;
+    }
+
+    @Override
+    public BlockEntity getBlockEntity() {
+        return this;
     }
 
     @Override
@@ -74,7 +85,7 @@ public class SimpleFluidMixerBE extends BaseMachineBE implements FluidMachine {
 
     @Override
     public int getMaxMB() {
-        return 1000;// Config.SIMPLE_FLUID_MIXER_MB_CAPACITY.get();
+        return 1000;
     }
 
     @Override

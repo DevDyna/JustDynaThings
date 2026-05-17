@@ -1,13 +1,19 @@
 package com.devdyna.justdynathings.init.builder.fluid_mixer;
 
+import static com.devdyna.justdynathings.JustDynaThings.MODULE_ID;
+
+import java.util.List;
+
+import com.devdyna.cakesticklib.api.animations.CyclicImageGui;
+import com.devdyna.cakesticklib.api.utils.x;
 import com.devdyna.justdynathings.api.ExtraSlots;
 import com.direwolf20.justdirethings.client.screens.basescreens.BaseMachineScreen;
 import com.direwolf20.justdirethings.client.screens.standardbuttons.ToggleButtonFactory;
 import com.direwolf20.justdirethings.client.screens.widgets.ToggleButton;
 import com.direwolf20.justdirethings.util.MiscHelpers;
-
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
@@ -46,14 +52,29 @@ public class SimpleFluidMixerScreen extends BaseMachineScreen<SimpleFluidMixerGU
     @Override
     protected void drawMachineSlot(GuiGraphicsExtractor guiGraphics, Slot slot) {
         ItemStack itemStack = slot.getItem();
-        if (itemStack.isEmpty()) {
-            if (slot.getSlotIndex() == 0)
-                addSlotPolymorphicCatalyst(guiGraphics, slot);
-            else if (slot.getSlotIndex() == 1)
-                addSlotTimeCrystal(guiGraphics, slot);
-        } else
+        if (!itemStack.isEmpty())
             super.drawMachineSlot(guiGraphics, slot);
+    }
 
+    private final CyclicImageGui templateIcon = new CyclicImageGui(0, 30);
+
+    private final static List<Identifier> images = List.of(
+            x.rl(MODULE_ID, "textures/gui/slots/catalyst.png"),
+            x.rl(MODULE_ID, "textures/gui/slots/shard.png"),
+            x.rl(MODULE_ID, "textures/gui/slots/coal.png"));
+
+    @Override
+    protected void containerTick() {
+        super.containerTick();
+        templateIcon.tick(images);
+    }
+
+    @Override
+    public void extractBackground(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTicks) {
+        super.extractBackground(graphics, mouseX, mouseY, partialTicks);
+        templateIcon.render(menu, graphics, partialTicks, this.topPos, this.leftPos, 18, 18, 0, 0, 18, 18);
+
+        addRecipeButton(graphics, 158, -22);
     }
 
 }

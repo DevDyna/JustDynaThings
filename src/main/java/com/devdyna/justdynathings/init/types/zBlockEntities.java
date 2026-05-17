@@ -122,8 +122,8 @@ public class zBlockEntities {
             .createBlockEntity(Constants.Anvils.t4,zTiles,
                     EclipseAlloyAnvilBE::new, zBlocks.ECLIPSEALLOY_ANVIL);
 
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SimpleFluidMixerBE>> SIMPLE_FLUID_MIXER = RegistryUtils
-            .createBlockEntity(Constants.Blocks.simple_fluid_mixer,zTiles,
-                    SimpleFluidMixerBE::new, zBlocks.SIMPLE_FLUID_MIXER);
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SimpleFluidMixerBE>> FLUID_MIXER = RegistryUtils
+            .createBlockEntity(Constants.Blocks.FluidMixer,zTiles,
+                    SimpleFluidMixerBE::new, zBlocks.FLUID_MIXER);
 
 }

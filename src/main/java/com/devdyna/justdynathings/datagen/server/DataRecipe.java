@@ -188,7 +188,7 @@ public class DataRecipe extends RecipeProvider {
 
                 zBlocks.zBlockItem.getEntries()
                                 .forEach(i -> shapeless(i.get().asItem(), output,
-                                                x.rl(MODULE_ID, x.path(i.get()) + "_clear_nbt"),
+                                                x.rl(MODULE_ID, x.name(i.get()) + "_clear_nbt"),
                                                 i.get().asItem()));
 
                 shaped(RecipeCategory.MISC, zBlocks.T2_GOO.get(), 1)
@@ -304,43 +304,43 @@ public class DataRecipe extends RecipeProvider {
                                                                 JDTRegistration.EclipseAlloyIngot.get()))
                                 .group(Constants.Blocks.Ticker).save(output);
 
-                RepairFerricoreAnvilBuilder.of()
+                RepairFerricoreAnvilBuilder.of(registries)
                                 .input(Items.IRON_INGOT)
                                 .durability(64)
                                 .unlockedBy()
                                 .save(output);
 
-                RepairFerricoreAnvilBuilder.of()
+                RepairFerricoreAnvilBuilder.of(registries)
                                 .input(JDTRegistration.FerricoreIngot.get())
                                 .durability(256)
                                 .unlockedBy()
                                 .save(output);
 
-                RepairBlazegoldAnvilBuilder.of()
+                RepairBlazegoldAnvilBuilder.of(registries)
                                 .fluid(Fluids.LAVA, 1)
                                 .durability(1)
                                 .unlockedBy()
                                 .save(output);
 
-                RepairBlazegoldAnvilBuilder.of()
+                RepairBlazegoldAnvilBuilder.of(registries)
                                 .fluid(JDTRegistration.REFINED_T2_FLUID_SOURCE.get(), 1)
                                 .durability(2)
                                 .unlockedBy()
                                 .save(output);
 
-                RepairBlazegoldAnvilBuilder.of()
+                RepairBlazegoldAnvilBuilder.of(registries)
                                 .fluid(JDTRegistration.REFINED_T3_FLUID_SOURCE.get(), 1)
                                 .durability(4)
                                 .unlockedBy()
                                 .save(output);
 
-                RepairBlazegoldAnvilBuilder.of()
+                RepairBlazegoldAnvilBuilder.of(registries)
                                 .fluid(JDTRegistration.REFINED_T4_FLUID_SOURCE.get(), 1)
                                 .durability(8)
                                 .unlockedBy()
                                 .save(output);
 
-                RepairEclipseAlloyAnvilBuilder.of()
+                RepairEclipseAlloyAnvilBuilder.of(registries)
                                 .fluid(JDTRegistration.TIME_FLUID_SOURCE.get(), 1)
                                 .durability(16_384)
                                 .unlockedBy()
@@ -356,18 +356,31 @@ public class DataRecipe extends RecipeProvider {
                                 .save(output, MODULE_ID + ":advanced_time_wand");
 
                 FluidDropRecipeBuilder
-                                .shapeless(x.block(JDTRegistration.PORTAL_FLUID_BLOCK).defaultBlockState(),
-                                                x.block(zFluids.INSTABILITY_FLUID.getBlock()).defaultBlockState(),
+                                .shapeless(JDTRegistration.PORTAL_FLUID_BLOCK.get().defaultBlockState(),
+                                                zFluids.INSTABILITY_FLUID.getBlock().get().defaultBlockState(),
                                                 JDTRegistration.TimeCrystal.get())
                                 .unlockedBy(getHasName(JDTRegistration.TimeCrystal.get()),
                                                 has(JDTRegistration.TimeCrystal.get()))
+                                .save(output);
+
+                shaped(RecipeCategory.MISC, zBlocks.FLUID_MIXER.get())
+                                .pattern("RLR")
+                                .pattern("RCR")
+                                .pattern("FPF")
+                                .define('F', JDTRegistration.FerricoreIngot.get())
+                                .define('R', Tags.Items.DUSTS_REDSTONE)
+                                .define('L', Tags.Items.GEMS_LAPIS)
+                                .define('P', JDTRegistration.POLYMORPHIC_FLUID_BUCKET.get())
+                                .define('C', JDTRegistration.Celestigem.get())
+                                .unlockedBy(getHasName(JDTRegistration.Celestigem.get()),
+                                                has(JDTRegistration.Celestigem.get()))
                                 .save(output);
 
                 // TODO
                 // GooSpreadRecipeBuilder.shapeless(x.block(zFluids.INSTABILITY_FLUID.getBlock()).defaultBlockState(),
                 // null, 4, 100);
 
-                ParadoxInfusionBuilder.of()
+                ParadoxInfusionBuilder.of(registries)
                                 .input(zItems.VOID_CRYSTAL.get())
                                 .output(zItems.ABSTRACT_PARADOX.get())
                                 .unlockedBy()
@@ -394,7 +407,7 @@ public class DataRecipe extends RecipeProvider {
         }
 
         private void GooConversion(TagKey<Block> input, Block goo, RecipeOutput c) {
-                int tier = Integer.parseInt(x.path(goo).replace("gooblock_tier", ""));
+                int tier = Integer.parseInt(x.name(goo).replace("gooblock_tier", ""));
 
                 GooSpreadRecipeBuilder.shapeless(input, goo.defaultBlockState(), tier, 100)
                                 .unlockedBy(getHasName(goo), has(goo.asItem()))

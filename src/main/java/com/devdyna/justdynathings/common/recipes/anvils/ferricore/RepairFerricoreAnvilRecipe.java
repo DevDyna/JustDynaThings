@@ -1,7 +1,7 @@
 package com.devdyna.justdynathings.common.recipes.anvils.ferricore;
 
+import com.devdyna.cakesticklib.api.recipe.recipeInput.ItemInput;
 import com.devdyna.justdynathings.Constants;
-import com.devdyna.justdynathings.api.inputs.ItemFuelInput;
 import com.devdyna.justdynathings.api.repair_anvils.BaseAnvilRecipe;
 import com.devdyna.justdynathings.init.types.zBlocks;
 import com.devdyna.justdynathings.init.types.zRecipeTypes;
@@ -21,7 +21,7 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 
 @SuppressWarnings("null")
-public class RepairFerricoreAnvilRecipe extends BaseAnvilRecipe<ItemFuelInput> {
+public class RepairFerricoreAnvilRecipe extends BaseAnvilRecipe<ItemInput.simple> {
 
     private final Ingredient input;
 
@@ -34,13 +34,13 @@ public class RepairFerricoreAnvilRecipe extends BaseAnvilRecipe<ItemFuelInput> {
         return new RepairFerricoreAnvilRecipe(input, durability);
     }
 
-    public boolean matches(ItemFuelInput r, Level l) {
-        return this.input.test(r.input());
+    public boolean matches(ItemInput.simple r, Level l) {
+        return this.input.test(r.item());
     }
 
     @Deprecated
     @Override
-    public ItemStack assemble(ItemFuelInput r) {
+    public ItemStack assemble(ItemInput.simple r) {
         return ItemStack.EMPTY;
     }
 
@@ -49,12 +49,12 @@ public class RepairFerricoreAnvilRecipe extends BaseAnvilRecipe<ItemFuelInput> {
     }
 
     @Override
-    public RecipeType<? extends Recipe<ItemFuelInput>> getType() {
+    public RecipeType<? extends Recipe<ItemInput.simple>> getType() {
         return zRecipeTypes.FERRICORE_ANVIL.getType();
     }
 
     @Override
-    public RecipeSerializer<? extends Recipe<ItemFuelInput>> getSerializer() {
+    public RecipeSerializer<? extends Recipe<ItemInput.simple>> getSerializer() {
         return zRecipeTypes.FERRICORE_ANVIL.getSerializer();
     }
 

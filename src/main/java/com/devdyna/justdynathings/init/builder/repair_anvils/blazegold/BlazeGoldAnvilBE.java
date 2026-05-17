@@ -2,9 +2,9 @@ package com.devdyna.justdynathings.init.builder.repair_anvils.blazegold;
 
 import java.util.Optional;
 
+import com.devdyna.cakesticklib.api.recipe.recipeInput.FluidInput;
 import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.api.be.FluidMachine;
-import com.devdyna.justdynathings.api.inputs.FluidFuelInput;
 import com.devdyna.justdynathings.api.repair_anvils.AnvilRecipeHandler;
 import com.devdyna.justdynathings.api.repair_anvils.FunctionalAnvilBE;
 import com.devdyna.justdynathings.common.recipes.anvils.blazegold.RepairBlazegoldAnvilRecipe;
@@ -22,7 +22,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.transfer.fluid.FluidResource;
 
 public class BlazeGoldAnvilBE extends FunctionalAnvilBE
         implements FluidMachine, AnvilRecipeHandler<RepairBlazegoldAnvilRecipe> {
@@ -73,13 +72,11 @@ public class BlazeGoldAnvilBE extends FunctionalAnvilBE
         return Config.ANVIL_BLAZEGOLD_SOUND_EVENT.get();
     }
 
-    private FluidResource tank = getFluidTank().getResource(0);
-
     @Override
     public Optional<RecipeHolder<RepairBlazegoldAnvilRecipe>> getRecipe() {
         return level.getServer().getRecipeManager().getRecipeFor(
                 zRecipeTypes.BLAZEGOLD_ANVIL.getType(),
-                new FluidFuelInput(tank.toStack(getAmountStored())),
+                FluidInput.simple.of(getFluidTank().getResource(0).toStack(getAmountStored())),
                 level);
     }
 

@@ -2,8 +2,8 @@ package com.devdyna.justdynathings.init.builder.repair_anvils.ferricore;
 
 import java.util.Optional;
 
+import com.devdyna.cakesticklib.api.recipe.recipeInput.ItemInput;
 import com.devdyna.justdynathings.Config;
-import com.devdyna.justdynathings.api.inputs.ItemFuelInput;
 import com.devdyna.justdynathings.api.repair_anvils.AnvilRecipeHandler;
 import com.devdyna.justdynathings.api.repair_anvils.FunctionalAnvilBE;
 import com.devdyna.justdynathings.common.recipes.anvils.ferricore.RepairFerricoreAnvilRecipe;
@@ -29,13 +29,12 @@ public class FerricoreAnvilBE extends FunctionalAnvilBE implements AnvilRecipeHa
         this(zBlockEntities.FERRICORE_ANVIL.get(), pos, state);
     }
 
-
     @Override
     public Optional<RecipeHolder<RepairFerricoreAnvilRecipe>> getRecipe() {
         var catalyst = getMachineHandler().getResource(1);
         return level.getServer().getRecipeManager().getRecipeFor(
                 zRecipeTypes.FERRICORE_ANVIL.getType(),
-                new ItemFuelInput(catalyst.toStack()),
+                ItemInput.simple.of(catalyst.toStack()),
                 level);
     }
 

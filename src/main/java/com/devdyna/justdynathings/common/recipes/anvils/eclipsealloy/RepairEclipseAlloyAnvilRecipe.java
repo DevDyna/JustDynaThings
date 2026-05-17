@@ -1,7 +1,7 @@
 package com.devdyna.justdynathings.common.recipes.anvils.eclipsealloy;
 
+import com.devdyna.cakesticklib.api.recipe.recipeInput.FluidInput;
 import com.devdyna.justdynathings.Constants;
-import com.devdyna.justdynathings.api.inputs.FluidFuelInput;
 import com.devdyna.justdynathings.api.repair_anvils.BaseAnvilRecipe;
 import com.devdyna.justdynathings.init.types.zBlocks;
 import com.devdyna.justdynathings.init.types.zRecipeTypes;
@@ -21,7 +21,7 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 
 @SuppressWarnings("null")
-public class RepairEclipseAlloyAnvilRecipe extends BaseAnvilRecipe<FluidFuelInput> {
+public class RepairEclipseAlloyAnvilRecipe extends BaseAnvilRecipe<FluidInput.simple> {
 
     private final SizedFluidIngredient input;
 
@@ -34,13 +34,13 @@ public class RepairEclipseAlloyAnvilRecipe extends BaseAnvilRecipe<FluidFuelInpu
         return new RepairEclipseAlloyAnvilRecipe(input, durability);
     }
 
-    public boolean matches(FluidFuelInput r, Level l) {
-        return this.input.test(r.input());
+    public boolean matches(FluidInput.simple r, Level l) {
+        return this.input.test(r.fluid());
     }
 
     @Deprecated
     @Override
-    public ItemStack assemble(FluidFuelInput r) {
+    public ItemStack assemble(FluidInput.simple r) {
         return ItemStack.EMPTY;
     }
 
@@ -49,12 +49,12 @@ public class RepairEclipseAlloyAnvilRecipe extends BaseAnvilRecipe<FluidFuelInpu
     }
 
     @Override
-    public RecipeType<? extends Recipe<FluidFuelInput>> getType() {
+    public RecipeType<? extends Recipe<FluidInput.simple>> getType() {
         return zRecipeTypes.ECLIPSEALLOY_ANVIL.getType();
     }
 
     @Override
-    public RecipeSerializer<? extends Recipe<FluidFuelInput>> getSerializer() {
+    public RecipeSerializer<? extends Recipe<FluidInput.simple>> getSerializer() {
         return zRecipeTypes.ECLIPSEALLOY_ANVIL.getSerializer();
     }
 

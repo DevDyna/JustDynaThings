@@ -20,4 +20,9 @@ public class EclipseAlloyAnvilScreen extends BaseAnvilScreen<EclipseAlloyAnvilGU
         else
             super.drawMachineSlot(guiGraphics, slot);
     }
+
+    @Override
+    public boolean enableRecipeButton() {
+        return true;
+    }    
 }

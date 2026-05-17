@@ -14,7 +14,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FluidState;
 import net.neoforged.neoforge.client.fluid.FluidTintSource;
 
-@Deprecated
 public class FluidRenderUtils {
 
     public static final Material STILL = new Material(x.rl(JustDireThings.MODID, "block/fluid_source"));

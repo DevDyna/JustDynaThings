@@ -6,9 +6,11 @@
 
 - [ ] reforger 2.0 + AOE version
 
+- [ ] Bacteria Goo (recursive goo spreading with decay)
+
 - [ ] Bacteria Catalyst (Eclipse staff like but descructive)
 
-- [ ] Rework paradox mixer -> simple mixer
+- [x] Rework paradox mixer -> simple mixer
 
 - [ ] Paradox Decreaser
 - [ ] Paradox Stabilizer (controllable paradox entity)

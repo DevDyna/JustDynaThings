@@ -33,49 +33,52 @@ public class DataLang extends LanguageProvider {
                                 f -> add(f.get().getDescriptionId(), named(f, MODULE_ID).replace(" Type", "")));
 
                 add(MODULE_ID + ".invalid_block", "§cInvalid Block");
-                add(MODULE_ID + ".wand.blockstate", "§7BlockState : ");
-                add(MODULE_ID + ".wand.dimension", "§7Dimension : ");
-                add(MODULE_ID + ".wand.pos", "§7BlockPos : ");
+                add(MODULE_ID + ".wand.blockstate", TIP_COLOR + "BlockState : ");
+                add(MODULE_ID + ".wand.dimension", TIP_COLOR + "Dimension : ");
+                add(MODULE_ID + ".wand.pos", TIP_COLOR + "BlockPos : ");
                 add(MODULE_ID + ".disabled", "§cItem Disabled");
 
                 // TODO reforger 2.0 and with AOE
                 // add(MODULE_ID + "." + Constants.Blocks.Reforger,
-                // "§7Convert blocks using a catalyst to other blocks");
+                // TIP_COLOR+"Convert blocks using a catalyst to other blocks");
 
                 add(MODULE_ID + "." + Constants.Anvils.t1,
-                                "§7Repair items using metallic ingots");
+                                TIP_COLOR + "Repair items using metallic ingots");
 
                 add(MODULE_ID + "." + Constants.Anvils.t2,
-                                "§7Repair items using hot fluids");
+                                "Repair items using hot fluids");
 
                 add(MODULE_ID + "." + Constants.Anvils.t3,
-                                "§7Repair items using Forge Energy");
+                                TIP_COLOR + "Repair items using Forge Energy");
 
                 add(MODULE_ID + "." + Constants.Anvils.t4,
-                                "§7Repair items using Time Fluid");
+                                TIP_COLOR + "Repair items using Time Fluid");
+
+                add(MODULE_ID + "." + Constants.Blocks.FluidMixer,
+                                TIP_COLOR + "Convert fluids to others based on Fluid Drop recipes");
 
                 // generic type tooltips
-                add(MODULE_ID + "." + Constants.GooType + "." + Constants.Goo.Energized,
+                add(MODULE_ID + "." + Constants.GooType + ".energy",
                                 "§cProvide energy to active it");
                 add(MODULE_ID + "." + Constants.GooType + "." + Constants.Goo.Creative,
                                 "§cRight click with a wrench to toggle alive state");
-                add(MODULE_ID + "." + Constants.SolarPanelType, "§7Generate Energy from ambiental situations");
+                add(MODULE_ID + "." + Constants.SolarPanelType,
+                                TIP_COLOR + "Generate Energy from ambiental situations");
 
                 add(MODULE_ID + "." + Constants.Blocks.Stabilizer,
-                                "§7Feed Goo blocks using Energy and Boost Buddings blocks");
-                add(MODULE_ID + "." + Constants.Blocks.simple_fluid_mixer,
-                                "§7Allow to mass-craft fluid drop recipes");
+                                TIP_COLOR + "Feed Goo blocks using Energy and Boost Buddings blocks");
 
                 add(MODULE_ID + "." + Constants.Blocks.Ticker,
-                                "§7A block that act at same of a time wand but configurable!");
+                                TIP_COLOR + "A block that act at same of a time wand but configurable!");
 
                 add(MODULE_ID + "." + Constants.GooUpgraders.base,
-                                "§7Right click on a goo to upgrade it to the next tier");
+                                TIP_COLOR + "Right click on a goo to upgrade it to the next tier");
                 add(MODULE_ID + "." + Constants.Wands.Picker,
-                                "§7Allow to pickup simple blocks and place where you want");
-                add(MODULE_ID + "." + Constants.Wands.Swapper, "§7Allow to swap simple blocks without break it");
+                                TIP_COLOR + "Allow to pickup simple blocks and place where you want");
+                add(MODULE_ID + "." + Constants.Wands.Swapper,
+                                TIP_COLOR + "Allow to swap simple blocks without break it");
 
-                add(MODULE_ID + "." + Constants.GooType + ".tier", "§7Goo Tier: ");
+                add(MODULE_ID + "." + Constants.GooType + ".tier", TIP_COLOR + "Goo Tier: ");
 
                 add(MODULE_ID + "." + Constants.SolarPanelType + ".ferate", "§aMax FE rate : §f");
 
@@ -83,7 +86,7 @@ public class DataLang extends LanguageProvider {
                 add(MODULE_ID + ".clear_pos", "Position Cleared");
 
                 add(MODULE_ID + "." + Constants.Wands.AdvancedTime,
-                                "§7More capable and configurable version of Time wand");
+                                TIP_COLOR + "More capable and configurable version of Time wand");
 
                 add(MODULE_ID + "." + Constants.Wands.AdvancedTime + ".mode.disabled", "§cThis Mode was disabled");
                 add(MODULE_ID + "." + Constants.Wands.AdvancedTime + ".mode.reset", "This wand is ready to be used!");
@@ -106,14 +109,14 @@ public class DataLang extends LanguageProvider {
                 add(MODULE_ID + ".jei.category." + JDTRegistration.GeneratorFluidT1_ITEM.getId().getPath(),
                                 "Fluid Generator Fuels");
 
-                add(MODULE_ID + ".jei.category." + Constants.DataMaps.Anvils.ferricore_repair,
-                                "Ferricore Anvil Repair Catalysts");
+                add(MODULE_ID + ".jei.category." + Constants.Anvils.t1,
+                                "Ferricore Anvil Catalysts");
 
-                add(MODULE_ID + ".jei.category." + Constants.DataMaps.Anvils.blazegold_repair,
-                                "BlazeGold Anvil Repair Fluids");
+                add(MODULE_ID + ".jei.category." + Constants.Anvils.t2,
+                                "BlazeGold Anvil Catalysts");
 
-                add(MODULE_ID + ".jei.category." + Constants.DataMaps.Anvils.eclipsealloy_repair,
-                                "Eclipse Alloy Anvil Repair Fluids");
+                add(MODULE_ID + ".jei.category." + Constants.Anvils.t4,
+                                "Eclipse Alloy Anvil Catalysts");
 
                 add(MODULE_ID + ".jei.time", "Duration");
                 add(MODULE_ID + ".jei.rate", "FE production");
@@ -125,7 +128,7 @@ public class DataLang extends LanguageProvider {
 
                 add(MODULE_ID + "." + Constants.BuddingType + ".break", "§cDoesn't drop when broken!");
 
-                add(MODULE_ID + ".hold_control", "§7Hold Control for Chisel detailts");
+                add(MODULE_ID + ".hold_control", TIP_COLOR + "Hold Control for Chisel detailts");
 
                 add(MODULE_ID + "." + Constants.BuddingType + ".jade.fe", "§cRequire ForgeEnergy");
                 add(MODULE_ID + "." + Constants.BuddingType + ".jade.time", "§cRequire Time Fluid");

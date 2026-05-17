@@ -12,6 +12,7 @@ import com.devdyna.justdynathings.Constants;
 import net.minecraft.advancements.Criterion;
 import net.minecraft.advancements.criterion.InventoryChangeTrigger;
 import net.minecraft.core.Holder;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
@@ -25,12 +26,13 @@ public class RepairFerricoreAnvilBuilder extends BaseRecipeBuilder
     private Ingredient input;
     private int durability;
 
-    private RepairFerricoreAnvilBuilder() {
+    private RepairFerricoreAnvilBuilder(HolderLookup.Provider p) {
+        super(p);
         this.criteria = new LinkedHashMap<String, Criterion<?>>();
     }
 
-    public static RepairFerricoreAnvilBuilder of() {
-        return new RepairFerricoreAnvilBuilder();
+    public static RepairFerricoreAnvilBuilder of(HolderLookup.Provider p) {
+        return new RepairFerricoreAnvilBuilder(p);
     }
 
     public RepairFerricoreAnvilBuilder input(Ingredient input) {

@@ -93,7 +93,6 @@ public abstract class FunctionalAnvilBE extends BaseMachineBE implements Redston
 
     public void repair(int v) {
         Actions.repairItem(getMachineHandler(), 0, getTool(), v);
-
         applySound();
     }
 

@@ -81,8 +81,8 @@ public class zContainers {
                         .register(Constants.SolarPanel.t4,
                                         () -> IMenuTypeExtension.create(EclipseAlloySolarPanelGUI::new));
 
-        public static final DeferredHolder<MenuType<?>, MenuType<SimpleFluidMixerGUI>> SIMPLE_FLUID_MIXER = zCTNR
-                        .register(Constants.Blocks.simple_fluid_mixer,
+        public static final DeferredHolder<MenuType<?>, MenuType<SimpleFluidMixerGUI>> FLUID_MIXER = zCTNR
+                        .register(Constants.Blocks.FluidMixer,
                                         () -> IMenuTypeExtension.create(SimpleFluidMixerGUI::new));
 
 }

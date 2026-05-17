@@ -29,7 +29,7 @@ public class Controller {
                 // client
 
                 e.addProvider(new DataLang(output));
-                // e.addProvider(new DataModel(output)); //TODO datagen models
+                // e.addProvider(new DataModel(output)); // datagen models
 
                 // server
 

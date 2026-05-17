@@ -118,8 +118,8 @@ public class zBlocks {
         public static final DeferredHolder<Block, ?> ECLIPSEALLOY_ANVIL = 
                         registerItemBlock(Constants.Anvils.t4, EclipseAlloyAnvilBlock::new);
 
-        public static final DeferredHolder<Block, ?> SIMPLE_FLUID_MIXER = 
-                        registerItemBlock(Constants.Blocks.simple_fluid_mixer,  SimpleFluidMixerBlock::new);
+        public static final DeferredHolder<Block, ?> FLUID_MIXER = 
+                        registerItemBlock(Constants.Blocks.FluidMixer,  SimpleFluidMixerBlock::new);
 
         public static final DeferredHolder<Block, ?> LIGHT_WAND_BLOCK = zHidden
                         .registerBlock(Constants.Wands.Light + "_block", LightWandBlock::new);

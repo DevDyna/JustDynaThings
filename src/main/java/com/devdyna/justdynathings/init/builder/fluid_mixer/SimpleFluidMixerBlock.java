@@ -46,11 +46,7 @@ public class SimpleFluidMixerBlock extends BaseFluidMachineBlock {
         return defaultBlockState();
     }
 
-    // @Override
-    // protected void createBlockStateDefinition(StateDefinition.Builder<Block,
-    // BlockState> b) {
-    // b.add(zProperties.GOO_ALIVE);
-    // }
+    
 
     @Nullable
     @Override
@@ -83,16 +79,6 @@ public class SimpleFluidMixerBlock extends BaseFluidMachineBlock {
     public BlockState rotate(BlockState s, Rotation r) {
         return s;
     }
-    // TODO rework
-    // @Override
-    // public void appendHoverText(ItemStack stack, TooltipContext context,
-    // List<Component> tooltipComponents,
-    // TooltipFlag tooltipFlag) {
-    // if (Constants.ModAddonCheck.docCheck &&
-    // !CommonConfig.DOC_WARNING.getAsBoolean())
-    // tooltipComponents.add(Component.translatable(Main.ID + ".doc.missing"));
-    // tooltipComponents.add(Component.translatable(Main.ID + "." +
-    // Constants.Blocks.ParadoxMixer ));
-    // }
+    
 
 }

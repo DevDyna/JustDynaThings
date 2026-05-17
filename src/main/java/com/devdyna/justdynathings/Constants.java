@@ -14,7 +14,6 @@ public class Constants {
         public static String AdvancedTime = "advanced_time_wand";
         public static String Light = "light_wand";
         public static String AdvancedLight = "advanced_light_wand";
-
     }
 
     public class GooUpgraders {
@@ -32,7 +31,7 @@ public class Constants {
         public static String Stabilizer = "stabilizer";
         public static String Ticker = "ticker";
         public static String ThermoGen = "thermo_generator";
-        public static String simple_fluid_mixer = "simple_fluid_mixer";
+        public static String FluidMixer = "fluid_mixer";
         public static String BlackHole = "blackhole";
     }
 
@@ -71,6 +70,7 @@ public class Constants {
         public static String T3 = "charged_voidshimmer_" + GooType;
         public static String T4 = "charged_shadowpulse_" + GooType;
         public static String Creative = "creative_" + GooType;
+        @Deprecated
         public static String Energized = "energized_" + GooType;
         public static List<String> goos = List.of("primogel", "blazebloom", "voidshimmer", "shadowpulse", "energized");
     }
@@ -78,7 +78,7 @@ public class Constants {
     public static String BuddingType = "echoing_budding";
 
    
-
+@Deprecated
     public class DataMaps {
         public class Anvils {
             public static String anvil = "anvils/";

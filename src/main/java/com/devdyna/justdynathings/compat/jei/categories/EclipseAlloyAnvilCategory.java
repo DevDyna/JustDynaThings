@@ -9,12 +9,9 @@ import com.devdyna.justdynathings.init.types.zBlocks;
 import com.devdyna.justdynathings.init.types.zRecipeTypes;
 
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
-import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.types.IRecipeType;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.ItemLike;
 
@@ -34,7 +31,6 @@ public class EclipseAlloyAnvilCategory extends BaseLabelledCategory<RepairEclips
 
         @Override
         public void setRecipe(IRecipeLayoutBuilder b, RepairEclipseAlloyAnvilRecipe recipe, IFocusGroup focuses) {
-                // TODO API replace getFluids -> x.fluid(f) to x.fluid(f,a)
                 JEIFluidTankHelper.of()
                                 .fluid(recipe.getInput())
                                 .offset(4, 4 + 16)
@@ -42,18 +38,8 @@ public class EclipseAlloyAnvilCategory extends BaseLabelledCategory<RepairEclips
         }
 
         @Override
-        public void draw(RepairEclipseAlloyAnvilRecipe recipe, IRecipeSlotsView recipeSlotsView,
-                        GuiGraphicsExtractor guiGraphics,
-                        double mouseX,
-                        double mouseY) {
-                super.draw(recipe, recipeSlotsView, guiGraphics, mouseX, mouseY);
-                guiGraphics.text(Minecraft.getInstance().font,
-                                "Durability : " + recipe.getDurability(), 30, 8, 0x444444, false);
-        }
-
-        @Override
         public String getTraslationKey() {
-                return JustDynaThings.MODULE_ID + ".jei.category." + Constants.DataMaps.Anvils.eclipsealloy_repair;
+                return JustDynaThings.MODULE_ID + ".jei.category." + Constants.Anvils.t4;
         }
 
         @Override

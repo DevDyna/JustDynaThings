@@ -18,12 +18,17 @@ public class DataLootBlock extends BlockLootSubProvider {
 
         @Override
         protected Iterable<Block> getKnownBlocks() {
-                return List.of(zBlocks.zBlock.getEntries().stream().map(DeferredHolder::get).toArray(Block[]::new));
+
+                List<Block> blocks = new ArrayList<>();
+                List.of(zBlocks.zBlock, zBlocks.zBlockItem)
+                                .forEach(t -> blocks.addAll(t.getEntries().stream().map(DeferredHolder::get).toList()));
+                return blocks;
         }
 
         @Override
         protected void generate() {
                 zBlocks.zBlock.getEntries().forEach(b -> dropSelf(b.get()));
+                zBlocks.zBlockItem.getEntries().forEach(b -> dropSelf(b.get()));
         }
 
 }

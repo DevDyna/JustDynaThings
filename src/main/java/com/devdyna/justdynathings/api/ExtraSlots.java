@@ -3,7 +3,6 @@ package com.devdyna.justdynathings.api;
 import static com.devdyna.justdynathings.JustDynaThings.MODULE_ID;
 
 import com.devdyna.cakesticklib.api.gui.ImageGui;
-
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.world.inventory.Slot;
 
@@ -21,15 +20,14 @@ public interface ExtraSlots {
     }
 
     default void addToolSlot(GuiGraphicsExtractor guiGraphics, Slot slot) {
-        ImageGui.of().rl("justdirethings", "textures/gui/justslot.png")
+        ImageGui.of().rl(MODULE_ID, "textures/gui/slots/tool.png")
                 .size(18, 18).offset(getGuiLeft() + slot.x, getGuiTop() + slot.y)
-                .uv(18, 0)
-                .sizeTexture(256, 256)
+                .sizeTexture(18, 18)
                 .render(guiGraphics);
 
     }
 
-    default void addSlotPolymorphicCatalyst(GuiGraphicsExtractor guiGraphics, Slot slot) {
+    default void addSlotCatalyst(GuiGraphicsExtractor guiGraphics, Slot slot) {
         ImageGui.of().rl(MODULE_ID, "textures/gui/slots/catalyst.png")
                 .size(18, 18).offset(getGuiLeft() + slot.x, getGuiTop() + slot.y)
                 .sizeTexture(18, 18)
@@ -43,10 +41,24 @@ public interface ExtraSlots {
                 .render(guiGraphics);
     }
 
+    default void addSlotDireCoal(GuiGraphicsExtractor guiGraphics, Slot slot) {
+        ImageGui.of().rl(MODULE_ID, "textures/gui/slots/coal.png")
+                .size(18, 18).offset(getGuiLeft() + slot.x, getGuiTop() + slot.y)
+                .sizeTexture(18, 18)
+                .render(guiGraphics);
+    }
+
     default void addSlotCharge(GuiGraphicsExtractor guiGraphics, Slot slot) {
         ImageGui.of().rl(MODULE_ID, "textures/gui/slots/charge.png")
                 .size(18, 18).offset(getGuiLeft() + slot.x, getGuiTop() + slot.y)
                 .sizeTexture(18, 18)
+                .render(guiGraphics);
+    }
+
+    default void addRecipeButton(GuiGraphicsExtractor guiGraphics, int x , int y) {
+        ImageGui.of().rl(MODULE_ID, "textures/gui/slots/recipe.png")
+                .size(16, 16).offset(getGuiLeft() + x, getGuiTop() + y)
+                .sizeTexture(16, 16)
                 .render(guiGraphics);
     }
 

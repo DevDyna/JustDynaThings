@@ -19,20 +19,19 @@ public class SimpleFluidMixerGUI extends BaseMachineContainer {
     }
 
     public SimpleFluidMixerGUI(int windowId, Inventory playerInventory, BlockPos blockPos) {
-        super(zContainers.SIMPLE_FLUID_MIXER.get(), windowId, playerInventory, blockPos);
+        super(zContainers.FLUID_MIXER.get(), windowId, playerInventory, blockPos);
         addPlayerSlots(player.getInventory());
     }
 
     @Override
     public void addMachineSlots() {
         machineHandler = baseMachineBE.getMachineHandler();
-        for (int i = 0; i < 4; i++)
-        addSlotRange(machineHandler,machineHandler::set, 0, 80, 13, 4, 18);
+        addSlotRange(machineHandler,machineHandler::set, 0, 80, 13, 1, 18);
     }
 
     @Override
     public boolean stillValid(Player playerIn) {
-        return stillValid(ContainerLevelAccess.create(player.level(), pos), player, zBlocks.SIMPLE_FLUID_MIXER.get());
+        return stillValid(ContainerLevelAccess.create(player.level(), pos), player, zBlocks.FLUID_MIXER.get());
     }
 
     @Override

@@ -1,7 +1,7 @@
 package com.devdyna.justdynathings.common.recipes.paradox;
 
+import com.devdyna.cakesticklib.api.recipe.recipeInput.ItemInput;
 import com.devdyna.cakesticklib.api.recipe.recipeType.BaseRecipeType;
-import com.devdyna.justdynathings.api.inputs.ParadoxInput;
 import com.devdyna.justdynathings.init.types.zItems;
 import com.devdyna.justdynathings.init.types.zRecipeTypes;
 import com.mojang.serialization.Codec;
@@ -21,7 +21,7 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 
 @SuppressWarnings("null")
-public class ParadoxInfusionRecipe extends BaseRecipeType<ParadoxInput> {
+public class ParadoxInfusionRecipe extends BaseRecipeType<ItemInput.withNumber> {
 
     private final int radius;
     private final Ingredient input;
@@ -37,12 +37,12 @@ public class ParadoxInfusionRecipe extends BaseRecipeType<ParadoxInput> {
         return new ParadoxInfusionRecipe(input, radius, output);
     }
 
-    public boolean matches(ParadoxInput r, Level l) {
-        return this.input.test(r.input()) && r.range() >= this.radius;
+    public boolean matches(ItemInput.withNumber r, Level l) {
+        return this.input.test(r.item()) && r.value() >= this.radius;
     }
 
     @Override
-    public ItemStack assemble(ParadoxInput r) {
+    public ItemStack assemble(ItemInput.withNumber r) {
         return this.output.create();
     }
 
@@ -59,12 +59,12 @@ public class ParadoxInfusionRecipe extends BaseRecipeType<ParadoxInput> {
     }
 
     @Override
-    public RecipeType<? extends Recipe<ParadoxInput>> getType() {
+    public RecipeType<? extends Recipe<ItemInput.withNumber>> getType() {
         return zRecipeTypes.PARADOX_INFUSION.getType();
     }
 
     @Override
-    public RecipeSerializer<? extends Recipe<ParadoxInput>> getSerializer() {
+    public RecipeSerializer<? extends Recipe<ItemInput.withNumber>> getSerializer() {
         return zRecipeTypes.PARADOX_INFUSION.getSerializer();
     }
 

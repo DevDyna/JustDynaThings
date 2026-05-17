@@ -22,7 +22,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.transfer.fluid.FluidResource;
 
 public class BlazeGoldAnvilBE extends FunctionalAnvilBE
         implements FluidMachine, AnvilRecipeHandler<RepairBlazegoldAnvilRecipe> {
@@ -73,13 +72,11 @@ public class BlazeGoldAnvilBE extends FunctionalAnvilBE
         return Config.ANVIL_BLAZEGOLD_SOUND_EVENT.get();
     }
 
-    private FluidResource tank = getFluidTank().getResource(0);
-
     @Override
     public Optional<RecipeHolder<RepairBlazegoldAnvilRecipe>> getRecipe() {
         return level.getServer().getRecipeManager().getRecipeFor(
                 zRecipeTypes.BLAZEGOLD_ANVIL.getType(),
-                FluidInput.simple.of(tank.toStack(getAmountStored())),
+                FluidInput.simple.of(getFluidTank().getResource(0).toStack(getAmountStored())),
                 level);
     }
 

@@ -58,15 +58,10 @@ public class SimpleFluidMixerScreen extends BaseMachineScreen<SimpleFluidMixerGU
 
     private final CyclicImageGUI templateIcon = new CyclicImageGUI(0, 30);
 
-    // private final static List<Identifier> preview_slots = List.of(x.rl(MODULE_ID,
-    // "textures/gui/slots/catalyst.png"),
-    // x.rl(MODULE_ID, "textures/gui/slots/shard.png"), x.rl(MODULE_ID,
-    // "textures/gui/slots/coal.png"));
-
-    private static final List<Identifier> preview_slots = List.of(
-            x.rl(MODULE_ID, "container/slot/catalyst"),
-            x.rl(MODULE_ID, "container/slot/shard"),
-            x.rl(MODULE_ID, "container/slot/coal"));
+    private final static List<Identifier> images = List.of(
+            x.rl(MODULE_ID, "textures/gui/slots/catalyst.png"),
+            x.rl(MODULE_ID, "textures/gui/slots/shard.png"),
+            x.rl(MODULE_ID, "textures/gui/slots/coal.png"));
 
     @Override
     protected void containerTick() {

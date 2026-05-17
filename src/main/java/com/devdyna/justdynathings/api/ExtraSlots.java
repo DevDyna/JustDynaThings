@@ -14,7 +14,7 @@ public interface ExtraSlots {
     int getGuiTop();
 
     default void addSlotFlame(GuiGraphicsExtractor guiGraphics, Slot slot) {
-        ImageGui.of().rl(MODULE_ID, "textures/gui/sprites/container/slot/burn.png")
+        ImageGui.of().rl(MODULE_ID, "textures/gui/slots/burn.png")
                 .size(18, 18).offset(getGuiLeft() + slot.x, getGuiTop() + slot.y)
                 .sizeTexture(18, 18)
                 .render(guiGraphics);
@@ -30,28 +30,28 @@ public interface ExtraSlots {
     }
 
     default void addSlotCatalyst(GuiGraphicsExtractor guiGraphics, Slot slot) {
-        ImageGui.of().rl(MODULE_ID, "textures/gui/sprites/container/slot/catalyst.png")
+        ImageGui.of().rl(MODULE_ID, "textures/gui/slots/catalyst.png")
                 .size(18, 18).offset(getGuiLeft() + slot.x, getGuiTop() + slot.y)
                 .sizeTexture(18, 18)
                 .render(guiGraphics);
     }
 
     default void addSlotTimeCrystal(GuiGraphicsExtractor guiGraphics, Slot slot) {
-        ImageGui.of().rl(MODULE_ID, "textures/gui/sprites/container/slot/shard.png")
+        ImageGui.of().rl(MODULE_ID, "textures/gui/slots/shard.png")
                 .size(18, 18).offset(getGuiLeft() + slot.x, getGuiTop() + slot.y)
                 .sizeTexture(18, 18)
                 .render(guiGraphics);
     }
 
     default void addSlotDireCoal(GuiGraphicsExtractor guiGraphics, Slot slot) {
-        ImageGui.of().rl(MODULE_ID, "textures/gui/sprites/container/slot/coal.png")
+        ImageGui.of().rl(MODULE_ID, "textures/gui/slots/coal.png")
                 .size(18, 18).offset(getGuiLeft() + slot.x, getGuiTop() + slot.y)
                 .sizeTexture(18, 18)
                 .render(guiGraphics);
     }
 
     default void addSlotCharge(GuiGraphicsExtractor guiGraphics, Slot slot) {
-        ImageGui.of().rl(MODULE_ID, "textures/gui/sprites/container/slot/charge.png")
+        ImageGui.of().rl(MODULE_ID, "textures/gui/slots/charge.png")
                 .size(18, 18).offset(getGuiLeft() + slot.x, getGuiTop() + slot.y)
                 .sizeTexture(18, 18)
                 .render(guiGraphics);

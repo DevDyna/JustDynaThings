@@ -363,6 +363,19 @@ public class DataRecipe extends RecipeProvider {
                                                 has(JDTRegistration.TimeCrystal.get()))
                                 .save(output);
 
+                shaped(RecipeCategory.MISC, zBlocks.FLUID_MIXER.get())
+                                .pattern("RLR")
+                                .pattern("RCR")
+                                .pattern("FPF")
+                                .define('F', JDTRegistration.FerricoreIngot.get())
+                                .define('R', Tags.Items.DUSTS_REDSTONE)
+                                .define('L', Tags.Items.GEMS_LAPIS)
+                                .define('P', JDTRegistration.POLYMORPHIC_FLUID_BUCKET.get())
+                                .define('C', JDTRegistration.Celestigem.get())
+                                .unlockedBy(getHasName(JDTRegistration.Celestigem.get()),
+                                                has(JDTRegistration.Celestigem.get()))
+                                .save(output);
+
                 // TODO
                 // GooSpreadRecipeBuilder.shapeless(x.block(zFluids.INSTABILITY_FLUID.getBlock()).defaultBlockState(),
                 // null, 4, 100);

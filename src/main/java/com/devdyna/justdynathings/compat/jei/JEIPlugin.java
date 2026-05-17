@@ -13,6 +13,7 @@ import com.devdyna.justdynathings.compat.jei.utils.FuelRecords;
 import com.devdyna.justdynathings.compat.jei.utils.FuelUtils;
 import com.devdyna.justdynathings.init.types.zBlocks;
 import com.devdyna.justdynathings.init.types.zRecipeTypes;
+import com.direwolf20.justdirethings.client.jei.FluidDropRecipeCategory;
 import com.direwolf20.justdirethings.client.jei.GooSpreadRecipeCategory;
 import com.direwolf20.justdirethings.common.blocks.resources.CoalBlock_T1;
 import com.direwolf20.justdirethings.common.fluids.basefluids.RefinedFuel;
@@ -63,6 +64,8 @@ public class JEIPlugin implements IModPlugin {
                 r.addCraftingStation(FerricoreAnvilCategory.TYPE, zBlocks.FERRICORE_ANVIL.get());
                 r.addCraftingStation(BlazeGoldAnvilCategory.TYPE, zBlocks.BLAZEGOLD_ANVIL.get());
                 r.addCraftingStation(EclipseAlloyAnvilCategory.TYPE, zBlocks.ECLIPSEALLOY_ANVIL.get());
+
+                r.addCraftingStation(FluidDropRecipeCategory.TYPE, zBlocks.FLUID_MIXER.get());
 
         }
 

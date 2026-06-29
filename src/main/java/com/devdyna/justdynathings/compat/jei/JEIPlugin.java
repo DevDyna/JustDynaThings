@@ -5,6 +5,7 @@ import static com.devdyna.justdynathings.JustDynaThings.MODULE_ID;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import com.devdyna.cakesticklib.api.utils.ModAddonUtil;
 import com.devdyna.cakesticklib.api.utils.x;
 import com.devdyna.justdynathings.Client;
 import com.devdyna.justdynathings.Config;
@@ -92,34 +93,38 @@ public class JEIPlugin implements IModPlugin {
         @Override
         public void registerRecipes(IRecipeRegistration r) {
 
-                Map<Integer, List<ItemStack>> fuels = new HashMap<>();
+                if (!(ModAddonUtil.checkMod("justtieredgens") && Config.DISABLE_FUEL_JEI.get())) {
 
-                // Process fuels
-                for (ItemStack stack : FuelUtils.getAllSolidFuels()) {
-                        int burnTime = stack.getBurnTime(null, Minecraft.getInstance().level.fuelValues());
+                        Map<Integer, List<ItemStack>> fuels = new HashMap<>();
 
-                        // Add JDT fuels before
-                        if (stack.getItem() instanceof Coal_T1 ||
-                                        (stack.getItem() instanceof BlockItem bi
-                                                        && bi.getBlock() instanceof CoalBlock_T1)) {
-                                r.addRecipes(FuelRecipeCategory.TYPE,
-                                                List.of(new FuelRecords.Items(List.of(stack))));
-                                continue;
+                        // Process fuels
+                        for (ItemStack stack : FuelUtils.getAllSolidFuels()) {
+                                int burnTime = stack.getBurnTime(null, Minecraft.getInstance().level.fuelValues());
+
+                                // Add JDT fuels before
+                                if (stack.getItem() instanceof Coal_T1 ||
+                                                (stack.getItem() instanceof BlockItem bi
+                                                                && bi.getBlock() instanceof CoalBlock_T1)) {
+                                        r.addRecipes(FuelRecipeCategory.TYPE,
+                                                        List.of(new FuelRecords.Items(List.of(stack))));
+                                        continue;
+                                }
+
+                                if (burnTime > 0)
+                                        fuels.computeIfAbsent(burnTime, k -> new ArrayList<>()).add(stack);
+
                         }
 
-                        if (burnTime > 0)
-                                fuels.computeIfAbsent(burnTime, k -> new ArrayList<>()).add(stack);
+                        // Add remaining fuels
+                        if (Config.ENABLE_ALL_JEI_FUELS.get()) {
+                                fuels.entrySet().stream()
+                                                .sorted(Map.Entry.<Integer, List<ItemStack>>comparingByKey().reversed())
+                                                .forEach(entry -> r.addRecipes(FuelRecipeCategory.TYPE,
+                                                                List.of(new FuelRecords.Items(entry.getValue()))));
+                        }
 
                 }
-
-                // Add remaining fuels
-                if (Config.ENABLE_ALL_JEI_FUELS.get()) {
-                        fuels.entrySet().stream()
-                                        .sorted(Map.Entry.<Integer, List<ItemStack>>comparingByKey().reversed())
-                                        .forEach(entry -> r.addRecipes(FuelRecipeCategory.TYPE,
-                                                        List.of(new FuelRecords.Items(entry.getValue()))));
-                }
-
+                // TODO IMP : include fluid
                 FuelUtils.getAllRefinedFuels().stream()
                                 .collect(Collectors.groupingBy(f -> ((RefinedFuel) f.getFluid()).fePerMb()))
                                 .entrySet().stream()

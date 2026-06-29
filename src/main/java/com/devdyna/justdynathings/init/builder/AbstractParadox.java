@@ -37,7 +37,6 @@ public class AbstractParadox extends TimeCrystal {
 
     @Override
     public Component getName(ItemStack stack) {
-        //TODO ColorUtils.pulse milli -> seconds
         return Component.translatable(getDescriptionId())
                 .withColor(ColorUtils.pulse(Color.BLUE, Color.MAGENTA, 4).getRGB());
     }

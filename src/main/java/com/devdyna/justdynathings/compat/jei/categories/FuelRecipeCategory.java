@@ -100,9 +100,10 @@ public class FuelRecipeCategory extends BaseCategory<FuelRecords.Items> {
                         : maxburn + " ticks",
                 46, 4,
                 0xFFFFFFFF);
-        guiGraphics.text(Minecraft.getInstance().font, rate + " FE/tick", 46, 18, 0xFFFFFFFF);
         guiGraphics.text(Minecraft.getInstance().font,
-                (hasShiftDown() ? MagicHelpers.withSuffix(total) : total + " FE"), 46,
+                (hasShiftDown() ? MagicHelpers.withSuffix(rate) : rate) + " FE/tick", 46, 18, 0xFFFFFFFF);
+        guiGraphics.text(Minecraft.getInstance().font,
+                (hasShiftDown() ? MagicHelpers.withSuffix(total) : total) + " FE", 46,
                 32,
                 0xFFFFFFFF);
         stack.popMatrix();

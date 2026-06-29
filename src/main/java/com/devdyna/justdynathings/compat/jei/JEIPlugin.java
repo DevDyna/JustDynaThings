@@ -124,7 +124,7 @@ public class JEIPlugin implements IModPlugin {
                         }
 
                 }
-                // TODO IMP : include fluid
+                // TODO COMPAT : include fluid
                 FuelUtils.getAllRefinedFuels().stream()
                                 .collect(Collectors.groupingBy(f -> ((RefinedFuel) f.getFluid()).fePerMb()))
                                 .entrySet().stream()

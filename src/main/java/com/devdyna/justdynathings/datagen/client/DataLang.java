@@ -175,6 +175,7 @@ public class DataLang extends LanguageProvider {
                 // misc
                 add(MODULE_ID + ".configuration.answer", "A questionable question");
                 add(MODULE_ID + ".configuration.include_any_jei_fuels", "Include Any Fuel to JEI fuel category");
+                add(MODULE_ID + ".configuration.disable_jei_fuels", "Disable Fuel JEI categories when Just Tiered Generators is installed");
 
                 add(MODULE_ID + ".configuration.void_crystal_tooltips",
                                 "All possible strings rendered below Void Crystal");

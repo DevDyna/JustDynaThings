@@ -2,9 +2,10 @@ package com.devdyna.justdynathings.datagen.client;
 
 import static com.devdyna.justdynathings.JustDynaThings.MODULE_ID;
 
+import com.devdyna.cakesticklib.api.datagen.LangUtils;
+import com.devdyna.cakesticklib.api.datagen.LangUtils.TipColors;
 import com.devdyna.justdynathings.Constants;
 
-import static com.devdyna.cakesticklib.api.datagen.LangUtils.*;
 
 import com.devdyna.justdynathings.init.types.zBlocks;
 import com.devdyna.justdynathings.init.types.zFluids;
@@ -23,39 +24,39 @@ public class DataLang extends LanguageProvider {
         @Override
         protected void addTranslations() {
 
-                zItems.zItem.getEntries().forEach(i -> addItem(i, named(i, MODULE_ID)));
-                zItems.zBucketItems.getEntries().forEach(i -> addItem(i, named(i, MODULE_ID)));
-                zItems.zGooUpgraders.getEntries().forEach(i -> addItem(i, named(i, MODULE_ID)));
-                zItems.zWands.getEntries().forEach(i -> addItem(i, named(i, MODULE_ID)));
-                zBlocks.zBlockItem.getEntries().forEach(i -> addBlock(i, named(i, MODULE_ID)));
-                zBlocks.zBlockFluids.getEntries().forEach(i -> addBlock(i, named(i, MODULE_ID)));
+                zItems.zItem.getEntries().forEach(i -> addItem(i, LangUtils.named(i, MODULE_ID)));
+                zItems.zBucketItems.getEntries().forEach(i -> addItem(i, LangUtils.named(i, MODULE_ID)));
+                zItems.zGooUpgraders.getEntries().forEach(i -> addItem(i, LangUtils.named(i, MODULE_ID)));
+                zItems.zWands.getEntries().forEach(i -> addItem(i, LangUtils.named(i, MODULE_ID)));
+                zBlocks.zBlockItem.getEntries().forEach(i -> addBlock(i, LangUtils.named(i, MODULE_ID)));
+                zBlocks.zBlockFluids.getEntries().forEach(i -> addBlock(i, LangUtils.named(i, MODULE_ID)));
                 zFluids.zFluidTypes.getEntries().forEach(
-                                f -> add(f.get().getDescriptionId(), named(f, MODULE_ID).replace(" Type", "")));
+                                f -> add(f.get().getDescriptionId(), LangUtils.named(f, MODULE_ID).replace(" Type", "")));
 
                 add(MODULE_ID + ".invalid_block", "§cInvalid Block");
-                add(MODULE_ID + ".wand.blockstate", TIP_COLOR + "BlockState : ");
-                add(MODULE_ID + ".wand.dimension", TIP_COLOR + "Dimension : ");
-                add(MODULE_ID + ".wand.pos", TIP_COLOR + "BlockPos : ");
+                add(MODULE_ID + ".wand.blockstate", TipColors.ITEM_TOOLTIP + "BlockState : ");
+                add(MODULE_ID + ".wand.dimension", TipColors.ITEM_TOOLTIP + "Dimension : ");
+                add(MODULE_ID + ".wand.pos", TipColors.ITEM_TOOLTIP + "BlockPos : ");
                 add(MODULE_ID + ".disabled", "§cItem Disabled");
 
                 // TODO reforger 2.0 and with AOE
                 // add(MODULE_ID + "." + Constants.Blocks.Reforger,
-                // TIP_COLOR+"Convert blocks using a catalyst to other blocks");
+                // TipColors.ITEM_TOOLTIP+"Convert blocks using a catalyst to other blocks");
 
                 add(MODULE_ID + "." + Constants.Anvils.t1,
-                                TIP_COLOR + "Repair items using metallic ingots");
+                                TipColors.ITEM_TOOLTIP + "Repair items using metallic ingots");
 
                 add(MODULE_ID + "." + Constants.Anvils.t2,
                                 "Repair items using hot fluids");
 
                 add(MODULE_ID + "." + Constants.Anvils.t3,
-                                TIP_COLOR + "Repair items using Forge Energy");
+                                TipColors.ITEM_TOOLTIP + "Repair items using Forge Energy");
 
                 add(MODULE_ID + "." + Constants.Anvils.t4,
-                                TIP_COLOR + "Repair items using Time Fluid");
+                                TipColors.ITEM_TOOLTIP + "Repair items using Time Fluid");
 
                 add(MODULE_ID + "." + Constants.Blocks.FluidMixer,
-                                TIP_COLOR + "Convert fluids to others based on Fluid Drop recipes");
+                                TipColors.ITEM_TOOLTIP + "Convert fluids to others based on Fluid Drop recipes");
 
                 // generic type tooltips
                 add(MODULE_ID + "." + Constants.GooType + ".energy",
@@ -63,22 +64,22 @@ public class DataLang extends LanguageProvider {
                 add(MODULE_ID + "." + Constants.GooType + "." + Constants.Goo.Creative,
                                 "§cRight click with a wrench to toggle alive state");
                 add(MODULE_ID + "." + Constants.SolarPanelType,
-                                TIP_COLOR + "Generate Energy from ambiental situations");
+                                TipColors.ITEM_TOOLTIP + "Generate Energy from ambiental situations");
 
                 add(MODULE_ID + "." + Constants.Blocks.Stabilizer,
-                                TIP_COLOR + "Feed Goo blocks using Energy and Boost Buddings blocks");
+                                TipColors.ITEM_TOOLTIP + "Feed Goo blocks using Energy and Boost Buddings blocks");
 
                 add(MODULE_ID + "." + Constants.Blocks.Ticker,
-                                TIP_COLOR + "A block that act at same of a time wand but configurable!");
+                                TipColors.ITEM_TOOLTIP + "A block that act at same of a time wand but configurable!");
 
                 add(MODULE_ID + "." + Constants.GooUpgraders.base,
-                                TIP_COLOR + "Right click on a goo to upgrade it to the next tier");
+                                TipColors.ITEM_TOOLTIP + "Right click on a goo to upgrade it to the next tier");
                 add(MODULE_ID + "." + Constants.Wands.Picker,
-                                TIP_COLOR + "Allow to pickup simple blocks and place where you want");
+                                TipColors.ITEM_TOOLTIP + "Allow to pickup simple blocks and place where you want");
                 add(MODULE_ID + "." + Constants.Wands.Swapper,
-                                TIP_COLOR + "Allow to swap simple blocks without break it");
+                                TipColors.ITEM_TOOLTIP + "Allow to swap simple blocks without break it");
 
-                add(MODULE_ID + "." + Constants.GooType + ".tier", TIP_COLOR + "Goo Tier: ");
+                add(MODULE_ID + "." + Constants.GooType + ".tier", TipColors.ITEM_TOOLTIP + "Goo Tier: ");
 
                 add(MODULE_ID + "." + Constants.SolarPanelType + ".ferate", "§aMax FE rate : §f");
 
@@ -86,7 +87,7 @@ public class DataLang extends LanguageProvider {
                 add(MODULE_ID + ".clear_pos", "Position Cleared");
 
                 add(MODULE_ID + "." + Constants.Wands.AdvancedTime,
-                                TIP_COLOR + "More capable and configurable version of Time wand");
+                                TipColors.ITEM_TOOLTIP + "More capable and configurable version of Time wand");
 
                 add(MODULE_ID + "." + Constants.Wands.AdvancedTime + ".mode.disabled", "§cThis Mode was disabled");
                 add(MODULE_ID + "." + Constants.Wands.AdvancedTime + ".mode.reset", "This wand is ready to be used!");
@@ -128,7 +129,7 @@ public class DataLang extends LanguageProvider {
 
                 add(MODULE_ID + "." + Constants.BuddingType + ".break", "§cDoesn't drop when broken!");
 
-                add(MODULE_ID + ".hold_control", TIP_COLOR + "Hold Control for Chisel detailts");
+                add(MODULE_ID + ".hold_control", TipColors.ITEM_TOOLTIP + "Hold Control for Chisel detailts");
 
                 add(MODULE_ID + "." + Constants.BuddingType + ".jade.fe", "§cRequire ForgeEnergy");
                 add(MODULE_ID + "." + Constants.BuddingType + ".jade.time", "§cRequire Time Fluid");
@@ -328,7 +329,7 @@ public class DataLang extends LanguageProvider {
 
                 add(MODULE_ID + ".goo_tier.infinite", "Infinite");
 
-                add(MODULE_ID + ".abstract_paradox", TIP_COLOR + "Obtained by throwing a void crystal over a Paradox");
+                add(MODULE_ID + ".abstract_paradox", TipColors.ITEM_TOOLTIP + "Obtained by throwing a void crystal over a Paradox");
 
         }
 

@@ -657,9 +657,10 @@ public class CommonConfig {
                                 .comment(Config.Display.MB_RATE)
                                 .defineInRange(Blocks.Ticker + Config.Keys.MB_RATE, 1, 1, Integer.MAX_VALUE);
 
+                // max JDT value is 1200 ticks
                 TICKER_TICK_RATE = qCOMMON
                                 .comment("Max Tick speed applied")
-                                .defineInRange(Blocks.Ticker + "_max_tick_rate", Integer.MAX_VALUE, 1,
+                                .defineInRange(Blocks.Ticker + "_max_tick_rate", 2048, 1,
                                                 Integer.MAX_VALUE);
 
                 qCOMMON.pop();

@@ -556,6 +556,14 @@ public class DataRecipe extends RecipeProvider {
                                 .unlocks(ID, has(Registration.TEMPLATE_ECLIPSEALLOY.get()))
                                 .save(c, Constants.Wands.AdvancedTime + "_smithing");
 
+                SmithingTransformRecipeBuilder.smithing(Ingredient.of(Registration.Celestigem.get()),
+                                Ingredient.of(Registration.PolymorphicWand.get()),
+                                Ingredient.of(Registration.EclipseAlloyIngot.get()),
+                                MISC,
+                                Registration.PolymorphicWandV2.get())
+                                .unlocks(ID, has(Registration.EclipseAlloyIngot.get()))
+                                .save(c,"polymorphic_wand_v2_smithing");
+
                 ShapedRecipeBuilder.shaped(MISC, zItems.LIGHT_WAND.get())
                                 .pattern("  G")
                                 .pattern(" F ")

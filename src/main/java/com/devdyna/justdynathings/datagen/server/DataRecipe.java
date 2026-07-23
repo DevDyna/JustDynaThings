@@ -548,19 +548,13 @@ public class DataRecipe extends RecipeProvider {
                                                 Registration.BlazegoldIngot.get()))
                                 .group(Constants.Wands.Stupefy).save(c);
 
-                var time = new ItemStack(zItems.ADVANCED_TIME_WAND.get());
-                time.set(zComponents.MODE, "normal");
-                ShapedRecipeBuilder.shaped(MISC, time)
-                                .pattern(" EC")
-                                .pattern(" WE")
-                                .pattern("E  ")
-                                .define('C', Registration.TimeCrystal.get())
-                                .define('E', Registration.EclipseAlloyIngot.get())
-                                .define('W', Registration.TimeWand.get())
-                                .unlockedBy(ID,
-                                                has(
-                                                                Registration.EclipseAlloyIngot.get()))
-                                .group(Constants.Wands.AdvancedTime).save(c);
+                SmithingTransformRecipeBuilder.smithing(Ingredient.of(Registration.TEMPLATE_ECLIPSEALLOY.get()),
+                                Ingredient.of(Registration.TimeWand.get()),
+                                Ingredient.of(Registration.TimeCrystal.get()),
+                                MISC,
+                                zItems.ADVANCED_TIME_WAND.get())
+                                .unlocks(ID, has(Registration.TEMPLATE_ECLIPSEALLOY.get()))
+                                .save(c, Constants.Wands.AdvancedTime + "_smithing");
 
                 ShapedRecipeBuilder.shaped(MISC, zItems.LIGHT_WAND.get())
                                 .pattern("  G")

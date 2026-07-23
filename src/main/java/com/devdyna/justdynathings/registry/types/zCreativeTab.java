@@ -28,7 +28,6 @@ public class zCreativeTab {
                         .create(Registries.CREATIVE_MODE_TAB, Main.ID);
         // ---------------------------------------------------------------------------------------//
 
-        //TODO separate compat items on new tabs
         public static final DeferredHolder<CreativeModeTab, CreativeModeTab> CREATIVETAB = zCreative
                         .register(Main.ID, () -> CreativeModeTab.builder()
                                         .title(Component.translatable(Main.ID + "." + Constants.CreativeTab))

@@ -73,6 +73,4 @@ public class Client {
         event.register(zItems.ADVANCED_TIME_WAND.get(), new FluidbarDecorator());
     }
 
-
-    //TODO maybe change echoing buddings to use a tintindex
 }

@@ -42,7 +42,6 @@ public class DataBlockModelState extends BlockStateProvider {
 
         @Override
         protected void registerStatesAndModels() {
-                // TODO reforger , ticker and stabilizer blockstate datagen
 
                 BaseGooStateModel(zBlocks.CREATIVE_GOO.get());
                 BaseGooStateModel(zBlocks.ENERGIZED_GOO.get());
@@ -200,23 +199,6 @@ public class DataBlockModelState extends BlockStateProvider {
 
         }
 
-        /**
-         * //TODO gen block with id generatort < index >
-         * 
-         * NO T1 GENERATOR
-         **/
-        private void BaseGenerator(Block b) {
-                // TODO check if it work again
-                String tier = Constants.Tiers.materials
-                                .get(Integer.getInteger(DataGenUtil.getName(b).replace("generatort", "")));
-                simpleBlock(b,
-                                DataGenUtil.NamewithParent("justdynathings:block/generator/" + tier, this,
-                                                "justdynathings:block/generator/_template")
-                                                .texture("side", "justdynathings:block/generator/" + tier
-                                                                + "/side")
-                                                .texture("top", "justdynathings:block/generator/" + tier + "/top")
-                                                .texture("bottom", "justdynathings:block/generator/" + tier
-                                                                + "/bottom"));
-        }
+      
 
 }

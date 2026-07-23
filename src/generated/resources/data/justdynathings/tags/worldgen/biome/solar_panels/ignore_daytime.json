@@ -1,9 +1,15 @@
 {
   "values": [
-    "#c:is_overworld",
-    "#c:is_void",
     {
       "id": "jamd:mining",
+      "required": false
+    },
+    {
+      "id": "jamd:nether",
+      "required": false
+    },
+    {
+      "id": "jamd:end",
       "required": false
     },
     {

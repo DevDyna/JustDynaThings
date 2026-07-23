@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyCharger;
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyGenerator;
+import com.devdyna.justdynathings.registry.types.zBiomeTags;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.Actions;
 import com.devdyna.justdynathings.utils.DirectionUtil;
@@ -137,8 +138,8 @@ public class SolarBaseBE extends BaseMachineBE implements EnergyGenerator, Redst
         if (enableCleanSky())
             result &= canSeeSky();
 
-        if (enableDayTimeOnly())
-            result &= isDayTime();
+            if (isGoodBiome() && enableDayTimeOnly())
+                result &= isDayTime();
 
         var checkBiome = LevelUtil.isBiome(level, getBlockPos(), getBiomeTag());
 
@@ -185,6 +186,11 @@ public class SolarBaseBE extends BaseMachineBE implements EnergyGenerator, Redst
 
     public boolean enableDayTimeOnly() {
         return true;
+    }
+
+    // this must be fix jamd and javd issues related to ferricore solar panels
+    public boolean isGoodBiome() {
+        return !LevelUtil.isBiome(level, getBlockPos(), zBiomeTags.SOLAR_PANEL_BIOME_IGNORE_DAYTIME);
     }
 
 }

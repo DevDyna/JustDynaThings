@@ -34,10 +34,10 @@ public class TickerScreen extends BaseMachineScreen<TickerGUI> {
                 }));
     }
 
-    @Override
-    public void addTickSpeedButton() {
-        // empty remove tick button
-    }
+    // @Override
+    // public void addTickSpeedButton() {
+    //     // empty remove tick button
+    // }
 
     @Override
     protected void drawMachineSlot(GuiGraphics guiGraphics, Slot slot) {

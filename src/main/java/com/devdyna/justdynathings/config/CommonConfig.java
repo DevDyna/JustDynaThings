@@ -658,8 +658,9 @@ public class CommonConfig {
                                 .defineInRange(Blocks.Ticker + Config.Keys.MB_RATE, 1, 1, Integer.MAX_VALUE);
 
                 TICKER_TICK_RATE = qCOMMON
-                                .comment("Tick speed applied")
-                                .defineInRange(Blocks.Ticker + "_tick_rate", 16, 1, Integer.MAX_VALUE);
+                                .comment("Max Tick speed applied")
+                                .defineInRange(Blocks.Ticker + "_max_tick_rate", Integer.MAX_VALUE, 1,
+                                                Integer.MAX_VALUE);
 
                 qCOMMON.pop();
 

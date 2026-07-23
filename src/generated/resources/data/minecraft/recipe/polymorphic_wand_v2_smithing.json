@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "justdirethings:eclipsealloy_ingot"
+  },
+  "base": {
+    "item": "justdirethings:polymorphic_wand"
+  },
+  "result": {
+    "count": 1,
+    "id": "justdirethings:polymorphic_wand_v2"
+  },
+  "template": {
+    "item": "justdirethings:celestigem"
+  }
+}

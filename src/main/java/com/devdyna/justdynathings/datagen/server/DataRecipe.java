@@ -495,7 +495,7 @@ public class DataRecipe extends RecipeProvider {
                                 .pattern("ETE")
                                 .pattern("TPT")
                                 .pattern("ETE")
-                                .define('P', zItems.ADVANCED_TIME_WAND.get())
+                                .define('P', Registration.TimeWand.get())
                                 .define('T', Tags.Items.DUSTS_REDSTONE)
                                 .define('E', Registration.EclipseAlloyIngot.get())
                                 .unlockedBy(ID,

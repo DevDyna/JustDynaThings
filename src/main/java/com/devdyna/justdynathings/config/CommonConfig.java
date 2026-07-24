@@ -14,6 +14,7 @@ public class CommonConfig {
 
         public static BooleanValue DOC_WARNING;
         public static BooleanValue ENABLE_ALL_JEI_FUELS;
+        public static BooleanValue DISABLE_FUEL_JEI;
 
         public static BooleanValue PHASE_BOX_WRENCHABLE;
 
@@ -196,6 +197,10 @@ public class CommonConfig {
                 ENABLE_ALL_JEI_FUELS = qCOMMON
                                 .comment("Include any fuel item to Generator JEI category")
                                 .define("include_any_jei_fuels", true);
+
+                DISABLE_FUEL_JEI = qCOMMON
+                                .comment("Disable Fuel JEI categories when Just Tiered Generators is installed")
+                                .define("disable_jei_fuels", true);
 
                 qCOMMON.pop();
         }

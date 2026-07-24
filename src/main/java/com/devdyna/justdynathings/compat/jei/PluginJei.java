@@ -42,6 +42,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.CraftingRecipe;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.fml.ModList;
 
 @SuppressWarnings("null")
 @JeiPlugin
@@ -144,43 +145,44 @@ public class PluginJei implements IModPlugin {
                 r.addRecipes(MTO.TYPE, recipes.getAllRecipesFor(zRecipeTypes.REFORGER_MTO.getType()));
 
                 r.addRecipes(ParadoxMixerCategory.TYPE, recipes.getAllRecipesFor(zRecipeTypes.PARADOX_MIXER.getType()));
+               
+                if (!(ModList.get().isLoaded("justtieredgens") && CommonConfig.DISABLE_FUEL_JEI.get())) {
+                        Map<Integer, List<ItemStack>> fuels = new HashMap<>();
 
-                Map<Integer, List<ItemStack>> fuels = new HashMap<>();
+                        // Process fuels
+                        for (ItemStack stack : FuelUtils.getAllSolidFuels()) {
+                                int burnTime = stack.getBurnTime(net.minecraft.world.item.crafting.RecipeType.SMELTING);
 
-                // Process fuels
-                for (ItemStack stack : FuelUtils.getAllSolidFuels()) {
-                        int burnTime = stack.getBurnTime(net.minecraft.world.item.crafting.RecipeType.SMELTING);
+                                // Add JDT fuels before
+                                if (stack.getItem() instanceof Coal_T1 ||
+                                                (stack.getItem() instanceof BlockItem bi
+                                                                && bi.getBlock() instanceof CoalBlock_T1)) {
+                                        r.addRecipes(FuelRecipeCategory.TYPE,
+                                                        List.of(new FuelRecords.Items(List.of(stack))));
+                                        continue;
+                                }
 
-                        // Add JDT fuels before
-                        if (stack.getItem() instanceof Coal_T1 ||
-                                        (stack.getItem() instanceof BlockItem bi
-                                                        && bi.getBlock() instanceof CoalBlock_T1)) {
-                                r.addRecipes(FuelRecipeCategory.TYPE,
-                                                List.of(new FuelRecords.Items(List.of(stack))));
-                                continue;
+                                if (burnTime > 0)
+                                        fuels.computeIfAbsent(burnTime, k -> new ArrayList<>()).add(stack);
+
                         }
 
-                        if (burnTime > 0)
-                                fuels.computeIfAbsent(burnTime, k -> new ArrayList<>()).add(stack);
+                        // Add remaining fuels
+                        if (CommonConfig.ENABLE_ALL_JEI_FUELS.get()) 
+                                fuels.entrySet().stream()
+                                                .sorted(Map.Entry.<Integer, List<ItemStack>>comparingByKey().reversed())
+                                                .forEach(entry -> r.addRecipes(FuelRecipeCategory.TYPE,
+                                                                List.of(new FuelRecords.Items(entry.getValue()))));
+                        
 
+                        FuelUtils.getAllRefinedFuels().stream()
+                                        .collect(Collectors.groupingBy(f -> ((RefinedFuel) f.getFluid()).fePerMb()))
+                                        .entrySet().stream()
+                                        .sorted(Map.Entry.comparingByKey())
+                                        .forEach(f -> r.addRecipes(
+                                                        RefinedFuelRecipeCategory.TYPE,
+                                                        List.of(new FuelRecords.Fluids(f.getValue()))));
                 }
-
-                // Add remaining fuels
-                if (CommonConfig.ENABLE_ALL_JEI_FUELS.get()) {
-                        fuels.entrySet().stream()
-                                        .sorted(Map.Entry.<Integer, List<ItemStack>>comparingByKey().reversed())
-                                        .forEach(entry -> r.addRecipes(FuelRecipeCategory.TYPE,
-                                                        List.of(new FuelRecords.Items(entry.getValue()))));
-                }
-
-                FuelUtils.getAllRefinedFuels().stream()
-                                .collect(Collectors.groupingBy(f -> ((RefinedFuel) f.getFluid()).fePerMb()))
-                                .entrySet().stream()
-                                .sorted(Map.Entry.comparingByKey())
-                                .forEach(f -> r.addRecipes(
-                                                RefinedFuelRecipeCategory.TYPE,
-                                                List.of(new FuelRecords.Fluids(f.getValue()))));
-
         }
 
         @Override

@@ -26,4 +26,7 @@ public class zBiomeTags {
         public static final TagKey<Biome> ECLIPSEALLOY_SOLAR_PANEL_BIOME_LIST = RegistryUtils.tagBiome(MODULE_ID,
                         Constants.SolarPanelType + "s/" + Constants.Tiers.eclipsealloy + "_allow");
 
+                        public static final TagKey<Biome> SOLAR_PANEL_BIOME_IGNORE_DAYTIME = RegistryUtils
+                        .tagBiome(MODULE_ID,Constants.SolarPanelType + "s/ignore_daytime");
+
 }

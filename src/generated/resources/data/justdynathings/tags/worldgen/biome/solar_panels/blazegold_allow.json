@@ -2,7 +2,7 @@
   "values": [
     "#c:is_nether",
     {
-      "id": "#jamd:nether",
+      "id": "jamd:nether",
       "required": false
     }
   ]

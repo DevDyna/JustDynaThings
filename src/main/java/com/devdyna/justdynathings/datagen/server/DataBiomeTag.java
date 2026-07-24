@@ -35,7 +35,7 @@ public class DataBiomeTag extends BiomeTagsProvider {
 
                 tag(zBiomeTags.BLAZEGOLD_SOLAR_PANEL_BIOME_LIST)
                                 .addTag(Tags.Biomes.IS_NETHER)
-                                .addOptionalTag(DataGenUtil.getResource("nether", "jamd"));
+                                .addOptional(DataGenUtil.getResource("nether", "jamd"));
                 // noOp
                 tag(zBiomeTags.CELESTIGEM_SOLAR_PANEL_BIOME_LIST).add();
                 // noOp

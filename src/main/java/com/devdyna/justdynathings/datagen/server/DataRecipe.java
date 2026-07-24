@@ -355,6 +355,15 @@ public class DataRecipe extends RecipeProvider {
                                                 has(JDTRegistration.EclipseAlloyIngot.get()))
                                 .save(output, MODULE_ID + ":advanced_time_wand");
 
+                SmithingTransformRecipeBuilder.smithing(x.itemIngredient(JDTRegistration.Celestigem.get()),
+                                x.itemIngredient(JDTRegistration.PolymorphicWand.get()),
+                                x.itemIngredient(JDTRegistration.EclipseAlloyIngot.get()),
+                                RecipeCategory.TOOLS,
+                                JDTRegistration.PolymorphicWandV2.get())
+                                .unlocks(getHasName(JDTRegistration.EclipseAlloyIngot.get()),
+                                                has(JDTRegistration.EclipseAlloyIngot.get()))
+                                .save(output, MODULE_ID + ":polymorphic_wand_v2_smithing");
+
                 FluidDropRecipeBuilder
                                 .shapeless(JDTRegistration.PORTAL_FLUID_BLOCK.get().defaultBlockState(),
                                                 zFluids.INSTABILITY_FLUID.getBlock().get().defaultBlockState(),

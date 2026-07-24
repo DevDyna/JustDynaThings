@@ -1,5 +1,9 @@
 {
   "values": [
-    "#c:is_nether"
+    "#c:is_nether",
+    {
+      "id": "jamd:nether",
+      "required": false
+    }
   ]
 }

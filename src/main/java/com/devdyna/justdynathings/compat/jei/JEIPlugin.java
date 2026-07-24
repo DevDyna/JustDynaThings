@@ -123,16 +123,15 @@ public class JEIPlugin implements IModPlugin {
                                                                 List.of(new FuelRecords.Items(entry.getValue()))));
                         }
 
-                }
-                // TODO COMPAT : include fluid
-                FuelUtils.getAllRefinedFuels().stream()
-                                .collect(Collectors.groupingBy(f -> ((RefinedFuel) f.getFluid()).fePerMb()))
-                                .entrySet().stream()
-                                .sorted(Map.Entry.comparingByKey())
-                                .forEach(f -> r.addRecipes(
-                                                RefinedFuelRecipeCategory.TYPE,
-                                                List.of(new FuelRecords.Fluids(f.getValue()))));
+                        FuelUtils.getAllRefinedFuels().stream()
+                                        .collect(Collectors.groupingBy(f -> ((RefinedFuel) f.getFluid()).fePerMb()))
+                                        .entrySet().stream()
+                                        .sorted(Map.Entry.comparingByKey())
+                                        .forEach(f -> r.addRecipes(
+                                                        RefinedFuelRecipeCategory.TYPE,
+                                                        List.of(new FuelRecords.Fluids(f.getValue()))));
 
+                }
                 r.addRecipes(FerricoreAnvilCategory.TYPE, getRecipes(zRecipeTypes.FERRICORE_ANVIL.getType()));
                 r.addRecipes(BlazeGoldAnvilCategory.TYPE, getRecipes(zRecipeTypes.BLAZEGOLD_ANVIL.getType()));
                 r.addRecipes(EclipseAlloyAnvilCategory.TYPE, getRecipes(zRecipeTypes.ECLIPSEALLOY_ANVIL.getType()));

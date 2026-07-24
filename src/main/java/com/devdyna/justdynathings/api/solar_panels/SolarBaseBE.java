@@ -8,6 +8,7 @@ import com.devdyna.cakesticklib.api.utils.x;
 import com.devdyna.justdynathings.api.Actions;
 import com.devdyna.justdynathings.api.be.EnergyCharger;
 import com.devdyna.justdynathings.api.be.EnergyGenerator;
+import com.devdyna.justdynathings.init.types.zBiomeTags;
 import com.devdyna.justdynathings.init.types.zProperties;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineContainerData;
@@ -30,7 +31,8 @@ import net.neoforged.neoforge.capabilities.BlockCapabilityCache;
 import net.neoforged.neoforge.transfer.access.ItemAccess;
 import net.neoforged.neoforge.transfer.energy.EnergyHandler;
 
-public abstract class SolarBaseBE extends BaseMachineBE implements EnergyGenerator, RedstoneControlledBE, EnergyCharger {
+public abstract class SolarBaseBE extends BaseMachineBE
+        implements EnergyGenerator, RedstoneControlledBE, EnergyCharger {
 
     public RedstoneControlData redstoneControlData = new RedstoneControlData();
     public final PoweredMachineContainerData poweredMachineData = new PoweredMachineContainerData(this);
@@ -58,7 +60,8 @@ public abstract class SolarBaseBE extends BaseMachineBE implements EnergyGenerat
             Actions.providePowerAdjacent(level, getBlockPos(), cache, calculateFE());
 
         if (isActiveRedstone() && canExtractFE())
-            chargeFEtoItemStack(level, getBlockPos(), ItemAccess.forHandlerIndex(getMachineHandler(), 0), getEnergyStorage());
+            chargeFEtoItemStack(level, getBlockPos(), ItemAccess.forHandlerIndex(getMachineHandler(), 0),
+                    getEnergyStorage());
 
     }
 
@@ -140,7 +143,7 @@ public abstract class SolarBaseBE extends BaseMachineBE implements EnergyGenerat
         if (enableCleanSky())
             result &= canSeeSky();
 
-        if (enableDayTimeOnly())
+        if (isGoodBiome() && enableDayTimeOnly())
             result &= isDayTime();
 
         var checkBiome = isBiome(level, getBlockPos(), getBiomeTag());
@@ -190,9 +193,7 @@ public abstract class SolarBaseBE extends BaseMachineBE implements EnergyGenerat
         return true;
     }
 
-
-
-public static boolean isDimension(Level level, ResourceKey<Level> dim) {
+    public static boolean isDimension(Level level, ResourceKey<Level> dim) {
         return level.dimension().equals(dim);
     }
 
@@ -202,6 +203,11 @@ public static boolean isDimension(Level level, ResourceKey<Level> dim) {
 
     public static boolean isBiome(Level level, BlockPos pos, TagKey<Biome> biome) {
         return level.getBiome(pos).is(biome);
+    }
+
+    // this must be fix jamd and javd issues related to ferricore solar panels
+    public boolean isGoodBiome() {
+        return !isBiome(level, getBlockPos(), zBiomeTags.SOLAR_PANEL_BIOME_IGNORE_DAYTIME);
     }
 
 }

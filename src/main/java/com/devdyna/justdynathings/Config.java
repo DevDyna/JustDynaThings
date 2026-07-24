@@ -269,8 +269,8 @@ public class Config {
                                 .defineInRange(Blocks.Ticker + ConfigKeys.Values.MB_RATE, 1, 1, Integer.MAX_VALUE);
 
                 TICKER_TICK_RATE = qCOMMON
-                                .comment(Blocks.Ticker + " tick limit")
-                                .defineInRange(Blocks.Ticker + "_tick_limit", 1024, 1, Integer.MAX_VALUE);
+                                .comment(Blocks.Ticker + "max tick limit")
+                                .defineInRange(Blocks.Ticker + "_max_tick_limit", 2048, 1, Integer.MAX_VALUE);
 
                 qCOMMON.comment(StringUtil.nameCapitalized(Blocks.BlackHole));
 

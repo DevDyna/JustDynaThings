@@ -97,6 +97,7 @@
   "justdynathings.configuration.creative_goo_sound_on_change_state": "Creative Goo sound on change state",
   "justdynathings.configuration.creative_goo_sound_on_execution_recipe": "Creative Goo sound on ececution recipe",
   "justdynathings.configuration.creative_goo_tier": "Creative Goo tier",
+  "justdynathings.configuration.disable_jei_fuels": "Disable Fuel JEI categories when Just Tiered Generators is installed",
   "justdynathings.configuration.eclipse_alloy_anvil_emit_sound": "EclipseAlloyAnvil emit sounds",
   "justdynathings.configuration.eclipse_alloy_anvil_ignore_delay": "EclipseAlloyAnvil ignore repair delay",
   "justdynathings.configuration.eclipse_alloy_anvil_max_fluid_storage": "EclipseAlloyAnvil max fluid storage",

@@ -38,40 +38,96 @@ public class ParadoxMixerBE extends BaseMachineBE
         this(zBlockEntities.PARADOX_MIXER.get(), pos, b);
     }
 
+    // TODO HOTFIX : port 26.1
+
     @Override
     public void tickServer() {
 
         updateBlock();
 
-        for (int i = 0; i < getMachineHandler().getSlots(); i++) {
+        if (!getBlockState().getValue(zProperties.GOO_ALIVE))
+            return;
 
-            var catalyst = getMachineHandler().getStackInSlot(i);
+        var fluid = getFluidStack();
 
-            List<RecipeHolder<ParadoxMixerRecipe>> recipes = level.getRecipeManager()
-                    .getAllRecipesFor(zRecipeTypes.PARADOX_MIXER.getType());
+        if (fluid.isEmpty())
+            return;
 
-            var recipe = recipes.stream().filter(r -> r.value().getCatalyst().test(catalyst)
-                    && getFluidStack().is(r.value().getInput().getFluidType())
-                    && getFluidStack().getAmount() == r.value().getInput().getAmount()).findFirst();
+        List<RecipeHolder<ParadoxMixerRecipe>> recipes = level.getRecipeManager()
+                .getAllRecipesFor(zRecipeTypes.PARADOX_MIXER.getType());
 
-            if (recipe.isPresent() && getBlockState().getValue(zProperties.GOO_ALIVE)) {
+        for (RecipeHolder<ParadoxMixerRecipe> h : recipes) {
 
-                var fluid = recipe.get().value().getOutput();
-                setFluidStack(fluid.getFluid(), fluid.getAmount());
-                catalyst.shrink(1);
+            var recipe = h.value();
 
-                if (CommonConfig.PARADOX_MIXER_SOUND_EVENT.get())
-                    level.playSound(null, getBlockPos(),
-                            SoundEvents.BREWING_STAND_BREW,
-                            SoundSource.BLOCKS, (level.random.nextInt(10) + 1) * 0.01F,
-                            level.random.nextInt(50) + 1 * 0.01F);
+            if (!fluid.is(recipe.getInput().getFluidType()))
+                continue;
 
-                level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(zProperties.GOO_ALIVE, false));
+            var required = recipe.getInput().getAmount();
+            var tank = fluid.getAmount();
 
-                break;
+            if (tank % required != 0)
+                continue;
+
+            var multiplier = tank / required;
+
+            if (multiplier <= 0)
+                continue;
+
+            var catalysts = 0;
+
+            for (var i = 0; i < getMachineHandler().getSlots(); i++) {
+                var slot = getMachineHandler().getStackInSlot(i);
+                if (recipe.getCatalyst().test(slot))
+                    catalysts += slot.getCount();
             }
+
+            if (catalysts < multiplier)
+                continue;
+
+            int remaining = multiplier;
+
+            for (var i = 0; i < getMachineHandler().getSlots(); i++) {
+
+                if (remaining <= 0)
+                    break;
+
+                var item = getMachineHandler().getStackInSlot(i);
+
+                if (!recipe.getCatalyst().test(item))
+                    continue;
+
+                var taken = Math.min(item.getCount(), remaining);
+
+                item.shrink(taken);
+                remaining -= taken;
+            }
+
+            var output = recipe.getOutput();
+
+            setFluidStack(
+                    output.getFluid(),
+                    output.getAmount() * multiplier);
+
+            if (CommonConfig.PARADOX_MIXER_SOUND_EVENT.get()) {
+                level.playSound(
+                        null,
+                        getBlockPos(),
+                        SoundEvents.BREWING_STAND_BREW,
+                        SoundSource.BLOCKS,
+                        (level.random.nextInt(10) + 1) * 0.01F,
+                        (level.random.nextInt(50) + 1) * 0.01F);
+            }
+
+            level.setBlockAndUpdate(
+                    getBlockPos(),
+                    getBlockState().setValue(zProperties.GOO_ALIVE, false));
+
+            break;
         }
     }
+
+    
 
     public void updateBlock() {
         int i = 0;
@@ -82,7 +138,7 @@ public class ParadoxMixerBE extends BaseMachineBE
                         && relative.getValue(zProperties.ENERGIZED))
                     i++;
         }
-        if (i <= 0)
+        if (i <= 0 && getBlockState().getValue(zProperties.GOO_ALIVE))
             level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(zProperties.GOO_ALIVE, false));
 
     }
@@ -107,7 +163,7 @@ public class ParadoxMixerBE extends BaseMachineBE
         return 0;
     }
 
-    public boolean canProcess(){
+    public boolean canProcess() {
         return getBlockState().getValue(zProperties.GOO_ALIVE);
     }
 

@@ -2,8 +2,11 @@ package com.devdyna.justdynathings.compat.jei.categories.thermo;
 
 import static com.devdyna.justdynathings.Main.ID;
 
+import org.jetbrains.annotations.Nullable;
+
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.compat.jei.utils.BaseLabelledCategory;
+import com.devdyna.justdynathings.utils.DataGenUtil;
 import com.devdyna.justdynathings.compat.jei.datamaps.records.ThermoFluidCoolant;
 
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
@@ -14,6 +17,7 @@ import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 
@@ -55,5 +59,10 @@ public class ThermoCoolant extends BaseLabelledCategory<ThermoFluidCoolant> {
     @Override
     public ItemLike getIconItem() {
         return Items.WATER_BUCKET;
+    }
+
+    @Override
+    public @Nullable ResourceLocation getRegistryName(ThermoFluidCoolant recipe) {
+        return DataGenUtil.getResource(recipe.fluid().getFluidType().getDescriptionId());
     }
 }

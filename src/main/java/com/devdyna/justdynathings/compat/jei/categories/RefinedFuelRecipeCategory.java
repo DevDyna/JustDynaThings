@@ -10,9 +10,13 @@ import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import static com.devdyna.justdynathings.Main.ID;
 
+import org.jetbrains.annotations.Nullable;
+
 import com.devdyna.justdynathings.compat.jei.utils.BaseRecipeCategory;
 import com.devdyna.justdynathings.compat.jei.utils.FuelRecords;
 import com.devdyna.justdynathings.compat.jei.utils.Image;
+import com.devdyna.justdynathings.compat.jei.utils.FuelRecords.Fluids;
+import com.devdyna.justdynathings.utils.DataGenUtil;
 import com.devdyna.justdynathings.utils.Pos;
 import com.devdyna.justdynathings.utils.Size;
 import com.direwolf20.justdirethings.setup.Registration;
@@ -22,6 +26,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.ItemLike;
 
 @SuppressWarnings("null")
@@ -122,6 +127,11 @@ public class RefinedFuelRecipeCategory extends BaseRecipeCategory<FuelRecords.Fl
         if (Pos.of(100, 10).setSize(10, 10).test(mouseX, mouseY))
             tooltip.add(Component.translatable(ID + ".jei.bucket"));
 
+    }
+
+    @Override
+    public @Nullable ResourceLocation getRegistryName(Fluids recipe) {
+        return DataGenUtil.getResource(recipe.fuel().getFirst().getFluidType().getDescriptionId());
     }
 
 }

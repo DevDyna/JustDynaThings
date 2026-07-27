@@ -2,14 +2,19 @@ package com.devdyna.justdynathings.compat.jei.categories.reforger;
 
 import java.util.List;
 
+import javax.annotation.Nullable;
+
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.recipetypes.type.*;
 import com.devdyna.justdynathings.registry.types.zRecipeTypes;
+import com.devdyna.justdynathings.utils.DataGenUtil;
+
 import mezz.jei.api.gui.builder.IRecipeSlotBuilder;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.RecipeType;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.component.ItemLore;
@@ -18,8 +23,8 @@ import net.minecraft.world.item.crafting.RecipeHolder;
 
 public class OTM extends BaseReforgerCategory<ReforgerOTMRecipe> {
 
-    public static final RecipeType<RecipeHolder<ReforgerOTMRecipe>> TYPE = 
-    RecipeType.createFromVanilla(zRecipeTypes.REFORGER_OTM.getType());
+    public static final RecipeType<RecipeHolder<ReforgerOTMRecipe>> TYPE = RecipeType
+            .createFromVanilla(zRecipeTypes.REFORGER_OTM.getType());
 
     public OTM(IGuiHelper helper) {
         super(helper);
@@ -61,6 +66,12 @@ public class OTM extends BaseReforgerCategory<ReforgerOTMRecipe> {
     @Override
     public int setChance(ReforgerOTMRecipe recipe) {
         return recipe.getChanceToUse();
+    }
+
+    @Override
+    public @Nullable ResourceLocation getRegistryName(
+            RecipeHolder<ReforgerOTMRecipe> recipe) {
+        return DataGenUtil.getResource(recipe.value().getOutputState().getTag().location().getPath());
     }
 
 }

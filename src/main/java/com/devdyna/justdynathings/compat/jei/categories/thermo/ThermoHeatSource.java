@@ -2,10 +2,13 @@ package com.devdyna.justdynathings.compat.jei.categories.thermo;
 
 import static com.devdyna.justdynathings.Main.ID;
 
+import javax.annotation.Nullable;
+
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.compat.jei.datamaps.records.ThermoBlockHeatSource;
 import com.devdyna.justdynathings.compat.jei.utils.BaseLabelledCategory;
 import com.devdyna.justdynathings.compat.jei.utils.Image;
+import com.devdyna.justdynathings.utils.DataGenUtil;
 import com.devdyna.justdynathings.utils.Pos;
 
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
@@ -19,6 +22,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
@@ -120,5 +124,10 @@ public class ThermoHeatSource extends BaseLabelledCategory<ThermoBlockHeatSource
         @Override
         public ItemLike getIconItem() {
                 return Items.MAGMA_BLOCK;
+        }
+
+        @Override
+        public @Nullable ResourceLocation getRegistryName(ThermoBlockHeatSource recipe) {
+                return DataGenUtil.getResource(recipe.block().getDescriptionId());
         }
 }

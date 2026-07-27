@@ -2,10 +2,13 @@ package com.devdyna.justdynathings.compat.jei.categories.anvils;
 
 import static com.devdyna.justdynathings.Main.ID;
 
+import javax.annotation.Nullable;
+
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.compat.jei.datamaps.records.BlazeGoldFluidRepair;
 import com.devdyna.justdynathings.compat.jei.utils.BaseLabelledCategory;
 import com.devdyna.justdynathings.registry.types.zBlocks;
+import com.devdyna.justdynathings.utils.DataGenUtil;
 
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
@@ -15,6 +18,7 @@ import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.ItemLike;
 
 @SuppressWarnings("null")
@@ -42,7 +46,7 @@ public class BlazeGoldAnvil extends BaseLabelledCategory<BlazeGoldFluidRepair> {
         public void draw(BlazeGoldFluidRepair map, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics,
                         double mouseX,
                         double mouseY) {
-                                super.draw(map, recipeSlotsView, guiGraphics, mouseX, mouseY);
+                super.draw(map, recipeSlotsView, guiGraphics, mouseX, mouseY);
                 guiGraphics.drawString(Minecraft.getInstance().font,
                                 "Efficiency : " + map.efficiency(), 30, 8, 0x444444, false);
         }
@@ -55,5 +59,10 @@ public class BlazeGoldAnvil extends BaseLabelledCategory<BlazeGoldFluidRepair> {
         @Override
         public ItemLike getIconItem() {
                 return zBlocks.BLAZEGOLD_ANVIL.get();
+        }
+
+        @Override
+        public @Nullable ResourceLocation getRegistryName(BlazeGoldFluidRepair recipe) {
+                return DataGenUtil.getResource(recipe.fluid().getFluidType().getDescriptionId());
         }
 }

@@ -9,8 +9,12 @@ import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import static com.devdyna.justdynathings.Main.ID;
 
+import org.jetbrains.annotations.Nullable;
+
 import com.devdyna.justdynathings.compat.jei.utils.BaseRecipeCategory;
 import com.devdyna.justdynathings.compat.jei.utils.FuelRecords;
+import com.devdyna.justdynathings.compat.jei.utils.FuelRecords.Items;
+import com.devdyna.justdynathings.utils.DataGenUtil;
 import com.devdyna.justdynathings.utils.Pos;
 import com.devdyna.justdynathings.utils.Size;
 import com.direwolf20.justdirethings.common.blocks.resources.CoalBlock_T1;
@@ -23,6 +27,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.ItemLike;
 
@@ -116,6 +121,11 @@ public class FuelRecipeCategory extends BaseRecipeCategory<FuelRecords.Items> {
         if (Pos.of(21, 22).setSize(10, 10).test(mouseX, mouseY))
             tooltip.add(Component.translatable(ID + ".jei.total"));
 
+    }
+
+    @Override
+    public @Nullable ResourceLocation getRegistryName(Items recipe) {
+        return DataGenUtil.getResource(recipe.fuels().getFirst().getDescriptionId());
     }
 
 }

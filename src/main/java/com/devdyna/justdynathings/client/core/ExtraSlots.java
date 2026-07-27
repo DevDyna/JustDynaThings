@@ -33,4 +33,11 @@ public interface ExtraSlots {
                 .render(guiGraphics);
     }
 
+    default void addRecipeButton(GuiGraphics guiGraphics, int x, int y) {
+        Image.of().rl(Main.ID, "textures/gui/slots/recipe.png")
+                .size(16, 16).offset(getGuiLeft() + x, getGuiTop() + y)
+                .sizeTexture(16, 16)
+                .render(guiGraphics);
+    }
+
 }

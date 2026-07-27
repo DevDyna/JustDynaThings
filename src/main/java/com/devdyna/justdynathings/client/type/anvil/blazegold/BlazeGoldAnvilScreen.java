@@ -1,5 +1,6 @@
 package com.devdyna.justdynathings.client.type.anvil.blazegold;
 
+import com.devdyna.justdynathings.client.core.ExtraSlots;
 import com.direwolf20.justdirethings.client.screens.basescreens.BaseMachineScreen;
 import com.direwolf20.justdirethings.client.screens.standardbuttons.ToggleButtonFactory;
 import com.direwolf20.justdirethings.client.screens.widgets.ToggleButton;
@@ -10,7 +11,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
-public class BlazeGoldAnvilScreen extends BaseMachineScreen<BlazeGoldAnvilGUI> {
+public class BlazeGoldAnvilScreen extends BaseMachineScreen<BlazeGoldAnvilGUI> implements ExtraSlots{
     public BlazeGoldAnvilScreen(BlazeGoldAnvilGUI container, Inventory inv, Component name) {
         super(container, inv, name);
     }
@@ -47,5 +48,11 @@ public class BlazeGoldAnvilScreen extends BaseMachineScreen<BlazeGoldAnvilGUI> {
                 guiGraphics.blit(JUSTSLOT, getGuiLeft() + slot.x - 1, getGuiTop() + slot.y - 1, 18, 0, 18, 18);
             else
                 super.drawMachineSlot(guiGraphics, slot);
+    }
+
+    @Override
+    public void renderBackground(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
+        super.renderBackground(guiGraphics, mouseX, mouseY, partialTick);
+        addRecipeButton(guiGraphics, 158, -22);
     }
 }

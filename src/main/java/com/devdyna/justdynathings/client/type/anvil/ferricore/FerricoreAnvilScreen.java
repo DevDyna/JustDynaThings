@@ -54,4 +54,10 @@ public class FerricoreAnvilScreen extends BaseMachineScreen<FerricoreAnvilGUI> i
             super.drawMachineSlot(guiGraphics, slot);
 
     }
+
+    @Override
+    public void renderBackground(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
+        super.renderBackground(guiGraphics, mouseX, mouseY, partialTick);
+        addRecipeButton(guiGraphics, 158, -22);
+    }
 }

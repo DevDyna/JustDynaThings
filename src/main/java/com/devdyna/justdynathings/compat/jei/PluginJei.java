@@ -5,6 +5,9 @@ import static com.devdyna.justdynathings.Main.ID;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import com.devdyna.justdynathings.client.type.anvil.blazegold.BlazeGoldAnvilScreen;
+import com.devdyna.justdynathings.client.type.anvil.eclipsealloy.EclipseAlloyAnvilScreen;
+import com.devdyna.justdynathings.client.type.anvil.ferricore.FerricoreAnvilScreen;
 import com.devdyna.justdynathings.client.type.paradoxMixer.ParadoxMixerScreen;
 import com.devdyna.justdynathings.compat.jei.categories.*;
 import com.devdyna.justdynathings.compat.jei.categories.anvils.*;
@@ -145,7 +148,7 @@ public class PluginJei implements IModPlugin {
                 r.addRecipes(MTO.TYPE, recipes.getAllRecipesFor(zRecipeTypes.REFORGER_MTO.getType()));
 
                 r.addRecipes(ParadoxMixerCategory.TYPE, recipes.getAllRecipesFor(zRecipeTypes.PARADOX_MIXER.getType()));
-               
+
                 if (!(ModList.get().isLoaded("justtieredgens") && CommonConfig.DISABLE_FUEL_JEI.get())) {
                         Map<Integer, List<ItemStack>> fuels = new HashMap<>();
 
@@ -168,12 +171,11 @@ public class PluginJei implements IModPlugin {
                         }
 
                         // Add remaining fuels
-                        if (CommonConfig.ENABLE_ALL_JEI_FUELS.get()) 
+                        if (CommonConfig.ENABLE_ALL_JEI_FUELS.get())
                                 fuels.entrySet().stream()
                                                 .sorted(Map.Entry.<Integer, List<ItemStack>>comparingByKey().reversed())
                                                 .forEach(entry -> r.addRecipes(FuelRecipeCategory.TYPE,
                                                                 List.of(new FuelRecords.Items(entry.getValue()))));
-                        
 
                         FuelUtils.getAllRefinedFuels().stream()
                                         .collect(Collectors.groupingBy(f -> ((RefinedFuel) f.getFluid()).fePerMb()))
@@ -187,8 +189,19 @@ public class PluginJei implements IModPlugin {
 
         @Override
         public void registerGuiHandlers(IGuiHandlerRegistration r) {
-                r.addRecipeClickArea(ParadoxMixerScreen.class, 28, -8, 48, 48,
+
+                r.addRecipeClickArea(ParadoxMixerScreen.class, 158, -22, 16, 16,
                                 ParadoxMixerCategory.TYPE);
+
+                r.addRecipeClickArea(FerricoreAnvilScreen.class, 158, -22, 16, 16,
+                                FerricoreAnvil.TYPE);
+
+                r.addRecipeClickArea(BlazeGoldAnvilScreen.class, 158, -22, 16, 16,
+                                BlazeGoldAnvil.TYPE);
+
+                r.addRecipeClickArea(EclipseAlloyAnvilScreen.class, 158, -22, 16, 16,
+                                EclipseAlloyAnvil.TYPE);
+
         }
 
 }

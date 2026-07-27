@@ -53,18 +53,24 @@ public class ParadoxMixerScreen extends BaseMachineScreen<ParadoxMixerGUI> imple
 
         if (baseMachineBE instanceof ParadoxMixerBE paradox)
             if (!paradox.getBlockState().getValue(zProperties.GOO_ALIVE))
-                addWarningPopUp(guiGraphics, getGuiLeft()+110, getGuiTop());
+                addWarningPopUp(guiGraphics, getGuiLeft() + 110, getGuiTop());
 
     }
 
     @Override
     protected void renderTooltip(GuiGraphics guiGraphics, int x, int y) {
         super.renderTooltip(guiGraphics, x, y);
-        if (Pos.of(getGuiLeft()+110, getGuiTop()).setSize(10, 10).test(x, y))
+        if (Pos.of(getGuiLeft() + 110, getGuiTop()).setSize(10, 10).test(x, y))
             guiGraphics.renderTooltip(font,
                     Component.translatable(
                             ID + "." + Constants.Blocks.ParadoxMixer + ".unstable"),
                     x, y);
+    }
+
+    @Override
+    public void renderBackground(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
+        super.renderBackground(guiGraphics, mouseX, mouseY, partialTick);
+        addRecipeButton(guiGraphics, 158, -22);
     }
 
 }

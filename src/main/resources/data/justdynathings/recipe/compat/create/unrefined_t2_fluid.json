@@ -1,0 +1,25 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "justdirethings:coal_t2"
+    },
+    {
+      "type": "neoforge:single",
+      "amount": 1000,
+      "fluid": "justdirethings:polymorphic_fluid_source"
+    }
+  ],
+  "results": [
+    {
+      "amount": 1000,
+      "id": "justdirethings:unrefined_t2_fluid_source"
+    }
+  ]
+}

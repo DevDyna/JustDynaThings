@@ -37,6 +37,10 @@ public class DataGenUtil {
         return BuiltInRegistries.BLOCK.get(ResourceLocation.fromNamespaceAndPath(modid, id));
     }
 
+    public static Block getBlock(ResourceLocation id) {
+        return BuiltInRegistries.BLOCK.get(id);
+    }
+
     public static String getPath(Block b) {
         return BuiltInRegistries.BLOCK.getKey(b).getPath();
     }

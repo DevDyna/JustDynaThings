@@ -41,14 +41,14 @@ neoForge {
     runs {
         client {
             client()
-
+            gameDirectory = project.file('run/client')
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
             systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
         }
 
         server {
             server()
-            programArgument '--nogui'
+            gameDirectory = project.file('run/server')
             systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
         }
 

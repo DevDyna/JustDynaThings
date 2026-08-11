@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "justdynathings:reforger/block_to_tag/ores_in_ground/stone_from_stone_with_celestigem"
+        "recipe": "justdynathings:reforger/storage_blocks_unified_coals_to_storage_blocks_unified_coals_with_coal_t1"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": "justdirethings:celestigem"
+            "items": "justdirethings:coal_t1"
           }
         ]
       },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "justdynathings:reforger/block_to_tag/ores_in_ground/stone_from_stone_with_celestigem"
+      "justdynathings:reforger/storage_blocks_unified_coals_to_storage_blocks_unified_coals_with_coal_t1"
     ]
   }
 }

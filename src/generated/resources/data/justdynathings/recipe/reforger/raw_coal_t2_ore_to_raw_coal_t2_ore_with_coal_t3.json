@@ -1,0 +1,9 @@
+{
+  "type": "justdynathings:reforger",
+  "catalyst": {
+    "item": "justdirethings:coal_t3"
+  },
+  "chanceToUse": 50,
+  "input": "justdirethings:raw_coal_t2_ore",
+  "output": "justdirethings:raw_coal_t3_ore"
+}

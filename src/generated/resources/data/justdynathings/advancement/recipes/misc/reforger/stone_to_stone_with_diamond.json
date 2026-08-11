@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "justdynathings:reforger/tag_to_block/raw_coal_t1_ore_from_storage_blocks/unified_coals_with_coal_t1"
+        "recipe": "justdynathings:reforger/stone_to_stone_with_diamond"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": "justdirethings:coal_t1"
+            "items": "minecraft:diamond"
           }
         ]
       },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "justdynathings:reforger/tag_to_block/raw_coal_t1_ore_from_storage_blocks/unified_coals_with_coal_t1"
+      "justdynathings:reforger/stone_to_stone_with_diamond"
     ]
   }
 }

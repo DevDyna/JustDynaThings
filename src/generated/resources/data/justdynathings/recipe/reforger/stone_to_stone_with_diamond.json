@@ -1,0 +1,9 @@
+{
+  "type": "justdynathings:reforger",
+  "catalyst": {
+    "item": "minecraft:diamond"
+  },
+  "chanceToUse": 95,
+  "input": "minecraft:stone",
+  "output": "#c:ores_in_ground/stone"
+}

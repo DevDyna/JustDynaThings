@@ -1,0 +1,9 @@
+{
+  "type": "justdynathings:reforger",
+  "catalyst": {
+    "item": "justdirethings:coal_t1"
+  },
+  "chanceToUse": 50,
+  "input": "#justdynathings:storage_blocks/unified_coals",
+  "output": "justdirethings:raw_coal_t1_ore"
+}

@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "justdynathings:reforger/block_to_block/raw_coal_t3_ore_from_raw_coal_t2_ore_with_coal_t3"
+        "recipe": "justdynathings:reforger/stone_to_stone_with_celestigem"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": "justdirethings:coal_t3"
+            "items": "justdirethings:celestigem"
           }
         ]
       },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "justdynathings:reforger/block_to_block/raw_coal_t3_ore_from_raw_coal_t2_ore_with_coal_t3"
+      "justdynathings:reforger/stone_to_stone_with_celestigem"
     ]
   }
 }

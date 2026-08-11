@@ -110,7 +110,7 @@ public class Constants {
 
     }
 
-    @Deprecated
+    // @Deprecated
     public class DataMaps {
         public class Anvils {
             public static String anvil = "anvils/";

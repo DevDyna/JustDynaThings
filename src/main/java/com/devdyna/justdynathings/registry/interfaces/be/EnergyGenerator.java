@@ -4,14 +4,19 @@ public interface EnergyGenerator extends EnergyMachine {
 
     /**
      * FE++
-     * when not full
+     * when not full.
+     *
+     * @return the actual amount of FE inserted
      */
-    default void increaseFEWhenPossible(int value) {
+    default int increaseFEWhenPossible(int value) {
+        if (!canRecieveFE() || value <= 0)
+            return 0;
 
-        if (canRecieveFE())
-            setEnergyStored(Math.min(getEnergyStored() + value, getMaxEnergy()));
-        // insertEnergy dont work with generators
+        var energyAccepted = Math.min(value, getMaxEnergy() - getEnergyStored());
 
+        setEnergyStored(getEnergyStored() + energyAccepted);
+
+        return energyAccepted;
     }
 
     /**

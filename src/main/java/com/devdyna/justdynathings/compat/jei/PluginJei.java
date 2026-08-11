@@ -17,7 +17,7 @@ import com.devdyna.justdynathings.compat.jei.categories.thermo.ThermoHeatSource;
 import com.devdyna.justdynathings.compat.jei.datamaps.records;
 import com.devdyna.justdynathings.compat.jei.utils.FuelRecords;
 import com.devdyna.justdynathings.compat.jei.utils.FuelUtils;
-import com.devdyna.justdynathings.config.CommonConfig;
+import com.devdyna.justdynathings.config.ServerConfig;
 import com.devdyna.justdynathings.datagen.server.DataRecipe;
 import com.devdyna.justdynathings.registry.types.zBlocks;
 import com.devdyna.justdynathings.registry.types.zRecipeTypes;
@@ -149,7 +149,7 @@ public class PluginJei implements IModPlugin {
 
                 r.addRecipes(ParadoxMixerCategory.TYPE, recipes.getAllRecipesFor(zRecipeTypes.PARADOX_MIXER.getType()));
 
-                if (!(ModList.get().isLoaded("justtieredgens") && CommonConfig.DISABLE_FUEL_JEI.get())) {
+                if (!(ModList.get().isLoaded("justtieredgens") && ServerConfig.DISABLE_FUEL_JEI.get())) {
                         Map<Integer, List<ItemStack>> fuels = new HashMap<>();
 
                         // Process fuels
@@ -171,7 +171,7 @@ public class PluginJei implements IModPlugin {
                         }
 
                         // Add remaining fuels
-                        if (CommonConfig.ENABLE_ALL_JEI_FUELS.get())
+                        if (ServerConfig.ENABLE_ALL_JEI_FUELS.get())
                                 fuels.entrySet().stream()
                                                 .sorted(Map.Entry.<Integer, List<ItemStack>>comparingByKey().reversed())
                                                 .forEach(entry -> r.addRecipes(FuelRecipeCategory.TYPE,

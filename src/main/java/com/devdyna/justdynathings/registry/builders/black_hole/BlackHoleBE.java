@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.black_hole;
 
-import com.devdyna.justdynathings.config.CommonConfig;
+import com.devdyna.justdynathings.config.ServerConfig;
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyMachine;
 import com.devdyna.justdynathings.registry.interfaces.be.FluidMachine;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
@@ -38,7 +38,7 @@ public class BlackHoleBE extends BaseMachineBE implements EnergyMachine, FluidMa
     @Override
     public void tickServer() {
         super.tickServer();
-        if (CommonConfig.BLACKHOLE_KEEP_STORAGE.get() ? isActiveRedstone() : true) {
+        if (ServerConfig.BLACKHOLE_KEEP_STORAGE.get() ? isActiveRedstone() : true) {
             ItemStack item = getMachineHandler().getStackInSlot(0);
             if (!item.isEmpty())
                 item.shrink(item.getCount());
@@ -81,22 +81,22 @@ public class BlackHoleBE extends BaseMachineBE implements EnergyMachine, FluidMa
 
     @Override
     public int getStandardFluidCost() {
-        return CommonConfig.BLACKHOLE_MB_COST.get();
+        return ServerConfig.BLACKHOLE_MB_COST.get();
     }
 
     @Override
     public int getMaxMB() {
-        return CommonConfig.BLACKHOLE_MB_CAPACITY.get();
+        return ServerConfig.BLACKHOLE_MB_CAPACITY.get();
     }
 
     @Override
     public int getStandardEnergyCost() {
-        return CommonConfig.BLACKHOLE_FE_COST.get();
+        return ServerConfig.BLACKHOLE_FE_COST.get();
     }
 
     @Override
     public int getMaxEnergy() {
-        return CommonConfig.BLACKHOLE_FE_CAPACITY.get();
+        return ServerConfig.BLACKHOLE_FE_CAPACITY.get();
     }
 
 }

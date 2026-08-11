@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.ticker;
 
-import com.devdyna.justdynathings.config.CommonConfig;
+import com.devdyna.justdynathings.config.ServerConfig;
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyMachine;
 import com.devdyna.justdynathings.registry.interfaces.be.FluidMachine;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
@@ -64,7 +64,7 @@ public class TickerBE extends BaseMachineBE implements EnergyMachine, FluidMachi
                 if (level instanceof ServerLevel serverLevel &&
                         MiscTools.isValidTickAccelBlock(serverLevel, level.getBlockState(pos),
                                 level.getBlockEntity(pos)))
-                    MiscTools.doExtraTicks(serverLevel, pos, Math.min(getTickSpeed(), CommonConfig.TICKER_TICK_RATE.get()));
+                    MiscTools.doExtraTicks(serverLevel, pos, Math.min(getTickSpeed(), ServerConfig.TICKER_TICK_RATE.get()));
 
             }
         
@@ -99,12 +99,12 @@ public class TickerBE extends BaseMachineBE implements EnergyMachine, FluidMachi
 
     @Override
     public int getStandardEnergyCost() {
-        return CommonConfig.TICKER_FE_RATE.get();
+        return ServerConfig.TICKER_FE_RATE.get();
     }
 
     @Override
     public int getMaxEnergy() {
-        return CommonConfig.TICKER_FE_CAPACITY.get();
+        return ServerConfig.TICKER_FE_CAPACITY.get();
     }
 
     @Override
@@ -119,12 +119,12 @@ public class TickerBE extends BaseMachineBE implements EnergyMachine, FluidMachi
 
     @Override
     public int getStandardFluidCost() {
-        return CommonConfig.TICKER_MB_RATE.get();
+        return ServerConfig.TICKER_MB_RATE.get();
     }
 
     @Override
     public int getMaxMB() {
-        return CommonConfig.TICKER_MB_CAPACITY.get();
+        return ServerConfig.TICKER_MB_CAPACITY.get();
     }
 
     @Override

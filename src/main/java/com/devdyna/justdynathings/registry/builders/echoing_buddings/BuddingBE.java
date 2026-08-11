@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.echoing_buddings;
 
-import com.devdyna.justdynathings.config.CommonConfig;
+import com.devdyna.justdynathings.config.ServerConfig;
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyMachine;
 import com.devdyna.justdynathings.registry.interfaces.be.FluidMachine;
 import com.devdyna.justdynathings.registry.types.zProperties;
@@ -53,13 +53,13 @@ public class BuddingBE extends BaseMachineBE implements EnergyMachine, FluidMach
 
                 // applyParticles();
 
-                if (CommonConfig.BUDDING_GENERAL_SOUND.get())
+                if (ServerConfig.BUDDING_GENERAL_SOUND.get())
                     applySound(dir);
 
-                if (CommonConfig.BUDDING_GENERAL_FE_CHANCE.get() ? LevelUtil.rnd50(level) : true)
+                if (ServerConfig.BUDDING_GENERAL_FE_CHANCE.get() ? LevelUtil.rnd50(level) : true)
                     extractFEWhenPossible();
 
-                if (CommonConfig.BUDDING_GENERAL_MB_CHANCE.get() ? LevelUtil.rnd50(level) : true)
+                if (ServerConfig.BUDDING_GENERAL_MB_CHANCE.get() ? LevelUtil.rnd50(level) : true)
                     extractMBWhenPossible();
 
             }
@@ -141,22 +141,22 @@ public class BuddingBE extends BaseMachineBE implements EnergyMachine, FluidMach
 
     @Override
     public int getMaxMB() {
-        return CommonConfig.BUDDING_GENERAL_MB_CAPACITY.get();
+        return ServerConfig.BUDDING_GENERAL_MB_CAPACITY.get();
     }
 
     @Override
     public int getStandardFluidCost() {
-        return CommonConfig.BUDDING_GENERAL_MB_COST.get();
+        return ServerConfig.BUDDING_GENERAL_MB_COST.get();
     }
 
     @Override
     public int getStandardEnergyCost() {
-        return CommonConfig.BUDDING_GENERAL_FE_COST.get();
+        return ServerConfig.BUDDING_GENERAL_FE_COST.get();
     }
 
     @Override
     public int getMaxEnergy() {
-        return CommonConfig.BUDDING_GENERAL_FE_CAPACITY.get();
+        return ServerConfig.BUDDING_GENERAL_FE_CAPACITY.get();
     }
 
     public boolean requireFE() {

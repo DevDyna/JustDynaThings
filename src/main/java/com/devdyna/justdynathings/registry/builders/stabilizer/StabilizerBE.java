@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.stabilizer;
 
-import com.devdyna.justdynathings.config.CommonConfig;
+import com.devdyna.justdynathings.config.ServerConfig;
 import com.devdyna.justdynathings.registry.builders.paradox_mixer.ParadoxMixerBlock;
 import com.devdyna.justdynathings.registry.interfaces.be.EnergyMachine;
 import com.devdyna.justdynathings.registry.interfaces.be.FluidMachine;
@@ -65,7 +65,7 @@ public class StabilizerBE extends BaseMachineBE implements EnergyMachine, FluidM
                 extractFEWhenPossible();
 
                 if (LevelUtil.chance(5, level)) {
-                    if (CommonConfig.STABILIZER_TOGGLE_SOUND.get())
+                    if (ServerConfig.STABILIZER_TOGGLE_SOUND.get())
                         applySound();
                     setAlive();
 
@@ -123,12 +123,12 @@ public class StabilizerBE extends BaseMachineBE implements EnergyMachine, FluidM
 
     @Override
     public int getStandardEnergyCost() {
-        return CommonConfig.STABILIZER_FE_COST.get();
+        return ServerConfig.STABILIZER_FE_COST.get();
     }
 
     @Override
     public int getMaxEnergy() {
-        return CommonConfig.STABILIZER_FE_CAPACITY.get();
+        return ServerConfig.STABILIZER_FE_CAPACITY.get();
     }
 
     @Override
@@ -143,20 +143,19 @@ public class StabilizerBE extends BaseMachineBE implements EnergyMachine, FluidM
 
     @Override
     public int getStandardFluidCost() {
-        return CommonConfig.STABILIZER_MB_COST.get();
+        return ServerConfig.STABILIZER_MB_COST.get();
     }
 
     @Override
     public int getMaxMB() {
-        return CommonConfig.STABILIZER_MB_CAPACITY.get();
+        return ServerConfig.STABILIZER_MB_CAPACITY.get();
     }
 
-
-    public boolean canReviveGoo(){
+    public boolean canReviveGoo() {
         return canExtractFE();
     }
 
-    public boolean isEnergized(){
+    public boolean isEnergized() {
         return canExtractMB() && canReviveGoo();
     }
 

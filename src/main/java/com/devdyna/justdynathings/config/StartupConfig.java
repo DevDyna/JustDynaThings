@@ -6,7 +6,7 @@ import net.neoforged.neoforge.common.ModConfigSpec;
 import net.neoforged.neoforge.common.ModConfigSpec.*;
 
 public class StartupConfig {
-        private static final ModConfigSpec.Builder qSTARTUP = new ModConfigSpec.Builder();
+        private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
 
         public static BooleanValue APPLIEDENERGISTICS2;
         public static BooleanValue EXTENDEDAE;
@@ -16,7 +16,7 @@ public class StartupConfig {
 
         public static void register(ModContainer c) {
                 regStartup();
-                c.registerConfig(ModConfig.Type.STARTUP, qSTARTUP.build());
+                c.registerConfig(ModConfig.Type.STARTUP, BUILDER.build());
         }
 
         private static void regStartup() {
@@ -24,34 +24,34 @@ public class StartupConfig {
         }
 
         private static void compat() {
-                qSTARTUP.comment("Compatibility Features").push("1-compat");
-                qSTARTUP.comment(
+                BUILDER.comment("Compatibility Features").push("1-compat");
+                BUILDER.comment(
                                 "This section is dedicated to override the ModIsLoaded-compat" +
                                                 "\nIt can be useful when you dont want some extra features or they cause some issues"+
                                                 "\nIt doesn't disable/remove all data-stuff so you need to change that!"+
                                                 "\nAll placed compat blocks will be removed and all items will be overriden with useless items!\n");
 
-                APPLIEDENERGISTICS2 = qSTARTUP
+                APPLIEDENERGISTICS2 = BUILDER
                                 .comment("Disable AppliedEnergistics2 Compat")
                                 .define("disable_ae2", false);
 
-                EXTENDEDAE = qSTARTUP
+                EXTENDEDAE = BUILDER
                                 .comment("Disable ExtendedAE Compat")
                                 .define("disable_extendedae", false);
 
-                PHASORITENETWORKS = qSTARTUP
+                PHASORITENETWORKS = BUILDER
                                 .comment("Disable PhasoriteNetworks Compat")
                                 .define("disable_phasoritenetworks", false);
 
-                GEORE = qSTARTUP
+                GEORE = BUILDER
                                 .comment("Disable GeOre Compat")
                                 .define("disable_geore", false);
 
-                CHISEL = qSTARTUP
+                CHISEL = BUILDER
                                 .comment("Disable Chisel Modern Compat")
                                 .define("disable_chisel_modern", false);
 
-                qSTARTUP.pop();
+                BUILDER.pop();
         }
 
 }

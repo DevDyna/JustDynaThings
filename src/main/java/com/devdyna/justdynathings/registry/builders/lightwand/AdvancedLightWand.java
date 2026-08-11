@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.lightwand;
 
-import com.devdyna.justdynathings.config.CommonConfig;
+import com.devdyna.justdynathings.config.ServerConfig;
 import com.direwolf20.justdirethings.common.items.interfaces.BasePoweredItem;
 import com.direwolf20.justdirethings.common.items.interfaces.PoweredItem;
 
@@ -22,11 +22,11 @@ public class AdvancedLightWand extends BasePoweredItem implements PoweredItem, I
 
     @Override
     public int getMaxEnergy() {
-        return CommonConfig.ADVANCED_LIGHT_WAND_FE_CAPACITY.get();
+        return ServerConfig.ADVANCED_LIGHT_WAND_FE_CAPACITY.get();
     }
 
     public static int getFECostAtUse() {
-        return CommonConfig.ADVANCED_LIGHT_WAND_FE_COST.get();
+        return ServerConfig.ADVANCED_LIGHT_WAND_FE_COST.get();
     }
 
     @Override
@@ -41,7 +41,7 @@ public class AdvancedLightWand extends BasePoweredItem implements PoweredItem, I
 
     @Override
     public int glowingDuration() {
-        return CommonConfig.ADVANCED_LIGHT_WAND_GLOWING_DURATION.get();
+        return ServerConfig.ADVANCED_LIGHT_WAND_GLOWING_DURATION.get();
     }
 
     @Override

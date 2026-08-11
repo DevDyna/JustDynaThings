@@ -9,8 +9,8 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.neoforge.common.ModConfigSpec;
 import net.neoforged.neoforge.common.ModConfigSpec.*;
 
-public class CommonConfig {
-        private static final ModConfigSpec.Builder qCOMMON = new ModConfigSpec.Builder();
+public class ServerConfig {
+        private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
 
         public static BooleanValue DOC_WARNING;
         public static BooleanValue ENABLE_ALL_JEI_FUELS;
@@ -170,7 +170,7 @@ public class CommonConfig {
 
         public static void register(ModContainer c) {
                 regCommon();
-                c.registerConfig(ModConfig.Type.COMMON, qCOMMON.build());
+                c.registerConfig(ModConfig.Type.SERVER, BUILDER.build());
         }
 
         private static void regCommon() {
@@ -187,512 +187,512 @@ public class CommonConfig {
         }
 
         private static void general() {
-                qCOMMON.comment("General").push("1-general");
+                BUILDER.comment("General").push("1-general");
                 superduperConfig();
 
-                DOC_WARNING = qCOMMON
+                DOC_WARNING = BUILDER
                                 .comment("Disable Documentation warning")
                                 .define("disable_doc_warning", false);
 
-                ENABLE_ALL_JEI_FUELS = qCOMMON
+                ENABLE_ALL_JEI_FUELS = BUILDER
                                 .comment("Include any fuel item to Generator JEI category")
                                 .define("include_any_jei_fuels", true);
 
-                DISABLE_FUEL_JEI = qCOMMON
+                DISABLE_FUEL_JEI = BUILDER
                                 .comment("Disable Fuel JEI categories when Just Tiered Generators is installed")
                                 .define("disable_jei_fuels", true);
 
-                qCOMMON.pop();
+                BUILDER.pop();
         }
 
         private static void blocks() {
-                qCOMMON.comment("Blocks").push("2-blocks");
-                qCOMMON.comment(DataGenUtil.txtDecor(Blocks.PhaseBox));
+                BUILDER.comment("Blocks").push("2-blocks");
+                BUILDER.comment(DataGenUtil.txtDecor(Blocks.PhaseBox));
 
-                PHASE_BOX_WRENCHABLE = qCOMMON
+                PHASE_BOX_WRENCHABLE = BUILDER
                                 .comment("Require any wrench to change Phase Box state intend of nothing")
                                 .define(Blocks.PhaseBox + Config.Keys.WRENCH, false);
 
-                qCOMMON.comment(DataGenUtil.txtDecor(Blocks.FerricoreClock));
+                BUILDER.comment(DataGenUtil.txtDecor(Blocks.FerricoreClock));
 
-                FERRICORE_CLOCK_WRENCHABLE = qCOMMON
+                FERRICORE_CLOCK_WRENCHABLE = BUILDER
                                 .comment("Require any wrench to change Ferricore Clock face state intend of nothing")
                                 .define(Blocks.FerricoreClock + Config.Keys.WRENCH, false);
 
-                qCOMMON.comment(DataGenUtil.txtDecor(Blocks.Stabilizer));
+                BUILDER.comment(DataGenUtil.txtDecor(Blocks.Stabilizer));
 
-                STABILIZER_FE_CAPACITY = qCOMMON
+                STABILIZER_FE_CAPACITY = BUILDER
                                 .comment(Config.Display.FE_MAX)
                                 .defineInRange(Blocks.Stabilizer + Config.Keys.FE_MAX, 10000, 1, Integer.MAX_VALUE);
-                STABILIZER_FE_COST = qCOMMON
+                STABILIZER_FE_COST = BUILDER
                                 .comment(Config.Display.FE_RATE)
                                 .defineInRange(Blocks.Stabilizer + Config.Keys.FE_RATE, 1000, 1, Integer.MAX_VALUE);
 
-                STABILIZER_MB_CAPACITY = qCOMMON
+                STABILIZER_MB_CAPACITY = BUILDER
                                 .comment(Config.Display.MB_MAX)
                                 .defineInRange(Blocks.Stabilizer + Config.Keys.MB_MAX, 1000, 1, Integer.MAX_VALUE);
-                STABILIZER_MB_COST = qCOMMON
+                STABILIZER_MB_COST = BUILDER
                                 .comment(Config.Display.MB_RATE)
                                 .defineInRange(Blocks.Stabilizer + Config.Keys.MB_RATE, 100, 1, Integer.MAX_VALUE);
 
-                STABILIZER_TOGGLE_SOUND = qCOMMON
+                STABILIZER_TOGGLE_SOUND = BUILDER
                                 .comment("Enable/Disable sound when revitalized a goo")
                                 .define(Blocks.Stabilizer + Config.Keys.SOUND, true);
 
-                qCOMMON.comment(DataGenUtil.txtDecor(Blocks.ThermoGen));
+                BUILDER.comment(DataGenUtil.txtDecor(Blocks.ThermoGen));
 
-                THERMOGEN_FE_CAPACITY = qCOMMON
+                THERMOGEN_FE_CAPACITY = BUILDER
                                 .comment(Config.Display.FE_MAX)
                                 .defineInRange(Blocks.ThermoGen + Config.Keys.FE_MAX, 1000000, 1, Integer.MAX_VALUE);
-                THERMOGEN_MB_CAPACITY = qCOMMON
+                THERMOGEN_MB_CAPACITY = BUILDER
                                 .comment("Total Coolant Capacity")
                                 .defineInRange(Blocks.ThermoGen + Config.Keys.FE_RATE, 100000, 1, Integer.MAX_VALUE);
 
-                qCOMMON.comment(DataGenUtil.txtDecor(Blocks.BlackHole));
+                BUILDER.comment(DataGenUtil.txtDecor(Blocks.BlackHole));
 
-                BLACKHOLE_KEEP_STORAGE = qCOMMON.comment("Keep stored stuff when redstone disable it")
+                BLACKHOLE_KEEP_STORAGE = BUILDER.comment("Keep stored stuff when redstone disable it")
                                 .define(Blocks.BlackHole + "_keep_content", true);
-                BLACKHOLE_FE_CAPACITY = qCOMMON
+                BLACKHOLE_FE_CAPACITY = BUILDER
                                 .comment(Config.Display.FE_MAX)
                                 .defineInRange(Blocks.BlackHole + Config.Keys.FE_MAX, Integer.MAX_VALUE, 1,
                                                 Integer.MAX_VALUE);
-                BLACKHOLE_FE_COST = qCOMMON
+                BLACKHOLE_FE_COST = BUILDER
                                 .comment(Config.Display.FE_RATE)
                                 .defineInRange(Blocks.BlackHole + Config.Keys.FE_RATE, Integer.MAX_VALUE, 1,
                                                 Integer.MAX_VALUE);
-                BLACKHOLE_MB_CAPACITY = qCOMMON
+                BLACKHOLE_MB_CAPACITY = BUILDER
                                 .comment(Config.Display.MB_MAX)
                                 .defineInRange(Blocks.BlackHole + Config.Keys.MB_MAX, Integer.MAX_VALUE, 1,
                                                 Integer.MAX_VALUE);
-                BLACKHOLE_MB_COST = qCOMMON
+                BLACKHOLE_MB_COST = BUILDER
                                 .comment(Config.Display.MB_RATE)
                                 .defineInRange(Blocks.BlackHole + Config.Keys.MB_RATE, Integer.MAX_VALUE, 1,
                                                 Integer.MAX_VALUE);
 
-                qCOMMON.pop();
+                BUILDER.pop();
         }
 
         private static void budding() {
-                qCOMMON.comment(DataGenUtil.txtDecor(Constants.BuddingType)).push("3-" + Constants.BuddingType);
-                qCOMMON.comment("general_" + Constants.BuddingType);
+                BUILDER.comment(DataGenUtil.txtDecor(Constants.BuddingType)).push("3-" + Constants.BuddingType);
+                BUILDER.comment("general_" + Constants.BuddingType);
 
-                BUDDING_GENERAL_MB_CAPACITY = qCOMMON
+                BUDDING_GENERAL_MB_CAPACITY = BUILDER
                                 .comment(Config.Display.MB_MAX)
                                 .defineInRange(Constants.BuddingType + Config.Keys.MB_MAX, 10000, 1, Integer.MAX_VALUE);
-                BUDDING_GENERAL_MB_COST = qCOMMON
+                BUDDING_GENERAL_MB_COST = BUILDER
                                 .comment(Config.Display.MB_RATE)
                                 .defineInRange(Constants.BuddingType + Config.Keys.MB_RATE, 100, 1, Integer.MAX_VALUE);
-                BUDDING_GENERAL_FE_CAPACITY = qCOMMON
+                BUDDING_GENERAL_FE_CAPACITY = BUILDER
                                 .comment(Config.Display.FE_MAX)
                                 .defineInRange(Constants.BuddingType + Config.Keys.FE_MAX, 10000, 1, Integer.MAX_VALUE);
-                BUDDING_GENERAL_FE_COST = qCOMMON
+                BUDDING_GENERAL_FE_COST = BUILDER
                                 .comment(Config.Display.FE_RATE)
                                 .defineInRange(Constants.BuddingType + Config.Keys.FE_RATE, 100, 1, Integer.MAX_VALUE);
 
-                BUDDING_GENERAL_FE_CHANCE = qCOMMON.comment("Chance to apply FE cost when a cluster will grow")
+                BUDDING_GENERAL_FE_CHANCE = BUILDER.comment("Chance to apply FE cost when a cluster will grow")
                                 .define(Constants.BuddingType + "_random_energy_cost", true);
-                BUDDING_GENERAL_MB_CHANCE = qCOMMON.comment("Chance to apply MB cost when a cluster will grow")
+                BUDDING_GENERAL_MB_CHANCE = BUILDER.comment("Chance to apply MB cost when a cluster will grow")
                                 .define(Constants.BuddingType + "_random_fluid_cost", true);
 
-                BUDDING_GENERAL_SOUND = qCOMMON.comment("Enable/Disable sound of buddings when grow")
+                BUDDING_GENERAL_SOUND = BUILDER.comment("Enable/Disable sound of buddings when grow")
                                 .define(Constants.BuddingType + Config.Keys.SOUND, true);
-                qCOMMON.pop();
+                BUILDER.pop();
         }
 
         private static void goo() {
-                qCOMMON.comment(DataGenUtil.txtDecor(Constants.GooType)).push("4-" + Constants.GooType);
-                qCOMMON.comment(DataGenUtil.txtDecor(Goo.Creative));
+                BUILDER.comment(DataGenUtil.txtDecor(Constants.GooType)).push("4-" + Constants.GooType);
+                BUILDER.comment(DataGenUtil.txtDecor(Goo.Creative));
 
-                GOO_CREATIVE_SOUND_TOGGLE_STATE = qCOMMON.comment("Enable/Disable sound on goo state change")
+                GOO_CREATIVE_SOUND_TOGGLE_STATE = BUILDER.comment("Enable/Disable sound on goo state change")
                                 .define(Goo.Creative + "_sound_on_change_state", true);
-                GOO_CREATIVE_TIER = qCOMMON
+                GOO_CREATIVE_TIER = BUILDER
                                 .comment("Tier of goo")
                                 .defineInRange(Goo.Creative + Config.Keys.TIER, Integer.MAX_VALUE, 1,
                                                 Integer.MAX_VALUE);
-                GOO_CREATIVE_COUNTER_REDUCER = qCOMMON
+                GOO_CREATIVE_COUNTER_REDUCER = BUILDER
                                 .comment("Counter Reducer of goo")
                                 .defineInRange(Goo.Creative + Config.Keys.REDUCER, Integer.MAX_VALUE, 1,
                                                 Integer.MAX_VALUE);
-                GOO_CREATIVE_SOUND_RECIPE = qCOMMON.comment("Enable/Disable sound on goo recipe execution")
+                GOO_CREATIVE_SOUND_RECIPE = BUILDER.comment("Enable/Disable sound on goo recipe execution")
                                 .define(Goo.Creative + "_sound_on_execution_recipe", true);
 
-                qCOMMON.comment("Generic FE Goo powered");
+                BUILDER.comment("Generic FE Goo powered");
 
-                GOO_FEGOO_FE_CAPACITY = qCOMMON
+                GOO_FEGOO_FE_CAPACITY = BUILDER
                                 .comment(Config.Display.FE_MAX)
                                 .defineInRange(Config.Keys.G_FEGOO + Config.Keys.FE_MAX, 10000, 1, Integer.MAX_VALUE);
-                GOO_FEGOO_FE_RATE = qCOMMON
+                GOO_FEGOO_FE_RATE = BUILDER
                                 .comment(Config.Display.FE_RATE)
                                 .defineInRange(Config.Keys.G_FEGOO + Config.Keys.FE_RATE, 100, 1, Integer.MAX_VALUE);
-                GOO_FEGOO_FE_CAPACITY_MULTIPLY = qCOMMON.comment("Enable/Disable tier change capacity")
+                GOO_FEGOO_FE_CAPACITY_MULTIPLY = BUILDER.comment("Enable/Disable tier change capacity")
                                 .define(Config.Keys.G_FEGOO + "_tier_multiply_energy_capacity", true);
-                GOO_FEGOO_FE_RATE_MULTIPLY = qCOMMON.comment("Enable/Disable tier change fe cost")
+                GOO_FEGOO_FE_RATE_MULTIPLY = BUILDER.comment("Enable/Disable tier change fe cost")
                                 .define(Config.Keys.G_FEGOO + "_tier_multiply_energy_cost", true);
-                GOO_FEGOO_SOUND_RECIPE = qCOMMON.comment("Enable/Disable sound on goo recipe execution")
+                GOO_FEGOO_SOUND_RECIPE = BUILDER.comment("Enable/Disable sound on goo recipe execution")
                                 .define(Config.Keys.G_FEGOO + "_sound_on_execution_recipe", true);
-                GOO_FEGOO_SOUND_EXTRA = qCOMMON.comment("Enable/Disable sound on goo recipe execution randomly")
+                GOO_FEGOO_SOUND_EXTRA = BUILDER.comment("Enable/Disable sound on goo recipe execution randomly")
                                 .define(Config.Keys.G_FEGOO + "_extra_sound_on_execution", true);
 
-                qCOMMON.comment(DataGenUtil.txtDecor(Goo.Energized));
+                BUILDER.comment(DataGenUtil.txtDecor(Goo.Energized));
 
-                GOO_ENERGY_TIER = qCOMMON
+                GOO_ENERGY_TIER = BUILDER
                                 .comment("Tier of goo")
                                 .defineInRange(Goo.Energized + Config.Keys.TIER, 5, 1, Integer.MAX_VALUE);
-                GOO_ENERGY_COUNTER_REDUCER = qCOMMON
+                GOO_ENERGY_COUNTER_REDUCER = BUILDER
                                 .comment("Counter Reducer of goo")
                                 .defineInRange(Goo.Energized + Config.Keys.REDUCER, 15, 1, Integer.MAX_VALUE);
 
-                qCOMMON.comment(DataGenUtil.txtDecor(Goo.T1));
+                BUILDER.comment(DataGenUtil.txtDecor(Goo.T1));
 
-                GOO_T1_TIER = qCOMMON
+                GOO_T1_TIER = BUILDER
                                 .comment("Tier of goo")
                                 .defineInRange(Goo.T1 + Config.Keys.TIER, 1, 1, Integer.MAX_VALUE);
-                GOO_T1_COUNTER_REDUCER = qCOMMON
+                GOO_T1_COUNTER_REDUCER = BUILDER
                                 .comment("Counter Reducer of goo")
                                 .defineInRange(Goo.T1 + Config.Keys.REDUCER, 15, 1, Integer.MAX_VALUE);
 
-                qCOMMON.comment(DataGenUtil.txtDecor(Goo.T2));
+                BUILDER.comment(DataGenUtil.txtDecor(Goo.T2));
 
-                GOO_T2_TIER = qCOMMON
+                GOO_T2_TIER = BUILDER
                                 .comment("Tier of goo")
                                 .defineInRange(Goo.T2 + Config.Keys.TIER, 2, 1, Integer.MAX_VALUE);
-                GOO_T2_COUNTER_REDUCER = qCOMMON
+                GOO_T2_COUNTER_REDUCER = BUILDER
                                 .comment("Counter Reducer of goo")
                                 .defineInRange(Goo.T2 + Config.Keys.REDUCER, 15, 1, Integer.MAX_VALUE);
 
-                qCOMMON.comment(DataGenUtil.txtDecor(Goo.T3));
+                BUILDER.comment(DataGenUtil.txtDecor(Goo.T3));
 
-                GOO_T3_TIER = qCOMMON
+                GOO_T3_TIER = BUILDER
                                 .comment("Tier of goo")
                                 .defineInRange(Goo.T3 + Config.Keys.TIER, 3, 1, Integer.MAX_VALUE);
-                GOO_T3_COUNTER_REDUCER = qCOMMON
+                GOO_T3_COUNTER_REDUCER = BUILDER
                                 .comment("Counter Reducer of goo")
                                 .defineInRange(Goo.T3 + Config.Keys.REDUCER, 15, 1, Integer.MAX_VALUE);
 
-                qCOMMON.comment(DataGenUtil.txtDecor(Goo.T4));
+                BUILDER.comment(DataGenUtil.txtDecor(Goo.T4));
 
-                GOO_T4_TIER = qCOMMON
+                GOO_T4_TIER = BUILDER
                                 .comment("Tier of goo")
                                 .defineInRange(Goo.T4 + Config.Keys.TIER, 4, 1, Integer.MAX_VALUE);
-                GOO_T4_COUNTER_REDUCER = qCOMMON
+                GOO_T4_COUNTER_REDUCER = BUILDER
                                 .comment("Counter Reducer of goo")
                                 .defineInRange(Goo.T4 + Config.Keys.REDUCER, 15, 1, Integer.MAX_VALUE);
 
-                qCOMMON.pop();
+                BUILDER.pop();
         }
 
         private static void solar_panel() {
-                qCOMMON.comment(DataGenUtil.txtDecor(Constants.SolarPanelType)).push("5-" + Constants.SolarPanelType);
-                qCOMMON.comment(DataGenUtil.txtDecor(SolarPanel.t1));
+                BUILDER.comment(DataGenUtil.txtDecor(Constants.SolarPanelType)).push("5-" + Constants.SolarPanelType);
+                BUILDER.comment(DataGenUtil.txtDecor(SolarPanel.t1));
 
-                SOLARPANEL_FERRICORE_FE_CAPACITY = qCOMMON
+                SOLARPANEL_FERRICORE_FE_CAPACITY = BUILDER
                                 .comment(Config.Display.FE_MAX)
                                 .defineInRange(SolarPanel.t1 + Config.Keys.FE_MAX, 100000, 1, Integer.MAX_VALUE);
-                SOLARPANEL_FERRICORE_FE_RATE = qCOMMON
+                SOLARPANEL_FERRICORE_FE_RATE = BUILDER
                                 .comment(Config.Display.FE_RATE)
                                 .defineInRange(SolarPanel.t1 + Config.Keys.FE_RATE, 240, 1, Integer.MAX_VALUE);
-                SOLARPANEL_FERRICORE_ENABLE_YLEVEL = qCOMMON
+                SOLARPANEL_FERRICORE_ENABLE_YLEVEL = BUILDER
                                 .comment(Config.Display.YLEVEL)
                                 .define(SolarPanel.t1 + Config.Keys.YLEVEL, false);
-                SOLARPANEL_FERRICORE_ENABLE_SPAM = qCOMMON
+                SOLARPANEL_FERRICORE_ENABLE_SPAM = BUILDER
                                 .comment(Config.Display.SPAM)
                                 .define(SolarPanel.t1 + Config.Keys.SPAM, false);
-                SOLARPANEL_FERRICORE_ENABLE_SKY = qCOMMON
+                SOLARPANEL_FERRICORE_ENABLE_SKY = BUILDER
                                 .comment(Config.Display.SKY)
                                 .define(SolarPanel.t1 + Config.Keys.SKY, true);
-                SOLARPANEL_FERRICORE_ENABLE_DAYTIME = qCOMMON
+                SOLARPANEL_FERRICORE_ENABLE_DAYTIME = BUILDER
                                 .comment(Config.Display.DAY)
                                 .define(SolarPanel.t1 + Config.Keys.DAY, true);
-                SOLARPANEL_FERRICORE_BIOMES = qCOMMON
+                SOLARPANEL_FERRICORE_BIOMES = BUILDER
                                 .comment(Config.Display.BIOMES)
                                 .define(SolarPanel.t1 + Config.Keys.BIOMES, true);
 
-                qCOMMON.comment(DataGenUtil.txtDecor(SolarPanel.t2));
+                BUILDER.comment(DataGenUtil.txtDecor(SolarPanel.t2));
 
-                SOLARPANEL_BLAZEGOLD_FE_CAPACITY = qCOMMON
+                SOLARPANEL_BLAZEGOLD_FE_CAPACITY = BUILDER
                                 .comment(Config.Display.FE_MAX)
                                 .defineInRange(SolarPanel.t2 + Config.Keys.FE_MAX, 100000, 1, Integer.MAX_VALUE);
-                SOLARPANEL_BLAZEGOLD_FE_RATE = qCOMMON
+                SOLARPANEL_BLAZEGOLD_FE_RATE = BUILDER
                                 .comment(Config.Display.FE_RATE)
                                 .defineInRange(SolarPanel.t2 + Config.Keys.FE_RATE, 960, 1, Integer.MAX_VALUE);
-                SOLARPANEL_BLAZEGOLD_ENABLE_YLEVEL = qCOMMON
+                SOLARPANEL_BLAZEGOLD_ENABLE_YLEVEL = BUILDER
                                 .comment(Config.Display.YLEVEL)
                                 .define(SolarPanel.t2 + Config.Keys.YLEVEL, false);
-                SOLARPANEL_BLAZEGOLD_ENABLE_SPAM = qCOMMON
+                SOLARPANEL_BLAZEGOLD_ENABLE_SPAM = BUILDER
                                 .comment(Config.Display.SPAM)
                                 .define(SolarPanel.t2 + Config.Keys.SPAM, false);
-                SOLARPANEL_BLAZEGOLD_ENABLE_SKY = qCOMMON
+                SOLARPANEL_BLAZEGOLD_ENABLE_SKY = BUILDER
                                 .comment(Config.Display.SKY)
                                 .define(SolarPanel.t2 + Config.Keys.SKY, false);
-                SOLARPANEL_BLAZEGOLD_ENABLE_DAYTIME = qCOMMON
+                SOLARPANEL_BLAZEGOLD_ENABLE_DAYTIME = BUILDER
                                 .comment(Config.Display.DAY)
                                 .define(SolarPanel.t2 + Config.Keys.DAY, false);
-                SOLARPANEL_BLAZEGOLD_BIOMES = qCOMMON
+                SOLARPANEL_BLAZEGOLD_BIOMES = BUILDER
                                 .comment(Config.Display.BIOMES)
                                 .define(SolarPanel.t2 + Config.Keys.BIOMES, true);
 
-                qCOMMON.comment(DataGenUtil.txtDecor(SolarPanel.t3));
+                BUILDER.comment(DataGenUtil.txtDecor(SolarPanel.t3));
 
-                SOLARPANEL_CELESTIGEM_FE_CAPACITY = qCOMMON
+                SOLARPANEL_CELESTIGEM_FE_CAPACITY = BUILDER
                                 .comment(Config.Display.FE_MAX)
                                 .defineInRange(SolarPanel.t3 + Config.Keys.FE_MAX, 1000000, 1, Integer.MAX_VALUE);
-                SOLARPANEL_CELESTIGEM_FE_RATE = qCOMMON
+                SOLARPANEL_CELESTIGEM_FE_RATE = BUILDER
                                 .comment(Config.Display.FE_RATE)
                                 .defineInRange(SolarPanel.t3 + Config.Keys.FE_RATE, 3840, 1, Integer.MAX_VALUE);
-                SOLARPANEL_CELESTIGEM_ENABLE_YLEVEL = qCOMMON
+                SOLARPANEL_CELESTIGEM_ENABLE_YLEVEL = BUILDER
                                 .comment(Config.Display.YLEVEL)
                                 .define(SolarPanel.t3 + Config.Keys.YLEVEL, false);
-                SOLARPANEL_CELESTIGEM_ENABLE_SPAM = qCOMMON
+                SOLARPANEL_CELESTIGEM_ENABLE_SPAM = BUILDER
                                 .comment(Config.Display.SPAM)
                                 .define(SolarPanel.t3 + Config.Keys.SPAM, true);
-                SOLARPANEL_CELESTIGEM_ENABLE_SKY = qCOMMON
+                SOLARPANEL_CELESTIGEM_ENABLE_SKY = BUILDER
                                 .comment(Config.Display.SKY)
                                 .define(SolarPanel.t3 + Config.Keys.SKY, true);
-                SOLARPANEL_CELESTIGEM_ENABLE_DAYTIME = qCOMMON
+                SOLARPANEL_CELESTIGEM_ENABLE_DAYTIME = BUILDER
                                 .comment(Config.Display.DAY)
                                 .define(SolarPanel.t3 + Config.Keys.DAY, false);
-                SOLARPANEL_CELESTIGEM_BIOMES = qCOMMON
+                SOLARPANEL_CELESTIGEM_BIOMES = BUILDER
                                 .comment(Config.Display.BIOMES)
                                 .define(SolarPanel.t3 + Config.Keys.BIOMES, false);
 
-                qCOMMON.comment(DataGenUtil.txtDecor(SolarPanel.t4));
+                BUILDER.comment(DataGenUtil.txtDecor(SolarPanel.t4));
 
-                SOLARPANEL_ECLIPSEALLOY_FE_CAPACITY = qCOMMON
+                SOLARPANEL_ECLIPSEALLOY_FE_CAPACITY = BUILDER
                                 .comment(Config.Display.FE_MAX)
                                 .defineInRange(SolarPanel.t4 + Config.Keys.FE_MAX, 1000000, 1, Integer.MAX_VALUE);
-                SOLARPANEL_ECLIPSEALLOY_FE_RATE = qCOMMON
+                SOLARPANEL_ECLIPSEALLOY_FE_RATE = BUILDER
                                 .comment(Config.Display.FE_RATE)
                                 .defineInRange(SolarPanel.t4 + Config.Keys.FE_RATE, 11520, 1, Integer.MAX_VALUE);
-                SOLARPANEL_ECLIPSEALLOY_ENABLE_YLEVEL = qCOMMON
+                SOLARPANEL_ECLIPSEALLOY_ENABLE_YLEVEL = BUILDER
                                 .comment(Config.Display.YLEVEL)
                                 .define(SolarPanel.t4 + Config.Keys.YLEVEL, true);
-                SOLARPANEL_ECLIPSEALLOY_ENABLE_SPAM = qCOMMON
+                SOLARPANEL_ECLIPSEALLOY_ENABLE_SPAM = BUILDER
                                 .comment(Config.Display.SPAM)
                                 .define(SolarPanel.t4 + Config.Keys.SPAM, true);
-                SOLARPANEL_ECLIPSEALLOY_ENABLE_SKY = qCOMMON
+                SOLARPANEL_ECLIPSEALLOY_ENABLE_SKY = BUILDER
                                 .comment(Config.Display.SKY)
                                 .define(SolarPanel.t4 + Config.Keys.SKY, false);
-                SOLARPANEL_ECLIPSEALLOY_ENABLE_DAYTIME = qCOMMON
+                SOLARPANEL_ECLIPSEALLOY_ENABLE_DAYTIME = BUILDER
                                 .comment(Config.Display.DAY)
                                 .define(SolarPanel.t4 + Config.Keys.DAY, false);
-                SOLARPANEL_ECLIPSEALLOY_BIOMES = qCOMMON
+                SOLARPANEL_ECLIPSEALLOY_BIOMES = BUILDER
                                 .comment(Config.Display.BIOMES)
                                 .define(SolarPanel.t4 + Config.Keys.BIOMES, false);
 
-                qCOMMON.pop();
+                BUILDER.pop();
         }
 
         private static void anvil() {
-                qCOMMON.comment(DataGenUtil.txtDecor(Constants.AnvilType)).push("6-" + Constants.AnvilType);
+                BUILDER.comment(DataGenUtil.txtDecor(Constants.AnvilType)).push("6-" + Constants.AnvilType);
 
-                ANVILS_SOUND_EVENT = qCOMMON
+                ANVILS_SOUND_EVENT = BUILDER
                                 .comment("Enable/Disable the entire sound event of all anvils on item repair")
                                 .define(Constants.AnvilType + Config.Keys.SOUND, true);
 
-                qCOMMON.comment(DataGenUtil.txtDecor(Anvils.t1));
+                BUILDER.comment(DataGenUtil.txtDecor(Anvils.t1));
 
-                ANVIL_FERRICORE_SOUND_EVENT = qCOMMON
+                ANVIL_FERRICORE_SOUND_EVENT = BUILDER
                                 .comment("Enable/Disable sound event on item repair")
                                 .define(Anvils.t1 + Config.Keys.SOUND, true);
 
-                qCOMMON.comment(DataGenUtil.txtDecor(Anvils.t2));
+                BUILDER.comment(DataGenUtil.txtDecor(Anvils.t2));
 
-                ANVILS_BLAZEGOLD_MB_CAPACITY = qCOMMON
+                ANVILS_BLAZEGOLD_MB_CAPACITY = BUILDER
                                 .comment(Config.Display.MB_MAX)
                                 .defineInRange(Anvils.t2 + Config.Keys.MB_MAX, 10000, 1, Integer.MAX_VALUE);
-                ANVILS_BLAZEGOLD_MB_RATE = qCOMMON
+                ANVILS_BLAZEGOLD_MB_RATE = BUILDER
                                 .comment(Config.Display.MB_RATE)
                                 .defineInRange(Anvils.t2 + Config.Keys.MB_RATE, 10, 1, Integer.MAX_VALUE);
-                ANVIL_BLAZEGOLD_SOUND_EVENT = qCOMMON
+                ANVIL_BLAZEGOLD_SOUND_EVENT = BUILDER
                                 .comment("Enable/Disable sound event on item repair")
                                 .define(Anvils.t2 + Config.Keys.SOUND, true);
 
-                qCOMMON.comment(DataGenUtil.txtDecor(Anvils.t3));
+                BUILDER.comment(DataGenUtil.txtDecor(Anvils.t3));
 
-                ANVILS_CELESTIGEM_FE_CAPACITY = qCOMMON
+                ANVILS_CELESTIGEM_FE_CAPACITY = BUILDER
                                 .comment(Config.Display.FE_MAX)
                                 .defineInRange(Anvils.t3 + Config.Keys.FE_MAX, 10000, 1, Integer.MAX_VALUE);
-                ANVILS_CELESTIGEM_FE_RATE = qCOMMON
+                ANVILS_CELESTIGEM_FE_RATE = BUILDER
                                 .comment(Config.Display.FE_RATE)
                                 .defineInRange(Anvils.t3 + Config.Keys.FE_RATE, 100, 1, Integer.MAX_VALUE);
 
-                ANVIL_CELESTIGEM_SOUND_EVENT = qCOMMON
+                ANVIL_CELESTIGEM_SOUND_EVENT = BUILDER
                                 .comment("Enable/Disable sound event on item repair")
                                 .define(Anvils.t3 + Config.Keys.SOUND, true);
 
-                qCOMMON.comment(DataGenUtil.txtDecor(Anvils.t4));
+                BUILDER.comment(DataGenUtil.txtDecor(Anvils.t4));
 
-                ANVILS_ECLIPSEALLOY_MB_CAPACITY = qCOMMON
+                ANVILS_ECLIPSEALLOY_MB_CAPACITY = BUILDER
                                 .comment(Config.Display.MB_MAX)
                                 .defineInRange(Anvils.t4 + Config.Keys.MB_MAX, 10000, 1, Integer.MAX_VALUE);
-                ANVILS_ECLIPSEALLOY_MB_RATE = qCOMMON
+                ANVILS_ECLIPSEALLOY_MB_RATE = BUILDER
                                 .comment(Config.Display.MB_RATE)
                                 .defineInRange(Anvils.t4 + Config.Keys.MB_RATE, 100, 1, Integer.MAX_VALUE);
-                ANVILS_ECLIPSEALLOY_FE_CAPACITY = qCOMMON
+                ANVILS_ECLIPSEALLOY_FE_CAPACITY = BUILDER
                                 .comment(Config.Display.FE_MAX)
                                 .defineInRange(Anvils.t4 + Config.Keys.FE_MAX, 10000, 1, Integer.MAX_VALUE);
-                ANVILS_ECLIPSEALLOY_FE_RATE = qCOMMON
+                ANVILS_ECLIPSEALLOY_FE_RATE = BUILDER
                                 .comment(Config.Display.FE_RATE)
                                 .defineInRange(Anvils.t4 + Config.Keys.FE_RATE, 100, 1, Integer.MAX_VALUE);
-                ANVILS_ECLIPSEALLOY_DAMAGE_LIMIT = qCOMMON
+                ANVILS_ECLIPSEALLOY_DAMAGE_LIMIT = BUILDER
                                 .comment("Minimal damage until it was counted as insta-repaireable")
                                 .defineInRange(Anvils.t4 + "_damage_limit", 1000, 1, Integer.MAX_VALUE);
 
-                ANVIL_ECLIPSEALLOY_SOUND_EVENT = qCOMMON
+                ANVIL_ECLIPSEALLOY_SOUND_EVENT = BUILDER
                                 .comment("Enable/Disable sound event on item repair")
                                 .define(Anvils.t4 + Config.Keys.SOUND, true);
 
-                qCOMMON.pop();
+                BUILDER.pop();
         }
 
         private static void wands() {
-                qCOMMON.comment(DataGenUtil.txtDecor("wands")).push("7-wands");
+                BUILDER.comment(DataGenUtil.txtDecor("wands")).push("7-wands");
 
-                PICKER_WAND_FAKE_PLAYER_ALLOWED = qCOMMON
+                PICKER_WAND_FAKE_PLAYER_ALLOWED = BUILDER
                                 .comment("Picker Wand support Fake Players")
                                 .define(Wands.Picker + "_allow_fakeplayer", false);
 
-                SWAPPER_FAKE_PLAYER_ALLOWED = qCOMMON
+                SWAPPER_FAKE_PLAYER_ALLOWED = BUILDER
                                 .comment("Swapper Wand support Fake Players")
                                 .define(Wands.Swapper + "_allow_fakeplayer", false);
 
-                ADVANCED_TIME_WAND_FAKE_PLAYER_ALLOWED = qCOMMON
+                ADVANCED_TIME_WAND_FAKE_PLAYER_ALLOWED = BUILDER
                                 .comment("Advanced Time Wand support Fake Players")
                                 .define(Wands.AdvancedTime + "_allow_fakeplayer", true);
 
-                ADVANCED_TIME_WAND_MB_CAPACITY = qCOMMON
+                ADVANCED_TIME_WAND_MB_CAPACITY = BUILDER
                                 .comment(Config.Display.MB_MAX)
                                 .defineInRange(Wands.AdvancedTime + Config.Keys.MB_MAX, 800_000, 1, Integer.MAX_VALUE);
 
-                ADVANCED_TIME_WAND_FE_CAPACITY = qCOMMON
+                ADVANCED_TIME_WAND_FE_CAPACITY = BUILDER
                                 .comment(Config.Display.FE_MAX)
                                 .defineInRange(Wands.AdvancedTime + Config.Keys.FE_MAX, 10_000_000, 1,
                                                 Integer.MAX_VALUE);
 
-                ADVANCED_TIME_WAND_NORMAL_MODE = qCOMMON.comment(
+                ADVANCED_TIME_WAND_NORMAL_MODE = BUILDER.comment(
                                 "Mode NORMAL [1|2|4|8]")
                                 .define(Wands.AdvancedTime + "_mode_normal", 1,
                                                 (value) -> ConfigUtils.validateADW("_mode_normal", value));
 
-                ADVANCED_TIME_WAND_X2_MODE = qCOMMON.comment(
+                ADVANCED_TIME_WAND_X2_MODE = BUILDER.comment(
                                 "Mode X2 [1|2|4|8]").define(Wands.AdvancedTime + "_mode_x2", 2,
                                                 (value) -> ConfigUtils.validateADW("_mode_x2", value));
 
-                ADVANCED_TIME_WAND_X4_MODE = qCOMMON.comment(
+                ADVANCED_TIME_WAND_X4_MODE = BUILDER.comment(
                                 "Mode X4 [1|2|4|8]").define(Wands.AdvancedTime + "_mode_x4", 4,
                                                 (value) -> ConfigUtils.validateADW("_mode_x4", value));
 
-                ADVANCED_TIME_WAND_MAX_MODE = qCOMMON.comment(
+                ADVANCED_TIME_WAND_MAX_MODE = BUILDER.comment(
                                 "Mode MAX [1|2|4|8]").define(Wands.AdvancedTime + "_mode_max", 8,
                                                 (value) -> ConfigUtils.validateADW("_mode_max", value));
 
-                ADVANCED_TIME_WAND_MAX_MULTIPLIER = qCOMMON.comment(
+                ADVANCED_TIME_WAND_MAX_MULTIPLIER = BUILDER.comment(
                                 "Max speed applicable with Advanced Time Wand\n It can disable other wand-modes when below 256\n This value should be a power of two")
                                 .define(Wands.AdvancedTime + "_max_multiplier", 256,
                                                 (value) -> ConfigUtils.maxADW(value));
 
-                LIGHT_WAND_ENTITY_GLOWING = qCOMMON
+                LIGHT_WAND_ENTITY_GLOWING = BUILDER
                                 .comment("Light Wands can be used to apply Glowing effect")
                                 .define(Wands.Light + "_glowing", true);
-                LIGHT_WAND_PLACING = qCOMMON
+                LIGHT_WAND_PLACING = BUILDER
                                 .comment("Light Wands can place Light Blocks")
                                 .define(Wands.Light + "_placing", true);
-                LIGHT_WAND_SOUND = qCOMMON
+                LIGHT_WAND_SOUND = BUILDER
                                 .comment("Enable/Disable sound event")
                                 .define(Wands.Light + "_sound", true);
-                LIGHT_WAND_CHANGE = qCOMMON
+                LIGHT_WAND_CHANGE = BUILDER
                                 .comment("Light wands can modify light level")
                                 .define(Wands.Light + "_light_level_change", true);
-                FAKEPLAYER_LIGHT_WAND = qCOMMON
+                FAKEPLAYER_LIGHT_WAND = BUILDER
                                 .comment("Light Wands support Fake Players")
                                 .define(Wands.Light + "_allow_fakeplayer", true);
 
-                ADVANCED_LIGHT_WAND_FE_CAPACITY = qCOMMON
+                ADVANCED_LIGHT_WAND_FE_CAPACITY = BUILDER
                                 .comment(Config.Display.FE_MAX)
                                 .defineInRange(Wands.Light + Config.Keys.FE_MAX, 10000, 1, Integer.MAX_VALUE);
 
-                ADVANCED_LIGHT_WAND_FE_COST = qCOMMON
+                ADVANCED_LIGHT_WAND_FE_COST = BUILDER
                                 .comment(Config.Display.FE_RATE)
                                 .defineInRange(Wands.Light + Config.Keys.FE_RATE, 100, 1, Integer.MAX_VALUE);
 
-                LIGHT_WAND_GLOWING_DURATION = qCOMMON
+                LIGHT_WAND_GLOWING_DURATION = BUILDER
                                 .comment("Glowing duration \n 20 -> 1 second")
                                 .defineInRange(Wands.Light + "_glowing_duration", 200, 1, Integer.MAX_VALUE);
 
-                ADVANCED_LIGHT_WAND_GLOWING_DURATION = qCOMMON
+                ADVANCED_LIGHT_WAND_GLOWING_DURATION = BUILDER
                                 .comment("Glowing duration \n 20 -> 1 second")
                                 .defineInRange(Wands.AdvancedLight + "_glowing_duration", 800, 1, Integer.MAX_VALUE);
 
-                LIGHT_BLOCK_PARTICLES = qCOMMON
+                LIGHT_BLOCK_PARTICLES = BUILDER
                                 .comment("Light Wand Blocks emit particles")
                                 .define(Wands.Light + "_block_particles", true);
 
-                qCOMMON.pop();
+                BUILDER.pop();
 
         }
 
         private static void mixer() {
-                qCOMMON.comment(DataGenUtil.txtDecor(Blocks.ParadoxMixer)).push("8-" + Blocks.ParadoxMixer);
+                BUILDER.comment(DataGenUtil.txtDecor(Blocks.ParadoxMixer)).push("8-" + Blocks.ParadoxMixer);
 
-                PARADOX_MIXER_MB_CAPACITY = qCOMMON
+                PARADOX_MIXER_MB_CAPACITY = BUILDER
                                 .comment(Config.Display.MB_MAX)
                                 .defineInRange(Blocks.ParadoxMixer + Config.Keys.MB_MAX, 1000, 1, Integer.MAX_VALUE);
 
-                PARADOX_MIXER_SOUND_EVENT = qCOMMON
+                PARADOX_MIXER_SOUND_EVENT = BUILDER
                                 .comment("Enable/Disable the entire sound event of paradox mixer")
                                 .define(Blocks.ParadoxMixer + Config.Keys.SOUND, true);
 
-                qCOMMON.pop();
+                BUILDER.pop();
 
         }
 
         private static void ticker() {
-                qCOMMON.comment(DataGenUtil.txtDecor(Blocks.Ticker)).push("9-" + Blocks.Ticker);
+                BUILDER.comment(DataGenUtil.txtDecor(Blocks.Ticker)).push("9-" + Blocks.Ticker);
 
-                TICKER_FE_CAPACITY = qCOMMON
+                TICKER_FE_CAPACITY = BUILDER
                                 .comment(Config.Display.FE_MAX)
                                 .defineInRange(Blocks.Ticker + Config.Keys.FE_MAX, 10000, 1, Integer.MAX_VALUE);
-                TICKER_FE_RATE = qCOMMON
+                TICKER_FE_RATE = BUILDER
                                 .comment(Config.Display.FE_RATE)
                                 .defineInRange(Blocks.Ticker + Config.Keys.FE_RATE, 10, 1, Integer.MAX_VALUE);
-                TICKER_MB_CAPACITY = qCOMMON
+                TICKER_MB_CAPACITY = BUILDER
                                 .comment(Config.Display.MB_MAX)
                                 .defineInRange(Blocks.Ticker + Config.Keys.MB_MAX, 1000, 1, Integer.MAX_VALUE);
-                TICKER_MB_RATE = qCOMMON
+                TICKER_MB_RATE = BUILDER
                                 .comment(Config.Display.MB_RATE)
                                 .defineInRange(Blocks.Ticker + Config.Keys.MB_RATE, 1, 1, Integer.MAX_VALUE);
 
                 // max JDT value is 1200 ticks
-                TICKER_TICK_RATE = qCOMMON
+                TICKER_TICK_RATE = BUILDER
                                 .comment("Max Tick speed applied")
                                 .defineInRange(Blocks.Ticker + "_max_tick_rate", 2048, 1,
                                                 Integer.MAX_VALUE);
 
-                qCOMMON.pop();
+                BUILDER.pop();
 
         }
 
         private static void compats() {
-                qCOMMON.comment(DataGenUtil.txtDecor("compats")).push("10-compats");
+                BUILDER.comment(DataGenUtil.txtDecor("compats")).push("10-compats");
 
-                qCOMMON.comment("Chisel Modern");
+                BUILDER.comment("Chisel Modern");
 
-                CELESTIGEM_CHISEL_FE_CAPACITY = qCOMMON
+                CELESTIGEM_CHISEL_FE_CAPACITY = BUILDER
                                 .comment(Config.Display.FE_MAX)
                                 .defineInRange(Tiers.celestigem + "_chisel" + Config.Keys.FE_MAX, 1000, 1,
                                                 Integer.MAX_VALUE);
 
-                CELESTIGEM_CHISEL_FE_COST = qCOMMON
+                CELESTIGEM_CHISEL_FE_COST = BUILDER
                                 .comment(Config.Display.FE_RATE)
                                 .defineInRange(Tiers.celestigem + "_chisel" + Config.Keys.FE_RATE, 1, 1,
                                                 Integer.MAX_VALUE);
 
-                ECLIPSE_ALLOY_CHISEL_FE_CAPACITY = qCOMMON
+                ECLIPSE_ALLOY_CHISEL_FE_CAPACITY = BUILDER
                                 .comment(Config.Display.FE_MAX)
                                 .defineInRange(Tiers.eclipsealloy + "_chisel" + Config.Keys.FE_MAX, 10000, 1,
                                                 Integer.MAX_VALUE);
 
-                ECLIPSE_ALLOY_CHISEL_FE_COST = qCOMMON
+                ECLIPSE_ALLOY_CHISEL_FE_COST = BUILDER
                                 .comment(Config.Display.FE_RATE)
                                 .defineInRange(Tiers.eclipsealloy + "_chisel" + Config.Keys.FE_RATE, 10, 1,
                                                 Integer.MAX_VALUE);
@@ -700,10 +700,10 @@ public class CommonConfig {
         }
 
         private static void superduperConfig() {
-                qCOMMON.comment("Hello player, DevDyna is here !");
-                qCOMMON.comment("If you're wondering that this config part");
-                qCOMMON.comment("is used as joke , you are right...");
-                qCOMMON.comment("Anyway , can I be of help to you ?")
+                BUILDER.comment("Hello player, DevDyna is here !");
+                BUILDER.comment("If you're wondering that this config part");
+                BUILDER.comment("is used as joke , you are right...");
+                BUILDER.comment("Anyway , can I be of help to you ?")
                                 .define("answer", false);
         }
 

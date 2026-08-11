@@ -40,4 +40,17 @@ public interface ExtraSlots {
                 .render(guiGraphics);
     }
 
+    default void addThermoHeatButton(GuiGraphics guiGraphics, int x, int y) {
+        Image.of().rl(Main.ID, "textures/gui/slots/thermo/heat.png")
+                .size(16, 16).offset(getGuiLeft() + x, getGuiTop() + y)
+                .sizeTexture(16, 16)
+                .render(guiGraphics);
+    }
+    default void addThermoCoolantButton(GuiGraphics guiGraphics, int x, int y) {
+        Image.of().rl(Main.ID, "textures/gui/slots/thermo/coolant.png")
+                .size(16, 16).offset(getGuiLeft() + x, getGuiTop() + y)
+                .sizeTexture(16, 16)
+                .render(guiGraphics);
+    }
+
 }

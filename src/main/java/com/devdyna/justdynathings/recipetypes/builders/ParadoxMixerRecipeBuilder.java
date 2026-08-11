@@ -76,7 +76,7 @@ public class ParadoxMixerRecipeBuilder implements RecipeBuilder {
 
     public void save(RecipeOutput recipeOutput, String extra) {
         this.save(recipeOutput,
-                DataGenUtil.getResource("fluidtank/" +
+                DataGenUtil.getResource("paradox_mixer/" +
                         DataGenUtil.getPath(output.getFluid()) + "_from_"
                         + DataGenUtil.getPath(input.getFluid()) + "_with_"
                         + DataGenUtil.getPath(catalyst.getItems()[0].getItem())

@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.client;
+package com.devdyna.justdynathings.api.client;
 
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.compat.jei.utils.Image;

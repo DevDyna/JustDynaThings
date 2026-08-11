@@ -122,7 +122,7 @@ public class FerricoreClockBlock extends BaseMachineBlock {
     @Override
     public void openMenu(Player player, BlockPos blockPos) {
         Actions.openMenu(player,
-                (windowId, playerInventory, playerEntity) -> new ClockGUI(windowId, playerInventory, blockPos),
+                (windowId, playerInventory, playerEntity) -> new FerricoreClockGUI(windowId, playerInventory, blockPos),
                 blockPos);
     }
 

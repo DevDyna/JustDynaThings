@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.registry.builders._core.block;
+package com.devdyna.justdynathings.api.factories.blocks;
 
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import net.minecraft.world.level.Level;

@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.registry.builders._core.item;
+package com.devdyna.justdynathings.api.factories.items;
 
 import com.direwolf20.justdirethings.common.items.resources.Coal_T1;
 

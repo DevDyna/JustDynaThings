@@ -1,8 +1,8 @@
 package com.devdyna.justdynathings.registry.builders.functional_anvils.celestigem;
 
+import com.devdyna.justdynathings.api.aspects.EnergyMachine;
 import com.devdyna.justdynathings.config.ServerConfig;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.CAnvilBE;
-import com.devdyna.justdynathings.registry.interfaces.be.EnergyMachine;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
 import com.devdyna.justdynathings.registry.types.zItemTags;
 import com.devdyna.justdynathings.utils.Actions;

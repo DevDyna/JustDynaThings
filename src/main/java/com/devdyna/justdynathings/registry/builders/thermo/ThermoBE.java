@@ -3,11 +3,11 @@ package com.devdyna.justdynathings.registry.builders.thermo;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.devdyna.justdynathings.api.aspects.EnergyCharger;
+import com.devdyna.justdynathings.api.aspects.EnergyGenerator;
+import com.devdyna.justdynathings.api.aspects.FluidMachine;
 import com.devdyna.justdynathings.config.ServerConfig;
 import com.devdyna.justdynathings.datamaps.zDataMaps;
-import com.devdyna.justdynathings.registry.interfaces.be.EnergyCharger;
-import com.devdyna.justdynathings.registry.interfaces.be.EnergyGenerator;
-import com.devdyna.justdynathings.registry.interfaces.be.FluidMachine;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.Actions;

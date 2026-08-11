@@ -10,8 +10,8 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.world.entity.player.Inventory;
 import net.neoforged.neoforge.network.PacketDistributor;
 
-public class ClockScreen extends BaseMachineScreen<ClockGUI> {
-    public ClockScreen(ClockGUI container, Inventory inv, Component name) {
+public class FerricoreClockScreen extends BaseMachineScreen<FerricoreClockGUI> {
+    public FerricoreClockScreen(FerricoreClockGUI container, Inventory inv, Component name) {
         super(container, inv, name);
     }
 

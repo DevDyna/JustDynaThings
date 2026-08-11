@@ -3,7 +3,7 @@ package com.devdyna.justdynathings.registry.builders.paradox_mixer;
 import static com.devdyna.justdynathings.Main.ID;
 
 import com.devdyna.justdynathings.Constants;
-import com.devdyna.justdynathings.client.ExtraSlots;
+import com.devdyna.justdynathings.api.client.ExtraSlots;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.Pos;
 import com.direwolf20.justdirethings.client.screens.basescreens.BaseMachineScreen;

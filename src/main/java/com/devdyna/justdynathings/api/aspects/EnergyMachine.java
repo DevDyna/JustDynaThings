@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.registry.interfaces.be;
+package com.devdyna.justdynathings.api.aspects;
 
 import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineBE;
 

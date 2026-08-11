@@ -6,9 +6,9 @@ import javax.annotation.Nullable;
 
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
+import com.devdyna.justdynathings.api.aspects.BucketInteractive;
+import com.devdyna.justdynathings.api.factories.blocks.BlockBaseBE;
 import com.devdyna.justdynathings.config.ServerConfig;
-import com.devdyna.justdynathings.registry.builders._core.block.BlockBaseBE;
-import com.devdyna.justdynathings.registry.interfaces.block.BucketInteractive;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;

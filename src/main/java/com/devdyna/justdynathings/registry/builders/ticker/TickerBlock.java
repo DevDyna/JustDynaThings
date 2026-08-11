@@ -2,8 +2,8 @@ package com.devdyna.justdynathings.registry.builders.ticker;
 
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
+import com.devdyna.justdynathings.api.factories.blocks.BaseFluidMachineBlock;
 import com.devdyna.justdynathings.config.ServerConfig;
-import com.devdyna.justdynathings.registry.builders._core.block.BaseFluidMachineBlock;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.Actions;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;

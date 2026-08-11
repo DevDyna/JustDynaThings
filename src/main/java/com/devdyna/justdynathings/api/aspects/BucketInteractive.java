@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.registry.interfaces.block;
+package com.devdyna.justdynathings.api.aspects;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;

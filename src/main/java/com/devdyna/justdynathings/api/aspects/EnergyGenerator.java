@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.registry.interfaces.be;
+package com.devdyna.justdynathings.api.aspects;
 
 public interface EnergyGenerator extends EnergyMachine {
 

@@ -3,7 +3,7 @@ package com.devdyna.justdynathings.registry.types;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
 import com.devdyna.justdynathings.registry.builders.black_hole.BlackHoleGUI;
-import com.devdyna.justdynathings.registry.builders.ferricore_clock.ClockGUI;
+import com.devdyna.justdynathings.registry.builders.ferricore_clock.FerricoreClockGUI;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.blazegold.BlazeGoldAnvilGUI;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.celestigem.CelestiGemAnvilGUI;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.eclipsealloy.EclipseAlloyAnvilGUI;
@@ -39,9 +39,9 @@ public class zContainers {
                         .register(Constants.Blocks.Ticker,
                                         () -> IMenuTypeExtension.create(TickerGUI::new));
 
-        public static final DeferredHolder<MenuType<?>, MenuType<ClockGUI>> FERRICORE_CLOCK = zCTNR
+        public static final DeferredHolder<MenuType<?>, MenuType<FerricoreClockGUI>> FERRICORE_CLOCK = zCTNR
                         .register(Constants.Blocks.FerricoreClock,
-                                        () -> IMenuTypeExtension.create(ClockGUI::new));
+                                        () -> IMenuTypeExtension.create(FerricoreClockGUI::new));
 
         public static final DeferredHolder<MenuType<?>, MenuType<ThermoGUI>> THERMOGEN = zCTNR
                         .register(Constants.Blocks.ThermoGen,

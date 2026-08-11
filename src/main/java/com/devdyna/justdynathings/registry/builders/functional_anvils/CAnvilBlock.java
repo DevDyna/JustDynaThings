@@ -2,8 +2,8 @@ package com.devdyna.justdynathings.registry.builders.functional_anvils;
 
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
+import com.devdyna.justdynathings.api.aspects.BucketInteractive;
 import com.devdyna.justdynathings.config.ServerConfig;
-import com.devdyna.justdynathings.registry.interfaces.block.BucketInteractive;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
 
 import net.minecraft.core.BlockPos;

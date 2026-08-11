@@ -10,13 +10,13 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 
 @SuppressWarnings("null")
-public class ClockGUI extends BaseMachineContainer {
+public class FerricoreClockGUI extends BaseMachineContainer {
 
-    public ClockGUI(int windowId, Inventory playerInventory, FriendlyByteBuf extraData) {
+    public FerricoreClockGUI(int windowId, Inventory playerInventory, FriendlyByteBuf extraData) {
         this(windowId, playerInventory, extraData.readBlockPos());
     }
 
-    public ClockGUI(int windowId, Inventory playerInventory, BlockPos blockPos) {
+    public FerricoreClockGUI(int windowId, Inventory playerInventory, BlockPos blockPos) {
         super(zContainers.FERRICORE_CLOCK.get(), windowId, playerInventory, blockPos);
         addPlayerSlots(player.getInventory());
     }

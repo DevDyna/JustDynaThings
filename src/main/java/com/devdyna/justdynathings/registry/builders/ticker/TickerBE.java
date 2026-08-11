@@ -1,8 +1,8 @@
 package com.devdyna.justdynathings.registry.builders.ticker;
 
+import com.devdyna.justdynathings.api.aspects.EnergyMachine;
+import com.devdyna.justdynathings.api.aspects.FluidMachine;
 import com.devdyna.justdynathings.config.ServerConfig;
-import com.devdyna.justdynathings.registry.interfaces.be.EnergyMachine;
-import com.devdyna.justdynathings.registry.interfaces.be.FluidMachine;
 import com.devdyna.justdynathings.registry.types.zBlockEntities;
 import com.devdyna.justdynathings.registry.types.zBlockTags;
 import com.devdyna.justdynathings.registry.types.zProperties;

@@ -3,11 +3,11 @@ package com.devdyna.justdynathings;
 import java.util.*;
 import java.util.stream.Stream;
 
+import com.devdyna.justdynathings.api.aspects.EnergyMachine;
+import com.devdyna.justdynathings.api.aspects.FluidMachine;
 import com.devdyna.justdynathings.compat.chisel.initChisel;
 import com.devdyna.justdynathings.registry.Material;
 import com.devdyna.justdynathings.registry.builders.AdvancedTimeWand;
-import com.devdyna.justdynathings.registry.interfaces.be.EnergyMachine;
-import com.devdyna.justdynathings.registry.interfaces.be.FluidMachine;
 import com.devdyna.justdynathings.registry.types.zBlocks;
 import com.devdyna.justdynathings.registry.types.zItems;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;

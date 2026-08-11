@@ -6,13 +6,13 @@ import java.util.Arrays;
 import java.util.function.Supplier;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
+import com.devdyna.justdynathings.api.factories.items.ItemBase;
+import com.devdyna.justdynathings.api.factories.items.ItemFuel;
 import com.devdyna.justdynathings.compat.ae2.initApp;
 import com.devdyna.justdynathings.compat.extendedae.initExtend;
 import com.devdyna.justdynathings.compat.geore.initGeOre;
 import com.devdyna.justdynathings.compat.phasorite.initPhaso;
 import com.devdyna.justdynathings.registry.builders.RawOre;
-import com.devdyna.justdynathings.registry.builders._core.item.ItemFuel;
-import com.devdyna.justdynathings.registry.builders._core.item.ItemBase;
 import com.devdyna.justdynathings.registry.types.*;
 
 import net.minecraft.core.registries.BuiltInRegistries;

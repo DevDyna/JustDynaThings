@@ -1,6 +1,6 @@
-package com.devdyna.justdynathings.registry.builders._core.block;
+package com.devdyna.justdynathings.api.factories.blocks;
 
-import com.devdyna.justdynathings.registry.interfaces.block.BucketInteractive;
+import com.devdyna.justdynathings.api.aspects.BucketInteractive;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
 
 import net.minecraft.core.BlockPos;

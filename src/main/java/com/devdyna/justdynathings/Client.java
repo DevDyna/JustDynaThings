@@ -1,7 +1,7 @@
 package com.devdyna.justdynathings;
 
 import com.devdyna.justdynathings.registry.builders.black_hole.BlackHoleScreen;
-import com.devdyna.justdynathings.registry.builders.ferricore_clock.ClockScreen;
+import com.devdyna.justdynathings.registry.builders.ferricore_clock.FerricoreClockScreen;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.blazegold.BlazeGoldAnvilScreen;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.celestigem.CelestiGemAnvilScreen;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.eclipsealloy.EclipseAlloyAnvilScreen;
@@ -37,7 +37,7 @@ public class Client {
     public static void registerScreens(RegisterMenuScreensEvent event) {
         event.register(zContainers.TICKER.get(), TickerScreen::new);
         event.register(zContainers.REFORGER.get(), ReforgerScreen::new);
-        event.register(zContainers.FERRICORE_CLOCK.get(), ClockScreen::new);
+        event.register(zContainers.FERRICORE_CLOCK.get(), FerricoreClockScreen::new);
         event.register(zContainers.THERMOGEN.get(), ThermoScreen::new);
         event.register(zContainers.BLACKHOLE.get(), BlackHoleScreen::new);
         event.register(zContainers.FERRICORE_ANVIL.get(), FerricoreAnvilScreen::new);

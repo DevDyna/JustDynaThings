@@ -59,12 +59,9 @@ public class ThermoBE extends BaseMachineBE
         updateBlock(heat != null && coolant != null && isActiveRedstone());
 
         if (getBlockState().getValue(zProperties.ACTIVE)) {
-            if (canExtractMB() && canRecieveFE()) {
+            if (canExtractMB() && canRecieveFE())
+                generateEnergy(heat.heatEfficiency(), coolant.coolantEfficiency());
 
-                extractMBWhenPossible((int) ((125 / coolant.coolantEfficiency())));
-                increaseFEWhenPossible((int) (125 * coolant.coolantEfficiency() * heat.heatEfficiency()));
-
-            }
             if (canExtractFE())
                 chargeFEtoItemStack(level, getBlockPos(), getMachineHandler(), getEnergyStorage());
         }
@@ -74,8 +71,32 @@ public class ThermoBE extends BaseMachineBE
 
     }
 
+    private void generateEnergy(float heat, float coolant) {
+        if (!canExtractMB() || !canRecieveFE())
+            return;
+
+        if (coolant <= 0 || heat <= 0)
+            return;
+
+        var maxFEgen = (int) (ServerConfig.THERMOGEN_BASE_FE_GENERATION.get()
+                * coolant
+                * heat);
+
+        var maxCoolantUsage = (int) (ServerConfig.THERMOGEN_BASE_COOLANT_COST.get()
+                / coolant);
+
+        int fe = Math.min(maxFEgen, getMaxEnergy() - getEnergyStored());
+
+        if (fe <= 0)
+            return;
+
+        extractMBWhenPossible((int) Math.ceil((double) maxCoolantUsage * fe / maxFEgen));
+        increaseFEWhenPossible(fe);
+    }
+
     public void updateBlock(boolean state) {
-        level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(zProperties.ACTIVE, state));
+        if (getBlockState().getValue(zProperties.ACTIVE) != state)
+            level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(zProperties.ACTIVE, state));
     }
 
     public BlockState getHeatBlock() {

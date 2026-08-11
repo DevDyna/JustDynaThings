@@ -28,6 +28,8 @@ public class ServerConfig {
 
         public static IntValue THERMOGEN_FE_CAPACITY;
         public static IntValue THERMOGEN_MB_CAPACITY;
+        public static IntValue THERMOGEN_BASE_COOLANT_COST;
+        public static IntValue THERMOGEN_BASE_FE_GENERATION;
 
         public static BooleanValue BLACKHOLE_KEEP_STORAGE;
         public static IntValue BLACKHOLE_FE_CAPACITY;
@@ -244,9 +246,18 @@ public class ServerConfig {
                 THERMOGEN_FE_CAPACITY = BUILDER
                                 .comment(Config.Display.FE_MAX)
                                 .defineInRange(Blocks.ThermoGen + Config.Keys.FE_MAX, 1000000, 1, Integer.MAX_VALUE);
-                THERMOGEN_MB_CAPACITY = BUILDER
+              
+                                THERMOGEN_MB_CAPACITY = BUILDER
                                 .comment("Total Coolant Capacity")
                                 .defineInRange(Blocks.ThermoGen + Config.Keys.FE_RATE, 100000, 1, Integer.MAX_VALUE);
+                           
+                                THERMOGEN_BASE_COOLANT_COST = BUILDER
+                                .comment("Base coolant cost")
+                                .defineInRange(Blocks.ThermoGen + Config.Keys.MB_RATE, 125, 1, Integer.MAX_VALUE);
+
+                                THERMOGEN_BASE_FE_GENERATION = BUILDER
+                                .comment("Base fe generation")
+                                .defineInRange(Blocks.ThermoGen + Config.Keys.FE_RATE, 125, 1, Integer.MAX_VALUE);
 
                 BUILDER.comment(DataGenUtil.txtDecor(Blocks.BlackHole));
 

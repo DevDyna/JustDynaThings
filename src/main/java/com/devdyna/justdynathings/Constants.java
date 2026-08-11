@@ -110,6 +110,7 @@ public class Constants {
 
     }
 
+    @Deprecated
     public class DataMaps {
         public class Anvils {
             public static String anvil = "anvils/";
@@ -124,12 +125,8 @@ public class Constants {
             public static String thermo_coolants = thermo + "coolants";
         }
 
-        public class Reforger {
-            public static String reforger = "reforger_conversion/";
-            public static String block_to_block = reforger + "block_to_block";
-            public static String block_to_tag = reforger + "block_to_tag";
-            public static String tag_to_block = reforger + "tag_to_block";
-        }
+        public static String reforger = "reforger_conversion";
+
     }
 
     @Deprecated

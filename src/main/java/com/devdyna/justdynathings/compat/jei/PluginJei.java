@@ -11,7 +11,6 @@ import com.devdyna.justdynathings.client.type.anvil.ferricore.FerricoreAnvilScre
 import com.devdyna.justdynathings.client.type.paradoxMixer.ParadoxMixerScreen;
 import com.devdyna.justdynathings.compat.jei.categories.*;
 import com.devdyna.justdynathings.compat.jei.categories.anvils.*;
-import com.devdyna.justdynathings.compat.jei.categories.reforger.*;
 import com.devdyna.justdynathings.compat.jei.categories.thermo.ThermoCoolant;
 import com.devdyna.justdynathings.compat.jei.categories.thermo.ThermoHeatSource;
 import com.devdyna.justdynathings.compat.jei.datamaps.records;
@@ -96,9 +95,7 @@ public class PluginJei implements IModPlugin {
                 r.addRecipeCatalyst(zBlocks.THERMOGEN.get(), ThermoHeatSource.TYPE);
                 r.addRecipeCatalyst(zBlocks.THERMOGEN.get(), ThermoCoolant.TYPE);
 
-                r.addRecipeCatalyst(zBlocks.REFORGER.get(), OTO.TYPE);
-                r.addRecipeCatalyst(zBlocks.REFORGER.get(), OTM.TYPE);
-                r.addRecipeCatalyst(zBlocks.REFORGER.get(), MTO.TYPE);
+                r.addRecipeCatalyst(zBlocks.REFORGER.get(), ReforgerCategory.TYPE);
 
                 r.addRecipeCatalyst(zBlocks.PARADOX_MIXER.get(), ParadoxMixerCategory.TYPE);
 
@@ -118,10 +115,7 @@ public class PluginJei implements IModPlugin {
                 r.addRecipeCategories(new ThermoHeatSource(h));
                 r.addRecipeCategories(new ThermoCoolant(h));
 
-                // reforger
-                r.addRecipeCategories(new OTO(h));
-                r.addRecipeCategories(new OTM(h));
-                r.addRecipeCategories(new MTO(h));
+                r.addRecipeCategories(new ReforgerCategory(h));
 
                 r.addRecipeCategories(new ParadoxMixerCategory<>(h));
 
@@ -141,11 +135,7 @@ public class PluginJei implements IModPlugin {
                 r.addRecipes(ThermoHeatSource.TYPE, records.ThermoBlockHeatSource.get());
                 r.addRecipes(ThermoCoolant.TYPE, records.ThermoFluidCoolant.get());
 
-                r.addRecipes(OTO.TYPE, recipes.getAllRecipesFor(zRecipeTypes.REFORGER_OTO.getType()));
-
-                r.addRecipes(OTM.TYPE, recipes.getAllRecipesFor(zRecipeTypes.REFORGER_OTM.getType()));
-
-                r.addRecipes(MTO.TYPE, recipes.getAllRecipesFor(zRecipeTypes.REFORGER_MTO.getType()));
+                r.addRecipes(ReforgerCategory.TYPE, recipes.getAllRecipesFor(zRecipeTypes.REFORGER.getType()));
 
                 r.addRecipes(ParadoxMixerCategory.TYPE, recipes.getAllRecipesFor(zRecipeTypes.PARADOX_MIXER.getType()));
 

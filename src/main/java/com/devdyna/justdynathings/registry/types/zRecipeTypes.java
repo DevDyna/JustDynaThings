@@ -6,6 +6,8 @@ import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.recipetypes.zRecipe;
 import com.devdyna.justdynathings.recipetypes.serializer.*;
 import com.devdyna.justdynathings.recipetypes.type.*;
+import com.devdyna.justdynathings.registry.builders.reforger.ReforgerRecipe;
+import com.devdyna.justdynathings.registry.builders.reforger.ReforgerRecipeSerializer;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -26,31 +28,7 @@ public class zRecipeTypes {
         public static final DeferredRegister<RecipeType<?>> TYPES = DeferredRegister.create(Registries.RECIPE_TYPE, ID);
         // ------------------------------------------------------------------------------------------------------------------------------------//
 
-        public static final zRecipe<ReforgerOTORecipe> REFORGER_OTO = new zRecipe<ReforgerOTORecipe>(
-                        Constants.DataMaps.Reforger.block_to_block, ReforgerOTORecipeSerializer::new,
-                        () -> new RecipeType<ReforgerOTORecipe>() {
-                                @Override
-                                public String toString() {
-                                        return REFORGER_OTO.getId();
-                                }
-                        });
-
-        public static final zRecipe<ReforgerOTMRecipe> REFORGER_OTM = new zRecipe<ReforgerOTMRecipe>(
-                        Constants.DataMaps.Reforger.block_to_tag, ReforgerOTMRecipeSerializer::new,
-                        () -> new RecipeType<ReforgerOTMRecipe>() {
-                                @Override
-                                public String toString() {
-                                        return REFORGER_OTM.getId();
-                                }
-                        });
-        public static final zRecipe<ReforgerMTORecipe> REFORGER_MTO = new zRecipe<ReforgerMTORecipe>(
-                        Constants.DataMaps.Reforger.tag_to_block, ReforgerMTORecipeSerializer::new,
-                        () -> new RecipeType<ReforgerMTORecipe>() {
-                                @Override
-                                public String toString() {
-                                        return REFORGER_MTO.getId();
-                                }
-                        });
+        public static final zRecipe<ReforgerRecipe> REFORGER = new zRecipe<ReforgerRecipe>(  Constants.Blocks.Reforger, ReforgerRecipeSerializer::new);
 
         public static final zRecipe<ParadoxMixerRecipe> PARADOX_MIXER = new zRecipe<ParadoxMixerRecipe>(
                         Constants.Blocks.ParadoxMixer, ParadoxMixerRecipeSerializer::new,

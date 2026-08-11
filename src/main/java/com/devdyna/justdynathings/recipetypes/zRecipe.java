@@ -2,12 +2,14 @@ package com.devdyna.justdynathings.recipetypes;
 
 import java.util.function.Supplier;
 
+import com.devdyna.justdynathings.registry.builders.reforger.ReforgerRecipe;
 import com.devdyna.justdynathings.registry.types.zRecipeTypes;
 
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.neoforged.neoforge.registries.DeferredHolder;
+
 /**
  * Utility class to create recipes and recipe serializers at once
  */
@@ -24,6 +26,15 @@ public class zRecipe<T extends Recipe<?>> {
         this.id = id;
         this.finalserializer = zRecipeTypes.SERIALIZERS.register(id, serializer);
         this.finaltype = zRecipeTypes.TYPES.register(id, type);
+    }
+
+    public zRecipe(String id, Supplier<? extends RecipeSerializer<T>> serializer) {
+        this(id, serializer, () -> new RecipeType<T>() {
+            @Override
+            public String toString() {
+                return id;
+            }
+        });
     }
 
     public String getId() {

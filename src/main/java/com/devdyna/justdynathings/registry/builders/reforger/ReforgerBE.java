@@ -1,147 +1,123 @@
 package com.devdyna.justdynathings.registry.builders.reforger;
 
-import java.util.Optional;
 import java.util.Random;
 
-import com.devdyna.justdynathings.recipetypes.input.*;
-import com.devdyna.justdynathings.recipetypes.type.*;
-import com.devdyna.justdynathings.registry.types.*;
+import com.devdyna.justdynathings.recipetypes.input.ReforgerRecipeInput;
+import com.devdyna.justdynathings.registry.types.zBlockEntities;
+import com.devdyna.justdynathings.registry.types.zProperties;
+import com.devdyna.justdynathings.registry.types.zRecipeTypes;
 import com.devdyna.justdynathings.utils.LevelUtil;
+
 import com.direwolf20.justdirethings.client.particles.gooexplodeparticle.GooExplodeParticleData;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.RedstoneControlledBE;
 import com.direwolf20.justdirethings.util.interfacehelpers.RedstoneControlData;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.RecipeHolder;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.neoforged.neoforge.common.crafting.BlockTagIngredient;
 
 @SuppressWarnings("null")
 public class ReforgerBE extends BaseMachineBE implements RedstoneControlledBE {
 
-    public RedstoneControlData redstoneControlData = new RedstoneControlData();
+        public RedstoneControlData redstoneControlData = new RedstoneControlData();
 
-    public ReforgerBE(BlockEntityType<?> p, BlockPos b, BlockState s) {
-        super(p, b, s);
-        MACHINE_SLOTS = 1;
-    }
+        public ReforgerBE(BlockEntityType<?> type, BlockPos pos, BlockState state) {
+                super(type, pos, state);
+                MACHINE_SLOTS = 1;
+        }
 
-    public ReforgerBE(BlockPos p, BlockState s) {
-        this(zBlockEntities.REFORGER.get(), p, s);
-    }
+        public ReforgerBE(BlockPos pos, BlockState state) {
+                this(zBlockEntities.REFORGER.get(), pos, state);
+        }
 
-    @Override
-    public RedstoneControlData getRedstoneControlData() {
-        return redstoneControlData;
-    }
+        @Override
+        public RedstoneControlData getRedstoneControlData() {
+                return redstoneControlData;
+        }
 
-    @Override
-    public BlockEntity getBlockEntity() {
-        return this;
-    }
+        @Override
+        public BlockEntity getBlockEntity() {
+                return this;
+        }
 
-    @Override
-    public void tickServer() {
-        super.tickServer();
-        ItemStack item = getMachineHandler().getStackInSlot(0);
-        BlockPos posRel = getBlockPos()
-                .relative(getBlockState()
-                        .getValue(BlockStateProperties.FACING));
-        BlockState stateRelated = level.getBlockState(posRel);
+        @Override
+        public void tickServer() {
+                super.tickServer();
 
-        // var holder = item.getItemHolder();
+                var item = getMachineHandler().getStackInSlot(0);
 
-        if (item != null)
-            updateBlock(item);
+                var relative = getBlockPos().relative(
+                                getBlockState().getValue(
+                                                BlockStateProperties.FACING));
 
-        if (level.getGameTime() % tickSpeed == 0
-                && getBlockState().getValue(zProperties.ACTIVE).booleanValue()) {
+                updateBlock(!item.isEmpty() && isActiveRedstone());
 
-            Optional<RecipeHolder<ReforgerOTORecipe>> oto = level.getRecipeManager()
-                    .getRecipeFor(zRecipeTypes.REFORGER_OTO.getType(),
-                            new BlockStateItemInput(stateRelated, item), level);
+                if (level.getGameTime() % tickSpeed != 0)
+                        return;
 
-            if (!oto.isEmpty()) {
-                var recipe = oto.get().value();
-                success(recipe.getOutputState(), posRel, item, level, recipe.getChanceToUse());
-                return;
-            }
+                if (!getBlockState().getValue(zProperties.ACTIVE))
+                        return;
 
-            Optional<RecipeHolder<ReforgerOTMRecipe>> otm = level.getRecipeManager()
-                    .getRecipeFor(zRecipeTypes.REFORGER_OTM.getType(),
-                            new BlockStateItemInput(stateRelated, item), level);
+                if (item.isEmpty())
+                        return;
 
-            if (!otm.isEmpty()) {
-                var recipe = otm.get().value();
+                var r = level.getRecipeManager().getRecipeFor(zRecipeTypes.REFORGER.getType(),
+                                new ReforgerRecipeInput(level.getBlockState(relative), item), level);
 
-                var tag = recipe.getOutputState().getTag();
+                if (r.isEmpty())
+                        return;
 
-                success(LevelUtil.ResourceByTag(tag, LevelUtil.getRandomValue(LevelUtil.getSizeTag(tag), level))
-                        .defaultBlockState(), posRel, item, level, recipe.getChanceToUse());
-                return;
-            }
+                var recipe = r.get().value();
 
-            for (TagKey<Block> tag : stateRelated.getTags().toList()) {
-                Optional<RecipeHolder<ReforgerMTORecipe>> mto = level.getRecipeManager()
-                        .getRecipeFor(zRecipeTypes.REFORGER_MTO.getType(),
-                                new BlockTagItemInput(new BlockTagIngredient(tag), item), level);
+                var output = recipe.getOutputState(level);
 
-                if (!mto.isEmpty()) {
-                    var recipe = mto.get().value();
-                    success(recipe.getOutputState(), posRel, item, level, recipe.getChanceToUse());
-                    return;
-                }
+                spawnParticles((ServerLevel) level, relative);
 
-            }
+                applySound();
+
+                // adjusted rotation for rotable blocks like JDT raw ores
+                if (output.getOptionalValue(BlockStateProperties.FACING).isPresent())
+                        output = output.trySetValue(BlockStateProperties.FACING,
+                                        getBlockState().getValue(BlockStateProperties.FACING));
+
+                level.setBlockAndUpdate(relative, output);
+
+                if (LevelUtil.chance(recipe.getChanceToUse(), level))
+                        item.shrink(1);
 
         }
-    }
 
-    /**
-     * update the blockstate properties
-     */
-    public void updateBlock(ItemStack item) {
-        level.setBlockAndUpdate(getBlockPos(),
-                getBlockState()
-                        .setValue(zProperties.ACTIVE,
-                                !item.isEmpty() && isActiveRedstone()));
-    }
+        /**
+         * update the blockstate properties
+         */
+        public void updateBlock(boolean v) {
+                if (getBlockState().getValue(zProperties.ACTIVE) != v)
+                        level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(zProperties.ACTIVE, v));
+        }
 
-    public void success(BlockState b, BlockPos pos, ItemStack item, Level level, int cosChance) {
-        spawnParticles((ServerLevel) level, pos);
-        applySound();
-        // adjusted rotation for rotable blocks like JDT raw ores
-        if (b.getOptionalValue(BlockStateProperties.FACING).isPresent())
-            b = b.trySetValue(BlockStateProperties.FACING, getBlockState()
-                    .getValue(BlockStateProperties.FACING));
-        level.setBlockAndUpdate(pos, b);
-        if (LevelUtil.chance(cosChance, level))
-            item.shrink(1);
-    }
+        public void applySound() {
+                if (LevelUtil.chance(50, level))
+                        level.playSound(null, getBlockPos(), SoundEvents.STRIDER_EAT,
+                                        SoundSource.BLOCKS, 1F, 0.1F);
+        }
 
-    public void applySound() {
-        if (LevelUtil.chance(50, level))
-            level.playSound(null, getBlockPos(), SoundEvents.STRIDER_EAT,
-                    SoundSource.BLOCKS, 1F, 0.1F);
-    }
+        public void spawnParticles(ServerLevel level, BlockPos pos) {
+                var item = new ItemStack(level.getBlockState(pos).getBlock());
 
-    public void spawnParticles(ServerLevel level, BlockPos pos) {
-        for (int i = 0; i < 5; ++i)
-            level.sendParticles(new GooExplodeParticleData(new ItemStack(level.getBlockState(pos).getBlock())),
-                    (double) pos.getX() + new Random().nextDouble(),
-                    (double) pos.getY() + new Random().nextDouble(),
-                    (double) pos.getZ() + new Random().nextDouble(),
-                    1, 0.0, 0.0, 0.0, 0.0);
-    }
-
+                if(!item.isEmpty())
+                for (int i = 0; i < 5; ++i)
+                        level.sendParticles(
+                                        new GooExplodeParticleData(item),
+                                        (double) pos.getX() + new Random().nextDouble(),
+                                        (double) pos.getY() + new Random().nextDouble(),
+                                        (double) pos.getZ() + new Random().nextDouble(),
+                                        1, 0.0, 0.0, 0.0, 0.0);
+        }
 }

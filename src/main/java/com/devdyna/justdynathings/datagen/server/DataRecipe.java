@@ -18,6 +18,7 @@ import com.devdyna.justdynathings.compat.geore.initGeOre;
 import com.devdyna.justdynathings.compat.phasorite.initPhaso;
 import com.devdyna.justdynathings.recipetypes.builders.*;
 import com.devdyna.justdynathings.registry.builders.AdvancedTimeWand;
+import com.devdyna.justdynathings.registry.builders.reforger.ReforgerBuilder;
 import com.devdyna.justdynathings.registry.types.*;
 import com.devdyna.justdynathings.utils.DataGenUtil;
 import com.devdyna.justdynathings.utils.LogUtil;
@@ -389,47 +390,47 @@ public class DataRecipe extends RecipeProvider {
                                 .group(Constants.GooUpgraders.base).save(c);
                 // ---------------------------------------------------------------------------------------//
 
-                ReforgerOTMBuilder.of()
-                                .input(Blocks.STONE.defaultBlockState())
+                ReforgerBuilder.of()
+                                .input(Blocks.STONE)
                                 .catalyst(Ingredient.of(Items.DIAMOND))
-                                .chanceToUse(95)
+                                .chance(95)
                                 .output(Tags.Blocks.ORES_IN_GROUND_STONE)
-                                .unlockedBy().group(Constants.DataMaps.Reforger.block_to_tag).save(c);
+                                .unlockedBy().save(c);
 
-                ReforgerOTMBuilder.of()
-                                .input(Blocks.STONE.defaultBlockState())
+                ReforgerBuilder.of()
+                                .input(Blocks.STONE)
                                 .catalyst(Ingredient.of(Registration.Celestigem.get()))
-                                .chanceToUse(50)
+                                .chance(50)
                                 .output(Tags.Blocks.ORES_IN_GROUND_STONE)
-                                .unlockedBy().group(Constants.DataMaps.Reforger.block_to_tag).save(c);
+                                .unlockedBy().save(c);
 
-                ReforgerMTOBuilder.of()
+                ReforgerBuilder.of()
                                 .input(zBlockTags.COAL_BLOCKS)
                                 .catalyst(Ingredient.of(Registration.Coal_T1.get()))
-                                .chanceToUse(50)
-                                .output(Registration.RawCoal_T1.get().defaultBlockState())
-                                .unlockedBy().group(Constants.DataMaps.Reforger.tag_to_block).save(c);
+                                .chance(50)
+                                .output(Registration.RawCoal_T1.get())
+                                .unlockedBy().save(c);
 
-                ReforgerOTOBuilder.of()
-                                .input(Registration.RawCoal_T1.get().defaultBlockState())
+                ReforgerBuilder.of()
+                                .input(Registration.RawCoal_T1.get())
                                 .catalyst(Ingredient.of(Registration.Coal_T2.get()))
-                                .chanceToUse(50)
-                                .output(Registration.RawCoal_T2.get().defaultBlockState())
-                                .unlockedBy().group(Constants.DataMaps.Reforger.block_to_block).save(c);
+                                .chance(50)
+                                .output(Registration.RawCoal_T2.get())
+                                .unlockedBy().save(c);
 
-                ReforgerOTOBuilder.of()
-                                .input(Registration.RawCoal_T2.get().defaultBlockState())
+                ReforgerBuilder.of()
+                                .input(Registration.RawCoal_T2.get())
                                 .catalyst(Ingredient.of(Registration.Coal_T3.get()))
-                                .chanceToUse(50)
-                                .output(Registration.RawCoal_T3.get().defaultBlockState())
-                                .unlockedBy().group(Constants.DataMaps.Reforger.block_to_block).save(c);
+                                .chance(50)
+                                .output(Registration.RawCoal_T3.get())
+                                .unlockedBy().save(c);
 
-                ReforgerOTOBuilder.of()
-                                .input(Registration.RawCoal_T3.get().defaultBlockState())
+                ReforgerBuilder.of()
+                                .input(Registration.RawCoal_T3.get())
                                 .catalyst(Ingredient.of(Registration.Coal_T4.get()))
-                                .chanceToUse(50)
-                                .output(Registration.RawCoal_T4.get().defaultBlockState())
-                                .unlockedBy().group(Constants.DataMaps.Reforger.block_to_block).save(c);
+                                .chance(50)
+                                .output(Registration.RawCoal_T4.get())
+                                .unlockedBy().save(c);
 
                 wands(c);
 

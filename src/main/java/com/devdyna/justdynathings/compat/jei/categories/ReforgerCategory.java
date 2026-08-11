@@ -1,13 +1,10 @@
 package com.devdyna.justdynathings.compat.jei.categories;
 
-import javax.annotation.Nullable;
-
 import com.devdyna.justdynathings.compat.jei.utils.BaseRecipeCategory;
 import com.devdyna.justdynathings.recipetypes.BlockOrTag;
 import com.devdyna.justdynathings.registry.builders.reforger.ReforgerRecipe;
 import com.devdyna.justdynathings.registry.types.zBlocks;
 import com.devdyna.justdynathings.registry.types.zRecipeTypes;
-import com.devdyna.justdynathings.utils.DataGenUtil;
 import com.devdyna.justdynathings.utils.Size;
 
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
@@ -20,7 +17,6 @@ import mezz.jei.api.recipe.RecipeIngredientRole;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.ItemLike;
@@ -103,14 +99,6 @@ public class ReforgerCategory extends BaseRecipeCategory<RecipeHolder<ReforgerRe
                 guiGraphics.drawString(Minecraft.getInstance().font,
                                 (chance < 10 ? " " : "") + (chance < 100 ? " " : "") + chance + "%", 61, 8, 0x444444,
                                 false);
-        }
-
-        @Override
-        public @Nullable ResourceLocation getRegistryName(RecipeHolder<ReforgerRecipe> recipeHolder) {
-                return switch (recipeHolder.value().getOutput()) {
-                        case BlockOrTag.block block -> DataGenUtil.getResource(block.block().getDescriptionId());
-                        case BlockOrTag.tag tag -> DataGenUtil.getResource(tag.tag().location().getPath());
-                };
         }
 
 }

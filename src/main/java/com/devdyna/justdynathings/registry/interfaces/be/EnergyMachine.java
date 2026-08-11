@@ -5,9 +5,6 @@ import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineB
 public interface EnergyMachine extends PoweredMachineBE {
 
     @Deprecated
-    int FErate = 100;
-    @Deprecated
-    int FEsize = 10000;
 
     /**
      * FE / tick

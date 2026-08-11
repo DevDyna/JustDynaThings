@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.function.Supplier;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
-import com.devdyna.justdynathings.api.factories.items.ItemBase;
 import com.devdyna.justdynathings.api.factories.items.ItemFuel;
 import com.devdyna.justdynathings.compat.ae2.initApp;
 import com.devdyna.justdynathings.compat.extendedae.initExtend;
@@ -143,11 +142,6 @@ public class Material {
                         b[i] = a.get(i);
                 }
                 return b;
-        }
-
-        public static DeferredHolder<Item, ?> createItem(String name) {
-                return zItems.zItem.register(name,
-                                ItemBase::new);
         }
 
         public class DireStuff {

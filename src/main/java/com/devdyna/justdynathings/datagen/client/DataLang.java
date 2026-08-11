@@ -105,14 +105,11 @@ public class DataLang extends LanguageProvider {
 
                                 Constants.DataMaps.Thermo.thermo_coolants,
                                 Constants.DataMaps.Thermo.thermo_heat_sources,
-                                Constants.DataMaps.Reforger.block_to_block,
-                                Constants.DataMaps.Reforger.block_to_tag,
-                                Constants.DataMaps.Reforger.tag_to_block,
+                                "reforger_conversion",
                                 Constants.Blocks.ParadoxMixer
 
                 ).forEach(j -> add(ID + ".jei.category." + j, named(j.replace(
-                                Constants.DataMaps.Anvils.anvil, "")
-                                .replace(Constants.DataMaps.Reforger.reforger, "reforger_"))));
+                                Constants.DataMaps.Anvils.anvil, ""))));
 
                 add(ID + "." + Constants.GooUpgraders.base, "§7Right click on a goo to upgrade it to the next tier");
                 add(ID + "." + Constants.Wands.Picker, "§7Allow to pickup simple blocks and place where you want");

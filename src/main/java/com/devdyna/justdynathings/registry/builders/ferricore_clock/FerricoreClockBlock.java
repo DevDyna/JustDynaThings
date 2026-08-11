@@ -6,7 +6,6 @@ import javax.annotation.Nullable;
 
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
-import com.devdyna.justdynathings.client.type.clock.ClockGUI;
 import com.devdyna.justdynathings.config.ServerConfig;
 import com.devdyna.justdynathings.registry.types.zProperties;
 import com.devdyna.justdynathings.utils.Actions;

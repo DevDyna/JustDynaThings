@@ -6,7 +6,6 @@ import javax.annotation.Nullable;
 
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Main;
-import com.devdyna.justdynathings.client.type.solarGen.ferricore.FerricoreSolarPanelGUI;
 import com.devdyna.justdynathings.config.ServerConfig;
 import com.devdyna.justdynathings.registry.builders.solar.SolarBlockBase;
 import com.devdyna.justdynathings.utils.Actions;

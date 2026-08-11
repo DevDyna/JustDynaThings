@@ -1,5 +1,6 @@
 package com.devdyna.justdynathings.registry.builders.reforger;
 
+import com.devdyna.justdynathings.api.client.ExtraSlots;
 import com.direwolf20.justdirethings.client.screens.basescreens.BaseMachineScreen;
 import com.direwolf20.justdirethings.client.screens.standardbuttons.ToggleButtonFactory;
 import com.direwolf20.justdirethings.client.screens.widgets.ToggleButton;
@@ -9,7 +10,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.Slot;
 
-public class ReforgerScreen extends BaseMachineScreen<ReforgerGUI> {
+public class ReforgerScreen extends BaseMachineScreen<ReforgerGUI> implements ExtraSlots {
     public ReforgerScreen(ReforgerGUI container, Inventory inv, Component name) {
         super(container, inv, name);
     }
@@ -37,5 +38,11 @@ public class ReforgerScreen extends BaseMachineScreen<ReforgerGUI> {
     @Override
     protected void drawMachineSlot(GuiGraphics guiGraphics, Slot slot) {
         super.drawMachineSlot(guiGraphics, slot);
+    }
+
+    @Override
+    public void renderBackground(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
+        super.renderBackground(guiGraphics, mouseX, mouseY, partialTick);
+        addRecipeButton(guiGraphics, 158, -22);
     }
 }

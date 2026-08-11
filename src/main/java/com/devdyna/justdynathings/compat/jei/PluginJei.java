@@ -18,6 +18,7 @@ import com.devdyna.justdynathings.registry.builders.functional_anvils.blazegold.
 import com.devdyna.justdynathings.registry.builders.functional_anvils.eclipsealloy.EclipseAlloyAnvilScreen;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.ferricore.FerricoreAnvilScreen;
 import com.devdyna.justdynathings.registry.builders.paradox_mixer.ParadoxMixerScreen;
+import com.devdyna.justdynathings.registry.builders.reforger.ReforgerScreen;
 import com.devdyna.justdynathings.registry.builders.thermo.ThermoScreen;
 import com.devdyna.justdynathings.registry.types.zBlocks;
 import com.devdyna.justdynathings.registry.types.zRecipeTypes;
@@ -192,6 +193,9 @@ public class PluginJei implements IModPlugin {
 
                 r.addRecipeClickArea(EclipseAlloyAnvilScreen.class, 158, -22, 16, 16,
                                 EclipseAlloyAnvil.TYPE);
+
+                r.addRecipeClickArea(ReforgerScreen.class, 158, -22, 16, 16,
+                                ReforgerCategory.TYPE);
 
                 r.addRecipeClickArea(ThermoScreen.class, 158, -22, 16, 16,
                                 ThermoCoolant.TYPE);

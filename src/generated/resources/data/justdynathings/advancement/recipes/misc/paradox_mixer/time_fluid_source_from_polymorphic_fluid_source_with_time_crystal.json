@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "justdynathings:fluidtank/polymorphic_fluid_source_from_water_with_polymorphic_catalyst"
+        "recipe": "justdynathings:paradox_mixer/time_fluid_source_from_polymorphic_fluid_source_with_time_crystal"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -11,7 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": "justdirethings:polymorphic_catalyst"
+            "items": "justdirethings:time_crystal"
           }
         ]
       },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "justdynathings:fluidtank/polymorphic_fluid_source_from_water_with_polymorphic_catalyst"
+      "justdynathings:paradox_mixer/time_fluid_source_from_polymorphic_fluid_source_with_time_crystal"
     ]
   }
 }

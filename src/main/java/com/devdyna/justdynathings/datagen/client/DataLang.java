@@ -175,6 +175,9 @@ public class DataLang extends LanguageProvider {
                 add("config.jade.plugin_" + ID + "." + Constants.Blocks.Stabilizer, "Stabilizer Abilities");
                 add("config.jade.plugin_" + ID + "." + Constants.Blocks.ParadoxMixer, "Paradox Mixer Requirements");
 
+                add(ID + ".thermo.screen.button.coolant", "Show Coolants");
+                add(ID + ".thermo.screen.button.heat", "Show Heat Sources");
+
         }
 
         private String named(String text) {

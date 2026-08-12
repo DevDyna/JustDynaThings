@@ -12,6 +12,7 @@ import com.devdyna.justdynathings.compat.jei.categories.thermo.ThermoHeatSource;
 import com.devdyna.justdynathings.compat.jei.datamaps.records;
 import com.devdyna.justdynathings.compat.jei.utils.FuelRecords;
 import com.devdyna.justdynathings.compat.jei.utils.FuelUtils;
+import com.devdyna.justdynathings.compat.jei.utils.JEIButtonHelper;
 import com.devdyna.justdynathings.config.ServerConfig;
 import com.devdyna.justdynathings.datagen.server.DataRecipe;
 import com.devdyna.justdynathings.registry.builders.functional_anvils.blazegold.BlazeGoldAnvilScreen;
@@ -42,6 +43,7 @@ import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 import mezz.jei.api.runtime.IJeiRuntime;
 import net.minecraft.client.Minecraft;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
@@ -199,11 +201,11 @@ public class PluginJei implements IModPlugin {
                 r.addRecipeClickArea(ReforgerScreen.class, 158, -22, 16, 16,
                                 ReforgerCategory.TYPE);
 
-                r.addRecipeClickArea(ThermoScreen.class, 158, -22, 16, 16,
-                                ThermoCoolant.TYPE);
+                JEIButtonHelper.addRecipeClickArea(r, ThermoScreen.class, 158, -22, 16, 16,
+                                Component.translatable(ID + ".thermo.screen.button.coolant"), ThermoCoolant.TYPE);
 
-                r.addRecipeClickArea(ThermoScreen.class, 158 - 18, -22, 16, 16,
-                                ThermoHeatSource.TYPE);
+                JEIButtonHelper.addRecipeClickArea(r, ThermoScreen.class, 158 - 18, -22, 16, 16,
+                                Component.translatable(ID + ".thermo.screen.button.heat"), ThermoHeatSource.TYPE);
 
                 r.addRecipeClickArea(GeneratorT1Screen.class, 158, -22, 16, 16,
                                 FuelRecipeCategory.TYPE);

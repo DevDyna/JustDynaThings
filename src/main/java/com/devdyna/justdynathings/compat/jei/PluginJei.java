@@ -207,11 +207,13 @@ public class PluginJei implements IModPlugin {
                 JEIButtonHelper.addRecipeClickArea(r, ThermoScreen.class, 158 - 18, -22, 16, 16,
                                 Component.translatable(ID + ".thermo.screen.button.heat"), ThermoHeatSource.TYPE);
 
-                r.addRecipeClickArea(GeneratorT1Screen.class, 158, -22, 16, 16,
-                                FuelRecipeCategory.TYPE);
+                if (!ModList.get().isLoaded("justtieredgens")) {
+                        r.addRecipeClickArea(GeneratorT1Screen.class, 158, -22, 16, 16,
+                                        FuelRecipeCategory.TYPE);
 
-                r.addRecipeClickArea(GeneratorFluidT1Screen.class, 158, -22, 16, 16,
-                                RefinedFuelRecipeCategory.TYPE);
+                        r.addRecipeClickArea(GeneratorFluidT1Screen.class, 158, -22, 16, 16,
+                                        RefinedFuelRecipeCategory.TYPE);
+                }
 
         }
 

@@ -163,6 +163,8 @@
   "justdynathings.stabilizer.jade.goo": "Revive Goo",
   "justdynathings.swapper_wand": "§7Allow to swap simple blocks without break it",
   "justdynathings.temporal_stupefy_wand": "§7Remove TimeWand Entities and Stupefy ability",
+  "justdynathings.thermo.screen.button.coolant": "Show Coolants",
+  "justdynathings.thermo.screen.button.heat": "Show Heat Sources",
   "justdynathings.thermo_generator": "§7Generate Energy from heat sources and coolants",
   "justdynathings.ticker": "§7A block that act at same of a time wand",
   "justdynathings.wand.blockstate": "§7BlockState : ",

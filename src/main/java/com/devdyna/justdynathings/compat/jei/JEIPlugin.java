@@ -20,6 +20,8 @@ import com.devdyna.justdynathings.init.types.zBlocks;
 import com.devdyna.justdynathings.init.types.zRecipeTypes;
 import com.direwolf20.justdirethings.client.jei.FluidDropRecipeCategory;
 import com.direwolf20.justdirethings.client.jei.GooSpreadRecipeCategory;
+import com.direwolf20.justdirethings.client.screens.GeneratorFluidT1Screen;
+import com.direwolf20.justdirethings.client.screens.GeneratorT1Screen;
 import com.direwolf20.justdirethings.common.blocks.resources.CoalBlock_T1;
 import com.direwolf20.justdirethings.common.fluids.basefluids.RefinedFuel;
 import com.direwolf20.justdirethings.common.items.resources.Coal_T1;
@@ -151,6 +153,14 @@ public class JEIPlugin implements IModPlugin {
 
                 r.addRecipeClickArea(EclipseAlloyAnvilScreen.class, 158, -22, 16, 16,
                                 EclipseAlloyAnvilCategory.TYPE);
+                                
+                if (!ModAddonUtil.checkMod("justtieredgens")) {
+                        r.addRecipeClickArea(GeneratorT1Screen.class, 158, -22, 16, 16,
+                                        FuelRecipeCategory.TYPE);
+
+                        r.addRecipeClickArea(GeneratorFluidT1Screen.class, 158, -22, 16, 16,
+                                        RefinedFuelRecipeCategory.TYPE);
+                }
 
         }
 

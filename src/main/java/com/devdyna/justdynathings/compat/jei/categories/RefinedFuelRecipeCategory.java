@@ -41,8 +41,6 @@ public class RefinedFuelRecipeCategory extends BaseCategory<FuelRecords.Fluids> 
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, FuelRecords.Fluids recipe, IFocusGroup focuses) {
-        // TODO x.fluidSized shoud allow fluid lists
-        // TODO y+16
         JEIFluidTankHelper.of()
                 .fluid(new SizedFluidIngredient(FluidIngredient.of(recipe.getFuels().toArray(FluidStack[]::new)), 1))
                 .offset(1, 8 + 16)

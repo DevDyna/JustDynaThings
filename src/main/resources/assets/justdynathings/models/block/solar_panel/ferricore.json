@@ -3,6 +3,6 @@
   "textures": {
     "side": "justdirethings:block/generatort1_side",
     "bottom": "justdirethings:block/generatort1_bottom",
-    "solar_panel": "justdynathings:block/solar_panel/ferricore/top"
+    "solar_panel": "justdynathings:block/solar_panel/ferricore"
   }
 }

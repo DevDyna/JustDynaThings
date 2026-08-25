@@ -1,0 +1,25 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "justdirethings:portal_fluid_catalyst"
+    },
+    {
+      "type": "neoforge:single",
+      "amount": 1000,
+      "fluid": "justdirethings:polymorphic_fluid_source"
+    }
+  ],
+  "results": [
+    {
+      "amount": 1000,
+      "id": "justdirethings:unstable_portal_fluid_source"
+    }
+  ]
+}

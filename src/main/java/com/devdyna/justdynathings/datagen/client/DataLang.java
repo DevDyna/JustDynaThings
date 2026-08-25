@@ -6,7 +6,6 @@ import com.devdyna.cakesticklib.api.datagen.LangUtils;
 import com.devdyna.cakesticklib.api.datagen.LangUtils.TipColors;
 import com.devdyna.justdynathings.Constants;
 
-
 import com.devdyna.justdynathings.init.types.zBlocks;
 import com.devdyna.justdynathings.init.types.zFluids;
 import com.devdyna.justdynathings.init.types.zItems;
@@ -31,7 +30,8 @@ public class DataLang extends LanguageProvider {
                 zBlocks.zBlockItem.getEntries().forEach(i -> addBlock(i, LangUtils.named(i, MODULE_ID)));
                 zBlocks.zBlockFluids.getEntries().forEach(i -> addBlock(i, LangUtils.named(i, MODULE_ID)));
                 zFluids.zFluidTypes.getEntries().forEach(
-                                f -> add(f.get().getDescriptionId(), LangUtils.named(f, MODULE_ID).replace(" Type", "")));
+                                f -> add(f.get().getDescriptionId(),
+                                                LangUtils.named(f, MODULE_ID).replace(" Type", "")));
 
                 add(MODULE_ID + ".invalid_block", "§cInvalid Block");
                 add(MODULE_ID + ".wand.blockstate", TipColors.ITEM_TOOLTIP + "BlockState : ");
@@ -47,7 +47,7 @@ public class DataLang extends LanguageProvider {
                                 TipColors.ITEM_TOOLTIP + "Repair items using metallic ingots");
 
                 add(MODULE_ID + "." + Constants.Anvils.t2,
-                                "Repair items using hot fluids");
+                                TipColors.ITEM_TOOLTIP + "Repair items using hot fluids");
 
                 add(MODULE_ID + "." + Constants.Anvils.t3,
                                 TipColors.ITEM_TOOLTIP + "Repair items using Forge Energy");
@@ -176,7 +176,8 @@ public class DataLang extends LanguageProvider {
                 // misc
                 add(MODULE_ID + ".configuration.answer", "A questionable question");
                 add(MODULE_ID + ".configuration.include_any_jei_fuels", "Include Any Fuel to JEI fuel category");
-                add(MODULE_ID + ".configuration.disable_jei_fuels", "Disable Fuel JEI categories when Just Tiered Generators is installed");
+                add(MODULE_ID + ".configuration.disable_jei_fuels",
+                                "Disable Fuel JEI categories when Just Tiered Generators is installed");
 
                 add(MODULE_ID + ".configuration.void_crystal_tooltips",
                                 "All possible strings rendered below Void Crystal");
@@ -329,7 +330,8 @@ public class DataLang extends LanguageProvider {
 
                 add(MODULE_ID + ".goo_tier.infinite", "Infinite");
 
-                add(MODULE_ID + ".abstract_paradox", TipColors.ITEM_TOOLTIP + "Obtained by throwing a void crystal over a Paradox");
+                add(MODULE_ID + ".abstract_paradox",
+                                TipColors.ITEM_TOOLTIP + "Obtained by throwing a void crystal over a Paradox");
 
         }
 

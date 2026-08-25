@@ -1,8 +1,8 @@
 {
   "parent": "justdynathings:block/solar_panel/_template",
   "textures": {
-    "bottom": "justdynathings:block/generator/blazegold/bottom",
-    "side": "justdynathings:block/generator/blazegold/side",
-    "solar_panel": "justdynathings:block/solar_panel/blazegold"
+    "bottom": "justdynathings:block/solar_panel/blazegold/bottom",
+    "side": "justdynathings:block/solar_panel/blazegold/side",
+    "solar_panel": "justdynathings:block/solar_panel/blazegold/top"
   }
 }

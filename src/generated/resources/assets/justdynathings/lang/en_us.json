@@ -152,7 +152,7 @@
   "justdynathings.configuration.ticker_fluid_every_tick": "Ticker fluid every tick",
   "justdynathings.configuration.ticker_max_energy_storage": "Ticker max energy storage",
   "justdynathings.configuration.ticker_max_fluid_storage": "Ticker max fluid storage",
-  "justdynathings.configuration.ticker_tick_limit": "Ticker tick limiter",
+  "justdynathings.configuration.ticker_max_tick_limit": "Ticker tick limiter",
   "justdynathings.configuration.void_crystal_tooltips": "All possible strings rendered below Void Crystal",
   "justdynathings.disabled": "§cItem Disabled",
   "justdynathings.echoing_budding.break": "§cDoesn't drop when broken!",
@@ -187,6 +187,7 @@
   "justdynathings.stabilizer.jade.goo": "Revive Goo",
   "justdynathings.swapper_wand": "§7Allow to swap simple blocks without break it",
   "justdynathings.ticker": "§7A block that act at same of a time wand but configurable!",
+  "justdynathings.ticker.tick_overflow": "Ticker Speed is capped to %s",
   "justdynathings.wand.blockstate": "§7BlockState : ",
   "justdynathings.wand.dimension": "§7Dimension : ",
   "justdynathings.wand.pos": "§7BlockPos : "

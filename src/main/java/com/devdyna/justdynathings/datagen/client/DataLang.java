@@ -178,7 +178,7 @@ public class DataLang extends LanguageProvider {
                 add(ID + ".thermo.screen.button.coolant", "Show Coolants");
                 add(ID + ".thermo.screen.button.heat", "Show Heat Sources");
 
-                add(ID + "." + Constants.Blocks.Ticker + ".tick_overflow", "Ticker Speed will be capped to %s");
+                add(ID + "." + Constants.Blocks.Ticker + ".tick_overflow", "Ticker Speed is capped to %s");
 
         }
 

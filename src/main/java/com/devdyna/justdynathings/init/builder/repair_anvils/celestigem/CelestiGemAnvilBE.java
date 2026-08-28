@@ -5,6 +5,7 @@ import com.devdyna.justdynathings.api.be.EnergyMachine;
 import com.devdyna.justdynathings.api.repair_anvils.FunctionalAnvilBE;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
 import com.devdyna.justdynathings.init.types.zItemTags;
+
 import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineContainerData;
 import com.direwolf20.justdirethings.common.capabilities.MachineEnergyStorage;
 import com.direwolf20.justdirethings.setup.JDTRegistration;
@@ -49,15 +50,46 @@ public class CelestiGemAnvilBE extends FunctionalAnvilBE implements EnergyMachin
     }
 
     @Override
-    public void whenToolValid() {
+    public boolean extraConditions() {
+        return getEnergyStored() >= getStandardEnergyCost();
+    }
 
-        if (!getEnergyStorage().canExtract())
+    @Override
+    public void onToolValid() {
+
+        int energyCost = getStandardEnergyCost();
+
+        if (energyCost <= 0)
             return;
 
-        extractFEWhenPossible();
+        int toolDamage = getToolDamage();
 
-        setDurabilityBatch(1);
+        if (toolDamage <= 0)
+            return;
 
+        if (!ignoreDelay()) {
+
+            if (getEnergyStored() < energyCost)
+                return;
+
+            repair(1);
+            extractFEWhenPossible(energyCost);
+
+            return;
+        }
+
+        int operations = getEnergyStored() / energyCost;
+
+        if (operations <= 0)
+            return;
+
+        int repairAmount = Math.min(operations, toolDamage);
+
+        if (repairAmount <= 0)
+            return;
+
+        repair(repairAmount);
+        extractFEWhenPossible(repairAmount * energyCost);
     }
 
     @Override
@@ -74,5 +106,4 @@ public class CelestiGemAnvilBE extends FunctionalAnvilBE implements EnergyMachin
     public Boolean ignoreDelay() {
         return Config.ANVIL_CELESTIGEM_IGNORE_DELAY.get();
     }
-
 }

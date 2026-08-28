@@ -11,6 +11,7 @@ import com.devdyna.justdynathings.common.recipes.anvils.eclipsealloy.RepairEclip
 import com.devdyna.justdynathings.init.types.zBlockEntities;
 import com.devdyna.justdynathings.init.types.zItemTags;
 import com.devdyna.justdynathings.init.types.zRecipeTypes;
+
 import com.direwolf20.justdirethings.common.blockentities.basebe.FluidContainerData;
 import com.direwolf20.justdirethings.common.capabilities.JustDireFluidTank;
 import com.direwolf20.justdirethings.setup.JDTRegistration;
@@ -58,7 +59,7 @@ public class EclipseAlloyAnvilBE extends FunctionalAnvilBE
     }
 
     @Override
-    public void whenToolValid() {
+    public void onToolValid() {
         processRecipe();
     }
 
@@ -76,13 +77,47 @@ public class EclipseAlloyAnvilBE extends FunctionalAnvilBE
     public Optional<RecipeHolder<RepairEclipseAlloyAnvilRecipe>> getRecipe() {
         return level.getServer().getRecipeManager().getRecipeFor(
                 zRecipeTypes.ECLIPSEALLOY_ANVIL.getType(),
-                FluidInput.simple.of(getFluidTank().getResource(0).toStack(getAmountStored())),
-                level);
+                FluidInput.simple.of(getFluidTank().getResource(0).toStack(getAmountStored())), level);
     }
 
     @Override
     public void onRecipeValid(RepairEclipseAlloyAnvilRecipe recipe) {
-        extractMBWhenPossible(recipe.getInput().amount());
+
+        int recipeCost = recipe.getInput().amount();
+
+        if (recipeCost <= 0)
+            return;
+
+        int toolDamage = getToolDamage();
+
+        if (toolDamage <= 0)
+            return;
+
+        if (!ignoreDelay()) {
+
+            if (getAmountStored() < recipeCost)
+                return;
+
+            int repairAmount = Math.min(recipe.getDurability(), toolDamage);
+
+            extractMBWhenPossible(recipeCost);
+            repair(repairAmount);
+
+            return;
+        }
+
+        int operations = getAmountStored() / recipeCost;
+
+        if (operations <= 0)
+            return;
+
+        int repairAmount = Math.min(operations * recipe.getDurability(), toolDamage);
+
+        if (repairAmount <= 0)
+            return;
+
+        extractMBWhenPossible((int) Math.ceil((double) repairAmount / recipe.getDurability()) * recipeCost);
+        repair(repairAmount);
     }
 
     @Override

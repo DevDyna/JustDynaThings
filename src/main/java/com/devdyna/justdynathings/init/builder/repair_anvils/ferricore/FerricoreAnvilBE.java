@@ -29,20 +29,44 @@ public class FerricoreAnvilBE extends FunctionalAnvilBE implements AnvilRecipeHa
         this(zBlockEntities.FERRICORE_ANVIL.get(), pos, state);
     }
 
+    private int totalToRepair = 0;
+
     @Override
     public Optional<RecipeHolder<RepairFerricoreAnvilRecipe>> getRecipe() {
-        var catalyst = getMachineHandler().getResource(1);
         return level.getServer().getRecipeManager().getRecipeFor(
                 zRecipeTypes.FERRICORE_ANVIL.getType(),
-                ItemInput.simple.of(catalyst.toStack()),
-                level);
+                ItemInput.simple.of(getMachineHandler().getResource(1).toStack()), level);
+    }
+
+    @Override
+    public void onToolValid() {
+
+        if (totalToRepair > 0) {
+
+            if (ignoreDelay()) {
+                repair(totalToRepair);
+                totalToRepair = 0;
+            } else {
+                repair(1);
+                totalToRepair--;
+            }
+
+            return;
+        }
+
+        processRecipe();
     }
 
     @Override
     public void onRecipeValid(RepairFerricoreAnvilRecipe recipe) {
-        var catalyst = getMachineHandler().getResource(1);
-        getMachineHandler().set(1, catalyst,
-                getMachineHandler().getAmountAsInt(1) - 1);
+        totalToRepair = recipe.getDurability();
+
+        getMachineHandler().set(1, getMachineHandler().getResource(1), getMachineHandler().getAmountAsInt(1) - 1);
+
+        if (ignoreDelay()) {
+            repair(totalToRepair);
+            totalToRepair = 0;
+        }
     }
 
     @Override
@@ -56,13 +80,7 @@ public class FerricoreAnvilBE extends FunctionalAnvilBE implements AnvilRecipeHa
     }
 
     @Override
-    public void whenToolValid() {
-        processRecipe();
-    }
-
-    @Override
     public Boolean ignoreDelay() {
         return Config.ANVIL_FERRICORE_IGNORE_DELAY.get();
     }
-
 }

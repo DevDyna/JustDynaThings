@@ -8,11 +8,9 @@ import com.mojang.logging.LogUtils;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.TagKey;
-import net.minecraft.util.Mth;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.MenuConstructor;
@@ -68,11 +66,16 @@ public class Actions {
         }
 
         public static void repairItem(ItemStacksResourceHandler h, int slot, ItemResource i, int damage) {
-                var stored = Mth.clamp(i.getOrDefault(DataComponents.DAMAGE, 0), 0,
-                                i.getOrDefault(DataComponents.MAX_DAMAGE, 0));
-                var item = new ItemStack(i.typeHolder(), h.getAmountAsInt(slot), i.getComponentsPatch());
 
-                item.setDamageValue(stored - 1);
+                if (damage <= 0)
+                        return;
+
+                var item = i.toStack();
+
+                if (!item.isDamageableItem() || !item.isDamaged())
+                        return;
+
+                item.setDamageValue(Math.max(item.getDamageValue() - damage, 0));
 
                 h.set(slot, ItemResource.of(item), h.getAmountAsInt(slot));
         }

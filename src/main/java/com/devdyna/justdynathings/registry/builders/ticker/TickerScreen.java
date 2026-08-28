@@ -40,9 +40,11 @@ public class TickerScreen extends BaseMachineScreen<TickerGUI> implements ExtraS
                 }));
     }
 
+   
+
     @Override
-    public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-        super.render(guiGraphics, mouseX, mouseY, partialTicks);
+    public void renderBackground(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+        super.renderBackground(guiGraphics, mouseX, mouseY, partialTicks);
 
         if (baseMachineBE.getTickSpeed() > ServerConfig.TICKER_TICK_RATE.get())
             addWarningPopUp(guiGraphics, getGuiLeft() + 144+8, getGuiTop());

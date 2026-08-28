@@ -168,9 +168,6 @@ public class Config {
                 solar_panel();
                 anvil();
                 wands();
-                // mixer();
-                // ticker();
-                // compats();
         }
 
         private static void misc() {

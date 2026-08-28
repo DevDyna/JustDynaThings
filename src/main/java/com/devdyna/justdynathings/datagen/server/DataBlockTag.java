@@ -104,9 +104,14 @@ public class DataBlockTag extends BlockTagsProvider {
                                 .add(Registration.GooBlock_Tier4.get(),
                                                 zBlocks.T4_GOO.get());
 
-                tag(zBlockTags.ADVANCED_TIME_DENY).addOptional(JustDireBlockTags.TICK_SPEED_DENY.location());
+                tag(JustDireBlockTags.TICK_SPEED_DENY)
+                                .add(zBlocks.TICKER.get());
 
-                tag(zBlockTags.TICKER_DENY).addOptional(JustDireBlockTags.TICK_SPEED_DENY.location());
+                tag(zBlockTags.ADVANCED_TIME_DENY)
+                                .addOptional(JustDireBlockTags.TICK_SPEED_DENY.location());
+
+                tag(zBlockTags.TICKER_DENY)
+                                .addOptional(JustDireBlockTags.TICK_SPEED_DENY.location());
 
                 tag(BlockTags.REPLACEABLE).add(zBlocks.LIGHT_WAND_BLOCK.get());
                 tag(BlockTags.WITHER_IMMUNE).add(zBlocks.LIGHT_WAND_BLOCK.get());

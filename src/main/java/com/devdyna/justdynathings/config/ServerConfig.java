@@ -676,7 +676,7 @@ public class ServerConfig {
                 // max JDT value is 1200 ticks
                 TICKER_TICK_RATE = BUILDER
                                 .comment("Max Tick speed applied")
-                                .defineInRange(Blocks.Ticker + "_max_tick_rate", 2048, 1,
+                                .defineInRange(Blocks.Ticker + "_max_tick_rate", 1200, 1,
                                                 Integer.MAX_VALUE);
 
                 BUILDER.pop();

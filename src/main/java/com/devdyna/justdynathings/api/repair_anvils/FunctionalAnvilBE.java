@@ -26,11 +26,6 @@ public abstract class FunctionalAnvilBE extends BaseMachineBE implements Redston
         super(pType, pPos, pBlockState);
     }
 
-    @Deprecated
-    public FunctionalAnvilBE(BlockPos pos, BlockState state) {
-        this(null, pos, state);
-    }
-
     @Override
     public RedstoneControlData getRedstoneControlData() {
         return redstoneControlData;

@@ -13,17 +13,10 @@ public interface AnvilRecipeHandler<T extends BaseAnvilRecipe<? extends RecipeIn
         if (r.isEmpty())
             return;
 
-        var recipe = r.get().value();
-
-        setDurabilityBatch(recipe.getDurability());
-
-        onRecipeValid(recipe);
+        onRecipeValid(r.get().value());
     }
 
-    public abstract Optional<RecipeHolder<T>> getRecipe();
+    Optional<RecipeHolder<T>> getRecipe();
 
-    public abstract void onRecipeValid(T recipe);
-
-    public abstract void setDurabilityBatch(int totalToRepair);
-
+    void onRecipeValid(T r);
 }

@@ -38,41 +38,38 @@ public class TickerBE extends BaseMachineBE implements EnergyMachine, FluidMachi
     }
 
     public TickerBE(BlockPos p, BlockState s) {
-        this(
-                zBlockEntities.TICKER.get(),
-                p, s);
+        this(zBlockEntities.TICKER.get(), p, s);
     }
 
     @Override
     public void tickServer() {
         super.tickServer();
 
+        BlockPos pos = getBlockPos()
+                .relative(getBlockState()
+                        .getValue(BlockStateProperties.FACING));
 
-            BlockPos pos = getBlockPos()
-                    .relative(getBlockState()
-                            .getValue(BlockStateProperties.FACING));
+        checkState(pos);
 
-            checkState(pos);
+        if (getBlockState().getValue(zProperties.ACTIVE) && blockValid(pos)) {
 
-            if (getBlockState().getValue(zProperties.ACTIVE) && blockValid(pos)) {
+            playSound(pos);
 
-                playSound(pos);
+            extractFEWhenPossible();
+            extractMBWhenPossible();
 
-                extractFEWhenPossible();
-                extractMBWhenPossible();
+            if (level instanceof ServerLevel serverLevel &&
+                    MiscTools.isValidTickAccelBlock(serverLevel, level.getBlockState(pos),
+                            level.getBlockEntity(pos)))
+                MiscTools.doExtraTicks(serverLevel, pos, Math.min(getTickSpeed(), ServerConfig.TICKER_TICK_RATE.get()));
 
-                if (level instanceof ServerLevel serverLevel &&
-                        MiscTools.isValidTickAccelBlock(serverLevel, level.getBlockState(pos),
-                                level.getBlockEntity(pos)))
-                    MiscTools.doExtraTicks(serverLevel, pos, Math.min(getTickSpeed(), ServerConfig.TICKER_TICK_RATE.get()));
+        }
 
-            }
-        
     }
 
     public void checkState(BlockPos pos) {
         level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(zProperties.ACTIVE,
-                canExtractFE() && canExtractMB()&& isActiveRedstone()));
+                canExtractFE() && canExtractMB() && isActiveRedstone()));
     }
 
     public boolean blockValid(BlockPos pos) {

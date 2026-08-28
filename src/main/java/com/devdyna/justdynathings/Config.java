@@ -168,9 +168,6 @@ public class Config {
                 solar_panel();
                 anvil();
                 wands();
-                // mixer();
-                // ticker();
-                // compats();
         }
 
         private static void misc() {
@@ -270,7 +267,7 @@ public class Config {
 
                 TICKER_TICK_RATE = BUILDER
                                 .comment(Blocks.Ticker + "max tick limit")
-                                .defineInRange(Blocks.Ticker + "_max_tick_limit", 2048, 1, Integer.MAX_VALUE);
+                                .defineInRange(Blocks.Ticker + "_max_tick_limit", 1200, 1, Integer.MAX_VALUE);
 
                 BUILDER.comment(StringUtil.nameCapitalized(Blocks.BlackHole));
 

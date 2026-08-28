@@ -137,6 +137,8 @@ public class DataLang extends LanguageProvider {
                 add(MODULE_ID + "." + Constants.Blocks.Stabilizer + ".jade.goo", "Revive Goo");
                 add(MODULE_ID + "." + Constants.Blocks.Stabilizer + ".jade.energized", "Revive Time Budding");
 
+                 add(MODULE_ID + "." + Constants.Blocks.Ticker + ".tick_overflow", "Ticker Speed is capped to %s");
+
                 add(MODULE_ID + ".configuration.entry_anvils", "Functional Anvils");
                 add(MODULE_ID + ".configuration.entry_blocks", "Misc Blocks");
                 add(MODULE_ID + ".configuration.entry_goo", "Mo'Goo");
@@ -201,7 +203,7 @@ public class DataLang extends LanguageProvider {
                 add(MODULE_ID + ".configuration.ticker_fluid_every_tick", "Ticker fluid every tick");
                 add(MODULE_ID + ".configuration.ticker_max_energy_storage", "Ticker max energy storage");
                 add(MODULE_ID + ".configuration.ticker_max_fluid_storage", "Ticker max fluid storage");
-                add(MODULE_ID + ".configuration.ticker_tick_limit", "Ticker tick limiter");
+                add(MODULE_ID + ".configuration.ticker_max_tick_limit", "Ticker tick limiter");
 
                 // anvils
                 add(MODULE_ID + ".configuration.anvil_emit_sound", "Anvils can emit sounds");

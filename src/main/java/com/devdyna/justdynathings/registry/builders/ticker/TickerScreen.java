@@ -1,5 +1,11 @@
 package com.devdyna.justdynathings.registry.builders.ticker;
 
+import static com.devdyna.justdynathings.Main.ID;
+
+import com.devdyna.justdynathings.Constants;
+import com.devdyna.justdynathings.api.client.ExtraSlots;
+import com.devdyna.justdynathings.config.ServerConfig;
+import com.devdyna.justdynathings.utils.Pos;
 import com.direwolf20.justdirethings.client.screens.basescreens.BaseMachineScreen;
 import com.direwolf20.justdirethings.client.screens.standardbuttons.ToggleButtonFactory;
 import com.direwolf20.justdirethings.client.screens.widgets.ToggleButton;
@@ -9,7 +15,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.Slot;
 
-public class TickerScreen extends BaseMachineScreen<TickerGUI> {
+public class TickerScreen extends BaseMachineScreen<TickerGUI> implements ExtraSlots {
     public TickerScreen(TickerGUI container, Inventory inv, Component name) {
         super(container, inv, name);
     }
@@ -34,10 +40,24 @@ public class TickerScreen extends BaseMachineScreen<TickerGUI> {
                 }));
     }
 
-    // @Override
-    // public void addTickSpeedButton() {
-    //     // empty remove tick button
-    // }
+    @Override
+    public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+        super.render(guiGraphics, mouseX, mouseY, partialTicks);
+
+        if (baseMachineBE.getTickSpeed() > ServerConfig.TICKER_TICK_RATE.get())
+            addWarningPopUp(guiGraphics, getGuiLeft() + 144+8, getGuiTop());
+
+    }
+
+    @Override
+    protected void renderTooltip(GuiGraphics guiGraphics, int x, int y) {
+        super.renderTooltip(guiGraphics, x, y);
+        if (Pos.of(getGuiLeft()+144+8 , getGuiTop()).setSize(10, 10).test(x, y))
+            guiGraphics.renderTooltip(font,
+                    Component.translatable(
+                            ID + "." + Constants.Blocks.Ticker + ".tick_overflow",ServerConfig.TICKER_TICK_RATE.get()),
+                    x, y);
+    }
 
     @Override
     protected void drawMachineSlot(GuiGraphics guiGraphics, Slot slot) {

@@ -137,6 +137,8 @@ public class DataLang extends LanguageProvider {
                 add(MODULE_ID + "." + Constants.Blocks.Stabilizer + ".jade.goo", "Revive Goo");
                 add(MODULE_ID + "." + Constants.Blocks.Stabilizer + ".jade.energized", "Revive Time Budding");
 
+                 add(MODULE_ID + "." + Constants.Blocks.Ticker + ".tick_overflow", "Ticker Speed is capped to %s");
+
                 add(MODULE_ID + ".configuration.entry_anvils", "Functional Anvils");
                 add(MODULE_ID + ".configuration.entry_blocks", "Misc Blocks");
                 add(MODULE_ID + ".configuration.entry_goo", "Mo'Goo");

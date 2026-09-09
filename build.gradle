@@ -135,12 +135,12 @@ dependencies {
     implementation "curse.maven:justdirethings-1002348:7463040"
     
     //compats
-    implementation "curse.maven:ae2-223794:6140781"
-    implementation "curse.maven:extendedae-892005:6164133"
+    implementation "curse.maven:ae2-223794:7027323"
+    implementation "curse.maven:extendedae-892005:8811572"
     implementation "curse.maven:phasorite-1140963:6091868"
     implementation "curse.maven:guideme-1173950:6688687"
     implementation "curse.maven:geore-530544:7075069"
-    implementation "curse.maven:chisel-1392308:7307989"
+    implementation "curse.maven:chisel-1392308:8780015"
     implementation "curse.maven:jade-324717:6853386"
 
     //datagen libs

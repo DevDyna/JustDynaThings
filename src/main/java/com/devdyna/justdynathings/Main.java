@@ -14,9 +14,6 @@ import net.neoforged.fml.common.Mod;
 public class Main {
         public static final String ID = "justdynathings";
 
-        // ! Dont use this , intend of utils.LogUtil !
-        // public static final Logger LOG = LogUtils.getLogger();
-
         public Main(IEventBus bus, ModContainer chest) {
 
                 ServerConfig.register(chest);

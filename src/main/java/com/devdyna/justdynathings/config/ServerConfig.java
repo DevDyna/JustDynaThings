@@ -164,18 +164,7 @@ public class ServerConfig {
 
         public static BooleanValue LIGHT_BLOCK_PARTICLES;
 
-        public static IntValue CELESTIGEM_CHISEL_FE_CAPACITY;
-        public static IntValue CELESTIGEM_CHISEL_FE_COST;
-
-        public static IntValue ECLIPSE_ALLOY_CHISEL_FE_CAPACITY;
-        public static IntValue ECLIPSE_ALLOY_CHISEL_FE_COST;
-
         public static void register(ModContainer c) {
-                regCommon();
-                c.registerConfig(ModConfig.Type.SERVER, BUILDER.build());
-        }
-
-        private static void regCommon() {
                 general();
                 blocks();
                 budding();
@@ -185,7 +174,8 @@ public class ServerConfig {
                 wands();
                 mixer();
                 ticker();
-                compats();
+
+                c.registerConfig(ModConfig.Type.SERVER, BUILDER.build());
         }
 
         private static void general() {
@@ -246,16 +236,16 @@ public class ServerConfig {
                 THERMOGEN_FE_CAPACITY = BUILDER
                                 .comment(Config.Display.FE_MAX)
                                 .defineInRange(Blocks.ThermoGen + Config.Keys.FE_MAX, 1000000, 1, Integer.MAX_VALUE);
-              
-                                THERMOGEN_MB_CAPACITY = BUILDER
+
+                THERMOGEN_MB_CAPACITY = BUILDER
                                 .comment("Total Coolant Capacity")
                                 .defineInRange(Blocks.ThermoGen + Config.Keys.FE_RATE, 100000, 1, Integer.MAX_VALUE);
-                           
-                                THERMOGEN_BASE_COOLANT_COST = BUILDER
+
+                THERMOGEN_BASE_COOLANT_COST = BUILDER
                                 .comment("Base coolant cost")
                                 .defineInRange(Blocks.ThermoGen + Config.Keys.MB_RATE, 125, 1, Integer.MAX_VALUE);
 
-                                THERMOGEN_BASE_FE_GENERATION = BUILDER
+                THERMOGEN_BASE_FE_GENERATION = BUILDER
                                 .comment("Base fe generation")
                                 .defineInRange(Blocks.ThermoGen + Config.Keys.FE_RATE, 125, 1, Integer.MAX_VALUE);
 
@@ -680,33 +670,6 @@ public class ServerConfig {
                                                 Integer.MAX_VALUE);
 
                 BUILDER.pop();
-
-        }
-
-        private static void compats() {
-                BUILDER.comment(DataGenUtil.txtDecor("compats")).push("10-compats");
-
-                BUILDER.comment("Chisel Modern");
-
-                CELESTIGEM_CHISEL_FE_CAPACITY = BUILDER
-                                .comment(Config.Display.FE_MAX)
-                                .defineInRange(Tiers.celestigem + "_chisel" + Config.Keys.FE_MAX, 1000, 1,
-                                                Integer.MAX_VALUE);
-
-                CELESTIGEM_CHISEL_FE_COST = BUILDER
-                                .comment(Config.Display.FE_RATE)
-                                .defineInRange(Tiers.celestigem + "_chisel" + Config.Keys.FE_RATE, 1, 1,
-                                                Integer.MAX_VALUE);
-
-                ECLIPSE_ALLOY_CHISEL_FE_CAPACITY = BUILDER
-                                .comment(Config.Display.FE_MAX)
-                                .defineInRange(Tiers.eclipsealloy + "_chisel" + Config.Keys.FE_MAX, 10000, 1,
-                                                Integer.MAX_VALUE);
-
-                ECLIPSE_ALLOY_CHISEL_FE_COST = BUILDER
-                                .comment(Config.Display.FE_RATE)
-                                .defineInRange(Tiers.eclipsealloy + "_chisel" + Config.Keys.FE_RATE, 10, 1,
-                                                Integer.MAX_VALUE);
 
         }
 

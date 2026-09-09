@@ -1,6 +1,7 @@
 package com.devdyna.justdynathings;
 
 import com.devdyna.justdynathings.compat.*;
+import com.devdyna.justdynathings.config.CommonConfig;
 import com.devdyna.justdynathings.config.ServerConfig;
 import com.devdyna.justdynathings.config.StartupConfig;
 import com.devdyna.justdynathings.datamaps.zDataMaps;
@@ -18,6 +19,7 @@ public class Main {
 
                 ServerConfig.register(chest);
                 StartupConfig.register(chest);
+                CommonConfig.register(chest);
 
                 Material.register(bus);
 

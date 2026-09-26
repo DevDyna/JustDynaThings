@@ -28,6 +28,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.ItemLike;
+import com.devdyna.cakesticklib.api.utils.ClientUtils;
 
 @SuppressWarnings("null")
 public class FuelRecipeCategory extends BaseCategory<FuelRecords.Items> {
@@ -94,16 +95,16 @@ public class FuelRecipeCategory extends BaseCategory<FuelRecords.Items> {
         stack.pushMatrix();
         stack.scale(0.75F, 0.75F);
         guiGraphics.text(Minecraft.getInstance().font,
-                hasShiftDown()
+                ClientUtils.hasShiftDown()
                         ? MagicHelpers.ticksInSeconds(maxburn).replaceAll("\\.0$", "")
                                 + " sec"
                         : maxburn + " ticks",
                 46, 4,
                 0xFFFFFFFF);
         guiGraphics.text(Minecraft.getInstance().font,
-                (hasShiftDown() ? MagicHelpers.withSuffix(rate) : rate) + " FE/tick", 46, 18, 0xFFFFFFFF);
+                (ClientUtils.hasShiftDown() ? MagicHelpers.withSuffix(rate) : rate) + " FE/tick", 46, 18, 0xFFFFFFFF);
         guiGraphics.text(Minecraft.getInstance().font,
-                (hasShiftDown() ? MagicHelpers.withSuffix(total) : total) + " FE", 46,
+                (ClientUtils.hasShiftDown() ? MagicHelpers.withSuffix(total) : total) + " FE", 46,
                 32,
                 0xFFFFFFFF);
         stack.popMatrix();

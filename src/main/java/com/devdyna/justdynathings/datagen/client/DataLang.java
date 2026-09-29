@@ -137,7 +137,7 @@ public class DataLang extends LanguageProvider {
                 add(MODULE_ID + "." + Constants.Blocks.Stabilizer + ".jade.goo", "Revive Goo");
                 add(MODULE_ID + "." + Constants.Blocks.Stabilizer + ".jade.energized", "Revive Time Budding");
 
-                 add(MODULE_ID + "." + Constants.Blocks.Ticker + ".tick_overflow", "Ticker Speed is capped to %s");
+                add(MODULE_ID + "." + Constants.Blocks.Ticker + ".tick_overflow", "Ticker Speed is capped to %s");
 
                 add(MODULE_ID + ".configuration.entry_anvils", "Functional Anvils");
                 add(MODULE_ID + ".configuration.entry_blocks", "Misc Blocks");
@@ -334,6 +334,18 @@ public class DataLang extends LanguageProvider {
 
                 add(MODULE_ID + ".abstract_paradox",
                                 TipColors.ITEM_TOOLTIP + "Obtained by throwing a void crystal over a Paradox");
+
+                // TODO API : include to api
+
+                add(MODULE_ID + ".jei.alias.timer", "Timer");
+                add(MODULE_ID + ".jei.alias.redstone_clock", "Redstone clock");
+                add(MODULE_ID + ".jei.alias.ethereal_block", "Ethereal");
+                add(MODULE_ID + ".jei.alias.generator", "Energy Generator");
+                add(MODULE_ID + ".jei.alias.item_repairer", "Item Repairer");
+                add(MODULE_ID + ".jei.alias.trash_can", "Trash Can");
+                add(MODULE_ID + ".jei.alias.buffer.fluid", "Fluid storage buffer");
+                add(MODULE_ID + ".jei.alias.buffer.energy", "Energy storage buffer");
+                add(MODULE_ID + ".jei.alias.buffer.item", "Item storage buffer");
 
         }
 

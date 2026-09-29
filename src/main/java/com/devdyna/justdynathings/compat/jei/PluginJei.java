@@ -38,6 +38,7 @@ import mezz.jei.api.constants.RecipeTypes;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.registration.IGuiHandlerRegistration;
+import mezz.jei.api.registration.IIngredientAliasRegistration;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
@@ -49,6 +50,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.CraftingRecipe;
 import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.fml.ModList;
 
@@ -215,6 +217,50 @@ public class PluginJei implements IModPlugin {
                                         RefinedFuelRecipeCategory.TYPE);
                 }
 
+        }
+
+        @Override
+        public void registerIngredientAliases(IIngredientAliasRegistration r) {
+
+                addAliases(r, ID + ".jei.alias.timer",
+                                zBlocks.FERRICORE_CLOCK.get());
+
+                addAliases(r, ID + ".jei.alias.redstone_clock",
+                                zBlocks.FERRICORE_CLOCK.get());
+
+                addAliases(r, ID + ".jei.alias.ethereal_block",
+                                zBlocks.PHASEBOX.get());
+
+                addAliases(r, ID + ".jei.alias.generator",
+                                zBlocks.THERMOGEN.get(),
+                                zBlocks.FERRICORE_SOLARGEN.get(),
+                                zBlocks.BLAZEGOLD_SOLARGEN.get(),
+                                zBlocks.CELESTIGEM_SOLARGEN.get(),
+                                zBlocks.ECLIPSEALLOY_SOLARGEN.get());
+
+                addAliases(r, ID + ".jei.alias.item_repairer",
+                                zBlocks.FERRICORE_ANVIL.get(),
+                                zBlocks.BLAZEGOLD_ANVIL.get(),
+                                zBlocks.CELESTIGEM_ANVIL.get(),
+                                zBlocks.ECLIPSEALLOY_ANVIL.get());
+
+                addAliases(r, ID + ".jei.alias.trash_can",
+                                zBlocks.BLACKHOLE.get());
+                                
+                addAliases(r, ID + ".jei.alias.buffer.fluid",
+                                zBlocks.BLACKHOLE.get());
+
+                addAliases(r, ID + ".jei.alias.buffer.energy",
+                                zBlocks.BLACKHOLE.get());
+
+                addAliases(r, ID + ".jei.alias.buffer.item",
+                                zBlocks.BLACKHOLE.get());
+
+        }
+
+        private void addAliases(IIngredientAliasRegistration r, String key, ItemLike... items) {
+                for (var i : items)
+                        r.addAlias(new ItemStack(i), key);
         }
 
 }

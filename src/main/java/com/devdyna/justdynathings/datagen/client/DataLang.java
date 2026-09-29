@@ -180,6 +180,16 @@ public class DataLang extends LanguageProvider {
 
                 add(ID + "." + Constants.Blocks.Ticker + ".tick_overflow", "Ticker Speed is capped to %s");
 
+                add(ID + ".jei.alias.timer", "Timer");
+                add(ID + ".jei.alias.redstone_clock", "Redstone clock");
+                add(ID + ".jei.alias.ethereal_block", "Ethereal");
+                add(ID + ".jei.alias.generator", "Energy Generator");
+                add(ID + ".jei.alias.item_repairer", "Item Repairer");
+                add(ID + ".jei.alias.trash_can", "Trash Can");
+                add(ID + ".jei.alias.buffer.fluid", "Fluid storage buffer");
+                add(ID + ".jei.alias.buffer.energy", "Energy storage buffer");
+                add(ID + ".jei.alias.buffer.item", "Item storage buffer");
+
         }
 
         private String named(String text) {

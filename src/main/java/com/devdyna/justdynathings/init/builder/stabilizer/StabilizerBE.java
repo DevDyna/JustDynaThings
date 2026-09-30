@@ -1,14 +1,12 @@
 package com.devdyna.justdynathings.init.builder.stabilizer;
 
 import com.devdyna.cakesticklib.api.RandomUtil;
-import com.devdyna.cakesticklib.api.utils.DirectionUtil;
 import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.api.TippedGooBlock;
 import com.devdyna.justdynathings.api.be.EnergyMachine;
 import com.devdyna.justdynathings.api.be.FluidMachine;
 import com.devdyna.justdynathings.init.builder.goo.creative.CreativeGoo;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
-import com.devdyna.justdynathings.init.types.zProperties;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.FluidContainerData;
 import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineContainerData;
@@ -31,7 +29,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.neoforged.neoforge.common.Tags;
 
-@SuppressWarnings("null")
+
 public class StabilizerBE extends BaseMachineBE implements EnergyMachine, FluidMachine {
 
     public final PoweredMachineContainerData poweredMachineData = new PoweredMachineContainerData(this);
@@ -69,7 +67,7 @@ public class StabilizerBE extends BaseMachineBE implements EnergyMachine, FluidM
 
         if (related instanceof GooBlock_Base) {
 
-            if (state.getValue(zProperties.GOO_ALIVE))
+            if (state.getValue(GooBlock_Base.ALIVE))
                 return;
 
             extractFEWhenPossible();
@@ -132,9 +130,9 @@ public class StabilizerBE extends BaseMachineBE implements EnergyMachine, FluidM
     public void updateBlock() {
         level.setBlockAndUpdate(getBlockPos(),
                 getBlockState()
-                        .setValue(zProperties.ENERGIZED, canExtractMB())
-                        .setValue(zProperties.ACTIVE, canExtractFE())
-                        .setValue(zProperties.VALID_FACING, whenActive())
+                        .setValue(StabilizerBlock.ENERGIZED, canExtractMB())
+                        .setValue(StabilizerBlock.ACTIVE, canExtractFE())
+                        .setValue(StabilizerBlock.VALID_FACING, whenActive())
                         .setValue(BlockStateProperties.FACING,
                                 getBlockState()
                                         .getValue(BlockStateProperties.FACING)));
@@ -147,7 +145,7 @@ public class StabilizerBE extends BaseMachineBE implements EnergyMachine, FluidM
     }
 
     public boolean whenConsumeMB() {
-        for (Direction d : DirectionUtil.ALL) {
+        for (Direction d : Direction.values()) {
             if (BuddingAmethystBlock.canClusterGrowAtState(level.getBlockState(getGooPos().relative(d)))
                     || (level.getBlockState(getGooPos().relative(d)).is(Tags.Blocks.BUDS)
                             && level.getBlockState(getGooPos().relative(d)).getValue(AmethystClusterBlock.FACING)

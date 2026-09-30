@@ -6,7 +6,6 @@ import com.devdyna.cakesticklib.api.RandomUtil;
 import com.devdyna.cakesticklib.api.utils.DirectionUtil;
 import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.api.Actions;
-import com.devdyna.justdynathings.init.types.zProperties;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
 import com.direwolf20.justdirethings.util.ModTags;
 
@@ -29,8 +28,9 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.BlockHitResult;
 
-@SuppressWarnings("null")
 public class FerricoreClockBlock extends BaseMachineBlock {
+
+    public static final BooleanProperty ACTIVE = BooleanProperty.create("active");
 
     public FerricoreClockBlock(Properties p) {
         super(p
@@ -101,7 +101,7 @@ public class FerricoreClockBlock extends BaseMachineBlock {
         for (BooleanProperty face : DirectionUtil.face) {
             b.add(face);
         }
-        b.add(zProperties.ACTIVE);
+        b.add(ACTIVE);
     }
 
     @Nullable
@@ -137,12 +137,5 @@ public class FerricoreClockBlock extends BaseMachineBlock {
     public BlockState rotate(BlockState s, Rotation r) {
         return s;
     }
-
-    // @Override
-    // public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents,
-    //         TooltipFlag tooltipFlag) {
-    //     if (Constants.ModAddonCheck.docCheck && !CommonConfig.DOC_WARNING.getAsBoolean())
-    //         tooltipComponents.add(Component.translatable(Main.ID + ".doc.missing"));
-    // }
 
 }

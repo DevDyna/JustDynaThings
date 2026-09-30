@@ -9,7 +9,6 @@ import com.devdyna.justdynathings.api.Actions;
 import com.devdyna.justdynathings.api.be.EnergyCharger;
 import com.devdyna.justdynathings.api.be.EnergyGenerator;
 import com.devdyna.justdynathings.init.types.zBiomeTags;
-import com.devdyna.justdynathings.init.types.zProperties;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineContainerData;
 import com.direwolf20.justdirethings.common.blockentities.basebe.RedstoneControlledBE;
@@ -53,7 +52,7 @@ public abstract class SolarBaseBE extends BaseMachineBE
     public void tickServer() {
         super.tickServer();
         updateBlock();
-        if (isActiveRedstone() && getBlockState().getValue(zProperties.ACTIVE).booleanValue()) {
+        if (isActiveRedstone() && getBlockState().getValue(SolarBlockBase.ACTIVE).booleanValue()) {
             increaseFEWhenPossible(calculateFE());
         }
         if (canExtractFE())
@@ -66,7 +65,7 @@ public abstract class SolarBaseBE extends BaseMachineBE
     }
 
     public void updateBlock() {
-        level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(zProperties.ACTIVE,
+        level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(SolarBlockBase.ACTIVE,
                 canGenerateWhen()));
     }
 

@@ -5,7 +5,7 @@ import com.direwolf20.justdirethings.common.blocks.gooblocks.GooBlock_Base;
 
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.neoforged.bus.api.IEventBus;
-
+@Deprecated
 public class zProperties {
         // ---------------------------------------------------------------------------------------//
 

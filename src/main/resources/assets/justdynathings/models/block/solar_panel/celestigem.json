@@ -1,8 +1,0 @@
-{
-  "parent": "justdynathings:block/solar_panel/_template",
-  "textures": {
-    "bottom": "justdynathings:block/solar_panel/celestigem/bottom",
-    "side": "justdynathings:block/solar_panel/celestigem/side",
-    "solar_panel": "justdynathings:block/solar_panel/celestigem/top"
-  }
-}

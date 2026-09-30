@@ -1,8 +1,0 @@
-{
-  "parent": "justdynathings:block/anvils/_template_anvil",
-  "textures": {
-    "plate": "justdirethings:block/paradoxmachine_bottom",
-    "pedestal": "justdirethings:block/blockswappert2_bottom",
-    "block": "justdirethings:block/eclipsealloy_block"
-  }
-}

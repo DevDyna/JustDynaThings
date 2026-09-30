@@ -1,8 +1,0 @@
-{
-  "parent": "justdynathings:block/anvils/_template_anvil",
-  "textures": {
-    "plate": "justdirethings:block/blockswappert1_top",
-    "pedestal": "justdirethings:block/blockswappert1_bottom",
-    "block": "justdirethings:block/blazegold_block"
-  }
-}

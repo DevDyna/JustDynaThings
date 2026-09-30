@@ -91,8 +91,8 @@ public class FerricoreClockBlock extends BaseMachineBlock {
     public BlockState getStateForPlacement(BlockPlaceContext c) {
         for (BooleanProperty face : DirectionUtil.face) {
             defaultBlockState().setValue(face, false);
-        }
-        return defaultBlockState().setValue(zProperties.ACTIVE, false);
+
+        return defaultBlockState().setValue(ACTIVE, false);
 
     }
 

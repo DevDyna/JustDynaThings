@@ -16,10 +16,9 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public abstract class SolarBlockBase extends BaseMachineBlock{
+public abstract class SolarBlockBase extends BaseMachineBlock {
 
-        public static final BooleanProperty ACTIVE = BooleanProperty.create("active");
-
+    public static final BooleanProperty ACTIVE = BooleanProperty.create("active");
 
     public SolarBlockBase(Properties p) {
         super(p
@@ -43,8 +42,6 @@ public abstract class SolarBlockBase extends BaseMachineBlock{
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> b) {
         b.add(ACTIVE);
     }
-
-   
 
     @Override
     public boolean isValidBE(BlockEntity b) {

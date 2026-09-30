@@ -69,7 +69,10 @@ public class DataLang extends LanguageProvider {
                 add(MODULE_ID + "." + Constants.Blocks.Stabilizer,
                                 TipColors.ITEM_TOOLTIP + "Feed Goo blocks using Energy and Boost Buddings blocks");
 
-                add(MODULE_ID + "." + Constants.Blocks.Ticker,
+                add(MODULE_ID + "." + Constants.Blocks.Ticker.Simple,
+                                TipColors.ITEM_TOOLTIP + "A block that act at same of a time wand at 16x");
+
+                add(MODULE_ID + "." + Constants.Blocks.Ticker.Advanced,
                                 TipColors.ITEM_TOOLTIP + "A block that act at same of a time wand but configurable!");
 
                 add(MODULE_ID + "." + Constants.GooUpgraders.base,
@@ -137,7 +140,10 @@ public class DataLang extends LanguageProvider {
                 add(MODULE_ID + "." + Constants.Blocks.Stabilizer + ".jade.goo", "Revive Goo");
                 add(MODULE_ID + "." + Constants.Blocks.Stabilizer + ".jade.energized", "Revive Time Budding");
 
-                add(MODULE_ID + "." + Constants.Blocks.Ticker + ".tick_overflow", "Ticker Speed is capped to %s");
+                add(MODULE_ID + ".gui."+Constants.Blocks.Ticker.Simple+".ticks", "Tick rate: %s");
+
+                add(MODULE_ID + "." + Constants.Blocks.Ticker.Advanced + ".tick_overflow",
+                                "Ticker Speed is capped to %s");
 
                 add(MODULE_ID + ".configuration.entry_anvils", "Functional Anvils");
                 add(MODULE_ID + ".configuration.entry_blocks", "Misc Blocks");

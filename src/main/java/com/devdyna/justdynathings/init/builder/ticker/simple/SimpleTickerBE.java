@@ -1,11 +1,10 @@
-package com.devdyna.justdynathings.init.builder.ticker;
+package com.devdyna.justdynathings.init.builder.ticker.simple;
 
 import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.api.be.EnergyMachine;
 import com.devdyna.justdynathings.api.be.FluidMachine;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
 import com.devdyna.justdynathings.init.types.zBlockTags;
-import com.devdyna.justdynathings.init.types.zProperties;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.FluidContainerData;
 import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineContainerData;
@@ -24,33 +23,31 @@ import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
-@SuppressWarnings("null")
-public class TickerBE extends BaseMachineBE implements EnergyMachine, FluidMachine, RedstoneControlledBE {
+public class SimpleTickerBE extends BaseMachineBE implements EnergyMachine, FluidMachine, RedstoneControlledBE {
     public RedstoneControlData redstoneControlData = new RedstoneControlData();
     public final PoweredMachineContainerData poweredMachineData = new PoweredMachineContainerData(this);
     public final FluidContainerData fluidContainerData = new FluidContainerData(this);
 
-    public TickerBE(BlockEntityType<?> p, BlockPos b, BlockState s) {
+    public SimpleTickerBE(BlockEntityType<?> p, BlockPos b, BlockState s) {
         super(p, b, s);
     }
 
-    public TickerBE(BlockPos p, BlockState s) {
-        this(zBlockEntities.TICKER.get(), p, s);
+    public SimpleTickerBE(BlockPos p, BlockState s) {
+        this(zBlockEntities.SIMPLE_TICKER.get(), p, s);
     }
 
     @Override
     public void tickServer() {
         super.tickServer();
 
-        BlockPos pos = getBlockPos()
+        var pos = getBlockPos()
                 .relative(getBlockState()
-                        .getValue(BlockStateProperties.FACING));
+                        .getValue(SimpleTickerBlock.FACING));
 
         checkState(pos);
 
-        if (getBlockState().getValue(zProperties.ACTIVE) && blockValid(pos)) {
+        if (getBlockState().getValue(SimpleTickerBlock.ACTIVE) && blockValid(pos)) {
 
             playSound(pos);
 
@@ -60,14 +57,18 @@ public class TickerBE extends BaseMachineBE implements EnergyMachine, FluidMachi
             if (level instanceof ServerLevel serverLevel &&
                     MiscTools.isValidTickAccelBlock(serverLevel, level.getBlockState(pos),
                             level.getBlockEntity(pos)))
-                MiscTools.doExtraTicks(serverLevel, pos, Math.min(getTickSpeed(), Config.TICKER_TICK_RATE.get()));
+                MiscTools.doExtraTicks(serverLevel, pos, getTickerRate());
 
         }
 
     }
 
+    public int getTickerRate() {
+        return  Config.SIMPLE_TICKER_TICK_RATE.get();
+    }
+
     public void checkState(BlockPos pos) {
-        level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(zProperties.ACTIVE,
+        level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(SimpleTickerBlock.ACTIVE,
                 canExtractFE() && canExtractMB() && isActiveRedstone()));
     }
 
@@ -95,12 +96,12 @@ public class TickerBE extends BaseMachineBE implements EnergyMachine, FluidMachi
 
     @Override
     public int getStandardEnergyCost() {
-        return Config.TICKER_FE_RATE.get();
+        return Config.SIMPLE_TICKER_FE_RATE.get();
     }
 
     @Override
     public int getMaxEnergy() {
-        return Config.TICKER_FE_CAPACITY.get();
+        return Config.SIMPLE_TICKER_FE_CAPACITY.get();
     }
 
     @Override
@@ -115,12 +116,12 @@ public class TickerBE extends BaseMachineBE implements EnergyMachine, FluidMachi
 
     @Override
     public int getStandardFluidCost() {
-        return Config.TICKER_MB_RATE.get();
+        return Config.SIMPLE_TICKER_MB_RATE.get();
     }
 
     @Override
     public int getMaxMB() {
-        return Config.TICKER_MB_CAPACITY.get();
+        return Config.SIMPLE_TICKER_MB_CAPACITY.get();
     }
 
     @Override

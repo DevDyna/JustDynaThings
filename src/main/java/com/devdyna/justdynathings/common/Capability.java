@@ -28,7 +28,8 @@ public class Capability {
     public static void register(RegisterCapabilitiesEvent event) {
 
         Block[] TimeFluidMachines = {
-                zBlocks.TICKER.get(),
+                zBlocks.SIMPLE_TICKER.get(),
+                zBlocks.ADVANCED_TICKER.get(),
                 zBlocks.STABILIZER.get()
         };
 
@@ -39,7 +40,8 @@ public class Capability {
 
                 zBlocks.STABILIZER.get(),
 
-                zBlocks.TICKER.get(),
+                zBlocks.SIMPLE_TICKER.get(),
+                zBlocks.ADVANCED_TICKER.get(),
 
                 zBlocks.T1_GOO.get(),
                 zBlocks.T2_GOO.get(),

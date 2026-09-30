@@ -13,7 +13,8 @@ import com.devdyna.justdynathings.init.builder.solar_panels.blazegold.BlazegoldS
 import com.devdyna.justdynathings.init.builder.solar_panels.celestigem.CelestigemSolarPanelGUI;
 import com.devdyna.justdynathings.init.builder.solar_panels.eclipsealloy.EclipseAlloySolarPanelGUI;
 import com.devdyna.justdynathings.init.builder.solar_panels.ferricore.FerricoreSolarPanelGUI;
-import com.devdyna.justdynathings.init.builder.ticker.TickerGUI;
+import com.devdyna.justdynathings.init.builder.ticker.advanced.AdvancedTickerGUI;
+import com.devdyna.justdynathings.init.builder.ticker.simple.SimpleTickerGUI;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.inventory.MenuType;
@@ -27,23 +28,30 @@ public class zContainers {
                 zCTNR.register(bus);
         }
 
-        public static final DeferredRegister<MenuType<?>> zCTNR = DeferredRegister.create(Registries.MENU, JustDynaThings.MODULE_ID);
+        public static final DeferredRegister<MenuType<?>> zCTNR = DeferredRegister.create(Registries.MENU,
+                        JustDynaThings.MODULE_ID);
 
-        // public static final DeferredHolder<MenuType<?>, MenuType<ReforgerGUI>> REFORGER = zCTNR
-        //                 .register(Constants.Blocks.Reforger,
-        //                                 () -> IMenuTypeExtension.create(ReforgerGUI::new));
+        // public static final DeferredHolder<MenuType<?>, MenuType<ReforgerGUI>>
+        // REFORGER = zCTNR
+        // .register(Constants.Blocks.Reforger,
+        // () -> IMenuTypeExtension.create(ReforgerGUI::new));
 
-        public static final DeferredHolder<MenuType<?>, MenuType<TickerGUI>> TICKER = zCTNR
-                        .register(Constants.Blocks.Ticker,
-                                        () -> IMenuTypeExtension.create(TickerGUI::new));
+        public static final DeferredHolder<MenuType<?>, MenuType<SimpleTickerGUI>> SIMPLE_TICKER = zCTNR
+                        .register(Constants.Blocks.Ticker.Simple,
+                                        () -> IMenuTypeExtension.create(SimpleTickerGUI::new));
+
+        public static final DeferredHolder<MenuType<?>, MenuType<AdvancedTickerGUI>> ADVANCED_TICKER = zCTNR
+                        .register(Constants.Blocks.Ticker.Advanced,
+                                        () -> IMenuTypeExtension.create(AdvancedTickerGUI::new));
 
         public static final DeferredHolder<MenuType<?>, MenuType<FerricoreClockGUI>> FERRICORE_CLOCK = zCTNR
                         .register(Constants.Blocks.FerricoreClock,
                                         () -> IMenuTypeExtension.create(FerricoreClockGUI::new));
 
-        // public static final DeferredHolder<MenuType<?>, MenuType<ThermoGUI>> THERMOGEN = zCTNR
-        //                 .register(Constants.Blocks.ThermoGen,
-        //                                 () -> IMenuTypeExtension.create(ThermoGUI::new));
+        // public static final DeferredHolder<MenuType<?>, MenuType<ThermoGUI>>
+        // THERMOGEN = zCTNR
+        // .register(Constants.Blocks.ThermoGen,
+        // () -> IMenuTypeExtension.create(ThermoGUI::new));
 
         public static final DeferredHolder<MenuType<?>, MenuType<BlackHoleGUI>> BLACKHOLE = zCTNR
                         .register(Constants.Blocks.BlackHole,

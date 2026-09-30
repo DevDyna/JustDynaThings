@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.init.builder.ticker;
+package com.devdyna.justdynathings.init.builder.ticker.advanced;
 
 import com.devdyna.justdynathings.init.types.zBlocks;
 import com.devdyna.justdynathings.init.types.zContainers;
@@ -9,15 +9,15 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.item.ItemStack;
-@SuppressWarnings("null")
-public class TickerGUI extends BaseMachineContainer {
 
-    public TickerGUI(int windowId, Inventory playerInventory, FriendlyByteBuf extraData) {
+public class AdvancedTickerGUI extends BaseMachineContainer {
+
+    public AdvancedTickerGUI(int windowId, Inventory playerInventory, FriendlyByteBuf extraData) {
         this(windowId, playerInventory, extraData.readBlockPos());
     }
 
-    public TickerGUI(int windowId, Inventory playerInventory, BlockPos blockPos) {
-        super(zContainers.TICKER.get(), windowId, playerInventory, blockPos);
+    public AdvancedTickerGUI(int windowId, Inventory playerInventory, BlockPos blockPos) {
+        super(zContainers.ADVANCED_TICKER.get(), windowId, playerInventory, blockPos);
         addPlayerSlots(player.getInventory());
     }
 
@@ -29,7 +29,7 @@ public class TickerGUI extends BaseMachineContainer {
 
     @Override
     public boolean stillValid(Player playerIn) {
-        return stillValid(ContainerLevelAccess.create(player.level(), pos), player, zBlocks.TICKER.get());
+        return stillValid(ContainerLevelAccess.create(player.level(), pos), player, zBlocks.ADVANCED_TICKER.get());
     }
 
     @Override

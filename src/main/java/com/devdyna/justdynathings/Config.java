@@ -129,12 +129,19 @@ public class Config {
 
         public static ConfigValue<Integer> ADVANCED_TIME_WAND_MAX_MULTIPLIER;
 
-        public static IntValue TICKER_MB_CAPACITY;
-        public static IntValue TICKER_MB_RATE;
-        public static IntValue TICKER_FE_CAPACITY;
-        public static IntValue TICKER_FE_RATE;
+        public static IntValue SIMPLE_TICKER_MB_CAPACITY;
+        public static IntValue SIMPLE_TICKER_MB_RATE;
+        public static IntValue SIMPLE_TICKER_FE_CAPACITY;
+        public static IntValue SIMPLE_TICKER_FE_RATE;
 
-        public static IntValue TICKER_TICK_RATE;
+        public static IntValue SIMPLE_TICKER_TICK_RATE;
+
+        public static IntValue ADVANCED_TICKER_MB_CAPACITY;
+        public static IntValue ADVANCED_TICKER_MB_RATE;
+        public static IntValue ADVANCED_TICKER_FE_CAPACITY;
+        public static IntValue ADVANCED_TICKER_FE_RATE;
+
+        public static IntValue ADVANCED_TICKER_TICK_RATE;
 
         public static BooleanValue LIGHT_WAND_ENTITY_GLOWING;
         public static BooleanValue LIGHT_WAND_PLACING;
@@ -250,24 +257,51 @@ public class Config {
                                 .comment("Enable/Disable sound")
                                 .define(Blocks.Stabilizer + ConfigKeys.Values.SOUND, true);
 
-                BUILDER.comment(StringUtil.nameCapitalized(Blocks.Ticker));
+                BUILDER.comment(StringUtil.nameCapitalized(Blocks.Ticker.Simple));
 
-                TICKER_FE_CAPACITY = BUILDER
-                                .comment(Blocks.Ticker + ConfigKeys.Display.FE_MAX)
-                                .defineInRange(Blocks.Ticker + ConfigKeys.Values.FE_MAX, 10000, 1, Integer.MAX_VALUE);
-                TICKER_FE_RATE = BUILDER
-                                .comment(Blocks.Ticker + ConfigKeys.Display.FE_RATE)
-                                .defineInRange(Blocks.Ticker + ConfigKeys.Values.FE_RATE, 10, 1, Integer.MAX_VALUE);
-                TICKER_MB_CAPACITY = BUILDER
-                                .comment(Blocks.Ticker + ConfigKeys.Display.MB_MAX)
-                                .defineInRange(Blocks.Ticker + ConfigKeys.Values.MB_MAX, 1000, 1, Integer.MAX_VALUE);
-                TICKER_MB_RATE = BUILDER
-                                .comment(Blocks.Ticker + ConfigKeys.Display.MB_RATE)
-                                .defineInRange(Blocks.Ticker + ConfigKeys.Values.MB_RATE, 1, 1, Integer.MAX_VALUE);
+                SIMPLE_TICKER_FE_CAPACITY = BUILDER
+                                .comment(Blocks.Ticker.Simple + ConfigKeys.Display.FE_MAX)
+                                .defineInRange(Blocks.Ticker.Simple + ConfigKeys.Values.FE_MAX, 10_000, 1,
+                                                Integer.MAX_VALUE);
+                SIMPLE_TICKER_FE_RATE = BUILDER
+                                .comment(Blocks.Ticker.Simple + ConfigKeys.Display.FE_RATE)
+                                .defineInRange(Blocks.Ticker.Simple + ConfigKeys.Values.FE_RATE, 10, 1,
+                                                Integer.MAX_VALUE);
+                SIMPLE_TICKER_MB_CAPACITY = BUILDER
+                                .comment(Blocks.Ticker.Simple + ConfigKeys.Display.MB_MAX)
+                                .defineInRange(Blocks.Ticker.Simple + ConfigKeys.Values.MB_MAX, 1000, 1,
+                                                Integer.MAX_VALUE);
+                SIMPLE_TICKER_MB_RATE = BUILDER
+                                .comment(Blocks.Ticker.Simple + ConfigKeys.Display.MB_RATE)
+                                .defineInRange(Blocks.Ticker.Simple + ConfigKeys.Values.MB_RATE, 1, 1,
+                                                Integer.MAX_VALUE);
 
-                TICKER_TICK_RATE = BUILDER
-                                .comment(Blocks.Ticker + "max tick limit")
-                                .defineInRange(Blocks.Ticker + "_max_tick_limit", 1200, 1, Integer.MAX_VALUE);
+                SIMPLE_TICKER_TICK_RATE = BUILDER
+                                .comment(Blocks.Ticker.Simple + " tick rate")
+                                .defineInRange(Blocks.Ticker.Simple + "_tick_tick_rate", 16, 1, Integer.MAX_VALUE);
+
+                BUILDER.comment(StringUtil.nameCapitalized(Blocks.Ticker.Advanced));
+
+                ADVANCED_TICKER_FE_CAPACITY = BUILDER
+                                .comment(Blocks.Ticker.Advanced + ConfigKeys.Display.FE_MAX)
+                                .defineInRange(Blocks.Ticker.Advanced + ConfigKeys.Values.FE_MAX, 1_000_000, 1,
+                                                Integer.MAX_VALUE);
+                ADVANCED_TICKER_FE_RATE = BUILDER
+                                .comment(Blocks.Ticker.Advanced + ConfigKeys.Display.FE_RATE)
+                                .defineInRange(Blocks.Ticker.Advanced + ConfigKeys.Values.FE_RATE, 1_000, 1,
+                                                Integer.MAX_VALUE);
+                ADVANCED_TICKER_MB_CAPACITY = BUILDER
+                                .comment(Blocks.Ticker.Advanced + ConfigKeys.Display.MB_MAX)
+                                .defineInRange(Blocks.Ticker.Advanced + ConfigKeys.Values.MB_MAX, 1_000_000, 1,
+                                                Integer.MAX_VALUE);
+                ADVANCED_TICKER_MB_RATE = BUILDER
+                                .comment(Blocks.Ticker.Advanced + ConfigKeys.Display.MB_RATE)
+                                .defineInRange(Blocks.Ticker.Advanced + ConfigKeys.Values.MB_RATE, 10, 1,
+                                                Integer.MAX_VALUE);
+
+                ADVANCED_TICKER_TICK_RATE = BUILDER
+                                .comment(Blocks.Ticker.Advanced + "max tick limit")
+                                .defineInRange(Blocks.Ticker.Advanced + "_max_tick_limit", 1200, 1, Integer.MAX_VALUE);
 
                 BUILDER.comment(StringUtil.nameCapitalized(Blocks.BlackHole));
 
@@ -629,8 +663,7 @@ public class Config {
         /**
          * default = false
          */
-        @SuppressWarnings("unused")
-        private static BooleanValue bool(String c, String k) {
+         private static BooleanValue bool(String c, String k) {
                 return bool(c, k, false);
         }
 

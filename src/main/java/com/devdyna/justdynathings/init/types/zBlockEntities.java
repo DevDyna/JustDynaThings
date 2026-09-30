@@ -20,7 +20,8 @@ import com.devdyna.justdynathings.init.builder.solar_panels.celestigem.CelestiGe
 import com.devdyna.justdynathings.init.builder.solar_panels.eclipsealloy.EclipseAlloySolarBE;
 import com.devdyna.justdynathings.init.builder.solar_panels.ferricore.FerricoreSolarBE;
 import com.devdyna.justdynathings.init.builder.stabilizer.StabilizerBE;
-import com.devdyna.justdynathings.init.builder.ticker.TickerBE;
+import com.devdyna.justdynathings.init.builder.ticker.advanced.AdvancedTickerBE;
+import com.devdyna.justdynathings.init.builder.ticker.simple.SimpleTickerBE;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -62,9 +63,13 @@ public class zBlockEntities {
 //             .createBlockEntity(Constants.Blocks.Reforger,zTiles,
 //                     ReforgerBE::new, zBlocks.REFORGER);
 
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TickerBE>> TICKER = RegistryUtils
-            .createBlockEntity(Constants.Blocks.Ticker,zTiles,
-                    TickerBE::new, zBlocks.TICKER);
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SimpleTickerBE>> SIMPLE_TICKER = RegistryUtils
+            .createBlockEntity(Constants.Blocks.Ticker.Simple,zTiles,
+                    SimpleTickerBE::new, zBlocks.SIMPLE_TICKER);
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<AdvancedTickerBE>> ADVANCED_TICKER = RegistryUtils
+            .createBlockEntity(Constants.Blocks.Ticker.Advanced,zTiles,
+                    AdvancedTickerBE::new, zBlocks.ADVANCED_TICKER);
 
     // public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TimeBE>> ECHOING_BUDDING_TIME = RegistryUtils
     //         .createBlockEntity(Constants.BuddingType + "_time",zTiles, TimeBE::new,

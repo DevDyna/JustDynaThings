@@ -1,8 +1,7 @@
-package com.devdyna.justdynathings.init.builder.ticker;
+package com.devdyna.justdynathings.init.builder.ticker.simple;
 
 import static com.devdyna.justdynathings.JustDynaThings.MODULE_ID;
 
-import com.devdyna.cakesticklib.api.primitive.Pos;
 import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.api.ExtraSlots;
@@ -12,12 +11,13 @@ import com.direwolf20.justdirethings.client.screens.widgets.ToggleButton;
 import com.direwolf20.justdirethings.util.MiscHelpers;
 
 import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.Slot;
 
-public class TickerScreen extends BaseMachineScreen<TickerGUI> implements ExtraSlots {
-    public TickerScreen(TickerGUI container, Inventory inv, Component name) {
+public class SimpleTickerScreen extends BaseMachineScreen<SimpleTickerGUI> implements ExtraSlots {
+    public SimpleTickerScreen(SimpleTickerGUI container, Inventory inv, Component name) {
         super(container, inv, name);
     }
 
@@ -42,23 +42,33 @@ public class TickerScreen extends BaseMachineScreen<TickerGUI> implements ExtraS
     }
 
     @Override
-    public void extractBackground(GuiGraphicsExtractor guiGraphics, int mouseX, int mouseY, float partialTicks) {
-        super.extractBackground(guiGraphics, mouseX, mouseY, partialTicks);
+    public void addTickSpeedButton() {
 
-        if (baseMachineBE.getTickSpeed() > Config.TICKER_TICK_RATE.get())
-            addWarningPopUp(guiGraphics, getLeftPos() + 144 + 8, getTopPos());
     }
 
     @Override
-    protected void extractTooltip(GuiGraphicsExtractor graphics, int x, int y) {
-        super.extractTooltip(graphics, x, y);
+    public void extractBackground(GuiGraphicsExtractor graphics, int arg1, int arg2, float arg3) {
 
-        if (Pos.of(getLeftPos() + 144 + 8, getTopPos()).setSize(10, 10).test(x, y))
-            graphics.setTooltipForNextFrame(font,
-                    Component.translatable(
-                            MODULE_ID + "." + Constants.Blocks.Ticker + ".tick_overflow",
-                            Config.TICKER_TICK_RATE.get()),
-                    x, y);
+        super.extractBackground(graphics, arg1, arg2, arg3);
+
+        graphics.blitSprite(RenderPipelines.GUI_TEXTURED, SOCIALBACKGROUND,
+                topSectionLeft+ 20 + 20 + 20 - 10, topSectionTop + 20 - 10 + 1,
+                topSectionWidth - 100 , 20);
+
+    }
+
+    @Override
+    protected void extractLabels(GuiGraphicsExtractor graphics, int x, int y) {
+
+        var tip = Component.translatable(MODULE_ID + ".gui." + Constants.Blocks.Ticker.Simple + ".ticks",
+                Config.SIMPLE_TICKER_TICK_RATE.get());
+
+        graphics.text(this.font, tip,
+                this.topSectionLeft - this.leftPos + (this.topSectionWidth / 2)
+                        - this.font.width(tip) / 2,
+                this.topSectionTop - this.topPos + 18, -12566464, false);
+
+        super.extractLabels(graphics, x, y);
     }
 
     @Override

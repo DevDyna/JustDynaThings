@@ -83,7 +83,7 @@ public class DataBlockTag extends BlockTagsProvider {
                                                 zBlocks.T4_GOO.get());
 
                 tag(ModTags.Blocks.TICK_SPEED_DENY)
-                                .add(zBlocks.TICKER.get());
+                                .add(zBlocks.SIMPLE_TICKER.get(),zBlocks.ADVANCED_TICKER.get());
 
                 tag(zBlockTags.ADVANCED_TIME_DENY)
                                 .addOptionalTag(ModTags.Blocks.TICK_SPEED_DENY);

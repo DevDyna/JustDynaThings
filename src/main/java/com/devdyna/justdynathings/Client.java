@@ -18,7 +18,8 @@ import com.devdyna.justdynathings.init.builder.solar_panels.blazegold.BlazegoldS
 import com.devdyna.justdynathings.init.builder.solar_panels.celestigem.CelestigemSolarPanelGUI;
 import com.devdyna.justdynathings.init.builder.solar_panels.eclipsealloy.EclipseAlloySolarPanelGUI;
 import com.devdyna.justdynathings.init.builder.solar_panels.ferricore.FerricoreSolarPanelGUI;
-import com.devdyna.justdynathings.init.builder.ticker.TickerScreen;
+import com.devdyna.justdynathings.init.builder.ticker.advanced.AdvancedTickerScreen;
+import com.devdyna.justdynathings.init.builder.ticker.simple.SimpleTickerScreen;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
 import com.devdyna.justdynathings.init.types.zContainers;
 import com.devdyna.justdynathings.init.types.zFluids;
@@ -54,7 +55,9 @@ public class Client {
 
     @SubscribeEvent
     public static void registerScreens(RegisterMenuScreensEvent event) {
-        event.register(zContainers.TICKER.get(), TickerScreen::new);
+        event.register(zContainers.SIMPLE_TICKER.get(), SimpleTickerScreen::new);
+        event.register(zContainers.ADVANCED_TICKER.get(), AdvancedTickerScreen::new);
+
         event.register(zContainers.FERRICORE_CLOCK.get(), FerricoreClockScreen::new);
         event.register(zContainers.BLACKHOLE.get(), BlackHoleScreen::new);
 

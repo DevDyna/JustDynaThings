@@ -22,7 +22,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-@SuppressWarnings("null")
+
 public class BlackHoleBlock extends BaseFluidMachineBlock {
 
     public BlackHoleBlock(Properties p) {

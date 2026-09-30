@@ -30,7 +30,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.ItemLike;
 import com.devdyna.cakesticklib.api.utils.ClientUtils;
 
-@SuppressWarnings("null")
+
 public class FuelRecipeCategory extends BaseCategory<FuelRecords.Items> {
     public static final IRecipeType<FuelRecords.Items> TYPE = IRecipeType.create(MODULE_ID,
             JDTRegistration.GeneratorT1_ITEM.getId().getPath(), FuelRecords.Items.class);

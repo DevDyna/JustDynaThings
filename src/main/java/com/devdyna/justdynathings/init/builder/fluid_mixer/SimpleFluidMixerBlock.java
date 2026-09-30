@@ -19,7 +19,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-@SuppressWarnings("null")
+
 public class SimpleFluidMixerBlock extends BaseFluidMachineBlock {
 
     public SimpleFluidMixerBlock(Properties p) {

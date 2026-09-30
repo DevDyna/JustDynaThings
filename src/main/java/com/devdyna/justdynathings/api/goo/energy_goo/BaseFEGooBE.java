@@ -33,7 +33,6 @@ public class BaseFEGooBE extends GooBlockBE_Base implements EnergyMachine {
         setChanged();
     }
 
-    @SuppressWarnings("null")
     public void checkEnergy() {
         level.setBlockAndUpdate(getBlockPos(),
                 getBlockState().setValue(zProperties.GOO_ALIVE, canExtractFE()));

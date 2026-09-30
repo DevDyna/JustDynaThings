@@ -19,7 +19,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
-@SuppressWarnings({ "null" })
+
 public class SimpleFluidMixerBE extends BaseMachineBE implements RedstoneControlledBE, FluidMachine {
 
     public final FluidContainerData fluidContainerData = new FluidContainerData(this);

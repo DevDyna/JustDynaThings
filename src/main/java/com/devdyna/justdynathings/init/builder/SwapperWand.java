@@ -23,7 +23,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.common.util.FakePlayer;
 
-@SuppressWarnings("null")
+
 public class SwapperWand extends Item {
 
     public SwapperWand(Properties p) {

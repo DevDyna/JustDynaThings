@@ -11,7 +11,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 
-@SuppressWarnings("null")
+
 public class AdvancedLightWand extends BasePoweredItem implements PoweredItem, ILightWand {
 
     public AdvancedLightWand(Properties p) {

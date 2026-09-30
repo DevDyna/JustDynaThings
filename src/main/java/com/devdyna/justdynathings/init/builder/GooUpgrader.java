@@ -6,7 +6,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.Block;
 
-@SuppressWarnings("null")
+
 public class GooUpgrader extends Item {
 
     private ArrayList<Block> fromBlocks;

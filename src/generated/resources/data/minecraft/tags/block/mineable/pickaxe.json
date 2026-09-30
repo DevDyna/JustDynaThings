@@ -25,7 +25,11 @@
       "required": false
     },
     {
-      "id": "justdynathings:ticker",
+      "id": "justdynathings:simple_ticker",
+      "required": false
+    },
+    {
+      "id": "justdynathings:advanced_ticker",
       "required": false
     },
     {

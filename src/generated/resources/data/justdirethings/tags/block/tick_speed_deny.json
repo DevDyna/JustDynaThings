@@ -1,5 +1,6 @@
 {
   "values": [
-    "justdynathings:ticker"
+    "justdynathings:simple_ticker",
+    "justdynathings:advanced_ticker"
   ]
 }

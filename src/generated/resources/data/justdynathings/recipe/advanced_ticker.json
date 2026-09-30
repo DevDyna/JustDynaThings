@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "advanced_ticker",
+  "key": {
+    "E": "justdirethings:eclipsealloy_ingot",
+    "P": "justdynathings:simple_ticker",
+    "T": "justdirethings:coal_t4"
+  },
+  "pattern": [
+    "ETE",
+    "TPT",
+    "ETE"
+  ],
+  "result": {
+    "id": "justdynathings:advanced_ticker"
+  }
+}

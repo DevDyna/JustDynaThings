@@ -3,9 +3,9 @@ package com.devdyna.justdynathings.api.solar_panels;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.devdyna.cakesticklib.api.utils.DirectionUtil;
 import com.devdyna.cakesticklib.api.utils.x;
 import com.devdyna.justdynathings.api.Actions;
+import com.devdyna.justdynathings.api.DirUtils;
 import com.devdyna.justdynathings.api.be.EnergyCharger;
 import com.devdyna.justdynathings.api.be.EnergyGenerator;
 import com.devdyna.justdynathings.init.types.zBiomeTags;
@@ -108,12 +108,12 @@ public abstract class SolarBaseBE extends BaseMachineBE
         if (enableMultiPopulator()) {
             int blocks = 1;
 
-            for (BlockPos blockPos : DirectionUtil.around(getBlockPos())) {
+            for (BlockPos blockPos : DirUtils.getAround(getBlockPos())) {
                 if (level.getBlockState(blockPos).is(getBlockState().getBlock()))
                     blocks++;
             }
 
-            multiplier *= (blocks / DirectionUtil.around(getBlockPos()).size() + 1);
+            multiplier *= (blocks / DirUtils.getAround(getBlockPos()).size() + 1);
         }
 
         if (enableMultiYLevel()) {

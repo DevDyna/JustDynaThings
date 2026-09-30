@@ -3,9 +3,9 @@ package com.devdyna.justdynathings.api.goo.energy_goo;
 import com.devdyna.cakesticklib.api.RandomUtil;
 import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.api.be.EnergyMachine;
-import com.devdyna.justdynathings.init.types.zProperties;
 import com.direwolf20.justdirethings.common.blockentities.basebe.GooBlockBE_Base;
 import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineContainerData;
+import com.direwolf20.justdirethings.common.blocks.gooblocks.GooBlock_Base;
 import com.direwolf20.justdirethings.common.capabilities.MachineEnergyStorage;
 import com.direwolf20.justdirethings.setup.JDTRegistration;
 
@@ -35,10 +35,9 @@ public class BaseFEGooBE extends GooBlockBE_Base implements EnergyMachine {
 
     public void checkEnergy() {
         level.setBlockAndUpdate(getBlockPos(),
-                getBlockState().setValue(zProperties.GOO_ALIVE, canExtractFE()));
+                getBlockState().setValue(GooBlock_Base.ALIVE, canExtractFE()));
     }
 
-    @SuppressWarnings("null")
     @Override
     public void setBlockToTarget(BlockState output, Direction direction) {
         if (output.hasProperty(BlockStateProperties.FACING)) {
@@ -54,7 +53,7 @@ public class BaseFEGooBE extends GooBlockBE_Base implements EnergyMachine {
 
         if (level != null && !level.isClientSide()) {
 
-            if (getBlockState().getValue(zProperties.GOO_ALIVE)) {
+            if (getBlockState().getValue(GooBlock_Base.ALIVE)) {
 
                 extractFEWhenPossible();
 

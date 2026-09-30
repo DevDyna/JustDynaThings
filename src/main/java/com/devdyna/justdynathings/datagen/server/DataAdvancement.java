@@ -19,19 +19,9 @@ public class DataAdvancement extends AdvancementProvider {
 
         public static class DataAdvancementGenerator implements AdvancementSubProvider {
 
-                @SuppressWarnings("unused")
+
                 @Override
                 public void generate(Provider p, Consumer<AdvancementHolder> c) {
-
-                        // var quern = AdvancementsUtils
-                        //                 .getExistingParent("minecraft:story/mine_stone", zBlocks.QUERN.get(),
-                        //                                 MODULE_ID, "quern",
-                        //                                 AdvancementType.TASK, true, true, false)
-                        //                 .addCriterion("craft_quern",
-                        //                                 InventoryChangeTrigger.TriggerInstance
-                        //                                                 .hasItems(zBlocks.QUERN.get()))
-                        //                 .requirements(AdvancementRequirements.allOf(List.of("craft_quern")))
-                        //                 .save(c, MODULE_ID + ":extend/story/mine_stone/quern");
 
                 }
 

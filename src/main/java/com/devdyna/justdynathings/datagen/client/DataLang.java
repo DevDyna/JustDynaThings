@@ -347,6 +347,32 @@ public class DataLang extends LanguageProvider {
                 add(MODULE_ID + ".jei.alias.buffer.energy", "Energy storage buffer");
                 add(MODULE_ID + ".jei.alias.buffer.item", "Item storage buffer");
 
+                add(MODULE_ID + ".gui.solarpanel.fetip", "Generate : %s/tick");
+                add(MODULE_ID + ".gui.solarpanel.error", "Generate :" + TipColors.DARK_RED + TipColors.BOLD + " ERROR");
+
+                add(MODULE_ID + ".gui.solarpanel.tip.ylevel.enabled",
+                                "Y-level multiplier:" + TipColors.GREEN + " Enabled");
+                add(MODULE_ID + ".gui.solarpanel.tip.ylevel.disabled",
+                                "Y-level multiplier:" + TipColors.RED + " Disabled");
+                add(MODULE_ID + ".gui.solarpanel.tip.spam.enabled", "Spam multiplier:" + TipColors.GREEN + " Enabled");
+                add(MODULE_ID + ".gui.solarpanel.tip.spam.disabled", "Spam multiplier:" + TipColors.RED + " Disabled");
+                add(MODULE_ID + ".gui.solarpanel.tip.cleansky.enabled",
+                                "Require clean sky:" + TipColors.GREEN + " Enabled");
+                add(MODULE_ID + ".gui.solarpanel.tip.cleansky.disabled",
+                                "Require clean sky:" + TipColors.RED + " Disabled");
+                add(MODULE_ID + ".gui.solarpanel.tip.daytime.enabled",
+                                "Require daytime:" + TipColors.GREEN + " Enabled");
+                add(MODULE_ID + ".gui.solarpanel.tip.daytime.disabled",
+                                "Require daytime:" + TipColors.RED + " Disabled");
+                add(MODULE_ID + ".gui.solarpanel.tip.biomes.whitelist", "Valid Biomes :");
+                add(MODULE_ID + ".gui.solarpanel.tip.biomes.blacklist", "Denied Biomes :");
+
+                add(MODULE_ID + ".gui.solarpanel.tip.biomes.empty.whitelist", TipColors.RED + "Any biome is invalid!");
+                add(MODULE_ID + ".gui.solarpanel.tip.biomes.empty.blacklist", TipColors.GREEN + "Any biome is valid");
+
+                add(MODULE_ID + ".gui.tip.scroll.up", TipColors.GRAY +TipColors.ITALIC + "<Scroll up>");
+                add(MODULE_ID + ".gui.tip.scroll.down", TipColors.GRAY +TipColors.ITALIC + "<Scroll down>");
+
         }
 
 }

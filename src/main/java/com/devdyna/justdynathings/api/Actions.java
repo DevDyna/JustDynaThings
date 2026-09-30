@@ -3,6 +3,7 @@ package com.devdyna.justdynathings.api;
 import java.util.Map;
 
 import com.devdyna.cakesticklib.api.RandomUtil;
+import com.devdyna.justdynathings.api.be.EnergyGenerator;
 import com.devdyna.justdynathings.api.be.EnergyMachine;
 import com.mojang.logging.LogUtils;
 
@@ -138,6 +139,9 @@ public class Actions {
                         Map<Direction, BlockCapabilityCache<EnergyHandler, Direction>> map, int fe) {
 
                 EnergyMachine be = (EnergyMachine) level.getBlockEntity(pos);
+
+                if (be instanceof EnergyGenerator)
+                        return;
 
                 if (be == null)
                         return;

@@ -21,7 +21,7 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 
 @SuppressWarnings("null")
-public class ParadoxInfusionRecipe extends BaseRecipeType<ItemInput.withNumber> {
+public class ParadoxInfusionRecipe extends BaseRecipeType<ItemInput.simple> {
 
     private final int radius;
     private final Ingredient input;
@@ -37,12 +37,12 @@ public class ParadoxInfusionRecipe extends BaseRecipeType<ItemInput.withNumber> 
         return new ParadoxInfusionRecipe(input, radius, output);
     }
 
-    public boolean matches(ItemInput.withNumber r, Level l) {
-        return this.input.test(r.item()) && r.value() >= this.radius;
+    public boolean matches(ItemInput.simple r, Level l) {
+        return this.input.test(r.item()) ;
     }
 
     @Override
-    public ItemStack assemble(ItemInput.withNumber r) {
+    public ItemStack assemble(ItemInput.simple r) {
         return this.output.create();
     }
 
@@ -59,12 +59,12 @@ public class ParadoxInfusionRecipe extends BaseRecipeType<ItemInput.withNumber> 
     }
 
     @Override
-    public RecipeType<? extends Recipe<ItemInput.withNumber>> getType() {
+    public RecipeType<? extends Recipe<ItemInput.simple>> getType() {
         return zRecipeTypes.PARADOX_INFUSION.getType();
     }
 
     @Override
-    public RecipeSerializer<? extends Recipe<ItemInput.withNumber>> getSerializer() {
+    public RecipeSerializer<? extends Recipe<ItemInput.simple>> getSerializer() {
         return zRecipeTypes.PARADOX_INFUSION.getSerializer();
     }
 

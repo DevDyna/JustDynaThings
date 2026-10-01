@@ -3,6 +3,8 @@ package com.devdyna.justdynathings.api;
 import static com.devdyna.justdynathings.JustDynaThings.MODULE_ID;
 
 import com.devdyna.cakesticklib.api.gui.ImageGui;
+import com.devdyna.cakesticklib.api.utils.ColorUtils;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.world.inventory.Slot;
 
@@ -122,6 +124,36 @@ public interface ExtraSlots {
                 .size(16, 16)
                 .offset(xOffset, yOffset)
                 .sizeTexture(16, 16)
+                .render(graphics);
+    }
+
+    default void addFakeTickButton(GuiGraphicsExtractor graphics, int xOffset, int yOffset, int value) {
+        var width = 24;
+        var height = 12;
+        var scale = 0.75f;
+        var font = Minecraft.getInstance().font;
+
+        graphics.fill(xOffset, yOffset, xOffset + width, yOffset + height, 0xFF353535);
+        graphics.fill(xOffset + 1, yOffset + 1, xOffset + width - 1, yOffset + height - 1, 0xFFD8D8D8);
+        var stack = graphics.pose();
+        stack.pushMatrix();
+        stack.scale(scale, scale);
+
+        var txt = String.format("%,d", value);
+
+        graphics.text(font, txt,
+                (int) ((xOffset + width / 2f) / scale - font.width(txt) / 2f),
+                (int) ((yOffset + (height - font.lineHeight) / 2f / scale) / scale + 1),
+                ColorUtils.GRAY.DARK_GRAY.getRGB(), false);
+        stack.popMatrix();
+    }
+
+    default void addLock(GuiGraphicsExtractor graphics, int xOffset, int yOffset) {
+        ImageGui.of()
+                .rl(MODULE_ID, "textures/gui/slots/lock.png")
+                .size(11, 11)
+                .offset(xOffset, yOffset)
+                .sizeTexture(11, 11)
                 .render(graphics);
     }
 

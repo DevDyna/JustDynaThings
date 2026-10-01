@@ -35,8 +35,10 @@ public class Constants {
         public static String BlackHole = "blackhole";
 
         public class Ticker{
-            public static String Simple = "simple_ticker";
-            public static String Advanced = "advanced_ticker";
+            public static String BASE = "ticker";
+
+            public static String Simple = "simple_"+BASE;
+            public static String Advanced = "advanced_"+BASE;
         }
     }
 

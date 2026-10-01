@@ -25,6 +25,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class SimpleTickerBE extends BaseMachineBE implements EnergyMachine, FluidMachine, RedstoneControlledBE {
+
     public RedstoneControlData redstoneControlData = new RedstoneControlData();
     public final PoweredMachineContainerData poweredMachineData = new PoweredMachineContainerData(this);
     public final FluidContainerData fluidContainerData = new FluidContainerData(this);
@@ -57,14 +58,13 @@ public class SimpleTickerBE extends BaseMachineBE implements EnergyMachine, Flui
             if (level instanceof ServerLevel serverLevel &&
                     MiscTools.isValidTickAccelBlock(serverLevel, level.getBlockState(pos),
                             level.getBlockEntity(pos)))
-                MiscTools.doExtraTicks(serverLevel, pos, getTickerRate());
+                MiscTools.doExtraTicks(serverLevel, pos,
+                        (isLocked()
+                                ? getTickerRate()
+                                : Math.min(getTickSpeed(), getTickerRate())));
 
         }
 
-    }
-
-    public int getTickerRate() {
-        return  Config.SIMPLE_TICKER_TICK_RATE.get();
     }
 
     public void checkState(BlockPos pos) {
@@ -95,16 +95,6 @@ public class SimpleTickerBE extends BaseMachineBE implements EnergyMachine, Flui
     }
 
     @Override
-    public int getStandardEnergyCost() {
-        return Config.SIMPLE_TICKER_FE_RATE.get();
-    }
-
-    @Override
-    public int getMaxEnergy() {
-        return Config.SIMPLE_TICKER_FE_CAPACITY.get();
-    }
-
-    @Override
     public ContainerData getFluidContainerData() {
         return fluidContainerData;
     }
@@ -112,6 +102,30 @@ public class SimpleTickerBE extends BaseMachineBE implements EnergyMachine, Flui
     @Override
     public JustDireFluidTank getFluidTank() {
         return getData(JDTRegistration.PARADOX_FLUID_HANDLER);
+    }
+
+    @Override
+    public BlockEntity getBlockEntity() {
+        return this;
+    }
+
+    @Override
+    public RedstoneControlData getRedstoneControlData() {
+        return redstoneControlData;
+    }
+
+    public int getTickerRate() {
+        return Config.SIMPLE_TICKER_TICK_RATE.get();
+    }
+
+    @Override
+    public int getStandardEnergyCost() {
+        return Config.SIMPLE_TICKER_FE_RATE.get();
+    }
+
+    @Override
+    public int getMaxEnergy() {
+        return Config.SIMPLE_TICKER_FE_CAPACITY.get();
     }
 
     @Override
@@ -124,14 +138,8 @@ public class SimpleTickerBE extends BaseMachineBE implements EnergyMachine, Flui
         return Config.SIMPLE_TICKER_MB_CAPACITY.get();
     }
 
-    @Override
-    public BlockEntity getBlockEntity() {
-        return this;
-    }
-
-    @Override
-    public RedstoneControlData getRedstoneControlData() {
-        return redstoneControlData;
+    public boolean isLocked() {
+        return Config.SIMPLE_TICKER_TICK_LOCK.get();
     }
 
 }

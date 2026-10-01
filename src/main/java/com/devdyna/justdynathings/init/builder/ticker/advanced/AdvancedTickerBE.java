@@ -3,10 +3,7 @@ package com.devdyna.justdynathings.init.builder.ticker.advanced;
 import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.init.builder.ticker.simple.SimpleTickerBE;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
-import com.devdyna.justdynathings.init.types.zBlockTags;
-
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -20,23 +17,9 @@ public class AdvancedTickerBE extends SimpleTickerBE {
         this(zBlockEntities.ADVANCED_TICKER.get(), p, s);
     }
 
-    // @Override
-    // public void tickServer() {
-    //     super.tickServer();
-    // }
-
     @Override
     public int getTickerRate() {
-        return Math.min(getTickSpeed(), Config.ADVANCED_TICKER_TICK_RATE.get());
-    }
-
-    public void checkState(BlockPos pos) {
-        level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(AdvancedTickerBlock.ACTIVE,
-                canExtractFE() && canExtractMB() && isActiveRedstone()));
-    }
-
-    public boolean blockValid(BlockPos pos) {
-        return !level.getBlockState(pos).is(zBlockTags.TICKER_DENY);
+        return Config.ADVANCED_TICKER_TICK_RATE.get() ;
     }
 
     @Override
@@ -59,9 +42,8 @@ public class AdvancedTickerBE extends SimpleTickerBE {
         return Config.ADVANCED_TICKER_MB_CAPACITY.get();
     }
 
-    @Override
-    public BlockEntity getBlockEntity() {
-        return this;
+    public boolean isLocked(){
+        return Config.ADVANCED_TICKER_TICK_LOCK.get();
     }
 
 }

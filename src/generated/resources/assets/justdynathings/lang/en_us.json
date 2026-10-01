@@ -36,6 +36,7 @@
   "item.justdynathings.swapper_wand": "Swapper Wand",
   "item.justdynathings.void_crystal": "Void Crystal",
   "justdynathings.abstract_paradox": "§7Obtained by throwing a void crystal over a Paradox",
+  "justdynathings.advanced_energy_transmitter": "§7An energy transmitter that will require Time fluid to work but more capable and with less FE loss/block",
   "justdynathings.advanced_ticker": "§7A block that act at same of a time wand but configurable!",
   "justdynathings.advanced_time_wand": "§7More capable and configurable version of Time wand",
   "justdynathings.advanced_time_wand.mode.disabled": "§cThis Mode was disabled",

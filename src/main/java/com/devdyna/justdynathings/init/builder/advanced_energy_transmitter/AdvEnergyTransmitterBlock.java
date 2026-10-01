@@ -2,6 +2,8 @@ package com.devdyna.justdynathings.init.builder.advanced_energy_transmitter;
 
 import com.devdyna.cakesticklib.api.aspect.logic.BucketInteraction;
 import com.direwolf20.justdirethings.common.blocks.EnergyTransmitter;
+import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
@@ -10,6 +12,7 @@ import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
@@ -17,7 +20,7 @@ import net.minecraft.world.phys.BlockHitResult;
 public class AdvEnergyTransmitterBlock extends EnergyTransmitter implements BucketInteraction {
 
     public AdvEnergyTransmitterBlock(Properties properties) {
-        super(properties);
+        super(properties.sound(SoundType.METAL).strength(2.0F).noOcclusion().forceSolidOn().isRedstoneConductor(BaseMachineBlock::never));
     }
 
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {

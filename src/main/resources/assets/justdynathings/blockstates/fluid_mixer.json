@@ -1,7 +1,18 @@
 {
   "variants": {
-    "": {
+    "facing=east": {
+      "model": "justdynathings:block/fluid_mixer",
+      "y": 90
+    },
+    "facing=north": {
       "model": "justdynathings:block/fluid_mixer"
+    },
+    "facing=south": {
+      "model": "justdynathings:block/fluid_mixer"
+    },
+    "facing=west": {
+      "model": "justdynathings:block/fluid_mixer",
+      "y": 90
     }
   }
 }

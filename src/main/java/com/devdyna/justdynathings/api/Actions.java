@@ -140,9 +140,6 @@ public class Actions {
 
                 EnergyMachine be = (EnergyMachine) level.getBlockEntity(pos);
 
-                if (be instanceof EnergyGenerator)
-                        return;
-
                 if (be == null)
                         return;
 
@@ -163,6 +160,9 @@ public class Actions {
                                 EnergyHandler cap = cache.getCapability();
                                 if (cap == null)
                                         continue;
+
+                                if (level.getBlockEntity(pos.relative(dir)) instanceof EnergyGenerator)
+                                        return;
 
                                 var extracted = be.extractEnergy(fe, true);
 

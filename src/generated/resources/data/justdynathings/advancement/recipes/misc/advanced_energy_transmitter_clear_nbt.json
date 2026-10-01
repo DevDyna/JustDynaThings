@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_blazegold_ingot": {
+    "has_advanced_energy_transmitter": {
       "conditions": {
         "items": [
           {
-            "items": "justdirethings:blazegold_ingot"
+            "items": "justdynathings:advanced_energy_transmitter"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "justdynathings:simple_ticker"
+        "recipe": "justdynathings:advanced_energy_transmitter_clear_nbt"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_blazegold_ingot"
+      "has_advanced_energy_transmitter"
     ]
   ],
   "rewards": {
     "recipes": [
-      "justdynathings:simple_ticker"
+      "justdynathings:advanced_energy_transmitter_clear_nbt"
     ]
   }
 }

@@ -33,6 +33,10 @@
       "required": false
     },
     {
+      "id": "justdynathings:advanced_energy_transmitter",
+      "required": false
+    },
+    {
       "id": "justdynathings:ferricore_clock",
       "required": false
     },

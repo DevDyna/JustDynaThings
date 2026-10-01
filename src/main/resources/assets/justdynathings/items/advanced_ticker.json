@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "justdynathings:item/ticker"
+    "model": "justdynathings:item/advanced_ticker"
   }
 }

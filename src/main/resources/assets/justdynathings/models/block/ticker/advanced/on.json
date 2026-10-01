@@ -5,6 +5,6 @@
     "bottom": "justdirethings:block/blockswappert2_bottom",
     "front": "justdirethings:block/blockswappert2_side",
     "side": "justdirethings:block/blockswappert2_side",
-    "top": "justdynathings:block/ticker/on"
+    "top": "justdynathings:block/ticker/active/on"
   }
 }

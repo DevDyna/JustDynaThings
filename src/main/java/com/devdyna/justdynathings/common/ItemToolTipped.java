@@ -12,10 +12,12 @@ import com.devdyna.justdynathings.init.builder.AdvancedTimeWand;
 import com.devdyna.justdynathings.init.builder.GooUpgrader;
 import com.devdyna.justdynathings.init.builder.PickerWand;
 import com.devdyna.justdynathings.init.builder.SwapperWand;
+import com.devdyna.justdynathings.init.builder.advanced_energy_transmitter.AdvEnergyTransmitterBlock;
 import com.devdyna.justdynathings.init.builder.fluid_mixer.SimpleFluidMixerBlock;
 import com.devdyna.justdynathings.init.builder.goo.creative.CreativeGoo;
 import com.devdyna.justdynathings.init.builder.stabilizer.StabilizerBlock;
-import com.devdyna.justdynathings.init.builder.ticker.TickerBlock;
+import com.devdyna.justdynathings.init.builder.ticker.advanced.AdvancedTickerBlock;
+import com.devdyna.justdynathings.init.builder.ticker.simple.SimpleTickerBlock;
 import com.devdyna.justdynathings.init.types.zComponents;
 import com.direwolf20.justdirethings.common.items.datacomponents.JustDireDataComponents;
 
@@ -37,6 +39,11 @@ public class ItemToolTipped {
                 var tip = event.getToolTip();
                 var isBlock = stack instanceof BlockItem;
                 var block = ((stack instanceof BlockItem bi) ? bi.getBlock() : null);
+
+                if (isBlock && block instanceof AdvEnergyTransmitterBlock)
+                        tip.add(OVER_THE_REGISTRY_ID,
+                                        Component.translatable(
+                                                        MODULE_ID + "." + Constants.Blocks.AdvancedEnergyTransmitter));
 
                 if (stack instanceof GooUpgrader)
                         tip.add(OVER_THE_REGISTRY_ID,
@@ -78,9 +85,13 @@ public class ItemToolTipped {
                         }
                 }
 
-                if (isBlock && block instanceof TickerBlock)
+                if (isBlock && block instanceof SimpleTickerBlock && !(block instanceof AdvancedTickerBlock))
                         tip.add(OVER_THE_REGISTRY_ID,
-                                        Component.translatable(MODULE_ID + "." + Constants.Blocks.Ticker));
+                                        Component.translatable(MODULE_ID + "." + Constants.Blocks.Ticker.Simple));
+
+                if (isBlock && block instanceof AdvancedTickerBlock)
+                        tip.add(OVER_THE_REGISTRY_ID,
+                                        Component.translatable(MODULE_ID + "." + Constants.Blocks.Ticker.Advanced));
 
                 if (stack instanceof AdvancedTimeWand) {
                         tip.add(OVER_THE_REGISTRY_ID,
@@ -158,7 +169,9 @@ public class ItemToolTipped {
                                                                                 goo.getConfigTier() > 1024 ? Component
                                                                                                 .translatable(MODULE_ID
                                                                                                                 + ".goo_tier.infinite")
-                                                                                                .withColor(ColorUtils.rainbow().getRGB())
+                                                                                                .withColor(ColorUtils
+                                                                                                                .rainbow()
+                                                                                                                .getRGB())
                                                                                                 :
 
                                                                                                 Component.literal(""
@@ -183,7 +196,8 @@ public class ItemToolTipped {
                 }
 
                 if (isBlock && block instanceof SimpleFluidMixerBlock) {
-                        tip.add(OVER_THE_REGISTRY_ID, Component.translatable(MODULE_ID + "." +Constants.Blocks.FluidMixer));
+                        tip.add(OVER_THE_REGISTRY_ID,
+                                        Component.translatable(MODULE_ID + "." + Constants.Blocks.FluidMixer));
                 }
 
                 if (isBlock && block instanceof FunctionalAnvilBlock anvil) {

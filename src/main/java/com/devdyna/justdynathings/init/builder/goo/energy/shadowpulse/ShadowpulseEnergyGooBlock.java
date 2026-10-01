@@ -14,7 +14,7 @@ public class ShadowpulseEnergyGooBlock extends BaseFEGooBlock {
       super(p);
    }
 
-   @SuppressWarnings("null")
+
    @Nullable
    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
       return new ShadowpulseEnergyGooBE(pos, state);

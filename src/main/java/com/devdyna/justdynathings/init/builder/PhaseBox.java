@@ -1,7 +1,6 @@
 package com.devdyna.justdynathings.init.builder;
 
 import com.devdyna.justdynathings.Config;
-import com.devdyna.justdynathings.init.types.zProperties;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
 
 import net.minecraft.core.BlockPos;
@@ -17,6 +16,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
@@ -26,8 +26,9 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.level.block.TransparentBlock;
 import com.direwolf20.justdirethings.util.ModTags;
 
-@SuppressWarnings("null")
 public class PhaseBox extends TransparentBlock {
+
+    public static final BooleanProperty SOLID = BooleanProperty.create("solid");
 
     public PhaseBox(Properties p) {
         super(p.sound(SoundType.AMETHYST)
@@ -37,7 +38,7 @@ public class PhaseBox extends TransparentBlock {
                 .instabreak()
                 .pushReaction(PushReaction.DESTROY));
         this.registerDefaultState(stateDefinition.any()
-                .setValue(zProperties.SOLID, true));
+                .setValue(SOLID, true));
     }
 
     @Override
@@ -47,24 +48,22 @@ public class PhaseBox extends TransparentBlock {
 
     @Override
     public VoxelShape getCollisionShape(BlockState s, BlockGetter w, BlockPos p, CollisionContext c) {
-        return s.getValue(zProperties.SOLID) ? s.getShape(w, p) : Shapes.empty();
+        return s.getValue(SOLID) ? s.getShape(w, p) : Shapes.empty();
     }
 
     @Override
     protected float getShadeBrightness(BlockState s, BlockGetter g, BlockPos p) {
-        return (!s.getValue(zProperties.SOLID) ? 1 : 0) * 1.0F;
+        return (!s.getValue(SOLID) ? 1 : 0) * 1.0F;
     }
 
     @Override
     protected boolean propagatesSkylightDown(BlockState s) {
-        return !s.getValue(zProperties.SOLID);
+        return !s.getValue(SOLID);
     }
-
-    
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> b) {
-        b.add(zProperties.SOLID);
+        b.add(SOLID);
     }
 
     @Override
@@ -91,11 +90,11 @@ public class PhaseBox extends TransparentBlock {
 
             l.playLocalSound(pos.getX(), pos.getY(),
                     pos.getZ(),
-                    s.getValue(zProperties.SOLID) ? SoundEvents.COPPER_TRAPDOOR_CLOSE
+                    s.getValue(SOLID) ? SoundEvents.COPPER_TRAPDOOR_CLOSE
                             : SoundEvents.COPPER_TRAPDOOR_OPEN,
                     SoundSource.BLOCKS, 100,
                     l.getRandom().nextInt(9) * 0.1f, true);
-            l.setBlockAndUpdate(pos, s.setValue(zProperties.SOLID, !s.getValue(zProperties.SOLID)));
+            l.setBlockAndUpdate(pos, s.setValue(SOLID, !s.getValue(SOLID)));
 
         }
         return InteractionResult.SUCCESS;

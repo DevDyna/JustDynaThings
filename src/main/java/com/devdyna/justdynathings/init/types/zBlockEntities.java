@@ -3,6 +3,7 @@ package com.devdyna.justdynathings.init.types;
 import com.devdyna.cakesticklib.api.RegistryUtils;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.JustDynaThings;
+import com.devdyna.justdynathings.init.builder.advanced_energy_transmitter.AdvEnergyTransmitterBE;
 import com.devdyna.justdynathings.init.builder.black_hole.BlackHoleBE;
 import com.devdyna.justdynathings.init.builder.ferricore_clock.FerricoreClockBE;
 import com.devdyna.justdynathings.init.builder.fluid_mixer.SimpleFluidMixerBE;
@@ -20,7 +21,8 @@ import com.devdyna.justdynathings.init.builder.solar_panels.celestigem.CelestiGe
 import com.devdyna.justdynathings.init.builder.solar_panels.eclipsealloy.EclipseAlloySolarBE;
 import com.devdyna.justdynathings.init.builder.solar_panels.ferricore.FerricoreSolarBE;
 import com.devdyna.justdynathings.init.builder.stabilizer.StabilizerBE;
-import com.devdyna.justdynathings.init.builder.ticker.TickerBE;
+import com.devdyna.justdynathings.init.builder.ticker.advanced.AdvancedTickerBE;
+import com.devdyna.justdynathings.init.builder.ticker.simple.SimpleTickerBE;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -62,9 +64,13 @@ public class zBlockEntities {
 //             .createBlockEntity(Constants.Blocks.Reforger,zTiles,
 //                     ReforgerBE::new, zBlocks.REFORGER);
 
-    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TickerBE>> TICKER = RegistryUtils
-            .createBlockEntity(Constants.Blocks.Ticker,zTiles,
-                    TickerBE::new, zBlocks.TICKER);
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SimpleTickerBE>> SIMPLE_TICKER = RegistryUtils
+            .createBlockEntity(Constants.Blocks.Ticker.Simple,zTiles,
+                    SimpleTickerBE::new, zBlocks.SIMPLE_TICKER);
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<AdvancedTickerBE>> ADVANCED_TICKER = RegistryUtils
+            .createBlockEntity(Constants.Blocks.Ticker.Advanced,zTiles,
+                    AdvancedTickerBE::new, zBlocks.ADVANCED_TICKER);
 
     // public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TimeBE>> ECHOING_BUDDING_TIME = RegistryUtils
     //         .createBlockEntity(Constants.BuddingType + "_time",zTiles, TimeBE::new,
@@ -125,5 +131,9 @@ public class zBlockEntities {
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SimpleFluidMixerBE>> FLUID_MIXER = RegistryUtils
             .createBlockEntity(Constants.Blocks.FluidMixer,zTiles,
                     SimpleFluidMixerBE::new, zBlocks.FLUID_MIXER);
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<AdvEnergyTransmitterBE>> ADVANCED_ENERGY_TRANSMITTER = RegistryUtils
+            .createBlockEntity(Constants.Blocks.AdvancedEnergyTransmitter,zTiles,
+                    AdvEnergyTransmitterBE::new, zBlocks.ADVANCED_ENERGY_TRANSMITTER);
 
 }

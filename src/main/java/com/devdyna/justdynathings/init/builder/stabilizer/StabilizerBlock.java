@@ -3,10 +3,10 @@ package com.devdyna.justdynathings.init.builder.stabilizer;
 import javax.annotation.Nullable;
 
 import com.devdyna.cakesticklib.api.aspect.logic.BucketInteraction;
-import com.devdyna.cakesticklib.api.utils.DirectionUtil;
+
 import com.devdyna.justdynathings.api.BlockBaseBE;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
-import com.devdyna.justdynathings.init.types.zProperties;
+
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
 
 import net.minecraft.core.BlockPos;
@@ -23,15 +23,18 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-@SuppressWarnings("null")
-
 public class StabilizerBlock extends BlockBaseBE implements BucketInteraction {
+
+    public static final BooleanProperty ACTIVE = BooleanProperty.create("active");
+    public static final BooleanProperty ENERGIZED = BooleanProperty.create("energized");
+    public static final BooleanProperty VALID_FACING = BooleanProperty.create("valid_facing");
 
     public static VoxelShape[] shapes = {
             Shapes.box(0, 0, 0, 1, 0.5, 1), // down
@@ -53,12 +56,12 @@ public class StabilizerBlock extends BlockBaseBE implements BucketInteraction {
 
     @Override
     public VoxelShape getCollisionShape(BlockState s, BlockGetter w, BlockPos p, CollisionContext c) {
-        return shapes[DirectionUtil.indexByStateFacing(s)];
+        return shapes[s.getValue(BlockStateProperties.FACING).get3DDataValue()];
     }
 
     @Override
     protected VoxelShape getShape(BlockState s, BlockGetter l, BlockPos p, CollisionContext c) {
-        return shapes[DirectionUtil.indexByStateFacing(s)];
+        return shapes[s.getValue(BlockStateProperties.FACING).get3DDataValue()];
     }
 
     @Override
@@ -70,16 +73,16 @@ public class StabilizerBlock extends BlockBaseBE implements BucketInteraction {
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext c) {
         return defaultBlockState()
-                .setValue(zProperties.ENERGIZED, false)
-                .setValue(zProperties.ACTIVE, false)
-                .setValue(zProperties.VALID_FACING, false)
+                .setValue(ENERGIZED, false)
+                .setValue(ACTIVE, false)
+                .setValue(VALID_FACING, false)
                 .setValue(BlockStateProperties.FACING,
                         c.getPlayer().isShiftKeyDown() ? c.getClickedFace() : c.getClickedFace().getOpposite());
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> b) {
-        b.add(zProperties.ENERGIZED, zProperties.ACTIVE, zProperties.VALID_FACING, BlockStateProperties.FACING);
+        b.add(ENERGIZED, ACTIVE, VALID_FACING, BlockStateProperties.FACING);
     }
 
     @Override

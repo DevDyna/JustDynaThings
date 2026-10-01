@@ -34,12 +34,15 @@ public class ParadoxRecipeExecutor {
 
                 Optional<RecipeHolder<ParadoxInfusionRecipe>> r = level.getServer().getRecipeManager()
                         .getRecipeFor(zRecipeTypes.PARADOX_INFUSION.getType(),
-                                ItemInput.withNumber.of(inputItem, collidedParadox.getFirst().getRadius()), level);
+                                ItemInput.simple.of(inputItem), level);
 
                 if (r.isEmpty())
                     return;
 
                 var recipe = r.get().value();
+
+                if (collidedParadox.getFirst().getRadius() < recipe.getRadius())
+                    return;
 
                 itemEntity.setItem(recipe.getOutput().create());
 

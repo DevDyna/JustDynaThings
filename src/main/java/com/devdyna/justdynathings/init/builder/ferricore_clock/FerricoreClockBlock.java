@@ -3,10 +3,9 @@ package com.devdyna.justdynathings.init.builder.ferricore_clock;
 import javax.annotation.Nullable;
 
 import com.devdyna.cakesticklib.api.RandomUtil;
-import com.devdyna.cakesticklib.api.utils.DirectionUtil;
 import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.api.Actions;
-import com.devdyna.justdynathings.init.types.zProperties;
+import com.devdyna.justdynathings.api.DirUtils;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
 import com.direwolf20.justdirethings.util.ModTags;
 
@@ -29,8 +28,9 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.BlockHitResult;
 
-@SuppressWarnings("null")
 public class FerricoreClockBlock extends BaseMachineBlock {
+
+    public static final BooleanProperty ACTIVE = BooleanProperty.create("active");
 
     public FerricoreClockBlock(Properties p) {
         super(p
@@ -43,7 +43,7 @@ public class FerricoreClockBlock extends BaseMachineBlock {
     @Override
     public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player,
             BlockHitResult hitResult) {
-        var value = state.getValue((BooleanProperty) DirectionUtil.StateByDir(hitResult.getDirection()));
+        var value = state.getValue(DirUtils.getPropByDir(hitResult.getDirection()));
         var item = player.getMainHandItem();
 
         if (player.isCrouching() &&
@@ -54,7 +54,7 @@ public class FerricoreClockBlock extends BaseMachineBlock {
             return InteractionResult.SUCCESS;
         } else {
             level.setBlockAndUpdate(pos,
-                    state.setValue((BooleanProperty) DirectionUtil.StateByDir(hitResult.getDirection()),
+                    state.setValue(DirUtils.getPropByDir(hitResult.getDirection()),
                             !value.booleanValue()));
 
             applySound(level, player, pos, value);
@@ -81,27 +81,25 @@ public class FerricoreClockBlock extends BaseMachineBlock {
 
     @Override
     protected int getSignal(BlockState b, BlockGetter g, BlockPos p, Direction d) {
-        return b.getValue(zProperties.ACTIVE).booleanValue()
-                && b.getValue((BooleanProperty) DirectionUtil.StateByDir(d.getOpposite())).booleanValue()
+        return b.getValue(ACTIVE).booleanValue()
+                && b.getValue(DirUtils.getPropByDir(d.getOpposite())).booleanValue()
                         ? 15
                         : 0;
     }
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext c) {
-        for (BooleanProperty face : DirectionUtil.face) {
+        for (var face : DirUtils.DirProperties.ALL)
             defaultBlockState().setValue(face, false);
-        }
-        return defaultBlockState().setValue(zProperties.ACTIVE, false);
+
+        return defaultBlockState().setValue(ACTIVE, false);
 
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> b) {
-        for (BooleanProperty face : DirectionUtil.face) {
-            b.add(face);
-        }
-        b.add(zProperties.ACTIVE);
+        b.add(DirUtils.DirProperties.ALL);
+        b.add(ACTIVE);
     }
 
     @Nullable
@@ -137,12 +135,5 @@ public class FerricoreClockBlock extends BaseMachineBlock {
     public BlockState rotate(BlockState s, Rotation r) {
         return s;
     }
-
-    // @Override
-    // public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents,
-    //         TooltipFlag tooltipFlag) {
-    //     if (Constants.ModAddonCheck.docCheck && !CommonConfig.DOC_WARNING.getAsBoolean())
-    //         tooltipComponents.add(Component.translatable(Main.ID + ".doc.missing"));
-    // }
 
 }

@@ -5,6 +5,7 @@ import static com.devdyna.justdynathings.JustDynaThings.MODULE_ID;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import com.devdyna.cakesticklib.api.compat.jei.JEIAliasesHelper;
 import com.devdyna.cakesticklib.api.utils.ModAddonUtil;
 import com.devdyna.cakesticklib.api.utils.x;
 import com.devdyna.justdynathings.Client;
@@ -31,6 +32,7 @@ import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.registration.IGuiHandlerRegistration;
+import mezz.jei.api.registration.IIngredientAliasRegistration;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
@@ -44,7 +46,7 @@ import net.minecraft.world.item.crafting.RecipeInput;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.block.Block;
 
-@SuppressWarnings("null")
+
 @JeiPlugin
 public class JEIPlugin implements IModPlugin {
 
@@ -153,7 +155,7 @@ public class JEIPlugin implements IModPlugin {
 
                 r.addRecipeClickArea(EclipseAlloyAnvilScreen.class, 158, -22, 16, 16,
                                 EclipseAlloyAnvilCategory.TYPE);
-                                
+
                 if (!ModAddonUtil.checkMod("justtieredgens")) {
                         r.addRecipeClickArea(GeneratorT1Screen.class, 158, -22, 16, 16,
                                         FuelRecipeCategory.TYPE);
@@ -161,6 +163,55 @@ public class JEIPlugin implements IModPlugin {
                         r.addRecipeClickArea(GeneratorFluidT1Screen.class, 158, -22, 16, 16,
                                         RefinedFuelRecipeCategory.TYPE);
                 }
+
+        }
+
+        @Override
+        public void registerIngredientAliases(IIngredientAliasRegistration r) {
+
+                JEIAliasesHelper.addAlias(r,
+                                List.of(zBlocks.FERRICORE_CLOCK),
+                                MODULE_ID + ".jei.alias.timer");
+
+                JEIAliasesHelper.addAlias(r,
+                                List.of(zBlocks.FERRICORE_CLOCK),
+                                MODULE_ID + ".jei.alias.redstone_clock");
+
+                JEIAliasesHelper.addAlias(r,
+                                List.of(zBlocks.PHASEBOX),
+                                MODULE_ID + ".jei.alias.ethereal_block");
+
+                JEIAliasesHelper.addAlias(r,
+                                List.of(
+                                                zBlocks.FERRICORE_SOLARGEN,
+                                                zBlocks.BLAZEGOLD_SOLARGEN,
+                                                zBlocks.CELESTIGEM_SOLARGEN,
+                                                zBlocks.ECLIPSEALLOY_SOLARGEN),
+                                MODULE_ID + ".jei.alias.generator");
+
+                JEIAliasesHelper.addAlias(r,
+                                List.of(
+                                                zBlocks.FERRICORE_ANVIL,
+                                                zBlocks.BLAZEGOLD_ANVIL,
+                                                zBlocks.CELESTIGEM_ANVIL,
+                                                zBlocks.ECLIPSEALLOY_ANVIL),
+                                MODULE_ID + ".jei.alias.item_repairer");
+
+                JEIAliasesHelper.addAlias(r,
+                                List.of(zBlocks.BLACKHOLE),
+                                MODULE_ID + ".jei.alias.buffer.fluid");
+
+                JEIAliasesHelper.addAlias(r,
+                                List.of(zBlocks.BLACKHOLE),
+                                MODULE_ID + ".jei.alias.buffer.energy");
+
+                JEIAliasesHelper.addAlias(r,
+                                List.of(zBlocks.BLACKHOLE),
+                                MODULE_ID + ".jei.alias.buffer.item");
+
+                JEIAliasesHelper.addAlias(r,
+                                List.of(zBlocks.BLACKHOLE),
+                                MODULE_ID + ".jei.alias.trash_can");
 
         }
 

@@ -292,17 +292,41 @@ public class DataRecipe extends RecipeProvider {
                                                                 JDTRegistration.Celestigem.get()))
                                 .save(output);
 
-                shaped(RecipeCategory.MISC, zBlocks.TICKER.get())
+                shaped(RecipeCategory.MISC, zBlocks.SIMPLE_TICKER.get())
                                 .pattern("ETE")
                                 .pattern("TPT")
                                 .pattern("ETE")
                                 .define('P', JDTRegistration.TimeWand.get())
                                 .define('T', Tags.Items.DUSTS_REDSTONE)
+                                .define('E', JDTRegistration.BlazegoldIngot.get())
+                                .unlockedBy(getHasName(JDTRegistration.BlazegoldIngot.get()),
+                                                has(JDTRegistration.BlazegoldIngot.get()))
+                                .group(Constants.Blocks.Ticker.Simple).save(output);
+
+                shaped(RecipeCategory.MISC, zBlocks.ADVANCED_TICKER.get())
+                                .pattern("ETE")
+                                .pattern("TPT")
+                                .pattern("ETE")
+                                .define('P', zBlocks.SIMPLE_TICKER.get())
+                                .define('T', JDTRegistration.Coal_T4.get())
                                 .define('E', JDTRegistration.EclipseAlloyIngot.get())
                                 .unlockedBy(getHasName(JDTRegistration.EclipseAlloyIngot.get()),
                                                 has(
                                                                 JDTRegistration.EclipseAlloyIngot.get()))
-                                .group(Constants.Blocks.Ticker).save(output);
+                                .group(Constants.Blocks.Ticker.Advanced).save(output);
+
+                shaped(RecipeCategory.MISC, zBlocks.ADVANCED_ENERGY_TRANSMITTER.get())
+                                .pattern(" T ")
+                                .pattern("BPB")
+                                .pattern(" E ")
+                                .define('P', JDTRegistration.EnergyTransmitter.get())
+                                .define('T', JDTRegistration.TimeCrystal.get())
+                                .define('B', JDTRegistration.BlazegoldIngot.get())
+                                .define('E', JDTRegistration.EclipseAlloyIngot.get())
+                                .unlockedBy(getHasName(JDTRegistration.TimeCrystal.get()),
+                                                has(
+                                                                JDTRegistration.TimeCrystal.get()))
+                                .group(Constants.Blocks.AdvancedEnergyTransmitter).save(output);
 
                 RepairFerricoreAnvilBuilder.of(registries)
                                 .input(Items.IRON_INGOT)

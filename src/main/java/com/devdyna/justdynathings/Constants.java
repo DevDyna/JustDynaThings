@@ -29,10 +29,18 @@ public class Constants {
         public static String Reforger = "reforger";
         public static String FerricoreClock = Tiers.ferricore + "_clock";
         public static String Stabilizer = "stabilizer";
-        public static String Ticker = "ticker";
+        // public static String Ticker = "ticker";
         public static String ThermoGen = "thermo_generator";
         public static String FluidMixer = "fluid_mixer";
         public static String BlackHole = "blackhole";
+        public static String AdvancedEnergyTransmitter = "advanced_energy_transmitter";
+
+        public class Ticker{
+            public static String BASE = "ticker";
+
+            public static String Simple = "simple_"+BASE;
+            public static String Advanced = "advanced_"+BASE;
+        }
     }
 
     public static String AnvilType = "anvil";

@@ -69,7 +69,10 @@ public class DataLang extends LanguageProvider {
                 add(MODULE_ID + "." + Constants.Blocks.Stabilizer,
                                 TipColors.ITEM_TOOLTIP + "Feed Goo blocks using Energy and Boost Buddings blocks");
 
-                add(MODULE_ID + "." + Constants.Blocks.Ticker,
+                add(MODULE_ID + "." + Constants.Blocks.Ticker.Simple,
+                                TipColors.ITEM_TOOLTIP + "A block that act at same of a time wand at 16x");
+
+                add(MODULE_ID + "." + Constants.Blocks.Ticker.Advanced,
                                 TipColors.ITEM_TOOLTIP + "A block that act at same of a time wand but configurable!");
 
                 add(MODULE_ID + "." + Constants.GooUpgraders.base,
@@ -88,6 +91,9 @@ public class DataLang extends LanguageProvider {
 
                 add(MODULE_ID + "." + Constants.Wands.AdvancedTime,
                                 TipColors.ITEM_TOOLTIP + "More capable and configurable version of Time wand");
+
+                add(MODULE_ID + "." + Constants.Blocks.AdvancedEnergyTransmitter, TipColors.ITEM_TOOLTIP
+                                + "An energy transmitter that will require Time fluid to work but more capable and with less FE loss/block");
 
                 add(MODULE_ID + "." + Constants.Wands.AdvancedTime + ".mode.disabled", "§cThis Mode was disabled");
                 add(MODULE_ID + "." + Constants.Wands.AdvancedTime + ".mode.reset", "This wand is ready to be used!");
@@ -137,7 +143,12 @@ public class DataLang extends LanguageProvider {
                 add(MODULE_ID + "." + Constants.Blocks.Stabilizer + ".jade.goo", "Revive Goo");
                 add(MODULE_ID + "." + Constants.Blocks.Stabilizer + ".jade.energized", "Revive Time Budding");
 
-                 add(MODULE_ID + "." + Constants.Blocks.Ticker + ".tick_overflow", "Ticker Speed is capped to %s");
+                add(MODULE_ID + ".gui." + Constants.Blocks.Ticker.Simple + ".ticks", "Tick rate: %s");
+
+                add(MODULE_ID + Constants.Blocks.Ticker.BASE + ".locked", "Tick rate locked");
+
+                add(MODULE_ID + "." + Constants.Blocks.Ticker.BASE + ".tick_overflow",
+                                "Ticker Speed is capped to %s");
 
                 add(MODULE_ID + ".configuration.entry_anvils", "Functional Anvils");
                 add(MODULE_ID + ".configuration.entry_blocks", "Misc Blocks");
@@ -199,11 +210,22 @@ public class DataLang extends LanguageProvider {
                 add(MODULE_ID + ".configuration.blackhole_max_fluid_storage", "BlackHole max fluid storage");
 
                 // ticker
-                add(MODULE_ID + ".configuration.ticker_energy_every_tick", "Ticker energy every tick");
-                add(MODULE_ID + ".configuration.ticker_fluid_every_tick", "Ticker fluid every tick");
-                add(MODULE_ID + ".configuration.ticker_max_energy_storage", "Ticker max energy storage");
-                add(MODULE_ID + ".configuration.ticker_max_fluid_storage", "Ticker max fluid storage");
-                add(MODULE_ID + ".configuration.ticker_max_tick_limit", "Ticker tick limiter");
+                add(MODULE_ID + ".configuration.simple_ticker_energy_every_tick", "Simple Ticker energy every tick");
+                add(MODULE_ID + ".configuration.simple_ticker_fluid_every_tick", "Simple Ticker fluid every tick");
+                add(MODULE_ID + ".configuration.simple_ticker_max_energy_storage", "Simple Ticker max energy storage");
+                add(MODULE_ID + ".configuration.simple_ticker_max_fluid_storage", "Simple Ticker max fluid storage");
+                add(MODULE_ID + ".configuration.simple_ticker_max_tick_limit", "Simple Ticker tick limiter");
+                add(MODULE_ID + ".configuration.simple_ticker_locked", "Simple Ticker tick locker");
+
+                add(MODULE_ID + ".configuration.advanced_ticker_energy_every_tick",
+                                "Advanced Ticker energy every tick");
+                add(MODULE_ID + ".configuration.advanced_ticker_fluid_every_tick", "Advanced Ticker fluid every tick");
+                add(MODULE_ID + ".configuration.advanced_ticker_max_energy_storage",
+                                "Advanced Ticker max energy storage");
+                add(MODULE_ID + ".configuration.advanced_ticker_max_fluid_storage",
+                                "Advanced Ticker max fluid storage");
+                add(MODULE_ID + ".configuration.advanced_ticker_max_tick_limit", "Advanced Ticker tick limiter");
+                add(MODULE_ID + ".configuration.advanced_ticker_locked", "Advanced Ticker tick locker");
 
                 // anvils
                 add(MODULE_ID + ".configuration.anvil_emit_sound", "Anvils can emit sounds");
@@ -330,10 +352,66 @@ public class DataLang extends LanguageProvider {
 
                 add(MODULE_ID + ".configuration.phase_box_require_wrench", "PhaseBox require wrench to change state");
 
+                // adv energy transmitter
+
+                add(MODULE_ID + ".configuration.advanced_energy_transmitter_max_fluid_storage",
+                                "Advanced Energy Transmitter max fluid storage");
+                add(MODULE_ID + ".configuration.advanced_energy_transmitter_fluid_every_tick",
+                                "Advanced Energy Transmitter fluid every tick");
+                add(MODULE_ID + ".configuration.advanced_energy_transmitter_energy_every_tick",
+                                "Advanced Energy Transmitter energy transfer every tick");
+                add(MODULE_ID + ".configuration.advanced_energy_transmitter_max_energy_storage",
+                                "Advanced Energy Transmitter max energy storage");
+                add(MODULE_ID + ".configuration.advanced_energy_transmitter_energy_loss",
+                                "Advanced Energy Transmitter energy loss every block");
+                add(MODULE_ID + ".configuration.advanced_energy_transmitter_tick_rate",
+                                "Advanced Energy Transmitter tick rate");
+
                 add(MODULE_ID + ".goo_tier.infinite", "Infinite");
 
                 add(MODULE_ID + ".abstract_paradox",
                                 TipColors.ITEM_TOOLTIP + "Obtained by throwing a void crystal over a Paradox");
+
+                // TODO API : include to api
+
+                add(MODULE_ID + ".jei.alias.timer", "Timer");
+                add(MODULE_ID + ".jei.alias.redstone_clock", "Redstone clock");
+                add(MODULE_ID + ".jei.alias.ethereal_block", "Ethereal");
+                add(MODULE_ID + ".jei.alias.generator", "Energy Generator");
+                add(MODULE_ID + ".jei.alias.item_repairer", "Item Repairer");
+                add(MODULE_ID + ".jei.alias.trash_can", "Trash Can");
+                add(MODULE_ID + ".jei.alias.buffer.fluid", "Fluid storage buffer");
+                add(MODULE_ID + ".jei.alias.buffer.energy", "Energy storage buffer");
+                add(MODULE_ID + ".jei.alias.buffer.item", "Item storage buffer");
+
+                add(MODULE_ID + ".gui.solarpanel.fetip", "Generate : %s/tick");
+                add(MODULE_ID + ".gui.solarpanel.error", "Generate :" + TipColors.DARK_RED + TipColors.BOLD + " ERROR");
+
+                add(MODULE_ID + ".gui.solarpanel.tip.ylevel.enabled",
+                                "Y-level multiplier:" + TipColors.GREEN + " Enabled");
+                add(MODULE_ID + ".gui.solarpanel.tip.ylevel.disabled",
+                                "Y-level multiplier:" + TipColors.RED + " Disabled");
+                add(MODULE_ID + ".gui.solarpanel.tip.spam.enabled", "Spam multiplier:" + TipColors.GREEN + " Enabled");
+                add(MODULE_ID + ".gui.solarpanel.tip.spam.disabled", "Spam multiplier:" + TipColors.RED + " Disabled");
+                add(MODULE_ID + ".gui.solarpanel.tip.cleansky.enabled",
+                                "Require clean sky:" + TipColors.GREEN + " Enabled");
+                add(MODULE_ID + ".gui.solarpanel.tip.cleansky.disabled",
+                                "Require clean sky:" + TipColors.RED + " Disabled");
+                add(MODULE_ID + ".gui.solarpanel.tip.daytime.enabled",
+                                "Require daytime:" + TipColors.GREEN + " Enabled");
+                add(MODULE_ID + ".gui.solarpanel.tip.daytime.disabled",
+                                "Require daytime:" + TipColors.RED + " Disabled");
+                add(MODULE_ID + ".gui.solarpanel.tip.biomes.whitelist", "Valid Biomes :");
+                add(MODULE_ID + ".gui.solarpanel.tip.biomes.blacklist", "Denied Biomes :");
+
+                add(MODULE_ID + ".gui.solarpanel.tip.biomes.empty.whitelist", TipColors.RED + "Any biome is invalid!");
+                add(MODULE_ID + ".gui.solarpanel.tip.biomes.empty.blacklist", TipColors.GREEN + "Any biome is valid");
+
+                add(MODULE_ID + ".gui.tip.scroll.up", TipColors.GRAY + TipColors.ITALIC + "<Scroll up>");
+                add(MODULE_ID + ".gui.tip.scroll.down", TipColors.GRAY + TipColors.ITALIC + "<Scroll down>");
+
+                add(MODULE_ID + ".gui." + Constants.Blocks.Ticker.BASE + ".cost.fe", "FE/ticks: %s");
+                add(MODULE_ID + ".gui." + Constants.Blocks.Ticker.BASE + ".cost.mb", "MB/ticks: %s");
 
         }
 

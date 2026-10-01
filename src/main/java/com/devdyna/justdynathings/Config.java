@@ -37,6 +37,13 @@ public class Config {
         public static IntValue BLACKHOLE_MB_CAPACITY;
         public static IntValue BLACKHOLE_MB_COST;
 
+        public static IntValue ADV_ENERGY_TRANSMITTER_FE_CAPACITY;
+        public static IntValue ADV_ENERGY_TRANSMITTER_FE_RATE;
+        public static IntValue ADV_ENERGY_TRANSMITTER_MB_CAPACITY;
+        public static IntValue ADV_ENERGY_TRANSMITTER_MB_COST;
+        public static DoubleValue ADV_ENERGY_TRANSMITTER_LOSS;
+        public static IntValue ADV_ENERGY_TRANSMITTER_TICK_RATE;
+
         public static BooleanValue GOO_CREATIVE_SOUND_TOGGLE_STATE;
         public static IntValue GOO_CREATIVE_TIER;
         public static IntValue GOO_CREATIVE_COUNTER_REDUCER;
@@ -129,12 +136,21 @@ public class Config {
 
         public static ConfigValue<Integer> ADVANCED_TIME_WAND_MAX_MULTIPLIER;
 
-        public static IntValue TICKER_MB_CAPACITY;
-        public static IntValue TICKER_MB_RATE;
-        public static IntValue TICKER_FE_CAPACITY;
-        public static IntValue TICKER_FE_RATE;
+        public static IntValue SIMPLE_TICKER_MB_CAPACITY;
+        public static IntValue SIMPLE_TICKER_MB_RATE;
+        public static IntValue SIMPLE_TICKER_FE_CAPACITY;
+        public static IntValue SIMPLE_TICKER_FE_RATE;
 
-        public static IntValue TICKER_TICK_RATE;
+        public static IntValue SIMPLE_TICKER_TICK_RATE;
+        public static BooleanValue SIMPLE_TICKER_TICK_LOCK;
+
+        public static IntValue ADVANCED_TICKER_MB_CAPACITY;
+        public static IntValue ADVANCED_TICKER_MB_RATE;
+        public static IntValue ADVANCED_TICKER_FE_CAPACITY;
+        public static IntValue ADVANCED_TICKER_FE_RATE;
+
+        public static IntValue ADVANCED_TICKER_TICK_RATE;
+        public static BooleanValue ADVANCED_TICKER_TICK_LOCK;
 
         public static BooleanValue LIGHT_WAND_ENTITY_GLOWING;
         public static BooleanValue LIGHT_WAND_PLACING;
@@ -250,24 +266,57 @@ public class Config {
                                 .comment("Enable/Disable sound")
                                 .define(Blocks.Stabilizer + ConfigKeys.Values.SOUND, true);
 
-                BUILDER.comment(StringUtil.nameCapitalized(Blocks.Ticker));
+                BUILDER.comment(StringUtil.nameCapitalized(Blocks.Ticker.Simple));
 
-                TICKER_FE_CAPACITY = BUILDER
-                                .comment(Blocks.Ticker + ConfigKeys.Display.FE_MAX)
-                                .defineInRange(Blocks.Ticker + ConfigKeys.Values.FE_MAX, 10000, 1, Integer.MAX_VALUE);
-                TICKER_FE_RATE = BUILDER
-                                .comment(Blocks.Ticker + ConfigKeys.Display.FE_RATE)
-                                .defineInRange(Blocks.Ticker + ConfigKeys.Values.FE_RATE, 10, 1, Integer.MAX_VALUE);
-                TICKER_MB_CAPACITY = BUILDER
-                                .comment(Blocks.Ticker + ConfigKeys.Display.MB_MAX)
-                                .defineInRange(Blocks.Ticker + ConfigKeys.Values.MB_MAX, 1000, 1, Integer.MAX_VALUE);
-                TICKER_MB_RATE = BUILDER
-                                .comment(Blocks.Ticker + ConfigKeys.Display.MB_RATE)
-                                .defineInRange(Blocks.Ticker + ConfigKeys.Values.MB_RATE, 1, 1, Integer.MAX_VALUE);
+                SIMPLE_TICKER_FE_CAPACITY = BUILDER
+                                .comment(Blocks.Ticker.Simple + ConfigKeys.Display.FE_MAX)
+                                .defineInRange(Blocks.Ticker.Simple + ConfigKeys.Values.FE_MAX, 10_000, 1,
+                                                Integer.MAX_VALUE);
+                SIMPLE_TICKER_FE_RATE = BUILDER
+                                .comment(Blocks.Ticker.Simple + ConfigKeys.Display.FE_RATE)
+                                .defineInRange(Blocks.Ticker.Simple + ConfigKeys.Values.FE_RATE, 100, 1,
+                                                Integer.MAX_VALUE);
+                SIMPLE_TICKER_MB_CAPACITY = BUILDER
+                                .comment(Blocks.Ticker.Simple + ConfigKeys.Display.MB_MAX)
+                                .defineInRange(Blocks.Ticker.Simple + ConfigKeys.Values.MB_MAX, 10_000, 1,
+                                                Integer.MAX_VALUE);
+                SIMPLE_TICKER_MB_RATE = BUILDER
+                                .comment(Blocks.Ticker.Simple + ConfigKeys.Display.MB_RATE)
+                                .defineInRange(Blocks.Ticker.Simple + ConfigKeys.Values.MB_RATE, 10, 1,
+                                                Integer.MAX_VALUE);
 
-                TICKER_TICK_RATE = BUILDER
-                                .comment(Blocks.Ticker + "max tick limit")
-                                .defineInRange(Blocks.Ticker + "_max_tick_limit", 1200, 1, Integer.MAX_VALUE);
+                SIMPLE_TICKER_TICK_RATE = BUILDER
+                                .comment(Blocks.Ticker.Simple + " tick rate")
+                                .defineInRange(Blocks.Ticker.Simple + "_tick_rate", 16, 1, Integer.MAX_VALUE);
+
+                SIMPLE_TICKER_TICK_LOCK = BUILDER.comment(Blocks.Ticker.Simple + " disable tick scrolling")
+                                .define(Blocks.Ticker.Simple + "_locked", true);
+
+                BUILDER.comment(StringUtil.nameCapitalized(Blocks.Ticker.Advanced));
+
+                ADVANCED_TICKER_FE_CAPACITY = BUILDER
+                                .comment(Blocks.Ticker.Advanced + ConfigKeys.Display.FE_MAX)
+                                .defineInRange(Blocks.Ticker.Advanced + ConfigKeys.Values.FE_MAX, 1_000_000, 1,
+                                                Integer.MAX_VALUE);
+                ADVANCED_TICKER_FE_RATE = BUILDER
+                                .comment(Blocks.Ticker.Advanced + ConfigKeys.Display.FE_RATE)
+                                .defineInRange(Blocks.Ticker.Advanced + ConfigKeys.Values.FE_RATE, 1_000, 1,
+                                                Integer.MAX_VALUE);
+                ADVANCED_TICKER_MB_CAPACITY = BUILDER
+                                .comment(Blocks.Ticker.Advanced + ConfigKeys.Display.MB_MAX)
+                                .defineInRange(Blocks.Ticker.Advanced + ConfigKeys.Values.MB_MAX, 1_000_000, 1,
+                                                Integer.MAX_VALUE);
+                ADVANCED_TICKER_MB_RATE = BUILDER
+                                .comment(Blocks.Ticker.Advanced + ConfigKeys.Display.MB_RATE)
+                                .defineInRange(Blocks.Ticker.Advanced + ConfigKeys.Values.MB_RATE, 10, 1,
+                                                Integer.MAX_VALUE);
+
+                ADVANCED_TICKER_TICK_RATE = BUILDER
+                                .comment(Blocks.Ticker.Advanced + " max tick limit")
+                                .defineInRange(Blocks.Ticker.Advanced + "_max_tick_limit", 1200, 1, Integer.MAX_VALUE);
+
+                ADVANCED_TICKER_TICK_LOCK = BUILDER.comment(Blocks.Ticker.Advanced + " disable tick scrolling")
+                                .define(Blocks.Ticker.Advanced + "_locked", false);
 
                 BUILDER.comment(StringUtil.nameCapitalized(Blocks.BlackHole));
 
@@ -288,6 +337,38 @@ public class Config {
                 BLACKHOLE_MB_COST = BUILDER
                                 .comment(ConfigKeys.Display.MB_RATE)
                                 .defineInRange(Blocks.BlackHole + ConfigKeys.Values.MB_RATE, Integer.MAX_VALUE, 1,
+                                                Integer.MAX_VALUE);
+
+                BUILDER.comment(StringUtil.nameCapitalized(Blocks.AdvancedEnergyTransmitter));
+
+                ADV_ENERGY_TRANSMITTER_FE_CAPACITY = BUILDER
+                                .comment(ConfigKeys.Display.FE_MAX)
+                                .defineInRange(Blocks.AdvancedEnergyTransmitter + ConfigKeys.Values.FE_MAX,
+                                                10_000_000, 1, Integer.MAX_VALUE);
+
+                ADV_ENERGY_TRANSMITTER_FE_RATE = BUILDER
+                                .comment(ConfigKeys.Display.FE_RATE)
+                                .defineInRange(Blocks.AdvancedEnergyTransmitter + ConfigKeys.Values.FE_RATE, 100_000, 1,
+                                                Integer.MAX_VALUE);
+
+                ADV_ENERGY_TRANSMITTER_MB_CAPACITY = BUILDER
+                                .comment(ConfigKeys.Display.MB_MAX)
+                                .defineInRange(Blocks.AdvancedEnergyTransmitter + ConfigKeys.Values.MB_MAX, 10_000, 1,
+                                                Integer.MAX_VALUE);
+
+                ADV_ENERGY_TRANSMITTER_MB_COST = BUILDER
+                                .comment(ConfigKeys.Display.MB_RATE)
+                                .defineInRange(Blocks.AdvancedEnergyTransmitter + ConfigKeys.Values.MB_RATE, 10, 1,
+                                                Integer.MAX_VALUE);
+
+                ADV_ENERGY_TRANSMITTER_LOSS = BUILDER
+                                .comment("Energy loss")
+                                .defineInRange(Blocks.AdvancedEnergyTransmitter + "_energy_loss", 0.1, 0.0, 
+                                                Integer.MAX_VALUE);
+
+                ADV_ENERGY_TRANSMITTER_TICK_RATE = BUILDER
+                                .comment("Tick rate")
+                                .defineInRange(Blocks.AdvancedEnergyTransmitter + "_tick_rate", 10, 1,
                                                 Integer.MAX_VALUE);
 
                 BUILDER.pop();
@@ -629,7 +710,6 @@ public class Config {
         /**
          * default = false
          */
-        @SuppressWarnings("unused")
         private static BooleanValue bool(String c, String k) {
                 return bool(c, k, false);
         }

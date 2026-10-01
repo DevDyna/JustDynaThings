@@ -11,7 +11,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.item.ItemStack;
 
-@SuppressWarnings("null")
+
 public class EclipseAlloyAnvilGUI extends BaseMachineContainer {
 
     public EclipseAlloyAnvilGUI(int windowId, Inventory playerInventory, FriendlyByteBuf extraData) {

@@ -36,7 +36,7 @@ public class CreativeGooBE extends GooBlockBE_Base {
         setChanged();
     }
 
-    @SuppressWarnings("null")
+
     @Override
     public void setBlockToTarget(BlockState output, Direction direction) {
         if (output.hasProperty(BlockStateProperties.FACING)) {
@@ -58,8 +58,8 @@ public class CreativeGooBE extends GooBlockBE_Base {
      * <br/>
      * Aprox. 1/8 of particles generated
      */
-    @SuppressWarnings("null")
-    @Override
+
+     @Override
     public void spawnParticles(Direction side) {
         Random random = new Random();
         BlockPos startPos = getBlockPos().relative(side);

@@ -3,6 +3,7 @@ package com.devdyna.justdynathings.api;
 import java.util.Map;
 
 import com.devdyna.cakesticklib.api.RandomUtil;
+import com.devdyna.justdynathings.api.be.EnergyGenerator;
 import com.devdyna.justdynathings.api.be.EnergyMachine;
 import com.mojang.logging.LogUtils;
 
@@ -159,6 +160,9 @@ public class Actions {
                                 EnergyHandler cap = cache.getCapability();
                                 if (cap == null)
                                         continue;
+
+                                if (level.getBlockEntity(pos.relative(dir)) instanceof EnergyGenerator)
+                                        return;
 
                                 var extracted = be.extractEnergy(fe, true);
 

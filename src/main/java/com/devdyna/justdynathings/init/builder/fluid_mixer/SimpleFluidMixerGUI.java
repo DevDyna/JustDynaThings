@@ -11,7 +11,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.item.ItemStack;
 
-@SuppressWarnings("null")
+
 public class SimpleFluidMixerGUI extends BaseMachineContainer {
 
     public SimpleFluidMixerGUI(int windowId, Inventory playerInventory, FriendlyByteBuf extraData) {

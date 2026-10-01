@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "alive=false": {
+      "model": "justdynathings:block/goo/energized_goo/dead"
+    },
+    "alive=true": {
+      "model": "justdynathings:block/goo/energized_goo/alive"
+    }
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "multipart": [
+    {
+      "when": {
+        "active": "true",
+        "facing": "down"
+      },
+      "apply": {
+        "model": "justdynathings:block/stabilizer/x/on"
+      }
+    },
+    {
+      "when": {
+        "active": "true",
+        "facing": "up"
+      },
+      "apply": {
+        "model": "justdynathings:block/stabilizer/x/on",
+        "x": 180
+      }
+    },
+    {
+      "when": {
+        "active": "true",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "justdynathings:block/stabilizer/x/on",
+        "x": 270
+      }
+    },
+    {
+      "when": {
+        "active": "true",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "justdynathings:block/stabilizer/x/on",
+        "x": 90
+      }
+    },
+    {
+      "when": {
+        "active": "true",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "justdynathings:block/stabilizer/z/on",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "active": "true",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "justdynathings:block/stabilizer/z/on"
+      }
+    },
+
+    {
+      "when": {
+        "active": "false",
+        "facing": "down"
+      },
+      "apply": {
+        "model": "justdynathings:block/stabilizer/x/off"
+      }
+    },
+    {
+      "when": {
+        "active": "false",
+        "facing": "up"
+      },
+      "apply": {
+        "model": "justdynathings:block/stabilizer/x/off",
+        "x": 180
+      }
+    },
+    {
+      "when": {
+        "active": "false",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "justdynathings:block/stabilizer/x/off",
+        "x": 270
+      }
+    },
+    {
+      "when": {
+        "active": "false",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "justdynathings:block/stabilizer/x/off",
+        "x": 90
+      }
+    },
+    {
+      "when": {
+        "active": "false",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "justdynathings:block/stabilizer/z/off",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "active": "false",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "justdynathings:block/stabilizer/z/off"
+      }
+    },
+
+    {
+      "when": {
+        "valid_facing": "true",
+        "facing": "down"
+      },
+      "apply": {
+        "model": "justdynathings:block/stabilizer/x/tentacles"
+      }
+    },
+    {
+      "when": {
+        "valid_facing": "true",
+        "facing": "up"
+      },
+      "apply": {
+        "model": "justdynathings:block/stabilizer/x/tentacles",
+        "x": 180
+      }
+    },
+    {
+      "when": {
+        "valid_facing": "true",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "justdynathings:block/stabilizer/x/tentacles",
+        "x": 270
+      }
+    },
+    {
+      "when": {
+        "valid_facing": "true",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "justdynathings:block/stabilizer/x/tentacles",
+        "x": 90
+      }
+    },
+    {
+      "when": {
+        "valid_facing": "true",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "justdynathings:block/stabilizer/z/tentacles",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "valid_facing": "true",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "justdynathings:block/stabilizer/z/tentacles"
+      }
+    }
+  ]
+}

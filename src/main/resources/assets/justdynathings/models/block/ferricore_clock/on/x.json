@@ -1,0 +1,6 @@
+{
+  "parent": "justdynathings:block/ferricore_clock/template/x",
+  "textures": {
+    "block": "justdynathings:block/ferricore_clock/on"
+  }
+}

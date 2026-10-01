@@ -11,6 +11,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.transfer.energy.EnergyHandler;
+import net.neoforged.neoforge.transfer.transaction.Transaction;
 
 public class AdvEnergyTransmitterBE extends EnergyTransmitterBE implements FluidMachine {
 
@@ -70,14 +72,35 @@ public class AdvEnergyTransmitterBE extends EnergyTransmitterBE implements Fluid
     }
 
     @Override
-    public void providePower() {
+    public int transmitPowerWithLoss(EnergyHandler sender, EnergyHandler receiver, int amtToSend,
+            BlockPos remotePosition) {
+        int insert;
+
+        try (var simulated = Transaction.openRoot()) {
+            insert = receiver.insert(amtToSend, simulated);
+        }
+
+        if (insert <= 0)
+            return 0;
+        int extract;
+
+        try (var input = Transaction.openRoot()) {
+            extract = sender.extract(insert, input);
+            input.commit();
+        }
+        if (extract <= 0)
+            return 0;
 
         if (!canExtractMB())
-            return;
+            return 0;
 
         extractMBWhenPossible();
 
-        super.providePower();
+        try (var output = Transaction.openRoot()) {
+            int inserted = receiver.insert(calculateLoss(extract, remotePosition), output);
+            output.commit();
+            return inserted;
+        }
     }
 
 }

@@ -2,6 +2,7 @@ package com.devdyna.justdynathings.init.types;
 
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.JustDynaThings;
+import com.devdyna.justdynathings.init.builder.advanced_energy_transmitter.AdvEnergyTransmitterGUI;
 import com.devdyna.justdynathings.init.builder.black_hole.BlackHoleGUI;
 import com.devdyna.justdynathings.init.builder.ferricore_clock.FerricoreClockGUI;
 import com.devdyna.justdynathings.init.builder.fluid_mixer.SimpleFluidMixerGUI;
@@ -47,6 +48,10 @@ public class zContainers {
         public static final DeferredHolder<MenuType<?>, MenuType<FerricoreClockGUI>> FERRICORE_CLOCK = zCTNR
                         .register(Constants.Blocks.FerricoreClock,
                                         () -> IMenuTypeExtension.create(FerricoreClockGUI::new));
+     
+                                        public static final DeferredHolder<MenuType<?>, MenuType<AdvEnergyTransmitterGUI>> ADVANCED_ENERGY_TRANSMITTER = zCTNR
+                        .register(Constants.Blocks.AdvancedEnergyTransmitter,
+                                        () -> IMenuTypeExtension.create(AdvEnergyTransmitterGUI::new));
 
         // public static final DeferredHolder<MenuType<?>, MenuType<ThermoGUI>>
         // THERMOGEN = zCTNR

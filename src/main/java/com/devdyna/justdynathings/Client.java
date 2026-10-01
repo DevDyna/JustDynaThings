@@ -6,6 +6,8 @@ import com.devdyna.cakesticklib.api.utils.x;
 import com.devdyna.justdynathings.api.FluidRenderUtils;
 import com.devdyna.justdynathings.api.goo.energy_goo.EnergyGooRender;
 import com.devdyna.justdynathings.api.solar_panels.SolarPanelScreen;
+import com.devdyna.justdynathings.init.builder.advanced_energy_transmitter.AdvEnergyTransmitterRenderer;
+import com.devdyna.justdynathings.init.builder.advanced_energy_transmitter.AdvEnergyTransmitterScreen;
 import com.devdyna.justdynathings.init.builder.black_hole.BlackHoleScreen;
 import com.devdyna.justdynathings.init.builder.ferricore_clock.FerricoreClockScreen;
 import com.devdyna.justdynathings.init.builder.fluid_mixer.SimpleFluidMixerScreen;
@@ -72,6 +74,8 @@ public class Client {
         event.register(zContainers.ECLIPSEALLOY_SOLAR_PANEL.get(), SolarPanelScreen<EclipseAlloySolarPanelGUI>::new);
 
         event.register(zContainers.FLUID_MIXER.get(), SimpleFluidMixerScreen::new);
+
+        event.register(zContainers.ADVANCED_ENERGY_TRANSMITTER.get(), AdvEnergyTransmitterScreen::new);
     }
 
     @SubscribeEvent
@@ -82,6 +86,9 @@ public class Client {
         event.registerBlockEntityRenderer(zBlockEntities.T2_GOO.get(), EnergyGooRender::new);
         event.registerBlockEntityRenderer(zBlockEntities.T3_GOO.get(), EnergyGooRender::new);
         event.registerBlockEntityRenderer(zBlockEntities.T4_GOO.get(), EnergyGooRender::new);
+
+        event.registerBlockEntityRenderer(zBlockEntities.ADVANCED_ENERGY_TRANSMITTER.get(),
+                AdvEnergyTransmitterRenderer::new);
 
     }
 

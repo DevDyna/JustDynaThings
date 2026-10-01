@@ -37,6 +37,13 @@ public class Config {
         public static IntValue BLACKHOLE_MB_CAPACITY;
         public static IntValue BLACKHOLE_MB_COST;
 
+        public static IntValue ADV_ENERGY_TRANSMITTER_FE_CAPACITY;
+        public static IntValue ADV_ENERGY_TRANSMITTER_FE_RATE;
+        public static IntValue ADV_ENERGY_TRANSMITTER_MB_CAPACITY;
+        public static IntValue ADV_ENERGY_TRANSMITTER_MB_COST;
+        public static DoubleValue ADV_ENERGY_TRANSMITTER_LOSS;
+        public static IntValue ADV_ENERGY_TRANSMITTER_TICK_RATE;
+
         public static BooleanValue GOO_CREATIVE_SOUND_TOGGLE_STATE;
         public static IntValue GOO_CREATIVE_TIER;
         public static IntValue GOO_CREATIVE_COUNTER_REDUCER;
@@ -330,6 +337,38 @@ public class Config {
                 BLACKHOLE_MB_COST = BUILDER
                                 .comment(ConfigKeys.Display.MB_RATE)
                                 .defineInRange(Blocks.BlackHole + ConfigKeys.Values.MB_RATE, Integer.MAX_VALUE, 1,
+                                                Integer.MAX_VALUE);
+
+                BUILDER.comment(StringUtil.nameCapitalized(Blocks.AdvancedEnergyTransmitter));
+
+                ADV_ENERGY_TRANSMITTER_FE_CAPACITY = BUILDER
+                                .comment(ConfigKeys.Display.FE_MAX)
+                                .defineInRange(Blocks.AdvancedEnergyTransmitter + ConfigKeys.Values.FE_MAX,
+                                                10_000_000, 1, Integer.MAX_VALUE);
+
+                ADV_ENERGY_TRANSMITTER_FE_RATE = BUILDER
+                                .comment(ConfigKeys.Display.FE_RATE)
+                                .defineInRange(Blocks.AdvancedEnergyTransmitter + ConfigKeys.Values.FE_RATE, 100_000, 1,
+                                                Integer.MAX_VALUE);
+
+                ADV_ENERGY_TRANSMITTER_MB_CAPACITY = BUILDER
+                                .comment(ConfigKeys.Display.MB_MAX)
+                                .defineInRange(Blocks.AdvancedEnergyTransmitter + ConfigKeys.Values.MB_MAX, 10_000, 1,
+                                                Integer.MAX_VALUE);
+
+                ADV_ENERGY_TRANSMITTER_MB_COST = BUILDER
+                                .comment(ConfigKeys.Display.MB_RATE)
+                                .defineInRange(Blocks.AdvancedEnergyTransmitter + ConfigKeys.Values.MB_RATE, 10, 1,
+                                                Integer.MAX_VALUE);
+
+                ADV_ENERGY_TRANSMITTER_LOSS = BUILDER
+                                .comment("Energy loss")
+                                .defineInRange(Blocks.AdvancedEnergyTransmitter + "_energy_loss", 0.1, 0.0, 
+                                                Integer.MAX_VALUE);
+
+                ADV_ENERGY_TRANSMITTER_TICK_RATE = BUILDER
+                                .comment("Tick rate")
+                                .defineInRange(Blocks.AdvancedEnergyTransmitter + "_tick_rate", 10, 1,
                                                 Integer.MAX_VALUE);
 
                 BUILDER.pop();
@@ -671,7 +710,7 @@ public class Config {
         /**
          * default = false
          */
-         private static BooleanValue bool(String c, String k) {
+        private static BooleanValue bool(String c, String k) {
                 return bool(c, k, false);
         }
 

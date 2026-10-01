@@ -33,6 +33,7 @@ public class Constants {
         public static String ThermoGen = "thermo_generator";
         public static String FluidMixer = "fluid_mixer";
         public static String BlackHole = "blackhole";
+        public static String AdvancedEnergyTransmitter = "advanced_energy_transmitter";
 
         public class Ticker{
             public static String BASE = "ticker";

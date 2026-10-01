@@ -5,6 +5,7 @@ import java.util.function.Function;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.JustDynaThings;
 import com.devdyna.justdynathings.init.builder.PhaseBox;
+import com.devdyna.justdynathings.init.builder.advanced_energy_transmitter.AdvEnergyTransmitterBlock;
 import com.devdyna.justdynathings.init.builder.black_hole.BlackHoleBlock;
 import com.devdyna.justdynathings.init.builder.ferricore_clock.FerricoreClockBlock;
 import com.devdyna.justdynathings.init.builder.fluid_mixer.SimpleFluidMixerBlock;
@@ -70,6 +71,9 @@ public class zBlocks {
 
     public static final DeferredHolder<Block, ?> ADVANCED_TICKER = registerItemBlock(Constants.Blocks.Ticker.Advanced,
             AdvancedTickerBlock::new);
+
+    public static final DeferredHolder<Block, ?> ADVANCED_ENERGY_TRANSMITTER = registerItemBlock(Constants.Blocks.AdvancedEnergyTransmitter,
+            AdvEnergyTransmitterBlock::new);
 
     // TODO buddings
     // public static final DeferredHolder<Block, ?> ECHOING_BUDDING_TIME =

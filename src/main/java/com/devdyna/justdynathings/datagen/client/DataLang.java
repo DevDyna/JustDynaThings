@@ -349,6 +349,21 @@ public class DataLang extends LanguageProvider {
 
                 add(MODULE_ID + ".configuration.phase_box_require_wrench", "PhaseBox require wrench to change state");
 
+                // adv energy transmitter
+
+                add(MODULE_ID + ".configuration.advanced_energy_transmitter_max_fluid_storage",
+                                "Advanced Energy Transmitter max fluid storage");
+                add(MODULE_ID + ".configuration.advanced_energy_transmitter_fluid_every_tick",
+                                "Advanced Energy Transmitter fluid every tick");
+                add(MODULE_ID + ".configuration.advanced_energy_transmitter_energy_every_tick",
+                                "Advanced Energy Transmitter energy transfer every tick");
+                add(MODULE_ID + ".configuration.advanced_energy_transmitter_max_energy_storage",
+                                "Advanced Energy Transmitter max energy storage");
+                add(MODULE_ID + ".configuration.advanced_energy_transmitter_energy_loss",
+                                "Advanced Energy Transmitter energy loss every block");
+                add(MODULE_ID + ".configuration.advanced_energy_transmitter_tick_rate",
+                                "Advanced Energy Transmitter tick rate");
+
                 add(MODULE_ID + ".goo_tier.infinite", "Infinite");
 
                 add(MODULE_ID + ".abstract_paradox",

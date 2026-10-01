@@ -12,6 +12,7 @@ import com.devdyna.justdynathings.init.builder.AdvancedTimeWand;
 import com.devdyna.justdynathings.init.builder.GooUpgrader;
 import com.devdyna.justdynathings.init.builder.PickerWand;
 import com.devdyna.justdynathings.init.builder.SwapperWand;
+import com.devdyna.justdynathings.init.builder.advanced_energy_transmitter.AdvEnergyTransmitterBlock;
 import com.devdyna.justdynathings.init.builder.fluid_mixer.SimpleFluidMixerBlock;
 import com.devdyna.justdynathings.init.builder.goo.creative.CreativeGoo;
 import com.devdyna.justdynathings.init.builder.stabilizer.StabilizerBlock;
@@ -38,6 +39,11 @@ public class ItemToolTipped {
                 var tip = event.getToolTip();
                 var isBlock = stack instanceof BlockItem;
                 var block = ((stack instanceof BlockItem bi) ? bi.getBlock() : null);
+
+                if (isBlock && block instanceof AdvEnergyTransmitterBlock)
+                        tip.add(OVER_THE_REGISTRY_ID,
+                                        Component.translatable(
+                                                        MODULE_ID + "." + Constants.Blocks.AdvancedEnergyTransmitter));
 
                 if (stack instanceof GooUpgrader)
                         tip.add(OVER_THE_REGISTRY_ID,

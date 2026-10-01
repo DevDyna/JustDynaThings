@@ -79,7 +79,7 @@ public class ItemToolTipped {
                         }
                 }
 
-                if (isBlock && block instanceof SimpleTickerBlock)
+                if (isBlock && block instanceof SimpleTickerBlock && !(block instanceof AdvancedTickerBlock))
                         tip.add(OVER_THE_REGISTRY_ID,
                                         Component.translatable(MODULE_ID + "." + Constants.Blocks.Ticker.Simple));
 

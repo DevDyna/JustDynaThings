@@ -6,7 +6,8 @@
   "mixins": [
     "GeneratorsJEIScreenMixin",
     "EnergyTransmitterMixin",
-    "EnergyTransmitterAccessor"
+    "EnergyTransmitterAccessor",
+    "GooBlockBEParticleMixin"
   ],
   "client": [],
   "server": []

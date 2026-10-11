@@ -19,6 +19,8 @@ public class Config {
         public static BooleanValue ENABLE_ALL_JEI_FUELS;
         public static BooleanValue DISABLE_FUEL_JEI;
 
+        public static IntValue GOO_CONVERSION_PARTICLES_COUNT;
+
         public static ConfigValue<List<? extends String>> UNSTABLE_TIME_CRYSTAL_TOOLTIPS;
 
         public static BooleanValue PHASE_BOX_WRENCHABLE;
@@ -203,6 +205,11 @@ public class Config {
                                 .comment("Disable Fuel JEI categories when Just Tiered Generators is installed")
                                 .define("disable_jei_fuels", true);
 
+                GOO_CONVERSION_PARTICLES_COUNT = BUILDER
+                                .comment("Number of particles that any goo will produce on conversion success")
+                                .comment("This use mixin , default JDT value is 100 but when boosted can be a lag-client machine!")
+                                .defineInRange("goo_particles", 12, 1, Integer.MAX_VALUE);
+
                 UNSTABLE_TIME_CRYSTAL_TOOLTIPS = BUILDER
                                 .comment("Define the pool of strings that will show as tooltip below Void Crystal")
                                 .defineList(
@@ -363,7 +370,7 @@ public class Config {
 
                 ADV_ENERGY_TRANSMITTER_LOSS = BUILDER
                                 .comment("Energy loss")
-                                .defineInRange(Blocks.AdvancedEnergyTransmitter + "_energy_loss", 0.1, 0.0, 
+                                .defineInRange(Blocks.AdvancedEnergyTransmitter + "_energy_loss", 0.1, 0.0,
                                                 Integer.MAX_VALUE);
 
                 ADV_ENERGY_TRANSMITTER_TICK_RATE = BUILDER

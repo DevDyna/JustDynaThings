@@ -93,7 +93,7 @@ public class DataLang extends LanguageProvider {
                                 TipColors.ITEM_TOOLTIP + "More capable and configurable version of Time wand");
 
                 add(MODULE_ID + "." + Constants.Blocks.AdvancedEnergyTransmitter, TipColors.ITEM_TOOLTIP
-                                + "An energy transmitter that will require Time fluid to work but more capable and with less FE loss/block");
+                                + "An energy transmitter that will require Portal fluid to work but more capable and with less FE loss/block");
 
                 add(MODULE_ID + "." + Constants.Wands.AdvancedTime + ".mode.disabled", "§cThis Mode was disabled");
                 add(MODULE_ID + "." + Constants.Wands.AdvancedTime + ".mode.reset", "This wand is ready to be used!");

@@ -30,7 +30,7 @@ public class AdvEnergyTransmitterBE extends EnergyTransmitterBE implements Fluid
 
     @Override
     public JustDireFluidTank getFluidTank() {
-        return getData(JDTRegistration.PARADOX_FLUID_HANDLER);
+        return getData(JDTRegistration.MACHINE_FLUID_HANDLER);
     }
 
     @Override

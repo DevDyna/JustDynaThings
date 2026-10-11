@@ -30,8 +30,7 @@ public class Capability {
                 Block[] TimeFluidMachines = {
                                 zBlocks.SIMPLE_TICKER.get(),
                                 zBlocks.ADVANCED_TICKER.get(),
-                                zBlocks.STABILIZER.get(),
-                                zBlocks.ADVANCED_ENERGY_TRANSMITTER.get()
+                                zBlocks.STABILIZER.get()
                 };
 
                 Block[] EnergyMachineBase = {
@@ -61,7 +60,8 @@ public class Capability {
                                 zBlocks.BLAZEGOLD_ANVIL.get(),
                                 zBlocks.ECLIPSEALLOY_ANVIL.get(),
 
-                                zBlocks.FLUID_MIXER.get()
+                                zBlocks.FLUID_MIXER.get(),
+                                zBlocks.ADVANCED_ENERGY_TRANSMITTER.get()
                 };
 
                 Block[] ItemStackMachineBase = {

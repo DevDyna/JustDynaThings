@@ -81,7 +81,7 @@ public class AdvEnergyTransmitterScreen extends BaseMachineScreen<AdvEnergyTrans
             this.drawSlot(graphics, inv.next());
 
         extractEnergy(graphics);
-        extractFluid(graphics, 185, 0);
+        extractFluid(graphics, 185+5, 0);
 
         if (this.renderablesChanged)
             this.updateRenderables();
@@ -124,7 +124,7 @@ public class AdvEnergyTransmitterScreen extends BaseMachineScreen<AdvEnergyTrans
 
     public void fluidBarTooltip(GuiGraphicsExtractor graphics, int pX, int pY) {
         if (baseMachineBE instanceof FluidMachineBE fluidMachineBE) {
-            if (MiscTools.inBounds(topSectionLeft + getFluidBarOffset() + 185, topSectionTop + 5, 18, 72, pX, pY)) {
+            if (MiscTools.inBounds(topSectionLeft + getFluidBarOffset() + 185+5, topSectionTop + 5, 18, 72, pX, pY)) {
                 graphics.setTooltipForNextFrame(font, Minecraft.getInstance().hasShiftDown()
                         ? Component.translatable("justdirethings.screen.fluid",
                                 this.container.getFluidStack().getHoverName(),

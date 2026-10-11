@@ -41,19 +41,19 @@ public class AdvEnergyTransmitterRenderer extends AreaAffectingBER<EnergyTransmi
                 blockEntity.getLevel(), null, 0);
     }
 
-    public void submit(EnergyTransmitterRenderState state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector,
+    public void submit(EnergyTransmitterRenderState state, PoseStack stack, SubmitNodeCollector submitNodeCollector,
             CameraRenderState camera) {
-        super.submit(state, poseStack, submitNodeCollector, camera);
+        super.submit(state, stack, submitNodeCollector, camera);
         var dir = state.facing;
-        poseStack.pushPose();
-        poseStack.translate(0.5F + dir.getStepX() * 0.3F, 0.5F + dir.getStepY() * 0.3F, 0.5F + dir.getStepZ() * 0.3F);
-        poseStack.mulPose(Axis.XP.rotationDegrees(dir.getStepZ() * -90));
-        poseStack.mulPose(Axis.ZP.rotationDegrees(dir.getStepX() * 90));
-        poseStack.mulPose(Axis.XP.rotationDegrees(dir.getStepY() == 1 ? 0.0F : 180.0F));
-        poseStack.mulPose(Axis.YP.rotationDegrees(state.millis / 15L % 360L));
-        poseStack.scale(0.15F, 0.15F, 0.15F);
-        state.item.submit(poseStack, submitNodeCollector, 15728880, OverlayTexture.NO_OVERLAY, 0);
-        poseStack.popPose();
+        stack.pushPose();
+        stack.translate(0.5F + dir.getStepX() * 0.3F, 0.5F + dir.getStepY() * 0.3F, 0.5F + dir.getStepZ() * 0.3F);
+        stack.mulPose(Axis.XP.rotationDegrees(dir.getStepZ() * -90));
+        stack.mulPose(Axis.ZP.rotationDegrees(dir.getStepX() * 90));
+        stack.mulPose(Axis.XP.rotationDegrees(dir.getStepY() == 1 ? 0.0F : 180.0F));
+        stack.mulPose(Axis.YP.rotationDegrees(state.millis / 15L % 360L));
+        stack.scale(0.15F, 0.15F, 0.15F);
+        state.item.submit(stack, submitNodeCollector, 15728880, OverlayTexture.NO_OVERLAY, 0);
+        stack.popPose();
     }
 
 }

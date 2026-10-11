@@ -23,8 +23,8 @@ public class AdvEnergyTransmitterScreen extends BaseMachineScreen<AdvEnergyTrans
     public AdvEnergyTransmitterScreen(AdvEnergyTransmitterGUI arg0, Inventory arg1, Component arg2) {
         super(arg0, arg1, arg2);
 
-        if (container.baseMachineBE instanceof AdvEnergyTransmitterBE energyTransmitterBE)
-            this.showParticles = energyTransmitterBE.showParticles;
+        if (container.baseMachineBE instanceof AdvEnergyTransmitterBE be)
+            this.showParticles = be.showParticles;
 
     }
 

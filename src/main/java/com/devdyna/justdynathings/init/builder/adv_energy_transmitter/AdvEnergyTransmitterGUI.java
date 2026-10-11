@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.init.builder.advanced_energy_transmitter;
+package com.devdyna.justdynathings.init.builder.adv_energy_transmitter;
 
 import com.devdyna.justdynathings.init.types.zBlocks;
 import com.devdyna.justdynathings.init.types.zContainers;

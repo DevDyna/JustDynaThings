@@ -5,7 +5,7 @@ import java.util.function.Function;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.JustDynaThings;
 import com.devdyna.justdynathings.init.builder.PhaseBox;
-import com.devdyna.justdynathings.init.builder.advanced_energy_transmitter.AdvEnergyTransmitterBlock;
+import com.devdyna.justdynathings.init.builder.adv_energy_transmitter.AdvEnergyTransmitterBlock;
 import com.devdyna.justdynathings.init.builder.black_hole.BlackHoleBlock;
 import com.devdyna.justdynathings.init.builder.ferricore_clock.FerricoreClockBlock;
 import com.devdyna.justdynathings.init.builder.fluid_mixer.SimpleFluidMixerBlock;

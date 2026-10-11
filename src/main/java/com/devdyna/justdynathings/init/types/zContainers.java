@@ -2,7 +2,7 @@ package com.devdyna.justdynathings.init.types;
 
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.JustDynaThings;
-import com.devdyna.justdynathings.init.builder.advanced_energy_transmitter.AdvEnergyTransmitterGUI;
+import com.devdyna.justdynathings.init.builder.adv_energy_transmitter.AdvEnergyTransmitterGUI;
 import com.devdyna.justdynathings.init.builder.black_hole.BlackHoleGUI;
 import com.devdyna.justdynathings.init.builder.ferricore_clock.FerricoreClockGUI;
 import com.devdyna.justdynathings.init.builder.fluid_mixer.SimpleFluidMixerGUI;

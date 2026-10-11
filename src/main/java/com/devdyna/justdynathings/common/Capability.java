@@ -3,7 +3,7 @@ package com.devdyna.justdynathings.common;
 import com.direwolf20.justdirethings.common.capabilities.FluidHandlerItemStack;
 import com.devdyna.justdynathings.api.be.EnergyMachine;
 import com.devdyna.justdynathings.api.be.FluidMachine;
-import com.devdyna.justdynathings.init.builder.advanced_energy_transmitter.AdvEnergyTransmitterBE;
+import com.devdyna.justdynathings.init.builder.adv_energy_transmitter.AdvEnergyTransmitterBE;
 import com.devdyna.justdynathings.init.types.zBlocks;
 import com.devdyna.justdynathings.init.types.zItems;
 import com.direwolf20.justdirethings.common.blockentities.basebe.*;

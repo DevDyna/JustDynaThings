@@ -12,7 +12,7 @@ import com.devdyna.justdynathings.init.builder.AdvancedTimeWand;
 import com.devdyna.justdynathings.init.builder.GooUpgrader;
 import com.devdyna.justdynathings.init.builder.PickerWand;
 import com.devdyna.justdynathings.init.builder.SwapperWand;
-import com.devdyna.justdynathings.init.builder.advanced_energy_transmitter.AdvEnergyTransmitterBlock;
+import com.devdyna.justdynathings.init.builder.adv_energy_transmitter.AdvEnergyTransmitterBlock;
 import com.devdyna.justdynathings.init.builder.fluid_mixer.SimpleFluidMixerBlock;
 import com.devdyna.justdynathings.init.builder.goo.creative.CreativeGoo;
 import com.devdyna.justdynathings.init.builder.stabilizer.StabilizerBlock;

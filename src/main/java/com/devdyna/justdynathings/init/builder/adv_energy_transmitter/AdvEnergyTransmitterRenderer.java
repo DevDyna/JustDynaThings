@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.init.builder.advanced_energy_transmitter;
+package com.devdyna.justdynathings.init.builder.adv_energy_transmitter;
 
 import org.jspecify.annotations.Nullable;
 

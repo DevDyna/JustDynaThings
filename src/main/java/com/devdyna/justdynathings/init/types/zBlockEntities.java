@@ -3,7 +3,7 @@ package com.devdyna.justdynathings.init.types;
 import com.devdyna.cakesticklib.api.RegistryUtils;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.JustDynaThings;
-import com.devdyna.justdynathings.init.builder.advanced_energy_transmitter.AdvEnergyTransmitterBE;
+import com.devdyna.justdynathings.init.builder.adv_energy_transmitter.AdvEnergyTransmitterBE;
 import com.devdyna.justdynathings.init.builder.black_hole.BlackHoleBE;
 import com.devdyna.justdynathings.init.builder.ferricore_clock.FerricoreClockBE;
 import com.devdyna.justdynathings.init.builder.fluid_mixer.SimpleFluidMixerBE;

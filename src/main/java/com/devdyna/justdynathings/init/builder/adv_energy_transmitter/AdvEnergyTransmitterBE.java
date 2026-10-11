@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.init.builder.advanced_energy_transmitter;
+package com.devdyna.justdynathings.init.builder.adv_energy_transmitter;
 
 import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.api.be.FluidMachine;

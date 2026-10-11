@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.init.builder.advanced_energy_transmitter;
+package com.devdyna.justdynathings.init.builder.adv_energy_transmitter;
 
 import com.direwolf20.justdirethings.client.screens.basescreens.BaseMachineScreen;
 import com.direwolf20.justdirethings.client.screens.standardbuttons.ToggleButtonFactory;

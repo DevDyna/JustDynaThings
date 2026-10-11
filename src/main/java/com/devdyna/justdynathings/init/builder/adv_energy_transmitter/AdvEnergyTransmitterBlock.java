@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.init.builder.advanced_energy_transmitter;
+package com.devdyna.justdynathings.init.builder.adv_energy_transmitter;
 
 import com.devdyna.cakesticklib.api.aspect.logic.BucketInteraction;
 import com.direwolf20.justdirethings.common.blocks.EnergyTransmitter;

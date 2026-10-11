@@ -5,6 +5,7 @@ import com.devdyna.justdynathings.api.be.EnergyMachine;
 import com.devdyna.justdynathings.api.be.FluidMachine;
 import com.devdyna.justdynathings.init.builder.adv_energy_transmitter.AdvEnergyTransmitterBE;
 import com.devdyna.justdynathings.init.types.zBlocks;
+import com.devdyna.justdynathings.init.types.zHandlers;
 import com.devdyna.justdynathings.init.types.zItems;
 import com.direwolf20.justdirethings.common.blockentities.basebe.*;
 import com.direwolf20.justdirethings.common.capabilities.EnergyStorageItemstack;
@@ -31,6 +32,10 @@ public class Capability {
                                 zBlocks.SIMPLE_TICKER.get(),
                                 zBlocks.ADVANCED_TICKER.get(),
                                 zBlocks.STABILIZER.get()
+                };
+
+                Block[] PortalFluidMachines = {
+                                zBlocks.ADVANCED_ENERGY_TRANSMITTER.get()
                 };
 
                 Block[] EnergyMachineBase = {
@@ -60,8 +65,7 @@ public class Capability {
                                 zBlocks.BLAZEGOLD_ANVIL.get(),
                                 zBlocks.ECLIPSEALLOY_ANVIL.get(),
 
-                                zBlocks.FLUID_MIXER.get(),
-                                zBlocks.ADVANCED_ENERGY_TRANSMITTER.get()
+                                zBlocks.FLUID_MIXER.get()
                 };
 
                 Block[] ItemStackMachineBase = {
@@ -156,6 +160,13 @@ public class Capability {
                                                                 ? be.getData(JDTRegistration.PARADOX_FLUID_HANDLER)
                                                                 : null,
                                 TimeFluidMachines);
+
+                event.registerBlock(Capabilities.Fluid.BLOCK,
+                                (level, pos, state, be,
+                                                side) -> (be instanceof FluidMachineBE || be instanceof FluidMachine)
+                                                                ? be.getData(zHandlers.PORTAL_FLUID_HANDLER)
+                                                                : null,
+                                PortalFluidMachines);
 
                 event.registerBlock(Capabilities.Energy.BLOCK,
                                 (level, pos, state, be, side) -> {

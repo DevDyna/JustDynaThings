@@ -3,10 +3,10 @@ package com.devdyna.justdynathings.init.builder.adv_energy_transmitter;
 import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.api.be.FluidMachine;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
+import com.devdyna.justdynathings.init.types.zHandlers;
 import com.direwolf20.justdirethings.common.blockentities.EnergyTransmitterBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.FluidContainerData;
 import com.direwolf20.justdirethings.common.capabilities.JustDireFluidTank;
-import com.direwolf20.justdirethings.setup.JDTRegistration;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -30,7 +30,7 @@ public class AdvEnergyTransmitterBE extends EnergyTransmitterBE implements Fluid
 
     @Override
     public JustDireFluidTank getFluidTank() {
-        return getData(JDTRegistration.MACHINE_FLUID_HANDLER);
+        return getData(zHandlers.PORTAL_FLUID_HANDLER);
     }
 
     @Override

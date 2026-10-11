@@ -15,7 +15,7 @@ import mezz.jei.api.recipe.types.IRecipeType;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.ItemLike;
 
-@SuppressWarnings("null")
+
 public class EclipseAlloyAnvilCategory extends BaseLabelledCategory<RepairEclipseAlloyAnvilRecipe> {
         public static final IRecipeType<RecipeHolder<RepairEclipseAlloyAnvilRecipe>> TYPE = IRecipeType
                         .create(zRecipeTypes.ECLIPSEALLOY_ANVIL.getType());

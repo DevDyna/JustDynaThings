@@ -15,7 +15,7 @@ import mezz.jei.api.recipe.types.IRecipeType;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.ItemLike;
 
-@SuppressWarnings("null")
+
 public class FerricoreAnvilCategory extends BaseLabelledCategory<RepairFerricoreAnvilRecipe> {
     public static final IRecipeType<RecipeHolder<RepairFerricoreAnvilRecipe>> TYPE = IRecipeType
             .create(zRecipeTypes.FERRICORE_ANVIL.getType());

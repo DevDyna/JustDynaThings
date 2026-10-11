@@ -10,7 +10,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.item.ItemStack;
 
-@SuppressWarnings("null")
+
 public class BlackHoleGUI extends BaseMachineContainer {
 
     public BlackHoleGUI(int windowId, Inventory playerInventory, FriendlyByteBuf extraData) {

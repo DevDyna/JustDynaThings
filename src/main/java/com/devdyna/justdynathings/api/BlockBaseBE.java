@@ -13,8 +13,8 @@ import org.jetbrains.annotations.Nullable;
 /**
  *  simplified version of BaseMachineBlock blockbuilder
  */
-@SuppressWarnings("null")
-public abstract class BlockBaseBE extends Block implements EntityBlock {
+
+ public abstract class BlockBaseBE extends Block implements EntityBlock {
     public BlockBaseBE(Properties properties) {
         super(properties);
     }

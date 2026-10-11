@@ -17,7 +17,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.transfer.item.ItemResource;
 
-@SuppressWarnings("null")
+
 public abstract class FunctionalAnvilBE extends BaseMachineBE implements RedstoneControlledBE {
 
     public final RedstoneControlData redstoneControlData = new RedstoneControlData();

@@ -23,7 +23,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.common.util.FakePlayer;
 
-@SuppressWarnings("null")
+
 public class PickerWand extends Item {
 
     public PickerWand(Properties p) {

@@ -15,7 +15,7 @@ import mezz.jei.api.recipe.types.IRecipeType;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.ItemLike;
 
-@SuppressWarnings("null")
+
 public class BlazeGoldAnvilCategory extends BaseLabelledCategory<RepairBlazegoldAnvilRecipe> {
         public static final IRecipeType<RecipeHolder<RepairBlazegoldAnvilRecipe>> TYPE = IRecipeType
                         .create(zRecipeTypes.BLAZEGOLD_ANVIL.getType());

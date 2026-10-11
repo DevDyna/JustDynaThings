@@ -1,17 +1,13 @@
 package com.devdyna.justdynathings.init.builder.ferricore_clock;
 
-import com.devdyna.cakesticklib.api.utils.DirectionUtil;
+import com.devdyna.justdynathings.api.DirUtils;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
-import com.devdyna.justdynathings.init.types.zProperties;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
-@SuppressWarnings("null")
 public class FerricoreClockBE extends BaseMachineBE {
-    
 
     public FerricoreClockBE(BlockEntityType<?> type, BlockPos pos, BlockState blockState) {
         super(type, pos, blockState);
@@ -38,12 +34,11 @@ public class FerricoreClockBE extends BaseMachineBE {
 
     public void updateBlock() {
         var state = getBlockState()
-                .setValue(zProperties.ACTIVE,
-                        !getBlockState().getValue(zProperties.ACTIVE));
+                .setValue(FerricoreClockBlock.ACTIVE,
+                        !getBlockState().getValue(FerricoreClockBlock.ACTIVE));
 
-        for (int i = 0; i < Direction.values().length; i++)
-            state.setValue(DirectionUtil.face[i],
-                    getBlockState().getValue(DirectionUtil.face[i]));
+        for (var d : DirUtils.DirProperties.ALL)
+            state.setValue(d, state.getValue(d));
 
         level.setBlockAndUpdate(getBlockPos(), state);
 

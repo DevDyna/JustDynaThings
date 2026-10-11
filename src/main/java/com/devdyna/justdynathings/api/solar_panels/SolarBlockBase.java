@@ -1,6 +1,5 @@
 package com.devdyna.justdynathings.api.solar_panels;
 
-import com.devdyna.justdynathings.init.types.zProperties;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Player;
@@ -13,10 +12,13 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public abstract class SolarBlockBase extends BaseMachineBlock{
+public abstract class SolarBlockBase extends BaseMachineBlock {
+
+    public static final BooleanProperty ACTIVE = BooleanProperty.create("active");
 
     public SolarBlockBase(Properties p) {
         super(p
@@ -33,15 +35,13 @@ public abstract class SolarBlockBase extends BaseMachineBlock{
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext c) {
-        return defaultBlockState().setValue(zProperties.ACTIVE, false);
+        return defaultBlockState().setValue(ACTIVE, false);
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> b) {
-        b.add(zProperties.ACTIVE);
+        b.add(ACTIVE);
     }
-
-   
 
     @Override
     public boolean isValidBE(BlockEntity b) {

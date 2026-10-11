@@ -11,7 +11,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 
-@SuppressWarnings("null")
+
 public class LightWandItem extends BaseToggleableTool implements LeftClickableTool , ILightWand{
 
     public LightWandItem(Properties p) {

@@ -4,7 +4,10 @@
   "package": "com.devdyna.justdynathings.mixin",
   "compatibilityLevel": "JAVA_25",
   "mixins": [
-    "GeneratorsJEIScreenMixin"
+    "GeneratorsJEIScreenMixin",
+    "EnergyTransmitterMixin",
+    "EnergyTransmitterAccessor",
+    "GooBlockBEParticleMixin"
   ],
   "client": [],
   "server": []

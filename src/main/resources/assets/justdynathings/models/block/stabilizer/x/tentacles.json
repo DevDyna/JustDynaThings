@@ -1,7 +1,10 @@
 {
   "credit": "Made with Blockbench",
   "render_type": "cutout",
-  "textures": { "4": "justdynathings:block/stabilizer/rod" },
+  "textures": {
+    "4": "justdynathings:block/stabilizer/rod",
+    "particle": "justdirethings:block/paradoxmachine_side"
+  },
   "elements": [
     {
       "from": [9.5, 10, 6.75],

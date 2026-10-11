@@ -10,16 +10,18 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.AnvilBlock;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-@SuppressWarnings("null")
 public class SimpleFluidMixerBlock extends BaseFluidMachineBlock {
 
     public SimpleFluidMixerBlock(Properties p) {
@@ -41,13 +43,6 @@ public class SimpleFluidMixerBlock extends BaseFluidMachineBlock {
         return shape;
     }
 
-    @Override
-    public BlockState getStateForPlacement(BlockPlaceContext c) {
-        return defaultBlockState();
-    }
-
-    
-
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos p, BlockState s) {
@@ -64,21 +59,30 @@ public class SimpleFluidMixerBlock extends BaseFluidMachineBlock {
         return b instanceof SimpleFluidMixerBE;
     }
 
-    // brute-force fix for invalid rotation
+    @Override
+    public BlockState getStateForPlacement(BlockPlaceContext c) {
+        return this.defaultBlockState()
+                .setValue(AnvilBlock.FACING, c.getHorizontalDirection().getClockWise());
+    }
+
+    @Override
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> b) {
+        b.add(AnvilBlock.FACING);
+    }
+
     @Override
     public BlockState direRotate(BlockState s, Rotation r) {
-        return s;
+        return s.cycle(AnvilBlock.FACING);
     }
 
     @Override
     public BlockState direRotate(BlockState s, LevelAccessor l, BlockPos p, Rotation d) {
-        return s;
+        return s.cycle(AnvilBlock.FACING);
     }
 
     @Override
     public BlockState rotate(BlockState s, Rotation r) {
-        return s;
+        return s.cycle(AnvilBlock.FACING);
     }
-    
 
 }

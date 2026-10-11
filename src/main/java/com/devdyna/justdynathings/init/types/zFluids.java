@@ -23,6 +23,6 @@ public class zFluids {
         public static final DeferredRegister<FluidType> zFluidTypes = DeferredRegister.create(Keys.FLUID_TYPES,
                         MODULE_ID);
 
-        public static final FluidRegister INSTABILITY_FLUID = FluidRegister.create("instability");
+        public static final FluidRegister INSTABILITY_FLUID = FluidRegister.simple("instability", -1);
 
 }

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "advanced_energy_transmitter",
+  "key": {
+    "B": "justdirethings:blazegold_ingot",
+    "E": "justdirethings:eclipsealloy_ingot",
+    "P": "justdirethings:energytransmitter",
+    "T": "justdirethings:time_crystal"
+  },
+  "pattern": [
+    " T ",
+    "BPB",
+    " E "
+  ],
+  "result": {
+    "id": "justdynathings:advanced_energy_transmitter"
+  }
+}

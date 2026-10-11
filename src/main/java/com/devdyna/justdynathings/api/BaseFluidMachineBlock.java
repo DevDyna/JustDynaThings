@@ -12,7 +12,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 
-@SuppressWarnings("null")
+
 public abstract class BaseFluidMachineBlock extends BaseMachineBlock implements BucketInteraction{
 
     public BaseFluidMachineBlock(Properties properties) {

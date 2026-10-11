@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "simple_ticker",
+  "key": {
+    "E": "justdirethings:blazegold_ingot",
+    "P": "justdirethings:time_wand",
+    "T": "#c:dusts/redstone"
+  },
+  "pattern": [
+    "ETE",
+    "TPT",
+    "ETE"
+  ],
+  "result": {
+    "id": "justdynathings:simple_ticker"
+  }
+}

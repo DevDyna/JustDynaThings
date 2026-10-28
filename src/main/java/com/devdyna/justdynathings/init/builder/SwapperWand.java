@@ -3,7 +3,7 @@ package com.devdyna.justdynathings.init.builder;
 
 import static com.devdyna.justdynathings.JustDynaThings.MODULE_ID;
 
-import com.devdyna.justdynathings.config.Config;
+import com.devdyna.justdynathings.config.ServerConfig;
 import com.devdyna.justdynathings.init.types.zBlockTags;
 import com.direwolf20.justdirethings.common.blockentities.BlockSwapperT1BE;
 import com.direwolf20.justdirethings.common.items.datacomponents.JustDireDataComponents;
@@ -56,7 +56,7 @@ public class SwapperWand extends Item {
         var player = c.getPlayer();
         var state = level.getBlockState(pos);
 
-        if (!(!Config.SWAPPER_FAKE_PLAYER_ALLOWED.get() && player instanceof FakePlayer))
+        if (!(!ServerConfig.SWAPPER_FAKE_PLAYER_ALLOWED.get() && player instanceof FakePlayer))
             if (c.getHand() != InteractionHand.OFF_HAND) {
 
                 var globalPos = item.get(JustDireDataComponents.BOUND_GLOBAL_POS);

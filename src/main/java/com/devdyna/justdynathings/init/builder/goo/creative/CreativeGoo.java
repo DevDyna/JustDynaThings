@@ -3,7 +3,7 @@ package com.devdyna.justdynathings.init.builder.goo.creative;
 import javax.annotation.Nullable;
 
 import com.devdyna.justdynathings.api.TippedGooBlock;
-import com.devdyna.justdynathings.config.Config;
+import com.devdyna.justdynathings.config.ServerConfig;
 import com.devdyna.justdynathings.init.types.zItemTags;
 import com.direwolf20.justdirethings.common.blocks.gooblocks.GooBlock_Base;
 
@@ -31,7 +31,7 @@ public class CreativeGoo extends GooBlock_Base implements TippedGooBlock {
 
       if ((i.is(zItemTags.CREATIVE_GOO_WRENCHES))) {
 
-         if (Config.GOO_CREATIVE_SOUND_TOGGLE_STATE.get())
+         if (ServerConfig.GOO_CREATIVE_SOUND_TOGGLE_STATE.get())
             l.playLocalSound(p.getX(), p.getY(),
                   p.getZ(),
                   SoundEvents.LODESTONE_COMPASS_LOCK,
@@ -57,7 +57,7 @@ public class CreativeGoo extends GooBlock_Base implements TippedGooBlock {
 
    @Override
    public int getConfigTier() {
-      return Config.GOO_CREATIVE_TIER.get();
+      return ServerConfig.GOO_CREATIVE_TIER.get();
    }
 
 }

@@ -1,7 +1,7 @@
 package com.devdyna.justdynathings.mixin.jdt;
 
 import com.devdyna.cakesticklib.api.utils.x;
-import com.devdyna.justdynathings.config.Config;
+import com.devdyna.justdynathings.config.ServerConfig;
 import com.direwolf20.justdirethings.client.particles.gooexplodeparticle.GooExplodeParticleData;
 import com.direwolf20.justdirethings.common.blockentities.basebe.GooBlockBE_Base;
 import net.minecraft.core.Direction;
@@ -24,7 +24,7 @@ public abstract class GooBlockBEParticleMixin {
                 var pos = be.getBlockPos().relative(dir);
 
                 for (var direction : Direction.values())
-                        for (int i = 0; i < Config.GOO_CONVERSION_PARTICLES_COUNT.get(); i++)
+                        for (int i = 0; i < ServerConfig.GOO_CONVERSION_PARTICLES_COUNT.get(); i++)
                                 be.getLevel().addParticle(new GooExplodeParticleData(x.item(be.getBlockState())),
                                                 pos.getX() + (0.5 + (0.6 * direction.getUnitVec3i().getX())
                                                                 + (direction.getUnitVec3i().getX() == 0

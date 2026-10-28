@@ -2,7 +2,7 @@ package com.devdyna.justdynathings.api.repair_anvils;
 
 import com.devdyna.cakesticklib.api.RandomUtil;
 import com.devdyna.justdynathings.api.Actions;
-import com.devdyna.justdynathings.config.Config;
+import com.devdyna.justdynathings.config.ServerConfig;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.RedstoneControlledBE;
 import com.direwolf20.justdirethings.util.interfacehelpers.RedstoneControlData;
@@ -73,7 +73,7 @@ public abstract class FunctionalAnvilBE extends BaseMachineBE implements Redston
         if (!RandomUtil.chance(level, 5))
             return;
 
-        if (!Config.ANVILS_SOUND_EVENT.get())
+        if (!ServerConfig.ANVILS_SOUND_EVENT.get())
             return;
 
         level.playSound(null, getBlockPos(),

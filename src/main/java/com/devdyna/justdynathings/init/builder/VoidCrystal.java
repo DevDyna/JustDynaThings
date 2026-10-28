@@ -7,7 +7,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import com.devdyna.cakesticklib.api.animations.AnimatedText;
-import com.devdyna.justdynathings.config.Config;
+import com.devdyna.justdynathings.config.ServerConfig;
 import com.direwolf20.justdirethings.common.items.resources.TimeCrystal;
 
 import net.minecraft.ChatFormatting;
@@ -56,7 +56,7 @@ public class VoidCrystal extends TimeCrystal {
     public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display,
             Consumer<Component> tooltip, TooltipFlag flagIn) {
         tooltip.accept(
-                AnimatedText.create(this.descriptionId, (List<String>) Config.UNSTABLE_TIME_CRYSTAL_TOOLTIPS.get())
+                AnimatedText.create(this.descriptionId, (List<String>) ServerConfig.UNSTABLE_TIME_CRYSTAL_TOOLTIPS.get())
                 .withStyle(ChatFormatting.GOLD));
     }
 

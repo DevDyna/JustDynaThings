@@ -4,7 +4,7 @@ import javax.annotation.Nullable;
 
 import com.devdyna.justdynathings.api.Actions;
 import com.devdyna.justdynathings.api.solar_panels.SolarBlockBase;
-import com.devdyna.justdynathings.config.Config;
+import com.devdyna.justdynathings.config.ServerConfig;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Player;
@@ -35,7 +35,7 @@ public class CelestiGemSolarBlock extends SolarBlockBase {
 
         @Override
         public int getFERate() {
-                return Config.SOLARPANEL_CELESTIGEM_FE_RATE.get();
+                return ServerConfig.SOLARPANEL_CELESTIGEM_FE_RATE.get();
         }
 
 }

@@ -2,7 +2,7 @@ package com.devdyna.justdynathings.init.builder.repair_anvils.celestigem;
 
 import com.devdyna.justdynathings.api.be.EnergyMachine;
 import com.devdyna.justdynathings.api.repair_anvils.FunctionalAnvilBE;
-import com.devdyna.justdynathings.config.Config;
+import com.devdyna.justdynathings.config.ServerConfig;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
 import com.devdyna.justdynathings.init.types.zItemTags;
 
@@ -41,12 +41,12 @@ public class CelestiGemAnvilBE extends FunctionalAnvilBE implements EnergyMachin
 
     @Override
     public int getStandardEnergyCost() {
-        return Config.ANVILS_CELESTIGEM_FE_RATE.get();
+        return ServerConfig.ANVILS_CELESTIGEM_FE_RATE.get();
     }
 
     @Override
     public int getMaxEnergy() {
-        return Config.ANVILS_CELESTIGEM_FE_CAPACITY.get();
+        return ServerConfig.ANVILS_CELESTIGEM_FE_CAPACITY.get();
     }
 
     @Override
@@ -99,11 +99,11 @@ public class CelestiGemAnvilBE extends FunctionalAnvilBE implements EnergyMachin
 
     @Override
     public Boolean getSoundConfig() {
-        return Config.ANVIL_CELESTIGEM_SOUND_EVENT.get();
+        return ServerConfig.ANVIL_CELESTIGEM_SOUND_EVENT.get();
     }
 
     @Override
     public Boolean ignoreDelay() {
-        return Config.ANVIL_CELESTIGEM_IGNORE_DELAY.get();
+        return ServerConfig.ANVIL_CELESTIGEM_IGNORE_DELAY.get();
     }
 }

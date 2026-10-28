@@ -3,7 +3,7 @@ package com.devdyna.justdynathings.init.builder.goo.energy.voidshimmer;
 import javax.annotation.Nullable;
 
 import com.devdyna.justdynathings.api.goo.energy_goo.BaseFEGooBlock;
-import com.devdyna.justdynathings.config.Config;
+import com.devdyna.justdynathings.config.ServerConfig;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -22,7 +22,7 @@ public class VoidshimmerEnergyGooBlock extends BaseFEGooBlock {
 
    @Override
    public int getConfigTier() {
-      return Config.GOO_T3_TIER.get();
+      return ServerConfig.GOO_T3_TIER.get();
    }
 
 }

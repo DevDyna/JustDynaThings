@@ -2,7 +2,7 @@ package com.devdyna.justdynathings.init.builder.ticker.simple;
 
 import com.devdyna.justdynathings.api.be.EnergyMachine;
 import com.devdyna.justdynathings.api.be.FluidMachine;
-import com.devdyna.justdynathings.config.Config;
+import com.devdyna.justdynathings.config.ServerConfig;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
 import com.devdyna.justdynathings.init.types.zBlockTags;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
@@ -115,31 +115,31 @@ public class SimpleTickerBE extends BaseMachineBE implements EnergyMachine, Flui
     }
 
     public int getTickerRate() {
-        return Config.SIMPLE_TICKER_TICK_RATE.get();
+        return ServerConfig.SIMPLE_TICKER_TICK_RATE.get();
     }
 
     @Override
     public int getStandardEnergyCost() {
-        return Config.SIMPLE_TICKER_FE_RATE.get();
+        return ServerConfig.SIMPLE_TICKER_FE_RATE.get();
     }
 
     @Override
     public int getMaxEnergy() {
-        return Config.SIMPLE_TICKER_FE_CAPACITY.get();
+        return ServerConfig.SIMPLE_TICKER_FE_CAPACITY.get();
     }
 
     @Override
     public int getStandardFluidCost() {
-        return Config.SIMPLE_TICKER_MB_RATE.get();
+        return ServerConfig.SIMPLE_TICKER_MB_RATE.get();
     }
 
     @Override
     public int getMaxMB() {
-        return Config.SIMPLE_TICKER_MB_CAPACITY.get();
+        return ServerConfig.SIMPLE_TICKER_MB_CAPACITY.get();
     }
 
     public boolean isLocked() {
-        return Config.SIMPLE_TICKER_TICK_LOCK.get();
+        return ServerConfig.SIMPLE_TICKER_TICK_LOCK.get();
     }
 
 }

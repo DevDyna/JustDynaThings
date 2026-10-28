@@ -5,7 +5,7 @@ import javax.annotation.Nullable;
 import com.devdyna.cakesticklib.api.RandomUtil;
 import com.devdyna.justdynathings.api.Actions;
 import com.devdyna.justdynathings.api.DirUtils;
-import com.devdyna.justdynathings.config.Config;
+import com.devdyna.justdynathings.config.ServerConfig;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
 import com.direwolf20.justdirethings.util.ModTags;
 
@@ -47,7 +47,7 @@ public class FerricoreClockBlock extends BaseMachineBlock {
         var item = player.getMainHandItem();
 
         if (player.isCrouching() &&
-                (Config.FERRICORE_CLOCK_WRENCHABLE.get()
+                (ServerConfig.FERRICORE_CLOCK_WRENCHABLE.get()
                         ? item.is(ModTags.Items.WRENCHES)
                         : true)) {
             this.openMenu(player, pos);

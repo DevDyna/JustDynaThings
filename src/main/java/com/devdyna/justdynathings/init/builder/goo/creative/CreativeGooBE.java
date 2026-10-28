@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.init.builder.goo.creative;
 
-import com.devdyna.justdynathings.config.Config;
+import com.devdyna.justdynathings.config.ServerConfig;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
 import com.direwolf20.justdirethings.common.blockentities.basebe.GooBlockBE_Base;
 import net.minecraft.core.BlockPos;
@@ -17,11 +17,11 @@ public class CreativeGooBE extends GooBlockBE_Base {
     }
 
     public int getTier() {
-        return Config.GOO_CREATIVE_TIER.get();
+        return ServerConfig.GOO_CREATIVE_TIER.get();
     }
 
     public int counterReducer() {
-        return Config.GOO_CREATIVE_COUNTER_REDUCER.get();
+        return ServerConfig.GOO_CREATIVE_COUNTER_REDUCER.get();
     }
 
     @Override
@@ -41,7 +41,7 @@ public class CreativeGooBE extends GooBlockBE_Base {
 
         updateSideCounter(direction, -1);
         sidedDurations.put(direction, -1);
-        if (Config.GOO_CREATIVE_SOUND_RECIPE.get())
+        if (ServerConfig.GOO_CREATIVE_SOUND_RECIPE.get())
             level.playSound(null, getBlockPos(), SoundEvents.SCULK_BLOCK_BREAK, SoundSource.BLOCKS, 0.25F, 1.0F);
     }
 

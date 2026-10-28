@@ -1,7 +1,7 @@
 package com.devdyna.justdynathings.init.builder.adv_energy_transmitter;
 
 import com.devdyna.justdynathings.api.be.FluidMachine;
-import com.devdyna.justdynathings.config.Config;
+import com.devdyna.justdynathings.config.ServerConfig;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
 import com.devdyna.justdynathings.init.types.zHandlers;
 import com.direwolf20.justdirethings.common.blockentities.EnergyTransmitterBE;
@@ -20,7 +20,7 @@ public class AdvEnergyTransmitterBE extends EnergyTransmitterBE implements Fluid
 
     public AdvEnergyTransmitterBE(BlockPos pPos, BlockState pBlockState) {
         super(zBlockEntities.ADVANCED_ENERGY_TRANSMITTER.get(), pPos, pBlockState);
-        this.tickSpeed = Config.ADV_ENERGY_TRANSMITTER_TICK_RATE.get();
+        this.tickSpeed = ServerConfig.ADV_ENERGY_TRANSMITTER_TICK_RATE.get();
     }
 
     @Override
@@ -39,12 +39,12 @@ public class AdvEnergyTransmitterBE extends EnergyTransmitterBE implements Fluid
     }
 
     public int fePerTick() {
-        return Config.ADV_ENERGY_TRANSMITTER_FE_RATE.get();
+        return ServerConfig.ADV_ENERGY_TRANSMITTER_FE_RATE.get();
     }
 
     @Override
     public int getMaxEnergy() {
-        return Config.ADV_ENERGY_TRANSMITTER_FE_CAPACITY.get();
+        return ServerConfig.ADV_ENERGY_TRANSMITTER_FE_CAPACITY.get();
     }
 
     public int calculateLoss(int amtToSend, BlockPos remotePosition) {
@@ -53,22 +53,22 @@ public class AdvEnergyTransmitterBE extends EnergyTransmitterBE implements Fluid
     }
 
     public Double getFELoss() {
-        return Config.ADV_ENERGY_TRANSMITTER_LOSS.get();
+        return ServerConfig.ADV_ENERGY_TRANSMITTER_LOSS.get();
     }
 
     @Override
     public int getStandardFluidCost() {
-        return Config.ADV_ENERGY_TRANSMITTER_MB_COST.get();
+        return ServerConfig.ADV_ENERGY_TRANSMITTER_MB_COST.get();
     }
 
     @Override
     public int getMaxMB() {
-        return Config.ADV_ENERGY_TRANSMITTER_MB_CAPACITY.get();
+        return ServerConfig.ADV_ENERGY_TRANSMITTER_MB_CAPACITY.get();
     }
 
     @Override
     public int getTickSpeed() {
-        return Config.ADV_ENERGY_TRANSMITTER_TICK_RATE.get();
+        return ServerConfig.ADV_ENERGY_TRANSMITTER_TICK_RATE.get();
     }
 
     @Override

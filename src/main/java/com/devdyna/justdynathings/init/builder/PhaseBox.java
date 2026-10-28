@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.init.builder;
 
-import com.devdyna.justdynathings.config.Config;
+import com.devdyna.justdynathings.config.ServerConfig;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
 
 import net.minecraft.core.BlockPos;
@@ -84,7 +84,7 @@ public class PhaseBox extends TransparentBlock {
 
     private InteractionResult success(ItemStack i, BlockState s, Level l, BlockPos pos) {
 
-        if (Config.PHASE_BOX_WRENCHABLE.get()
+        if (ServerConfig.PHASE_BOX_WRENCHABLE.get()
                 ? i.is(ModTags.Items.WRENCHES)
                 : true) {
 

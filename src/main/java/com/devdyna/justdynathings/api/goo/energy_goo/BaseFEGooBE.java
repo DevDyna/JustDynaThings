@@ -2,7 +2,7 @@ package com.devdyna.justdynathings.api.goo.energy_goo;
 
 import com.devdyna.cakesticklib.api.RandomUtil;
 import com.devdyna.justdynathings.api.be.EnergyMachine;
-import com.devdyna.justdynathings.config.Config;
+import com.devdyna.justdynathings.config.ServerConfig;
 import com.direwolf20.justdirethings.common.blockentities.basebe.GooBlockBE_Base;
 import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineContainerData;
 import com.direwolf20.justdirethings.common.blocks.gooblocks.GooBlock_Base;
@@ -48,7 +48,7 @@ public class BaseFEGooBE extends GooBlockBE_Base implements EnergyMachine {
 
         updateSideCounter(direction, -1);
         sidedDurations.put(direction, -1);
-        if (Config.GOO_FEGOO_SOUND_RECIPE.get())
+        if (ServerConfig.GOO_FEGOO_SOUND_RECIPE.get())
             level.playSound(null, getBlockPos(), SoundEvents.SCULK_BLOCK_BREAK, SoundSource.BLOCKS, 0.25F, 1.0F);
 
         if (level != null && !level.isClientSide()) {
@@ -57,7 +57,7 @@ public class BaseFEGooBE extends GooBlockBE_Base implements EnergyMachine {
 
                 extractFEWhenPossible();
 
-                if (RandomUtil.chance(level, 15) && Config.GOO_FEGOO_SOUND_EXTRA.get())
+                if (RandomUtil.chance(level, 15) && ServerConfig.GOO_FEGOO_SOUND_EXTRA.get())
                     level.playSound(null, getBlockPos(),
                             canExtractFE() ? SoundEvents.SCULK_SHRIEKER_SHRIEK
                                     : SoundEvents.SCULK_BLOCK_SPREAD,
@@ -78,12 +78,12 @@ public class BaseFEGooBE extends GooBlockBE_Base implements EnergyMachine {
 
     @Override
     public int getStandardEnergyCost() {
-        return Config.GOO_FEGOO_FE_RATE.get() * (Config.GOO_FEGOO_FE_RATE_MULTIPLY.get() ? getTier() : 1);
+        return ServerConfig.GOO_FEGOO_FE_RATE.get() * (ServerConfig.GOO_FEGOO_FE_RATE_MULTIPLY.get() ? getTier() : 1);
     }
 
     @Override
     public int getMaxEnergy() {
-        return Config.GOO_FEGOO_FE_CAPACITY.get() * (Config.GOO_FEGOO_FE_CAPACITY_MULTIPLY.get() ? getTier() : 1);
+        return ServerConfig.GOO_FEGOO_FE_CAPACITY.get() * (ServerConfig.GOO_FEGOO_FE_CAPACITY_MULTIPLY.get() ? getTier() : 1);
     }
 
 }

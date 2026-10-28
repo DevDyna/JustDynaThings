@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings;
 
-import com.devdyna.justdynathings.config.Config;
+import com.devdyna.justdynathings.config.ServerConfig;
 import com.devdyna.justdynathings.config.StartupConfig;
 import com.devdyna.justdynathings.init.Material;
 
@@ -15,7 +15,7 @@ public class JustDynaThings {
         public JustDynaThings(IEventBus bus, ModContainer c) {
                 Material.register(bus);
                 GameEvents.build(bus, c);
-                Config.register(c);
+                ServerConfig.register(c);
                 StartupConfig.register(c);
         }
 

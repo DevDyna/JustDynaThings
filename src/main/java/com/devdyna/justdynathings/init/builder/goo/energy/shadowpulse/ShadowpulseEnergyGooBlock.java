@@ -3,7 +3,7 @@ package com.devdyna.justdynathings.init.builder.goo.energy.shadowpulse;
 import javax.annotation.Nullable;
 
 import com.devdyna.justdynathings.api.goo.energy_goo.BaseFEGooBlock;
-import com.devdyna.justdynathings.config.Config;
+import com.devdyna.justdynathings.config.ServerConfig;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -23,7 +23,7 @@ public class ShadowpulseEnergyGooBlock extends BaseFEGooBlock {
 
    @Override
    public int getConfigTier() {
-      return Config.GOO_T4_TIER.get();
+      return ServerConfig.GOO_T4_TIER.get();
    }
 
 }

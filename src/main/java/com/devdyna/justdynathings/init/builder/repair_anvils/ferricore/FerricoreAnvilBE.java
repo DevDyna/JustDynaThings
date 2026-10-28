@@ -6,7 +6,7 @@ import com.devdyna.cakesticklib.api.recipe.recipeInput.ItemInput;
 import com.devdyna.justdynathings.api.repair_anvils.AnvilRecipeHandler;
 import com.devdyna.justdynathings.api.repair_anvils.FunctionalAnvilBE;
 import com.devdyna.justdynathings.common.recipes.anvils.ferricore.RepairFerricoreAnvilRecipe;
-import com.devdyna.justdynathings.config.Config;
+import com.devdyna.justdynathings.config.ServerConfig;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
 import com.devdyna.justdynathings.init.types.zItemTags;
 import com.devdyna.justdynathings.init.types.zRecipeTypes;
@@ -76,11 +76,11 @@ public class FerricoreAnvilBE extends FunctionalAnvilBE implements AnvilRecipeHa
 
     @Override
     public Boolean getSoundConfig() {
-        return Config.ANVIL_FERRICORE_SOUND_EVENT.get();
+        return ServerConfig.ANVIL_FERRICORE_SOUND_EVENT.get();
     }
 
     @Override
     public Boolean ignoreDelay() {
-        return Config.ANVIL_FERRICORE_IGNORE_DELAY.get();
+        return ServerConfig.ANVIL_FERRICORE_IGNORE_DELAY.get();
     }
 }

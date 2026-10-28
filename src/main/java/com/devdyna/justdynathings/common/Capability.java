@@ -22,7 +22,7 @@ import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.transfer.access.ItemAccess;
 import net.neoforged.neoforge.transfer.fluid.FluidResource;
-
+//TODO rework and sort to be more clean (due it is now a completly pile of trash!)
 public class Capability {
 
         @SubscribeEvent

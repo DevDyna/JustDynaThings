@@ -1,10 +1,10 @@
 package com.devdyna.justdynathings.init.builder.stabilizer;
 
 import com.devdyna.cakesticklib.api.RandomUtil;
-import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.api.TippedGooBlock;
 import com.devdyna.justdynathings.api.be.EnergyMachine;
 import com.devdyna.justdynathings.api.be.FluidMachine;
+import com.devdyna.justdynathings.config.ServerConfig;
 import com.devdyna.justdynathings.init.builder.goo.creative.CreativeGoo;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
@@ -73,7 +73,7 @@ public class StabilizerBE extends BaseMachineBE implements EnergyMachine, FluidM
             extractFEWhenPossible();
 
             if (RandomUtil.chance(level, 5)) {
-                if (Config.STABILIZER_TOGGLE_SOUND.get())
+                if (ServerConfig.STABILIZER_TOGGLE_SOUND.get())
                     applySound();
                 level.setBlockAndUpdate(getGooPos(),
                         level.getBlockState(getGooPos())
@@ -96,7 +96,7 @@ public class StabilizerBE extends BaseMachineBE implements EnergyMachine, FluidM
 
                 if (stage < 3) {
                     if (RandomUtil.chance(level, 5)) {
-                        if (Config.STABILIZER_TOGGLE_SOUND.get())
+                        if (ServerConfig.STABILIZER_TOGGLE_SOUND.get())
                             applySound();
 
                         extractMBWhenPossible();
@@ -115,7 +115,7 @@ public class StabilizerBE extends BaseMachineBE implements EnergyMachine, FluidM
                 for (int i = 0; i < 16; i++) {
                     state.randomTick((ServerLevel) level, getGooPos(), level.getRandom());
                     if (RandomUtil.chance(level, 1))
-                        if (Config.STABILIZER_TOGGLE_SOUND.get())
+                        if (ServerConfig.STABILIZER_TOGGLE_SOUND.get())
                             applySound();
 
                 }
@@ -175,12 +175,12 @@ public class StabilizerBE extends BaseMachineBE implements EnergyMachine, FluidM
 
     @Override
     public int getStandardEnergyCost() {
-        return Config.STABILIZER_FE_COST.get();
+        return ServerConfig.STABILIZER_FE_COST.get();
     }
 
     @Override
     public int getMaxEnergy() {
-        return Config.STABILIZER_FE_CAPACITY.get();
+        return ServerConfig.STABILIZER_FE_CAPACITY.get();
     }
 
     @Override
@@ -195,12 +195,12 @@ public class StabilizerBE extends BaseMachineBE implements EnergyMachine, FluidM
 
     @Override
     public int getStandardFluidCost() {
-        return Config.STABILIZER_MB_COST.get();
+        return ServerConfig.STABILIZER_MB_COST.get();
     }
 
     @Override
     public int getMaxMB() {
-        return Config.STABILIZER_MB_CAPACITY.get();
+        return ServerConfig.STABILIZER_MB_CAPACITY.get();
     }
 
 }

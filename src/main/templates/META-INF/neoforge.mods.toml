@@ -7,8 +7,11 @@ displayName="${mod_name}"
 description='''${mod_description}'''
 
 [[mixins]]
-config = "${mod_id}.mixins.json"
+config = "mixin/jdt.mixins.json"
 
+[[mixins]]
+config = "mixin/chisel.mixins.json"
+requiredMods = ["chisel"]
 
 [[dependencies.${mod_id}]]
     modId="neoforge"
@@ -35,5 +38,12 @@ config = "${mod_id}.mixins.json"
     modId="cakesticklib"
     type="required"
     versionRange="${cakesticklib_version}"
+    ordering="BEFORE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="chisel"
+    type="optional"
+    versionRange="${chisel_version}"
     ordering="BEFORE"
     side="BOTH"

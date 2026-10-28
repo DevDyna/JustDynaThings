@@ -1,7 +1,7 @@
 package com.devdyna.justdynathings.init.builder.solar_panels.celestigem;
 
-import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.api.solar_panels.SolarGUIBase;
+import com.devdyna.justdynathings.config.ServerConfig;
 import com.devdyna.justdynathings.init.types.zBiomeTags;
 import com.devdyna.justdynathings.init.types.zBlocks;
 import com.devdyna.justdynathings.init.types.zContainers;
@@ -48,27 +48,27 @@ public class CelestigemSolarPanelGUI extends SolarGUIBase {
 
     @Override
     public int getFERate() {
-        return Config.SOLARPANEL_CELESTIGEM_FE_RATE.get();
+        return ServerConfig.SOLARPANEL_CELESTIGEM_FE_RATE.get();
     }
 
     @Override
     public boolean enableMultiPopulator() {
-        return Config.SOLARPANEL_CELESTIGEM_ENABLE_SPAM.get();
+        return ServerConfig.SOLARPANEL_CELESTIGEM_ENABLE_SPAM.get();
     }
 
     @Override
     public boolean enableMultiYLevel() {
-        return Config.SOLARPANEL_CELESTIGEM_ENABLE_YLEVEL.get();
+        return ServerConfig.SOLARPANEL_CELESTIGEM_ENABLE_YLEVEL.get();
     }
 
     @Override
     public boolean enableCleanSky() {
-        return Config.SOLARPANEL_CELESTIGEM_ENABLE_SKY.get();
+        return ServerConfig.SOLARPANEL_CELESTIGEM_ENABLE_SKY.get();
     }
 
     @Override
     public boolean enableDayTimeOnly() {
-        return Config.SOLARPANEL_CELESTIGEM_ENABLE_DAYTIME.get();
+        return ServerConfig.SOLARPANEL_CELESTIGEM_ENABLE_DAYTIME.get();
     }
 
     @Override
@@ -78,7 +78,7 @@ public class CelestigemSolarPanelGUI extends SolarGUIBase {
 
     @Override
     public boolean isAllowBiome() {
-        return Config.SOLARPANEL_CELESTIGEM_BIOMES.get();
+        return ServerConfig.SOLARPANEL_CELESTIGEM_BIOMES.get();
     }
 
 }

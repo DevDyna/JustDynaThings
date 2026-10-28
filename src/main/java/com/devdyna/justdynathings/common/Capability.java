@@ -1,6 +1,8 @@
 package com.devdyna.justdynathings.common;
 
 import com.direwolf20.justdirethings.common.capabilities.FluidHandlerItemStack;
+import com.devdyna.cakesticklib.api.utils.ArrayUtils;
+import com.devdyna.cakesticklib.api.utils.ModAddonUtil;
 import com.devdyna.justdynathings.api.be.EnergyMachine;
 import com.devdyna.justdynathings.api.be.FluidMachine;
 import com.devdyna.justdynathings.init.builder.adv_energy_transmitter.AdvEnergyTransmitterBE;
@@ -22,7 +24,7 @@ import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.transfer.access.ItemAccess;
 import net.neoforged.neoforge.transfer.fluid.FluidResource;
-
+//TODO rework and sort to be more clean (due it is now a completly pile of trash!)
 public class Capability {
 
         @SubscribeEvent
@@ -89,6 +91,13 @@ public class Capability {
                 Item[] PoweredItems = {
                                 zItems.ADVANCED_TIME_WAND.get(), zItems.ADVANCED_LIGHT_WAND.get()
                 };
+
+                if (ModAddonUtil.checkMod("chisel"))
+                        PoweredItems = ArrayUtils.concat(PoweredItems,
+                                        new Item[] { zItems.FERRICORE_CHISEL.get(),
+                                                        zItems.BLAZEGOLD_CHISEL.get(),
+                                                        zItems.CELESTIGEM_CHISEL.get(),
+                                                        zItems.ECLIPSEALLOY_CHISEL.get() });
 
                 // ---------------------------------------------------------------------------------------//
                 // generic itemhandler
@@ -178,8 +187,6 @@ public class Capability {
 
                                 },
                                 zBlocks.ADVANCED_ENERGY_TRANSMITTER.get());
-
-               
 
         }
 }

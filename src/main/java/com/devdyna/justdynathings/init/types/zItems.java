@@ -5,8 +5,12 @@ import static com.devdyna.justdynathings.JustDynaThings.MODULE_ID;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import com.devdyna.cakesticklib.api.utils.ModAddonUtil;
 import com.devdyna.justdynathings.Constants;
-
+import com.devdyna.justdynathings.compat.chisel.BlazegoldChisel;
+import com.devdyna.justdynathings.compat.chisel.CelestigemChisel;
+import com.devdyna.justdynathings.compat.chisel.EclipseAlloyChisel;
+import com.devdyna.justdynathings.compat.chisel.FerricoreChisel;
 import com.devdyna.justdynathings.init.builder.*;
 import com.devdyna.justdynathings.init.builder.light_wands.*;
 import com.direwolf20.justdirethings.setup.JDTRegistration;
@@ -17,6 +21,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class zItems {
+
         public static void register(IEventBus bus) {
                 zItem.register(bus);
                 zBlockItem.register(bus);
@@ -24,6 +29,17 @@ public class zItems {
                 zGooUpgraders.register(bus);
                 zSpecial.register(bus);
                 zBucketItems.register(bus);
+
+                if (ModAddonUtil.checkMod("chisel")) {
+                        FERRICORE_CHISEL = zItem.registerItem(Constants.Tiers.ferricore + "_chisel",
+                                        FerricoreChisel::new);
+                        BLAZEGOLD_CHISEL = zItem.registerItem(Constants.Tiers.blazegold + "_chisel",
+                                        BlazegoldChisel::new);
+                        CELESTIGEM_CHISEL = zItem.registerItem(Constants.Tiers.celestigem + "_chisel",
+                                        CelestigemChisel::new);
+                        ECLIPSEALLOY_CHISEL = zItem.registerItem(Constants.Tiers.eclipsealloy + "_chisel",
+                                        EclipseAlloyChisel::new);
+                }
         }
 
         //
@@ -33,6 +49,13 @@ public class zItems {
         public static final DeferredRegister.Items zGooUpgraders = DeferredRegister.createItems(MODULE_ID);
         public static final DeferredRegister.Items zBlockItem = DeferredRegister.createItems(MODULE_ID);
         public static final DeferredRegister.Items zBucketItems = DeferredRegister.createItems(MODULE_ID);
+
+        // compats
+        // ---------------------------------------------------------------------------------------//
+        public static DeferredHolder<Item, ?> FERRICORE_CHISEL;
+        public static DeferredHolder<Item, ?> BLAZEGOLD_CHISEL;
+        public static DeferredHolder<Item, ?> CELESTIGEM_CHISEL;
+        public static DeferredHolder<Item, ?> ECLIPSEALLOY_CHISEL;
 
         // ---------------------------------------------------------------------------------------//
 
@@ -84,10 +107,12 @@ public class zItems {
                         Constants.Wands.AdvancedLight,
                         p -> new AdvancedLightWand(p));
 
-        public static final DeferredHolder<Item, ?> VOID_CRYSTAL = zItem.registerItem("void_crystal", p-> new VoidCrystal(p));
-        public static final DeferredHolder<Item, ?> ABSTRACT_PARADOX = zItem.registerItem("abstract_paradox", p-> new AbstractParadox(p));
+        public static final DeferredHolder<Item, ?> VOID_CRYSTAL = zItem.registerItem("void_crystal",
+                        p -> new VoidCrystal(p));
+        public static final DeferredHolder<Item, ?> ABSTRACT_PARADOX = zItem.registerItem("abstract_paradox",
+                        p -> new AbstractParadox(p));
 
-        //TODO desctructive wand
+        // TODO desctructive wand
         public static final DeferredHolder<Item, ?> DESTRUCTION_WAND = zWands.registerSimpleItem("destruction_wand");
 
 }

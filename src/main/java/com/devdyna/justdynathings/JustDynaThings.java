@@ -1,5 +1,7 @@
 package com.devdyna.justdynathings;
 
+import com.devdyna.justdynathings.config.ServerConfig;
+import com.devdyna.justdynathings.config.StartupConfig;
 import com.devdyna.justdynathings.init.Material;
 
 import net.neoforged.bus.api.IEventBus;
@@ -13,7 +15,8 @@ public class JustDynaThings {
         public JustDynaThings(IEventBus bus, ModContainer c) {
                 Material.register(bus);
                 GameEvents.build(bus, c);
-                Config.register(c);
+                ServerConfig.register(c);
+                StartupConfig.register(c);
         }
 
 }

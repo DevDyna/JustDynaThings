@@ -33,6 +33,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.Fluids;
 import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
 
 public class DataRecipe extends RecipeProvider {
 
@@ -419,6 +420,11 @@ public class DataRecipe extends RecipeProvider {
                                 .unlockedBy()
                                 .save(output);
 
+                chiselRecipe(zItems.FERRICORE_CHISEL.get(), JDTRegistration.FerricoreIngot.get(), output);
+                chiselRecipe(zItems.BLAZEGOLD_CHISEL.get(), JDTRegistration.BlazegoldIngot.get(), output);
+                chiselRecipe(zItems.CELESTIGEM_CHISEL.get(), JDTRegistration.Celestigem.get(), output);
+                chiselRecipe(zItems.ECLIPSEALLOY_CHISEL.get(), JDTRegistration.EclipseAlloyIngot.get(), output);
+
         }
 
         public static final class RecipeRunner extends RecipeProvider.Runner {
@@ -506,6 +512,17 @@ public class DataRecipe extends RecipeProvider {
                                 .group(Constants.SolarPanelType)
                                 .save(c);
 
+        }
+
+        private void chiselRecipe(Item chisel, Item material, RecipeOutput c) {
+                shaped(RecipeCategory.MISC, chisel, 1)
+                                .pattern("  M")
+                                .pattern(" M ")
+                                .pattern("S  ")
+                                .define('M', material)
+                                .define('S', Items.STICK)
+                                .unlockedBy(getHasName(material), has(material))
+                                .group("chisels").save(c.withConditions(new ModLoadedCondition("chisel")));
         }
 
 }

@@ -3,11 +3,11 @@ package com.devdyna.justdynathings.init.builder.repair_anvils.blazegold;
 import java.util.Optional;
 
 import com.devdyna.cakesticklib.api.recipe.recipeInput.FluidInput;
-import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.api.be.FluidMachine;
 import com.devdyna.justdynathings.api.repair_anvils.AnvilRecipeHandler;
 import com.devdyna.justdynathings.api.repair_anvils.FunctionalAnvilBE;
 import com.devdyna.justdynathings.common.recipes.anvils.blazegold.RepairBlazegoldAnvilRecipe;
+import com.devdyna.justdynathings.config.ServerConfig;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
 import com.devdyna.justdynathings.init.types.zItemTags;
 import com.devdyna.justdynathings.init.types.zRecipeTypes;
@@ -50,7 +50,7 @@ public class BlazeGoldAnvilBE extends FunctionalAnvilBE
 
     @Override
     public int getMaxMB() {
-        return Config.ANVILS_BLAZEGOLD_MB_CAPACITY.get();
+        return ServerConfig.ANVILS_BLAZEGOLD_MB_CAPACITY.get();
     }
 
     @Override
@@ -70,7 +70,7 @@ public class BlazeGoldAnvilBE extends FunctionalAnvilBE
 
     @Override
     public Boolean getSoundConfig() {
-        return Config.ANVIL_BLAZEGOLD_SOUND_EVENT.get();
+        return ServerConfig.ANVIL_BLAZEGOLD_SOUND_EVENT.get();
     }
 
     @Override
@@ -122,6 +122,6 @@ public class BlazeGoldAnvilBE extends FunctionalAnvilBE
 
     @Override
     public Boolean ignoreDelay() {
-        return Config.ANVIL_BLAZEGOLD_IGNORE_DELAY.get();
+        return ServerConfig.ANVIL_BLAZEGOLD_IGNORE_DELAY.get();
     }
 }

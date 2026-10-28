@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.init.builder.ticker.advanced;
 
-import com.devdyna.justdynathings.Config;
+import com.devdyna.justdynathings.config.ServerConfig;
 import com.devdyna.justdynathings.init.builder.ticker.simple.SimpleTickerBE;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
 import net.minecraft.core.BlockPos;
@@ -19,31 +19,31 @@ public class AdvancedTickerBE extends SimpleTickerBE {
 
     @Override
     public int getTickerRate() {
-        return Config.ADVANCED_TICKER_TICK_RATE.get() ;
+        return ServerConfig.ADVANCED_TICKER_TICK_RATE.get() ;
     }
 
     @Override
     public int getStandardEnergyCost() {
-        return Config.ADVANCED_TICKER_FE_RATE.get();
+        return ServerConfig.ADVANCED_TICKER_FE_RATE.get();
     }
 
     @Override
     public int getMaxEnergy() {
-        return Config.ADVANCED_TICKER_FE_CAPACITY.get();
+        return ServerConfig.ADVANCED_TICKER_FE_CAPACITY.get();
     }
 
     @Override
     public int getStandardFluidCost() {
-        return Config.ADVANCED_TICKER_MB_RATE.get();
+        return ServerConfig.ADVANCED_TICKER_MB_RATE.get();
     }
 
     @Override
     public int getMaxMB() {
-        return Config.ADVANCED_TICKER_MB_CAPACITY.get();
+        return ServerConfig.ADVANCED_TICKER_MB_CAPACITY.get();
     }
 
     public boolean isLocked(){
-        return Config.ADVANCED_TICKER_TICK_LOCK.get();
+        return ServerConfig.ADVANCED_TICKER_TICK_LOCK.get();
     }
 
 }

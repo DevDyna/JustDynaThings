@@ -1,7 +1,7 @@
 package com.devdyna.justdynathings.init.builder.light_wands;
 
 import com.devdyna.cakesticklib.api.RandomUtil;
-import com.devdyna.justdynathings.Config;
+import com.devdyna.justdynathings.config.ServerConfig;
 import com.devdyna.justdynathings.init.types.zItems;
 
 import net.minecraft.core.BlockPos;
@@ -48,7 +48,7 @@ public class LightWandBlock extends LightBlock {
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player,
             BlockHitResult hitResult) {
-        if (!level.isClientSide() && Config.LIGHT_WAND_CHANGE.get()) {
+        if (!level.isClientSide() && ServerConfig.LIGHT_WAND_CHANGE.get()) {
             level.setBlock(pos, state.cycle(LEVEL), 2);
             return InteractionResult.SUCCESS;
         } else {
@@ -59,7 +59,7 @@ public class LightWandBlock extends LightBlock {
     @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
 
-        if (RandomUtil.chance(level, 25) && Config.LIGHT_BLOCK_PARTICLES.get())
+        if (RandomUtil.chance(level, 25) && ServerConfig.LIGHT_BLOCK_PARTICLES.get())
             level.addParticle(ParticleTypes.ELECTRIC_SPARK,
                     pos.getX() + 0.5 + 0.1 * random.nextInt(5) * (RandomUtil.rnd50(level) ? 1 : -1),
                     pos.getY() + 0.5 + 0.1 * random.nextInt(5) * (RandomUtil.rnd50(level) ? 1 : -1),

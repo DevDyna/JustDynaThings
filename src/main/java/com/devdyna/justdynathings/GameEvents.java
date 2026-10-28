@@ -6,8 +6,7 @@ import com.devdyna.justdynathings.common.Capability;
 import com.devdyna.justdynathings.common.CreativeTabs;
 import com.devdyna.justdynathings.common.ItemToolTipped;
 import com.devdyna.justdynathings.common.RecipeSender;
-import com.devdyna.justdynathings.common.events.ItemAbstractParadox;
-import com.devdyna.justdynathings.common.events.ParadoxRecipeExecutor;
+import com.devdyna.justdynathings.common.events.*;
 
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;

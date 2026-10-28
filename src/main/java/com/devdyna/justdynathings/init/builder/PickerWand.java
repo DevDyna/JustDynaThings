@@ -3,7 +3,7 @@ package com.devdyna.justdynathings.init.builder;
 
 import static com.devdyna.justdynathings.JustDynaThings.MODULE_ID;
 
-import com.devdyna.justdynathings.Config;
+import com.devdyna.justdynathings.config.ServerConfig;
 import com.devdyna.justdynathings.init.types.zBlockTags;
 import com.devdyna.justdynathings.init.types.zComponents;
 import com.direwolf20.justdirethings.common.blockentities.BlockSwapperT1BE;
@@ -41,7 +41,7 @@ public class PickerWand extends Item {
         var item = c.getItemInHand();
         var player = c.getPlayer();
         
-        if (!(!Config.PICKER_WAND_FAKE_PLAYER_ALLOWED.get() && player instanceof FakePlayer))
+        if (!(!ServerConfig.PICKER_WAND_FAKE_PLAYER_ALLOWED.get() && player instanceof FakePlayer))
             if (c.getHand() != InteractionHand.OFF_HAND) {
 
                 var state = item.get(zComponents.STATE);

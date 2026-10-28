@@ -1,7 +1,7 @@
 package com.devdyna.justdynathings.init.builder.goo.energy.blazebloom;
 
-import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.api.goo.energy_goo.BaseFEGooBE;
+import com.devdyna.justdynathings.config.ServerConfig;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
 
 import net.minecraft.core.BlockPos;
@@ -14,11 +14,11 @@ public class BlazebloomEnergyGooBE extends BaseFEGooBE {
     }
 
     public int getTier() {
-        return Config.GOO_T2_TIER.get();
+        return ServerConfig.GOO_T2_TIER.get();
     }
 
     public int counterReducer() {
-        return Config.GOO_T2_COUNTER_REDUCER.get();
+        return ServerConfig.GOO_T2_COUNTER_REDUCER.get();
     }
 
 }

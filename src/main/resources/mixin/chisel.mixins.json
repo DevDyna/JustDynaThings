@@ -1,0 +1,9 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.devdyna.justdynathings.mixin.chisel",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": ["PoweredChiselHandlerMixin"],
+  "client": [],
+  "server": []
+}

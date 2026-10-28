@@ -9,10 +9,10 @@ import com.devdyna.cakesticklib.api.compat.jei.JEIAliasesHelper;
 import com.devdyna.cakesticklib.api.utils.ModAddonUtil;
 import com.devdyna.cakesticklib.api.utils.x;
 import com.devdyna.justdynathings.Client;
-import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.compat.jei.categories.*;
 import com.devdyna.justdynathings.compat.jei.utils.FuelRecords;
 import com.devdyna.justdynathings.compat.jei.utils.FuelUtils;
+import com.devdyna.justdynathings.config.ServerConfig;
 import com.devdyna.justdynathings.init.builder.fluid_mixer.SimpleFluidMixerScreen;
 import com.devdyna.justdynathings.init.builder.repair_anvils.blazegold.BlazeGoldAnvilScreen;
 import com.devdyna.justdynathings.init.builder.repair_anvils.eclipsealloy.EclipseAlloyAnvilScreen;
@@ -97,7 +97,7 @@ public class JEIPlugin implements IModPlugin {
         @Override
         public void registerRecipes(IRecipeRegistration r) {
 
-                if (!(ModAddonUtil.checkMod("justtieredgens") && Config.DISABLE_FUEL_JEI.get())) {
+                if (!(ModAddonUtil.checkMod("justtieredgens") && ServerConfig.DISABLE_FUEL_JEI.get())) {
 
                         Map<Integer, List<ItemStack>> fuels = new HashMap<>();
 
@@ -120,7 +120,7 @@ public class JEIPlugin implements IModPlugin {
                         }
 
                         // Add remaining fuels
-                        if (Config.ENABLE_ALL_JEI_FUELS.get()) {
+                        if (ServerConfig.ENABLE_ALL_JEI_FUELS.get()) {
                                 fuels.entrySet().stream()
                                                 .sorted(Map.Entry.<Integer, List<ItemStack>>comparingByKey().reversed())
                                                 .forEach(entry -> r.addRecipes(FuelRecipeCategory.TYPE,

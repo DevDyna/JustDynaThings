@@ -1,8 +1,8 @@
 package com.devdyna.justdynathings.init.builder.black_hole;
 
-import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.api.be.EnergyMachine;
 import com.devdyna.justdynathings.api.be.FluidMachine;
+import com.devdyna.justdynathings.config.Config;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import com.direwolf20.justdirethings.common.blockentities.basebe.FluidContainerData;

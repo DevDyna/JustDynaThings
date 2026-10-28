@@ -3,9 +3,9 @@ package com.devdyna.justdynathings.init.builder.ferricore_clock;
 import javax.annotation.Nullable;
 
 import com.devdyna.cakesticklib.api.RandomUtil;
-import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.api.Actions;
 import com.devdyna.justdynathings.api.DirUtils;
+import com.devdyna.justdynathings.config.Config;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
 import com.direwolf20.justdirethings.util.ModTags;
 

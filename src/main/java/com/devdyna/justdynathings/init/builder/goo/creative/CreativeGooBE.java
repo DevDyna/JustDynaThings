@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.init.builder.goo.creative;
 
-import com.devdyna.justdynathings.Config;
+import com.devdyna.justdynathings.config.Config;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
 import com.direwolf20.justdirethings.common.blockentities.basebe.GooBlockBE_Base;
 import net.minecraft.core.BlockPos;

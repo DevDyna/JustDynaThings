@@ -1,7 +1,7 @@
 package com.devdyna.justdynathings.init.builder.solar_panels.celestigem;
 
-import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.api.solar_panels.SolarBaseBE;
+import com.devdyna.justdynathings.config.Config;
 import com.devdyna.justdynathings.init.types.zBiomeTags;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
 

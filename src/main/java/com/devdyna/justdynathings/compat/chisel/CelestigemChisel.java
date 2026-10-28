@@ -1,7 +1,7 @@
 package com.devdyna.justdynathings.compat.chisel;
 
-import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.compat.chisel.api.BasePoweredChisel;
+import com.devdyna.justdynathings.config.Config;
 
 public class CelestigemChisel extends BasePoweredChisel {
 

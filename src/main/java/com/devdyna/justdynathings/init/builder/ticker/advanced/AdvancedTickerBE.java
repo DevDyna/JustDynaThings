@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.init.builder.ticker.advanced;
 
-import com.devdyna.justdynathings.Config;
+import com.devdyna.justdynathings.config.Config;
 import com.devdyna.justdynathings.init.builder.ticker.simple.SimpleTickerBE;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
 import net.minecraft.core.BlockPos;

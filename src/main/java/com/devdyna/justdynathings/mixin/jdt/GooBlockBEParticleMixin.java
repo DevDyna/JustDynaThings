@@ -1,7 +1,7 @@
 package com.devdyna.justdynathings.mixin.jdt;
 
 import com.devdyna.cakesticklib.api.utils.x;
-import com.devdyna.justdynathings.Config;
+import com.devdyna.justdynathings.config.Config;
 import com.direwolf20.justdirethings.client.particles.gooexplodeparticle.GooExplodeParticleData;
 import com.direwolf20.justdirethings.common.blockentities.basebe.GooBlockBE_Base;
 import net.minecraft.core.Direction;

@@ -3,11 +3,11 @@ package com.devdyna.justdynathings.init.builder.repair_anvils.eclipsealloy;
 import java.util.Optional;
 
 import com.devdyna.cakesticklib.api.recipe.recipeInput.FluidInput;
-import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.api.be.FluidMachine;
 import com.devdyna.justdynathings.api.repair_anvils.AnvilRecipeHandler;
 import com.devdyna.justdynathings.api.repair_anvils.FunctionalAnvilBE;
 import com.devdyna.justdynathings.common.recipes.anvils.eclipsealloy.RepairEclipseAlloyAnvilRecipe;
+import com.devdyna.justdynathings.config.Config;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
 import com.devdyna.justdynathings.init.types.zItemTags;
 import com.devdyna.justdynathings.init.types.zRecipeTypes;

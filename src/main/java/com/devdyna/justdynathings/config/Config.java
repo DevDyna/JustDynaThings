@@ -1,10 +1,11 @@
-package com.devdyna.justdynathings;
+package com.devdyna.justdynathings.config;
 
 import java.util.List;
 
 import org.slf4j.Logger;
 
 import com.devdyna.cakesticklib.api.utils.StringUtil;
+import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Constants.*;
 import com.mojang.logging.LogUtils;
 

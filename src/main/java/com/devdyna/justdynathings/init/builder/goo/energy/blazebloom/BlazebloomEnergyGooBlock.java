@@ -2,8 +2,8 @@ package com.devdyna.justdynathings.init.builder.goo.energy.blazebloom;
 
 import javax.annotation.Nullable;
 
-import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.api.goo.energy_goo.BaseFEGooBlock;
+import com.devdyna.justdynathings.config.Config;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntity;

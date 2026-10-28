@@ -2,8 +2,8 @@ package com.devdyna.justdynathings.init.builder.goo.energy.shadowpulse;
 
 
 
-import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.api.goo.energy_goo.BaseFEGooBE;
+import com.devdyna.justdynathings.config.Config;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
 
 import net.minecraft.core.BlockPos;

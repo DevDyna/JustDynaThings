@@ -1,7 +1,7 @@
 package com.devdyna.justdynathings.init.builder.ticker.simple;
 
-import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.api.ticker.BaseTickerScreen;
+import com.devdyna.justdynathings.config.Config;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;

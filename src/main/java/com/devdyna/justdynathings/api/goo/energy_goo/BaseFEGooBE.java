@@ -1,8 +1,8 @@
 package com.devdyna.justdynathings.api.goo.energy_goo;
 
 import com.devdyna.cakesticklib.api.RandomUtil;
-import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.api.be.EnergyMachine;
+import com.devdyna.justdynathings.config.Config;
 import com.direwolf20.justdirethings.common.blockentities.basebe.GooBlockBE_Base;
 import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineContainerData;
 import com.direwolf20.justdirethings.common.blocks.gooblocks.GooBlock_Base;

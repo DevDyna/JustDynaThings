@@ -2,9 +2,9 @@ package com.devdyna.justdynathings.init.builder.solar_panels.celestigem;
 
 import javax.annotation.Nullable;
 
-import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.api.Actions;
 import com.devdyna.justdynathings.api.solar_panels.SolarBlockBase;
+import com.devdyna.justdynathings.config.Config;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Player;

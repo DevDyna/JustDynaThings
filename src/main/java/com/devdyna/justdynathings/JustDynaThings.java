@@ -1,5 +1,6 @@
 package com.devdyna.justdynathings;
 
+import com.devdyna.justdynathings.config.Config;
 import com.devdyna.justdynathings.config.StartupConfig;
 import com.devdyna.justdynathings.init.Material;
 

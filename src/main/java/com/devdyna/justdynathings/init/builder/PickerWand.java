@@ -3,7 +3,7 @@ package com.devdyna.justdynathings.init.builder;
 
 import static com.devdyna.justdynathings.JustDynaThings.MODULE_ID;
 
-import com.devdyna.justdynathings.Config;
+import com.devdyna.justdynathings.config.Config;
 import com.devdyna.justdynathings.init.types.zBlockTags;
 import com.devdyna.justdynathings.init.types.zComponents;
 import com.direwolf20.justdirethings.common.blockentities.BlockSwapperT1BE;

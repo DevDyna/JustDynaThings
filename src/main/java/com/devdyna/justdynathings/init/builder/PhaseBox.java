@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.init.builder;
 
-import com.devdyna.justdynathings.Config;
+import com.devdyna.justdynathings.config.Config;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
 
 import net.minecraft.core.BlockPos;

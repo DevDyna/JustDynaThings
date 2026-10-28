@@ -1,8 +1,8 @@
 package com.devdyna.justdynathings.init.builder.repair_anvils.celestigem;
 
-import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.api.be.EnergyMachine;
 import com.devdyna.justdynathings.api.repair_anvils.FunctionalAnvilBE;
+import com.devdyna.justdynathings.config.Config;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
 import com.devdyna.justdynathings.init.types.zItemTags;
 

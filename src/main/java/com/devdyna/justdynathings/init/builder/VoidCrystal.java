@@ -7,7 +7,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import com.devdyna.cakesticklib.api.animations.AnimatedText;
-import com.devdyna.justdynathings.Config;
+import com.devdyna.justdynathings.config.Config;
 import com.direwolf20.justdirethings.common.items.resources.TimeCrystal;
 
 import net.minecraft.ChatFormatting;

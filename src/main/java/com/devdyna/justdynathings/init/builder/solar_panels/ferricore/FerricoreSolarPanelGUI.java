@@ -1,7 +1,7 @@
 package com.devdyna.justdynathings.init.builder.solar_panels.ferricore;
 
-import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.api.solar_panels.SolarGUIBase;
+import com.devdyna.justdynathings.config.Config;
 import com.devdyna.justdynathings.init.types.zBiomeTags;
 import com.devdyna.justdynathings.init.types.zBlocks;
 import com.devdyna.justdynathings.init.types.zContainers;

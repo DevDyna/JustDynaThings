@@ -3,9 +3,9 @@ package com.devdyna.justdynathings.init.builder;
 import java.util.List;
 import java.util.Optional;
 
-import com.devdyna.justdynathings.Config;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.JustDynaThings;
+import com.devdyna.justdynathings.config.Config;
 import com.devdyna.justdynathings.init.types.zComponents;
 import com.direwolf20.justdirethings.common.entities.TimeWandEntity;
 import com.direwolf20.justdirethings.common.items.TimeWand;

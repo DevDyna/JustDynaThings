@@ -2,7 +2,7 @@ package com.devdyna.justdynathings.init.builder.light_wands;
 
 
 
-import com.devdyna.justdynathings.Config;
+import com.devdyna.justdynathings.config.Config;
 import com.devdyna.justdynathings.init.types.zBlocks;
 import com.devdyna.justdynathings.init.types.zEntityTags;
 

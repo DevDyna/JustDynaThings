@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.mixin;
+package com.devdyna.justdynathings.mixin.jdt;
 
 import com.direwolf20.justdirethings.common.blockentities.EnergyTransmitterBE;
 import net.minecraft.core.BlockPos;

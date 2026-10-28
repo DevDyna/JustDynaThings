@@ -7,7 +7,7 @@ displayName="${mod_name}"
 description='''${mod_description}'''
 
 [[mixins]]
-config = "${mod_id}.mixins.json"
+config = "mixin/jdt.mixins.json"
 
 
 [[dependencies.${mod_id}]]

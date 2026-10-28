@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.mixin;
+package com.devdyna.justdynathings.mixin.jdt;
 
 import com.devdyna.cakesticklib.api.utils.x;
 import com.devdyna.justdynathings.Config;

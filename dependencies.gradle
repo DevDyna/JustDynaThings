@@ -29,9 +29,12 @@ dependencies {
     runtimeOnly "mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}"
     implementation "curse.maven:jade-324717:7886513"
 
+    //extra
+    implementation "curse.maven:ctm-lib-1568397:${ctm_lib}"
+    implementation "curse.maven:chisel-3-225236:${chisel}"
+
     //lib
     implementation "curse.maven:cakesticklib-1516173:${cakesticklib}"
-  
 
     //main
     implementation "curse.maven:justdirethings-1002348:${justdirethings}"
@@ -42,21 +45,6 @@ dependencies {
 
     //implementation "curse.maven:guideme-1173950:6688687"
     //implementation "curse.maven:geore-530544:7075069"
-    //implementation "curse.maven:chisel-1392308:7307989"
 
-    //datagen libs
-    //implementation "curse.maven:glodium-957920:5821676"
-    //implementation "curse.maven:kotlin-351264:6994056"
-    //implementation "curse.maven:owo-532610:6785734"
-    //implementation "curse.maven:ctm-267602:5587515"
-    //implementation "curse.maven:baguete-1264423:7287507"
-
-    
-
-
-   
-   
-   
-   
   
 }

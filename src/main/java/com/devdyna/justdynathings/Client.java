@@ -1,6 +1,8 @@
 package com.devdyna.justdynathings;
 
 import java.awt.Color;
+
+import com.devdyna.cakesticklib.api.utils.ModAddonUtil;
 import com.devdyna.cakesticklib.api.utils.TimeUtil;
 import com.devdyna.cakesticklib.api.utils.x;
 import com.devdyna.justdynathings.api.FluidRenderUtils;
@@ -27,6 +29,8 @@ import com.devdyna.justdynathings.init.types.zContainers;
 import com.devdyna.justdynathings.init.types.zFluids;
 import com.devdyna.justdynathings.init.types.zItems;
 import com.direwolf20.justdirethings.client.itemcustomrenders.FluidbarDecorator;
+
+import io.github.chiselteam.chisel.client.render.item.ChiselItemDecorator;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.crafting.RecipeMap;
@@ -107,6 +111,14 @@ public class Client {
     @SubscribeEvent
     public static void renderDecorators(RegisterItemDecorationsEvent event) {
         event.register(zItems.ADVANCED_TIME_WAND.get(), new FluidbarDecorator());
+
+        if (ModAddonUtil.checkMod("chisel")) {
+            event.register(zItems.FERRICORE_CHISEL.get(), new ChiselItemDecorator());
+            event.register(zItems.BLAZEGOLD_CHISEL.get(), new ChiselItemDecorator());
+            event.register(zItems.CELESTIGEM_CHISEL.get(), new ChiselItemDecorator());
+            event.register(zItems.ECLIPSEALLOY_CHISEL.get(), new ChiselItemDecorator());
+        }
+
     }
 
     @SubscribeEvent

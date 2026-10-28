@@ -5,7 +5,7 @@ import static com.devdyna.justdynathings.JustDynaThings.MODULE_ID;
 import com.devdyna.cakesticklib.api.datagen.LangUtils;
 import com.devdyna.cakesticklib.api.datagen.LangUtils.TipColors;
 import com.devdyna.justdynathings.Constants;
-
+import com.devdyna.justdynathings.Constants.ConfigKeys;
 import com.devdyna.justdynathings.init.types.zBlocks;
 import com.devdyna.justdynathings.init.types.zFluids;
 import com.devdyna.justdynathings.init.types.zItems;
@@ -414,6 +414,20 @@ public class DataLang extends LanguageProvider {
 
                 add(MODULE_ID + ".gui." + Constants.Blocks.Ticker.BASE + ".cost.fe", "FE/ticks: %s");
                 add(MODULE_ID + ".gui." + Constants.Blocks.Ticker.BASE + ".cost.mb", "MB/ticks: %s");
+
+                add(MODULE_ID + ".configuration.startup_chisels", "Chisel 3 Compat (Startup)");
+                add(MODULE_ID + ".configuration.ferricore_chisel_durability", "Ferricore Chisel Durability");
+                add(MODULE_ID + ".configuration.blazegold_chisel_durability", "Blazegold Chisel Durability");
+
+                add(MODULE_ID + ".configuration.server_chisels", "Chisel 3 Compat (Server)");
+                add(MODULE_ID + ".configuration.eclipse_alloy_chisel_max_energy_storage",
+                                "Eclipse Alloy Chisel " + ConfigKeys.Display.FE_MAX);
+                add(MODULE_ID + ".configuration.eclipse_alloy_chisel_energy_every_tick",
+                                "Eclipse Alloy Chisel " + ConfigKeys.Display.FE_RATE);
+                add(MODULE_ID + ".configuration.celestigem_chisel_energy_every_tick",
+                                "Celestigem Chisel " + ConfigKeys.Display.FE_RATE);
+                add(MODULE_ID + ".configuration.celestigem_chisel_max_energy_storage",
+                                "Celestigem Chisel " + ConfigKeys.Display.FE_MAX);
 
         }
 

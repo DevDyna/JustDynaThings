@@ -175,17 +175,16 @@ public class Config {
         public static IntValue ECLIPSE_ALLOY_CHISEL_FE_COST;
 
         public static void register(ModContainer c) {
-                regCommon();
-                c.registerConfig(ModConfig.Type.SERVER, BUILDER.build());
-        }
 
-        private static void regCommon() {
                 misc();
                 blocks();
                 goo();
                 solar_panel();
                 anvil();
                 wands();
+                compats();
+
+                c.registerConfig(ModConfig.Type.SERVER, BUILDER.build());
         }
 
         private static void misc() {
@@ -706,6 +705,33 @@ public class Config {
 
                 BUILDER.pop();
 
+        }
+
+        private static void compats() {
+
+                BUILDER.comment("Chisel 3 Compat (Server)").push("server_chisels");
+
+                CELESTIGEM_CHISEL_FE_CAPACITY = BUILDER
+                                .comment("Celestigem Chisel " + ConfigKeys.Display.FE_MAX)
+                                .defineInRange(Tiers.celestigem + "_chisel" + ConfigKeys.Values.FE_MAX, 1000, 1,
+                                                Integer.MAX_VALUE);
+
+                CELESTIGEM_CHISEL_FE_COST = BUILDER
+                                .comment("Celestigem Chisel " + ConfigKeys.Display.FE_RATE)
+                                .defineInRange(Tiers.celestigem + "_chisel" + ConfigKeys.Values.FE_RATE, 1, 1,
+                                                Integer.MAX_VALUE);
+
+                ECLIPSE_ALLOY_CHISEL_FE_CAPACITY = BUILDER
+                                .comment("Eclipse Alloy Chisel " + ConfigKeys.Display.FE_MAX)
+                                .defineInRange(Tiers.eclipsealloy + "_chisel" + ConfigKeys.Values.FE_MAX, 10000, 1,
+                                                Integer.MAX_VALUE);
+
+                ECLIPSE_ALLOY_CHISEL_FE_COST = BUILDER
+                                .comment("Eclipse Alloy Chisel " + ConfigKeys.Display.FE_RATE)
+                                .defineInRange(Tiers.eclipsealloy + "_chisel" + ConfigKeys.Values.FE_RATE, 10, 1,
+                                                Integer.MAX_VALUE);
+
+                BUILDER.pop();
         }
 
         private static BooleanValue bool(String c, String k, boolean b) {

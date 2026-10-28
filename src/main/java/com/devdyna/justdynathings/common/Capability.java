@@ -1,6 +1,8 @@
 package com.devdyna.justdynathings.common;
 
 import com.direwolf20.justdirethings.common.capabilities.FluidHandlerItemStack;
+import com.devdyna.cakesticklib.api.utils.ArrayUtils;
+import com.devdyna.cakesticklib.api.utils.ModAddonUtil;
 import com.devdyna.justdynathings.api.be.EnergyMachine;
 import com.devdyna.justdynathings.api.be.FluidMachine;
 import com.devdyna.justdynathings.init.builder.adv_energy_transmitter.AdvEnergyTransmitterBE;
@@ -90,6 +92,13 @@ public class Capability {
                                 zItems.ADVANCED_TIME_WAND.get(), zItems.ADVANCED_LIGHT_WAND.get()
                 };
 
+                if (ModAddonUtil.checkMod("chisel"))
+                        PoweredItems = ArrayUtils.concat(PoweredItems,
+                                        new Item[] { zItems.FERRICORE_CHISEL.get(),
+                                                        zItems.BLAZEGOLD_CHISEL.get(),
+                                                        zItems.CELESTIGEM_CHISEL.get(),
+                                                        zItems.ECLIPSEALLOY_CHISEL.get() });
+
                 // ---------------------------------------------------------------------------------------//
                 // generic itemhandler
                 event.registerBlock(
@@ -178,8 +187,6 @@ public class Capability {
 
                                 },
                                 zBlocks.ADVANCED_ENERGY_TRANSMITTER.get());
-
-               
 
         }
 }

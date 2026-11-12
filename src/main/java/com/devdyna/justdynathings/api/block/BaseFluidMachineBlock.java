@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.api;
+package com.devdyna.justdynathings.api.block;
 
 import com.devdyna.cakesticklib.api.aspect.logic.BucketInteraction;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;

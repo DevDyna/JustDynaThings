@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.api;
+package com.devdyna.justdynathings.api.block;
 
 import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
 import net.minecraft.world.level.Level;
@@ -14,8 +14,8 @@ import org.jetbrains.annotations.Nullable;
  *  simplified version of BaseMachineBlock blockbuilder
  */
 
- public abstract class BlockBaseBE extends Block implements EntityBlock {
-    public BlockBaseBE(Properties properties) {
+ public abstract class BaseBlockBE extends Block implements EntityBlock {
+    public BaseBlockBE(Properties properties) {
         super(properties);
     }
     

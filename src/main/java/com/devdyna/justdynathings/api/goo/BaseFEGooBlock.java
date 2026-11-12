@@ -1,9 +1,8 @@
-package com.devdyna.justdynathings.api.goo.energy_goo;
+package com.devdyna.justdynathings.api.goo;
 
 import static com.devdyna.justdynathings.JustDynaThings.MODULE_ID;
 
 import com.devdyna.justdynathings.Constants;
-import com.devdyna.justdynathings.api.TippedGooBlock;
 import com.direwolf20.justdirethings.common.blocks.gooblocks.GooBlock_Base;
 
 import net.minecraft.network.chat.Component;

@@ -1,19 +1,15 @@
 package com.devdyna.justdynathings.init.builder.stabilizer;
 
 import com.devdyna.cakesticklib.api.RandomUtil;
-import com.devdyna.justdynathings.api.TippedGooBlock;
-import com.devdyna.justdynathings.api.be.EnergyMachine;
-import com.devdyna.justdynathings.api.be.FluidMachine;
+import com.devdyna.justdynathings.api.be.*;
+import com.devdyna.justdynathings.api.goo.BaseFEGooBlock;
 import com.devdyna.justdynathings.config.ServerConfig;
 import com.devdyna.justdynathings.init.builder.goo.creative.CreativeGoo;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
-import com.direwolf20.justdirethings.common.blockentities.basebe.BaseMachineBE;
-import com.direwolf20.justdirethings.common.blockentities.basebe.FluidContainerData;
-import com.direwolf20.justdirethings.common.blockentities.basebe.PoweredMachineContainerData;
+import com.direwolf20.justdirethings.common.blockentities.basebe.*;
 import com.direwolf20.justdirethings.common.blocks.gooblocks.GooBlock_Base;
 import com.direwolf20.justdirethings.common.blocks.resources.TimeCrystalBuddingBlock;
-import com.direwolf20.justdirethings.common.capabilities.JustDireFluidTank;
-import com.direwolf20.justdirethings.common.capabilities.MachineEnergyStorage;
+import com.direwolf20.justdirethings.common.capabilities.*;
 import com.direwolf20.justdirethings.setup.JDTRegistration;
 
 import net.minecraft.core.BlockPos;
@@ -140,7 +136,7 @@ public class StabilizerBE extends BaseMachineBE implements EnergyMachine, FluidM
 
     public boolean whenActive() {
         return (level.getBlockState(getGooPos()).getBlock() instanceof GooBlock_Base goo
-                && !(goo instanceof TippedGooBlock || goo instanceof CreativeGoo))
+                && !(goo instanceof BaseFEGooBlock || goo instanceof CreativeGoo))
                 || level.getBlockState(getGooPos()).getBlock() instanceof BuddingAmethystBlock;
     }
 

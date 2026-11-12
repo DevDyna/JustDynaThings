@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.api;
+package com.devdyna.justdynathings.api.goo;
 
 import net.minecraft.network.chat.Component;
 

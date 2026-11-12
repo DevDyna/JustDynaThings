@@ -4,7 +4,7 @@ import static com.devdyna.justdynathings.JustDynaThings.MODULE_ID;
 
 import com.devdyna.cakesticklib.api.utils.ColorUtils;
 import com.devdyna.justdynathings.Constants;
-import com.devdyna.justdynathings.api.TippedGooBlock;
+import com.devdyna.justdynathings.api.goo.TippedGooBlock;
 import com.devdyna.justdynathings.api.repair_anvils.FunctionalAnvilBlock;
 import com.devdyna.justdynathings.api.solar_panels.SolarBlockBase;
 import com.devdyna.justdynathings.init.builder.AbstractParadox;

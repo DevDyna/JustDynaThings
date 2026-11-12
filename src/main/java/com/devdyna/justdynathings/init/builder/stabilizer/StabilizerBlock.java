@@ -3,8 +3,7 @@ package com.devdyna.justdynathings.init.builder.stabilizer;
 import javax.annotation.Nullable;
 
 import com.devdyna.cakesticklib.api.aspect.logic.BucketInteraction;
-
-import com.devdyna.justdynathings.api.BlockBaseBE;
+import com.devdyna.justdynathings.api.block.BlockBaseBE;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
 
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;

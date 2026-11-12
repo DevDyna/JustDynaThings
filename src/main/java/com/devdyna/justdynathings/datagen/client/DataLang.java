@@ -409,8 +409,8 @@ public class DataLang extends LanguageProvider {
                 add(MODULE_ID + ".gui.solarpanel.tip.biomes.empty.whitelist", TipColors.RED + "Any biome is invalid!");
                 add(MODULE_ID + ".gui.solarpanel.tip.biomes.empty.blacklist", TipColors.GREEN + "Any biome is valid");
 
-                add(MODULE_ID + ".gui.tip.scroll.up", TipColors.GRAY + TipColors.ITALIC + "<Scroll up>");
-                add(MODULE_ID + ".gui.tip.scroll.down", TipColors.GRAY + TipColors.ITALIC + "<Scroll down>");
+                // add(MODULE_ID + ".gui.tip.scroll.up", TipColors.GRAY + TipColors.ITALIC + "<Scroll up>");
+                // add(MODULE_ID + ".gui.tip.scroll.down", TipColors.GRAY + TipColors.ITALIC + "<Scroll down>");
 
                 add(MODULE_ID + ".gui." + Constants.Blocks.Ticker.BASE + ".cost.fe", "FE/ticks: %s");
                 add(MODULE_ID + ".gui." + Constants.Blocks.Ticker.BASE + ".cost.mb", "MB/ticks: %s");

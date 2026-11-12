@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.api.goo.energy_goo;
+package com.devdyna.justdynathings.api.goo;
 
 import static com.devdyna.justdynathings.JustDynaThings.MODULE_ID;
 

@@ -3,7 +3,7 @@ package com.devdyna.justdynathings.init.builder.stabilizer;
 import javax.annotation.Nullable;
 
 import com.devdyna.cakesticklib.api.aspect.logic.BucketInteraction;
-import com.devdyna.justdynathings.api.block.BlockBaseBE;
+import com.devdyna.justdynathings.api.block.BaseBlockBE;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
 
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
@@ -29,7 +29,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class StabilizerBlock extends BlockBaseBE implements BucketInteraction {
+public class StabilizerBlock extends BaseBlockBE implements BucketInteraction {
 
     public static final BooleanProperty ACTIVE = BooleanProperty.create("active");
     public static final BooleanProperty ENERGIZED = BooleanProperty.create("energized");

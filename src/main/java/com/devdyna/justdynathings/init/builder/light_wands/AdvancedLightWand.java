@@ -1,5 +1,6 @@
 package com.devdyna.justdynathings.init.builder.light_wands;
 
+import com.devdyna.justdynathings.api.lightwand.ItemLightWand;
 import com.devdyna.justdynathings.config.ServerConfig;
 import com.direwolf20.justdirethings.common.items.interfaces.BasePoweredItem;
 import com.direwolf20.justdirethings.common.items.interfaces.PoweredItem;
@@ -11,7 +12,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 
-public class AdvancedLightWand extends BasePoweredItem implements PoweredItem, ILightWand {
+public class AdvancedLightWand extends BasePoweredItem implements PoweredItem, ItemLightWand {
 
     public AdvancedLightWand(Properties p) {
         super(p.stacksTo(1));

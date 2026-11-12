@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.init.builder.light_wands;
+package com.devdyna.justdynathings.api.lightwand;
 
 import com.devdyna.justdynathings.config.ServerConfig;
 import com.devdyna.justdynathings.init.types.zBlocks;
@@ -22,7 +22,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.Fluids;
 import net.neoforged.neoforge.common.util.FakePlayer;
 
-public interface ILightWand {
+public interface ItemLightWand {
 
     boolean condToRun(ItemStack stack);
 

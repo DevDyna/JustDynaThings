@@ -11,12 +11,10 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 
-
 public class AdvancedLightWand extends BasePoweredItem implements PoweredItem, ILightWand {
 
     public AdvancedLightWand(Properties p) {
-        super(p
-                .stacksTo(1));
+        super(p.stacksTo(1));
     }
 
     @Override
@@ -35,7 +33,7 @@ public class AdvancedLightWand extends BasePoweredItem implements PoweredItem, I
 
     @Override
     public void consume(Player player, ItemStack stack, InteractionHand hand) {
-        PoweredItem.consumeEnergy(player,stack, getFECostAtUse());
+        PoweredItem.consumeEnergy(player, stack, getFECostAtUse());
     }
 
     @Override

@@ -1,7 +1,5 @@
 package com.devdyna.justdynathings.init.builder.light_wands;
 
-
-
 import com.devdyna.justdynathings.config.ServerConfig;
 import com.devdyna.justdynathings.init.types.zBlocks;
 import com.devdyna.justdynathings.init.types.zEntityTags;
@@ -63,10 +61,8 @@ public interface ILightWand {
     default InteractionResult itemUse(UseOnContext c) {
         var level = c.getLevel();
         var pos = c.getClickedPos();
-        var dir = c.getClickedFace();
         var player = c.getPlayer();
-        var item = c.getItemInHand();
-        var offset = pos.relative(dir);
+        var offset = pos.relative(c.getClickedFace());
         var hand = c.getHand();
         var state = level.getBlockState(pos);
         var ofstate = level.getBlockState(offset);
@@ -78,7 +74,7 @@ public interface ILightWand {
 
             if (ofstate.canBeReplaced() && !ofstate.is(zBlocks.LIGHT_WAND_BLOCK.get())
                     && ServerConfig.LIGHT_WAND_PLACING.get())
-                return createLight(player, item, hand, level, offset);
+                return createLight(player, c.getItemInHand(), hand, level, offset);
         }
 
         return InteractionResult.FAIL;
@@ -89,6 +85,7 @@ public interface ILightWand {
      */
     private InteractionResult createLight(Player player, ItemStack item, InteractionHand hand, Level level,
             BlockPos pos) {
+
         if (!player.isCreative())
             consume(player, item, hand);
 
@@ -99,8 +96,7 @@ public interface ILightWand {
                         !fluid.isEmpty() && fluid.isSource() && fluid.is(Fluids.WATER)));
 
         if (ServerConfig.LIGHT_WAND_SOUND.get())
-            player.level().playSound(player, player.getOnPos(), SoundEvents.ALLAY_ITEM_GIVEN,
-                    SoundSource.PLAYERS,
+            player.level().playSound(player, player.getOnPos(), SoundEvents.ALLAY_ITEM_GIVEN, SoundSource.PLAYERS,
                     0.25F, 1F);
 
         return InteractionResult.SUCCESS;
@@ -126,8 +122,8 @@ public interface ILightWand {
         return InteractionResult.SUCCESS;
     }
 
-    private boolean checkFakePlayers(Player player){
-        return ServerConfig.FAKEPLAYER_LIGHT_WAND.get() ?  true : player instanceof FakePlayer;
+    private boolean checkFakePlayers(Player player) {
+        return ServerConfig.FAKEPLAYER_LIGHT_WAND.get() ? true : player instanceof FakePlayer;
     }
 
 }

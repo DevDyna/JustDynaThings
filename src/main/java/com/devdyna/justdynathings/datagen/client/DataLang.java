@@ -2,7 +2,7 @@ package com.devdyna.justdynathings.datagen.client;
 
 import static com.devdyna.justdynathings.JustDynaThings.MODULE_ID;
 
-import com.devdyna.cakesticklib.api.datagen.LangUtils;
+import com.devdyna.cakesticklib.api.datagen.LangGenerators;
 import com.devdyna.cakesticklib.api.datagen.LangUtils.TipColors;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Constants.ConfigKeys;
@@ -14,7 +14,7 @@ import com.direwolf20.justdirethings.setup.JDTRegistration;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
-public class DataLang extends LanguageProvider {
+public class DataLang extends LanguageProvider implements LangGenerators {
 
         public DataLang(PackOutput o) {
                 super(o, MODULE_ID, "en_us");
@@ -23,15 +23,15 @@ public class DataLang extends LanguageProvider {
         @Override
         protected void addTranslations() {
 
-                zItems.zItem.getEntries().forEach(i -> addItem(i, LangUtils.named(i, MODULE_ID)));
-                zItems.zBucketItems.getEntries().forEach(i -> addItem(i, LangUtils.named(i, MODULE_ID)));
-                zItems.zGooUpgraders.getEntries().forEach(i -> addItem(i, LangUtils.named(i, MODULE_ID)));
-                zItems.zWands.getEntries().forEach(i -> addItem(i, LangUtils.named(i, MODULE_ID)));
-                zBlocks.zBlockItem.getEntries().forEach(i -> addBlock(i, LangUtils.named(i, MODULE_ID)));
-                zBlocks.zBlockFluids.getEntries().forEach(i -> addBlock(i, LangUtils.named(i, MODULE_ID)));
+                zItems.zItem.getEntries().forEach(i -> addItem(i, named(i)));
+                zItems.zBucketItems.getEntries().forEach(i -> addItem(i, named(i)));
+                zItems.zGooUpgraders.getEntries().forEach(i -> addItem(i, named(i)));
+                zItems.zWands.getEntries().forEach(i -> addItem(i, named(i)));
+                zBlocks.zBlockItem.getEntries().forEach(i -> addBlock(i, named(i)));
+                zBlocks.zBlockFluids.getEntries().forEach(i -> addBlock(i, named(i)));
                 zFluids.zFluidTypes.getEntries().forEach(
                                 f -> add(f.get().getDescriptionId(),
-                                                LangUtils.named(f, MODULE_ID).replace(" Type", "")));
+                                                named(f).replace(" Type", "")));
 
                 add(MODULE_ID + ".invalid_block", "§cInvalid Block");
                 add(MODULE_ID + ".wand.blockstate", TipColors.ITEM_TOOLTIP + "BlockState : ");
@@ -149,6 +149,8 @@ public class DataLang extends LanguageProvider {
 
                 add(MODULE_ID + "." + Constants.Blocks.Ticker.BASE + ".tick_overflow",
                                 "Ticker Speed is capped to %s");
+
+                // TODO rework to use new config methods
 
                 add(MODULE_ID + ".configuration.entry_anvils", "Functional Anvils");
                 add(MODULE_ID + ".configuration.entry_blocks", "Misc Blocks");
@@ -397,8 +399,10 @@ public class DataLang extends LanguageProvider {
                 add(MODULE_ID + ".gui.solarpanel.tip.biomes.empty.whitelist", TipColors.RED + "Any biome is invalid!");
                 add(MODULE_ID + ".gui.solarpanel.tip.biomes.empty.blacklist", TipColors.GREEN + "Any biome is valid");
 
-                // add(MODULE_ID + ".gui.tip.scroll.up", TipColors.GRAY + TipColors.ITALIC + "<Scroll up>");
-                // add(MODULE_ID + ".gui.tip.scroll.down", TipColors.GRAY + TipColors.ITALIC + "<Scroll down>");
+                // add(MODULE_ID + ".gui.tip.scroll.up", TipColors.GRAY + TipColors.ITALIC +
+                // "<Scroll up>");
+                // add(MODULE_ID + ".gui.tip.scroll.down", TipColors.GRAY + TipColors.ITALIC +
+                // "<Scroll down>");
 
                 add(MODULE_ID + ".gui." + Constants.Blocks.Ticker.BASE + ".cost.fe", "FE/ticks: %s");
                 add(MODULE_ID + ".gui." + Constants.Blocks.Ticker.BASE + ".cost.mb", "MB/ticks: %s");

@@ -5,7 +5,6 @@ import static com.devdyna.justdynathings.JustDynaThings.MODULE_ID;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import com.devdyna.cakesticklib.CakeStickLib;
 import com.devdyna.cakesticklib.api.compat.jei.JEIAliasesHelper;
 import com.devdyna.cakesticklib.api.utils.ModAddonUtil;
 import com.devdyna.cakesticklib.api.utils.x;
@@ -169,19 +168,15 @@ public class JEIPlugin implements IModPlugin {
         @Override
         public void registerIngredientAliases(IIngredientAliasRegistration r) {
 
-                // TODO deprecated aliasses
-
                 JEIAliasesHelper.addAlias(r,
                                 List.of(zBlocks.FERRICORE_CLOCK),
-                                CakeStickLib.MODULE_ID + ".jei.alias.timer");
-
-                JEIAliasesHelper.addAlias(r,
-                                List.of(zBlocks.FERRICORE_CLOCK),
-                                CakeStickLib.MODULE_ID + ".jei.alias.redstone_clock");
+                                JEIAliasesHelper.Alias.TIMER,
+                                JEIAliasesHelper.Alias.REDSTONE_TIMER,
+                                JEIAliasesHelper.Alias.REDSTONE_COMPONENT);
 
                 JEIAliasesHelper.addAlias(r,
                                 List.of(zBlocks.PHASEBOX),
-                                CakeStickLib.MODULE_ID + ".jei.alias.ethereal_block");
+                                JEIAliasesHelper.Alias.ETHEREAL);
 
                 JEIAliasesHelper.addAlias(r,
                                 List.of(
@@ -189,7 +184,7 @@ public class JEIPlugin implements IModPlugin {
                                                 zBlocks.BLAZEGOLD_SOLARGEN,
                                                 zBlocks.CELESTIGEM_SOLARGEN,
                                                 zBlocks.ECLIPSEALLOY_SOLARGEN),
-                                CakeStickLib.MODULE_ID + ".jei.alias.generator");
+                                JEIAliasesHelper.Alias.ENERGY_GENERATOR);
 
                 JEIAliasesHelper.addAlias(r,
                                 List.of(
@@ -197,23 +192,14 @@ public class JEIPlugin implements IModPlugin {
                                                 zBlocks.BLAZEGOLD_ANVIL,
                                                 zBlocks.CELESTIGEM_ANVIL,
                                                 zBlocks.ECLIPSEALLOY_ANVIL),
-                                CakeStickLib.MODULE_ID + ".jei.alias.item_repairer");
+                                JEIAliasesHelper.Alias.ITEM_REPAIRER);
 
                 JEIAliasesHelper.addAlias(r,
                                 List.of(zBlocks.BLACKHOLE),
-                                CakeStickLib.MODULE_ID + ".jei.alias.buffer.fluid");
-
-                JEIAliasesHelper.addAlias(r,
-                                List.of(zBlocks.BLACKHOLE),
-                                CakeStickLib.MODULE_ID + ".jei.alias.buffer.energy");
-
-                JEIAliasesHelper.addAlias(r,
-                                List.of(zBlocks.BLACKHOLE),
-                                CakeStickLib.MODULE_ID + ".jei.alias.buffer.item");
-
-                JEIAliasesHelper.addAlias(r,
-                                List.of(zBlocks.BLACKHOLE),
-                                CakeStickLib.MODULE_ID + ".jei.alias.trash_can");
+                                JEIAliasesHelper.Alias.TRASH_CAN,
+                                JEIAliasesHelper.Alias.ITEM_BUFFER,
+                                JEIAliasesHelper.Alias.ENERGY_BUFFER,
+                                JEIAliasesHelper.Alias.FLUID_BUFFER);
 
         }
 

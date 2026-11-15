@@ -3,7 +3,7 @@ package com.devdyna.justdynathings.init.builder.black_hole;
 import javax.annotation.Nullable;
 
 import com.devdyna.justdynathings.api.Actions;
-import com.devdyna.justdynathings.api.BaseFluidMachineBlock;
+import com.devdyna.justdynathings.api.block.BaseFluidMachineBlock;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
 
 import net.minecraft.core.BlockPos;

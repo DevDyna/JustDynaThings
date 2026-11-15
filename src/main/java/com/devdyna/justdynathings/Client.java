@@ -6,7 +6,7 @@ import com.devdyna.cakesticklib.api.utils.ModAddonUtil;
 import com.devdyna.cakesticklib.api.utils.TimeUtil;
 import com.devdyna.cakesticklib.api.utils.x;
 import com.devdyna.justdynathings.api.FluidRenderUtils;
-import com.devdyna.justdynathings.api.goo.energy_goo.EnergyGooRender;
+import com.devdyna.justdynathings.api.goo.EnergyGooRender;
 import com.devdyna.justdynathings.api.solar_panels.SolarPanelScreen;
 import com.devdyna.justdynathings.init.builder.adv_energy_transmitter.AdvEnergyTransmitterRenderer;
 import com.devdyna.justdynathings.init.builder.adv_energy_transmitter.AdvEnergyTransmitterScreen;

@@ -58,14 +58,12 @@ public class LightWandBlock extends LightBlock {
 
     @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
-
         if (RandomUtil.chance(level, 25) && ServerConfig.LIGHT_BLOCK_PARTICLES.get())
             level.addParticle(ParticleTypes.ELECTRIC_SPARK,
                     pos.getX() + 0.5 + 0.1 * random.nextInt(5) * (RandomUtil.rnd50(level) ? 1 : -1),
                     pos.getY() + 0.5 + 0.1 * random.nextInt(5) * (RandomUtil.rnd50(level) ? 1 : -1),
                     pos.getZ() + 0.5 + 0.1 * random.nextInt(5) * (RandomUtil.rnd50(level) ? 1 : -1),
                     0, 0, 0);
-
     }
 
 }

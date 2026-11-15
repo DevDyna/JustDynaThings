@@ -2,7 +2,7 @@ package com.devdyna.justdynathings.init.builder.goo.creative;
 
 import javax.annotation.Nullable;
 
-import com.devdyna.justdynathings.api.TippedGooBlock;
+import com.devdyna.justdynathings.api.goo.TippedGooBlock;
 import com.devdyna.justdynathings.config.ServerConfig;
 import com.devdyna.justdynathings.init.types.zItemTags;
 import com.direwolf20.justdirethings.common.blocks.gooblocks.GooBlock_Base;

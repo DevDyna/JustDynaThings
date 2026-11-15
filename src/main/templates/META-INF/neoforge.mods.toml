@@ -5,6 +5,7 @@ modId="${mod_id}"
 version="${mod_version}"
 displayName="${mod_name}"
 description='''${mod_description}'''
+logoFile = "icon.png"
 
 [[mixins]]
 config = "mixin/jdt.mixins.json"

@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.api.goo.energy_goo;
+package com.devdyna.justdynathings.api.goo;
 
 import com.direwolf20.justdirethings.client.blockentityrenders.baseber.GooBlockRender_Base;
 import com.mojang.blaze3d.vertex.PoseStack;

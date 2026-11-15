@@ -1,4 +1,4 @@
-package com.devdyna.justdynathings.api.goo.energy_goo;
+package com.devdyna.justdynathings.api.goo;
 
 import com.devdyna.cakesticklib.api.RandomUtil;
 import com.devdyna.justdynathings.api.be.EnergyMachine;

@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.api.repair_anvils;
 
-import com.devdyna.justdynathings.api.BaseFluidMachineBlock;
+import com.devdyna.justdynathings.api.block.BaseFluidMachineBlock;
 import com.direwolf20.justdirethings.common.blocks.baseblocks.BaseMachineBlock;
 
 import net.minecraft.core.BlockPos;

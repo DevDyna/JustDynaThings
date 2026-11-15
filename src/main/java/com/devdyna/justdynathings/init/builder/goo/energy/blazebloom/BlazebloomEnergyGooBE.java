@@ -1,6 +1,6 @@
 package com.devdyna.justdynathings.init.builder.goo.energy.blazebloom;
 
-import com.devdyna.justdynathings.api.goo.energy_goo.BaseFEGooBE;
+import com.devdyna.justdynathings.api.goo.BaseFEGooBE;
 import com.devdyna.justdynathings.config.ServerConfig;
 import com.devdyna.justdynathings.init.types.zBlockEntities;
 

@@ -410,7 +410,7 @@ public class DataRecipe extends RecipeProvider {
                                                 has(JDTRegistration.Celestigem.get()))
                                 .save(output);
 
-                // TODO
+                // TODO content
                 // GooSpreadRecipeBuilder.shapeless(x.block(zFluids.INSTABILITY_FLUID.getBlock()).defaultBlockState(),
                 // null, 4, 100);
 

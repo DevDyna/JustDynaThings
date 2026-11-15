@@ -1,5 +1,6 @@
 package com.devdyna.justdynathings.init.builder.light_wands;
 
+import com.devdyna.justdynathings.api.lightwand.ItemLightWand;
 import com.devdyna.justdynathings.config.ServerConfig;
 import com.direwolf20.justdirethings.common.items.interfaces.BaseToggleableTool;
 import com.direwolf20.justdirethings.common.items.interfaces.LeftClickableTool;
@@ -11,13 +12,10 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 
-
-public class LightWandItem extends BaseToggleableTool implements LeftClickableTool , ILightWand{
+public class LightWandItem extends BaseToggleableTool implements LeftClickableTool, ItemLightWand {
 
     public LightWandItem(Properties p) {
-        super(p
-                .durability(512)
-                .stacksTo(1));
+        super(p.durability(512).stacksTo(1));
     }
 
     @Override
@@ -36,7 +34,7 @@ public class LightWandItem extends BaseToggleableTool implements LeftClickableTo
         return ServerConfig.LIGHT_WAND_GLOWING_DURATION.get();
     }
 
-      @Override
+    @Override
     public InteractionResult useOn(UseOnContext context) {
         return itemUse(context);
     }

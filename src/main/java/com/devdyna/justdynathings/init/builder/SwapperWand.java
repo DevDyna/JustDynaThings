@@ -1,6 +1,5 @@
 package com.devdyna.justdynathings.init.builder;
 
-
 import static com.devdyna.justdynathings.JustDynaThings.MODULE_ID;
 
 import com.devdyna.justdynathings.config.ServerConfig;
@@ -23,16 +22,11 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.common.util.FakePlayer;
 
-
 public class SwapperWand extends Item {
 
     public SwapperWand(Properties p) {
-        super(p
-                .component(JustDireDataComponents.BOUND_GLOBAL_POS, null)
-                .stacksTo(1).durability(256));
+        super(p.component(JustDireDataComponents.BOUND_GLOBAL_POS, null).stacksTo(1).durability(256));
     }
-
- 
 
     @Override
     public InteractionResult use(Level level, Player player, InteractionHand hand) {
@@ -134,7 +128,4 @@ public class SwapperWand extends Item {
         }
     }
 
-    
-
-    
 }

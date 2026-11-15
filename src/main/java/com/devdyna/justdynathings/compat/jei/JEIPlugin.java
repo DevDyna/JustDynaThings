@@ -46,7 +46,6 @@ import net.minecraft.world.item.crafting.RecipeInput;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.block.Block;
 
-
 @JeiPlugin
 public class JEIPlugin implements IModPlugin {
 
@@ -171,15 +170,13 @@ public class JEIPlugin implements IModPlugin {
 
                 JEIAliasesHelper.addAlias(r,
                                 List.of(zBlocks.FERRICORE_CLOCK),
-                                MODULE_ID + ".jei.alias.timer");
-
-                JEIAliasesHelper.addAlias(r,
-                                List.of(zBlocks.FERRICORE_CLOCK),
-                                MODULE_ID + ".jei.alias.redstone_clock");
+                                JEIAliasesHelper.Alias.TIMER,
+                                JEIAliasesHelper.Alias.REDSTONE_TIMER,
+                                JEIAliasesHelper.Alias.REDSTONE_COMPONENT);
 
                 JEIAliasesHelper.addAlias(r,
                                 List.of(zBlocks.PHASEBOX),
-                                MODULE_ID + ".jei.alias.ethereal_block");
+                                JEIAliasesHelper.Alias.ETHEREAL);
 
                 JEIAliasesHelper.addAlias(r,
                                 List.of(
@@ -187,7 +184,7 @@ public class JEIPlugin implements IModPlugin {
                                                 zBlocks.BLAZEGOLD_SOLARGEN,
                                                 zBlocks.CELESTIGEM_SOLARGEN,
                                                 zBlocks.ECLIPSEALLOY_SOLARGEN),
-                                MODULE_ID + ".jei.alias.generator");
+                                JEIAliasesHelper.Alias.ENERGY_GENERATOR);
 
                 JEIAliasesHelper.addAlias(r,
                                 List.of(
@@ -195,23 +192,14 @@ public class JEIPlugin implements IModPlugin {
                                                 zBlocks.BLAZEGOLD_ANVIL,
                                                 zBlocks.CELESTIGEM_ANVIL,
                                                 zBlocks.ECLIPSEALLOY_ANVIL),
-                                MODULE_ID + ".jei.alias.item_repairer");
+                                JEIAliasesHelper.Alias.ITEM_REPAIRER);
 
                 JEIAliasesHelper.addAlias(r,
                                 List.of(zBlocks.BLACKHOLE),
-                                MODULE_ID + ".jei.alias.buffer.fluid");
-
-                JEIAliasesHelper.addAlias(r,
-                                List.of(zBlocks.BLACKHOLE),
-                                MODULE_ID + ".jei.alias.buffer.energy");
-
-                JEIAliasesHelper.addAlias(r,
-                                List.of(zBlocks.BLACKHOLE),
-                                MODULE_ID + ".jei.alias.buffer.item");
-
-                JEIAliasesHelper.addAlias(r,
-                                List.of(zBlocks.BLACKHOLE),
-                                MODULE_ID + ".jei.alias.trash_can");
+                                JEIAliasesHelper.Alias.TRASH_CAN,
+                                JEIAliasesHelper.Alias.ITEM_BUFFER,
+                                JEIAliasesHelper.Alias.ENERGY_BUFFER,
+                                JEIAliasesHelper.Alias.FLUID_BUFFER);
 
         }
 

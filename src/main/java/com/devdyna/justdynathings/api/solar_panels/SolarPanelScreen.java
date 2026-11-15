@@ -5,10 +5,10 @@ import static com.devdyna.justdynathings.JustDynaThings.MODULE_ID;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.devdyna.cakesticklib.api.ScrollableTooltip;
 import com.devdyna.cakesticklib.api.datagen.LangUtils.TipColors;
 import com.devdyna.cakesticklib.api.primitive.Pos;
 import com.devdyna.justdynathings.api.ExtraSlots;
-import com.devdyna.justdynathings.api.ScrollableTooltip;
 import com.direwolf20.justdirethings.client.screens.basescreens.BaseMachineScreen;
 import com.direwolf20.justdirethings.client.screens.standardbuttons.ToggleButtonFactory;
 import com.direwolf20.justdirethings.client.screens.widgets.ToggleButton;

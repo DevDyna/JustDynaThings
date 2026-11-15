@@ -2,7 +2,7 @@ package com.devdyna.justdynathings.init.builder.goo.energy.primogel;
 
 import javax.annotation.Nullable;
 
-import com.devdyna.justdynathings.api.goo.energy_goo.BaseFEGooBlock;
+import com.devdyna.justdynathings.api.goo.BaseFEGooBlock;
 import com.devdyna.justdynathings.config.ServerConfig;
 
 import net.minecraft.core.BlockPos;

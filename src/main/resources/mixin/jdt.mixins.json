@@ -7,7 +7,8 @@
     "GeneratorsJEIScreenMixin",
     "EnergyTransmitterMixin",
     "EnergyTransmitterAccessor",
-    "GooBlockBEParticleMixin"
+    "GooBlockBEParticleMixin",
+    "BasePoweredItemMixin"
   ],
   "client": [],
   "server": []

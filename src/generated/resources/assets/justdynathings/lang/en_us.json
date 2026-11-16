@@ -53,6 +53,8 @@
   "justdynathings.advanced_time_wand.tip.normal": "Mode set to §aNormal",
   "justdynathings.advanced_time_wand.tip.x2": "Mode set to §a2x",
   "justdynathings.advanced_time_wand.tip.x4": "Mode set to §a4x",
+  "justdynathings.ae2.linkable.desc": "Can be bound to an AE2 access point",
+  "justdynathings.ae2.linkable.info": "§bLinked §8<Press Ctrl>",
   "justdynathings.blazegold_anvil": "§7Repair items using hot fluids",
   "justdynathings.celestigem_anvil": "§7Repair items using Forge Energy",
   "justdynathings.clear_pos": "Position Cleared",

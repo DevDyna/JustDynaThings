@@ -32,6 +32,8 @@ dependencies {
     //extra
     implementation "curse.maven:ctm-lib-1568397:${ctm_lib}"
     implementation "curse.maven:chisel-3-225236:${chisel}"
+    compileOnly "org.appliedenergistics:appliedenergistics2:${ae2_version}:api"
+    runtimeOnly "org.appliedenergistics:appliedenergistics2:${ae2_version}"
 
     //lib
     implementation "curse.maven:cakesticklib-1516173:${cakesticklib}"

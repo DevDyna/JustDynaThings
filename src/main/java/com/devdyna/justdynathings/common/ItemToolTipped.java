@@ -2,6 +2,7 @@ package com.devdyna.justdynathings.common;
 
 import static com.devdyna.justdynathings.JustDynaThings.MODULE_ID;
 
+import com.devdyna.cakesticklib.api.ToolTipHelper;
 import com.devdyna.cakesticklib.api.utils.ColorUtils;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.api.goo.TippedGooBlock;
@@ -20,7 +21,6 @@ import com.devdyna.justdynathings.init.builder.ticker.advanced.AdvancedTickerBlo
 import com.devdyna.justdynathings.init.builder.ticker.simple.SimpleTickerBlock;
 import com.devdyna.justdynathings.init.types.zComponents;
 import com.direwolf20.justdirethings.common.items.datacomponents.JustDireDataComponents;
-
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
@@ -29,7 +29,6 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 
 public class ItemToolTipped {
-        private static final int OVER_THE_REGISTRY_ID = 1;
 
         @SubscribeEvent
         public static void main(ItemTooltipEvent event) {
@@ -41,60 +40,52 @@ public class ItemToolTipped {
                 var block = ((stack instanceof BlockItem bi) ? bi.getBlock() : null);
 
                 if (isBlock && block instanceof AdvEnergyTransmitterBlock)
-                        tip.add(OVER_THE_REGISTRY_ID,
+                        tip.add(ToolTipHelper.INDEX,
                                         Component.translatable(
                                                         MODULE_ID + "." + Constants.Blocks.AdvancedEnergyTransmitter));
 
                 if (stack instanceof GooUpgrader)
-                        tip.add(OVER_THE_REGISTRY_ID,
+                        tip.add(ToolTipHelper.INDEX,
                                         Component.translatable(MODULE_ID + "." + Constants.GooUpgraders.base));
 
                 if (stack instanceof SwapperWand) {
 
-                        tip.add(OVER_THE_REGISTRY_ID,
+                        tip.add(ToolTipHelper.INDEX,
                                         Component.translatable(MODULE_ID + "." + Constants.Wands.Swapper));
 
                         if (item.get(JustDireDataComponents.BOUND_GLOBAL_POS) != null) {
-                                tip.add(OVER_THE_REGISTRY_ID, Component.translatable(MODULE_ID + ".wand.dimension")
+                                var pos = item.get(JustDireDataComponents.BOUND_GLOBAL_POS);
+
+                                tip.add(ToolTipHelper.INDEX, Component.translatable(MODULE_ID + ".wand.dimension")
                                                 .append(Component
-                                                                .translatable(
-                                                                                item.get(JustDireDataComponents.BOUND_GLOBAL_POS)
-                                                                                                .dimension()
-                                                                                                .identifier()
-                                                                                                .getPath())
+                                                                .translatable(pos.dimension().identifier().getPath())
                                                                 .withStyle(ChatFormatting.GREEN)));
-                                tip.add(OVER_THE_REGISTRY_ID, Component.translatable(MODULE_ID + ".wand.pos")
+                                tip.add(ToolTipHelper.INDEX, Component.translatable(MODULE_ID + ".wand.pos")
 
                                                 .append(Component
-                                                                .literal("" + item.get(
-                                                                                JustDireDataComponents.BOUND_GLOBAL_POS)
-                                                                                .pos().getX())
+                                                                .literal("" + pos.pos().getX())
                                                                 .withStyle(ChatFormatting.AQUA))
 
                                                 .append(Component
-                                                                .literal(" " + item.get(
-                                                                                JustDireDataComponents.BOUND_GLOBAL_POS)
-                                                                                .pos().getY())
+                                                                .literal(" " + pos.pos().getY())
                                                                 .withStyle(ChatFormatting.AQUA))
 
                                                 .append(Component
-                                                                .literal(" " + item.get(
-                                                                                JustDireDataComponents.BOUND_GLOBAL_POS)
-                                                                                .pos().getZ())
+                                                                .literal(" " + pos.pos().getZ())
                                                                 .withStyle(ChatFormatting.AQUA)));
                         }
                 }
 
                 if (isBlock && block instanceof SimpleTickerBlock && !(block instanceof AdvancedTickerBlock))
-                        tip.add(OVER_THE_REGISTRY_ID,
+                        tip.add(ToolTipHelper.INDEX,
                                         Component.translatable(MODULE_ID + "." + Constants.Blocks.Ticker.Simple));
 
                 if (isBlock && block instanceof AdvancedTickerBlock)
-                        tip.add(OVER_THE_REGISTRY_ID,
+                        tip.add(ToolTipHelper.INDEX,
                                         Component.translatable(MODULE_ID + "." + Constants.Blocks.Ticker.Advanced));
 
                 if (stack instanceof AdvancedTimeWand) {
-                        tip.add(OVER_THE_REGISTRY_ID,
+                        tip.add(ToolTipHelper.INDEX,
                                         Component.translatable(MODULE_ID + "." + Constants.Wands.AdvancedTime));
                         if (item.get(zComponents.MODE) != null) {
                                 var value = AdvancedTimeWand.MODES.list.indexOf(item.get(zComponents.MODE));
@@ -123,7 +114,7 @@ public class ItemToolTipped {
                                 var mid = Component.literal(" | ").withStyle(ChatFormatting.GRAY);
                                 var end = Component.literal(" ]").withStyle(ChatFormatting.GRAY);
 
-                                tip.add(OVER_THE_REGISTRY_ID, start
+                                tip.add(ToolTipHelper.INDEX, start
                                                 .append(normal).append(mid)
                                                 .append(x2).append(mid)
                                                 .append(x4).append(mid)
@@ -133,10 +124,10 @@ public class ItemToolTipped {
                 }
 
                 if (stack instanceof PickerWand) {
-                        tip.add(OVER_THE_REGISTRY_ID, Component.translatable(MODULE_ID + "." + Constants.Wands.Picker));
+                        tip.add(ToolTipHelper.INDEX, Component.translatable(MODULE_ID + "." + Constants.Wands.Picker));
 
                         if (item.get(zComponents.STATE) != null) {
-                                tip.add(OVER_THE_REGISTRY_ID, Component.translatable(MODULE_ID + ".wand.blockstate")
+                                tip.add(ToolTipHelper.INDEX, Component.translatable(MODULE_ID + ".wand.blockstate")
                                                 .append(Component
                                                                 .literal(item.get(zComponents.STATE).getBlock()
                                                                                 .getName().getString())
@@ -147,15 +138,15 @@ public class ItemToolTipped {
                 if (isBlock && block instanceof SolarBlockBase sp) {
 
                         if (Minecraft.getInstance().hasShiftDown()) {
-                                tip.add(OVER_THE_REGISTRY_ID,
+                                tip.add(ToolTipHelper.INDEX,
                                                 Component.translatable(
                                                                 MODULE_ID + "." + Constants.SolarPanelType + ".ferate")
                                                                 .append(Component.literal("" + sp.getFERate())));
                         } else
-                                tip.add(OVER_THE_REGISTRY_ID, Component.translatable("justdirethings.shiftmoreinfo")
+                                tip.add(ToolTipHelper.INDEX, Component.translatable("justdirethings.shiftmoreinfo")
                                                 .withStyle(ChatFormatting.GRAY));
 
-                        tip.add(OVER_THE_REGISTRY_ID,
+                        tip.add(ToolTipHelper.INDEX,
                                         Component.translatable(MODULE_ID + "." + Constants.SolarPanelType));
 
                 }
@@ -163,7 +154,7 @@ public class ItemToolTipped {
                 if (isBlock && block instanceof TippedGooBlock goo) {
 
                         if (Minecraft.getInstance().hasShiftDown())
-                                tip.add(OVER_THE_REGISTRY_ID,
+                                tip.add(ToolTipHelper.INDEX,
                                                 Component.translatable(MODULE_ID + "." + Constants.GooType + ".tier")
                                                                 .append(
                                                                                 goo.getConfigTier() > 1024 ? Component
@@ -179,16 +170,16 @@ public class ItemToolTipped {
 
                                 );
                         else
-                                tip.add(OVER_THE_REGISTRY_ID, Component.translatable("justdirethings.shiftmoreinfo")
+                                tip.add(ToolTipHelper.INDEX, Component.translatable("justdirethings.shiftmoreinfo")
                                                 .withStyle(ChatFormatting.GRAY));
 
                         if (goo.extra() != null)
-                                tip.add(OVER_THE_REGISTRY_ID, goo.extra());
+                                tip.add(ToolTipHelper.INDEX, goo.extra());
                 }
 
                 if (isBlock && block instanceof CreativeGoo) {
 
-                        tip.add(OVER_THE_REGISTRY_ID,
+                        tip.add(ToolTipHelper.INDEX,
                                         Component.translatable(MODULE_ID + "." + Constants.GooType + "."
                                                         + Constants.Goo.Creative)
                                                         .withStyle(ChatFormatting.GRAY));
@@ -196,20 +187,20 @@ public class ItemToolTipped {
                 }
 
                 if (isBlock && block instanceof SimpleFluidMixerBlock) {
-                        tip.add(OVER_THE_REGISTRY_ID,
+                        tip.add(ToolTipHelper.INDEX,
                                         Component.translatable(MODULE_ID + "." + Constants.Blocks.FluidMixer));
                 }
 
                 if (isBlock && block instanceof FunctionalAnvilBlock anvil) {
-                        tip.add(OVER_THE_REGISTRY_ID, Component.translatable(MODULE_ID + "." + anvil.getTier()));
+                        tip.add(ToolTipHelper.INDEX, Component.translatable(MODULE_ID + "." + anvil.getTier()));
                 }
 
                 if (isBlock && block instanceof StabilizerBlock)
-                        tip.add(OVER_THE_REGISTRY_ID,
+                        tip.add(ToolTipHelper.INDEX,
                                         Component.translatable(MODULE_ID + "." + Constants.Blocks.Stabilizer));
 
                 if (stack instanceof AbstractParadox)
-                        tip.add(OVER_THE_REGISTRY_ID,
+                        tip.add(ToolTipHelper.INDEX,
                                         Component.translatable(MODULE_ID + ".abstract_paradox"));
 
         }

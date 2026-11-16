@@ -4,10 +4,12 @@ import static com.devdyna.justdynathings.JustDynaThings.MODULE_ID;
 
 import com.devdyna.cakesticklib.api.ToolTipHelper;
 import com.devdyna.cakesticklib.api.utils.ColorUtils;
+import com.devdyna.cakesticklib.api.utils.ModAddonUtil;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.api.goo.TippedGooBlock;
 import com.devdyna.justdynathings.api.repair_anvils.FunctionalAnvilBlock;
 import com.devdyna.justdynathings.api.solar_panels.SolarBlockBase;
+import com.devdyna.justdynathings.compat.ae2.utils.AEAccessPointUtils;
 import com.devdyna.justdynathings.init.builder.AbstractParadox;
 import com.devdyna.justdynathings.init.builder.AdvancedTimeWand;
 import com.devdyna.justdynathings.init.builder.GooUpgrader;
@@ -202,6 +204,9 @@ public class ItemToolTipped {
                 if (stack instanceof AbstractParadox)
                         tip.add(ToolTipHelper.INDEX,
                                         Component.translatable(MODULE_ID + ".abstract_paradox"));
+
+                if (ModAddonUtil.checkMod("ae2"))
+                        AEAccessPointUtils.renderAdditionalTooltip(item, tip);
 
         }
 }

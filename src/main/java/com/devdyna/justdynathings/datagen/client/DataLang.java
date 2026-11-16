@@ -421,6 +421,9 @@ public class DataLang extends LanguageProvider implements LangGenerators {
                 add(MODULE_ID + ".configuration.celestigem_chisel_max_energy_storage",
                                 "Celestigem Chisel " + ConfigKeys.Display.FE_MAX);
 
+                add(MODULE_ID + ".ae2.linkable.desc", "Can be bound to an AE2 access point");
+                add(MODULE_ID + ".ae2.linkable.info", TipColors.LIGHT_BLUE+"Linked "+TipColors.GRAY+"<Press Ctrl>");
+
         }
 
 }

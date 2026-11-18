@@ -11,6 +11,7 @@ import com.devdyna.justdynathings.compat.chisel.BlazegoldChisel;
 import com.devdyna.justdynathings.compat.chisel.CelestigemChisel;
 import com.devdyna.justdynathings.compat.chisel.EclipseAlloyChisel;
 import com.devdyna.justdynathings.compat.chisel.FerricoreChisel;
+import com.devdyna.justdynathings.config.StartupConfig;
 import com.devdyna.justdynathings.init.builder.*;
 import com.devdyna.justdynathings.init.builder.light_wands.*;
 import com.direwolf20.justdirethings.setup.JDTRegistration;
@@ -30,7 +31,7 @@ public class zItems {
                 zSpecial.register(bus);
                 zBucketItems.register(bus);
 
-                if (ModAddonUtil.checkMod("chisel")) {
+                if (ModAddonUtil.checkMod("chisel") && !StartupConfig.DISABLE_CHISEL_COMPAT.get()) {
                         FERRICORE_CHISEL = zItem.registerItem(Constants.Tiers.ferricore + "_chisel",
                                         FerricoreChisel::new);
                         BLAZEGOLD_CHISEL = zItem.registerItem(Constants.Tiers.blazegold + "_chisel",

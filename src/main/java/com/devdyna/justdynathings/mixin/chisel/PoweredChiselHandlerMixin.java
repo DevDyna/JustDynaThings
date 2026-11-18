@@ -1,6 +1,8 @@
 package com.devdyna.justdynathings.mixin.chisel;
 
 import com.devdyna.justdynathings.compat.chisel.api.BasePoweredChisel;
+import com.devdyna.justdynathings.config.StartupConfig;
+
 import io.github.chiselteam.chisel.event.LeftClickBlockEventHandler;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 
@@ -18,6 +20,7 @@ public class PoweredChiselHandlerMixin {
         var chisel = event.getItemStack();
         var player = event.getEntity();
 
+        if(!StartupConfig.DISABLE_CHISEL_COMPAT.get())
         if (player.getUsedItemHand() == event.getHand())
             if (chisel.getItem() instanceof BasePoweredChisel powa) {
 

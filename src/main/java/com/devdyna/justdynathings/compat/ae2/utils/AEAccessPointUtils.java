@@ -5,6 +5,7 @@ import static com.devdyna.justdynathings.JustDynaThings.MODULE_ID;
 import java.util.List;
 
 import com.devdyna.cakesticklib.api.utils.ColorUtils;
+import com.devdyna.justdynathings.config.StartupConfig;
 import com.direwolf20.justdirethings.common.items.PolymorphicWand;
 import com.direwolf20.justdirethings.common.items.PortalGunV2;
 import com.direwolf20.justdirethings.common.items.TimeWand;
@@ -75,6 +76,9 @@ public class AEAccessPointUtils {
     }
 
     public static void renderAdditionalTooltip(ItemStack item, List<Component> tip) {
+        
+        if(StartupConfig.DISABLE_AE2_WAND_BOUND_COMPAT.get()) return;
+        
         var index = Math.max(1, tip.size() - 2);
 
         if ((item.getItem() instanceof PoweredItem || item.getItem() instanceof PolymorphicWand)

@@ -6,6 +6,7 @@ import com.devdyna.cakesticklib.api.datagen.LangGenerators;
 import com.devdyna.cakesticklib.api.datagen.LangUtils.TipColors;
 import com.devdyna.justdynathings.Constants;
 import com.devdyna.justdynathings.Constants.ConfigKeys;
+import com.devdyna.justdynathings.config.StartupConfig;
 import com.devdyna.justdynathings.init.types.zBlocks;
 import com.devdyna.justdynathings.init.types.zFluids;
 import com.devdyna.justdynathings.init.types.zItems;
@@ -422,7 +423,14 @@ public class DataLang extends LanguageProvider implements LangGenerators {
                                 "Celestigem Chisel " + ConfigKeys.Display.FE_MAX);
 
                 add(MODULE_ID + ".ae2.linkable.desc", "Can be bound to an AE2 access point");
-                add(MODULE_ID + ".ae2.linkable.info", TipColors.LIGHT_BLUE+"Linked "+TipColors.GRAY+"<Press Ctrl>");
+                add(MODULE_ID + ".ae2.linkable.info",
+                                TipColors.LIGHT_BLUE + "Linked " + TipColors.GRAY + "<Press Ctrl>");
+
+                addConfigKey(StartupConfig.DISABLE_CHISEL_COMPAT, "Disable Chisel Compat");
+                addConfigKey(StartupConfig.DISABLE_AE2_WAND_BOUND_COMPAT, "Disable AE2 Wand Bounding Compat");
+                addConfigKey(StartupConfig.AE2_WAND_BOUND_TIMESPAN, "JDT Wand Recharging Timespan");
+
+                addConfigTitle("startup_ae2", "Applied Energistics 2 Compat (Startup)");
 
         }
 

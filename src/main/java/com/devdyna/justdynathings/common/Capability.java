@@ -5,6 +5,7 @@ import com.devdyna.cakesticklib.api.utils.ArrayUtils;
 import com.devdyna.cakesticklib.api.utils.ModAddonUtil;
 import com.devdyna.justdynathings.api.be.EnergyMachine;
 import com.devdyna.justdynathings.api.be.FluidMachine;
+import com.devdyna.justdynathings.config.StartupConfig;
 import com.devdyna.justdynathings.init.builder.adv_energy_transmitter.AdvEnergyTransmitterBE;
 import com.devdyna.justdynathings.init.types.zBlocks;
 import com.devdyna.justdynathings.init.types.zHandlers;
@@ -92,7 +93,7 @@ public class Capability {
                                 zItems.ADVANCED_TIME_WAND.get(), zItems.ADVANCED_LIGHT_WAND.get()
                 };
 
-                if (ModAddonUtil.checkMod("chisel"))
+                if (ModAddonUtil.checkMod("chisel") && !StartupConfig.DISABLE_CHISEL_COMPAT.get())
                         PoweredItems = ArrayUtils.concat(PoweredItems,
                                         new Item[] { zItems.FERRICORE_CHISEL.get(),
                                                         zItems.BLAZEGOLD_CHISEL.get(),

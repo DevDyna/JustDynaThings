@@ -5,6 +5,7 @@ import javax.annotation.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import com.devdyna.cakesticklib.api.utils.ModAddonUtil;
 import com.devdyna.justdynathings.compat.ae2.utils.AEAccessPointUtils;
+import com.devdyna.justdynathings.config.StartupConfig;
 import com.direwolf20.justdirethings.common.items.interfaces.BasePoweredItem;
 import com.direwolf20.justdirethings.common.items.interfaces.FluidContainingItem;
 
@@ -26,8 +27,8 @@ public abstract class BasePoweredItemMixin {
 
     public void inventoryTick(ItemStack stack, ServerLevel level, Entity owner, @Nullable EquipmentSlot slot) {
 
-        if (ModAddonUtil.checkMod("ae2"))
-            if (level.getGameTime() % 40 == 0)// TODO config delay? //TODO toggle config
+        if (ModAddonUtil.checkMod("ae2") && !StartupConfig.DISABLE_AE2_WAND_BOUND_COMPAT.get())
+            if (level.getGameTime() % StartupConfig.AE2_WAND_BOUND_TIMESPAN.get() == 0)
                 if (stack.getItem() instanceof BasePoweredItem && stack.getItem() instanceof FluidContainingItem) {
 
                     if (stack.has(AEComponents.WIRELESS_LINK_TARGET)) {

@@ -27,7 +27,7 @@ public abstract class BasePoweredItemMixin {
     public void inventoryTick(ItemStack stack, ServerLevel level, Entity owner, @Nullable EquipmentSlot slot) {
 
         if (ModAddonUtil.checkMod("ae2"))
-            if (level.getGameTime() % 40 == 0)//reduced timespan to be less intensive on player entity
+            if (level.getGameTime() % 40 == 0)// TODO config delay? //TODO toggle config
                 if (stack.getItem() instanceof BasePoweredItem && stack.getItem() instanceof FluidContainingItem) {
 
                     if (stack.has(AEComponents.WIRELESS_LINK_TARGET)) {

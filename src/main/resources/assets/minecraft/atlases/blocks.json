@@ -1,0 +1,20 @@
+{
+  "sources": [
+    {
+      "type": "justdynathings:instability_fluid",
+      "resource": "justdirethings:block/fluid_source",
+      "sprite": "justdynathings:block/fluid_still_instability",
+      "delay": 2000,
+      "start": -65536,
+      "end": -256
+    },
+    {
+      "type": "justdynathings:instability_fluid",
+      "resource": "justdirethings:block/fluid_flowing",
+      "sprite": "justdynathings:block/fluid_flow_instability",
+      "delay": 2000,
+      "start": -65536,
+      "end": -256
+    }
+  ]
+}

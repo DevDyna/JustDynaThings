@@ -13,10 +13,12 @@ public class JustDynaThings {
         public static final String MODULE_ID = "justdynathings";
 
         public JustDynaThings(IEventBus bus, ModContainer c) {
-                Material.register(bus);
-                GameEvents.build(bus, c);
+                
                 ServerConfig.register(c);
                 StartupConfig.register(c);
+
+                Material.register(bus);
+                GameEvents.build(bus, c);
         }
 
 }

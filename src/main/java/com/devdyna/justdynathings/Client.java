@@ -1,11 +1,14 @@
 package com.devdyna.justdynathings;
 
+import static com.devdyna.justdynathings.JustDynaThings.MODULE_ID;
+
 import java.awt.Color;
 
 import com.devdyna.cakesticklib.api.utils.ModAddonUtil;
 import com.devdyna.cakesticklib.api.utils.TimeUtil;
 import com.devdyna.cakesticklib.api.utils.x;
 import com.devdyna.justdynathings.api.FluidRenderUtils;
+import com.devdyna.justdynathings.api.fluid.InstabilityFluidSprite;
 import com.devdyna.justdynathings.api.goo.EnergyGooRender;
 import com.devdyna.justdynathings.api.solar_panels.SolarPanelScreen;
 import com.devdyna.justdynathings.init.builder.adv_energy_transmitter.AdvEnergyTransmitterRenderer;
@@ -46,6 +49,7 @@ import net.neoforged.neoforge.client.event.RecipesReceivedEvent;
 import net.neoforged.neoforge.client.event.RegisterFluidModelsEvent;
 import net.neoforged.neoforge.client.event.RegisterItemDecorationsEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
+import net.neoforged.neoforge.client.event.RegisterSpriteSourcesEvent;
 import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
@@ -125,12 +129,19 @@ public class Client {
     public static void onRegisterFluidModels(RegisterFluidModelsEvent event) {
 
         event.register(
-                FluidRenderUtils.createModel(
-                        FluidRenderUtils.instability((int) (TimeUtil.ONE_SECOND * 5),
+                FluidRenderUtils.tintedFluid(
+                        FluidRenderUtils.pulse((int) (TimeUtil.ONE_SECOND * 5),
                                 Color.RED.getRGB(),
-                                Color.YELLOW.getRGB())),
+                                Color.YELLOW.getRGB()),
+                        FluidRenderUtils.STILL_CUSTOM.apply("instability"),
+                        FluidRenderUtils.FLOW_CUSTOM.apply("instability")),
                 zFluids.INSTABILITY_FLUID.getSource(), zFluids.INSTABILITY_FLUID.getFlowing());
 
+    }
+
+    @SubscribeEvent
+    static void onRegisterSpriteSources(RegisterSpriteSourcesEvent event) {
+        event.register(x.rl(MODULE_ID, "instability_fluid"), InstabilityFluidSprite.CODEC);
     }
 
     // Recipe collector client-side

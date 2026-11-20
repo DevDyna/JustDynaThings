@@ -14,6 +14,9 @@ config = "mixin/jdt.mixins.json"
 config = "mixin/chisel.mixins.json"
 requiredMods = ["chisel"]
 
+[[accessTransformers]]
+file="META-INF/accesstransformer.cfg"
+
 [[dependencies.${mod_id}]]
     modId="neoforge"
     type="required"
